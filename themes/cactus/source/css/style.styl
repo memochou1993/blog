@@ -1,0 +1,181 @@
+@import "_variables"
+@import "_colors/" + $colors
+@import "_util"
+@import "_mixins"
+@import "_extend"
+@import "_fonts"
+
+global-reset()
+
+*, *:before, *:after
+  box-sizing: border-box
+
+html
+  height: 100%
+  border-top: 2px solid $color-text
+  -webkit-text-size-adjust: 100%
+  -ms-text-size-adjust: 100%
+
+body
+  display: flex
+  flex-direction: column
+  background-color: $color-background
+  color: $color-text
+  font-weight: 400
+  font-size: $font-size
+  font-family: $font-family-body
+  line-height: $line-height
+  text-rendering: geometricPrecision
+
+  antialias()
+
+.content
+  flex: 1
+
+  @extend $base-style
+
+  p
+    hyphens(auto)
+
+  code
+    hyphens(manual)
+
+  a
+    color: $color-text
+    text-decoration: none
+
+    &:hover
+      color: $color-link
+
+  a.icon
+    background: none
+
+    &:hover
+      color: $color-link
+
+  h1
+    font-size: 1.6rem
+
+  h2
+    font-size: 1.4rem
+
+  h3
+    font-size: 1.2rem
+
+  h4
+    font-size: 1rem
+
+  h5
+    font-size: 0.8rem
+
+  h6
+    font-size: 0.6rem
+
+@media (min-width: 540px)
+  .image-wrap
+    flex-direction: row
+    margin-bottom: 2rem
+
+    .image-block
+      flex: 1 0 35%
+      margin-right: 2rem
+
+    p
+      flex: 1 0 65%
+
+.max-width
+  max-width: $page-width
+
+@media (max-width: 480px)
+  // smaller margins at smaller screen widths
+  .px3
+    padding-right: 1rem
+    padding-left: 1rem
+
+  .my4
+    margin-top: 2rem
+    margin-bottom: 2rem
+
+@media (min-width: 480px)
+  p
+    text-align: justify
+
+@import "_partial/header"
+@import "_partial/post/actions_desktop"
+@import "_partial/post/actions_mobile"
+@import "_partial/index"
+@import "_partial/article"
+@import "_partial/archive"
+@import "_partial/comments"
+@import "_partial/footer"
+@import "_partial/pagination"
+@import "_partial/search"
+// Code
+@import "_highlight/" + $highlight
+
+pre
+  overflow-x: auto
+  padding: 10px 15px
+  padding-bottom: 0
+  border: 1px dotted $color-border
+  border-radius: 4px
+  font-size: 1rem
+  font-family: $font-family-mono
+  line-height: 26px
+  -webkit-border-radius: 4px
+
+  code
+    display: block
+    padding: 0
+    border: none
+
+code
+  color: $color-link
+  font-weight: 700
+
+.highlight
+  overflow-x: auto
+  margin: 1rem 0
+  padding: 10px 15px
+  border-radius: 4px
+  background: $color-background-code
+  font-family: $font-family-mono
+  // color: $color-accent-3
+  -webkit-border-radius: 4px
+
+  figcaption
+    margin: -5px 0 5px
+    color: $color-meta-code
+    font-size: .9em
+    zoom: 1
+
+    a
+      float: right
+      color: $color-meta-code
+      font-style: italic
+      font-size: .8em
+
+      underline(10px, $color-link)
+
+    a:hover
+      color: lighten($color-meta-code, 20%)
+
+    &:before, content: ""
+      display: table
+
+    &:after
+      clear: both
+
+  pre
+    padding: 0
+    border: none
+    background: none
+
+  table
+    width: auto
+
+  td.gutter
+    text-align: right
+
+  .line
+    height: 22px
