@@ -1,6 +1,7 @@
 article
   header
     .posttitle
+      color: inherit
       margin-top: 0
       margin-bottom: 0
       text-transform: none
@@ -13,25 +14,26 @@ article
 
     .meta *
       color: $color-accent-3
-      font-size: .85rem
+      font-size: .875rem
 
     .author
+      margin-right: 1em
       text-transform: uppercase
       letter-spacing: .01em
       font-weight: 700
 
     .postdate
+      margin-right: 1em
       display: inline
 
   .content
     h2:before
       position: absolute
-      top: -4px
       left: -1rem
       color: $color-accent-1
       content: "#"
       font-weight: bold
-      font-size: 1.2rem
+      font-size: 1.4rem
 
     img, video
       display: block
@@ -127,6 +129,3 @@ article
 @media (min-width: 480px)
   .article-tag
     display: inline
-
-    &:before
-      content: "|"

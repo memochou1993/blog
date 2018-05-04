@@ -55,11 +55,17 @@ body
 
   h1 a, .h1 a, h2 a, h3 a, h4 a, h5 a, h6 a
     background: none
-    color: inherit
     text-decoration: none
+    font-size: 1.4rem
 
   h1 a:hover, .h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover
     underline(6px, $color-link)
+
+  h1 a
+    color: inherit
+
+  h2
+    font-size: 1.4rem
 
   h6 a
     background: none
@@ -128,10 +134,9 @@ pre
     border: none
 
 code
+  color: $color-accent-1
+  font-weight 700
   padding: 0 5px
-  border: 1px dotted $color-border
-  border-radius: 2px
-  -webkit-border-radius: 2px
 
 .highlight
   overflow-x: auto
@@ -178,4 +183,5 @@ code
     text-align: right
 
   .line
+    font-size: 1.12rem
     height: 22px

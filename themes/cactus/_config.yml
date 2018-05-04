@@ -19,8 +19,6 @@ nav:
   articles: /archives/
   # projects: projects_url
   search: /search/
-  Portfolio: http://memo.epoch.tw/portfolio/
-  Collection: http://memo.epoch.tw/collection/
 
 
 # Links to your social media accounts.
@@ -57,8 +55,8 @@ posts_overview:
 #   - gravatar: whether to use your Gravatar as the logo
 logo:
   enabled: true
-  width: 50
-  height: 50
+  width: 70
+  height: 70
   url: /images/logo.png
   gravatar: false
 
@@ -84,7 +82,7 @@ favicon:
 
 # The color scheme that should be used to highlight codeblocks.
 # See source/css/_highlight for a list of all available color schemes.
-# highlight: rainbow
+highlight: rainbow
 
 # Set the color scheme.
 # Available color schemes are 'dark', 'light', 'classic' and 'white'.
