@@ -34,22 +34,20 @@
       margin-right: 0
 
   #menu-icon
-    font-size: 1.4rem 
     float: right
     margin-right: 2rem
     margin-left: 15px
 
     &:hover
-      color: $color-link
+      color: $color-accent-1
 
   #menu-icon-tablet
-    font-size: 1.4rem
     float: right
     margin-right: 2rem
     margin-left: 15px
 
     &:hover
-      color: $color-link
+      color: $color-accent-1
 
   #top-icon-tablet
     position: fixed
@@ -59,34 +57,34 @@
     margin-left: 15px
 
     &:hover
-      color: $color-link
+      color: $color-accent-1
 
   .active
-    color: $color-link
+    color: $color-accent-1
 
   #menu
     visibility: hidden
     margin-right: 2rem
 
   #nav
-    color: $color-link
+    color: $color-accent-1
     letter-spacing: .01em
     font-weight: 200
     font-style: normal
-    font-size: 1.4rem
+    font-size: .8rem
 
     ul
       line-height: 15px
 
       a
         margin-right: 15px
-        color: color-link
+        color: color-accent-1
 
       a:hover
-        underline(5px, $color-link)
+        underline(5px, $color-accent-1)
 
       li
-        border-right: 1px dotted $color-link
+        border-right: 1px dotted $color-accent-1
 
       li:last-child
         margin-right: 0
@@ -133,21 +131,23 @@
       color: $color-link
 
     .toc-level-1 > .toc-link
-      font-size: 1.4rem
+      display: none
 
     .toc-level-2
       color: $color-text
-      font-size: 1.2rem
+      font-size: .8rem
 
       &:before
-        color: $color-link
+        color: $color-accent-1
         content: "#"
 
     .toc-level-3
-      display: none
+      color: $color-meta
+      font-size: .7rem
 
     .toc-level-4
-      display: none
+      color: darken($color-meta, 20%)
+      font-size: .4rem
 
     .toc-level-5
       display: none

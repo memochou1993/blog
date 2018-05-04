@@ -19,11 +19,6 @@
       <% for (var i in theme.nav) { %> 
         <li><a href="<%- url_for(theme.nav[i]) %>"><%= __('nav.'+i).replace("nav.", "") %></a></li>
       <% } %>
-      <li class="icon">
-        <a href="#"><i class="fas fa-bars fa-2x"></i></a>
-      </li>
-      <li><a href="http://memo.epoch.tw/portfolio/">Portfolio</a></li>
-      <li><a href="http://memo.epoch.tw/collection/">Collection</a></li>
     </ul>
   </div>
 </header>

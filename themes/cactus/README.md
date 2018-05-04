@@ -97,7 +97,7 @@ Setup the navigation menu in the `_config.yml`:
 nav:
   Home: /
   About: /about/
-  Archives: /archives/
+  Writing: /archives/
   Projects: http://github.com/probberechts
   LINK_NAME: URL
 ```
