@@ -5,7 +5,7 @@
 # Link to a page that gives an overview of all your projects.
 # This can be an external link (e.g., to you GitHub profile) or to another
 # page within your website.
-projects_url:
+projects_url: https://github.com/memochou1993
 
 # Set the page direction to RTL or LTR. default is LTR. (if you set it 'rtl', the 'vazir' font will be loaded.)
 direction: ltr
@@ -15,10 +15,9 @@ direction: ltr
 # languages/*.yml
 nav:
   home: /
-  # about: /about/
+  about: /about/
   articles: /archives/
-  # projects: projects_url
-  search: /search/
+  projects: https://github.com/memochou1993
 
 
 # Links to your social media accounts.
@@ -28,7 +27,7 @@ nav:
 social_links:
   github: https://github.com/memochou1993
   # twitter: /
-  # facebook: /
+  facebook: https://www.facebook.com/memochou1993
   # linkedin: /
   mail: mailto:memochou1993@hotmail.com
 
@@ -118,7 +117,7 @@ disqus:
   shortname: https-memochou1993-github-io-blog
 
 # Fill in your Google Analytics tracking ID to enable Google Analytics.
-google_analytics: 
+google_analytics:
   enabled: true
   id: UA-117292723-2
 

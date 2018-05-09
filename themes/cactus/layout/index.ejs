@@ -10,17 +10,14 @@
       <% for(var link in theme.social_links) { %>
         <% if (link == 'mail') { %>
           <a class="icon" target="_blank" href="<%- url_for(theme.social_links[link]) %>">
-            <i class="fas fa-envelope"></i><!--
-      ---></a><!--
-      ---><% } else { %>
+            <i class="fas fa-envelope"></i>
+          </a>
+        <% } else { %>
           <a class="icon" target="_blank" href="<%- url_for(theme.social_links[link]) %>">
-            <i class="fab fa-<%= link %>"></i><!--
-      ---></a><!--
-    ---><% } %><!--
-    ---><%= ( nb_links > 0 && i < nb_links-1 ? 
-            ( i == nb_links-2 ? ' '+__('index.enum_and')+' ' 
-            : __('index.enum_comma')+' ' ) 
-            : '.' ) %>
+            <i class="fab fa-<%= link %>"></i>
+          </a>
+        <% } %>
+      <%= ( nb_links > 0 && i < nb_links-1 ? ( i == nb_links-2 ? ' '+__('index.enum_and')+' ' : __('index.enum_comma')+' ' ) : '.' ) %>
         <% i+=1 %>
       <% } %>
     </p>
@@ -49,11 +46,11 @@
 
 <% if (site.data.projects) { %>
 <section id="projects">
-  <span class="h1"><a href="<%- url_for(theme.projects_url) %>"><%= __('index.projects') %></a></span>
+  <span class="h1"><a href="<%- url_for(theme.projects_url) %>" target="_blank"><%= __('index.projects') %></a></span>
   <ul class="project-list">
     <% for(var obj in site.data.projects){ %>
       <li class="project-item">
-        <a href="<%= site.data.projects[obj].url %>"><%= site.data.projects[obj].name %></a>: <%- markdown(site.data.projects[obj].desc) %>
+        <a href="<%= site.data.projects[obj].url %>" target="_blank"><%= site.data.projects[obj].name %>：<%- markdown(site.data.projects[obj].desc) %></a>
       </li>
     <% } %>
   </ul>
