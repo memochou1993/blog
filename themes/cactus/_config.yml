@@ -15,9 +15,9 @@ direction: ltr
 # languages/*.yml
 nav:
   home: /
-  about: /about/
   articles: /archives/
   projects: https://github.com/memochou1993
+  about: /about/
 
 
 # Links to your social media accounts.
