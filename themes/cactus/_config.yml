@@ -15,10 +15,10 @@ direction: ltr
 # languages/*.yml
 nav:
   home: /
-  articles: /archives/
-  projects: https://github.com/memochou1993
-  about: /about/
-  search : /search/
+  articles: /archives
+  tags: /tags
+  about: /about
+  search: /search
 
 
 # Links to your social media accounts.

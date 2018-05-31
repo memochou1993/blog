@@ -1,0 +1,20 @@
+<% if (site.tags.length) { %>
+    <div class="tagcloud">
+        <div class="tagcloud-title" style="text-align: center">
+            <%- tagcloud({
+                orderby: 'random',
+                min_font: 18,
+                max_font: 36,
+                amount: 100,
+                color: true,
+                start_color: '#6e6e6e',
+                end_color: '#d44375'
+            }) %>
+        </div>
+    </div>
+    <style>
+        .tagcloud a:hover {
+            text-decoration: underline;
+        }
+    </style>
+<% } %>
