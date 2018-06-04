@@ -10,7 +10,7 @@ tags: ["PHP", "元件", "GitHub", "API"]
 ## 建立專案目錄
 ```
 |- github-api/
-    |- github-api-component/
+    |- component/
         |- src/
             |- Github.php
         |- .gitignore
