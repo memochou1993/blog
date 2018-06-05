@@ -8,16 +8,23 @@ tags: ["程式寫作", "Hexo", "GitHub"]
 - Windows 7
 - node 8.11.1
 - npm 5.6.0
+- git 2.17.0
 
 ## 安裝 Hexo
+先確認電腦有安裝 `Node.js` 和 `git`。
+```
+$ node -v
+$ npm -v
+$ git --version
+```
+將 Hexo 安裝在全域環境。
 ```
 $ npm install hexo -g
 ```
 ## 建立
+建立一個 Hexo 部落格。
 ```
 $ hexo init blog
-$ cd blog
-$ npm install
 ```
 
 ## 預覽
