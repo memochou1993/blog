@@ -129,7 +129,7 @@ class AuthController extends Controller
 ```
 Unauthorized.
 ```
-再向 http://localhost/lumen/public/auth/login 給 `Body` 輸入以下鍵值發起 `POST` 請求：
+再向 http://localhost/lumen/public/auth/login 給 `Body` 輸入以下鍵値發起 `POST` 請求：
 
 Key	| Value
 --- | ---
@@ -140,7 +140,7 @@ password | secret
 ```
 {"token":"eyJ0e......q5o0M"}
 ```
-最後再向 http://localhost/lumen/public 給 `Headers` 輸入以下鍵值發起 `GET` 請求。
+最後再向 http://localhost/lumen/public 給 `Headers` 輸入以下鍵値發起 `GET` 請求。
 （Value 的部分為：Bearer + 空一格 + Token）
 
 Key	| Value

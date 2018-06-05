@@ -90,7 +90,7 @@ $ composer require mockery/mockery --dev
 - 不讓控制器測試接觸資料庫。
 - 利用 `Mockery` 透過資源庫生成假物件。
 - 利用服務容器注入假物件取代原本應該被呼叫的物件。
-- 讓假物件的方法回傳假值。
+- 讓假物件的方法回傳假値。
 
 在 `PostControllerTest` 調用 `Mockery。`
 ```PHP

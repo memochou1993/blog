@@ -107,7 +107,7 @@ class Github
 
     public function getBody()
     {
-        // 如果 getResponse() 方法回傳 null 值，則終止程序
+        // 如果 getResponse() 方法回傳 null 値，則終止程序
         if (!$this->getResponse()) return;
 
         // 回傳 URL 和 GitHub API 響應的 body
@@ -119,7 +119,7 @@ class Github
 
     public function getHeaderLine($field)
     {
-        // 如果 getResponse() 方法回傳 null 值，則終止程序
+        // 如果 getResponse() 方法回傳 null 値，則終止程序
         if (!$this->getResponse()) return;
 
         // 回傳 URL 和 GitHub API 響應的指定 header line

@@ -148,10 +148,10 @@ class PackageControllerTest extends TestCase
 
 ## 單元測試的 3A 原則
 ### Arrange
-準備測試資料 `$fake`、`mock` 物件 `$mock`、待測物件 `$target`，與建立測試期望值 `$expected`。
+準備測試資料 `$fake`、`mock` 物件 `$mock`、待測物件 `$target`，與建立測試期望値 `$expected`。
 
 ### Act
-執行待測物件的 `method`，與建立實際結果值 `$actual`。
+執行待測物件的 `method`，與建立實際結果値 `$actual`。
 
 ### Assert
 使用 PHPUnit 的斷言函式測試 `$expected` 與 `$actual` 是否如預期。

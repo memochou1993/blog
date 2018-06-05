@@ -40,7 +40,7 @@ $numbersPlusOne = array_map(function ($number) {
 
 print_r($numbersPlusOne);
 ```
-- `array_map()` 函式將自定義函式作用到陣列的每個元素，並返回帶有新值的陣列。
+- `array_map()` 函式將自定義函式作用到陣列的每個元素，並返回帶有新値的陣列。
 
 > 閉包和匿名函式（沒有名稱的函式）理論上是不同的事，不過 PHP 將他們視為相同。
 
