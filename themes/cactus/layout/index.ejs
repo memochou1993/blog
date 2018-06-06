@@ -50,7 +50,8 @@
   <ul class="project-list">
     <% for(var obj in site.data.projects){ %>
       <li class="project-item">
-        <a href="<%= site.data.projects[obj].url %>" target="_blank"><%= site.data.projects[obj].name %>：<%- markdown(site.data.projects[obj].desc) %></a>
+        <a href="<%= site.data.projects[obj].url %>" target="_blank"><%= site.data.projects[obj].name %>
+          <% if (markdown(site.data.projects[obj].desc)) { %>：<%- markdown(site.data.projects[obj].desc) %><% } %></a>
       </li>
     <% } %>
   </ul>
