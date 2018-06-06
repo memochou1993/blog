@@ -2,6 +2,7 @@
 title: 在 Windows 10 上部署 Homestead 環境
 date: 2018-04-28 10:16:27
 tags: ["環境部署", "Windows", "Homestead", "Laravel"]
+categories: ["環境部署", "Homestead"]
 ---
 
 ## 環境

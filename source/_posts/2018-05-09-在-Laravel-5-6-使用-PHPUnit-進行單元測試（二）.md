@@ -2,6 +2,7 @@
 title: 在 Laravel 5.6 使用 PHPUnit 進行單元測試（二）
 date: 2018-05-09 10:20:40
 tags: ["程式寫作", "PHP", "Laravel", "PHPUnit"]
+categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
 ## 前言

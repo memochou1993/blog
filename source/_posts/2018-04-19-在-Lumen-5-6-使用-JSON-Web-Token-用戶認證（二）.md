@@ -1,7 +1,8 @@
 ---
 title: 在 Lumen 5.6 使用 JSON Web Token 用戶認證（二）
 date: 2018-04-19 10:16:01
-tags: ["程式寫作", "PHP", "Laravel", "Lumen"]
+tags: ["程式寫作", "PHP", "Laravel", "Lumen", "JWT"]
+categories: ["程式寫作", "PHP", "Lumen"]
 ---
 
 ## 前言

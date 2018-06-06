@@ -1,0 +1,16 @@
+<% if (site.categories.length){ %>
+    <div class="category-block">
+        <%- list_categories(site.categories) %>
+    </div>
+    <style>
+        .category-list .category-list-count {
+            color: brown;
+            top: -.5em;
+            padding-left: .3em;
+            font-size: 75%;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline;
+        }
+    </style>
+<% } %>

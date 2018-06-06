@@ -1,7 +1,8 @@
 ---
 title: 使用 PHP 實作「GitHub API 讀取元件」（二）
 date: 2018-06-03 17:40:43
-tags: ["PHP", "元件", "GitHub", "API"]
+tags: ["程式寫作", "PHP", "元件", "GitHub", "API"]
+categories: ["程式寫作", "PHP", "其他"]
 ---
 
 ## 前言

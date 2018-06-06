@@ -1,7 +1,8 @@
 ---
 title: 在 GitHub 上部署 Hexo 部落格
 date: 2018-04-17 10:15:43
-tags: ["程式寫作", "Hexo", "GitHub"]
+tags: ["環境部署", "Hexo", "GitHub"]
+categories: ["其他", "Hexo"]
 ---
 
 ## 環境
@@ -40,8 +41,8 @@ npm install hexo-deployer-git --save
 打開 `_config.yml` 檔，並更改為以下內容。
 ```
 # URL
-url: https://memochou1993.github.io/blog
-root: /blog/
+url: https://memochou1993.github.io
+root: /
 ...
 # Deployment
 deploy:

@@ -1,7 +1,8 @@
 ---
 title: 《現代 PHP》學習筆記（五）：Closure
 date: 2018-05-22 10:24:41
-tags: ["程式寫作", "PHP", "現代 PHP"]
+tags: ["程式寫作", "PHP"]
+categories: ["程式寫作", "PHP", "《現代 PHP》學習筆記"]
 ---
 
 ## 前言

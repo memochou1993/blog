@@ -1,7 +1,8 @@
 ---
 title: 在 Windows 7 上使用 VMware 安裝 Ubuntu 16
 date: 2018-04-20 10:16:09
-tags: ["環境部署", "Windows", "Linux", "Ubuntu"]
+tags: ["環境部署", "Linux", "Ubuntu"]
+categories: ["環境部署", "Ubuntu"]
 ---
 
 ## 環境

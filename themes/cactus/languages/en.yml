@@ -1,10 +1,10 @@
 nav:
   home: Home
-  about: About
-  articles: Writing
-  projects: Projects
-  search: Search
+  articles: Archives
+  categories: Categories
   tags: Tags
+  about: About
+  search: Search
 
 footer:
   copyright: Copyright
@@ -13,7 +13,7 @@ index:
   find_me_on: Find me on
   enum_comma: ','
   enum_and: and
-  articles: Writing
+  articles: Archives
   projects: Projects
 
 post:
