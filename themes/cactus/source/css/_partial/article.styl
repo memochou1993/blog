@@ -118,14 +118,20 @@ article
   text-transform: none
   font-size: 1.5em
   line-height: 1.25
+      
+.article-category
+  display: inline
+  margin-right: 1em
 
 .article-tag
+  display: inline
   .tag-link
     &:before
-      content: "#"
+      content: "＃"
 
-    underline(10px, $color-link)
-
-@media (min-width: 480px)
+@media (max-width: 480px)
+  .article-category
+    display: block
+    
   .article-tag
-    display: inline
+    display: block

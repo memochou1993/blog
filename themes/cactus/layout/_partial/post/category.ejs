@@ -1,0 +1,10 @@
+<% if (page.categories && page.categories.length) { %>
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <% page.categories.each(function(category, i) { %>
+            <% if ( i == page.categories.length - 1) { %>
+                <a href="<%= category.permalink %>"><%= category.name %></a>
+            <% } %>
+        <% }) %>
+    </div>
+<% } %>
