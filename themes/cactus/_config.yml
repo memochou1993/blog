@@ -18,8 +18,8 @@ nav:
   articles: /archives
   categories: /categories
   tags: /tags
-  about: /about
   search: /search
+  about: /about
 
 
 # Links to your social media accounts.
@@ -40,7 +40,7 @@ social_links:
 #   - post_count: whether to show only the x most recent posts.
 posts_overview:
   show_all_posts: false
-  post_count: 5
+  post_count: 10
 
 
 ##############################################################################
