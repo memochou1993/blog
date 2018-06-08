@@ -3,7 +3,7 @@
         <i class="fas fa-archive"></i>
         <% page.categories.each(function(category, i) { %>
             <% if ( i == page.categories.length - 1) { %>
-                <a href="<%= category.permalink %>"><%= category.name %></a>
+                <a href="<%= url_for(category.path) %>"><%= category.name %></a>
             <% } %>
         <% }) %>
     </div>

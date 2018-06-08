@@ -5,8 +5,10 @@
   <span id="menu">
     <span id="nav">
       <ul>
-        <% for (var i in theme.nav) { %> 
-          <li><a href="<%- url_for(theme.nav[i]) %>"><%= __('nav.'+i).replace("nav.", "") %></a></li>
+        <% for (var i in theme.nav) { %>
+          <% if (i == "home" || i == "articles" || i == "search") { %>
+            <li><a href="<%- url_for(theme.nav[i]) %>"><%= __('nav.'+i).replace("nav.", "") %></a></li>
+          <% } %>
         <% } %>
       </ul>
     </span>
