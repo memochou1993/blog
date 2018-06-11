@@ -22,10 +22,7 @@ interface MyInterface
     //
 }
 ```
-這裡使用作者提供的範例進行實作：
-```
-$ cd modern-php/02-features/interfaces
-```
+
 假想一個 `DocumentStore` 類別，它用來蒐集來自不同來源的文字：從遠端 URL 擷取的 HTML、讀取串流來源，以及終端機指令的輸出。
 
 範例 2-6：DocumentStore 類別定義

@@ -27,10 +27,7 @@ foreach (myGenerator() as $value) {
     echo $value . PHP_EOL;
 }
 ```
-這裡使用作者提供的範例進行實作：
-```
-$ cd modern-php/02-features/generators
-```
+
 範例 2-16：Range 產生器（不良示範）
 ```PHP
 function makeRange($length) {
