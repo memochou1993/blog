@@ -32,10 +32,7 @@ namespace Symfony\Component\HttpFoundation;
 
 這裡下載作者提供的範例進行實作：
 ```
-$ cd ~/
-$ cd git clone https://github.com/codeguy/modern-php.git
-$ cd modern-php/02-features/namespaces
-$ composer install
+$ git clone https://github.com/codeguy/modern-php.git
 ```
 > 最重要的名稱空間是服務提供者名稱空間，這是最上層的名稱空間，用來識別其品牌或機構，必須在全域空間保持唯一。
 
