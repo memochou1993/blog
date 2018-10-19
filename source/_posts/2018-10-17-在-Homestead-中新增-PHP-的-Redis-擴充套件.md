@@ -1,5 +1,5 @@
 ---
-title: 在 Homestead 環境安裝 PHP 的 Redis 擴充套件
+title: 在 Homestead 中安裝 PHP 的 Redis 擴充套件
 date: 2018-10-17 21:44:25
 tags: ["環境部署", "Homestead", "CodeIgniter", "Redis"]
 categories: ["環境部署", "Homestead"]
