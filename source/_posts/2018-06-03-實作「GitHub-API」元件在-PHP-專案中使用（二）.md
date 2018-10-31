@@ -1,14 +1,14 @@
 ---
-title: 使用 PHP 實作「GitHub API 讀取元件」（二）
+title: 實作「GitHub API」元件在 PHP 專案中使用（二）
 date: 2018-06-03 17:40:43
-tags: ["程式寫作", "PHP", "元件", "GitHub", "API"]
-categories: ["程式寫作", "PHP", "其他"]
+tags: ["程式寫作", "PHP", "元件", "GitHub", "API", "Packagist"]
+categories: ["程式寫作", "PHP", "元件"]
 ---
 
 ## 前言
 本文實作一個可以讀取 GitHub API 的元件。
 
-## 建立專案目錄
+## 專案目錄
 ```
 |- github-api/
     |- component/
