@@ -126,6 +126,30 @@ class Youtube
 ```
 
 ## 測試
+新增一個 `phpunit.xml` 檔，並將 API Key 設為環境變數。
+```XML
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false"
+         syntaxCheck="false">
+    <testsuites>
+        <testsuite name="Package Test Suite">
+            <directory suffix="Test.php">./tests/</directory>
+        </testsuite>
+    </testsuites>
+    <php>
+        <env name="YOUTUBE_API_KEY" value="YOUTUBE_API_KEY"/>
+    </php>
+</phpunit>
+```
+
 在 `tests` 資料夾新增一個 `YoutubeTest.php` 檔。
 ```PHP
 namespace Memo\Youtube\Tests;
