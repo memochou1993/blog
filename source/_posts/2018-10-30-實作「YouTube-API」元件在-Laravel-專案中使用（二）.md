@@ -192,12 +192,12 @@ $ laravel new youtube
 
 安裝元件。
 ```
-$ composer require memochou1993/youtube-api
+$ composer require memochou1993/youtube-api dev-master
 ```
 
 發布資源。
 ```
-$ php artisan vendor:publish
+$ php artisan vendor:publish --provider="Memo\Youtube\YoutubeServiceProvider"
 ```
 
 ## 使用
