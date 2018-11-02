@@ -61,17 +61,17 @@ use Tymon\JWTAuth\Contracts\JWTSubject; // 調用相關類別
 class User extends Model implements AuthenticatableContract, AuthorizableContract, JWTSubject
 {
     ...
-}
-```
-配置可寫入欄位。
-```PHP
-protected $fillable = [
-    'name', 'email',
-];
 
-protected $hidden = [
-    'password',
-];
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
+}
 ```
 
 ## 新增路由
