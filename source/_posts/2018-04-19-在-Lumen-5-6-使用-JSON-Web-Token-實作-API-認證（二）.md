@@ -1,7 +1,7 @@
 ---
-title: 在 Lumen 5.6 使用 JSON Web Token 使用者認證（二）
+title: 在 Lumen 5.6 使用 JSON Web Token 實作 API 認證（二）
 date: 2018-04-19 10:16:01
-tags: ["程式寫作", "PHP", "Laravel", "Lumen", "JWT"]
+tags: ["程式寫作", "PHP", "Laravel", "Lumen", "API", "JWT"]
 categories: ["程式寫作", "PHP", "Lumen"]
 ---
 
@@ -126,7 +126,7 @@ class AuthController extends Controller
 }
 ```
 
-## 進行 HTTP 請求測試
+## 發起 HTTP 請求
 向 http://localhost/lumen/public 發起 `GET` 請求，得到回應如下：
 ```
 Unauthorized.

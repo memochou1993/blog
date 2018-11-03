@@ -1,7 +1,7 @@
 ---
-title: 在 Laravel 5.7 使用 JSON Web Token 使用者認證
+title: 在 Laravel 5.7 使用 JSON Web Token 實作 API 認證
 date: 2018-11-03 01:55:05
-tags: ["程式寫作", "PHP", "Laravel", "JWT"]
+tags: ["程式寫作", "PHP", "Laravel", "API", "JWT"]
 categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
@@ -29,7 +29,8 @@ $ php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceP
 $ php artisan jwt:secret
 ```
 
-## 修改 User 模型
+## 修改模型
+修改 `User` 模型。
 ```PHP
 namespace App;
 
@@ -115,7 +116,11 @@ class User extends Authenticatable implements JWTSubject
 ```
 
 ## 新增資料填充
-在 `DatabaseSeeder.php` 新增一名測試用使用者資訊。
+新增 `UsersTableSeeder` 資料填充。
+```
+$ php artisan make:seed UsersTableSeeder
+```
+在 `UsersTableSeeder.php` 檔新增一名測試用使用者資訊。
 ```PHP
 public function run()
 {
@@ -199,6 +204,20 @@ class AuthController extends Controller
     }
 }
 ```
+新增 `UserController` 控制器。
+```PHP
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\User;
+
+class UserController extends Controller
+{
+    public function index(User $user) {
+        return $user->get();
+    }
+}
+```
 
 ## 新增路由
 在 `routes\api.php` 新增路由。
@@ -213,13 +232,13 @@ Route::middleware('auth:api')->group(function () {
 });
 ```
 
-## 進行 HTTP 請求測試
-向 http://jwt.test/users 發起 `GET` 請求，得到回應如下：
+## 發起 HTTP 請求
+向 http://jwt.test/api/users 發起 `GET` 請求，得到回應如下：
 ```
 [MethodNotAllowedHttpException] No message
 ```
 
-在 `Accept` 輸入 `application/json` 可得以下回應：
+在 `Accept` 輸入 `application/json` 可以得到以下回應：
 ```
 {"message":"Unauthenticated."}
 ```

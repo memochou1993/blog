@@ -1,7 +1,7 @@
 ---
-title: 在 Lumen 5.6 使用 JSON Web Token 使用者認證（一）
+title: 在 Lumen 5.6 使用 JSON Web Token 實作 API 認證（一）
 date: 2018-04-18 10:15:52
-tags: ["程式寫作", "PHP", "Laravel", "Lumen", "JWT"]
+tags: ["程式寫作", "PHP", "Laravel", "Lumen", "API", "JWT"]
 categories: ["程式寫作", "PHP", "Lumen"]
 ---
 
