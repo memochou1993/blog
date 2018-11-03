@@ -1,5 +1,5 @@
 ---
-title: 在 Lumen 5.6 使用 JSON Web Token 用戶認證（二）
+title: 在 Lumen 5.6 使用 JSON Web Token 使用者認證（二）
 date: 2018-04-19 10:16:01
 tags: ["程式寫作", "PHP", "Laravel", "Lumen", "JWT"]
 categories: ["程式寫作", "PHP", "Lumen"]
@@ -125,12 +125,13 @@ class AuthController extends Controller
     }
 }
 ```
+
 ## 進行 HTTP 請求測試
 向 http://localhost/lumen/public 發起 `GET` 請求，得到回應如下：
 ```
 Unauthorized.
 ```
-再向 http://localhost/lumen/public/auth/login 給 `Body` 輸入以下鍵値發起 `POST` 請求：
+在 `Body` 輸入以下鍵値再向 http://localhost/lumen/public/auth/login 發起 `POST` 請求：
 
 Key	| Value
 --- | ---
@@ -139,9 +140,9 @@ password | secret
 
 得到回應如下：
 ```
-{"token":"eyJ0e......q5o0M"}
+{"token":"eyJ0e……q5o0M"}
 ```
-最後再向 http://localhost/lumen/public 給 `Headers` 輸入以下鍵値發起 `GET` 請求。
+最後在 `Headers` 輸入以下鍵値，再向 http://localhost/lumen/public 發起 `GET` 請求。
 （Value 的部分為：Bearer + 空一格 + Token）
 
 Key	| Value
