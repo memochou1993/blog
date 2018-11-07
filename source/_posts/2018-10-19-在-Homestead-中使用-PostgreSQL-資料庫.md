@@ -21,7 +21,9 @@ vagrant@homestead:~$ psql -U homestead -h localhost -W database
 ```
 
 ## 相關指令
- | 
+
+指令 | 說明
+--- | ---
 \h | 顯示 SQL 指令的說明
 \? | 顯示 psql 指令的說明
 \l | 列出所有資料庫
