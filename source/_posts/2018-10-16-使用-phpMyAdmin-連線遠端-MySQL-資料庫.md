@@ -1,8 +1,8 @@
 ---
 title: 使用 phpMyAdmin 連線遠端 MySQL 資料庫
 date: 2018-10-16 21:39:35
-tags: ["環境部署", "phpMyAdmin", "MySQL"]
-categories: ["環境部署", "phpMyAdmin"]
+tags: ["其他", "phpMyAdmin", "MySQL"]
+categories: ["其他", "phpMyAdmin"]
 ---
 
 ## 環境

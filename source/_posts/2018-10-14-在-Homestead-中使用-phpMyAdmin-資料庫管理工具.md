@@ -25,5 +25,5 @@ $ vagrant provision
 ## 登入
 進入 [http://phpmyadmin.test](http://phpmyadmin.test)。
 
-帳號：homestead
-密碼：secret
+- 帳號：homestead
+- 密碼：secret
