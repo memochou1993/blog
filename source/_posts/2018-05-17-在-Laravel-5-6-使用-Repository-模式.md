@@ -145,6 +145,7 @@ class PackageRepository implements PackageInterface
     }
 }
 ```
+
 ## 新增控制器
 ```
 $ php artisan make:controller PackageController
@@ -172,6 +173,7 @@ class PackageController extends Controller
     }
 }
 ```
+
 ## 新增服務提供者
 手動新增 `app\Providers\RepositoryServiceProvider.php` 檔。
 ```PHP
@@ -204,6 +206,15 @@ class RepositoryServiceProvider extends ServiceProvider
         return [PackageInterface::class]; // 回傳要處理的介面名稱
     }
 }
+```
+
+## 註冊服務提供者
+在 `config\app.php` 檔註冊服務提供者。
+```PHP
+'providers' => [
+    ...
+    App\Providers\RepositoryServiceProvider::class,
+]
 ```
 
 ## 重啟服務
