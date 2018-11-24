@@ -49,6 +49,7 @@ $ php artisan voyager:admin your@email.com --create
 1. 建立 Item 模型。
 2. 在 http://fitness.test/admin/bread 新增 Item 模型的 `BREAD`。
 3. 新增 `app\Widgets\ItemDimmer.php` 檔。
+4. 在 https://unsplash.com 找到適合的圖片放到 `public\vendor\tcg\voyager\assets\images\widget-backgrounds` 資料夾。
 
 ```PHP
 <?php
