@@ -132,7 +132,8 @@ use App\Package;
 // 實作 PackageInterface 介面
 class PackageRepository implements PackageInterface
 {
-    protected $package; // 透過隱式綁定取得的 Package 模型實例
+    // 透過隱式綁定取得的 Package 模型實例
+    protected $package;
 
     public function __construct(Package $package)
     {
@@ -203,7 +204,10 @@ class RepositoryServiceProvider extends ServiceProvider
 
     public function provides()
     {
-        return [PackageInterface::class]; // 回傳要處理的介面名稱
+        // 回傳要處理的介面名稱
+        return [
+            PackageInterface::class
+        ]; 
     }
 }
 ```
