@@ -1,7 +1,7 @@
 ---
 title: 實作「YouTube API」元件在 Laravel 專案中使用（一）
 date: 2018-10-28 20:56:37
-tags: ["程式寫作", "PHP", "元件", "YouTube", "API", "Packagist", "PHPUnit", "單元測試", "Laravel"]
+tags: ["程式寫作", "PHP", "Laravel", "元件", "YouTube", "API", "Packagist"]
 categories: ["程式寫作", "PHP", "元件"]
 ---
 
