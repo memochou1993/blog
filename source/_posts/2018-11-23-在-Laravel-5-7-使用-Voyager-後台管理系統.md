@@ -1,7 +1,7 @@
 ---
 title: 在 Laravel 5.7 使用 Voyager 後台管理系統
 date: 2018-11-23 02:58:23
-tags: ["程式寫作", "PHP", "Laravel", "Admin Panel", "Voyager"]
+tags: ["程式寫作", "PHP", "Laravel", "後台管理系統", "Voyager"]
 categories: ["程式寫作", "PHP", "Laravel"]
 ---
 

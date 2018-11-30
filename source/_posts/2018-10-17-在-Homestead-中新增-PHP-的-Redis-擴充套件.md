@@ -1,8 +1,8 @@
 ---
 title: 在 Homestead 中安裝 PHP 的 Redis 擴充套件
 date: 2018-10-17 21:44:25
-tags: ["環境部署", "Homestead", "CodeIgniter", "Redis"]
-categories: ["環境部署", "Homestead"]
+tags: ["程式寫作", "PHP", "Laravel", "Homestead", "CodeIgniter", "Redis"]
+categories: ["程式寫作", "PHP", "其他"]
 ---
 
 ## 前言
@@ -36,7 +36,7 @@ extension=redis.so
 ```
 vagrant@homestead:~$ sudo service php7.2-fpm restart
 ```
-使用 `phpinfo()` 確認是否安裝成功，或使用以下指令查看擴充套件。
+使用指令或 `phpinfo()` 查看擴充套件是否安裝成功。
 ```
 vagrant@homestead:~$ php -i|grep extension_dir
 vagrant@homestead:~$ cd /usr/lib/php/20170718 && ls

@@ -1,7 +1,7 @@
 ---
 title: 在 Laravel 5.7 使用 Telescope 除錯工具
 date: 2018-11-18 02:05:25
-tags: ["程式寫作", "PHP", "Laravel", "Debugger", "Telescope"]
+tags: ["程式寫作", "PHP", "Laravel", "除錯", "Telescope"]
 categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
