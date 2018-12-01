@@ -5,6 +5,9 @@ tags: ["程式寫作", "PHP", "Laravel", "除錯", "PHPUnit", "Xdebug"]
 categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
+## 環境
+- macOS High Sierra
+
 ## 安裝套件
 安裝 PHP 的 Xdebug 擴充套件。
 ```

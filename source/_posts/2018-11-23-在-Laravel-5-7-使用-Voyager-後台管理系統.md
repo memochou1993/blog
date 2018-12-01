@@ -5,6 +5,10 @@ tags: ["程式寫作", "PHP", "Laravel", "後台管理系統", "Voyager"]
 categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
+## 環境
+- Windows 10
+- Homestead
+
 ## 安裝
 ```
 $ composer require tcg/voyager
