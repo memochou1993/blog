@@ -69,14 +69,14 @@ use Hashids;
 
 trait HashId
 {
-    public function getIdAttribute($value)
+    /**
+     * Get the Hash Id for the user.
+     *
+     * @return bool
+     */
+    public function getHashIdAttribute()
     {
-        return $this->id = Hashids::encode($value);
-    }
-
-    public function getId()
-    {
-        return Hashids::decode($this->id)[0];
+        return Hashids::encode($this->attributes['id']);
     }
 }
 ```
@@ -113,13 +113,19 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = ['hash_id']; // 添加屬性
 }
 ```
 
 ## 使用
 ```PHP
-echo User::find(1)->id;　// No4xo
-echo User::find(1)->getId();　// 1
+User::find(1)->toArray();
 ```
 
 ## 參考資料
