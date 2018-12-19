@@ -65,7 +65,7 @@ firebase.auth().onAuthStateChanged(() => {
 });
 ```
 
-## 設定路由
+## 新增路由
 修改 `src/router.js` 檔：
 ```JS
 import Vue from "vue";
