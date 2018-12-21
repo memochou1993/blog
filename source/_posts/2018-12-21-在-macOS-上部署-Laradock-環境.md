@@ -29,9 +29,9 @@ $ cd ~/Laradock/nginx/sites
 $ cp laravel.conf.example laravel.test.conf
 ```
 
-啟動 Nginx 和 MySQL。
+啟動 Nginx、MySQL 和 PhpMyAdmin。
 ```
-$ docker-compose up -d nginx mysql
+$ docker-compose up -d nginx mysql mysql
 ```
 - 被 Nginx 依賴的 PHP-FPM 會自動啟動。
 
@@ -87,4 +87,5 @@ $ docker-compose exec workspace bash
 ```
 
 ## 測試
-用瀏覽器打開 http://laravel.test/。
+專案首頁：http://laravel.test/
+phpMyAdmin 登入畫面：http://localhost:8080/
