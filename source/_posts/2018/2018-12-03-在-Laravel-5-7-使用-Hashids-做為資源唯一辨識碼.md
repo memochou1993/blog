@@ -11,7 +11,8 @@ categories: ["程式寫作", "PHP", "Laravel"]
 - Homestead
 
 ## 安裝套件
-安裝基於 [Hashids](https://hashids.org/) 的 `vinkla/hashids` Laravel 套件。
+使用 [hashids/hashids
+](https://hashids.org/) 套件，或使用提供 Laravel 使用的 `vinkla/hashids` 套件。
 ```
 $ composer require vinkla/hashids
 ```
