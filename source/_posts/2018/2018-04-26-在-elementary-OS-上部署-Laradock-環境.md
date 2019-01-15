@@ -3,7 +3,7 @@ title: 在 elementary OS 上部署 Laradock 環境
 permalink: 在-elementary-OS-上部署-Laradock-環境
 date: 2018-04-26 10:16:18
 tags: ["環境部署", "Linux", "elementary OS", "Docker", "Laradock", "Laravel"]
-categories: ["環境部署", "Laradock"]
+categories: ["環境部署", "Docker", "Laradock"]
 ---
 
 ## 前言
@@ -102,7 +102,7 @@ $ composer create-project laravel/laravel --prefer-dist
 ```
 會有 1 分鐘沒有動靜才開始安裝，等待 5 分鐘安裝後離開容器。
 
-這裡要複製一個 `laravel.test.conf` 檔。
+這裡要建立一個 `laravel.test.conf` 檔。
 ```
 $ cd ~/Laradock/nginx/sites
 $ cp laravel.conf.example laravel.test.conf
