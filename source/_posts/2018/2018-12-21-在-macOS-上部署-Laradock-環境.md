@@ -32,7 +32,7 @@ $ cp laravel.conf.example laravel.test.conf
 
 啟動 Nginx、MySQL 和 PhpMyAdmin。
 ```
-$ docker-compose up -d nginx mysql mysql
+$ docker-compose up -d nginx mysql phpmyadmin
 ```
 - 被 Nginx 依賴的 PHP-FPM 會自動啟動。
 
