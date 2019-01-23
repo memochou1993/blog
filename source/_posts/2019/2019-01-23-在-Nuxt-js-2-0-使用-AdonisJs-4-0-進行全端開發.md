@@ -15,6 +15,35 @@ $ npx create-nuxt-app adonuxt
 ```
 - 選擇 Adonis 作為後端框架。
 
+## 安裝 SQLite
+```
+$ npm install --save sqlite3
+```
+
+## 更新套件
+執行遷移時會出現錯誤：
+```
+Knex:warning - .returning() is not supported by sqlite3 and will not have any effect.
+```
+- `lucid` 套件需要更新。
+
+更新套件到最新版本：
+```JSON
+"dependencies": {
+  "@adonisjs/ace": "^5.0.8",
+  "@adonisjs/auth": "^3.0.7",
+  "@adonisjs/bodyparser": "^2.0.5",
+  "@adonisjs/cors": "^1.0.7",
+  "@adonisjs/fold": "^4.0.9",
+  "@adonisjs/framework": "^5.0.9",
+  "@adonisjs/ignitor": "^2.0.8",
+  "@adonisjs/lucid": "^6.1.3",
+  "@adonisjs/session": "^1.0.27",
+  "@adonisjs/shield": "^1.0.8"
+  ...
+}
+```
+
 ## 新增路由
 ```JS
 'use strict';
