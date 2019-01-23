@@ -121,5 +121,17 @@ $ npm run dev:server
 $ npm run dev
 ```
 
+## 處理解析錯誤
+遇到 `Parsing error: Unexpected token` 的錯誤訊息，確保 `babel-eslint` 套件有被安裝，並修改 `.eslintrc.js` 檔為：
+```
+parserOptions: {
+  parser: 'babel-eslint',
+  ecmaFeatures: {
+    jsx: true,
+    modules: true,
+  },
+},
+```
+
 ## 程式碼
 [GitHub](https://github.com/memochou1993/adonuxt)
