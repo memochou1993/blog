@@ -7,7 +7,7 @@ categories: ["程式寫作", "JavaScript", "Node.js"]
 ---
 
 ## 前言
-123456Nuxt 將 Adonis 進行整合，成為 [Adonuxt](https://github.com/nuxt-community/adonuxt-template)。
+Nuxt 將 Adonis 進行整合，成為 [Adonuxt](https://github.com/nuxt-community/adonuxt-template)。
 
 ## 安裝
 ```
