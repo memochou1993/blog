@@ -21,7 +21,7 @@ $ npm install --save sqlite3
 ```
 
 ## 更新套件
-執行遷移時會出現錯誤：
+執行遷移時會出現警告：
 ```
 Knex:warning - .returning() is not supported by sqlite3 and will not have any effect.
 ```
