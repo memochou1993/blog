@@ -67,14 +67,14 @@ Route::get('/{locale}', function ($locale) {
 });
 
 Route::get('/', function () {
-    echo __('localization.localization');
-
     dump([
         App::getLocale(),
         \Carbon\Carbon::now(),
         \Carbon\Carbon::now()->diffForHumans(),
     ]);
+
+    echo __('localization.localization');
 });
 ```
-- 使用 `__()` 輔助函式輸出在地化檔案的語句。
 - 使用 `php artisan dump-server` 指令查看 `dump()` 中的內容。
+- 使用 `__()` 輔助函式輸出在地化檔案的語句。
