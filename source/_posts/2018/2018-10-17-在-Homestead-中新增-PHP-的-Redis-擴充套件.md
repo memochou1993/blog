@@ -39,6 +39,13 @@ vagrant@homestead:~$ sudo service php7.2-fpm restart
 ```
 使用指令或 `phpinfo()` 查看擴充套件是否安裝成功。
 ```
+vagrant@homestead:~$ php -m |grep redis
+redis
 vagrant@homestead:~$ php -i|grep extension_dir
+extension_dir => /usr/lib/php/20170718 => /usr/lib/php/20170718
 vagrant@homestead:~$ cd /usr/lib/php/20170718 && ls
+```
+查看詳細資訊。
+```
+vagrant@homestead:~$ php --ri swoole
 ```
