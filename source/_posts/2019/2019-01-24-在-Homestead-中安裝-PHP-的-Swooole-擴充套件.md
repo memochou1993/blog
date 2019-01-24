@@ -2,8 +2,8 @@
 title: 在 Homestead 中安裝 PHP 的 Swooole 擴充套件
 permalink: 在-Homestead-中安裝-PHP-的-Swooole-擴充套件
 date: 2019-01-24 00:29:06
-tags: ["程式寫作", "PHP", "Laravel", "Homestead", "Swooole"]
-categories: ["程式寫作", "PHP", "其他"]
+tags: ["程式寫作", "PHP", "Swooole", "Homestead", "Laravel"]
+categories: ["環境部署", "PHP"]
 ---
 
 ## 步驟

@@ -1,9 +1,9 @@
 ---
 title: 在 Homestead 中安裝 PHP 的 Redis 擴充套件
-permalink: 在-Homestead-中新增-PHP-的-Redis-擴充套件
+permalink: 在-Homestead-中安裝-PHP-的-Redis-擴充套件
 date: 2018-10-17 21:44:25
-tags: ["程式寫作", "PHP", "Laravel", "Homestead", "CodeIgniter", "Redis"]
-categories: ["程式寫作", "PHP", "其他"]
+tags: ["環境部署", "PHP", "Redis", "Homestead", "Laravel", "CodeIgniter"]
+categories: ["環境部署", "PHP"]
 ---
 
 ## 前言

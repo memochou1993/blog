@@ -8,35 +8,8 @@ categories: ["程式寫作", "PHP", "Laravel"]
 
 ## 環境
 - macOS High Sierra
+- xdebug 2.6.1
 
-## 安裝套件
-安裝 PHP 的 Xdebug 擴充套件。
-```
-$ pecl install xdebug
-```
-修改 `php.ini` 檔。
-```
-$ vi /usr/local/etc/php/7.2/php.ini
-```
-刪除第一行 `zend_extension="xdebug.so"`，並儲存。
-
-新增 `xdebug.so` 檔。
-```
-$ vi /usr/local/etc/php/7.2/conf.d/xdebug.ini
-```
-加入以下內容：
-```
-[xdebug]
-zend_extension="/usr/local/lib/php/pecl/20170718/xdebug.so"
-```
-重啟 PHP 服務。
-
-使用指令或 `phpinfo()` 查看擴充套件是否安裝成功。
-```
-vagrant@homestead:~$ php -m
-```
-
-## 查看程式碼覆蓋率
 ### 使用指令
 執行 `phpunit` 指令，並加上 `--coverage-html` 參數，以及輸出路徑。
 ```
