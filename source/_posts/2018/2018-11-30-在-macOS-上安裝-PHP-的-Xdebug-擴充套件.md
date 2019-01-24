@@ -27,16 +27,14 @@ $ vi /usr/local/etc/php/7.2/conf.d/xdebug.ini
 zend_extension="/usr/local/lib/php/pecl/20170718/xdebug.so"
 ```
 
-查看擴充套件是否安裝成功。
+使用指令查看擴充套件是否安裝成功，或在 PHP 腳本中使用 `phpinfo()` 查看。
 ```
 $ php -m |grep xdebug
 xdebug
 $ php -i|grep extension_dir
 extension_dir => /usr/local/lib/php/pecl/20170718 => /usr/local/lib/php/pecl/20170718
-sqlite3.extension_dir => no value => no value
 $ cd /usr/local/lib/php/pecl/20170718 && ls
 ```
-- 或在 PHP 腳本中使用 `phpinfo()` 查看。
 
 查看詳細資訊。
 ```

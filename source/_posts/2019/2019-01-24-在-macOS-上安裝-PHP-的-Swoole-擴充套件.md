@@ -32,16 +32,14 @@ $ vi /usr/local/etc/php/7.2/conf.d/swoole.ini
 extension="/usr/local/lib/php/pecl/20170718/swoole.so"
 ```
 
-查看擴充套件是否安裝成功。
+使用指令查看擴充套件是否安裝成功，或在 PHP 腳本中使用 `phpinfo()` 查看。
 ```
 $ php -m |grep swoole
 swoole
 $ php -i|grep extension_dir
 extension_dir => /usr/local/lib/php/pecl/20170718 => /usr/local/lib/php/pecl/20170718
-sqlite3.extension_dir => no value => no value
 $ cd /usr/local/lib/php/pecl/20170718 && ls
 ```
-- 或在 PHP 腳本中使用 `phpinfo()` 查看。
 
 查看詳細資訊。
 ```
@@ -88,7 +86,7 @@ For compilers to find openssl you may need to set:
   export CPPFLAGS="-I/usr/local/opt/openssl/include"
 ```
 
-如果還是出錯，則重新安裝 `openssl`。
+若仍然出現警告，則重新安裝 `openssl`。
 ```
 $ brew reinstall openssl
 ```
