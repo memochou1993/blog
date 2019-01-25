@@ -23,7 +23,7 @@ $ brew cask install font-sourcecodepro-nerd-font
 ```
 $ brew search nerd
 ```
-- 指令 `brew cask search nerd` 已廢棄。
+- 指令 `brew cask search` 已廢棄。
 
 打開終端機的「偏好設定」、「描述檔」、「文字」，選擇字體。
 
