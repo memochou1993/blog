@@ -1,9 +1,9 @@
 ---
 title: 在 Laravel 5.7 使用 Swoole 提升效能
-permalink: 在 Laravel 5.7 使用 Swoole 提升效能
+permalink: 在-Laravel-5-7-使用-Swoole-提升效能
 date: 2019-01-25 14:18:31
-tags: ["環境部署", "PHP", "Swoole", "Laravel"]
-categories: ["環境部署", "PHP"]
+tags: ["程式寫作", "PHP", "Laravel", "Swoole"]
+categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
 ## 環境

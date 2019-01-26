@@ -1,9 +1,9 @@
 ---
-title: 在 MacOS 上安裝 Oh My Zsh  命令列工具
-permalink: 在 MacOS 上安裝 Oh My Zsh  命令列工具
+title: 在 MacOS 上安裝 Oh My Zsh 命令列工具
+permalink: 在-MacOS-上安裝-Oh-My-Zsh-命令列工具
 date: 2019-01-26 01:03:50
-tags: ["環境部署", "Zsh", "macOS", "命令列工具"]
-categories: ["環境部署", "其他"]
+tags: ["Zsh", "macOS", "命令列工具"]
+categories: ["其他", "命令列工具"]
 ---
 
 ## 下載主題
@@ -68,6 +68,14 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
 完成設定，執行以下指令：
 ```
 $ exec $SHELL
+```
+
+## 設定 VS Code 編輯器
+修改 `settings.json` 檔：
+```JSON
+{
+  "terminal.integrated.fontFamily": "SauceCodePro Nerd Font"
+}
 ```
 
 ## 參考資料

@@ -2,8 +2,8 @@
 title: 在 Vue 2.5 使用 Firebase 實現認證機制
 permalink: 在-Vue-2-5-使用-Firebase-實現認證機制
 date: 2018-12-19 14:06:01
-categories: ["程式寫作", "JavaScript", "Vue"]
 tags: ["程式寫作", "JavaScript", "Vue", "Firebase"]
+categories: ["程式寫作", "JavaScript", "Vue"]
 ---
 
 ## 環境

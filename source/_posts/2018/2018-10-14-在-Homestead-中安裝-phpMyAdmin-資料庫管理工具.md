@@ -1,6 +1,6 @@
 ---
-title: 在 Homestead 中使用 phpMyAdmin 資料庫管理工具
-permalink: 在-Homestead-中使用-phpMyAdmin-資料庫管理工具
+title: 在 Homestead 中安裝 phpMyAdmin 資料庫管理工具
+permalink: 在-Homestead-中安裝-phpMyAdmin-資料庫管理工具
 date: 2018-10-14 22:25:45
 tags: ["環境部署", "Homestead", "phpMyAdmin", "MySQL"]
 categories: ["環境部署", "Homestead"]
