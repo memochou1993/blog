@@ -6,32 +6,29 @@ tags: ["環境部署", "PHP", "Nginx", "macOS", "Laravel"]
 categories: ["環境部署", "Nginx"]
 ---
 
-## 環境
-- Homebrew 1.9.2
-
 ## 安裝
-使用 `brew` 指令安裝。
+使用 `brew` 指令安裝 Nginx。
 ```
 $ brew install nginx
 ```
+
 啟動。
 ```
-nginx
+$ sudo nginx
 ```
+
 停止。
 ```
-nginx -s stop
+$ sudo nginx -s stop
 ```
 
-## 瀏覽
-前往：http://localhost:8080
+重新啟動。
+```
+$ sudo nginx -s reload  
+```
 
 ## 設定
-```
-$ vi /usr/local/etc/nginx/nginx.conf
-```
-
-修改 `nginx.conf` 檔的 `root` 到專案目錄：
+修改 `/usr/local/etc/nginx/nginx.conf` 檔的 `root` 和 `fastcgi_param`：
 ```CONF
 # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
 #
@@ -42,11 +39,12 @@ location ~ \.php$ {
     fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
     include        fastcgi_params;
 }
-
-# deny access to .htaccess files, if Apache's document root
-# concurs with nginx's one
-#
-#location ~ /\.ht {
-#    deny  all;
-#}
 ```
+
+在專案根目錄新增 `index.php` 檔：
+```PHP
+phpinfo();
+```
+
+## 瀏覽
+前往：http://localhost:8080/index.php

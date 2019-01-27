@@ -54,7 +54,5 @@ $ valet unsecure laravel
 ## 瀏覽
 前往：http://laravel.test/
 
-Valet 會監聽 80 埠。
-
-## 後記
-Valet 會破壞原先設定好的 `Nginx.conf` 檔，因此後來就移除了。
+## 補充
+Valet 會破壞預設的 `Nginx.conf` 檔，並持續監聽 80 埠。
