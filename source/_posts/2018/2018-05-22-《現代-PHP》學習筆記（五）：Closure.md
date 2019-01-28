@@ -21,7 +21,7 @@ categories: ["程式寫作", "PHP", "《現代 PHP》學習筆記"]
 範例 2-19：基本的閉包
 ```PHP
 $closure = function ($name) {
-    return sprintf('Hello %s', $name)
+    return sprintf('Hello %s', $name);
 };
 
 echo $closure("John");
