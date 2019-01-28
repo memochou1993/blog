@@ -78,5 +78,12 @@ $ exec $SHELL
 }
 ```
 
+## 補充
+在 iTerm 終端機使用 `option` 鍵跳過一段文字的方法：
+- 打開選項 `Profiles` 的 `Keys` 列表。
+- 將選項 `Left Option Key` 設為 `Esc+`。
+- 錄製 `option+left` 的動作，並在 `Esc+` 輸入 `B`。
+- 錄製 `option+right` 的動作，並在 `Esc+` 輸入 `F`。
+
 ## 參考資料
 [超簡單！十分鐘打造漂亮又好用的 Zsh Command Line 環境](https://medium.com/statementdog-engineering/prettify-your-zsh-command-line-prompt-3ca2acc967f)
