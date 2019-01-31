@@ -122,7 +122,12 @@ $ yum install mariadb-server
 $ systemctl start mariadb
 ```
 
-設定在開機後啟動 MariaDB。
+關閉 MariaDB。
+```
+$ systemctl stop mariadb
+```
+
+如果要在開機後啟動 MariaDB，使用以下指令：
 ```
 $ systemctl enable mariadb
 Created symlink from /etc/systemd/system/multi-user.target.wants/mariadb.service to /usr/lib/systemd/system/mariadb.service.
