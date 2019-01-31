@@ -27,10 +27,9 @@ categories: ["環境部署", "AWS"]
 
 新增標籤：
 - Key：email
-- Value：hoshizora19931120@hotmail.com
+- Value：xxx@hotmail.com
 
-確認建立使用者。
-
+建立使用者。
 
 ## 啟動虛擬機器
 登入 IAM 使用者，點選「啟動虛擬機器：使用 EC2」。
@@ -56,23 +55,18 @@ $ echo "ssh -i "~/.ssh/aws.pem" xx-user@xxx.compute.amazonaws.com" > ec2
 修改命令腳本 `ec2` 檔的權限為 `755`。
 ```
 $ chmod 755 ./ec2
-Amazon Linux AMI
 ```
 
 執行命令腳本。
 ```
 $ ./ec2
+Amazon Linux AMI
 ```
 
-## 安裝 Nginx
-切換到 `root` 使用者。
+## 瀏覽
+連線到執行個體，並切換到 `root` 使用者。
 ```
 [user ~]$ sudo -s
-```
-
-更新所有套件。
-```
-[root]# yum update
 ```
 
 使用 `yum` 安裝 Nginx。
@@ -82,5 +76,4 @@ $ ./ec2
 - Nginx 的設定檔放在 `/etc/nginx/nginx.conf` 資料夾。
 - 預設的網頁放在 `/usr/share/nginx/html` 資料夾。
 
-## 瀏覽
-前往 http://xxx.compute.amazonaws.com/
+前往：http://xxx.compute.amazonaws.com/
