@@ -62,18 +62,3 @@ $ chmod 755 ./ec2
 $ ./ec2
 Amazon Linux AMI
 ```
-
-## 瀏覽
-連線到執行個體，並切換到 `root` 使用者。
-```
-[user ~]$ sudo -s
-```
-
-使用 `yum` 安裝 Nginx。
-```
-[root]# yum install nginx
-```
-- Nginx 的設定檔放在 `/etc/nginx/nginx.conf` 資料夾。
-- 預設的網頁放在 `/usr/share/nginx/html` 資料夾。
-
-前往：http://xxx.compute.amazonaws.com/

@@ -12,23 +12,23 @@ categories: ["環境部署", "Nginx"]
 $ brew install nginx
 ```
 
-啟動。
+啟動 Nginx。
 ```
 $ sudo nginx
 ```
 
-停止。
+停止 Nginx。
 ```
 $ sudo nginx -s stop
 ```
 
-重新啟動。
+重新啟動 Nginx。
 ```
 $ sudo nginx -s reload  
 ```
 
 ## 設定
-修改 `/usr/local/etc/nginx/nginx.conf` 檔的 `root` 和 `fastcgi_param`：
+修改 `/usr/local/etc/nginx/nginx.conf` 檔的 `root` 和 `fastcgi_param` 參數：
 ```CONF
 # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
 #
