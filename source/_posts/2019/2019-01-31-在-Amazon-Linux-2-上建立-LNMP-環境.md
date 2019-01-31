@@ -99,7 +99,7 @@ nginx    nginx
 
 修改資料夾擁有者與群組。
 ```
-$ chown -R nginx:nginx www/
+$ chown -R nginx:nginx /home/www
 ```
 - 參數 `-R` 讓目錄下的所有次目錄或檔案同時更改擁有者與群組。
 

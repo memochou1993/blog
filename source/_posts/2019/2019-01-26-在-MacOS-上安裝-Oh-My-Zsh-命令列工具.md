@@ -78,12 +78,16 @@ $ exec $SHELL
 }
 ```
 
-## 補充
-在 iTerm 終端機使用 `option` 鍵跳過一段文字的方法：
-- 打開選項 `Profiles` 的 `Keys` 列表。
+## 熱鍵
+在 iTerm 終端機使用 `option` 鍵與方向鍵跳過一個字詞的方法：
+- 打開偏好設定選項 `Profiles` 的 `Keys` 列表。
 - 將選項 `Left Option Key` 設為 `Esc+`。
 - 錄製 `option+left` 的動作，並在 `Esc+` 輸入 `B`。
 - 錄製 `option+right` 的動作，並在 `Esc+` 輸入 `F`。
+
+其他指令：
+- 使用 `Ctrl + W` 以刪除前一個字詞。
+- 使用 `Ctrl + -` 以回復上一動作。
 
 ## 參考資料
 [超簡單！十分鐘打造漂亮又好用的 Zsh Command Line 環境](https://medium.com/statementdog-engineering/prettify-your-zsh-command-line-prompt-3ca2acc967f)
