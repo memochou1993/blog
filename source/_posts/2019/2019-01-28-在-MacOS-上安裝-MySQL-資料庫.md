@@ -1,6 +1,6 @@
 ---
 title: 在 MacOS 上安裝 MySQL 資料庫
-permalink: 在 MacOS 上安裝 MySQL 資料庫
+permalink: 在-MacOS-上安裝-MySQL-資料庫
 date: 2019-01-28 15:43:46
 tags: ["環境部署", "PHP", "MySQL", "macOS", "Laravel"]
 categories: ["環境部署", "MySQL"]
