@@ -51,7 +51,14 @@ $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/m
 $ git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 ```
 
-修改 `~/.zshrc` 檔：
+修改 `~/.zshrc` 檔，補上 `bash` 所使用到的環境變數：
+```
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.composer/vendor/bin:$PATH
+```
+
+修改 `~/.zshrc` 檔的主題與樣式：
 ```
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_MODE="nerdfont-complete"
