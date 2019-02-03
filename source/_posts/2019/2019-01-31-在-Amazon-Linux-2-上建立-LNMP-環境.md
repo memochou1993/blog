@@ -21,12 +21,12 @@ $ sudo -s
 $ amazon-linux-extras install nginx1.12
 ```
 
-或使用 `yum` 安裝。
+或使用 YUM 安裝。
 ```
 $ yum install nginx
 ```
 
-查看版本。
+查看 Nginx 版本。
 ```
 $ nginx -v
 nginx version: nginx/1.12.2
@@ -66,12 +66,12 @@ $ tail /var/log/nginx/error.log
 $ amazon-linux-extras install php7.2
 ```
 
-或使用 `yum` 安裝。
+或使用 YUM 安裝。
 ```
 $ yum php72 php72-fpm
 ```
 
-查看版本。
+查看 PHP 版本。
 ```
 $ php -v
 PHP 7.2.13 (cli)
@@ -112,7 +112,7 @@ $ echo "<?php phpinfo(); ?>" > /home/www/index.php
 前往：http://xxx.compute.amazonaws.com/index.php
 
 ## 安裝 MariaDB
-使用 `yum` 安裝。
+使用 YUM 安裝。
 ```
 $ yum install mariadb-server
 ```

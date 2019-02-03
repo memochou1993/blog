@@ -12,57 +12,10 @@ categories: ["環境部署", "Docker"]
 $ sudo amazon-linux-extras install docker
 ```
 
-查看版本。
+查看 Docker 版本。
 ```
 $ docker -v
 Docker version 18.06.1-ce
-```
-
-## 安裝 Git
-使用 `yum` 安裝 Git。
-```
-$ sudo yum install git
-```
-
-查看版本。
-```
-$ git --version
-git version 2.17.2
-```
-
-## 安裝 Laradock
-從 GitHub 上將 Laradock 下載下來。
-```
-$ git clone https://github.com/Laradock/laradock.git Laradock
-```
-
-複製範本 `env-example` 檔作為設定檔。
-```
-$ cd ~/Laradock && cp env-example .env
-```
-
-修改 `APP_CODE_PATH_HOST` 參數到指定的映射路徑：
-```ENV
-APP_CODE_PATH_HOST=~/Projects
-```
-
-## 安裝 Docker Compose
-下載 Docker Compose。
-```
-$ sudo curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-```
-修改執行檔權限。
-```
-$ sudo chmod +x /usr/local/bin/docker-compose
-```
-建立執行檔軟連結。
-```
-$ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
-```
-查看版本
-```
-$ docker-compose -v
-docker-compose version 1.23.2
 ```
 
 將目前使用者加進 `docker` 群組。
@@ -81,7 +34,53 @@ $ ./ec2
 $ sudo service docker restart
 ```
 
-## 啟動 Laradock
+## 安裝 Docker Compose
+下載 Docker Compose。
+```
+$ sudo curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+```
+修改執行檔權限。
+```
+$ sudo chmod +x /usr/local/bin/docker-compose
+```
+建立執行檔軟連結。
+```
+$ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+```
+查看 Docker Compose 版本。
+```
+$ docker-compose -v
+docker-compose version 1.23.2
+```
+
+## 安裝 Git
+使用 YUM 安裝 Git。
+```
+$ sudo yum install git
+```
+
+查看 Git 版本。
+```
+$ git --version
+git version 2.17.2
+```
+
+## 安裝 Laradock
+從 GitHub 上將 Laradock 下載下來。
+```
+$ git clone https://github.com/Laradock/laradock.git Laradock
+```
+
+複製範本 `env-example` 檔作為設定檔。
+```
+$ cd ~/Laradock && cp env-example .env
+```
+
+修改 `.env` 檔的 `APP_CODE_PATH_HOST` 參數到指定的映射路徑：
+```ENV
+APP_CODE_PATH_HOST=~/Projects
+```
+
 使用 `docker-compose` 啟動 Laradock。
 ```
 $ cd ~/Laradock && docker-compose up -d nginx workspace
@@ -108,7 +107,7 @@ $ sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 $ ln -s /usr/local/bin/composer /usr/bin/composer
 ```
 
-查看版本。
+查看 Composer 版本。
 ```
 $ composer -v
 Composer version 1.8.3
