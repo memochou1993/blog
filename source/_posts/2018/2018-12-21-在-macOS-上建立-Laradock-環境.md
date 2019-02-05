@@ -6,8 +6,12 @@ tags: ["環境部署", "macOS", "Docker", "Laradock", "Laravel"]
 categories: ["環境部署", "Docker"]
 ---
 
-## 環境
-- macOS High Sierra
+## 安裝 Docker
+手動安裝 Docker，並註冊帳號。開啟終端機，登入 Docker。
+```
+$ docker login
+```
+- 輸入使用者名稱（而非電子郵件）。
 
 ## 安裝 Laradock
 從 GitHub 上下載 Laradock 到根目錄。
