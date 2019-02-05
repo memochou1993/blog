@@ -7,7 +7,7 @@ categories: ["其他", "資料庫管理工具"]
 ---
 
 ## 環境
-- macOS High Sierra
+- macOS
 - Homestead
 
 ## 步驟

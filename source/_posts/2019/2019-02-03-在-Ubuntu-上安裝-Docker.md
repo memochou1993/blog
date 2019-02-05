@@ -2,7 +2,7 @@
 title: 在 Ubuntu 上安裝 Docker
 permalink: 在-Ubuntu-上安裝-Docker
 date: 2019-02-03 19:13:17
-tags: ["環境部署", "AWS", "Linux", "Ubuntu", "Docker"]
+tags: ["環境部署", "Linux", "Ubuntu", "Docker"]
 categories: ["環境部署", "Docker"]
 ---
 

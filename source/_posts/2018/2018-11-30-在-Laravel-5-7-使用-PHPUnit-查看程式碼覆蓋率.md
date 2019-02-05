@@ -7,7 +7,7 @@ categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
 ## 環境
-- macOS High Sierra
+- macOS
 - xdebug 2.6.1
 
 ### 使用指令

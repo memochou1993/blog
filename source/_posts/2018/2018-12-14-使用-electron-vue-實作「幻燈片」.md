@@ -7,7 +7,7 @@ categories: ["程式寫作", "JavaScript", "Vue"]
 ---
 
 ## 環境
-- macOS High Sierra
+- macOS
 
 ## 安裝套件
 ```

@@ -7,7 +7,7 @@ categories: ["程式寫作", "PHP", "CodeIgniter"]
 ---
 
 ## 環境
-- macOS High Sierra
+- macOS
 - Homestead
 
 ## 安裝套件
