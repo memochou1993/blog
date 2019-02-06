@@ -2,8 +2,8 @@
 title: 學習使用 Amazon Web Services 雲端運算服務
 permalink: 學習使用-Amazon-Web-Services-雲端運算服務
 date: 2019-01-30 22:06:19
-tags: ["環境部署", "AWS"]
-categories: ["環境部署", "AWS"]
+tags: ["環境部署", "AWS", "Linux", "雲端運算服務"]
+categories: ["其他", "雲端運算服務"]
 ---
 
 ## 註冊帳號

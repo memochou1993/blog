@@ -51,7 +51,7 @@ $ valet secure laravel
 $ valet unsecure laravel
 ```
 
-## 瀏覽
+## 瀏覽網頁
 前往：http://laravel.test/
 
 ## 補充

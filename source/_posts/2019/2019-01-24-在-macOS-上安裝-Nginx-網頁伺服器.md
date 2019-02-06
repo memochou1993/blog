@@ -46,5 +46,5 @@ location ~ \.php$ {
 phpinfo();
 ```
 
-## 瀏覽
+## 瀏覽網頁
 前往：http://localhost:8080/index.php

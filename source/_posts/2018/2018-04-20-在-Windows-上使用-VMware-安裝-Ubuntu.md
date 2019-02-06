@@ -1,9 +1,9 @@
 ---
-title: 在 Windows 7 上使用 VMware 安裝 Ubuntu 16
-permalink: 在-Windows-7-上使用-VMware-安裝-Ubuntu-16
+title: 在 Windows 上使用 VMware 安裝 Ubuntu
+permalink: 在-Windows-上使用-VMware-安裝-Ubuntu
 date: 2018-04-20 10:16:09
 tags: ["環境部署", "Linux", "Ubuntu"]
-categories: ["環境部署", "Ubuntu"]
+categories: ["環境部署", "Linux"]
 ---
 
 ## 環境

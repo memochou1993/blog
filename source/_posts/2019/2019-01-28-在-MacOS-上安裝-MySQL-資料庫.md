@@ -65,7 +65,7 @@ $ mysql -u root -p
 > quit;
 ```
 
-使用 `admin` 進入資料庫。
+使用 `admin` 使用者進入資料庫。
 ```
 $ mysql -u admin -p
 ```

@@ -44,7 +44,7 @@ server {
 127.0.0.1 swoole.test
 ```
 
-## 瀏覽
+## 瀏覽網頁
 前往 http://swoole.test/
 
 ## 參考資料
