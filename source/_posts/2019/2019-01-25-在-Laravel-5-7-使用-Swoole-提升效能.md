@@ -48,5 +48,4 @@ server {
 前往 http://swoole.test/
 
 ## 參考資料
-
 [透過 Swoole 加速 Laravel 效能](https://blog.albert-chen.com/speed-up-laravel-with-swoole/)

@@ -17,7 +17,7 @@ $ sudo apt-get update
 
 安裝 PHP 及擴充套件。
 ```
-$ sudo apt-get install -y php php7.2-fpm php-mysql php-zip php-cli php-mbstring php-xml
+$ sudo apt-get install -y php php7.2-fpm php-mysql php-zip php-cli php-mbstring php-xml php-curl
 ```
 
 查看 PHP 版本
@@ -58,6 +58,11 @@ $ sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 $ composer --version
 ```
 
+修改權限。
+```
+$ sudo chown -R ${USER}:${USER} ~/.composer
+```
+
 將套件執行檔路徑寫進環境變數。
 ```
 $ echo 'export PATH="$PATH:$HOME/.composer/vendor/bin"' >> ~/.bashrc
@@ -86,13 +91,7 @@ $ sudo apt-get install -y nginx
 $ nginx -v
 ```
 
-複製範本 `default` 檔作為設定檔。
-```
-$ cd cd /etc/nginx/sites-available
-$ sudo cp default laravel.test.conf
-```
-
-修改 `laravel.test.conf` 檔：
+在 `/etc/nginx/sites-availabl` 資料夾新增 `laravel.xxx.com.conf` 檔：
 ```
 server {
 	listen 80;
@@ -109,22 +108,25 @@ server {
 	}
     
 	location ~ \.php$ {
-        fastcgi_pass   unix:/run/php/php7.2-fpm.sock;
-        fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
-        include        fastcgi_params;
+		fastcgi_pass   unix:/run/php/php7.2-fpm.sock;
+		fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+		include        fastcgi_params;
 	}
 }
 ```
 
 建立設定檔軟連結。
 ```
-$ sudo ln -s /etc/nginx/sites-available/laravel.test.conf /etc/nginx/sites-enabled/
+$ sudo ln -s /etc/nginx/sites-available/laravel.xxx.com.conf /etc/nginx/sites-enabled/laravel.xxx.com.conf
 ```
 
 重啟 Nginx 服務。
 ```
 $ sudo nginx -s reload
 ```
+
+## 設定 DNS
+新增子網域：laravel.xxx.com，並指向執行個體的 IP。
 
 ## 安裝 MySQL
 安裝 MySQL。
@@ -178,12 +180,21 @@ $ mysql -u ubuntu -p
 ```
 
 ## 新增專案
-在 `/var/www` 目錄新增專案，並修改權限。
+修改 `/var/www` 資料夾的權限。
+```
+$ sudo chown -R ${USER}:${USER} /var/www
+```
+
+新增專案。
 ```
 $ cd /var/www
 $ laravel new laravel
-$ sudo chown -R :www-data /var/www
-$ sudo chmod -R 775 /var/www/laravel/storage
+```
+
+修改 `.env` 檔。
+```
+DB_USERNAME=ubuntu
+DB_PASSWORD=password
 ```
 
 執行遷移。
@@ -191,8 +202,10 @@ $ sudo chmod -R 775 /var/www/laravel/storage
 $ php artisan migrate --seed
 ```
 
-## 設定 DNS
-新增子網域：laravel.xxx.com，並指向執行個體的 IP。
+修改權限，讓 Nginx 使用者可以存取 `storage` 和 `bootstrap/cache` 資料夾。
+```
+$ sudo setfacl -R -m u:www-data:rwx /var/www/laravel/storage /var/www/laravel/bootstrap/cache
+```
 
 ## 瀏覽網頁
 前往：laravel.xxx.com
