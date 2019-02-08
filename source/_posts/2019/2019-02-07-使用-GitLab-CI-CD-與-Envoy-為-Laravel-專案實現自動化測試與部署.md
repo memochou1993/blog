@@ -1,6 +1,6 @@
 ---
 title: 使用 GitLab CI/CD 與 Envoy 為 Laravel 專案實現自動化測試與部署
-permalink: 使用-GitLab-CI/CD-與-Envoy-為-Laravel-專案實現自動化測試與部署
+permalink: 使用-GitLab-CI-CD-與-Envoy-為-Laravel-專案實現自動化測試與部署
 date: 2019-02-07 01:51:29
 tags: ["環境部署", "CI/CD", "Linux", "Ubuntu", "Laravel", "GitLab"]
 categories: ["環境部署", "CI/CD"]
