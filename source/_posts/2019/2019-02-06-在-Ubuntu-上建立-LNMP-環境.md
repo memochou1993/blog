@@ -126,7 +126,7 @@ $ sudo nginx -s reload
 ```
 
 ## 設定 DNS
-新增子網域：laravel.xxx.com，並指向執行個體的 IP。
+新增子網域：laravel.xxx.com，並指向主機的 IP。
 
 ## 安裝 MySQL
 安裝 MySQL。

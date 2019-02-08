@@ -7,7 +7,7 @@ categories: ["其他", "SSH"]
 ---
 
 ## 做法
-新增 `~/.ssh/config` 檔：
+在 `~/.ssh` 資料夾新增 `config` 檔：
 ```
 Host xx.xxx.com
     HostName xx.xxx.xxx.xxx

@@ -42,7 +42,7 @@ $ composer require tymon/jwt-auth:"^1.0@dev"
 ```
 
 ## 環境配置
-編輯 `bootstrap\app.php` 檔並取消以下註解：
+編輯 `bootstrap/app.php` 檔並取消以下註解：
 ```PHP
 // $app->withFacades();
 // $app->withEloquent();

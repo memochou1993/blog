@@ -176,7 +176,7 @@ server_name *.amazonaws.com;
 root /var/www/laravel/public;
 ```
 
-重新啟動 Nginx。
+重啟 Nginx 服務。
 ```
 $ cd ~/Laradock && docker-compose restart nginx
 ```

@@ -12,17 +12,17 @@ categories: ["環境部署", "Nginx"]
 $ brew install nginx
 ```
 
-啟動 Nginx。
+啟動 Nginx 服務。
 ```
 $ sudo nginx
 ```
 
-停止 Nginx。
+停止 Nginx 服務。
 ```
 $ sudo nginx -s stop
 ```
 
-重新啟動 Nginx。
+重啟 Nginx 服務。
 ```
 $ sudo nginx -s reload  
 ```

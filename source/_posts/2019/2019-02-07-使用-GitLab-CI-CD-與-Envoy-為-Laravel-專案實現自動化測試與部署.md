@@ -130,7 +130,7 @@ server {
 $ sudo ln -s /etc/nginx/sites-available/laravel-envoy.xxx.com.conf /etc/nginx/sites-enabled/laravel-envoy.xxx.com.conf
 ```
 
-重啟 Nginx。
+重啟 Nginx 服務。
 ```
 $ sudo nginx -s reload
 ```

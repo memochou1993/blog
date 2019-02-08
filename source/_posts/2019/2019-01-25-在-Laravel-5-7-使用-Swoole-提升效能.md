@@ -7,6 +7,7 @@ categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
 ## 環境
+- macOS
 - PHP 7.2
 - Nginx 1.15.8
 - Swoole 4.2.12
