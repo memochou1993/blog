@@ -116,8 +116,8 @@ class User extends Authenticatable implements JWTSubject
     ],
 ```
 
-## 新增資料填充
-新增 `UsersTableSeeder` 資料填充。
+## 新增填充
+新增 `UsersTableSeeder` 填充。
 ```
 $ php artisan make:seed UsersTableSeeder
 ```

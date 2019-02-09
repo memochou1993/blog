@@ -1,6 +1,6 @@
 ---
-title: 在 Nuxt.js 2.0 使用 AdonisJs 4.0 進行全端開發
-permalink: 在-Nuxt-js-2-0-使用-AdonisJs-4-0-進行全端開發
+title: 在 Nuxt.js 2.0 使用 AdonisJs 4.0 框架
+permalink: 在-Nuxt-js-2-0-使用-AdonisJs-4-0-框架
 date: 2019-01-23 00:39:13
 tags: ["程式寫作", "JavaScript", "Node.js", "AdonisJs", "Nuxt.js"]
 categories: ["程式寫作", "JavaScript", "Node.js"]

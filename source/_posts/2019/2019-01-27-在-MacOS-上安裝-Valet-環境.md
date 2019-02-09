@@ -7,7 +7,7 @@ categories: ["環境部署", "Valet"]
 ---
 
 ## 步驟
-安裝 `Valet` 套件。
+安裝 `laravel/valet` 套件。
 ```
 $ composer global require laravel/valet
 ```
@@ -52,7 +52,7 @@ $ valet unsecure laravel
 ```
 
 ## 瀏覽網頁
-前往：http://laravel.test/
+前往：http://laravel.test
 
 ## 補充
 Valet 會破壞預設的 `Nginx.conf` 檔，並持續監聽 80 埠。
