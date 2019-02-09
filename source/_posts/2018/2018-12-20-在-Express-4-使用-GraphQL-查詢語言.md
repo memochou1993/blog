@@ -1,6 +1,6 @@
 ---
-title: 學習 GraphQL 查詢語言
-permalink: 學習-GraphQL-查詢語言
+title: 在 Express 4 使用 GraphQL 查詢語言
+permalink: 在-Express-4-使用-GraphQL-查詢語言
 date: 2018-12-20 13:33:06
 categories: ["程式寫作", "GraphQL"]
 tags: ["程式寫作", "GraphQL", "JavaScript", "Express"]
