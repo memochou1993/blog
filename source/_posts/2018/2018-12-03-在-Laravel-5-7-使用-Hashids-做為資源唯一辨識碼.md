@@ -16,7 +16,7 @@ categories: ["程式寫作", "PHP", "Laravel"]
 ```
 $ composer require vinkla/hashids
 ```
-發布資源檔案。
+發布資源。
 ```
 $ php artisan vendor:publish
 ```

@@ -41,7 +41,7 @@ public function run()
     ]);
 }
 ```
-執行資料填充。
+執行填充。
 ```
 $ php artisan db:seed
 ```
