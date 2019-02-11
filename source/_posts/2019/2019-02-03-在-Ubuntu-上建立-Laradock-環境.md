@@ -153,7 +153,7 @@ $ composer global require laravel/installer
 $ laravel --version
 ```
 
-## 新增專案
+## 建立專案
 建立專案根目錄。
 ```
 $ mkdir ~/Projects

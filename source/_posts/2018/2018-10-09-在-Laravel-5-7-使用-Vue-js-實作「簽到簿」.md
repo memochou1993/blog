@@ -9,7 +9,7 @@ tags: ["程式寫作", "JavaScript", "Vue.js", "PHP", "Laravel"]
 ## 環境
 - Homestead
 
-## 新增專案
+## 建立專案
 ```
 $ laravel new guestbook
 ```

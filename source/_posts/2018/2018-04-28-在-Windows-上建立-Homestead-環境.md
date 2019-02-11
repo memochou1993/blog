@@ -75,12 +75,12 @@ $ ssh-keygen
 $ vagrant ssh
 ```
 
-## 新增專案
+## 建立專案
 如果沒有 Laravel 安裝器，先執行以下命令：
 ```
 $ composer global require "laravel/installer"
 ```
-再新增專案。
+再建立專案。
 ```
 $ cd Projects
 $ laravel new laravel

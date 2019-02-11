@@ -6,7 +6,7 @@ tags: ["程式寫作", "Laravel", "Vue.js", "Vuetify"]
 categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
-## 新增專案
+## 建立專案
 ```
 $ laravel new laravel-vuetify
 $ php artisan serve

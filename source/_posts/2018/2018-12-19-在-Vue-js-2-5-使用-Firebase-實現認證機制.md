@@ -9,7 +9,7 @@ categories: ["程式寫作", "JavaScript", "Vue.js"]
 ## 環境
 - macOS
 
-## 新增專案
+## 建立專案
 ```
 $ vue create firebase-auth-vue
 ```

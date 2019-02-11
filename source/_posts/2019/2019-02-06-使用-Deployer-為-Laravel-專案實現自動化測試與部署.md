@@ -120,7 +120,7 @@ $ cat ~/.ssh/id_rsa.pub
 $ composer global require deployer/deployer -vvv
 ```
 
-### 新增專案
+### 建立專案
 新增 Laravel 專案。
 ```
 $ laravel new laravel

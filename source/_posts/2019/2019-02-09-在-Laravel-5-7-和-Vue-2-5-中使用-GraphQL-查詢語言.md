@@ -212,7 +212,7 @@ query {
 ```
 
 ## 前端
-### 新增專案
+### 建立專案
 ```
 $ vue create vue-apollo
 ```

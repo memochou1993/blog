@@ -12,7 +12,7 @@ categories: ["程式寫作", "PHP", "Laravel"]
 - npm 5.6.0
 - node 8.11.1
 
-## 新增專案
+## 建立專案
 ```
 $ laravel new foundation
 ```

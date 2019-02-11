@@ -55,7 +55,7 @@ $ docker-compose -v // 檢査是否安裝成功並査看版本
 ## 新增使用者到群組
 新增完必須重新開機。
 ```
-$ sudo usermod -aG docker [username]
+$ sudo usermod -aG docker <USERNAME>
 ```
 
 ## 安裝 Laradock
@@ -80,10 +80,10 @@ APP_CODE_PATH_HOST=~/Projects/
 $ cd ~/
 $ mkdir Projects
 ```
-可以考慮在其他磁碟手動新增專案資料夾。則修改 `.env` 檔為以下：
+可以考慮在其他磁碟手動建立專案資料夾。則修改 `.env` 檔為以下：
 ```
 # Point to the path of your applications code on your host
-APP_CODE_PATH_HOST=/media/[username]/[volumn name]/Projects/
+APP_CODE_PATH_HOST=/media/<USERNAME>/[volumn name]/Projects/
 ```
 這裡最好再重新開機一次。
 

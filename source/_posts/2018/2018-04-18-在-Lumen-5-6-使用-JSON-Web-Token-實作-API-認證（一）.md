@@ -15,7 +15,7 @@ categories: ["程式寫作", "PHP", "Lumen"]
 - MySQL 5.7.21
 - PHP 7.2.4
 
-## 新增專案
+## 建立專案
 ```
 $ lumen new lumen
 ```

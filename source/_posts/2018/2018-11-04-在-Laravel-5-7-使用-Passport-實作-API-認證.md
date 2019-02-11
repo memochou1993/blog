@@ -10,7 +10,7 @@ categories: ["程式寫作", "PHP", "Laravel"]
 - Windows 10
 - Homestead
 
-## 新增專案
+## 建立專案
 ```
 $ laravel new passport
 ```

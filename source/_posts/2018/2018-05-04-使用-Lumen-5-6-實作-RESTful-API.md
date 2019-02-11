@@ -13,7 +13,7 @@ categories: ["程式寫作", "PHP", "Lumen"]
 - Windows 10
 - Homestead 7.4.1
 
-## 新增專案
+## 建立專案
 ```
 $ lumen new journal
 ```

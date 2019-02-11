@@ -12,7 +12,7 @@ categories: ["程式寫作", "PHP", "Laravel"]
 - Nginx 1.15.8
 - Swoole 4.2.12
 
-## 新增專案
+## 建立專案
 ```
 $ laravel new swoole
 ```

@@ -22,7 +22,7 @@ $ valet install
 $ export PATH="$PATH:$HOME/.composer/vendor/bin"
 ```
 
-新增專案目錄。
+建立專案目錄。
 ```
 $ mkdir ~/Sites
 $ cd ~/Sites
@@ -30,7 +30,7 @@ $ valet park
 This directory has been added to Valet's paths.
 ```
 
-新增專案。
+建立專案。
 ```
 $ laravel new laravel
 ```

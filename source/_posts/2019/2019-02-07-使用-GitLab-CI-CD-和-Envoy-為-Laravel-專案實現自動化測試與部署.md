@@ -10,7 +10,7 @@ categories: ["環境部署", "CI/CD"]
 - Ubuntu（遠端伺服器）
 - macOS（本機）
 
-## 新增專案
+## 建立專案
 在本機新增 Laravel 專案，並推送至 GitLab 儲存庫。
 ```
 $ laravel new laravel-envoy

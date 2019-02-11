@@ -9,7 +9,7 @@ categories: ["程式寫作", "GraphQL"]
 ## 環境
 - macOS
 
-## 新增專案
+## 建立專案
 ```
 $ mkdir graphql-express
 $ npm install --save graphql express-graphql express

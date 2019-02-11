@@ -179,13 +179,13 @@ $ mysql -u ubuntu -p
 > quit;
 ```
 
-## 新增專案
+## 建立專案
 修改 `/var/www` 資料夾的權限。
 ```
 $ sudo chown -R ${USER}:${USER} /var/www
 ```
 
-新增專案。
+建立專案。
 ```
 $ cd /var/www
 $ laravel new laravel
