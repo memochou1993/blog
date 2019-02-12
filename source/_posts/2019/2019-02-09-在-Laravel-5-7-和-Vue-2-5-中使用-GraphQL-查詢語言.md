@@ -56,7 +56,7 @@ $ php artisan serve
 ### 跨域資源共享
 安裝 `laravel-cors` 套件。
 ```
-$ composer require --dev barryvdh/laravel-cors
+$ composer require barryvdh/laravel-cors
 ```
 
 修改 `config/lighthouse.php` 檔：
