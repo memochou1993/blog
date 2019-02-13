@@ -2,20 +2,27 @@
 
 echo "Enter your commit message:"
 
-read message
+read input[1]
 
 echo "Your commit message is:"
 
-echo ${message}
+echo ${input[1]}
 
 echo "Are you sure?"
 
-read confirm
+read input[2]
 
-for option in "Yes" "yes" "Y" "y"
-do
-    if [ ${confirm} == ${option} ]
-    then
-        hexo deploy --generate && git add . && git commit -m "${message}" && git push
-    fi
-done
+function confirm()
+{
+    for option in "Yes" "yes" "Y" "y"
+    do
+        [[ $1 == ${option} ]] && confirm=true || confirm=false
+    done
+}
+
+confirm ${input[2]}
+
+if [ ${confirm} == true ]
+then
+    hexo deploy --generate && git add . && git commit -m "${input[1]}" && git push
+fi
