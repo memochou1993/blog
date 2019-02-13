@@ -6,13 +6,16 @@ read message
 
 echo "Your commit message is:"
 
-echo "${message}"
+echo ${message}
 
 echo "Are you sure?"
 
 read confirm
 
-if [ "${confirm}" = "Y" ] || [ "${confirm}" = "y" ];
-then
-    hexo deploy --generate && git add . && git commit -m "${message}" && git push
-fi
+for option in "Yes" "yes" "Y" "y"
+do
+    if [ ${confirm} == ${option} ]
+    then
+        hexo deploy --generate && git add . && git commit -m "${message}" && git push
+    fi
+done
