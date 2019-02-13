@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo 'Enter your commit message:'
+echo "Enter your commit message:"
 
 read input
 
