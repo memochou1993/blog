@@ -13,11 +13,16 @@ categories: ["程式寫作", "GraphQL"]
 - macOS
 
 ## 後端
-###  Laravel 範例
+###  建立專案
 下載 `lighthouse-tutorial` 範例。
 ```
 $ git clone https://github.com/nuwave/lighthouse-tutorial.git
 $ cd lighthouse-tutorial
+```
+
+或在新專案安裝 `nuwave/lighthouse` 套件。
+```
+$ composer require nuwave/lighthouse
 ```
 
 建立設定檔。
