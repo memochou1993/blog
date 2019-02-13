@@ -13,7 +13,36 @@ categories: ["程式寫作", "GraphQL"]
 - macOS
 
 ## 後端
-###  建立專案
+### 建立專案
+新增 Laravel 專案。
+```
+$ laravel new booksql-laravel
+```
+
+安裝 `nuwave/lighthouse` 套件。
+```
+$ composer require nuwave/lighthouse
+```
+
+發布資源。
+```
+$ php artisan vendor:publish --provider="Nuwave\Lighthouse\Providers\LighthouseServiceProvider" --tag=schema
+$ php artisan vendor:publish --provider="Nuwave\Lighthouse\Providers\LighthouseServiceProvider" --tag=config
+```
+
+修改 `config/lighthouse.php` 檔中 `models` 指定的命名空間。
+```PHP
+'namespaces' => [
+    'models' => 'App',
+    'queries' => 'App\\Http\\GraphQL\\Queries',
+    'mutations' => 'App\\Http\\GraphQL\\Mutations',
+    'interfaces' => 'App\\Http\\GraphQL\\Interfaces',
+    'unions' => 'App\\Http\\GraphQL\\Unions',
+    'scalars' => 'App\\Http\\GraphQL\\Scalars',
+],
+```
+
+### 使用範例
 下載 `lighthouse-tutorial` 範例。
 ```
 $ git clone https://github.com/nuwave/lighthouse-tutorial.git
