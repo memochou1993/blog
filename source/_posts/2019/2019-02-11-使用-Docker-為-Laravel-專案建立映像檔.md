@@ -1,6 +1,6 @@
 ---
 title: 使用 Docker 為 Laravel 專案建立映像檔
-permalink: 使用 Docker 為 Laravel 專案建立映像檔
+permalink: 使用-Docker-為-Laravel-專案建立映像檔
 date: 2019-02-11 16:13:50
 tags: ["環境部署", "Docker", "PHP", "Laravel"]
 categories: ["環境部署", "Docker"]
