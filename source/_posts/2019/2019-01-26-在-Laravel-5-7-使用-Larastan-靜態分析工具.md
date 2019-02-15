@@ -6,12 +6,13 @@ tags: ["程式寫作", "PHP", "Laravel", "除錯"]
 categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
-## 安裝套件
+## 做法
+安裝 `nunomaduro/larastan` 套件。
 ```
 $ composer require --dev nunomaduro/larastan
 ```
 
-## 分析
+執行檢查。
 ```
 $ php artisan code:analyse --level=5 --paths="app"
 ```
@@ -19,8 +20,7 @@ $ php artisan code:analyse --level=5 --paths="app"
 - 參數 `path` 表示指定路徑。
 
 ## 客製化設定
-### 檢查專案
-在專案根目錄新增 `phpstan.neon` 檔：
+如果是檢查專案，在專案根目錄新增 `phpstan.neon` 檔：
 ```
 includes:
     - ./vendor/nunomaduro/larastan/extension.neon
@@ -33,8 +33,7 @@ parameters:
         - /*/*/FileToBeExcluded.php
 ```
 
-### 檢查套件
-在套件根目錄新增 `phpstan.neon` 檔：
+如果是檢查套件，在套件根目錄新增 `phpstan.neon.dist` 檔：
 ```
 includes:
     - ./vendor/nunomaduro/larastan/extension.neon
@@ -42,4 +41,9 @@ parameters:
     level: 5
     paths:
         - src
+```
+
+執行檢查。
+```
+$ ./vendor/bin/phpstan analyse
 ```
