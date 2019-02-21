@@ -33,7 +33,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use App\Package;
 
-class Test implements ShouldQueue
+class StorePackage implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -56,7 +56,7 @@ class Test implements ShouldQueue
 ```PHP
 public function index()
 {
-    dispatch(New \App\Jobs\Test);
+    dispatch(New \App\Jobs\StorePackage);
 }
 ```
 

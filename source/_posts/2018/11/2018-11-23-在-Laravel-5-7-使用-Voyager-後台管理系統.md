@@ -21,7 +21,7 @@ $ composer require tcg/voyager
 APP_URL=voyager.test
 ```
 
-## 發布資源
+## 執行安裝
 ```
 $ php artisan voyager:install --with-dummy
 ```

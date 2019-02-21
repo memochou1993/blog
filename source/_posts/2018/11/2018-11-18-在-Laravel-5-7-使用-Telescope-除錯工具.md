@@ -21,7 +21,7 @@ $ laravel new telescope
 ```
 $ composer require laravel/telescope
 ```
-發布資源。
+執行安裝。
 ```
 $ php artisan telescope:install
 ```
@@ -36,7 +36,7 @@ $ php artisan migrate
 ```
 $ composer require laravel/telescope --dev
 ```
-發布資源。
+執行安裝。
 ```
 $ php artisan telescope:install
 ```

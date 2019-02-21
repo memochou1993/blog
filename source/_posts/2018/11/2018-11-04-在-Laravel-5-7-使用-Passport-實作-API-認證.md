@@ -47,7 +47,7 @@ $ php artisan db:seed
 ```
 
 ## 生成密鑰
-執行安裝指令。
+執行安裝。
 ```
 $ php artisan passport:install
 ```
