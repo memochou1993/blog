@@ -29,6 +29,10 @@ $ php artisan telescope:install
 ```
 $ php artisan migrate
 ```
+發布資源。
+```
+$ php artisan telescope:publish
+```
 前往 http://telescope.test/telescope。
 
 ### 限於本地使用
@@ -43,6 +47,10 @@ $ php artisan telescope:install
 執行遷移。
 ```
 $ php artisan migrate
+```
+發布資源。
+```
+$ php artisan telescope:publish
 ```
 在 `config/app.php` 檔中，註解服務提供者。
 ```PHP
