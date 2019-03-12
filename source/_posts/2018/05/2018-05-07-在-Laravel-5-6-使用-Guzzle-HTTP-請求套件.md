@@ -2,7 +2,7 @@
 title: 在 Laravel 5.6 使用 Guzzle HTTP 請求套件
 permalink: 在-Laravel-5-6-使用-Guzzle-HTTP-請求套件
 date: 2018-05-07 10:20:05
-tags: ["程式寫作", "PHP", "Laravel"]
+tags: ["程式寫作", "PHP", "Laravel", "Guzzle"]
 categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
