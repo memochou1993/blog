@@ -10,6 +10,7 @@ categories: ["程式寫作", "PHP", "Laravel"]
 - Laradock
 
 ## 建立專案
+至 Algolia 註冊帳號，並建立專案。
 ```
 $ laravel new scout
 ```
@@ -50,7 +51,7 @@ class Project extends Model
 }
 ```
 
-在模型使用 `shouldBeSearchable()` 方法，決定是否將資料加入至 Algolia 檢索索引。
+在模型使用 `shouldBeSearchable()` 方法，決定是否將資料加入至檢索索引。
 ```PHP
 /**
  * Determine if the model should be searchable.
@@ -59,7 +60,8 @@ class Project extends Model
  */
 public function shouldBeSearchable()
 {
-    return ! $this->private;
+    // 若 $this->private 是 null 或 false 則不加入檢索索引
+    return $this->private ?? false;
 }
 ```
 
@@ -71,8 +73,6 @@ $ php artisan scout:import "App\Project"
 新增一筆資料至檢索索引。
 ```PHP
 $project = $user->projects()->create($request->all());
-$project->searchable();
-// $project->shouldBeSearchable();
 ```
 
 使用全文檢索。

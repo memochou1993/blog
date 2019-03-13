@@ -58,25 +58,25 @@ $ php artisan queue:failed-table
 $ php artisan migrate
 ```
 
-讓 Supervisord 在啟動時 Horizon。
+啟動 Horizon 服務。
 ```
 php artisan horizon
 ```
 
-前往：http://echo.test/horizon
+前往：http://project.test/horizon
 
 ### Supervisord
-如果要讓 Laradock 自動啟動 Horizon，需要複製範本 `laravel-horizon.conf.example` 檔作為設定檔。
+如果要讓 Laradock 自動啟動 Horizon 服務，需要複製範本 `laravel-horizon.conf.example` 檔作為設定檔。
 ```
-$ cd ~Laradock/laravel-horizon/supervisord.d
-$ cp laravel-horizon.conf.example echo-horizon.conf
+$ cd ~/Laradock/laravel-horizon/supervisord.d
+$ cp laravel-horizon.conf.example project-horizon.conf
 ```
 
-修改 `echo-horizon.conf` 檔。
+修改 `project-horizon.conf` 檔。
 ```CONF
-[program:echo-horizon]
+[program:project-horizon]
 process_name=%(program_name)s_%(process_num)02d
-command=php /var/www/echo/artisan horizon
+command=php /var/www/project/artisan horizon
 autostart=true
 autorestart=true
 redirect_stderr=true
