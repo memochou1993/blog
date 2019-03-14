@@ -51,7 +51,7 @@ class Project extends Model
 }
 ```
 
-在模型使用 `shouldBeSearchable()` 方法，決定是否將資料加入至檢索索引。
+可以在模型中使用 `shouldBeSearchable()` 方法，決定是否將資料加入至檢索索引。
 ```PHP
 /**
  * Determine if the model should be searchable.
@@ -60,8 +60,7 @@ class Project extends Model
  */
 public function shouldBeSearchable()
 {
-    // 若 $this->private 是 null 或 false 則不加入檢索索引
-    return $this->private ?? false;
+    return $this->isPublished();
 }
 ```
 
