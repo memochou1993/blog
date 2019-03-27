@@ -31,11 +31,21 @@ public function view(User $user, Record $record)
 ```
 - 第一個參數 `$user` 是當前登入的使用者實例。
 
-在控制器使用：
+在控制器使用 `authorize()` 方法：
 ```PHP
 public function show(User $user, Record $record)
 {
     $this->authorize('view', $record);
+    
+    return $record;
+}
+```
+
+如果要手動帶入使用者實例，可以使用 `authorizeForUser()` 方法：
+```PHP
+public function show(User $user, Record $record)
+{
+    $this->authorizeForUser($user, 'view', $record);
     
     return $record;
 }
