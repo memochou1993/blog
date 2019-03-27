@@ -258,6 +258,23 @@ refresh_token | def50……29a13
 }
 ```
 
+## 其他
+在使用密碼授權時，如果要既可以使用帳號（username），又可以使用信箱進行認證，可以在 `User` 模型新增以下方法：
+```PHP
+/**
+ * Find the user instance for the given username.
+ *
+ * @param  string  $username
+ * @return \App\User
+ */
+public function findForPassport($username)
+{
+    $email = filter_var(($username), FILTER_VALIDATE_EMAIL);
+
+    return $this->where($email ? compact('email') : compact('username'))->first();
+}
+```
+
 ## 程式碼
 [GitHub](https://github.com/memochou1993/passport)
 
