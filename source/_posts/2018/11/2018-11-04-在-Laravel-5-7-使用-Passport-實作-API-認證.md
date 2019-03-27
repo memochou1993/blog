@@ -76,13 +76,13 @@ $ php artisan passport:client --client
 ```PHP
 namespace App;
 
+use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use Notifiable, HasApiTokens;
+    use HasApiTokens, Notifiable;
 }
 ```
 
@@ -91,10 +91,9 @@ class User extends Authenticatable
 ```PHP
 namespace App\Providers;
 
+use Laravel\Passport\Passport;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-use Laravel\Passport\Passport;
-use Carbon\Carbon;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -120,9 +119,9 @@ class AuthServiceProvider extends ServiceProvider
             $router->forAccessTokens();
         });
 
-        Passport::tokensExpireIn(Carbon::now()->addMinutes(10)); // Token 有效時間
+        Passport::tokensExpireIn(now()->addMinutes(360)); // Token 有效時間
 
-        Passport::refreshTokensExpireIn(Carbon::now()->addMinutes(60)); // Refresh Token 有效時間
+        Passport::refreshTokensExpireIn(now()->addDays(7)); // Refresh Token 有效時間
 
         Passport::pruneRevokedTokens(); // 從資料庫將過期 Token 刪除
     }
