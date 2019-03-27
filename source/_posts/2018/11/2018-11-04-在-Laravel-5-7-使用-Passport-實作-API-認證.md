@@ -61,6 +61,16 @@ Client ID: 2
 Client Secret: 28ch1……ioMe7
 ```
 
+若只有密碼授權，執行：
+```
+$ php artisan passport:client --password
+```
+
+若只有客戶端憑證授權，執行：
+```
+$ php artisan passport:client --client
+```
+
 ## 修改模型
 修改 `User` 模型。
 ```PHP
