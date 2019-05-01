@@ -2,7 +2,7 @@
 title: 在 Laravel 5.7 使用 Passport 實作 API 認證
 permalink: 在-Laravel-5-7-使用-Passport-實作-API-認證
 date: 2018-11-04 02:41:25
-tags: ["程式寫作", "PHP", "Laravel", "API", "OAuth", "Passport"]
+tags: ["程式寫作", "PHP", "Laravel", "API", "Passport"]
 categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
