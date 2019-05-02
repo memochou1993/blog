@@ -51,7 +51,7 @@ class SetLocale
 ```PHP
 'web' => [
     ...
-    \App\Http\Middleware\setLocale::class,
+    \App\Http\Middleware\SetLocale::class,
 ],
 ```
 
