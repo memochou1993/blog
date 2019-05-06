@@ -36,6 +36,16 @@ $ php artisan telescope:publish
 前往 http://telescope.test/telescope。
 
 ### 限於本地使用
+修改 `composer.json` 檔，不讓 Composer 自動發現 telescope。
+```
+"extra": {
+    "laravel": {
+        "dont-discover": [
+            "laravel/telescope"
+        ]
+    }
+},
+```
 安裝 `laravel/telescope` 套件。
 ```
 $ composer require laravel/telescope --dev
