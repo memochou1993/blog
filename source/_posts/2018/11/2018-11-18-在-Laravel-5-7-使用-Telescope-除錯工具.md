@@ -36,7 +36,7 @@ $ php artisan telescope:publish
 前往 http://telescope.test/telescope。
 
 ### 限於本地使用
-修改 `composer.json` 檔，不讓 Composer 自動發現 telescope。
+修改 `composer.json` 檔。
 ```
 "extra": {
     "laravel": {
@@ -50,6 +50,15 @@ $ php artisan telescope:publish
 ```
 $ composer require laravel/telescope --dev
 ```
+在 `app\Providers\AppServiceProvider.php` 檔中，新增服務提供者。
+```PHP
+public function register()
+{
+    if ($this->app->isLocal()) {
+        $this->app->register(TelescopeServiceProvider::class);
+    }
+}
+```
 執行安裝。
 ```
 $ php artisan telescope:install
@@ -61,22 +70,5 @@ $ php artisan migrate
 發布資源。
 ```
 $ php artisan telescope:publish
-```
-在 `config/app.php` 檔中，註解服務提供者。
-```PHP
-'providers' => [
-    ...
-    // App\Providers\TelescopeServiceProvider::class,
-    ...
-]
-```
-在 `app\Providers\AppServiceProvider.php` 檔中，新增服務提供者。
-```PHP
-public function register()
-{
-    if ($this->app->isLocal()) {
-        $this->app->register(TelescopeServiceProvider::class);
-    }
-}
 ```
 前往 http://telescope.test/telescope。
