@@ -183,3 +183,25 @@ $ cd ~/Laradock && docker-compose restart nginx
 
 ## 瀏覽網頁
 前往 xxx.compute.amazonaws.com
+
+## 設定相關權限
+進到容器。
+```
+$ docker-compose exec workspace bash
+```
+
+修改 `storage` 資料夾的權限。
+```
+$ chown -R laradock:www-data storage
+```
+
+## 正式環境
+複製範本 `docker-compose.yml` 檔作為設定檔，並刪減內容。
+```
+$ cp docker-compose.yml production-docker-compose.yml
+```
+
+使用 `docker-compose` 啟動 Laradock。
+```
+$ docker-compose -f production-docker-compose.yml up -d nginx mysql redis
+```
