@@ -122,7 +122,7 @@ APP_CODE_PATH_HOST=~/Projects
 
 使用 `docker-compose` 啟動 Laradock。
 ```
-$ cd ~/Laradock && docker-compose up -d nginx workspace
+$ cd ~/Laradock && docker-compose up -d nginx mysql phpmyadmin
 ```
 
 ## 安裝 Composer
@@ -181,6 +181,41 @@ root /var/www/laravel/public;
 $ cd ~/Laradock && docker-compose restart nginx
 ```
 
+## 設定 MySQL
+進入 MySQL 容器。
+```
+$ docker-compose exec mysql bash
+```
+
+使用 `root` 使用者進入資料庫，密碼為 `root`。
+```
+# mysql -u root -p
+```
+
+查看所有使用者。
+```
+> SELECT user,authentication_string,plugin,host FROM mysql.user;
+```
+
+新增使用者，並設定權限。
+```
+> CREATE USER 'ubuntu'@'%' IDENTIFIED WITH mysql_native_password BY 'password';
+> GRANT ALL PRIVILEGES ON *.* TO 'ubuntu'@'%';
+> FLUSH PRIVILEGES;
+> quit;
+```
+
+使用 `ubuntu` 使用者進入資料庫。
+```
+$ mysql -u ubuntu -p
+```
+
+新增 `homestead` 資料庫。
+```
+> CREATE DATABASE `homestead`;
+> quit;
+```
+
 ## 瀏覽網頁
 前往 xxx.compute.amazonaws.com
 
@@ -196,12 +231,12 @@ $ chown -R laradock:www-data storage
 ```
 
 ## 正式環境
-複製範本 `docker-compose.yml` 檔作為設定檔，並刪減內容。
+複製範本 `docker-compose.yml` 檔作為設定檔，刪減內容並移除資料庫的 `port`。
 ```
 $ cp docker-compose.yml production-docker-compose.yml
 ```
 
 使用 `docker-compose` 啟動 Laradock。
 ```
-$ docker-compose -f production-docker-compose.yml up -d nginx mysql redis
+$ docker-compose -f production-docker-compose.yml up -d nginx mysql phpmyadmin
 ```
