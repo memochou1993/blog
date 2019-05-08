@@ -36,28 +36,9 @@ $ php artisan telescope:publish
 前往 http://telescope.test/telescope。
 
 ### 限於本地使用
-修改 `composer.json` 檔。
-```
-"extra": {
-    "laravel": {
-        "dont-discover": [
-            "laravel/telescope"
-        ]
-    }
-},
-```
 安裝 `laravel/telescope` 套件。
 ```
 $ composer require laravel/telescope --dev
-```
-在 `app\Providers\AppServiceProvider.php` 檔中，新增服務提供者。
-```PHP
-public function register()
-{
-    if ($this->app->isLocal()) {
-        $this->app->register(TelescopeServiceProvider::class);
-    }
-}
 ```
 執行安裝。
 ```
