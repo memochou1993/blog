@@ -33,7 +33,7 @@ $ php artisan migrate
 ```
 $ php artisan telescope:publish
 ```
-前往 http://telescope.test/telescope。
+前往 http://telescope.test/telescope
 
 ### 限於本地使用
 安裝 `laravel/telescope` 套件。
@@ -52,4 +52,4 @@ $ php artisan migrate
 ```
 $ php artisan telescope:publish
 ```
-前往 http://telescope.test/telescope。
+前往 http://telescope.test/telescope
