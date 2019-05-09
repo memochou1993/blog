@@ -2,7 +2,7 @@
 title: 使用 config 文件執行 SSH 連線
 permalink: 使用-config-文件執行-SSH-連線
 date: 2019-02-07 20:17:05
-tags: ["其他", "SSH"]
+tags: ["SSH"]
 categories: ["其他", "SSH"]
 ---
 

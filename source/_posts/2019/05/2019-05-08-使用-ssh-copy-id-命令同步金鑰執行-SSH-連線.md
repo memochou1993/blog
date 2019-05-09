@@ -2,7 +2,7 @@
 title: 使用 ssh-copy-id 命令同步金鑰執行 SSH 連線
 permalink: 使用-ssh-copy-id-命令同步金鑰執行-SSH-連線
 date: 2019-05-08 21:12:57
-tags: ["其他", "SSH"]
+tags: ["SSH"]
 categories: ["其他", "SSH"]
 ---
 
