@@ -78,6 +78,12 @@ theme: cactus
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
-  repository: git@github.com:memochou1993/memochou1993.github.io.git
-  branch: master
+  - type: git
+    repository: git@github.com:memochou1993/memochou1993.github.io.git
+    branch: master
+  - type: rsync
+    host: www.epoch.tw
+    user: root
+    root: /var/www/blog
+    delete: true
+    verbose: true
