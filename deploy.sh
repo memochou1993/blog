@@ -24,5 +24,5 @@ confirm ${input[2]}
 
 if [ ${confirm} == true ]
 then
-    hexo deploy --generate && git add . && git commit -m "${input[1]}" && git push
+    git add . && git commit -m "${input[1]}" && git push && hexo deploy --generate
 fi

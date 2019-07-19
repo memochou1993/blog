@@ -46,3 +46,22 @@ public function show(Project $project, $id)
     return new Resource($project);
 }
 ```
+
+添加額外資訊。
+```PHP
+use Illuminate\Support\Str;
+
+class ResponseHelper
+{
+    public static function response($content)
+    {
+        $meta = [
+            'foo' => 'bar',
+        ];
+
+        if (is_object($content) && Str::contains(class_basename($content), 'Resource')) {
+            return $content->additional($meta);
+        }
+    }
+}
+```
