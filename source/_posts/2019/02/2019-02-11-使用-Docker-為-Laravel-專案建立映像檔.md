@@ -7,16 +7,20 @@ categories: ["環境部署", "Docker"]
 ---
 
 ## 環境
+
 - macOS
 
 ## 做法
+
 建立專案。
-```
-$ laravel new laravel-example
+
+```CMD
+laravel new laravel-example
 $ cd laravel-example
 ```
 
 在專案根目錄新增 `Dockerfile` 檔。
+
 ```Dockerfile
 FROM php:7
 RUN apt-get update -y && apt-get install -y openssl zip unzip git
@@ -31,19 +35,23 @@ EXPOSE 8181
 ```
 
 建立映像檔。
-```
-$ docker build -t <USERNAME>/laravel-example:latest .
+
+```CMD
+docker build -t <USERNAME>/laravel-example:latest .
 ```
 
 啟動服務。
-```
-$ docker run -d -p 8181:8181 <USERNAME>/laravel-example:latest
+
+```CMD
+docker run -d -p 8181:8181 <USERNAME>/laravel-example:latest
 ```
 
 推送映像檔。
-```
-$ docker push <USERNAME>/laravel-example:latest
+
+```CMD
+docker push <USERNAME>/laravel-example:latest
 ```
 
 ## 參考資料
+
 [Laravel in Docker](https://buddy.works/guides/laravel-in-docker)

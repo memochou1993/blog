@@ -7,9 +7,11 @@ categories: ["程式寫作", "PHP", "元件"]
 ---
 
 ## 前言
+
 本文實作一個可以讀取 GitHub API 的元件。
 
 ## 專案目錄
+
 ```
 |- github-api/
     |- component/
@@ -18,17 +20,20 @@ categories: ["程式寫作", "PHP", "元件"]
         |- .gitignore
         |- composer.json
         |- README.md
-        
+
 ```
+
 - 元件的所有檔案都會放在 `src` 資料夾。
 
 ## 新增 .gitignore 檔
+
 ```
 vendor
 composer.lock
 ```
 
 ## 新增 composer.json 檔
+
 ```JSON
 {
     "name": "memochou1993/github-api",
@@ -59,21 +64,27 @@ composer.lock
 ```
 
 ## 新增 README.md 檔
+
 見 https://github.com/memochou1993/github-api/blob/master/README.md
 
 ## 發布
+
 1. 登入 [GitHub](https://github.com/)，創建一個 `github-api` 儲存庫，將元件上傳。
 2. 登入 [Packagist](https://packagist.org/)，註冊 https://github.com/memochou1993/github-api 元件。
 
 ## 版本控制
+
 回到 GitHub 為元件建立一個語意化版本作為標籤：
+
 1. 點選 `release`。
 2. 點選 `Create a new release`。
 3. 在 `Tag version` 輸入 `v1.0.0`。
 4. 點選 `Publish release`。
 
 ## 啟動掛鉤
+
 啟動 GitHub 掛鉤，讓元件儲存庫更新時送出一個提醒給 Packagist。
+
 1. 點選 `Settings`。
 2. 點選 `Integrations & services`。
 3. 點選 `Add service` 並輸入 `packagist`。
@@ -83,10 +94,13 @@ composer.lock
 7. 點選 `Add service`。
 
 ## 使用
+
 現在可以輸入以下命令使用做好的元件了。
-```
-$ composer require memochou1993/github-api
+
+```CMD
+composer require memochou1993/github-api
 ```
 
 ## 程式碼
+
 [GitHub](https://github.com/memochou1993/github-api)

@@ -7,49 +7,70 @@ categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
 ## 環境
+
 - Windows 10
 - Homestead
 
 ## 建立專案
-```
-$ laravel new telescope
+
+```CMD
+laravel new telescope
 ```
 
 ## 步驟
+
 ### 一般使用
+
 安裝 `laravel/telescope` 套件。
+
+```CMD
+composer require laravel/telescope
 ```
-$ composer require laravel/telescope
-```
+
 執行安裝。
+
+```CMD
+php artisan telescope:install
 ```
-$ php artisan telescope:install
-```
+
 執行遷移。
+
+```CMD
+php artisan migrate
 ```
-$ php artisan migrate
-```
+
 發布資源。
+
+```CMD
+php artisan telescope:publish
 ```
-$ php artisan telescope:publish
-```
+
 前往 http://telescope.test/telescope
 
 ### 限於本地使用
+
 安裝 `laravel/telescope` 套件。
+
+```CMD
+composer require laravel/telescope --dev
 ```
-$ composer require laravel/telescope --dev
-```
+
 執行安裝。
+
+```CMD
+php artisan telescope:install
 ```
-$ php artisan telescope:install
-```
+
 執行遷移。
+
+```CMD
+php artisan migrate
 ```
-$ php artisan migrate
-```
+
 發布資源。
+
+```CMD
+php artisan telescope:publish
 ```
-$ php artisan telescope:publish
-```
+
 前往 http://telescope.test/telescope

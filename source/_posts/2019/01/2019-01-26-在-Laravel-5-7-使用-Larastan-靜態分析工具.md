@@ -7,21 +7,27 @@ categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
 ## 做法
+
 安裝 `nunomaduro/larastan` 套件。
-```
-$ composer require --dev nunomaduro/larastan
+
+```CMD
+composer require --dev nunomaduro/larastan
 ```
 
 執行檢查。
+
+```CMD
+php artisan code:analyse --level=5 --paths="app"
 ```
-$ php artisan code:analyse --level=5 --paths="app"
-```
+
 - 參數 `level` 表示嚴格程度，0 表示最寬鬆，7 表示最嚴格，默認為 5。
 - 參數 `path` 表示指定路徑。
 
 ## 客製化設定
+
 如果是檢查專案，在專案根目錄新增 `phpstan.neon` 檔：
-```
+
+```ENV
 includes:
     - ./vendor/nunomaduro/larastan/extension.neon
 parameters:
@@ -34,7 +40,8 @@ parameters:
 ```
 
 如果是檢查套件，在套件根目錄新增 `phpstan.neon.dist` 檔：
-```
+
+```ENV
 includes:
     - ./vendor/nunomaduro/larastan/extension.neon
 parameters:
@@ -44,6 +51,7 @@ parameters:
 ```
 
 執行檢查。
-```
-$ ./vendor/bin/phpstan analyse
+
+```CMD
+./vendor/bin/phpstan analyse
 ```

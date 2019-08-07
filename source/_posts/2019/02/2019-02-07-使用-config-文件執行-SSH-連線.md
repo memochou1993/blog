@@ -7,8 +7,10 @@ categories: ["其他", "SSH"]
 ---
 
 ## 做法
+
 在 `~/.ssh` 資料夾新增 `config` 檔：
-```
+
+```ENV
 Host xx.xxx.com
     HostName xx.xxx.xxx.xxx
     User ubuntu
@@ -16,6 +18,7 @@ Host xx.xxx.com
 ```
 
 進行連線。
-```
-$ ssh xx.xxx.com
+
+```CMD
+ssh xx.xxx.com
 ```

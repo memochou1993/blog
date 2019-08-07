@@ -7,10 +7,13 @@ categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
 ## 前言
+
 假設一個使用者（`User`）擁有多個專案，一個專案（`Project`）擁有多個使用者，以及一個專案擁有有多個設定檔（`Environment`）。
 
 ## 建立模型
+
 修改 `app/User.php` 檔。
+
 ```PHP
 /**
  * Get the route key for the model.
@@ -24,7 +27,7 @@ public function getRouteKeyName()
 
 /**
  * Get the projects that belong to the user.
- * 
+ *
  * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
  */
 public function projects()
@@ -34,10 +37,11 @@ public function projects()
 ```
 
 修改 `app/Project.php` 檔。
+
 ```PHP
 /**
  * Get the users that belong to the project.
- * 
+ *
  * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
  */
 public function users()
@@ -47,7 +51,7 @@ public function users()
 
 /**
  * Get the environments for the project.
- * 
+ *
  * @return \Illuminate\Database\Eloquent\Relations\HasMany
  */
 public function environments()
@@ -57,10 +61,11 @@ public function environments()
 ```
 
 修改 `app/Environment.php` 檔。
+
 ```PHP
 /**
  * Get the project that the environments belongs to.
- * 
+ *
  * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
  */
 public function project()
@@ -70,12 +75,15 @@ public function project()
 ```
 
 ## 建立資料填充
+
 建立 `ProjectsTableSeeder.php` 檔。
-```
-$ php artisan make:seed ProjectsTableSeeder
+
+```CMD
+php artisan make:seed ProjectsTableSeeder
 ```
 
 為第一個使用者建立 10 筆私人專案，並為每筆專案建立 5 筆設定檔。
+
 ```PHP
 factory(Project::class, 10)->create([
     'private' => true,
@@ -91,11 +99,13 @@ factory(Project::class, 10)->create([
 ```
 
 建立 `UserProjectTableSeeder.php` 檔。
-```
-$ php artisan make:seed UserProjectTableSeeder
+
+```CMD
+php artisan make:seed UserProjectTableSeeder
 ```
 
 為所有使用者與 10 筆專案建立隨機的多對多關聯。
+
 ```PHP
 /**
  * Get all public projects.
@@ -105,9 +115,9 @@ $projects = Project::all();
 /**
  * Create many-to-many relationships between users and public projects.
  */
-User::all()->each(function ($user) use ($projects) { 
+User::all()->each(function ($user) use ($projects) {
     $user->projects()->attach(
         $projects->random(rand(1, 10))->pluck('id')->all()
-    ); 
+    );
 });
 ```

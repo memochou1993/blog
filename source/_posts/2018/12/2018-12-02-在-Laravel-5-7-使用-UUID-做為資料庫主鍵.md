@@ -7,17 +7,22 @@ categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
 ## 環境
+
 - Windows 10
 - Homestead
 
 ## 安裝套件
+
 安裝 `spatie/laravel-binary-uuid` 套件。
-```
-$ composer require spatie/laravel-binary-uuid
+
+```CMD
+composer require spatie/laravel-binary-uuid
 ```
 
 ## 修改遷移
+
 以 `users` 遷移檔為例：
+
 ```PHP
 Schema::create('users', function (Blueprint $table) {
     $table->uuid('uuid');
@@ -32,7 +37,9 @@ Schema::create('users', function (Blueprint $table) {
 ```
 
 ## 修改模型
+
 以 `User` 模型為例：
+
 ```PHP
 <?php
 
@@ -69,4 +76,5 @@ class User extends Authenticatable
 ```
 
 ## 參考資料
+
 [Ready to use UUID in your next laravel app?](https://www.qcode.in/ready-to-use-uuid-in-your-next-laravel-app/)

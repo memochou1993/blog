@@ -7,30 +7,38 @@ categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
 ## 環境
+
 - Windows 10
 - Homestead
 
 ## 建立專案
-```
-$ laravel new passport
+
+```CMD
+laravel new passport
 ```
 
 ## 安裝套件
-```
-$ composer require laravel/passport
+
+```CMD
+composer require laravel/passport
 ```
 
 ## 執行遷移
-```
-$ php artisan migrate
+
+```CMD
+php artisan migrate
 ```
 
 ## 新增填充
+
 新增 `UsersTableSeeder` 填充。
+
+```CMD
+php artisan make:seed UsersTableSeeder
 ```
-$ php artisan make:seed UsersTableSeeder
-```
+
 在 `UsersTableSeeder.php` 檔新增一名測試用使用者資訊。
+
 ```PHP
 public function run()
 {
@@ -41,18 +49,24 @@ public function run()
     ]);
 }
 ```
+
 執行填充。
-```
-$ php artisan db:seed
+
+```CMD
+php artisan db:seed
 ```
 
 ## 生成密鑰
+
 執行安裝。
+
+```CMD
+php artisan passport:install
 ```
-$ php artisan passport:install
-```
+
 得到以下資訊。
-```
+
+```TEXT
 Personal access client created successfully.
 Client ID: 1
 Client Secret: AHB4p……tdffF
@@ -62,17 +76,21 @@ Client Secret: 28ch1……ioMe7
 ```
 
 若只有密碼授權，執行：
-```
-$ php artisan passport:client --password
+
+```CMD
+php artisan passport:client --password
 ```
 
 若只有客戶端憑證授權，執行：
-```
-$ php artisan passport:client --client
+
+```CMD
+php artisan passport:client --client
 ```
 
 ## 修改模型
+
 修改 `User` 模型。
+
 ```PHP
 namespace App;
 
@@ -87,7 +105,9 @@ class User extends Authenticatable
 ```
 
 ## 註冊路由
+
 在 `app\Providers\AuthServiceProvider.php` 檔註冊路由。
+
 ```PHP
 namespace App\Providers;
 
@@ -129,7 +149,9 @@ class AuthServiceProvider extends ServiceProvider
 ```
 
 ## 修改認證設定
-修改  `config/auth.php` 檔。
+
+修改 `config/auth.php` 檔。
+
 ```PHP
 'guards' => [
     'web' => [
@@ -144,26 +166,32 @@ class AuthServiceProvider extends ServiceProvider
 ```
 
 ## 發起 HTTP 請求
+
 向 http://passport.test/api/user 發起 `GET` 請求，得到回應如下：
+
 ```
 [MethodNotAllowedHttpException] No message
 ```
 
 在 `Accept` 輸入 `application/json` 可以得到以下回應：
+
 ```
 {"message":"Unauthenticated."}
 ```
 
 ### 客戶端憑證授權
+
 在 `app/Http/Kernel.php` 的 `routeMiddleware` 新增中介層。
+
 ```PHP
 protected $routeMiddleware = [
-    ...
+    // ...
     'client' => \Laravel\Passport\Http\Middleware\CheckClientCredentials::class,
 ];
 ```
 
 修改路由。
+
 ```PHP
 Route::get('/user', function (Request $request) {
     return \App\User::get();
@@ -172,13 +200,14 @@ Route::get('/user', function (Request $request) {
 
 在 `Body` 輸入以下鍵値向 http://passport.test/oauth/token 發起 `POST` 請求：
 
-Key	| Value
---- | ---
-grant_type | client_credentials
-client_id | 2
-client_secret | 28ch1……ioMe7
+| Key           | Value              |
+| ------------- | ------------------ |
+| grant_type    | client_credentials |
+| client_id     | 2                  |
+| client_secret | 28ch1……ioMe7       |
 
 得到回應如下：
+
 ```
 {
     "token_type": "Bearer",
@@ -190,17 +219,20 @@ client_secret | 28ch1……ioMe7
 最後在 `Headers` 輸入以下鍵値，再向 http://passport.test/api/user 發起 `GET` 請求。
 （Value 的部分為：Bearer + 空一格 + Token）
 
-Key	| Value
---- | ---
-Authorization | Bearer eyJ0e……uAqSw
+| Key           | Value               |
+| ------------- | ------------------- |
+| Authorization | Bearer eyJ0e……uAqSw |
 
 結果得到回應如下：
+
 ```
 [{"id":1,"name":"Test User","email":"homestead@test.com","email_verified_at":null,"created_at":"2018-11-03 16:27:33","updated_at":"2018-11-03 16:27:33"}]
 ```
 
 ### 密碼授權
+
 使用預設路由。
+
 ```PHP
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
@@ -209,15 +241,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 在 `Body` 輸入以下鍵値向 http://passport.test/oauth/token 發起 `POST` 請求：
 
-Key	| Value
---- | ---
-grant_type | password
-client_id | 2
-client_secret | 28ch1……ioMe7
-username | homestead@test.com
-password | secret
+| Key           | Value              |
+| ------------- | ------------------ |
+| grant_type    | password           |
+| client_id     | 2                  |
+| client_secret | 28ch1……ioMe7       |
+| username      | homestead@test.com |
+| password      | secret             |
 
 得到回應如下：
+
 ```
 {
     "token_type": "Bearer",
@@ -230,25 +263,27 @@ password | secret
 最後在 `Headers` 輸入以下鍵値，再向 http://passport.test/api/user 發起 `GET` 請求。
 （Value 的部分為：Bearer + 空一格 + Token）
 
-Key	| Value
---- | ---
-Authorization | Bearer def50……29a13
+| Key           | Value               |
+| ------------- | ------------------- |
+| Authorization | Bearer def50……29a13 |
 
 結果得到回應如下：
+
 ```
 [{"id":1,"name":"Test User","email":"homestead@test.com","email_verified_at":null,"created_at":"2018-11-03 16:27:33","updated_at":"2018-11-03 16:27:33"}]
 ```
 
 如果要刷新 Token，則在 `Body` 輸入以下鍵値向 http://passport.test/oauth/token 發起 `POST` 請求：
 
-Key	| Value
---- | ---
-grant_type | refresh_token
-client_id | 2
-client_secret | 28ch1……ioMe7
-refresh_token | def50……29a13
+| Key           | Value         |
+| ------------- | ------------- |
+| grant_type    | refresh_token |
+| client_id     | 2             |
+| client_secret | 28ch1……ioMe7  |
+| refresh_token | def50……29a13  |
 
 得到回應如下：
+
 ```
 {
     "token_type": "Bearer",
@@ -259,7 +294,9 @@ refresh_token | def50……29a13
 ```
 
 ## 其他
+
 在使用密碼授權時，如果要既可以使用帳號（username），又可以使用信箱進行認證，可以在 `User` 模型新增以下方法：
+
 ```PHP
 /**
  * Find the user instance for the given username.
@@ -276,9 +313,11 @@ public function findForPassport($username)
 ```
 
 ## 程式碼
+
 [GitHub](https://github.com/memochou1993/passport)
 
 ## 參考資料
+
 [Laravel 道場：API 認證（Passport）](https://docs.laravel-dojo.com/laravel/5.5/passport)
 [Laravel 的 API 认证系统 Passport](https://laravel-china.org/docs/laravel/5.5/passport/1309)
 [Laravel 使用 Passport 實作 OAuth2 Client 註冊與認證](http://carlleesnote.blogspot.com/2017/03/laravel-passport-oauth2-client-by-grant.html)

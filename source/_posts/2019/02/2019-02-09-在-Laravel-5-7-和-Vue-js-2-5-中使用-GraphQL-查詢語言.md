@@ -7,30 +7,38 @@ categories: ["程式寫作", "GraphQL"]
 ---
 
 ## 前言
+
 本文為「[GraphQL Laravel & Vue](https://www.youtube.com/watch?v=hvjW-MQEwIM&list=PLEhEHUEU3x5qsA5JnRzhgOghrH9Vqz4cg)」教學影片的學習筆記。
 
 ## 環境
+
 - macOS
 
 ## 後端
+
 ### 建立專案
+
 新增 Laravel 專案。
-```
-$ laravel new booksql-laravel
+
+```CMD
+laravel new booksql-laravel
 ```
 
 安裝 `nuwave/lighthouse` 套件。
-```
-$ composer require nuwave/lighthouse
+
+```CMD
+composer require nuwave/lighthouse
 ```
 
 發布資源。
-```
-$ php artisan vendor:publish --provider="Nuwave\Lighthouse\Providers\LighthouseServiceProvider" --tag=schema
+
+```CMD
+php artisan vendor:publish --provider="Nuwave\Lighthouse\Providers\LighthouseServiceProvider" --tag=schema
 $ php artisan vendor:publish --provider="Nuwave\Lighthouse\Providers\LighthouseServiceProvider" --tag=config
 ```
 
 修改 `config/lighthouse.php` 檔中 `models` 指定的命名空間。
+
 ```PHP
 'namespaces' => [
     'models' => 'App',
@@ -43,57 +51,69 @@ $ php artisan vendor:publish --provider="Nuwave\Lighthouse\Providers\LighthouseS
 ```
 
 ### 使用範例
+
 下載 `lighthouse-tutorial` 範例。
-```
-$ git clone https://github.com/nuwave/lighthouse-tutorial.git
+
+```CMD
+git clone https://github.com/nuwave/lighthouse-tutorial.git
 $ cd lighthouse-tutorial
 ```
 
 或在新專案安裝 `nuwave/lighthouse` 套件。
-```
-$ composer require nuwave/lighthouse
+
+```CMD
+composer require nuwave/lighthouse
 ```
 
 建立設定檔。
-```
-$ cp .env.example .env
+
+```CMD
+cp .env.example .env
 ```
 
 生成金鑰。
-```
-$ php artisan key:generate
+
+```CMD
+php artisan key:generate
 ```
 
 安裝相依套件。
-```
-$ composer install
+
+```CMD
+composer install
 ```
 
 執行遷移。
-```
-$ php artisan migrate
+
+```CMD
+php artisan migrate
 ```
 
 新增填充。
-```
-$ php artisan tinker
+
+```CMD
+php artisan tinker
 >>> factory('App\Comment', 20)->create()
 ```
 
 啟動網頁伺服器。
-```
-$ php artisan serve
+
+```CMD
+php artisan serve
 ```
 
-前往：http://127.0.0.1:8000
+前往：<http://127.0.0.1:8000>
 
 ### 跨域資源共享
+
 安裝 `laravel-cors` 套件。
-```
-$ composer require barryvdh/laravel-cors
+
+```CMD
+composer require barryvdh/laravel-cors
 ```
 
 修改 `config/lighthouse.php` 檔：
+
 ```PHP
 'route' => [
     'prefix' => '',
@@ -104,22 +124,27 @@ $ composer require barryvdh/laravel-cors
 ```
 
 ### 安裝開發工具
+
 安裝 GraphQL Playground 開發工具。
-```
-$ brew cask install graphql-playground
+
+```CMD
+brew cask install graphql-playground
 ```
 
-輸入網址：http://127.0.0.1:8000/graphql
+輸入網址：<http://127.0.0.1:8000/graphql>
 
 或安裝 Laravel GraphQL Playground 網頁開發工具。
-```
-$ composer require --dev mll-lab/laravel-graphql-playground
+
+```CMD
+composer require --dev mll-lab/laravel-graphql-playground
 ```
 
-前往：http://127.0.0.1:8000/graphql-playground
+前往：<http://127.0.0.1:8000/graphql-playground>
 
 ### 架構
+
 查看 `routes/graphql/schema.graphql` 檔。
+
 ```JS
 """This is a custom built-in Scalar type from LightHouse. It handles Carbon dates"""
 scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
@@ -156,6 +181,7 @@ type Query {
 ```
 
 執行查詢。
+
 ```JS
 query {
   post(id: 1) {
@@ -172,6 +198,7 @@ query {
 ```
 
 新增修改。
+
 ```JS
 type Mutation {
     createUser(
@@ -183,6 +210,7 @@ type Mutation {
 ```
 
 執行修改。
+
 ```JS
 mutation {
   createUser(
@@ -197,12 +225,15 @@ mutation {
 ```
 
 ### 新增查詢類別
+
 新增一個查詢類別。
-```
-$ php artisan lighthouse:query LatestPost
+
+```CMD
+php artisan lighthouse:query LatestPost
 ```
 
 修改 `app/Http/GraphQL/Queries/LatestPost.php` 檔：
+
 ```PHP
 namespace App\Http\GraphQL\Queries;
 
@@ -230,6 +261,7 @@ class LatestPost
 ```
 
 修改 `routes/graphql/schema.graphql` 檔：
+
 ```JS
 type Query {
     latestPost: Post
@@ -237,6 +269,7 @@ type Query {
 ```
 
 執行查詢。
+
 ```JS
 query {
   latestPost {
@@ -246,31 +279,38 @@ query {
 ```
 
 ## 前端
+
 ### 建立專案
-```
-$ vue create vue-apollo
+
+```CMD
+vue create vue-apollo
 ```
 
 安裝套件。
-```
-$ cd vue-apollo
+
+```CMD
+cd vue-apollo
 $ vue add apollo
 ```
 
 啟動網頁伺服器。
-```
-$ npm run serve
+
+```CMD
+npm run serve
 ```
 
-前往：http://localhost:8080
+前往：<http://localhost:8080>
 
 ### 設定
+
 修改 `src/vue-apollo.js` 檔：
+
 ```JS
 const httpEndpoint = process.env.VUE_APP_GRAPHQL_HTTP || 'http://localhost:8000/graphql';
 ```
 
 執行查詢。
+
 ```JS
 import gql from 'graphql-tag';
 
@@ -293,6 +333,7 @@ export default {
 ```
 
 執行修改。
+
 ```JS
 methods: {
   createUser() {

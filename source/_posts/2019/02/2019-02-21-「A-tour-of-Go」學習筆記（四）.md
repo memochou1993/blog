@@ -7,13 +7,17 @@ categories: ["程式寫作", "Go", "「A tour of Go」學習筆記"]
 ---
 
 ## 前言
+
 本文為「[A tour of Go](https://go-tour-zh-tw.appspot.com/)」語言指南的學習筆記。
 
 ## 環境
+
 - macOS
 
 ## 方法
+
 Go 沒有「類」，但是可以在結構體類型上定義方法。「方法接收者」寫在 `func` 關鍵字和方法名稱之間的參數中。
+
 ```GO
 package main
 
@@ -39,6 +43,7 @@ func main() {
 ```
 
 可以對包中的任意類型定義任意方法，但不能對來自其他包的類型或基礎類型定義方法。
+
 ```GO
 package main
 
@@ -69,6 +74,7 @@ func main() {
 首先避免在每個方法調用中拷貝值（如果值類型是大的結構體的話會更有效率）。其次，方法可以修改接收者指向的值。
 
 以下程式碼，當 `v` 是 `Vertex` 的時候 `Scale` 方法沒有任何作用。因為當 `v` 是一個值（非指針）的時候，方法看到的是 `Vertex` 的副本，無法修改原始值。
+
 ```Go
 package main
 
@@ -100,7 +106,9 @@ func main() {
 ```
 
 ## 介面
+
 介面類型是由一組方法定義的集合，介面類型的值可以存放實現這些方法的任何值。
+
 ```GO
 package main
 
@@ -153,6 +161,7 @@ func (v *Vertex) Abs() float64 {
 「隱式介面」是類型通過實現那些方法來實現介面，沒有顯式聲明的必要。
 
 隱式介面解藕了實現介面的包和定義介面的包：互不依賴。因此，也就無需在每一個實現上增加新的介面名稱，
+
 ```GO
 package main
 
@@ -187,7 +196,9 @@ func main() {
 ```
 
 ## 錯誤
+
 錯誤是可以用字符串描述自己的任何東西。主要思路是由預定義的內建介面類型 `error`，和方法 `Error`，返回字符串。
+
 ```GO
 type error interface {
     Error() string
@@ -195,6 +206,7 @@ type error interface {
 ```
 
 當用 `fmt` 包的多種不同的列印函式輸出一個 `error` 時，會自動的調用該方法。
+
 ```GO
 package main
 

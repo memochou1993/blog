@@ -7,16 +7,20 @@ categories: ["程式寫作", "GraphQL"]
 ---
 
 ## 環境
+
 - macOS
 
 ## 建立專案
-```
-$ mkdir graphql-express
+
+```CMD
+mkdir graphql-express
 $ npm install --save graphql express-graphql express
 ```
 
 ## 建立資料結構
+
 新增 `GraphQLSchema.js` 檔：
+
 ```JS
 const { buildSchema } = require('graphql');
 
@@ -91,7 +95,9 @@ exports.rootValue = {
 ```
 
 ## 建立伺服
+
 新增 `server.js` 檔：
+
 ```JS
 const express = require('express');
 const graphqlHTTP = require('express-graphql');
@@ -110,12 +116,15 @@ app.listen(3000);
 ```
 
 ## 啟動服務
-```
-$ node server.js
+
+```CMD
+node server.js
 ```
 
 ## 執行查詢
+
 在 http://localhost:3000/graphql 執行查詢：
+
 ```
 {
   users {
@@ -136,7 +145,9 @@ $ node server.js
   }
 }
 ```
+
 得到結果：
+
 ```JSON
 {
   "data": {
@@ -196,4 +207,5 @@ $ node server.js
 ```
 
 ## 參考資料
+
 [GraphQL 入門 Part - 從 REST 到 GraphQL](https://ithelp.ithome.com.tw/articles/10188294)

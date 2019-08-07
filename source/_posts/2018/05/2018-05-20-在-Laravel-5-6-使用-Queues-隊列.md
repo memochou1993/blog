@@ -7,22 +7,28 @@ categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
 ## 環境
+
 - Windows 10
 - Homestead 7.4.1
 
 ## 安裝套件
-```
-$ composer require predis/predis
+
+```CMD
+composer require predis/predis
 ```
 
 ## 建立工作
+
 設定一個可以儲存包裹的工作。
-```
-$ php artisan make:job StorePackage
+
+```CMD
+php artisan make:job StorePackage
 ```
 
 ## 設定工作
+
 新增 `App\Jobs\StorePackage.php` 檔並建立工作：
+
 ```PHP
 namespace App\Jobs;
 
@@ -52,7 +58,9 @@ class StorePackage implements ShouldQueue
 ```
 
 ## 推入隊列
+
 在 `PackageController` 的 `index()` 方法內推入隊列。
+
 ```PHP
 public function index()
 {
@@ -61,10 +69,13 @@ public function index()
 ```
 
 ## 隊列工人
+
 讓隊列工人從隊列拉出工作並執行它們。
+
+```CMD
+php artisan queue:work --timeout=10 --sleep=10 --tries=3
 ```
-$ php artisan queue:work --timeout=10 --sleep=10 --tries=3
-```
+
 - `--timeout` 代表停止它前，可以執行的秒數。
 - `--sleep` 代表沒有在工作時，應休眠的秒數。
 - `--tries` 代表過程出錯時，最多嘗試的次數。

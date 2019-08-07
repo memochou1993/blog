@@ -7,15 +7,19 @@ categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
 ## 前言
+
 設計一個 Controller 和 Repository 都會使用到的 Query 特徵機制。
 
 ## 構想
+
 在 Repository 定義好取得資源的方法，並預先寫好 `where` 和 `with` 查詢。
+
 ```PHP
 $user->projects()->where($this->where)->with($this->with)->findOrFail($project->id);
 ```
 
 在 Controller 使用以下方式，取得特定資料。
+
 ```PHP
 $this->setQuery([
     'where' => [
@@ -25,6 +29,7 @@ $this->setQuery([
 ```
 
 在 Controller 使用以下方式，取得關聯資料。
+
 ```PHP
 $this->setQuery([
     'with' => $request->with,
@@ -32,7 +37,9 @@ $this->setQuery([
 ```
 
 ## 做法
+
 在 `app/Contracts` 資料夾的 `ProjectInterface.php` 檔，定義一個 `getUserProject()` 方法，第三個參數是 `$query`。
+
 ```PHP
 namespace App\Contracts;
 
@@ -46,6 +53,7 @@ interface ProjectInterface
 ```
 
 在 `app/Http/Controllers/Api/User` 資料夾的 `ProjectController.php` 檔，使用 `Queryable` 特徵機制，並使用 `getUserProject()` 方法，從 Repository 取得特定使用者的所有專案。
+
 ```PHP
 namespace App\Http\Controllers\Api\User;
 
@@ -83,7 +91,7 @@ class ProjectController extends ApiController
         parent::__construct();
 
         $this->request = $request;
-        
+
         $this->reposotory = $reposotory;
 
         // 使用 with 查詢
@@ -115,6 +123,7 @@ class ProjectController extends ApiController
 ```
 
 在 `app/Traits/Queryable.php` 檔定義 `setQuery()` 以及 `castQuery()` 方法。
+
 ```PHP
 namespace App\Traits;
 
@@ -164,6 +173,7 @@ trait Queryable
 ```
 
 在 `app/Repositories` 資料夾的 `ProjectRepository.php` 檔使用 `$this->castQuery()` 方法，將 `$query` 注入，即可使用 `$this->where` 以及 `$this->with` 調用。
+
 ```PHP
 namespace App\Repositories;
 
@@ -179,7 +189,7 @@ class ProjectRepository implements ProjectInterface
 
     /**
      * Get the specified project for the specified user.
-     * 
+     *
      * @param  \App\User  $user
      * @param  array  $query
      * @return \App\Project

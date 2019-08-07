@@ -7,20 +7,24 @@ categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
 ## 前言
+
 本文為參考《[Laravel 5 中的 TDD 觀念與實戰](https://jaceju-books.gitbooks.io/tdd-in-laravel-5)》一書的學習筆記。
 
 ## 環境
+
 - Windows 10
 - Homestead 7.4.1
 
 ## 建立專案
-```
-$ laravel new post
+
+```CMD
+laravel new post
 ```
 
 ## 編輯 TestCase.php 檔
 
 設定 `initDatabase()` 方法以初始化資料庫。
+
 ```PHP
 protected function initDatabase()
 {
@@ -39,7 +43,9 @@ protected function initDatabase()
     Artisan::call('db:seed');
 }
 ```
+
 設定 `resetDatabase()` 方法以重置資料庫。
+
 ```PHP
 protected function resetDatabase()
 {
@@ -49,20 +55,28 @@ protected function resetDatabase()
 ```
 
 ## 測試模型
+
 新增 `Post` 模型和 `create_posts_table` 遷移。
+
+```CMD
+php artisan make:model Post -m
 ```
-$ php artisan make:model Post -m
-```
+
 配置可寫入欄位。
+
 ```PHP
 protected $fillable = ['title', 'content'],
 ```
+
 新增 `tests\Feature\PostTest.php` 測試類別。
+
 ```
 // 調用 Post 模型
 use App\Post;
 ```
+
 設定 `setUp()` 方法以開始測試。
+
 ```PHP
 public function setUp()
 {
@@ -72,7 +86,9 @@ public function setUp()
     $this->initDatabase();
 }
 ```
+
 新增 `testEmptyResult()` 方法以測試文章為空。
+
 ```PHP
 public function testEmptyResult()
 {
@@ -84,6 +100,7 @@ public function testEmptyResult()
     $this->assertEquals(0, $posts->count());
 }
 ```
+
 新增 `testCreateAndList()` 以測試新增文章。
 
 ```PHP
@@ -102,7 +119,9 @@ public function testCreateAndList()
     $this->assertEquals(10, $posts->count());
 }
 ```
+
 設定 `tearDown()` 方法以結束測試。
+
 ```PHP
 public function tearDown()
 {
@@ -110,10 +129,13 @@ public function tearDown()
     $this->resetDatabase();
 }
 ```
+
 執行測試。
-```
-$ phpunit
+
+```CMD
+phpunit
 ```
 
 ## 程式碼
+
 [GitHub](https://github.com/memochou1993/post)

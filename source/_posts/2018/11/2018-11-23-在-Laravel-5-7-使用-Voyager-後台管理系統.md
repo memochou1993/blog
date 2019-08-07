@@ -7,33 +7,42 @@ categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
 ## 環境
+
 - Windows 10
 - Homestead
 
 ## 安裝
-```
-$ composer require tcg/voyager
+
+```CMD
+composer require tcg/voyager
 ```
 
 ## 設定
+
 修改 `.env` 檔。
-```
+
+```ENV
 APP_URL=voyager.test
 ```
 
 ## 執行安裝
+
+```CMD
+php artisan voyager:install --with-dummy
 ```
-$ php artisan voyager:install --with-dummy
-```
+
 - 參數 `--with-dummy` 會附帶預設的假資料。
 
 ## 指派管理員
+
+```CMD
+php artisan voyager:admin your@email.com --create
 ```
-$ php artisan voyager:admin your@email.com --create
-```
+
 - 參數 `--create` 會建立一個新的使用者。
 
 ## 使用 Google Analytics
+
 1. 在 [Google 開發者平台](https://console.developers.google.com/)建立專案。
 2. 點選 `Create credentials` 的 `Oauth client ID`。
 3. 點選 `Web application`。
@@ -42,8 +51,11 @@ $ php artisan voyager:admin your@email.com --create
 6. 到 http://voyager.test/admin/settings 的 Admin 選單，新增 Google Analytics Client ID。
 
 ## 首頁工具
+
 ### 新增預設模型
+
 修改 `config\voyager.php` 檔。
+
 ```PHP
 'widgets' => [
     'TCG\\Voyager\\Widgets\\UserDimmer',
@@ -51,6 +63,7 @@ $ php artisan voyager:admin your@email.com --create
 ```
 
 ### 新增自訂模型
+
 1. 建立 Item 模型。
 2. 在 http://fitness.test/admin/bread 新增 Item 模型的 `BREAD`。
 3. 新增 `app\Widgets\ItemDimmer.php` 檔。
@@ -110,6 +123,7 @@ class ItemDimmer extends BaseDimmer
 ```
 
 修改 `config\voyager.php` 檔。
+
 ```PHP
 'widgets' => [
     'App\\Widgets\\ItemDimmer',

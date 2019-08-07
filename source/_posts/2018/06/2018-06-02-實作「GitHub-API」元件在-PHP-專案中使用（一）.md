@@ -7,9 +7,11 @@ categories: ["程式寫作", "PHP", "元件"]
 ---
 
 ## 前言
+
 本文實作一個可以讀取 GitHub API 的元件。
 
 ## 專案目錄
+
 ```
 |- github-api/
     |- dev/
@@ -19,35 +21,40 @@ categories: ["程式寫作", "PHP", "元件"]
         |- composer.json
         |- composer.lock
         |- index.php
-        
+
 ```
+
 - 元件的所有檔案都會放在 `src` 資料夾。
 
 ## 使用 GitHub API
+
 [GitHub REST API v3.](https://developer.github.com/v3/) 提供詳細的文件供開發者使用。
 
 ### 取得儲存庫資料
 
-Method | URL
---- | ---
-GET | https://api.github.com/repos/laravel/laravel
+| Method | URL                                          |
+| ------ | -------------------------------------------- |
+| GET    | https://api.github.com/repos/laravel/laravel |
 
 ### 取得使用者資料
 
-Method | URL
---- | ---
-GET | https://api.github.com/users/memochou1993
+| Method | URL                                       |
+| ------ | ----------------------------------------- |
+| GET    | https://api.github.com/users/memochou1993 |
 
 本文將使用以上兩個方法實作一個可以讀取 GitHub API 的元件。
 
 ## 安裝相依元件
+
 讀取 GitHub API 會需要發送 `HTTP` 請求以及獲取響應，所以安裝 `Guzzle` 元件。
-```
-$ cd github-api/github-api-dev
+
+```CMD
+cd github-api/github-api-dev
 $ composer require guzzlehttp/guzzle
 ```
 
 ## 實作
+
 在 `src` 資料夾中新增一個 `Github.php` 檔。
 
 ```PHP
@@ -60,7 +67,7 @@ class Github
     protected $option;
     protected $exception;
     protected $paginate;
-    
+
     public function __construct()
     {
         // 實例一個發送 HTTP 請求以及獲取響應的 Client 物件
@@ -147,7 +154,9 @@ class Github
 ```
 
 ## 使用
+
 新增一個 `index.php` 檔。
+
 ```PHP
 require 'vendor/autoload.php'; // 載入 autoload.php
 require 'src/Github.php'; // 載入製作好的元件
@@ -177,6 +186,7 @@ var_dump($github->getBody());
 ```
 
 結果：
+
 ```PHP
 object(stdClass)#19 (2) {
   ["url"]=>
@@ -203,4 +213,5 @@ object(stdClass)#16 (2) {
 ```
 
 ## 程式碼
+
 [GitHub](https://github.com/memochou1993/github-api)

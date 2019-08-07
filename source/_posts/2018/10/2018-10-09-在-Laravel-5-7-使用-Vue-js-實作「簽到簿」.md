@@ -7,15 +7,18 @@ tags: ["程式寫作", "JavaScript", "Vue.js", "PHP", "Laravel"]
 ---
 
 ## 環境
+
 - Homestead
 
 ## 建立專案
-```
-$ laravel new guestbook
+
+```CMD
+laravel new guestbook
 ```
 
 ## 設置 .env 檔
-```
+
+```ENV
 DB_CONNECTION=sqlite
 DB_HOST=127.0.0.1
 DB_PORT=3306
@@ -23,18 +26,23 @@ DB_PORT=3306
 ```
 
 ## 建立資料庫
-```
-$ touch database/database.sqlite
+
+```CMD
+touch database/database.sqlite
 ```
 
 ## 建立 API 路由
+
 ### routes/api.php
+
 ```PHP
 Route::resource('signatures', 'SignatureController')->except([
     'create', 'edit'
 ]);
 ```
+
 ### routes/web.php
+
 ```PHP
 Route::namespace('Front')->group(function () {
     Route::resource('signatures', 'SignatureController')->only([
@@ -44,6 +52,7 @@ Route::namespace('Front')->group(function () {
 ```
 
 ## 設置路由服務提供者
+
 ```PHP
 protected function mapApiRoutes()
 {
@@ -55,6 +64,7 @@ protected function mapApiRoutes()
 ```
 
 ## 新增模型
+
 ```PHP
 protected $fillable = [
     'name', 'email', 'content',
@@ -62,6 +72,7 @@ protected $fillable = [
 ```
 
 ## 新增遷移
+
 ```PHP
 Schema::create('signatures', function (Blueprint $table) {
     $table->increments('id');
@@ -74,11 +85,13 @@ Schema::create('signatures', function (Blueprint $table) {
 ```
 
 ## 新增填充
+
 ```PHP
 factory(App\Signature::class, 100)->create();
 ```
 
 ## 新增工廠
+
 ```PHP
 $factory->define(App\Signature::class, function (Faker $faker) {
     return [
@@ -90,12 +103,15 @@ $factory->define(App\Signature::class, function (Faker $faker) {
 ```
 
 執行遷移
-```
-$ php artisan migrate --seed
+
+```CMD
+php artisan migrate --seed
 ```
 
 ## 新增控制器
+
 ### app/Http/Controllers/Api/SignatureController.php
+
 ```PHP
 namespace App\Http\Controllers\Api;
 
@@ -177,7 +193,9 @@ class SignatureController extends Controller
     }
 }
 ```
+
 ### app/Http/Controllers/Front/SignatureController.php
+
 ```PHP
 namespace App\Http\Controllers\Front;
 
@@ -209,19 +227,23 @@ class SignatureController extends Controller
 ```
 
 ## 監聽資源
-```
-$ npm install
+
+```CMD
+npm install
 $ npm run watch
 ```
 
 ## 設置 app.js 檔
+
 ```JS
 Vue.component('signature-index', require('./components/signature/IndexComponent.vue'));
 Vue.component('signature-create', require('./components/signature/CreateComponent.vue'));
 ```
 
 ## 建立視圖
+
 ### resources/views/layouts/app.blade.php
+
 ```HTML
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
@@ -259,7 +281,9 @@ Vue.component('signature-create', require('./components/signature/CreateComponen
 </body>
 </html>
 ```
+
 ### resources/views/signature/index.blade.php
+
 ```HTML
 @extends('layouts.app')
 
@@ -273,7 +297,9 @@ Vue.component('signature-create', require('./components/signature/CreateComponen
     </div>
 @endsection
 ```
+
 ### resources/views/signature/create.blade.php
+
 ```HTML
 @extends('layouts.app')
 
@@ -289,7 +315,9 @@ Vue.component('signature-create', require('./components/signature/CreateComponen
 ```
 
 ## 新增 Vue 元件
+
 ### resources/js/components/signature/IndexComponent.vue
+
 ```HTML
 <template>
     <div>
@@ -437,7 +465,9 @@ Vue.component('signature-create', require('./components/signature/CreateComponen
     }
 </script>
 ```
+
 ### resources/js/components/signature/CreateComponent.vue
+
 ```HTML
 <template>
     <div>
@@ -587,4 +617,5 @@ Vue.component('signature-create', require('./components/signature/CreateComponen
 ```
 
 ## 程式碼
+
 [GitHub](https://github.com/memochou1993/guestbook)

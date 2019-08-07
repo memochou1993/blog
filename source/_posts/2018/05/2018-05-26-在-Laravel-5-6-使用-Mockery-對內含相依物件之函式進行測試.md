@@ -7,14 +7,18 @@ categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
 ## 前言
+
 本文參考〈[如何測試內含相依物件的函式](http://oomusou.io/tdd/tdd-isolated-test/)〉一文，對先前〈在 Laravel 5.6 使用 Repository 與 Service Container〉一文之實作進行測試。
 
 ## 環境
+
 - Windows 10
 - Homestead 7.4.1
 
 ## 新增資源庫
+
 在資源庫新增一個 `getAllPackages()` 方法，以取得資料庫的所有 Packages。
+
 ```PHP
 namespace App\Repositories;
 
@@ -40,7 +44,9 @@ class PackageRepository implements PackageInterface
 ```
 
 ## 新增控制器
+
 在 `PackageController` 新增 `getAllPackages()` 方法。
+
 ```PHP
 namespace App\Http\Controllers;
 
@@ -65,7 +71,9 @@ class PackageController extends Controller
 ```
 
 ## 測試
+
 編輯 `tests\TestCase.php` 檔。
+
 ```PHP
 namespace Tests;
 
@@ -88,7 +96,9 @@ abstract class TestCase extends BaseTestCase
     }
 }
 ```
+
 在 `tests\Feature` 新增 `PackageControllerTest.php` 檔。
+
 ```PHP
 namespace Tests\Feature;
 
@@ -112,7 +122,7 @@ class PackageControllerTest extends TestCase
 
         // 將 `PackageInterface::class` 傳入建立好的 `initMock()`
         $this->mock = $this->initMock(PackageInterface::class);
-        
+
         // 使用 Service container 的 `$this->app->make()` 建立 `PackageController` 物件
         $this->target = $this->app->make(PackageController::class);
     }
@@ -149,11 +159,15 @@ class PackageControllerTest extends TestCase
 ```
 
 ## 單元測試的 3A 原則
+
 ### Arrange
+
 準備測試資料 `$fake`、`mock` 物件 `$mock`、待測物件 `$target`，與建立測試期望値 `$expected`。
 
 ### Act
+
 執行待測物件的 `method`，與建立實際結果値 `$actual`。
 
 ### Assert
+
 使用 PHPUnit 的斷言函式測試 `$expected` 與 `$actual` 是否如預期。

@@ -7,6 +7,7 @@ categories: ["程式寫作", "PHP", "CodeIgniter"]
 ---
 
 登入：
+
 ```PHP
 public function login()
 {
@@ -31,8 +32,9 @@ public function login()
 ```
 
 回調：
+
 ```PHP
-public function callback($provider) 
+public function callback($provider)
 {
     $code = $_GET['code'] ?? null;
     $state = $_GET['state'] ?? null;
@@ -47,7 +49,7 @@ public function callback($provider)
             'code' => $code,
             'grant_type' => 'authorization_code',
         ]);
-        
+
         $result = json_decode(file_get_contents($url), true);
         $accessToken = $result['access_token'];
         $openid = $result['openid'];

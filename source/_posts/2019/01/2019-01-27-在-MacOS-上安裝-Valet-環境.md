@@ -7,52 +7,64 @@ categories: ["環境部署", "Valet"]
 ---
 
 ## 步驟
+
 安裝 `laravel/valet` 套件。
-```
-$ composer global require laravel/valet
+
+```CMD
+composer global require laravel/valet
 ```
 
 啟動。
-```
-$ valet install
+
+```CMD
+valet install
 ```
 
 更新 Composer 環境變數：
-```
-$ export PATH="$PATH:$HOME/.composer/vendor/bin"
+
+```CMD
+export PATH="$PATH:$HOME/.composer/vendor/bin"
 ```
 
 建立專案目錄。
-```
-$ mkdir ~/Sites
+
+```CMD
+mkdir ~/Sites
 $ cd ~/Sites
 $ valet park
 This directory has been added to Valet's paths.
 ```
 
 建立專案。
-```
-$ laravel new laravel
+
+```CMD
+laravel new laravel
 ```
 
 停止 Valet。
-```
-$ valet uninstall
+
+```CMD
+valet uninstall
 ```
 
 ## 加密
+
 使用 HTTPS 的站點：
-```
-$ valet secure laravel
+
+```CMD
+valet secure laravel
 ```
 
 還原回 HTTP 的站點：
-```
-$ valet unsecure laravel
+
+```CMD
+valet unsecure laravel
 ```
 
 ## 瀏覽網頁
-前往：http://laravel.test
+
+前往：<http://laravel.test>
 
 ## 補充
+
 Valet 會破壞預設的 `Nginx.conf` 檔，並持續監聽 80 埠。

@@ -7,26 +7,33 @@ categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
 ## 前言
+
 本文將對先前〈使用 Lumen 5.6 實作 RESTful API〉一文所做之 API 進行 HTTP 請求測試。
 
 ## 安裝
-```
-$ composer require guzzlehttp/guzzle
+
+```CMD
+composer require guzzlehttp/guzzle
 ```
 
 ## 設定路由
+
 ```PHP
 Route::resource('/journals', 'JournalController');
 ```
 
 ## 使用
+
 在控制器調用 `GuzzleHttp\Client` 套件。
+
 ```PHP
 use GuzzleHttp\Client;
 ```
 
 ## 發送 GET 請求
+
 取得所有期刊
+
 ```PHP
 public function index()
 {
@@ -39,7 +46,9 @@ public function index()
     return view('journals.index', compact('journals'));
 }
 ```
+
 取得特定期刊
+
 ```PHP
 public function show($id)
 {
@@ -52,7 +61,9 @@ public function show($id)
     return view('journals.show', compact('cores', 'journal'));
 }
 ```
+
 刪除期刊
+
 ```PHP
 public function destroy(Request $request, $id)
 {
@@ -67,7 +78,9 @@ public function destroy(Request $request, $id)
 ```
 
 ## 發送 POST 請求
+
 儲存期刊
+
 ```PHP
 public function store(Request $request)
 {
@@ -82,7 +95,9 @@ public function store(Request $request)
     return redirect()->route('journals.show', $journal['id']);
 }
 ```
+
 更新期刊
+
 ```PHP
 public function edit($id)
 {
@@ -97,4 +112,5 @@ public function edit($id)
 ```
 
 ## 程式碼
+
 [GitHub](https://github.com/memochou1993/doaj)

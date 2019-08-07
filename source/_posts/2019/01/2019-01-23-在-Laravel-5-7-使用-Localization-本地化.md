@@ -7,7 +7,9 @@ categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
 ## 語系檔案
+
 新增 `resources\lang\zh-tw\localization.php` 檔：
+
 ```PHP
 return [
     'localization' => '本地化',
@@ -15,7 +17,9 @@ return [
 ```
 
 ## 新增中介層
+
 新增 `app\Http\Middleware\SetLocale.php` 檔：
+
 ```PHP
 namespace App\Http\Middleware;
 
@@ -48,14 +52,16 @@ class SetLocale
 ```
 
 修改 `app\Http\Kernel.php` 檔：
+
 ```PHP
 'web' => [
-    ...
+    // ...
     \App\Http\Middleware\SetLocale::class,
 ],
 ```
 
 ## 新增路由
+
 ```PHP
 Route::get('/{locale}', function ($locale) {
     Session::put('locale', $locale);
@@ -76,5 +82,6 @@ Route::get('/', function () {
     echo __('localization.localization');
 });
 ```
+
 - 使用 `php artisan dump-server` 指令查看 `dump()` 中的內容。
 - 使用 `__()` 輔助函式輸出在地化檔案的語句。

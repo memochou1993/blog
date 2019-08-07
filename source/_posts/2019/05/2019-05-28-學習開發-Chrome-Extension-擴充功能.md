@@ -7,7 +7,9 @@ categories: ["程式寫作", "Chrome Extension"]
 ---
 
 ## 做法
+
 使用範例，建立 `manifest.json` 檔。
+
 ```JSON
 {
   "manifest_version": 2,
@@ -27,6 +29,7 @@ categories: ["程式寫作", "Chrome Extension"]
 ```
 
 新增 `popup.html` 檔。
+
 ```HTML
 <!doctype html>
 <!--
@@ -80,6 +83,7 @@ categories: ["程式寫作", "Chrome Extension"]
 ```
 
 新增 `popup.js` 檔。
+
 ```JS
 // Copyright (c) 2014 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
@@ -214,7 +218,9 @@ document.addEventListener('DOMContentLoaded', () => {
 前往[擴充功能](chrome://extensions/)打開「開發人員模式」，點選「載入未封裝項目」。
 
 ## 除錯
+
 在應用程式上點選「檢查彈出式視窗」，並在主控台輸入以下程式碼以重新載入畫面。
+
 ```JS
 location.reload(true)
 ```

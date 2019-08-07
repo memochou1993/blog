@@ -7,27 +7,35 @@ categories: ["程式寫作", "JavaScript", "Node.js"]
 ---
 
 ## 前言
+
 Nuxt 將 Adonis 進行整合，成為 [Adonuxt](https://github.com/nuxt-community/adonuxt-template)。
 
 ## 安裝
+
+```CMD
+npx create-nuxt-app adonuxt
 ```
-$ npx create-nuxt-app adonuxt
-```
+
 - 選擇 Adonis 作為後端框架。
 
 ## 安裝 SQLite
-```
-$ npm install --save sqlite3
+
+```CMD
+npm install --save sqlite3
 ```
 
 ## 更新套件
+
 執行遷移時會出現警告：
-```
+
+```TEXT
 Knex:warning - .returning() is not supported by sqlite3 and will not have any effect.
 ```
+
 - `lucid` 套件需要更新。
 
 更新套件到最新版本：
+
 ```JSON
 "dependencies": {
   "@adonisjs/ace": "^5.0.8",
@@ -40,11 +48,12 @@ Knex:warning - .returning() is not supported by sqlite3 and will not have any ef
   "@adonisjs/lucid": "^6.1.3",
   "@adonisjs/session": "^1.0.27",
   "@adonisjs/shield": "^1.0.8"
-  ...
+  // ...
 }
 ```
 
 ## 新增路由
+
 ```JS
 'use strict';
 
@@ -67,15 +76,19 @@ Route.get('api/users', 'UserController.index');
 
 Route.any('*', 'NuxtController.render'); // 前端渲染
 ```
+
 - 後端路由必須建立在前端渲染之前。
 
 ## 後端開發
+
 前後端同時編譯相當耗時，因此新增一列命令，在開發後端時不對前端程式碼編譯。
+
 ```JS
 "dev:server": "cross-env NODE_NO_CLIENT=true nodemon --watch app --watch bootstrap --watch config --watch .env -x node server.js",
 ```
 
 修改 `app\Controllers\Http\NuxtController.js` 檔：
+
 ```JS
 'use strict';
 
@@ -111,19 +124,24 @@ module.exports = new NuxtController();
 ```
 
 執行。
-```
-$ npm run dev:server
+
+```CMD
+npm run dev:server
 ```
 
 ## 前端開發
+
 前端編譯比較不會耗時，直接執行以下命令。
-```
-$ npm run dev
+
+```CMD
+npm run dev
 ```
 
 ## 處理解析錯誤
+
 遇到 `Parsing error: Unexpected token` 的錯誤訊息，確保 `babel-eslint` 套件有被安裝，並修改 `.eslintrc.js` 檔為：
-```
+
+```JS
 parserOptions: {
   parser: 'babel-eslint',
   ecmaFeatures: {
@@ -134,4 +152,5 @@ parserOptions: {
 ```
 
 ## 程式碼
+
 [GitHub](https://github.com/memochou1993/adonuxt)

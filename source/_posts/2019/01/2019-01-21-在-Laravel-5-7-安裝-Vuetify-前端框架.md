@@ -7,12 +7,14 @@ categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
 ## 建立專案
-```
-$ laravel new laravel-vuetify
+
+```CMD
+laravel new laravel-vuetify
 $ php artisan serve
 ```
 
 ## 修改 `package.json` 檔
+
 ```JSON
 "axios": "^0.18",
 "cross-env": "^5.1",
@@ -25,21 +27,26 @@ $ php artisan serve
 ```
 
 ## 安裝
-```
-$ npm install
+
+```CMD
+npm install
 $ npm install vuetify --save-dev
 ```
+
 - `vue-template-compiler` 會被自動安裝。
 
 ## 新增路由
-```
+
+```PHP
 Route::get('/example', function () {
     return view('example');
 });
 ```
 
 ## 新增視圖
+
 新增 `resources\views\layouts\app.blade.php` 檔：
+
 ```PHP
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
@@ -63,6 +70,7 @@ Route::get('/example', function () {
 ```
 
 新增 `resources\views\example.blade.php` 檔：
+
 ```PHP
 @extends('layouts.app')
 
@@ -74,6 +82,7 @@ Route::get('/example', function () {
 ## 配置
 
 註解 `resources/js/bootstrap.js`。
+
 ```JS
 // window.Popper = require('popper.js').default;
 // window.$ = window.jQuery = require('jquery');
@@ -82,11 +91,13 @@ Route::get('/example', function () {
 ```
 
 新增 `resources\stylus\app.styl` 檔。
+
 ```JS
 @import '~vuetify/src/stylus/main'
 ```
 
 修改 `webpack.mix.js` 檔：
+
 ```JS
 mix.js('resources/js/app.js', 'public/js')
     .extract()
@@ -94,12 +105,14 @@ mix.js('resources/js/app.js', 'public/js')
 ```
 
 移除 `sass` 和 `sass-loader` 套件。
-```
-$ npm uninstall sass
+
+```CMD
+npm uninstall sass
 $ npm uninstall sass-loader
 ```
 
 修改 `.editorconfig` 檔：
+
 ```
 [*.{js,jsx,ts,tsx,vue}]
 insert_final_newline = true
@@ -107,12 +120,15 @@ max_line_length = 100
 ```
 
 ## 監聽
+
+```CMD
+npm run watch-poll
 ```
-$ npm run watch-poll
-```
+
 - 會自動安裝 `stylus` 和 `stylus-loader`。
 
 ## 編譯
-```
-$ npm run prod
+
+```CMD
+npm run prod
 ```

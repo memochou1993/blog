@@ -7,11 +7,14 @@ categories: ["其他", "資料庫管理工具"]
 ---
 
 ## 環境
+
 - macOS
 - Homestead
 
 ## 步驟
+
 編輯 `phpMyAdmin/config.inc.php` 檔，找到以下設定：
+
 ```PHP
 /**
  * Servers configuration
@@ -29,7 +32,9 @@ $cfg['Servers'][$i]['host'] = 'localhost';
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = false;
 ```
+
 新增以下內容：
+
 ```PHP
 /**
  * Second server
@@ -47,4 +52,5 @@ $cfg['Servers'][$i]['verbose'] = '';
 ```
 
 ## 參考資料
+
 [phpMyAdmin](https://docs.phpmyadmin.net/zh_CN/latest/config.html)

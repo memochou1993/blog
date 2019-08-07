@@ -7,7 +7,9 @@ categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
 ## 做法
+
 根據請求方法，將同一資源的表單請求驗證寫在同一個檔案。
+
 ```PHP
 namespace App\Http\Requests;
 

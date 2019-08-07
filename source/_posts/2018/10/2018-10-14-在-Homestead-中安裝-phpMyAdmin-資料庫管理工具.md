@@ -7,9 +7,11 @@ categories: ["環境部署", "Homestead"]
 ---
 
 ## 下載
+
 下載 [phpMyAdmin](https://www.phpmyadmin.net/) 至專案資料夾。
 
 ## 編輯 Homestead.yaml 檔
+
 ```YAML
 sites:
     - map: phpmyadmin.test
@@ -18,12 +20,15 @@ sites:
 databases:
     - phpmyadmin
 ```
+
 重新執行設定檔。
-```
-$ vagrant provision
+
+```CMD
+vagrant provision
 ```
 
 ## 登入
+
 進入 [http://phpmyadmin.test](http://phpmyadmin.test)。
 
 - 帳號：homestead

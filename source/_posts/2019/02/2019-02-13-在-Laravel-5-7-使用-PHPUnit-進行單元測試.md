@@ -7,12 +7,15 @@ categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
 ## 做法
+
 新增測試。
-```
-$ php artisan make:test UserTest
+
+```CMD
+php artisan make:test UserTest
 ```
 
 修改 `phpunit.xml` 檔，使用 SQLite 作為測試環境的記憶體資料庫。
+
 ```XML
 <php>
     <env name="APP_ENV" value="testing"/>
@@ -27,6 +30,7 @@ $ php artisan make:test UserTest
 ```
 
 在測試類別加上 `RefreshDatabase` 特徵機制，以重置資料庫：
+
 ```PHP
 namespace Tests\Feature;
 
@@ -53,6 +57,7 @@ class ExampleTest extends TestCase
 ```
 
 在 `tests/TestCase.php` 檔，使用 `setUp()` 方法作為建構子，使用 `tearDown()` 方法作為解構子：
+
 ```PHP
 namespace Tests;
 
@@ -61,11 +66,11 @@ use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 abstract class TestCase extends BaseTestCase
 {
     use CreatesApplication;
-    
+
     protected function setUp()
     {
         parent::setUp();
-        
+
         //
     }
 
@@ -79,6 +84,7 @@ abstract class TestCase extends BaseTestCase
 ```
 
 執行測試。
-```
-$ phpunit
+
+```CMD
+phpunit
 ```

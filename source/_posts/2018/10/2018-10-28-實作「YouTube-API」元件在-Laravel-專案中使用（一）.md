@@ -7,9 +7,11 @@ categories: ["程式寫作", "PHP", "元件"]
 ---
 
 ## 前言
+
 本文實作一個可以讀取 YouTube API 的元件。
 
 ## 專案目錄
+
 ```
 |- youtube-api/
     |- component/
@@ -33,13 +35,17 @@ categories: ["程式寫作", "PHP", "元件"]
 ```
 
 ## 使用 YouTube API
+
 [YouTube API](https://developers.google.com/youtube/v3/) 提供詳細的文件供開發者使用。
 
 ## 申請 API Key
+
 首先到 [Google 開發者平台](https://console.developers.google.com/)建立專案，並且取得 API Key。
 
 ## 安裝相依元件
+
 建立 `composer.json` 檔。
+
 ```
 {
     "require": {
@@ -52,12 +58,15 @@ categories: ["程式寫作", "PHP", "元件"]
 ```
 
 安裝 `Guzzle` 及 `PHPUnit` 相依元件。
-```
-$ composer install
+
+```CMD
+composer install
 ```
 
 ## 實作
+
 在 `src` 資料夾中新增一個 `Youtube.php` 檔。
+
 ```PHP
 namespace Memo\Youtube;
 
@@ -70,7 +79,7 @@ class Youtube
     protected $url;
     protected $key;
     protected $params;
-    
+
     public function __construct($key)
     {
         $this->client = new Client();
@@ -127,7 +136,9 @@ class Youtube
 ```
 
 ## 測試
+
 新增一個 `phpunit.xml` 檔，並將 API Key 設為環境變數。
+
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit backupGlobals="false"
@@ -152,6 +163,7 @@ class Youtube
 ```
 
 在 `tests` 資料夾新增一個 `YoutubeTest.php` 檔。
+
 ```PHP
 namespace Memo\Youtube\Tests;
 
@@ -189,12 +201,15 @@ class YoutubeTest extends TestCase
 ```
 
 執行測試。
-```
-$ vendor/bin/phpunit
+
+```CMD
+vendor/bin/phpunit
 ```
 
 ## 使用
+
 在 `example` 資料夾新增一個 `index.php` 檔。
+
 ```PHP
 require '../vendor/autoload.php';
 require '../src/Youtube.php';
@@ -207,4 +222,5 @@ var_dump($youtube->getChannelByName('Google'));
 ```
 
 ## 程式碼
+
 [GitHub](https://github.com/memochou1993/youtube-api)

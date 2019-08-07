@@ -7,21 +7,26 @@ categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
 ## 前言
+
 本文參考〈[如何使用 Repository 模式](http://oomusou.io/laravel/repository/)〉與〈[深入探討 Service Provider](http://oomusou.io/laravel/laravel-service-provider/)〉二文，試圖將資料庫邏輯寫在資源庫（Repository），並將其依賴注入到服務容器（Service Container）。
 
 ## 環境
+
 - Windows 10
 - Homestead 7.4.1
 
 ## 建立專案
-```
-$ laravel new package
+
+```CMD
+laravel new package
 ```
 
 ## 新增遷移
+
+```CMD
+php artisan make:migration create_packages_table
 ```
-$ php artisan make:migration create_packages_table
-```
+
 ```PHP
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -51,9 +56,11 @@ class CreatePackagesTable extends Migration
 ```
 
 ## 新增填充
+
+```CMD
+php artisan make:seed PackagesTableSeeder
 ```
-$ php artisan make:seed PackagesTableSeeder
-```
+
 ```PHP
 use Illuminate\Database\Seeder;
 
@@ -70,9 +77,11 @@ class PackagesTableSeeder extends Seeder
     }
 }
 ```
+
+```CMD
+php artisan make:factory PackageFactory
 ```
-$ php artisan make:factory PackageFactory
-```
+
 ```PHP
 use Faker\Generator as Faker;
 
@@ -87,15 +96,19 @@ $factory->define(App\Package::class, function (Faker $faker) {
     ];
 });
 ```
+
 執行遷移
-```
-$ php artisan migrate --seed
+
+```CMD
+php artisan migrate --seed
 ```
 
 ## 新增模型
+
+```CMD
+php artisan make:model Package
 ```
-$ php artisan make:model Package
-```
+
 ```PHP
 namespace App;
 
@@ -112,7 +125,9 @@ class Package extends Model
 ```
 
 ## 新增介面
+
 手動新增 `app\Contracts\PackageInterface.php` 檔。
+
 ```PHP
 namespace App\Contracts;
 
@@ -123,7 +138,9 @@ interface PackageInterface
 ```
 
 ## 新增資源庫
+
 手動新增 `app\Repositories\PackageRepository.php` 檔。
+
 ```PHP
 namespace App\Repositories;
 
@@ -149,9 +166,11 @@ class PackageRepository implements PackageInterface
 ```
 
 ## 新增控制器
+
+```CMD
+php artisan make:controller PackageController
 ```
-$ php artisan make:controller PackageController
-```
+
 ```PHP
 namespace App\Http\Controllers;
 
@@ -177,7 +196,9 @@ class PackageController extends Controller
 ```
 
 ## 新增服務提供者
+
 手動新增 `app\Providers\RepositoryServiceProvider.php` 檔。
+
 ```PHP
 namespace App\Providers;
 
@@ -208,25 +229,29 @@ class RepositoryServiceProvider extends ServiceProvider
         // 回傳要處理的介面名稱
         return [
             PackageInterface::class
-        ]; 
+        ];
     }
 }
 ```
 
 ## 註冊服務提供者
+
 在 `config\app.php` 檔註冊服務提供者。
+
 ```PHP
 'providers' => [
-    ...
+    // ...
     App\Providers\RepositoryServiceProvider::class,
 ]
 ```
 
 ## 重啟服務
-```
-$ php artisan clear-compiled
+
+```CMD
+php artisan clear-compiled
 $ php artisan serve
 ```
 
 ## 程式碼
+
 [GitHub](https://github.com/memochou1993/package-raw)

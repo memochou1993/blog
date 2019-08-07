@@ -7,31 +7,38 @@ categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
 ## 環境
+
 - Windows 10
 - Homestead
 
 ## 建立專案
-```
-$ laravel new jwt
+
+```CMD
+laravel new jwt
 ```
 
 ## 安裝套件
-```
-$ composer require tymon/jwt-auth 1.*
+
+```CMD
+composer require tymon/jwt-auth 1.*
 ```
 
 ## 發布資源
-```
-$ php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+
+```CMD
+php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
 ```
 
 ## 生成密鑰
-```
-$ php artisan jwt:secret
+
+```CMD
+php artisan jwt:secret
 ```
 
 ## 修改模型
+
 修改 `User` 模型。
+
 ```PHP
 namespace App;
 
@@ -85,17 +92,21 @@ class User extends Authenticatable implements JWTSubject
 ```
 
 ## 註冊靜態代理
+
 在 `config/app.php` 新增靜態代理。
+
 ```PHP
 'aliases' => [
-    ...
+    // ...
     'JWTAuth' => 'Tymon\JWTAuth\Facades\JWTAuth',
     'JWTFactory' => 'Tymon\JWTAuth\Facades\JWTFactory',
 ],
 ```
 
 ## 修改認證設定
-修改  `config/auth.php` 檔。
+
+修改 `config/auth.php` 檔。
+
 ```PHP
 
     'defaults' => [
@@ -117,11 +128,15 @@ class User extends Authenticatable implements JWTSubject
 ```
 
 ## 新增填充
+
 新增 `UsersTableSeeder` 填充。
+
+```CMD
+php artisan make:seed UsersTableSeeder
 ```
-$ php artisan make:seed UsersTableSeeder
-```
+
 在 `UsersTableSeeder.php` 檔新增一名測試用使用者資訊。
+
 ```PHP
 public function run()
 {
@@ -132,13 +147,17 @@ public function run()
     ]);
 }
 ```
+
 執行遷移。
-```
-$ php artisan migrate --seed
+
+```CMD
+php artisan migrate --seed
 ```
 
 ## 新增控制器
+
 新增 `AuthController` 控制器。
+
 ```PHP
 namespace App\Http\Controllers;
 
@@ -205,7 +224,9 @@ class AuthController extends Controller
     }
 }
 ```
+
 新增 `UserController` 控制器。
+
 ```PHP
 namespace App\Http\Controllers;
 
@@ -221,7 +242,9 @@ class UserController extends Controller
 ```
 
 ## 新增路由
+
 在 `routes\api.php` 新增路由。
+
 ```PHP
 Route::prefix('auth')->group(function () {
     Route::post('login', 'AuthController@login')->name('login');
@@ -234,24 +257,28 @@ Route::middleware('auth:api')->group(function () {
 ```
 
 ## 發起 HTTP 請求
+
 向 http://jwt.test/api/users 發起 `GET` 請求，得到回應如下：
+
 ```
 [MethodNotAllowedHttpException] No message
 ```
 
 在 `Accept` 輸入 `application/json` 可以得到以下回應：
+
 ```
 {"message":"Unauthenticated."}
 ```
 
 在 `Body` 輸入以下鍵値向 http://jwt.test/auth/login 發起 `POST` 請求：
 
-Key	| Value
---- | ---
-email | test@gmail.com
-password | secret
+| Key      | Value          |
+| -------- | -------------- |
+| email    | test@gmail.com |
+| password | secret         |
 
 得到回應如下：
+
 ```
 {"token":"eyJ0e……bnWfg"}
 ```
@@ -259,14 +286,16 @@ password | secret
 最後在 `Headers` 輸入以下鍵値，再向 http://jwt.test/users 發起 `GET` 請求。
 （Value 的部分為：Bearer + 空一格 + Token）
 
-Key	| Value
---- | ---
-Authorization | Bearer eyJ0e……bnWfg
+| Key           | Value               |
+| ------------- | ------------------- |
+| Authorization | Bearer eyJ0e……bnWfg |
 
 結果得到回應如下：
+
 ```
 [{"id":1,"name":"test","email":"test@gmail.com","email_verified_at":null,"created_at":"2018-11-02 17:34:07","updated_at":"2018-11-02 17:34:07"}]
 ```
 
 ## 程式碼
+
 [GitHub](https://github.com/memochou1993/laravel-jwt)

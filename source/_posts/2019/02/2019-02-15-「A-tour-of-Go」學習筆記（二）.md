@@ -7,14 +7,19 @@ categories: ["程式寫作", "Go", "「A tour of Go」學習筆記"]
 ---
 
 ## 前言
+
 本文為「[A tour of Go](https://go-tour-zh-tw.appspot.com/)」語言指南的學習筆記。
 
 ## 環境
+
 - macOS
 
 ## 控制流程
+
 ### for
+
 Go 只有一種循環結構 `for` 循環。`for` 語句沒有圓括號。
+
 ```GO
 package main
 
@@ -32,6 +37,7 @@ func main() {
 ```
 
 前置與後置語句可以省略。
+
 ```GO
 package main
 
@@ -49,6 +55,7 @@ func main() {
 ```
 
 `for` 語句可以是其他語言的 `while` 語句。
+
 ```GO
 package main
 
@@ -66,6 +73,7 @@ func main() {
 ```
 
 無窮迴圈是將循環條件省略。
+
 ```GO
 package main
 
@@ -78,7 +86,9 @@ func main() {
 ```
 
 ### if
+
 `if` 語句沒有圓括號。
+
 ```GO
 package main
 
@@ -100,9 +110,11 @@ func main() {
 
 // 1.4142135623730951 2i
 ```
+
 - `math.Sqrt()` 函式用來取得平方根。
 
 `if` 語句可以在條件之前執行一個簡單的語句，由這個語句定義的變數，其作用域只限於在該 `if` 語句之內。
+
 ```GO
 package main
 
@@ -129,6 +141,7 @@ func main() {
 ```
 
 在 `if` 的便捷語句定義的變數可以在對應的 `else` 區塊中使用。
+
 ```GO
 package main
 
@@ -159,7 +172,9 @@ func main() {
 ```
 
 ### switch
+
 `switch` 語句的條件從上到下執行。
+
 ```GO
 package main
 
@@ -186,6 +201,7 @@ func main() {
 ```
 
 除非使用 `fallthrough` 語句，否則匹配成功會自動終止
+
 ```GO
 package main
 
@@ -213,7 +229,8 @@ func main() {
 // Too far away.
 ```
 
-沒有條件的 `switch` 語句同 `switch true` 一樣，用以替代長的 ` if-then-else` 條件式。
+沒有條件的 `switch` 語句同 `switch true` 一樣，用以替代長的 `if-then-else` 條件式。
+
 ```GO
 package main
 

@@ -7,58 +7,71 @@ categories: ["環境部署", "MySQL"]
 ---
 
 ## 安裝
+
 使用 `brew` 指令安裝 MySQL。
-```
-$ brew install mysql
+
+```CMD
+brew install mysql
 ```
 
 使用 `brew services` 啟動 MySQL。
-```
-$ brew services start mysql
+
+```CMD
+brew services start mysql
 ```
 
 或使用以下指令：
-```
-$ mysql.server start
+
+```CMD
+mysql.server start
 ```
 
 使用 `brew services` 停止 MySQL。
-```
-$ brew services stop mysql
+
+```CMD
+brew services stop mysql
 ```
 
 或使用以下指令：
-```
-$ mysql.server stop
+
+```CMD
+mysql.server stop
 ```
 
 使用 `brew services` 重新啟動 MySQL。
-```
-$ brew services restart mysql
+
+```CMD
+brew services restart mysql
 ```
 
 或使用以下指令：
-```
-$ mysql.server restart
+
+```CMD
+mysql.server restart
 ```
 
 ## 連線
+
 設定 `root` 使用者密碼。
-```
-$ mysqladmin -u root password
+
+```CMD
+mysqladmin -u root password
 ```
 
 使用 `root` 使用者進入資料庫。
-```
-$ mysql -u root -p
+
+```CMD
+mysql -u root -p
 ```
 
 建立使用者。
+
 ```
 > CREATE USER 'admin'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 ```
 
 設定權限。
+
 ```
 > GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost';
 > FLUSH PRIVILEGES;
@@ -66,6 +79,7 @@ $ mysql -u root -p
 ```
 
 使用 `admin` 使用者進入資料庫。
-```
-$ mysql -u admin -p
+
+```CMD
+mysql -u admin -p
 ```

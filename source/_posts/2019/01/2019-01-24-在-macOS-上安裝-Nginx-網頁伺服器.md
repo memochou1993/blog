@@ -7,28 +7,35 @@ categories: ["環境部署", "Nginx"]
 ---
 
 ## 安裝
+
 使用 `brew` 指令安裝 Nginx。
-```
-$ brew install nginx
+
+```CMD
+brew install nginx
 ```
 
 啟動 Nginx 服務。
-```
-$ sudo nginx
+
+```CMD
+sudo nginx
 ```
 
 停止 Nginx 服務。
-```
-$ sudo nginx -s stop
+
+```CMD
+sudo nginx -s stop
 ```
 
 重啟 Nginx 服務。
-```
-$ sudo nginx -s reload  
+
+```CMD
+sudo nginx -s reload
 ```
 
 ## 設定
+
 修改 `/usr/local/etc/nginx/nginx.conf` 檔的 `root` 和 `fastcgi_param` 參數：
+
 ```CONF
 # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
 #
@@ -42,9 +49,11 @@ location ~ \.php$ {
 ```
 
 在專案根目錄新增 `index.php` 檔：
+
 ```PHP
 phpinfo();
 ```
 
 ## 瀏覽網頁
-前往：http://localhost:8080/index.php
+
+前往：<http://localhost:8080/index.php>

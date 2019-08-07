@@ -7,15 +7,20 @@ categories: ["程式寫作", "JavaScript", "Vue.js"]
 ---
 
 ## 環境
+
 - macOS
 
 ## 安裝套件
-```
-$ npm install -g vue-cli
+
+```CMD
+npm install -g vue-cli
 $ vue init simulatedgreg/electron-vue electron-vue
 ```
+
 ## 新增路由
+
 修改 `src\renderer\router\index.js` 檔：
+
 ```JS
 import Vue from 'vue'
 import Router from 'vue-router'
@@ -39,7 +44,9 @@ export default new Router({
 ```
 
 ## 新增狀態管理
+
 新增 `src/renderer/store/modules/Slide.js` 狀態管理。
+
 ```JS
 const state = {
   api_url: 'http://www.splashbase.co/api/v1/images/random'
@@ -51,7 +58,9 @@ export default {
 ```
 
 ## 新增元件
+
 新增 `src/renderer/components/Slide.vue` 元件。
+
 ```HTML
 <template>
   <div class="container">
@@ -123,9 +132,11 @@ export default {
 ```
 
 ## 生成執行檔
-```
-$ npm run build
+
+```CMD
+npm run build
 ```
 
 ## 程式碼
+
 [GitHub](https://github.com/memochou1993/slide-electron-vue)

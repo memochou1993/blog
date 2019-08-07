@@ -7,22 +7,27 @@ categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
 ## 環境
+
 - Laradock
 - Horizon
 
 ## 後端
+
 建立專案。
-```
+
+```CMD
 laravel new echo
 ```
 
 安裝 `predis/predis` 套件。
-```
-$ composer require predis/predis
+
+```CMD
+composer require predis/predis
 ```
 
 修改 `.env` 檔。
-```
+
+```ENV
 BROADCAST_DRIVER=redis #改為 redis
 CACHE_DRIVER=file
 QUEUE_CONNECTION=redis #改為 redis
@@ -31,20 +36,23 @@ SESSION_LIFETIME=120
 ```
 
 修改 `config/app.php` 檔，取消註解。
+
 ```PHP
 'providers' => [
-    ...
+    // ...
     App\Providers\BroadcastServiceProvider::class,
-    ...
+    // ...
 ]
 ```
 
 建立事件。
-```
-$ php artisan make:event BroadcastEvent
+
+```CMD
+php artisan make:event BroadcastEvent
 ```
 
 修改 `app/Events/BroadcastEvent.php` 檔。
+
 ```PHP
 namespace App\Events;
 
@@ -85,6 +93,7 @@ class BroadcastEvent implements ShouldBroadcast
 ```
 
 新增路由。
+
 ```PHP
 Route::post('/send', function(\Illuminate\Http\Request $request){
     event(new \App\Events\BroadcastEvent($request->message));
@@ -93,14 +102,17 @@ Route::post('/send', function(\Illuminate\Http\Request $request){
 ```
 
 ## 前端
+
 安裝前端套件。
-```
-$ npm install
+
+```CMD
+npm install
 $ npm install -g laravel-echo-server
 $ npm install --save laravel-echo pusher-js
 ```
 
 修改 `resources/js/bootstrap.js` 檔。
+
 ```JS
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
@@ -119,6 +131,7 @@ window.Echo = new Echo({
 ```
 
 修改 `resources/js/components/ExampleComponent.vue` 組件。
+
 ```HTML
 <form action="">
     <input type="text" v-model="message">
@@ -151,6 +164,7 @@ window.Echo = new Echo({
 ```
 
 修改 `resources/views/welcome.blade.php` 檔，並註冊組件。
+
 ```HTML
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -182,18 +196,21 @@ window.Echo = new Echo({
 ```
 
 執行編譯。
-```
-$ npm run watch-poll
+
+```CMD
+npm run watch-poll
 ```
 
 初始化 `laravel-echo-server` 服務。
-```
-$ laravel-echo-server init
+
+```CMD
+laravel-echo-server init
 ```
 
 啟動 `laravel-echo-server` 服務。
-```
-$ laravel-echo-server start
+
+```CMD
+laravel-echo-server start
 ```
 
-前往：http://echo.test/
+前往：<http://echo.test/>

@@ -7,7 +7,9 @@ categories: ["程式寫作", "JavaScript", "演算法"]
 ---
 
 ## 前言
+
 目的是將若干組個別總和為（趨近於）1 的小數陣列，轉換為若干組整數陣列。
+
 ```JS
 // 小數陣列
 [
@@ -29,6 +31,7 @@ categories: ["程式寫作", "JavaScript", "演算法"]
 ```
 
 ## 做法
+
 ```JS
 // 將小數陣列注入，並開始分析合理小數。
 function analyze(arr) {
@@ -113,4 +116,5 @@ console.log(convert(arr, {
 ```
 
 ## 程式碼
+
 [GitHub](https://github.com/memochou1993/104calculator-example)

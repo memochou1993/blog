@@ -7,12 +7,15 @@ categories: ["環境部署", "Docker"]
 ---
 
 ## 環境
+
 - Ubuntu 18.04.1 LTS
 - Docker 18.09.1
 - docker-compose 1.23.2
 
 ## 安裝
+
 在 `/home/rocketchat` 資料夾新增 `docker-compose.yml` 檔：
+
 ```YML
 version: '2'
 
@@ -88,52 +91,64 @@ services:
   #  volumes:
   #    - /var/run/docker.sock:/var/run/docker.sock
 ```
+
 - 將參數 `ROOT_URL` 改為主機的 IP。
 
 ## 設定 DNS
+
 新增子網域：rocketchat.xxx.com，並指向主機的 IP。
 
 ## 設定 Nginx 反向代理
+
 在 `/etc/nginx/sites-available` 資料夾新增 `rocketchat.xxx.com.conf` 檔：
-```
+
+```CONF
 server {
-    listen       80;
-    server_name  rocketchat.xxx.com;
-    error_log /var/log/nginx/rocketchat.access.log;
-    location / {
-        proxy_pass http://127.0.0.1:3000;
-    }
+  listen       80;
+  server_name  rocketchat.xxx.com;
+  error_log /var/log/nginx/rocketchat.access.log;
+  location / {
+    proxy_pass http://127.0.0.1:3000;
+  }
 }
 ```
 
 建立軟連結。
-```
-$ sudo ln -s /etc/nginx/sites-available/rocketchat.xxx.com.conf /etc/nginx/sites-enabled/rocketchat.xxx.com.conf
+
+```CMD
+sudo ln -s /etc/nginx/sites-available/rocketchat.xxx.com.conf /etc/nginx/sites-enabled/rocketchat.xxx.com.conf
 ```
 
 重啟 Nginx 服務。
-```
-$ sudo nginx -s reload
+
+```CMD
+sudo nginx -s reload
 ```
 
 ## 啟動
+
 啟動 MongoDB 服務。
-```
-$ docker-compose up -d mongo
+
+```CMD
+docker-compose up -d mongo
 ```
 
 啟動 MongoDB 初始化服務。
-```
-$ docker-compose up -d mongo-init-replica
+
+```CMD
+docker-compose up -d mongo-init-replica
 ```
 
 啟動 Rocket.Chat 服務。
-```
-$ docker-compose up -d rocketchat
+
+```CMD
+docker-compose up -d rocketchat
 ```
 
 ## 瀏覽網頁
-前往：http://rocketchat.xxx.com
+
+前往：<http://rocketchat.xxx.com>
 
 ## 參考資料
+
 [Rocket.Chat Documentation - Docker Compose](https://rocket.chat/docs/installation/docker-containers/available-images/)

@@ -7,17 +7,21 @@ categories: ["其他", "SSH"]
 ---
 
 ## 做法
+
 生成 SSH 金鑰。
-```
-$ ssh-keygen
+
+```CMD
+ssh-keygen
 ```
 
 將公開金鑰同步到遠端伺服器。
-```
-$ ssh-copy-id -i ~/.ssh/id_rsa.pub root@xxx.xxx.xxx.xxx
+
+```CMD
+ssh-copy-id -i ~/.ssh/id_rsa.pub root@xxx.xxx.xxx.xxx
 ```
 
 使用 SSH 登入，不再需要密碼。
-```
-$ ssh root@xxx.xxx.xxx.xxx
+
+```CMD
+ssh root@xxx.xxx.xxx.xxx
 ```

@@ -7,22 +7,29 @@ categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
 ## 環境
+
 - Windows 10
 - Homestead
 
 ## 安裝套件
+
 使用 [hashids/hashids
 ](https://hashids.org/) 套件，或使用提供 Laravel 使用的 `vinkla/hashids` 套件。
+
+```CMD
+composer require vinkla/hashids
 ```
-$ composer require vinkla/hashids
-```
+
 發布資源。
-```
-$ php artisan vendor:publish
+
+```CMD
+php artisan vendor:publish
 ```
 
 ## 修改設定
+
 修改 `config\hashids.php` 檔：
+
 ```PHP
 return [
 
@@ -63,7 +70,9 @@ return [
 ```
 
 ## 建立特徵機制
+
 建立 `app\Traits\HashId.php` 檔：
+
 ```PHP
 namespace App\Traits;
 
@@ -84,7 +93,9 @@ trait HashId
 ```
 
 ## 修改模型
+
 以 `User` 模型為例：
+
 ```PHP
 namespace App;
 
@@ -126,9 +137,11 @@ class User extends Authenticatable
 ```
 
 ## 使用
+
 ```PHP
 User::find(1)->toArray();
 ```
 
 ## 參考資料
+
 [Use Hashids as an alternative.](https://blog.albert-chen.com/use-hashids-as-an-alternative/)

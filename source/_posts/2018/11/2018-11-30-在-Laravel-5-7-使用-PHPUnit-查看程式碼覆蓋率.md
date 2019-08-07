@@ -7,15 +7,20 @@ categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
 ## 環境
+
 - macOS
 - xdebug 2.6.1
 
 ### 使用指令
+
 執行 `phpunit` 指令，並加上 `--coverage-html` 參數，以及輸出路徑。
+
+```CMD
+phpunit --coverage-html ./report
 ```
-$ phpunit --coverage-html ./report
-```
-### 修改 `phpunit.xml` 檔。
+
+### 修改 `phpunit.xml` 檔
+
 ```XML
 <phpunit backupGlobals="false"
          backupStaticAttributes="false"
@@ -28,7 +33,6 @@ $ phpunit --coverage-html ./report
          stopOnFailure="false"
          syntaxCheck="true"
 >
-    ...
     <logging>
         <log type="coverage-html"
              target="./report"
@@ -39,7 +43,9 @@ $ phpunit --coverage-html ./report
     </logging>
 </phpunit>
 ```
+
 執行 `phpunit` 指令。
-```
-$ phpunit
+
+```CMD
+phpunit
 ```
