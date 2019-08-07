@@ -34,13 +34,13 @@ categories: ["程式寫作", "PHP", "元件"]
 
 | Method | URL                                          |
 | ------ | -------------------------------------------- |
-| GET    | https://api.github.com/repos/laravel/laravel |
+| GET    | <https://api.github.com/repos/laravel/laravel> |
 
 ### 取得使用者資料
 
 | Method | URL                                       |
 | ------ | ----------------------------------------- |
-| GET    | https://api.github.com/users/memochou1993 |
+| GET    | <https://api.github.com/users/memochou1993> |
 
 本文將使用以上兩個方法實作一個可以讀取 GitHub API 的元件。
 
