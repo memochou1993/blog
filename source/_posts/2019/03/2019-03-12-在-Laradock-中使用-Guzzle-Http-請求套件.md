@@ -8,7 +8,7 @@ categories: ["環境部署", "Laradock"]
 
 ## 安裝套件
 
-```CMD
+```BASH
 composer require guzzlehttp/guzzle
 ```
 

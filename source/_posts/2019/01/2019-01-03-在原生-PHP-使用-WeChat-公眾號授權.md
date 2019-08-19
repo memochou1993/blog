@@ -10,13 +10,13 @@ categories: ["程式寫作", "PHP"]
 
 使用 `EasyWeChat` 套件處理授權。
 
-```CMD
+```BASH
 composer install overtrue/wechat
 ```
 
 使用 `simplesoftwareio/simple-qrcode` 套件生成二維條碼。
 
-```CMD
+```BASH
 composer install simplesoftwareio/simple-qrcode
 ```
 

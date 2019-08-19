@@ -48,7 +48,7 @@ categories: ["程式寫作", "PHP", "元件"]
 
 讀取 GitHub API 會需要發送 `HTTP` 請求以及獲取響應，所以安裝 `Guzzle` 元件。
 
-```CMD
+```BASH
 cd github-api/github-api-dev
 $ composer require guzzlehttp/guzzle
 ```

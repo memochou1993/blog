@@ -16,13 +16,13 @@ categories: ["程式寫作", "PHP", "Laravel"]
 使用 [hashids/hashids
 ](https://hashids.org/) 套件，或使用提供 Laravel 使用的 `vinkla/hashids` 套件。
 
-```CMD
+```BASH
 composer require vinkla/hashids
 ```
 
 發布資源。
 
-```CMD
+```BASH
 php artisan vendor:publish
 ```
 

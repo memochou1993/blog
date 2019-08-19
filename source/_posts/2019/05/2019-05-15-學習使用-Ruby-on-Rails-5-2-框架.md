@@ -10,7 +10,7 @@ categories: ["程式寫作", "Ruby", "Rails"]
 
 使用 `gem` 安裝 `rails`。
 
-```CMD
+```BASH
 gem install rails
 $ rails --version
 Rails 5.2.3
@@ -20,14 +20,14 @@ Rails 5.2.3
 
 新增專案。
 
-```CMD
+```BASH
 rails new blog
 $ cd blog
 ```
 
 啟動網頁服務器。
 
-```CMD
+```BASH
 rails server
 ```
 
@@ -37,7 +37,7 @@ rails server
 
 新增 `Welcome` 控制器，並附帶 `index` 方法。
 
-```CMD
+```BASH
 rails generate controller Welcome index
 ```
 
@@ -53,7 +53,7 @@ end
 
 查看路由。
 
-```CMD
+```BASH
 rails routes
 ```
 
@@ -75,7 +75,7 @@ end
 
 新增 `Articles` 控制器。
 
-```CMD
+```BASH
 rails generate controller Articles
 ```
 
@@ -150,12 +150,12 @@ end
 
 新增 `Article` 模型。
 
-```CMD
+```BASH
 rails generate model Article title:string text:text
 ```
 
 執行遷移。
 
-```CMD
+```BASH
 rails db:migrate
 ```

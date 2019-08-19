@@ -20,19 +20,19 @@ categories: ["程式寫作", "GraphQL"]
 
 新增 Laravel 專案。
 
-```CMD
+```BASH
 laravel new booksql-laravel
 ```
 
 安裝 `nuwave/lighthouse` 套件。
 
-```CMD
+```BASH
 composer require nuwave/lighthouse
 ```
 
 發布資源。
 
-```CMD
+```BASH
 php artisan vendor:publish --provider="Nuwave\Lighthouse\Providers\LighthouseServiceProvider" --tag=schema
 $ php artisan vendor:publish --provider="Nuwave\Lighthouse\Providers\LighthouseServiceProvider" --tag=config
 ```
@@ -54,51 +54,51 @@ $ php artisan vendor:publish --provider="Nuwave\Lighthouse\Providers\LighthouseS
 
 下載 `lighthouse-tutorial` 範例。
 
-```CMD
+```BASH
 git clone https://github.com/nuwave/lighthouse-tutorial.git
 $ cd lighthouse-tutorial
 ```
 
 或在新專案安裝 `nuwave/lighthouse` 套件。
 
-```CMD
+```BASH
 composer require nuwave/lighthouse
 ```
 
 建立設定檔。
 
-```CMD
+```BASH
 cp .env.example .env
 ```
 
 生成金鑰。
 
-```CMD
+```BASH
 php artisan key:generate
 ```
 
 安裝相依套件。
 
-```CMD
+```BASH
 composer install
 ```
 
 執行遷移。
 
-```CMD
+```BASH
 php artisan migrate
 ```
 
 新增填充。
 
-```CMD
+```BASH
 php artisan tinker
 >>> factory('App\Comment', 20)->create()
 ```
 
 啟動網頁伺服器。
 
-```CMD
+```BASH
 php artisan serve
 ```
 
@@ -108,7 +108,7 @@ php artisan serve
 
 安裝 `laravel-cors` 套件。
 
-```CMD
+```BASH
 composer require barryvdh/laravel-cors
 ```
 
@@ -127,7 +127,7 @@ composer require barryvdh/laravel-cors
 
 安裝 GraphQL Playground 開發工具。
 
-```CMD
+```BASH
 brew cask install graphql-playground
 ```
 
@@ -135,7 +135,7 @@ brew cask install graphql-playground
 
 或安裝 Laravel GraphQL Playground 網頁開發工具。
 
-```CMD
+```BASH
 composer require --dev mll-lab/laravel-graphql-playground
 ```
 
@@ -228,7 +228,7 @@ mutation {
 
 新增一個查詢類別。
 
-```CMD
+```BASH
 php artisan lighthouse:query LatestPost
 ```
 
@@ -282,20 +282,20 @@ query {
 
 ### 建立專案
 
-```CMD
+```BASH
 vue create vue-apollo
 ```
 
 安裝套件。
 
-```CMD
+```BASH
 cd vue-apollo
 $ vue add apollo
 ```
 
 啟動網頁伺服器。
 
-```CMD
+```BASH
 npm run serve
 ```
 

@@ -19,6 +19,6 @@ Host xx.xxx.com
 
 進行連線。
 
-```CMD
+```BASH
 ssh xx.xxx.com
 ```

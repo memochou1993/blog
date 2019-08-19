@@ -14,7 +14,7 @@ categories: ["程式寫作", "PHP", "Laravel"]
 
 新增 Policy 原則。
 
-```CMD
+```BASH
 php artisan make:policy RecordPolicy --model=Record
 ```
 

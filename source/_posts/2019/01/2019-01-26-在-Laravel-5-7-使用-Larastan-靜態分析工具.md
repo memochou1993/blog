@@ -10,13 +10,13 @@ categories: ["程式寫作", "PHP", "Laravel"]
 
 安裝 `nunomaduro/larastan` 套件。
 
-```CMD
+```BASH
 composer require --dev nunomaduro/larastan
 ```
 
 執行檢查。
 
-```CMD
+```BASH
 php artisan code:analyse --level=5 --paths="app"
 ```
 
@@ -52,6 +52,6 @@ parameters:
 
 執行檢查。
 
-```CMD
+```BASH
 ./vendor/bin/phpstan analyse
 ```

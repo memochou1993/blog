@@ -12,7 +12,7 @@ categories: ["程式寫作", "JavaScript", "Vue.js"]
 
 ## 安裝套件
 
-```CMD
+```BASH
 npm install -g vue-cli
 $ vue init simulatedgreg/electron-vue electron-vue
 ```
@@ -133,7 +133,7 @@ export default {
 
 ## 生成執行檔
 
-```CMD
+```BASH
 npm run build
 ```
 

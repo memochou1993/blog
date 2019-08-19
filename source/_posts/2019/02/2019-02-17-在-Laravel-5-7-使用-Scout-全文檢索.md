@@ -14,7 +14,7 @@ categories: ["程式寫作", "PHP", "Laravel"]
 
 至 Algolia 註冊帳號，並建立專案。
 
-```CMD
+```BASH
 laravel new scout
 ```
 
@@ -22,19 +22,19 @@ laravel new scout
 
 安裝 `laravel/scout` 套件。
 
-```CMD
+```BASH
 composer require laravel/scout
 ```
 
 發布資源。
 
-```CMD
+```BASH
 php artisan vendor:publish --provider="Laravel\Scout\ScoutServiceProvider"
 ```
 
 安裝驅動套件。
 
-```CMD
+```BASH
 composer require algolia/algoliasearch-client-php
 ```
 
@@ -76,7 +76,7 @@ public function shouldBeSearchable()
 
 一次導入模型的所有資料至檢索索引。
 
-```CMD
+```BASH
 php artisan scout:import "App\Project"
 ```
 

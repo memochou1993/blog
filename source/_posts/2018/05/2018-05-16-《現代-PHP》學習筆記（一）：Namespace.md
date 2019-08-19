@@ -39,7 +39,7 @@ namespace Symfony\Component\HttpFoundation;
 
 這裡下載作者提供的範例進行實作：
 
-```CMD
+```BASH
 git clone https://github.com/codeguy/modern-php.git
 ```
 

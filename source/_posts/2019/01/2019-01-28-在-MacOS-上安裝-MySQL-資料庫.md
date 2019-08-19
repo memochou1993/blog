@@ -10,43 +10,43 @@ categories: ["環境部署", "MySQL"]
 
 使用 `brew` 指令安裝 MySQL。
 
-```CMD
+```BASH
 brew install mysql
 ```
 
 使用 `brew services` 啟動 MySQL。
 
-```CMD
+```BASH
 brew services start mysql
 ```
 
 或使用以下指令：
 
-```CMD
+```BASH
 mysql.server start
 ```
 
 使用 `brew services` 停止 MySQL。
 
-```CMD
+```BASH
 brew services stop mysql
 ```
 
 或使用以下指令：
 
-```CMD
+```BASH
 mysql.server stop
 ```
 
 使用 `brew services` 重新啟動 MySQL。
 
-```CMD
+```BASH
 brew services restart mysql
 ```
 
 或使用以下指令：
 
-```CMD
+```BASH
 mysql.server restart
 ```
 
@@ -54,13 +54,13 @@ mysql.server restart
 
 設定 `root` 使用者密碼。
 
-```CMD
+```BASH
 mysqladmin -u root password
 ```
 
 使用 `root` 使用者進入資料庫。
 
-```CMD
+```BASH
 mysql -u root -p
 ```
 
@@ -80,6 +80,6 @@ mysql -u root -p
 
 使用 `admin` 使用者進入資料庫。
 
-```CMD
+```BASH
 mysql -u admin -p
 ```

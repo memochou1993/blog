@@ -19,7 +19,7 @@ categories: ["程式寫作", "PHP", "Laravel"]
 
 新增 `PostController` 和 `index` 視圖。
 
-```CMD
+```BASH
 php artisan make:controller PostController
 $ touch resources/views/post/index.blade.php
 ```
@@ -52,7 +52,7 @@ public function testPostList()
 
 執行測試。
 
-```CMD
+```BASH
 phpunit // 失敗
 ```
 
@@ -66,7 +66,7 @@ Route::resource('posts', 'PostController');
 
 執行測試。
 
-```CMD
+```BASH
 phpunit // 成功
 ```
 
@@ -102,7 +102,7 @@ public function index()
 
 執行測試。
 
-```CMD
+```BASH
 phpunit // 失敗
 ```
 
@@ -110,7 +110,7 @@ phpunit // 失敗
 
 安裝 `Mockery` 套件。
 
-```CMD
+```BASH
 composer require mockery/mockery --dev
 ```
 

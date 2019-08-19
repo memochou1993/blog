@@ -19,7 +19,7 @@ categories: ["程式寫作", "PHP", "Lumen"]
 
 ## 建立專案
 
-```CMD
+```BASH
 lumen new lumen
 ```
 
@@ -44,7 +44,7 @@ DB_PASSWORD=secret
 
 下載 `jwt-auth` 套件。
 
-```CMD
+```BASH
 composer require tymon/jwt-auth:"^1.0@dev"
 ```
 
@@ -92,7 +92,7 @@ $app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
 
 安裝 Lumen 文件配置指令。
 
-```CMD
+```BASH
 composer require laravelista/lumen-vendor-publish
 ```
 
@@ -140,7 +140,7 @@ if (!function_exists('config_path')) {
 
 執行 Composer 自動載入指令。
 
-```CMD
+```BASH
 composer dump-autoload
 ```
 
@@ -171,13 +171,13 @@ public function boot()
 
 複製需要的套件文檔。
 
-```CMD
+```BASH
 php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\JWTAuthServiceProvider"
 ```
 
 ## 產生 JWT 密鑰
 
-```CMD
+```BASH
 php artisan jwt:generate
 ```
 

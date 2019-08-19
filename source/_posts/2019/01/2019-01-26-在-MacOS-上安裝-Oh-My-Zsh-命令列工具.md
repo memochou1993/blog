@@ -10,13 +10,13 @@ categories: ["其他", "命令列工具"]
 
 首先安裝 Homebrew Cask。
 
-```CMD
+```BASH
 brew tap caskroom/cask
 ```
 
 安裝 iterm2 終端機。
 
-```CMD
+```BASH
 brew cask instal iterm2
 ```
 
@@ -24,7 +24,7 @@ brew cask instal iterm2
 
 下載命令列主題 [iTerm2 Color Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes)，並且解壓縮。
 
-```CMD
+```BASH
 git clone https://github.com/mbadolato/iTerm2-Color-Schemes.git
 ```
 
@@ -34,19 +34,19 @@ git clone https://github.com/mbadolato/iTerm2-Color-Schemes.git
 
 安裝字型列表。
 
-```CMD
+```BASH
 brew tap caskroom/fonts
 ```
 
 安裝 `Source Code Pro Nerd Font Complete` 字型。
 
-```CMD
+```BASH
 brew cask install font-sourcecodepro-nerd-font
 ```
 
 或使用以下指令搜尋其他字型。
 
-```CMD
+```BASH
 brew search nerd
 ```
 
@@ -58,13 +58,13 @@ brew search nerd
 
 安裝 Zsh 命令解釋器。
 
-```CMD
+```BASH
 brew install zsh
 ```
 
 將 Zsh 設為預設的命令解釋器。
 
-```CMD
+```BASH
 sudo sh -c "echo $(which zsh) >> /etc/shells"
 chsh -s $(which zsh)
 ```
@@ -73,7 +73,7 @@ chsh -s $(which zsh)
 
 安裝 Zsh 的 [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) 框架。
 
-```CMD
+```BASH
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
@@ -81,7 +81,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 安裝 Oh My Zsh 的 [Powerlevel9k](https://github.com/bhilburn/powerlevel9k) 主題到 `~/.oh-my-zsh/custom/themes` 資料夾。
 
-```CMD
+```BASH
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 ```
 
@@ -111,7 +111,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status ram)
 
 完成設定，執行以下指令：
 
-```CMD
+```BASH
 exec $SHELL
 ```
 

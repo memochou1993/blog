@@ -10,25 +10,25 @@ categories: ["程式寫作", "PHP", "擴充套件"]
 
 更新 PECL 倉庫。
 
-```CMD
+```BASH
 pecl channel-update pecl.php.net
 ```
 
 安裝 PHP 的 Swoole 擴充套件。
 
-```CMD
+```BASH
 pecl install swoole
 ```
 
 修改 `php.ini` 檔，並刪除第一行 `extension="swoole.so"`。
 
-```CMD
+```BASH
 vi /usr/local/etc/php/7.2/php.ini
 ```
 
 新增 `swoole.ini` 檔。
 
-```CMD
+```BASH
 vi /usr/local/etc/php/7.2/conf.d/swoole.ini
 ```
 
@@ -41,7 +41,7 @@ extension="/usr/local/lib/php/pecl/20170718/swoole.so"
 
 使用指令查看擴充套件是否安裝成功，或在 PHP 腳本中使用 `phpinfo()` 查看。
 
-```CMD
+```BASH
 php -m |grep swoole
 swoole
 $ php -i|grep extension_dir
@@ -67,20 +67,20 @@ fatal error: 'openssl/ssl.h' file not found
 
 確認 `openssl` 是否有安裝：
 
-```CMD
+```BASH
 brew search openssl
 ```
 
 安裝 `openssl`：
 
-```CMD
+```BASH
 brew install openssl
 Warning: openssl 1.0.2q is already installed and up-to-date
 ```
 
 在標頭檔目錄建立 `openssl` 資料夾的軟連結：
 
-```CMD
+```BASH
 ln -s /usr/local/Cellar/openssl/1.0.2q/include/openssl /usr/local/include/
 ```
 
@@ -94,7 +94,7 @@ error: "Enable openssl support, require openssl library."
 
 查看 `openssl` 詳細資訊。
 
-```CMD
+```BASH
 brew info openssl
 ```
 
@@ -108,7 +108,7 @@ For compilers to find openssl you may need to set:
 
 若仍然出現警告，則重新安裝 `openssl`。
 
-```CMD
+```BASH
 brew reinstall openssl
 ```
 

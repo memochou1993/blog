@@ -17,7 +17,7 @@ categories: ["程式寫作", "PHP", "Laravel"]
 
 ## 建立專案
 
-```CMD
+```BASH
 laravel new post
 ```
 
@@ -58,7 +58,7 @@ protected function resetDatabase()
 
 新增 `Post` 模型和 `create_posts_table` 遷移。
 
-```CMD
+```BASH
 php artisan make:model Post -m
 ```
 
@@ -132,7 +132,7 @@ public function tearDown()
 
 執行測試。
 
-```CMD
+```BASH
 phpunit
 ```
 

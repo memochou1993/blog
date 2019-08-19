@@ -21,7 +21,7 @@ api/users/me/projects?with=environments,projects
 
 新增 `With` 驗證規則。
 
-```CMD
+```BASH
 php artisan make:rule With
 ```
 
@@ -105,7 +105,7 @@ public function rules()
 
 新增 `Unique` 驗證規則。
 
-```CMD
+```BASH
 php artisan make:rule Unique
 ```
 

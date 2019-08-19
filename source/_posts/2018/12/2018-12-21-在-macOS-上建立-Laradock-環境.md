@@ -10,7 +10,7 @@ categories: ["環境部署", "Laradock"]
 
 手動安裝 Docker，並註冊帳號。開啟終端機，登入 Docker。
 
-```CMD
+```BASH
 docker login
 ```
 
@@ -20,7 +20,7 @@ docker login
 
 從 GitHub 上下載 Laradock 到根目錄。
 
-```CMD
+```BASH
 cd ~/
 $ git clone https://github.com/laradock/laradock.git Laradock
 $ cd Laradock
@@ -37,14 +37,14 @@ APP_CODE_PATH_HOST=~/Projects
 
 建立 `laravel.test.conf` 檔。
 
-```CMD
+```BASH
 cd ~/Laradock/nginx/sites
 $ cp laravel.conf.example laravel.test.conf
 ```
 
 啟動 Nginx、MySQL 和 PhpMyAdmin。
 
-```CMD
+```BASH
 docker-compose up -d nginx mysql phpmyadmin
 ```
 
@@ -54,7 +54,7 @@ docker-compose up -d nginx mysql phpmyadmin
 
 在容器外建立專案。
 
-```CMD
+```BASH
 cd ~/Projects
 $ laravel new laravel
 ```
@@ -74,7 +74,7 @@ DB_PASSWORD=secret
 
 修改一般使用者的認證方式。
 
-```CMD
+```BASH
 docker-compose exec mysql bash
 /var/www# mysql --user="root" --password="root"
 mysql> ALTER USER 'default' IDENTIFIED WITH mysql_native_password BY 'secret';
@@ -83,7 +83,7 @@ mysql> exit
 
 使用一般使用者身分進入。
 
-```CMD
+```BASH
 /var/www# mysql --user="default" --password="secret"
 ```
 
@@ -97,14 +97,14 @@ mysql> CREATE DATABASE `default`;
 
 進入容器。
 
-```CMD
+```BASH
 cd ~/Laradock
 $ docker-compose exec workspace bash
 ```
 
 執行遷移。
 
-```CMD
+```BASH
 /var/www# cd laravel
 /var/www# php artisan migrate
 ```

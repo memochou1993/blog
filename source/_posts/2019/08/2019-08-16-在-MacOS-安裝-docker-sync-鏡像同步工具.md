@@ -14,7 +14,7 @@ categories: ["環境部署", "Docker"]
 
 安裝。
 
-```CMD
+```BASH
 gem install --user-install docker-sync
 ```
 

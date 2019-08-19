@@ -99,12 +99,12 @@ categories: ["其他", "雲端運算服務"]
 
 修改金鑰 `aws.pem` 檔的權限為 `400`。
 
-```CMD
+```BASH
 chmod 400 ~/.ssh/aws.pem
 ```
 
 使用 SSH 進行連線。
 
-```CMD
+```BASH
 ssh -i "~/.ssh/aws.pem" xx@xxx.compute.amazonaws.com
 ```

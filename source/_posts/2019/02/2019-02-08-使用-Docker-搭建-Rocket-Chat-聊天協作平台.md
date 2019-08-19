@@ -115,13 +115,13 @@ server {
 
 建立軟連結。
 
-```CMD
+```BASH
 sudo ln -s /etc/nginx/sites-available/rocketchat.xxx.com.conf /etc/nginx/sites-enabled/rocketchat.xxx.com.conf
 ```
 
 重啟 Nginx 服務。
 
-```CMD
+```BASH
 sudo nginx -s reload
 ```
 
@@ -129,19 +129,19 @@ sudo nginx -s reload
 
 啟動 MongoDB 服務。
 
-```CMD
+```BASH
 docker-compose up -d mongo
 ```
 
 啟動 MongoDB 初始化服務。
 
-```CMD
+```BASH
 docker-compose up -d mongo-init-replica
 ```
 
 啟動 Rocket.Chat 服務。
 
-```CMD
+```BASH
 docker-compose up -d rocketchat
 ```
 

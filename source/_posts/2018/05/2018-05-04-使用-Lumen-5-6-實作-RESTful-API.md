@@ -17,7 +17,7 @@ categories: ["程式寫作", "PHP", "Lumen"]
 
 ## 建立專案
 
-```CMD
+```BASH
 lumen new journal
 ```
 
@@ -53,7 +53,7 @@ DB_PASSWORD=secret
 
 啟動 Homestead。
 
-```CMD
+```BASH
 cd Homestead
 $ vagrant up
 ```
@@ -62,7 +62,7 @@ $ vagrant up
 
 新增 `journals` 資料表。
 
-```CMD
+```BASH
 php artisan make:migration create_journals_table
 ```
 
@@ -79,7 +79,7 @@ Schema::create('journals', function (Blueprint $table) {
 
 執行遷移。
 
-```CMD
+```BASH
 php artisan migrate
 ```
 
@@ -113,7 +113,7 @@ $factory->define(App\Journal::class, function (Faker $faker) {
 
 執行填充。
 
-```CMD
+```BASH
 php artisan db:seed
 ```
 

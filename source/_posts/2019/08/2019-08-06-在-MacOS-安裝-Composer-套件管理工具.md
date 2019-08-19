@@ -10,24 +10,24 @@ categories: ["套件管理工具", "Composer"]
 
 使用 `brew` 指令安裝 Composer。
 
-```CMD
+```BASH
 brew install composer
 ```
 
 將 Composer 的套件執行檔寫進環境變數。
 
-```CMD
+```BASH
 echo 'export PATH="$HOME/.composer/vendor/bin:$PATH"' >> ~/.bashrc
 ```
 
 重新讀取 `.bashrc` 檔。
 
-```CMD
+```BASH
 source .bashrc
 ```
 
 確認 Composer 的版本。
 
-```CMD
+```BASH
 composer --version
 ```

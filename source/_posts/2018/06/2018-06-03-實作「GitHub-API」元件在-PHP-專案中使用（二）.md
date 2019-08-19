@@ -97,7 +97,7 @@ composer.lock
 
 現在可以輸入以下命令使用做好的元件了。
 
-```CMD
+```BASH
 composer require memochou1993/github-api
 ```
 

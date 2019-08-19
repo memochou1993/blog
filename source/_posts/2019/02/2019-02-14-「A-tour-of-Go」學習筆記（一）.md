@@ -18,20 +18,20 @@ categories: ["程式寫作", "Go", "「A tour of Go」學習筆記"]
 
 使用 Homebrew 安裝 Go。
 
-```CMD
+```BASH
 brew install go
 ```
 
 查看 Go 版本。
 
-```CMD
+```BASH
 go version
 go version go1.11.5
 ```
 
 執行 Go 程式。
 
-```CMD
+```BASH
 go run hello.go
 ```
 

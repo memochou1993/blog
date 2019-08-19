@@ -14,13 +14,13 @@ categories: ["環境部署", "Laradock"]
 
 更新 APT 套件工具。
 
-```CMD
+```BASH
 sudo apt-get update
 ```
 
 安裝以下套件讓 APT 可以透過 HTTPS 使用倉庫。
 
-```CMD
+```BASH
 sudo apt-get install \
     apt-transport-https \
     ca-certificates \
@@ -31,14 +31,14 @@ sudo apt-get install \
 
 加入 Docker 的公開金鑰。
 
-```CMD
+```BASH
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 OK
 ```
 
 進行驗證。
 
-```CMD
+```BASH
 sudo apt-key fingerprint 0EBFCD88
 pub   rsa4096 2017-02-22 [SCEA]
       9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88
@@ -48,7 +48,7 @@ sub   rsa4096 2017-02-22 [S]
 
 添加 `stable` 倉庫。
 
-```CMD
+```BASH
 sudo add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
@@ -57,20 +57,20 @@ sudo add-apt-repository \
 
 安裝 Docker CE
 
-```CMD
+```BASH
 sudo apt-get install docker-ce docker-ce-cli containerd.io
 ```
 
 查看 Docker 版本。
 
-```CMD
+```BASH
 docker -v
 Docker version 18.09.1
 ```
 
 將目前使用者加進 `docker` 群組。
 
-```CMD
+```BASH
 sudo gpasswd -a ${USER} docker
 ```
 
@@ -80,19 +80,19 @@ sudo gpasswd -a ${USER} docker
 
 下載 Docker Composer。
 
-```CMD
+```BASH
 sudo curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 ```
 
 設定權限。
 
-```CMD
+```BASH
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
 查看 Docker Compose 版本。
 
-```CMD
+```BASH
 docker-compose -v
 docker-compose version 1.23.2
 ```
@@ -101,13 +101,13 @@ docker-compose version 1.23.2
 
 安裝 PHP 及擴充套件。
 
-```CMD
+```BASH
 sudo apt-get install php php-cli php-mbstring php-xml
 ```
 
 查看 PHP 版本
 
-```CMD
+```BASH
 php --version
 ```
 
@@ -115,13 +115,13 @@ php --version
 
 安裝 Git 及相關套件。
 
-```CMD
+```BASH
 sudo apt-get install curl git unzip
 ```
 
 查看 Git 版本
 
-```CMD
+```BASH
 git --version
 ```
 
@@ -129,13 +129,13 @@ git --version
 
 從 GitHub 上將 Laradock 下載下來。
 
-```CMD
+```BASH
 git clone https://github.com/Laradock/laradock.git Laradock
 ```
 
 複製範本 `env-example` 檔作為設定檔。
 
-```CMD
+```BASH
 cd ~/Laradock && cp env-example .env
 ```
 
@@ -147,7 +147,7 @@ APP_CODE_PATH_HOST=~/Projects
 
 使用 `docker-compose` 啟動 Laradock。
 
-```CMD
+```BASH
 cd ~/Laradock && docker-compose up -d nginx mysql phpmyadmin
 ```
 
@@ -155,7 +155,7 @@ cd ~/Laradock && docker-compose up -d nginx mysql phpmyadmin
 
 下載 Composer 並安裝。
 
-```CMD
+```BASH
 cd ~
 $ curl -sS https://getcomposer.org/installer -o composer-setup.php
 $ HASH=48e3236262b34d30969dca3c37281b3b4bbe3221bda826ac6a9a62d6444cdb0dcd0615698a5cbe587c3f0fe57a54d8f5
@@ -168,7 +168,7 @@ $ sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
 查看 Composer 版本。
 
-```CMD
+```BASH
 composer --version
 ```
 
@@ -176,13 +176,13 @@ composer --version
 
 使用 Composer 安裝。
 
-```CMD
+```BASH
 composer global require laravel/installer
 ```
 
 查看 Laravel 安裝器版本。
 
-```CMD
+```BASH
 laravel --version
 ```
 
@@ -190,13 +190,13 @@ laravel --version
 
 建立專案根目錄。
 
-```CMD
+```BASH
 mkdir ~/Projects
 ```
 
 建立 Laravel 專案。
 
-```CMD
+```BASH
 cd ~/Projects && laravel new laravel
 ```
 
@@ -204,7 +204,7 @@ cd ~/Projects && laravel new laravel
 
 複製範本 `laravel.conf.example` 檔作為設定檔。
 
-```CMD
+```BASH
 cd ~/Laradock/nginx/sites && cp laravel.conf.example laravel.conf
 ```
 
@@ -217,7 +217,7 @@ root /var/www/laravel/public;
 
 重啟 Nginx 服務。
 
-```CMD
+```BASH
 cd ~/Laradock && docker-compose restart nginx
 ```
 
@@ -225,7 +225,7 @@ cd ~/Laradock && docker-compose restart nginx
 
 進入 MySQL 容器。
 
-```CMD
+```BASH
 docker-compose exec mysql bash
 ```
 
@@ -252,7 +252,7 @@ docker-compose exec mysql bash
 
 使用 `ubuntu` 使用者進入資料庫。
 
-```CMD
+```BASH
 mysql -u ubuntu -p
 ```
 
@@ -271,13 +271,13 @@ mysql -u ubuntu -p
 
 進到容器。
 
-```CMD
+```BASH
 docker-compose exec workspace bash
 ```
 
 修改 `storage` 資料夾的權限。
 
-```CMD
+```BASH
 chown -R laradock:www-data storage
 ```
 
@@ -285,12 +285,12 @@ chown -R laradock:www-data storage
 
 複製範本 `docker-compose.yml` 檔作為設定檔，刪減內容並移除資料庫的 `port`。
 
-```CMD
+```BASH
 cp docker-compose.yml production-docker-compose.yml
 ```
 
 使用 `docker-compose` 啟動 Laradock。
 
-```CMD
+```BASH
 docker-compose -f production-docker-compose.yml up -d nginx mysql phpmyadmin
 ```

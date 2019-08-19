@@ -10,7 +10,7 @@ categories: ["程式寫作", "PHP", "Laravel"]
 
 新增測試。
 
-```CMD
+```BASH
 php artisan make:test UserTest
 ```
 
@@ -85,6 +85,6 @@ abstract class TestCase extends BaseTestCase
 
 執行測試。
 
-```CMD
+```BASH
 phpunit
 ```

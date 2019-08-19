@@ -15,19 +15,19 @@ categories: ["程式寫作", "PHP", "Laravel"]
 
 ## 建立專案
 
-```CMD
+```BASH
 laravel new swoole
 ```
 
 ## 安裝套件
 
-```CMD
+```BASH
 composer require swooletw/laravel-swoole
 ```
 
 ## 啟動網頁伺服器
 
-```CMD
+```BASH
 php artisan swoole:http start
 ```
 

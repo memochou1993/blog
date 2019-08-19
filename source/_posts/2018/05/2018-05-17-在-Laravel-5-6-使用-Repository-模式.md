@@ -17,13 +17,13 @@ categories: ["程式寫作", "PHP", "Laravel"]
 
 ## 建立專案
 
-```CMD
+```BASH
 laravel new package
 ```
 
 ## 新增遷移
 
-```CMD
+```BASH
 php artisan make:migration create_packages_table
 ```
 
@@ -57,7 +57,7 @@ class CreatePackagesTable extends Migration
 
 ## 新增填充
 
-```CMD
+```BASH
 php artisan make:seed PackagesTableSeeder
 ```
 
@@ -78,7 +78,7 @@ class PackagesTableSeeder extends Seeder
 }
 ```
 
-```CMD
+```BASH
 php artisan make:factory PackageFactory
 ```
 
@@ -99,13 +99,13 @@ $factory->define(App\Package::class, function (Faker $faker) {
 
 執行遷移
 
-```CMD
+```BASH
 php artisan migrate --seed
 ```
 
 ## 新增模型
 
-```CMD
+```BASH
 php artisan make:model Package
 ```
 
@@ -167,7 +167,7 @@ class PackageRepository implements PackageInterface
 
 ## 新增控制器
 
-```CMD
+```BASH
 php artisan make:controller PackageController
 ```
 
@@ -247,7 +247,7 @@ class RepositoryServiceProvider extends ServiceProvider
 
 ## 重啟服務
 
-```CMD
+```BASH
 php artisan clear-compiled
 $ php artisan serve
 ```

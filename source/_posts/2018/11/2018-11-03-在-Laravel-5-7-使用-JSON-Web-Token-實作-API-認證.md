@@ -13,25 +13,25 @@ categories: ["程式寫作", "PHP", "Laravel"]
 
 ## 建立專案
 
-```CMD
+```BASH
 laravel new jwt
 ```
 
 ## 安裝套件
 
-```CMD
+```BASH
 composer require tymon/jwt-auth 1.*
 ```
 
 ## 發布資源
 
-```CMD
+```BASH
 php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
 ```
 
 ## 生成密鑰
 
-```CMD
+```BASH
 php artisan jwt:secret
 ```
 
@@ -131,7 +131,7 @@ class User extends Authenticatable implements JWTSubject
 
 新增 `UsersTableSeeder` 填充。
 
-```CMD
+```BASH
 php artisan make:seed UsersTableSeeder
 ```
 
@@ -150,7 +150,7 @@ public function run()
 
 執行遷移。
 
-```CMD
+```BASH
 php artisan migrate --seed
 ```
 

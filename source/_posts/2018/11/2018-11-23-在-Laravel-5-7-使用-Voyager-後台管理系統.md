@@ -13,7 +13,7 @@ categories: ["程式寫作", "PHP", "Laravel"]
 
 ## 安裝
 
-```CMD
+```BASH
 composer require tcg/voyager
 ```
 
@@ -27,7 +27,7 @@ APP_URL=voyager.test
 
 ## 執行安裝
 
-```CMD
+```BASH
 php artisan voyager:install --with-dummy
 ```
 
@@ -35,7 +35,7 @@ php artisan voyager:install --with-dummy
 
 ## 指派管理員
 
-```CMD
+```BASH
 php artisan voyager:admin your@email.com --create
 ```
 

@@ -13,7 +13,7 @@ categories: ["程式寫作", "PHP", "Laravel"]
 
 ## 建立專案
 
-```CMD
+```BASH
 laravel new telescope
 ```
 
@@ -23,25 +23,25 @@ laravel new telescope
 
 安裝 `laravel/telescope` 套件。
 
-```CMD
+```BASH
 composer require laravel/telescope
 ```
 
 執行安裝。
 
-```CMD
+```BASH
 php artisan telescope:install
 ```
 
 執行遷移。
 
-```CMD
+```BASH
 php artisan migrate
 ```
 
 發布資源。
 
-```CMD
+```BASH
 php artisan telescope:publish
 ```
 
@@ -51,25 +51,25 @@ php artisan telescope:publish
 
 安裝 `laravel/telescope` 套件。
 
-```CMD
+```BASH
 composer require laravel/telescope --dev
 ```
 
 執行安裝。
 
-```CMD
+```BASH
 php artisan telescope:install
 ```
 
 執行遷移。
 
-```CMD
+```BASH
 php artisan migrate
 ```
 
 發布資源。
 
-```CMD
+```BASH
 php artisan telescope:publish
 ```
 

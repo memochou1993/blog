@@ -12,13 +12,13 @@ categories: ["程式寫作", "JavaScript", "Vue.js"]
 
 ## 建立專案
 
-```CMD
+```BASH
 vue create firebase-auth-vue
 ```
 
 ## 安裝套件
 
-```CMD
+```BASH
 npm install ——save firebase
 ```
 

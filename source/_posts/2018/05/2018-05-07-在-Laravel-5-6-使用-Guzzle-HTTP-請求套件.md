@@ -12,7 +12,7 @@ categories: ["程式寫作", "PHP", "Laravel"]
 
 ## 安裝
 
-```CMD
+```BASH
 composer require guzzlehttp/guzzle
 ```
 

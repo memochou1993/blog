@@ -15,13 +15,13 @@ categories: ["程式寫作", "PHP", "Laravel"]
 
 建立專案。
 
-```CMD
+```BASH
 laravel new echo
 ```
 
 安裝 `predis/predis` 套件。
 
-```CMD
+```BASH
 composer require predis/predis
 ```
 
@@ -47,7 +47,7 @@ SESSION_LIFETIME=120
 
 建立事件。
 
-```CMD
+```BASH
 php artisan make:event BroadcastEvent
 ```
 
@@ -105,7 +105,7 @@ Route::post('/send', function(\Illuminate\Http\Request $request){
 
 安裝前端套件。
 
-```CMD
+```BASH
 npm install
 $ npm install -g laravel-echo-server
 $ npm install --save laravel-echo pusher-js
@@ -197,19 +197,19 @@ window.Echo = new Echo({
 
 執行編譯。
 
-```CMD
+```BASH
 npm run watch-poll
 ```
 
 初始化 `laravel-echo-server` 服務。
 
-```CMD
+```BASH
 laravel-echo-server init
 ```
 
 啟動 `laravel-echo-server` 服務。
 
-```CMD
+```BASH
 laravel-echo-server start
 ```
 

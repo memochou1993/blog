@@ -59,7 +59,7 @@ categories: ["程式寫作", "PHP", "元件"]
 
 安裝 `Guzzle` 及 `PHPUnit` 相依元件。
 
-```CMD
+```BASH
 composer install
 ```
 
@@ -202,7 +202,7 @@ class YoutubeTest extends TestCase
 
 執行測試。
 
-```CMD
+```BASH
 vendor/bin/phpunit
 ```
 

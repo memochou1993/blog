@@ -13,19 +13,19 @@ categories: ["程式寫作", "PHP", "Laravel"]
 
 ## 建立專案
 
-```CMD
+```BASH
 laravel new passport
 ```
 
 ## 安裝套件
 
-```CMD
+```BASH
 composer require laravel/passport
 ```
 
 ## 執行遷移
 
-```CMD
+```BASH
 php artisan migrate
 ```
 
@@ -33,7 +33,7 @@ php artisan migrate
 
 新增 `UsersTableSeeder` 填充。
 
-```CMD
+```BASH
 php artisan make:seed UsersTableSeeder
 ```
 
@@ -52,7 +52,7 @@ public function run()
 
 執行填充。
 
-```CMD
+```BASH
 php artisan db:seed
 ```
 
@@ -60,7 +60,7 @@ php artisan db:seed
 
 執行安裝。
 
-```CMD
+```BASH
 php artisan passport:install
 ```
 
@@ -77,13 +77,13 @@ Client Secret: 28ch1……ioMe7
 
 若只有密碼授權，執行：
 
-```CMD
+```BASH
 php artisan passport:client --password
 ```
 
 若只有客戶端憑證授權，執行：
 
-```CMD
+```BASH
 php artisan passport:client --client
 ```
 

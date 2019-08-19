@@ -15,7 +15,7 @@ categories: ["程式寫作", "PHP", "Laravel"]
 
 安裝 `spatie/laravel-binary-uuid` 套件。
 
-```CMD
+```BASH
 composer require spatie/laravel-binary-uuid
 ```
 

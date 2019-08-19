@@ -18,20 +18,20 @@ categories: ["環境部署", "Laradock"]
 
 安裝 Google Chrome 瀏覽器。
 
-```CMD
+```BASH
 cd Downloads
 $ sudo apt install ./google-chrome-stable_current_amd64.deb
 ```
 
 安裝 `software-properties-common` 套件。
 
-```CMD
+```BASH
 sudo apt install software-properties-common
 ```
 
 安裝 Git。
 
-```CMD
+```BASH
 sudo add-apt-repository ppa:git-core/ppa
 $ sudo apt update
 $ sudo apt install git
@@ -39,7 +39,7 @@ $ sudo apt install git
 
 ## 安裝 Docker
 
-```CMD
+```BASH
 curl -fsSL get.docker.com -o get-docker.sh
 $ sh get-docker.sh
 $ rm get-docker.sh
@@ -56,7 +56,7 @@ $ docker -v // 檢査是否安裝成功並査看版本
 - 調整權限
 - 把資料夾移回使用者可執行程式目錄
 
-```CMD
+```BASH
 sudo curl -L https://github.com/docker/compose/releases/download/1.21.0/docker-compose-$(uname -s)-$(uname -m) -o ~/docker-compose
 $ sudo chmod +x ~/docker-compose
 $ sudo mv ~/docker-compose /usr/local/bin/docker-compose
@@ -67,7 +67,7 @@ $ docker-compose -v // 檢査是否安裝成功並査看版本
 
 新增完必須重新開機。
 
-```CMD
+```BASH
 sudo usermod -aG docker <USERNAME>
 ```
 
@@ -75,7 +75,7 @@ sudo usermod -aG docker <USERNAME>
 
 從 GitHub 上下載 Laradock 到根目錄。
 
-```CMD
+```BASH
 cd ~/
 $ git clone https://github.com/laradock/laradock.git Laradock
 $ cd Laradock
@@ -95,7 +95,7 @@ APP_CODE_PATH_HOST=~/Projects/
 
 在根目錄新增一個專案資料夾，但這個做法在之後會遇到權限問題。
 
-```CMD
+```BASH
 cd ~/
 $ mkdir Projects
 ```
@@ -113,19 +113,19 @@ APP_CODE_PATH_HOST=/media/<USERNAME>/[volumn name]/Projects/
 
 這是第三個和原書有所出入的部分，容器 `workspace` 必須由使用者自行增加，否則會出現找不到容器 `workspace` 的警告。
 
-```CMD
+```BASH
 docker-compose up -d nginx mysql workspace
 ```
 
 等待 5 分鐘安裝後，進入容器。
 
-```CMD
+```BASH
 docker-compose exec workspace bash
 ```
 
 在容器根目錄 `/var/www` 裡安裝 Laravel。
 
-```CMD
+```BASH
 composer create-project laravel/laravel --prefer-dist
 ```
 
@@ -133,7 +133,7 @@ composer create-project laravel/laravel --prefer-dist
 
 這裡要建立一個 `laravel.test.conf` 檔。
 
-```CMD
+```BASH
 cd ~/Laradock/nginx/sites
 $ cp laravel.conf.example laravel.test.conf
 ```
@@ -142,13 +142,13 @@ $ cp laravel.conf.example laravel.test.conf
 
 先安裝 gedit 文字編輯器。
 
-```CMD
+```BASH
 sudo apt install gedit
 ```
 
 建立一個虛擬主機路徑。
 
-```CMD
+```BASH
 sudo gedit /etc/hosts
 ```
 
@@ -160,7 +160,7 @@ sudo gedit /etc/hosts
 
 ## 重啟 Docker
 
-```CMD
+```BASH
 cd ~/Laradock
 $ docker-compose down
 $ docker-compose up -d nginx mysql workspace
@@ -176,7 +176,7 @@ The stream or file "/var/www/laravel/storage/logs/laravel.log" could not be open
 
 進到專案資料夾修改專案權限。
 
-```CMD
+```BASH
 ~/Projects
 $ sudo chmod -R 777 laravel
 ```

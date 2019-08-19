@@ -19,13 +19,13 @@ categories: ["環境部署", "Laradock"]
 
 從 GitHub 上將 Laradock 下載下來。
 
-```CMD
+```BASH
 git clone https://github.com/Laradock/laradock.git Laradock
 ```
 
 複製範本 env-example 檔作為設定檔。
 
-```CMD
+```BASH
 cd Laradock
 $ cp env-example .env
 ```
@@ -38,7 +38,7 @@ APP_CODE_PATH_HOST=../Projects/laravel
 
 使用 docker-compose 啟動 Laradock。
 
-```CMD
+```BASH
 cd Laradock
 $ docker-compose up -d nginx mysql phpmyadmin
 ```
@@ -47,7 +47,7 @@ $ docker-compose up -d nginx mysql phpmyadmin
 
 進入 MySQL 容器。
 
-```CMD
+```BASH
 docker-compose exec mysql bash
 ```
 
@@ -74,21 +74,21 @@ default_authentication_plugin=mysql_native_password
 
 新增專案資料夾。
 
-```CMD
+```BASH
 cd Projects
 $ mkdir laravel
 ```
 
 使用 laradock 使用者進入 workspace 容器。
 
-```CMD
+```BASH
 cd Laradock
 $ docker-compose exec --user=laradock workspace bash
 ```
 
 安裝 Laravel 安裝器。
 
-```CMD
+```BASH
 laradock@107a4945c6fe:/var/www$ composer global require laravel/installer
 ```
 
@@ -111,6 +111,6 @@ DB_PASSWORD=secret
 
 執行遷移。
 
-```CMD
+```BASH
 laradock@107a4945c6fe:/var/www$ php artisan migrate
 ```

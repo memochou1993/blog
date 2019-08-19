@@ -205,19 +205,19 @@ GitHub 如果沒有自動建立，可以手動為元件啟動掛鉤。
 
 建立 Laravel 專案。
 
-```CMD
+```BASH
 laravel new youtube
 ```
 
 安裝元件。
 
-```CMD
+```BASH
 composer require memochou1993/youtube-api dev-master
 ```
 
 發布資源。
 
-```CMD
+```BASH
 php artisan vendor:publish --provider="Memo\Youtube\YoutubeServiceProvider"
 ```
 

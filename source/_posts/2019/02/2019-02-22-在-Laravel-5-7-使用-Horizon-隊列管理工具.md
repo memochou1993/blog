@@ -16,14 +16,14 @@ categories: ["程式寫作", "PHP", "Laravel"]
 
 啟動 Laradock。
 
-```CMD
+```BASH
 cd ~/Laradock
 $ docker-compose up -d nginx redis phpmyadmin laravel-horizon
 ```
 
 建立專案。
 
-```CMD
+```BASH
 laravel new horizon
 $ cd horizon
 ```
@@ -46,31 +46,31 @@ REDIS_PORT=6379
 
 安裝 `laravel/horizon` 套件。
 
-```CMD
+```BASH
 composer require laravel/horizon
 ```
 
 執行安裝。
 
-```CMD
+```BASH
 php artisan horizon:install
 ```
 
 建立 `failed-table` 遷移檔。
 
-```CMD
+```BASH
 php artisan queue:failed-table
 ```
 
 執行遷移。
 
-```CMD
+```BASH
 php artisan migrate
 ```
 
 啟動 Horizon 服務。
 
-```CMD
+```BASH
 php artisan horizon
 ```
 
@@ -80,7 +80,7 @@ php artisan horizon
 
 如果要讓 Laradock 自動啟動 Horizon 服務，需要複製範本 `laravel-horizon.conf.example` 檔作為設定檔。
 
-```CMD
+```BASH
 cd ~/Laradock/laravel-horizon/supervisord.d
 $ cp laravel-horizon.conf.example project-horizon.conf
 ```
@@ -100,7 +100,7 @@ redirect_stderr=true
 
 重新讀取設定檔。
 
-```CMD
+```BASH
 docker-compose exec laravel-horizon ash
 /etc/supervisor/conf.d # supervisorctl reread
 /etc/supervisor/conf.d # supervisorctl update

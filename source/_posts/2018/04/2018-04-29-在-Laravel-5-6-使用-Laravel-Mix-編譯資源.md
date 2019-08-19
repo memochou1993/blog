@@ -17,7 +17,7 @@ categories: ["程式寫作", "PHP", "Laravel"]
 
 在 Laravel 專案根目錄執行以下命令：
 
-```CMD
+```BASH
 npm install
 ```
 
@@ -63,19 +63,19 @@ mix.js('resources/assets/js/app.js', 'public/js')
 
 編譯並展開所有資源。
 
-```CMD
+```BASH
 npm run dev
 ```
 
 編譯並壓縮所有資源。
 
-```CMD
+```BASH
 npm run prod
 ```
 
 編譯並監聽所有資源。
 
-```CMD
+```BASH
 npm run watch // 在 Windows 環境
 $ npm run watch-poll // 在虛擬機環境
 ```
@@ -84,18 +84,18 @@ $ npm run watch-poll // 在虛擬機環境
 
 - 如果遇到 `symlink` 問題，在執行命令後面添加 `--no-bin-links`：
 
-```CMD
+```BASH
 npm install --no-bin-links
 ```
 
 - 如果遇到 `cross-env` 問題，輸入以下命令全域安裝 `cross-env`：
 
-```CMD
+```BASH
 npm i -g cross-env --no-bin-links
 ```
 
 - 如果遇到 `node-sass` 問題，輸入以下命令重建 `node-sass`：
 
-```CMD
+```BASH
 npm rebuild node-sass --no-bin-links
 ```

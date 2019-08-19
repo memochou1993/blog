@@ -15,7 +15,7 @@ categories: ["程式寫作", "PHP", "Laravel"]
 
 執行 `phpunit` 指令，並加上 `--coverage-html` 參數，以及輸出路徑。
 
-```CMD
+```BASH
 phpunit --coverage-html ./report
 ```
 
@@ -46,6 +46,6 @@ phpunit --coverage-html ./report
 
 執行 `phpunit` 指令。
 
-```CMD
+```BASH
 phpunit
 ```

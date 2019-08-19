@@ -23,7 +23,7 @@ databases:
 
 重新執行設定檔。
 
-```CMD
+```BASH
 vagrant provision
 ```
 

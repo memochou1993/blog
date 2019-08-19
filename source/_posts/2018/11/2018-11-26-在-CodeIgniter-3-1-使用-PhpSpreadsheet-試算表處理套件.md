@@ -13,7 +13,7 @@ categories: ["程式寫作", "PHP", "CodeIgniter"]
 
 ## 安裝套件
 
-```CMD
+```BASH
 composer require phpoffice/phpspreadsheet
 ```
 
@@ -35,7 +35,7 @@ composer require phpoffice/phpspreadsheet
 
 執行傾倒
 
-```CMD
+```BASH
 composer dump-autoload
 ```
 

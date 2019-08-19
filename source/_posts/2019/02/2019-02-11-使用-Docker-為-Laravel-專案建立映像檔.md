@@ -14,7 +14,7 @@ categories: ["環境部署", "Docker"]
 
 建立專案。
 
-```CMD
+```BASH
 laravel new laravel-example
 $ cd laravel-example
 ```
@@ -36,19 +36,19 @@ EXPOSE 8181
 
 建立映像檔。
 
-```CMD
+```BASH
 docker build -t <USERNAME>/laravel-example:latest .
 ```
 
 啟動服務。
 
-```CMD
+```BASH
 docker run -d -p 8181:8181 <USERNAME>/laravel-example:latest
 ```
 
 推送映像檔。
 
-```CMD
+```BASH
 docker push <USERNAME>/laravel-example:latest
 ```
 

@@ -13,7 +13,7 @@ categories: ["程式寫作", "PHP", "Laravel"]
 
 ## 安裝套件
 
-```CMD
+```BASH
 composer require predis/predis
 ```
 
@@ -21,7 +21,7 @@ composer require predis/predis
 
 設定一個可以儲存包裹的工作。
 
-```CMD
+```BASH
 php artisan make:job StorePackage
 ```
 
@@ -72,7 +72,7 @@ public function index()
 
 讓隊列工人從隊列拉出工作並執行它們。
 
-```CMD
+```BASH
 php artisan queue:work --timeout=10 --sleep=10 --tries=3
 ```
 

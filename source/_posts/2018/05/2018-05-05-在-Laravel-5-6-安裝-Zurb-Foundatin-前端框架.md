@@ -15,13 +15,13 @@ categories: ["程式寫作", "PHP", "Laravel"]
 
 ## 建立專案
 
-```CMD
+```BASH
 laravel new foundation
 ```
 
 ## 安裝模組
 
-```CMD
+```BASH
 cd foundation
 $ npm install
 ```
@@ -36,19 +36,19 @@ $ npm install
 
 更新 `package.json` 檔。
 
-```CMD
+```BASH
 npm update
 ```
 
 如果在 Windows 環境沒有反應就執行以下：
 
-```CMD
+```BASH
 npm install
 ```
 
 如果在 Homestead 環境需要重建 `node-sass` 模組：
 
-```CMD
+```BASH
 npm rebuild node-sass --force --no-bin-links
 ```
 
@@ -96,7 +96,7 @@ require('./foundation');
 
 ## 編譯資源
 
-```CMD
+```BASH
 npm run dev
 ```
 

@@ -10,18 +10,18 @@ categories: ["其他", "SSH"]
 
 生成 SSH 金鑰。
 
-```CMD
+```BASH
 ssh-keygen
 ```
 
 將公開金鑰同步到遠端伺服器。
 
-```CMD
+```BASH
 ssh-copy-id -i ~/.ssh/id_rsa.pub root@xxx.xxx.xxx.xxx
 ```
 
 使用 SSH 登入，不再需要密碼。
 
-```CMD
+```BASH
 ssh root@xxx.xxx.xxx.xxx
 ```

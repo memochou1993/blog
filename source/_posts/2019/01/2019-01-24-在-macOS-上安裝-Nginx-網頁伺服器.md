@@ -10,25 +10,25 @@ categories: ["環境部署", "Nginx"]
 
 使用 `brew` 指令安裝 Nginx。
 
-```CMD
+```BASH
 brew install nginx
 ```
 
 啟動 Nginx 服務。
 
-```CMD
+```BASH
 sudo nginx
 ```
 
 停止 Nginx 服務。
 
-```CMD
+```BASH
 sudo nginx -s stop
 ```
 
 重啟 Nginx 服務。
 
-```CMD
+```BASH
 sudo nginx -s reload
 ```
 

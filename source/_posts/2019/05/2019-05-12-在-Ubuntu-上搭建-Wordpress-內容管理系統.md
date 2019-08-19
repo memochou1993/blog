@@ -15,14 +15,14 @@ categories: ["環境部署", "Wordpress"]
 
 啟動容器
 
-```CMD
+```BASH
 cd ~/Laradock
 $ docker-compose up -d nginx mysql
 ```
 
 建立資料庫。
 
-```CMD
+```BASH
 docker-compose exec mysql bash
 # mysql -u root -p
 > CREATE DATABASE `wordpress`
@@ -30,7 +30,7 @@ docker-compose exec mysql bash
 
 下載 Wordpress。
 
-```CMD
+```BASH
 cd /var/www/
 $ wget http://wordpress.org/latest.tar.gz
 $ tar xvf latest.tar.gz
@@ -39,7 +39,7 @@ $ rm latest.tar.gz
 
 設定權限。
 
-```CMD
+```BASH
 cd ~/Laradock
 $ docker-compose exec workspace bash
 # cd wordpress
@@ -95,7 +95,7 @@ server {
 
 重新啟動 Nginx 容器。
 
-```CMD
+```BASH
 docker-compose restart nginx
 ```
 

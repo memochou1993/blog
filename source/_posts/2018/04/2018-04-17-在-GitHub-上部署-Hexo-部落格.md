@@ -17,7 +17,7 @@ categories: ["其他", "部落格"]
 
 先確認電腦有安裝 `Node.js` 和 `git`。
 
-```CMD
+```BASH
 node -v
 $ npm -v
 $ git --version
@@ -25,7 +25,7 @@ $ git --version
 
 將 Hexo 安裝在全域環境。
 
-```CMD
+```BASH
 npm install hexo -g
 ```
 
@@ -33,13 +33,13 @@ npm install hexo -g
 
 建立一個 Hexo 部落格。
 
-```CMD
+```BASH
 hexo init blog
 ```
 
 ## 預覽
 
-```CMD
+```BASH
 hexo s
 ```
 
@@ -47,7 +47,7 @@ hexo s
 
 在 GitHub 建立一個儲存庫 `blog`，並安裝 `hexo-deployer-git` 套件。
 
-```CMD
+```BASH
 npm install hexo-deployer-git --save
 ```
 
@@ -67,24 +67,24 @@ deploy:
 
 ## 新增文章
 
-```CMD
+```BASH
 hexo n "New Post"
 ```
 
 ## 清除靜態網頁
 
-```CMD
+```BASH
 hexo clean
 ```
 
 ## 產生靜態網頁
 
-```CMD
+```BASH
 hexo g
 ```
 
 ## 發布
 
-```CMD
+```BASH
 hexo d
 ```

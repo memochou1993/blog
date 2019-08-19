@@ -8,7 +8,7 @@ categories: ["程式寫作", "PHP", "Laravel"]
 
 ## 建立專案
 
-```CMD
+```BASH
 laravel new laravel-vuetify
 $ php artisan serve
 ```
@@ -28,7 +28,7 @@ $ php artisan serve
 
 ## 安裝
 
-```CMD
+```BASH
 npm install
 $ npm install vuetify --save-dev
 ```
@@ -106,7 +106,7 @@ mix.js('resources/js/app.js', 'public/js')
 
 移除 `sass` 和 `sass-loader` 套件。
 
-```CMD
+```BASH
 npm uninstall sass
 $ npm uninstall sass-loader
 ```
@@ -121,7 +121,7 @@ max_line_length = 100
 
 ## 監聽
 
-```CMD
+```BASH
 npm run watch-poll
 ```
 
@@ -129,6 +129,6 @@ npm run watch-poll
 
 ## 編譯
 
-```CMD
+```BASH
 npm run prod
 ```

@@ -10,7 +10,7 @@ categories: ["程式寫作", "PHP", "Laravel"]
 
 建立認證。
 
-```CMD
+```BASH
 php artisan make:auth
 ```
 

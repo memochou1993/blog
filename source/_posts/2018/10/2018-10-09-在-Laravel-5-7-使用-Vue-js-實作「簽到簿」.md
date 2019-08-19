@@ -12,7 +12,7 @@ tags: ["程式寫作", "JavaScript", "Vue.js", "PHP", "Laravel"]
 
 ## 建立專案
 
-```CMD
+```BASH
 laravel new guestbook
 ```
 
@@ -27,7 +27,7 @@ DB_PORT=3306
 
 ## 建立資料庫
 
-```CMD
+```BASH
 touch database/database.sqlite
 ```
 
@@ -104,7 +104,7 @@ $factory->define(App\Signature::class, function (Faker $faker) {
 
 執行遷移
 
-```CMD
+```BASH
 php artisan migrate --seed
 ```
 
@@ -228,7 +228,7 @@ class SignatureController extends Controller
 
 ## 監聽資源
 
-```CMD
+```BASH
 npm install
 $ npm run watch
 ```

@@ -20,27 +20,27 @@ categories: ["環境部署", "Homestead"]
 
 新增一個 `laravel/homestead` 盒子。
 
-```CMD
+```BASH
 vagrant box add laravel/homestead
 ```
 
 從 Github 上下載 Homestead 下來。
 
-```CMD
+```BASH
 cd ~/
 $ git clone https://github.com/laravel/homestead.git ~/Homestead
 ```
 
 切換到想要的版本。
 
-```CMD
+```BASH
 cd Homestead
 $ git checkout v7.4.0
 ```
 
 初始化。
 
-```CMD
+```BASH
 init.bat
 ```
 
@@ -75,7 +75,7 @@ databases:
 
 ## 啟動 Homestead
 
-```CMD
+```BASH
 cd ~/Homestead
 $ vagrant up
 ```
@@ -84,13 +84,13 @@ $ vagrant up
 
 如果沒有公開金鑰，先執行以下命令：
 
-```CMD
+```BASH
 ssh-keygen
 ```
 
 再登入 Homestead。
 
-```CMD
+```BASH
 vagrant ssh
 ```
 
@@ -98,13 +98,13 @@ vagrant ssh
 
 如果沒有 Laravel 安裝器，先執行以下命令：
 
-```CMD
+```BASH
 composer global require "laravel/installer"
 ```
 
 再建立專案。
 
-```CMD
+```BASH
 cd Projects
 $ laravel new laravel
 ```
@@ -117,12 +117,12 @@ $ laravel new laravel
 
 關閉虛擬機。
 
-```CMD
+```BASH
 vagrant halt
 ```
 
 暫停虛擬機。
 
-```CMD
+```BASH
 vagrant suspend
 ```

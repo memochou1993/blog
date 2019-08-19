@@ -78,7 +78,7 @@ public function project()
 
 建立 `ProjectsTableSeeder.php` 檔。
 
-```CMD
+```BASH
 php artisan make:seed ProjectsTableSeeder
 ```
 
@@ -100,7 +100,7 @@ factory(Project::class, 10)->create([
 
 建立 `UserProjectTableSeeder.php` 檔。
 
-```CMD
+```BASH
 php artisan make:seed UserProjectTableSeeder
 ```
 

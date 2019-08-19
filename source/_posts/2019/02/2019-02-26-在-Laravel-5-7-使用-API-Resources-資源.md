@@ -8,7 +8,7 @@ categories: ["程式寫作", "PHP", "Laravel"]
 
 建立 `ProjectResource.php` 檔。
 
-```CMD
+```BASH
 php artisan make:resource ProjectResource
 ```
 

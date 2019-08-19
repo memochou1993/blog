@@ -12,7 +12,7 @@ categories: ["其他", "壓力測試"]
 
 ## 使用
 
-```CMD
+```BASH
 ab -n 1000 -c 10 http://laravel.test
 ```
 
@@ -23,7 +23,7 @@ ab -n 1000 -c 10 http://laravel.test
 
 本文針對乾淨的 Laravel 框架，在 5 種不同的環境下進行 5 次壓力測試，並取得平均值。
 
-```CMD
+```BASH
 ab -n 1000 -c 10 http://laravel.test
 ```
 

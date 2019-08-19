@@ -25,7 +25,7 @@ categories: ["程式寫作", "PHP", "Lumen"]
 
 新增 `users` 資料表。
 
-```CMD
+```BASH
 php artisan make:migration create_users_table
 ```
 
@@ -45,7 +45,7 @@ Schema::create('users', function (Blueprint $table) {
 
 新增 `UsersTableSeeder` 填充。
 
-```CMD
+```BASH
 php artisan make:seeder UsersTableSeeder
 ```
 
@@ -61,7 +61,7 @@ App\User::create([
 
 執行遷移。
 
-```CMD
+```BASH
 php artisan migrate --seed
 ```
 

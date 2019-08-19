@@ -25,7 +25,7 @@ PHP 自 5.4.0 開始有內建網頁伺服器，雖不該用來使用在產品階
 
 開啟終端機並輸入指令：
 
-```CMD
+```BASH
 php -S localhost:8000
 ```
 
@@ -35,7 +35,7 @@ php -S localhost:8000
 
 要讓內建伺服器使用特定的 `.ini` 檔，可以利用 `-c` 選項：
 
-```CMD
+```BASH
 php -S localhost:8000 -c app/config/pnp.ini
 ```
 
@@ -43,7 +43,7 @@ php -S localhost:8000 -c app/config/pnp.ini
 
 內建伺服器沒有支援 `.htaccess` 檔（負責分發 HTTP 請求並分配適當的 PHP 檔），因此內建伺服器利用「路由器腳本」實作出跟 `.htaccess` 檔相同的功能。
 
-```CMD
+```BASH
 php -S localhost:8000 router.php
 ```
 

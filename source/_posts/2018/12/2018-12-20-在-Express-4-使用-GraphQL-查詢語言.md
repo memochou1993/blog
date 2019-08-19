@@ -12,7 +12,7 @@ categories: ["程式寫作", "GraphQL"]
 
 ## 建立專案
 
-```CMD
+```BASH
 mkdir graphql-express
 $ npm install --save graphql express-graphql express
 ```
@@ -117,7 +117,7 @@ app.listen(3000);
 
 ## 啟動服務
 
-```CMD
+```BASH
 node server.js
 ```
 

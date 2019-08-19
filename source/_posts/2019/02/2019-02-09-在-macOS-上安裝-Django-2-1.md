@@ -10,7 +10,7 @@ categories: ["程式寫作", "Python", "Django"]
 
 使用 Homebrew 安裝 Python 3。
 
-```CMD
+```BASH
 brew install python3
 ```
 
@@ -22,13 +22,13 @@ export PATH="/usr/local/Cellar/python/3.7.2_1/bin:$PATH"
 
 重新加載啟動文件。
 
-```CMD
+```BASH
 source ~/.bash_profile
 ```
 
 查看 Python 版本。
 
-```CMD
+```BASH
 python3 -V
 Python 3.7.2
 ```
@@ -37,13 +37,13 @@ Python 3.7.2
 
 下載 `get-pip.py` 檔。
 
-```CMD
+```BASH
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 ```
 
 安裝 Pip3。
 
-```CMD
+```BASH
 python3 get-pip.py
 ```
 
@@ -55,13 +55,13 @@ export PATH="/usr/local/Cellar/python/3.7.2_1/Frameworks/Python.framework/Versio
 
 重新加載啟動文件。
 
-```CMD
+```BASH
 source ~/.bash_profile
 ```
 
 查看 Pip 版本。
 
-```CMD
+```BASH
 pip3 -V
 pip 19.0.2
 ```
@@ -70,7 +70,7 @@ pip 19.0.2
 
 使用 Pip 安裝 Virtualenvwrapper。
 
-```CMD
+```BASH
 pip3 install virtualenvwrapper
 ```
 
@@ -85,38 +85,38 @@ source /usr/local/Cellar/python/3.7.2_1/Frameworks/Python.framework/Versions/3.7
 
 重新加載啟動文件。
 
-```CMD
+```BASH
 source ~/.bash_profile
 ```
 
 建立虛擬環境。
 
-```CMD
+```BASH
 mkvirtualenv django_env
 ```
 
 列出可用的虛擬環境。
 
-```CMD
+```BASH
 workon
 django_env
 ```
 
 刪除指定的虛擬環境。
 
-```CMD
+```BASH
 rmvirtualenv django_env
 ```
 
 啟動指定的虛擬環境。
 
-```CMD
+```BASH
 workon django_env
 ```
 
 退出當前的虛擬環境。
 
-```CMD
+```BASH
 deactivate
 ```
 
@@ -124,27 +124,27 @@ deactivate
 
 建立一個虛擬環境後，使用 Pip 安裝 Django。
 
-```CMD
+```BASH
 pip3 install django
 ```
 
 查看 Django 版本。
 
-```CMD
+```BASH
 python3 -m django --version
 2.1.5
 ```
 
 使用 django-admin 工具建立一個專案。
 
-```CMD
+```BASH
 django-admin startproject mysite
 $ cd mysite
 ```
 
 啟動網頁伺服器。
 
-```CMD
+```BASH
 python3 manage.py runserver
 ```
 

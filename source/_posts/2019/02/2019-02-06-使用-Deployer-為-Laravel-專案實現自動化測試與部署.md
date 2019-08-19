@@ -17,7 +17,7 @@ categories: ["環境部署", "CI/CD"]
 
 連線至遠端伺服器。
 
-```CMD
+```BASH
 sh ec2.sh
 ```
 
@@ -25,7 +25,7 @@ sh ec2.sh
 
 新增 `deployer` 使用者。
 
-```CMD
+```BASH
 sudo adduser deployer --disabled-password
 ```
 
@@ -33,7 +33,7 @@ sudo adduser deployer --disabled-password
 
 將 `deployer` 使用者加進 `nginx` 使用者所待的 `www-data` 群組。
 
-```CMD
+```BASH
 sudo adduser deployer www-data
 ```
 
@@ -41,7 +41,7 @@ sudo adduser deployer www-data
 
 切換到 `deployer` 使用者，設定基礎權限。
 
-```CMD
+```BASH
 sudo su - deployer
 $ echo "umask 022" >> ~/.bashrc
 $ exit
@@ -49,7 +49,7 @@ $ exit
 
 為 `deployer` 使用者添加 sudo 權限。
 
-```CMD
+```BASH
 sudo vi /etc/sudoers
 ```
 
@@ -63,7 +63,7 @@ deployer ALL=(ALL) NOPASSWD: ALL
 
 切換回 `deployer` 使用者，修改專案目錄權限。
 
-```CMD
+```BASH
 sudo su - deployer
 $ sudo chown deployer:www-data /var/www
 $ sudo chmod g+s /var/www
@@ -73,14 +73,14 @@ $ sudo chmod g+s /var/www
 
 新增 `~/.ssh` 資料夾，並設定權限。
 
-```CMD
+```BASH
 mkdir ~/.ssh
 $ chmod 700 ~/.ssh
 ```
 
 新增 `authorized_keys` 檔。
 
-```CMD
+```BASH
 touch ~/.ssh/authorized_keys
 ```
 
@@ -92,7 +92,7 @@ ssh-rsa ...
 
 設定金鑰權限。
 
-```CMD
+```BASH
 chmod 600 ~/.ssh/authorized_keys
 ```
 
@@ -100,7 +100,7 @@ chmod 600 ~/.ssh/authorized_keys
 
 新增 `id_rsa` 檔。
 
-```CMD
+```BASH
 touch ~/.ssh/id_rsa
 ```
 
@@ -114,19 +114,19 @@ touch ~/.ssh/id_rsa
 
 新增 `id_rsa.pub` 檔。
 
-```CMD
+```BASH
 touch ~/.ssh/id_rsa
 ```
 
 將 `authorized_keys` 檔的內容複製到 `~/.ssh/id_rsa.pub` 檔。
 
-```CMD
+```BASH
 cat ~/.ssh/authorized_keys >> ~/.ssh/id_rsa.pub
 ```
 
 設定金鑰權限。
 
-```CMD
+```BASH
 chmod 600 ~/.ssh/id_rsa
 $ chmod 600 ~/.ssh/id_rsa.pub
 ```
@@ -135,7 +135,7 @@ $ chmod 600 ~/.ssh/id_rsa.pub
 
 將 `id_rsa.pub` 檔的內容複製到儲存庫 SSH 設定。
 
-```CMD
+```BASH
 cat ~/.ssh/id_rsa.pub
 ```
 
@@ -145,7 +145,7 @@ cat ~/.ssh/id_rsa.pub
 
 使用 Composer 安裝 Deployer。
 
-```CMD
+```BASH
 composer global require deployer/deployer -vvv
 ```
 
@@ -153,13 +153,13 @@ composer global require deployer/deployer -vvv
 
 新增 Laravel 專案。
 
-```CMD
+```BASH
 laravel new laravel
 ```
 
 初始化 Deployer。
 
-```CMD
+```BASH
 cd laravel
 $ dep init
 ```
@@ -183,6 +183,6 @@ host('xx.xxx.xxx.xxx')
 
 在本機端的專案目錄執行以下指令：
 
-```CMD
+```BASH
 dep deploy -vvv
 ```

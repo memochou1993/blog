@@ -12,7 +12,7 @@ Nuxt 將 Adonis 進行整合，成為 [Adonuxt](https://github.com/nuxt-communit
 
 ## 安裝
 
-```CMD
+```BASH
 npx create-nuxt-app adonuxt
 ```
 
@@ -20,7 +20,7 @@ npx create-nuxt-app adonuxt
 
 ## 安裝 SQLite
 
-```CMD
+```BASH
 npm install --save sqlite3
 ```
 
@@ -125,7 +125,7 @@ module.exports = new NuxtController();
 
 執行。
 
-```CMD
+```BASH
 npm run dev:server
 ```
 
@@ -133,7 +133,7 @@ npm run dev:server
 
 前端編譯比較不會耗時，直接執行以下命令。
 
-```CMD
+```BASH
 npm run dev
 ```
 
