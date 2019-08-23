@@ -45,6 +45,6 @@ $ cd /usr/local/lib/php/pecl/20170718 && ls
 
 查看詳細資訊。
 
-```
+```BASH
 vagrant@homestead:~$ php --ri xdebug
 ```

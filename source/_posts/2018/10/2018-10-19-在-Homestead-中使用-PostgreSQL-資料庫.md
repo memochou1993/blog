@@ -19,7 +19,7 @@ DB_PASSWORD=secret
 
 ## 進入資料庫
 
-```
+```BASH
 vagrant@homestead:~$ psql -U homestead -h localhost -W database
 ```
 
