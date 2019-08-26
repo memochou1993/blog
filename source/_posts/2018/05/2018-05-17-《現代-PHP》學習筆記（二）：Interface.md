@@ -51,7 +51,7 @@ class DocumentStore
 }
 ```
 
-- `addDocumen()` 方法只接受 `Documentable` 的實例。
+- `addDocument()` 方法只接受 `Documentable` 的實例。
 
 範例 2-7：Documentable 介面定義
 
@@ -120,7 +120,7 @@ class StreamDocument implements Documentable
 
     public function getId()
     {
-        return 'resource-' . (int)$this->resource;
+        return 'resource-' . (int) $this->resource;
     }
 
     public function getContent()
@@ -194,11 +194,11 @@ print_r($documentStore->getDocuments());
 
 類別與介面之間的關係如下：
 
-| 類別                   | 方法                 | 介面                             | 類別                           |
-| ---------------------- | -------------------- | -------------------------------- | ------------------------------ |
-| DocumentStore          | addDocument()        | Documentable                     | HtmlDocument                   |
-|                        |                      | StreamDocument                   |
-|                        |                      | CommandOutputDocument            |
+| 類別 | 方法 | 介面 | 類別 |
+| --- | --- | --- | --- |
+| DocumentStore | addDocument() | Documentable | HtmlDocument |
+|   |   |   | StreamDocument |
+|   |   |   | CommandOutputDocument |
 | 用來蒐集不同來源的文字 | 僅接受實作介面的實例 | 定義實作介面的物件必須提供的方法 | 使用 implements 關鍵字實作介面 |
 
 ## 參考資料
