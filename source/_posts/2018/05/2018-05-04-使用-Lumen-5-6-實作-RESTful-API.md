@@ -55,7 +55,7 @@ DB_PASSWORD=secret
 
 ```BASH
 cd Homestead
-$ vagrant up
+vagrant up
 ```
 
 ## 新增遷移

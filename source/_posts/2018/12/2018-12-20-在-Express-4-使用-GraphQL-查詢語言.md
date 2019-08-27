@@ -14,7 +14,7 @@ categories: ["程式寫作", "GraphQL"]
 
 ```BASH
 mkdir graphql-express
-$ npm install --save graphql express-graphql express
+npm install --save graphql express-graphql express
 ```
 
 ## 建立資料結構

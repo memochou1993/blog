@@ -249,7 +249,7 @@ class RepositoryServiceProvider extends ServiceProvider
 
 ```BASH
 php artisan clear-compiled
-$ php artisan serve
+php artisan serve
 ```
 
 ## 程式碼

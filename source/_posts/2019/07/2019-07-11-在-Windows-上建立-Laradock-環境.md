@@ -27,7 +27,7 @@ git clone https://github.com/Laradock/laradock.git Laradock
 
 ```BASH
 cd Laradock
-$ cp env-example .env
+cp env-example .env
 ```
 
 修改 .env 檔的 APP_CODE_PATH_HOST 參數到指定的映射路徑：
@@ -40,7 +40,7 @@ APP_CODE_PATH_HOST=../Projects/laravel
 
 ```BASH
 cd Laradock
-$ docker-compose up -d nginx mysql phpmyadmin
+docker-compose up -d nginx mysql phpmyadmin
 ```
 
 ## 設定 MySQL
@@ -76,14 +76,14 @@ default_authentication_plugin=mysql_native_password
 
 ```BASH
 cd Projects
-$ mkdir laravel
+mkdir laravel
 ```
 
 使用 laradock 使用者進入 workspace 容器。
 
 ```BASH
 cd Laradock
-$ docker-compose exec --user=laradock workspace bash
+docker-compose exec --user=laradock workspace bash
 ```
 
 安裝 Laravel 安裝器。

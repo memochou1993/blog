@@ -107,8 +107,8 @@ Route::post('/send', function(\Illuminate\Http\Request $request){
 
 ```BASH
 npm install
-$ npm install -g laravel-echo-server
-$ npm install --save laravel-echo pusher-js
+npm install -g laravel-echo-server
+npm install --save laravel-echo pusher-js
 ```
 
 修改 `resources/js/bootstrap.js` 檔。

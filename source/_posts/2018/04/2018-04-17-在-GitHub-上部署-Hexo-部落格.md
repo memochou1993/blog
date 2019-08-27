@@ -19,8 +19,8 @@ categories: ["其他", "部落格"]
 
 ```BASH
 node -v
-$ npm -v
-$ git --version
+npm -v
+git --version
 ```
 
 將 Hexo 安裝在全域環境。

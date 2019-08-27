@@ -230,7 +230,7 @@ class SignatureController extends Controller
 
 ```BASH
 npm install
-$ npm run watch
+npm run watch
 ```
 
 ## 設置 app.js 檔

@@ -20,7 +20,7 @@ categories: ["環境部署", "Laradock"]
 
 ```BASH
 cd Downloads
-$ sudo apt install ./google-chrome-stable_current_amd64.deb
+sudo apt install ./google-chrome-stable_current_amd64.deb
 ```
 
 安裝 `software-properties-common` 套件。
@@ -33,17 +33,17 @@ sudo apt install software-properties-common
 
 ```BASH
 sudo add-apt-repository ppa:git-core/ppa
-$ sudo apt update
-$ sudo apt install git
+sudo apt update
+sudo apt install git
 ```
 
 ## 安裝 Docker
 
 ```BASH
 curl -fsSL get.docker.com -o get-docker.sh
-$ sh get-docker.sh
-$ rm get-docker.sh
-$ docker -v // 檢査是否安裝成功並査看版本
+sh get-docker.sh
+rm get-docker.sh
+docker -v // 檢査是否安裝成功並査看版本
 ```
 
 ## 安裝 Docker Compose
@@ -58,9 +58,9 @@ $ docker -v // 檢査是否安裝成功並査看版本
 
 ```BASH
 sudo curl -L https://github.com/docker/compose/releases/download/1.21.0/docker-compose-$(uname -s)-$(uname -m) -o ~/docker-compose
-$ sudo chmod +x ~/docker-compose
-$ sudo mv ~/docker-compose /usr/local/bin/docker-compose
-$ docker-compose -v // 檢査是否安裝成功並査看版本
+sudo chmod +x ~/docker-compose
+sudo mv ~/docker-compose /usr/local/bin/docker-compose
+docker-compose -v // 檢査是否安裝成功並査看版本
 ```
 
 ## 新增使用者到群組
@@ -77,9 +77,9 @@ sudo usermod -aG docker <USERNAME>
 
 ```BASH
 cd ~/
-$ git clone https://github.com/laradock/laradock.git Laradock
-$ cd Laradock
-$ cp env-example .env
+git clone https://github.com/laradock/laradock.git Laradock
+cd Laradock
+cp env-example .env
 ```
 
 ## 修改 .env 檔
@@ -97,7 +97,7 @@ APP_CODE_PATH_HOST=~/Projects/
 
 ```BASH
 cd ~/
-$ mkdir Projects
+mkdir Projects
 ```
 
 可以考慮在其他磁碟手動建立專案資料夾。則修改 `.env` 檔為以下：
@@ -135,7 +135,7 @@ composer create-project laravel/laravel --prefer-dist
 
 ```BASH
 cd ~/Laradock/nginx/sites
-$ cp laravel.conf.example laravel.test.conf
+cp laravel.conf.example laravel.test.conf
 ```
 
 ## 註冊虛擬主機別名
@@ -162,8 +162,8 @@ sudo gedit /etc/hosts
 
 ```BASH
 cd ~/Laradock
-$ docker-compose down
-$ docker-compose up -d nginx mysql workspace
+docker-compose down
+docker-compose up -d nginx mysql workspace
 ```
 
 ## 測試
@@ -178,7 +178,7 @@ The stream or file "/var/www/laravel/storage/logs/laravel.log" could not be open
 
 ```BASH
 ~/Projects
-$ sudo chmod -R 777 laravel
+sudo chmod -R 777 laravel
 ```
 
 再使用瀏覽器測試後，可以看到 Laravel 的歡迎頁面了。

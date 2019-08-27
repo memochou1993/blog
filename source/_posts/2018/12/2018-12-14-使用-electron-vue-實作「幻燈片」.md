@@ -14,7 +14,7 @@ categories: ["程式寫作", "JavaScript", "Vue.js"]
 
 ```BASH
 npm install -g vue-cli
-$ vue init simulatedgreg/electron-vue electron-vue
+vue init simulatedgreg/electron-vue electron-vue
 ```
 
 ## 新增路由

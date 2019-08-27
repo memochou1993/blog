@@ -21,7 +21,7 @@ categories: ["程式寫作", "PHP", "Laravel"]
 
 ```BASH
 php artisan make:controller PostController
-$ touch resources/views/post/index.blade.php
+touch resources/views/post/index.blade.php
 ```
 
 在 `PostController` 加入 `index()` 方法。
@@ -53,7 +53,7 @@ public function testPostList()
 執行測試。
 
 ```BASH
-phpunit // 失敗
+phpunit # 失敗
 ```
 
 ## 新增路由
@@ -175,8 +175,8 @@ public function tearDown()
 
 執行測試。
 
-```PHP
-$ phpunit // 成功
+```BASH
+phpunit # 成功
 ```
 
 新增 `testCreatePostSuccess()` 方法以測試新增文章。
@@ -205,8 +205,8 @@ public function testCreatePostSuccess()
 
 執行測試。
 
-```PHP
-$ phpunit // 失敗
+```BASH
+phpunit # 失敗
 ```
 
 回到 `PostController` 新增 `store` 方法以儲存資料並導向 `/posts` 網址。
@@ -222,8 +222,8 @@ public function store(Request $request)
 
 執行測試。
 
-```PHP
-$ phpunit //成功
+```BASH
+phpunit # 成功
 ```
 
 ## 程式碼

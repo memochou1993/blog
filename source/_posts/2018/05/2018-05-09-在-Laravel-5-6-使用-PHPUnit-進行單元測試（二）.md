@@ -103,8 +103,8 @@ public function tearDown()
 
 執行測試。
 
-```PHP
-$ phpunit // 失敗
+```BASH
+phpunit # 失敗
 ```
 
 回到 `PostRepository` 增加 `latestPost()` 方法。
@@ -118,8 +118,8 @@ public function latestPost()
 
 執行測試。
 
-```PHP
-$ phpunit // 成功
+```BASH
+phpunit # 成功
 ```
 
 新增 `testCreatePost()` 方法以測試新增文章。
@@ -142,8 +142,8 @@ public function testCreatePost()
 
 執行測試。
 
-```PHP
-$ phpunit // 失敗
+```BASH
+phpunit # 失敗
 ```
 
 回到 `PostRepository` 增加 `postCount()` 和 `create()` 方法。
@@ -162,8 +162,8 @@ public function create(array $attributes)
 
 執行測試。
 
-```PHP
-$ phpunit // 成功
+```BASH
+phpunit # 成功
 ```
 
 ## 程式碼

@@ -22,9 +22,9 @@ docker login
 
 ```BASH
 cd ~/
-$ git clone https://github.com/laradock/laradock.git Laradock
-$ cd Laradock
-$ cp env-example .env
+git clone https://github.com/laradock/laradock.git Laradock
+cd Laradock
+cp env-example .env
 ```
 
 修改 `.env` 檔：
@@ -39,7 +39,7 @@ APP_CODE_PATH_HOST=~/Projects
 
 ```BASH
 cd ~/Laradock/nginx/sites
-$ cp laravel.conf.example laravel.test.conf
+cp laravel.conf.example laravel.test.conf
 ```
 
 啟動 Nginx、MySQL 和 PhpMyAdmin。
@@ -56,7 +56,7 @@ docker-compose up -d nginx mysql phpmyadmin
 
 ```BASH
 cd ~/Projects
-$ laravel new laravel
+laravel new laravel
 ```
 
 修改 Laravel 專案的 `.env` 檔：
@@ -99,7 +99,7 @@ mysql> CREATE DATABASE `default`;
 
 ```BASH
 cd ~/Laradock
-$ docker-compose exec workspace bash
+docker-compose exec workspace bash
 ```
 
 執行遷移。

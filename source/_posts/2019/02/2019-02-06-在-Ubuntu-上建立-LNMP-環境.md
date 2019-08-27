@@ -56,11 +56,11 @@ git --version
 
 ```BASH
 cd ~
-$ curl -sS https://getcomposer.org/installer -o composer-setup.php
-$ HASH=48e3236262b34d30969dca3c37281b3b4bbe3221bda826ac6a9a62d6444cdb0dcd0615698a5cbe587c3f0fe57a54d8f5
-$ php -r "if (hash_file('SHA384', 'composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+curl -sS https://getcomposer.org/installer -o composer-setup.php
+HASH=48e3236262b34d30969dca3c37281b3b4bbe3221bda826ac6a9a62d6444cdb0dcd0615698a5cbe587c3f0fe57a54d8f5
+php -r "if (hash_file('SHA384', 'composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
 Installer verified
-$ sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 ```
 
 - 正確 `HASH` 值，見 https://composer.github.io/pubkeys.html
@@ -81,7 +81,7 @@ sudo chown -R ${USER}:${USER} ~/.composer
 
 ```BASH
 echo 'export PATH="$PATH:$HOME/.composer/vendor/bin"' >> ~/.bashrc
-$ source ~/.bashrc
+source ~/.bashrc
 ```
 
 ## 安裝 Laravel 安裝器
@@ -226,7 +226,7 @@ sudo chown -R ${USER}:${USER} /var/www
 
 ```BASH
 cd /var/www
-$ laravel new laravel
+laravel new laravel
 ```
 
 修改 `.env` 檔。

@@ -77,7 +77,7 @@ npm run prod
 
 ```BASH
 npm run watch // 在 Windows 環境
-$ npm run watch-poll // 在虛擬機環境
+npm run watch-poll // 在虛擬機環境
 ```
 
 ## 虛擬機環境

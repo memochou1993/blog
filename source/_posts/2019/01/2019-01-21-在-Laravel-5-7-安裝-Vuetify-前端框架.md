@@ -10,7 +10,7 @@ categories: ["程式寫作", "PHP", "Laravel"]
 
 ```BASH
 laravel new laravel-vuetify
-$ php artisan serve
+php artisan serve
 ```
 
 ## 修改 `package.json` 檔
@@ -30,7 +30,7 @@ $ php artisan serve
 
 ```BASH
 npm install
-$ npm install vuetify --save-dev
+npm install vuetify --save-dev
 ```
 
 - `vue-template-compiler` 會被自動安裝。
@@ -108,12 +108,12 @@ mix.js('resources/js/app.js', 'public/js')
 
 ```BASH
 npm uninstall sass
-$ npm uninstall sass-loader
+npm uninstall sass-loader
 ```
 
 修改 `.editorconfig` 檔：
 
-```
+```CONF
 [*.{js,jsx,ts,tsx,vue}]
 insert_final_newline = true
 max_line_length = 100

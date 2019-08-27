@@ -28,14 +28,14 @@ vagrant box add laravel/homestead
 
 ```BASH
 cd ~/
-$ git clone https://github.com/laravel/homestead.git ~/Homestead
+git clone https://github.com/laravel/homestead.git ~/Homestead
 ```
 
 切換到想要的版本。
 
 ```BASH
 cd Homestead
-$ git checkout v7.4.0
+git checkout v7.4.0
 ```
 
 初始化。
@@ -77,7 +77,7 @@ databases:
 
 ```BASH
 cd ~/Homestead
-$ vagrant up
+vagrant up
 ```
 
 ## 登入 Homestead
@@ -106,7 +106,7 @@ composer global require "laravel/installer"
 
 ```BASH
 cd Projects
-$ laravel new laravel
+laravel new laravel
 ```
 
 ## 測試

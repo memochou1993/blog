@@ -17,14 +17,14 @@ categories: ["環境部署", "Wordpress"]
 
 ```BASH
 cd ~/Laradock
-$ docker-compose up -d nginx mysql
+docker-compose up -d nginx mysql
 ```
 
 建立資料庫。
 
 ```BASH
 docker-compose exec mysql bash
-# mysql -u root -p
+/var/www# mysql -u root -p
 > CREATE DATABASE `wordpress`
 ```
 
@@ -32,18 +32,18 @@ docker-compose exec mysql bash
 
 ```BASH
 cd /var/www/
-$ wget http://wordpress.org/latest.tar.gz
-$ tar xvf latest.tar.gz
-$ rm latest.tar.gz
+wget http://wordpress.org/latest.tar.gz
+tar xvf latest.tar.gz
+rm latest.tar.gz
 ```
 
 設定權限。
 
 ```BASH
 cd ~/Laradock
-$ docker-compose exec workspace bash
-# cd wordpress
-# chown -R laradock:www-data ./
+docker-compose exec workspace bash
+/var/www# cd wordpress
+/var/www# chown -R laradock:www-data ./
 ```
 
 在 `~/Laradock/nginx/sites` 資料夾新增 `wordpress.epoch.tw.conf` 檔。

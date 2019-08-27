@@ -139,7 +139,7 @@ python3 -m django --version
 
 ```BASH
 django-admin startproject mysite
-$ cd mysite
+cd mysite
 ```
 
 啟動網頁伺服器。

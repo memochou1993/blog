@@ -17,12 +17,12 @@ categories: ["環境部署", "CI/CD"]
 
 ```BASH
 laravel new laravel-envoy
-$ cd laravel-envoy
-$ git init
-$ git add .
-$ git commit -m "Initial Commit"
-$ git remote add origin ssh://git@xxx/laravel-envoy.git
-$ git push -u origin master
+cd laravel-envoy
+git init
+git add .
+git commit -m "Initial Commit"
+git remote add origin ssh://git@xxx/laravel-envoy.git
+git push -u origin master
 ```
 
 ## 遠端伺服器
@@ -63,8 +63,8 @@ deployer ALL=(ALL) NOPASSWD: ALL
 
 ```BASH
 sudo su - deployer
-$ mkdir ~/.ssh
-$ chmod 700 ~/.ssh
+mkdir ~/.ssh
+chmod 700 ~/.ssh
 ```
 
 新增 `authorized_keys` 檔。
@@ -185,8 +185,8 @@ cp -r /var/www/laravel/storage /var/www/laravel-envoy/storage
 
 ```BASH
 mkdir /var/www/laravel-envoy/releases
-$ cd /var/www/laravel-envoy/releases
-$ git init
+cd /var/www/laravel-envoy/releases
+git init
 ```
 
 ## 設定 GitLab 連線
@@ -213,7 +213,7 @@ cat ~/.ssh/id_rsa.pub
 
 ```BASH
 cd /var/www
-$ git clone ssh://git@xxx/laravel-envoy.git
+git clone ssh://git@xxx/laravel-envoy.git
 ```
 
 ## 安裝 Envoy
@@ -289,8 +289,8 @@ Host xxx.com
 
 ```BASH
 git add Envoy.blade.php
-$ git commit -m "Add Envoy"
-$ git push origin master
+git commit -m "Add Envoy"
+git push origin master
 ```
 
 ## 設定 GitLab CI/CD
@@ -345,8 +345,8 @@ docker push <USERNAME>/laravel-envoy:latest
 
 ```BASH
 git add Dockerfile
-$ git commit -m "Add Dockerfile"
-$ git push origin master
+git commit -m "Add Dockerfile"
+git push origin master
 ```
 
 ### 建立 CI/CD 設定檔
@@ -399,8 +399,8 @@ deploy_production:
 
 ```BASH
 git add .gitlab-ci.yml
-$ git commit -m "Add gitlab-ci"
-$ git push origin master
+git commit -m "Add gitlab-ci"
+git push origin master
 ```
 
 GitLab 將會開始執行自動化測試與部署。

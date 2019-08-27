@@ -16,7 +16,7 @@ categories: ["程式寫作", "GraphQL"]
 
 ## 後端
 
-### 建立專案
+### 建立後端專案
 
 新增 Laravel 專案。
 
@@ -34,7 +34,7 @@ composer require nuwave/lighthouse
 
 ```BASH
 php artisan vendor:publish --provider="Nuwave\Lighthouse\Providers\LighthouseServiceProvider" --tag=schema
-$ php artisan vendor:publish --provider="Nuwave\Lighthouse\Providers\LighthouseServiceProvider" --tag=config
+php artisan vendor:publish --provider="Nuwave\Lighthouse\Providers\LighthouseServiceProvider" --tag=config
 ```
 
 修改 `config/lighthouse.php` 檔中 `models` 指定的命名空間。
@@ -56,7 +56,7 @@ $ php artisan vendor:publish --provider="Nuwave\Lighthouse\Providers\LighthouseS
 
 ```BASH
 git clone https://github.com/nuwave/lighthouse-tutorial.git
-$ cd lighthouse-tutorial
+cd lighthouse-tutorial
 ```
 
 或在新專案安裝 `nuwave/lighthouse` 套件。
@@ -191,7 +191,7 @@ query {
       email
     }
     comments {
-    	reply
+      reply
     }
   }
 }
@@ -280,7 +280,7 @@ query {
 
 ## 前端
 
-### 建立專案
+### 建立前端專案
 
 ```BASH
 vue create vue-apollo
@@ -290,7 +290,7 @@ vue create vue-apollo
 
 ```BASH
 cd vue-apollo
-$ vue add apollo
+vue add apollo
 ```
 
 啟動網頁伺服器。

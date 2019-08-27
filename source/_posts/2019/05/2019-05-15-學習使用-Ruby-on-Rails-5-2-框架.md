@@ -12,7 +12,7 @@ categories: ["程式寫作", "Ruby", "Rails"]
 
 ```BASH
 gem install rails
-$ rails --version
+rails --version
 Rails 5.2.3
 ```
 
@@ -22,7 +22,7 @@ Rails 5.2.3
 
 ```BASH
 rails new blog
-$ cd blog
+cd blog
 ```
 
 啟動網頁服務器。

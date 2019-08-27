@@ -23,7 +23,7 @@ laravel new foundation
 
 ```BASH
 cd foundation
-$ npm install
+npm install
 ```
 
 ## 安裝

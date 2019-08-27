@@ -30,8 +30,8 @@ export PATH="$PATH:$HOME/.composer/vendor/bin"
 
 ```BASH
 mkdir ~/Sites
-$ cd ~/Sites
-$ valet park
+cd ~/Sites
+valet park
 This directory has been added to Valet's paths.
 ```
 

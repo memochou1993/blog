@@ -16,7 +16,7 @@ categories: ["環境部署", "Docker"]
 
 ```BASH
 laravel new laravel-example
-$ cd laravel-example
+cd laravel-example
 ```
 
 在專案根目錄新增 `Dockerfile` 檔。

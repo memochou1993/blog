@@ -43,8 +43,8 @@ sudo adduser deployer www-data
 
 ```BASH
 sudo su - deployer
-$ echo "umask 022" >> ~/.bashrc
-$ exit
+echo "umask 022" >> ~/.bashrc
+exit
 ```
 
 為 `deployer` 使用者添加 sudo 權限。
@@ -65,8 +65,8 @@ deployer ALL=(ALL) NOPASSWD: ALL
 
 ```BASH
 sudo su - deployer
-$ sudo chown deployer:www-data /var/www
-$ sudo chmod g+s /var/www
+sudo chown deployer:www-data /var/www
+sudo chmod g+s /var/www
 ```
 
 ### 連線設定
@@ -75,7 +75,7 @@ $ sudo chmod g+s /var/www
 
 ```BASH
 mkdir ~/.ssh
-$ chmod 700 ~/.ssh
+chmod 700 ~/.ssh
 ```
 
 新增 `authorized_keys` 檔。
@@ -128,7 +128,7 @@ cat ~/.ssh/authorized_keys >> ~/.ssh/id_rsa.pub
 
 ```BASH
 chmod 600 ~/.ssh/id_rsa
-$ chmod 600 ~/.ssh/id_rsa.pub
+chmod 600 ~/.ssh/id_rsa.pub
 ```
 
 ### 儲存庫 SSH 設定
@@ -161,7 +161,7 @@ laravel new laravel
 
 ```BASH
 cd laravel
-$ dep init
+dep init
 ```
 
 修改初始化 Deployer 後所生成的 `deploy.php` 檔：

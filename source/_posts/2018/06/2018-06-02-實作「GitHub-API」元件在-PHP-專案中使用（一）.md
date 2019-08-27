@@ -50,7 +50,7 @@ categories: ["程式寫作", "PHP", "元件"]
 
 ```BASH
 cd github-api/github-api-dev
-$ composer require guzzlehttp/guzzle
+composer require guzzlehttp/guzzle
 ```
 
 ## 實作

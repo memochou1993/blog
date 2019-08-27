@@ -18,14 +18,14 @@ categories: ["程式寫作", "PHP", "Laravel"]
 
 ```BASH
 cd ~/Laradock
-$ docker-compose up -d nginx redis phpmyadmin laravel-horizon
+docker-compose up -d nginx redis phpmyadmin laravel-horizon
 ```
 
 建立專案。
 
 ```BASH
 laravel new horizon
-$ cd horizon
+cd horizon
 ```
 
 修改 `.env` 檔。
@@ -82,7 +82,7 @@ php artisan horizon
 
 ```BASH
 cd ~/Laradock/laravel-horizon/supervisord.d
-$ cp laravel-horizon.conf.example project-horizon.conf
+cp laravel-horizon.conf.example project-horizon.conf
 ```
 
 修改 `project-horizon.conf` 檔。
