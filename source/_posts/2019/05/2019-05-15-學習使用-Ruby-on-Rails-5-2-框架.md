@@ -16,9 +16,9 @@ $ rails --version
 Rails 5.2.3
 ```
 
-## 新增專案
+## 建立專案
 
-新增專案。
+建立專案。
 
 ```BASH
 rails new blog

@@ -65,14 +65,14 @@ docker-compose exec mysql bash
 
 修改 `Laradock\mysql\my.cnf` 檔：
 
-```
+```CNF
 [mysqld]
 default_authentication_plugin=mysql_native_password
 ```
 
 ## 建立專案
 
-新增專案資料夾。
+建立專案資料夾。
 
 ```BASH
 cd Projects
