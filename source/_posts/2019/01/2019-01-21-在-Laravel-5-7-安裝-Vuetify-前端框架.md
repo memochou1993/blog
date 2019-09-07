@@ -1,8 +1,8 @@
 ---
-title: 在 Laravel 5.7 安裝 Vuetify.js 前端框架
-permalink: 在-Laravel-5-7-安裝-Vuetify-js-前端框架
+title: 在 Laravel 5.7 安裝 Vuetify 前端框架
+permalink: 在-Laravel-5-7-安裝-Vuetify-前端框架
 date: 2019-01-21 22:33:25
-tags: ["程式寫作", "Laravel", "Vue.js", "Vuetify.js"]
+tags: ["程式寫作", "Laravel", "Vue", "Vuetify"]
 categories: ["程式寫作", "PHP", "Laravel"]
 ---
 

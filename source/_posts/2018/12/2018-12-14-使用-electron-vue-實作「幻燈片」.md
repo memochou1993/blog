@@ -2,8 +2,8 @@
 title: 使用 electron-vue 實作「幻燈片」
 permalink: 使用-electron-vue-實作「幻燈片」
 date: 2018-12-14 00:30:38
-tags: ["程式寫作", "JavaScript", "Vue.js", "Electron"]
-categories: ["程式寫作", "JavaScript", "Vue.js"]
+tags: ["程式寫作", "JavaScript", "Vue", "Electron"]
+categories: ["程式寫作", "JavaScript", "Vue"]
 ---
 
 ## 環境

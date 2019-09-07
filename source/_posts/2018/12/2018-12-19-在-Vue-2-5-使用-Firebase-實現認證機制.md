@@ -1,9 +1,9 @@
 ---
-title: 在 Vue.js 2.5 使用 Firebase 實現認證機制
-permalink: 在-Vue-js-2-5-使用-Firebase-實現認證機制
+title: 在 Vue 2.5 使用 Firebase 實現認證機制
+permalink: 在-Vue-2-5-使用-Firebase-實現認證機制
 date: 2018-12-19 14:06:01
-tags: ["程式寫作", "JavaScript", "Vue.js", "Firebase"]
-categories: ["程式寫作", "JavaScript", "Vue.js"]
+tags: ["程式寫作", "JavaScript", "Vue", "Firebase"]
+categories: ["程式寫作", "JavaScript", "Vue"]
 ---
 
 ## 環境
@@ -30,7 +30,7 @@ npm install ——save firebase
 
 新增 `.env.development.local` 檔：
 
-```
+```ENV
 VUE_APP_FIREBASE_API_KEY=YOUR_API_KEY
 VUE_APP_FIREBASE_AUTH_DOMAIN=YOUR_AUTH_DOMAIN
 VUE_APP_FIREBASE_DATABASE_URL=YOUR_DATABASE_URL
