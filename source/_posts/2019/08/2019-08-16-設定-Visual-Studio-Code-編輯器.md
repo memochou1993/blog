@@ -10,14 +10,17 @@ categories: ["其他", "編輯器"]
 
 ```JSON
 {
-    "window.zoomLevel": 2,
+    "window.zoomLevel": 1,
     "editor.fontSize": 16,
     "editor.fontFamily": "Operator Mono",
+    "workbench.colorTheme": "One Dark Pro",
     "terminal.integrated.cursorStyle": "underline",
     "terminal.integrated.cursorBlinking": true,
     "terminal.integrated.fontFamily": "SauceCodePro Nerd Font",
     "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
+    "git.autofetch": true,
     "powermode.enabled": true,
-    "powermode.enableShake": false
+    "powermode.enableShake": false,
+    "powermode.enableStatusBarComboTimer": false
 }
 ```

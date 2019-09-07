@@ -76,6 +76,6 @@ public function index()
 php artisan queue:work --timeout=10 --sleep=10 --tries=3
 ```
 
-- `--timeout` 代表停止它前，可以執行的秒數。
-- `--sleep` 代表沒有在工作時，應休眠的秒數。
-- `--tries` 代表過程出錯時，最多嘗試的次數。
+- `--timeout` 設定給每個工作允許執行的秒數。
+- `--sleep` 設定讓監聽器在拉取新工作時要等待的秒數。
+- `--tries` 設定一個工作應該最多被執行的次數。

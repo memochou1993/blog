@@ -1,8 +1,8 @@
 ---
-title: 在 Laravel 5.7 安裝 Vuetify 前端框架
-permalink: 在-Laravel-5-7-安裝-Vuetify-前端框架
+title: 在 Laravel 5.7 安裝 Vuetify.js 前端框架
+permalink: 在-Laravel-5-7-安裝-Vuetify-js-前端框架
 date: 2019-01-21 22:33:25
-tags: ["程式寫作", "Laravel", "Vue.js", "Vuetify"]
+tags: ["程式寫作", "Laravel", "Vue.js", "Vuetify.js"]
 categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
@@ -13,7 +13,7 @@ laravel new laravel-vuetify
 php artisan serve
 ```
 
-## 修改 `package.json` 檔
+## 修改 package.json 檔
 
 ```JSON
 "axios": "^0.18",
@@ -127,7 +127,7 @@ npm run watch-poll
 
 - 會自動安裝 `stylus` 和 `stylus-loader`。
 
-## 編譯
+## 編譯資源
 
 ```BASH
 npm run prod
