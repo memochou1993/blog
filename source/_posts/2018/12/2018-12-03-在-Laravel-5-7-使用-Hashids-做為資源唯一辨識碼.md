@@ -13,59 +13,10 @@ categories: ["程式寫作", "PHP", "Laravel"]
 
 ## 安裝套件
 
-使用 [vinkla/laravel-hashids](https://github.com/vinkla/laravel-hashids) 套件可以將 ID 打亂，不直接將主鍵暴露於網址中。
+使用 [hashids](https://github.com/vinkla/hashids) 套件可以將 ID 打亂，避免將主鍵直接暴露於網址中。
 
 ```BASH
-composer require vinkla/hashids
-```
-
-發布資源。
-
-```BASH
-php artisan vendor:publish
-```
-
-## 修改設定
-
-修改 `config\hashids.php` 檔：
-
-```PHP
-return [
-
-    /*
-    |--------------------------------------------------------------------------
-    | Default Connection Name
-    |--------------------------------------------------------------------------
-    |
-    | Here you may specify which of the connections below you wish to use as
-    | your default connection for all work. Of course, you may use many
-    | connections at once using the manager class.
-    |
-    */
-
-    'default' => 'main',
-
-    /*
-    |--------------------------------------------------------------------------
-    | Hashids Connections
-    |--------------------------------------------------------------------------
-    |
-    | Here are each of the connections setup for your application. Example
-    | configuration has been included, but you may add as many connections as
-    | you would like.
-    |
-    */
-
-    'connections' => [
-
-        'main' => [
-            'salt' => env('APP_KEY', 'Laravel'),
-            'length' => 5,
-        ],
-
-    ],
-
-];
+composer require hashids/hashids
 ```
 
 ## 建立特徵機制
@@ -75,18 +26,34 @@ return [
 ```PHP
 namespace App\Traits;
 
-use Hashids;
+use Hashids\Hashids;
 
 trait HashId
 {
     /**
-     * Get the Hash Id for the user.
+     * @return string
+     */
+    public function encode($value)
+    {
+        return (new Hashids('', 10))->encode($value);
+    }
+
+    /**
+     * @return array
+     */
+    public function decode($value)
+    {
+        return (new Hashids('', 10))->decode($value);
+    }
+
+    /**
+     * Get the hash id for the model.
      *
-     * @return bool
+     * @return string
      */
     public function getHashIdAttribute()
     {
-        return Hashids::encode($this->attributes['id']);
+        return $this->encode($this->attributes['id']);
     }
 }
 ```
@@ -105,8 +72,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
     use HashId; // 使用特徵機制
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -139,20 +106,35 @@ class User extends Authenticatable
 
 ## 修改路由服務提供者
 
-```PHP
-/**
- * Define your route model bindings, pattern filters, etc.
- *
- * @return void
- */
-public function boot()
-{
-    // 修改隱式綁定的鍵名
-    Route::bind('record', function ($hash_id) {
-        return Record::findOrFail(collect(Hashids::decode($hash_id))->first());
-    });
+以 `users` 路由為例：
 
-    parent::boot();
+```PHP
+namespace App\Providers;
+
+use App\Traits\HashId; // 調用特徵機制
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+
+class RouteServiceProvider extends ServiceProvider
+{
+    use HashId; // 使用特徵機制
+
+    /**
+     * Define your route model bindings, pattern filters, etc.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        //
+
+        parent::boot();
+
+        // 修改路由綁定
+        Route::bind('user', function ($value) {
+            return \App\User::findOrFail(collect($this->decode($value))->first());
+        });
+    }
 }
 ```
 
