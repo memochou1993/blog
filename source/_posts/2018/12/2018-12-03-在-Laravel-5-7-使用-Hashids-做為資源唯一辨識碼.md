@@ -13,8 +13,7 @@ categories: ["程式寫作", "PHP", "Laravel"]
 
 ## 安裝套件
 
-使用 [hashids/hashids
-](https://hashids.org/) 套件，或使用提供 Laravel 使用的 `vinkla/hashids` 套件。
+使用 [vinkla/laravel-hashids](https://github.com/vinkla/laravel-hashids) 套件可以將 ID 打亂，不直接將主鍵暴露於網址中。
 
 ```BASH
 composer require vinkla/hashids
@@ -132,7 +131,28 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $appends = ['hash_id']; // 添加屬性
+    protected $appends = [
+        'hash_id', // 添加屬性
+    ];
+}
+```
+
+## 修改路由服務提供者
+
+```PHP
+/**
+ * Define your route model bindings, pattern filters, etc.
+ *
+ * @return void
+ */
+public function boot()
+{
+    // 修改隱式綁定的鍵名
+    Route::bind('record', function ($hash_id) {
+        return Record::findOrFail(collect(Hashids::decode($hash_id))->first());
+    });
+
+    parent::boot();
 }
 ```
 
