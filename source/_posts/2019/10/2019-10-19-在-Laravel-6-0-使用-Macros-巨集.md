@@ -12,7 +12,7 @@ Laravel 提供一個 Macroable 特徵機制，用來擴展基礎類別。
 
 ## Str 類別
 
-以 `Str` 類別為例，新增 `Mixins/StrMixin.php` 檔：
+以 `Str` 類別為例，新增 `app/Mixins/StrMixin.php` 檔：
 
 ```PHP
 namespace App\Mixins;
@@ -75,7 +75,7 @@ TEST
 
 ## Collection 類別
 
-以 `Collection` 類別為例，新增 `Mixins/CollectionMixin.php` 檔：
+以 `Collection` 類別為例，新增 `app/Mixins/CollectionMixin.php` 檔：
 
 ```PHP
 namespace App\Mixins;
@@ -140,7 +140,7 @@ return collect(['test'])->uppercase()->toArray();
 
 ## ResponseFactory 類別
 
-以 ResponseFactory 類別為例，新增 `Mixins/ResponseMixin.php` 檔：
+以 ResponseFactory 類別為例，新增 `app/Mixins/ResponseMixin.php` 檔：
 
 ```PHP
 namespace App\Mixins;
