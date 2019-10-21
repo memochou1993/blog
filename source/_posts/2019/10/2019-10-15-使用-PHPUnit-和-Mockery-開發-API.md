@@ -190,6 +190,7 @@ class ClientTest extends TestCase
     /** @test */
     public function testQuery()
     {
+        /** @var \GuzzleHttp\Client $guzzleClient */
         $guzzleClient = Mockery::mock(GuzzleClient::class);
         $guzzleClient->shouldReceive('request')->andReturn(
             new Response('200', [], file_get_contents(__DIR__.'/result.json'))
@@ -270,6 +271,7 @@ class ClientTest extends TestCase
     /** @test */
     public function testQuery()
     {
+        /** @var \GuzzleHttp\Client $guzzleClient */
         $guzzleClient = Mockery::mock(GuzzleClient::class);
         $guzzleClient->shouldReceive('request')->andReturn(
             new Response('200', [], file_get_contents(__DIR__.'/result.json'))
@@ -324,11 +326,13 @@ class ClientTest extends TestCase
     /** @test */
     public function testQuery()
     {
+        /** @var \GuzzleHttp\Client $guzzleClient */
         $guzzleClient = Mockery::mock(GuzzleClient::class);
         $guzzleClient->shouldReceive('request')->andReturn(
             new Response('200', [], file_get_contents(__DIR__.'/result.json'))
         )->once();
 
+        /** @var \App\Services\Log $log */
         $log = Mockery::spy(Log::class);
 
         $client = new Client($guzzleClient, $log);
