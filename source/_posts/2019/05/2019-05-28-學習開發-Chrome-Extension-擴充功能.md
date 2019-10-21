@@ -8,7 +8,7 @@ categories: ["程式寫作", "Chrome Extension"]
 
 ## 做法
 
-使用範例，建立 `manifest.json` 檔。
+使用範例，建立 `manifest.json` 檔：
 
 ```JSON
 {
@@ -28,7 +28,7 @@ categories: ["程式寫作", "Chrome Extension"]
 }
 ```
 
-新增 `popup.html` 檔。
+新增 `popup.html` 檔：
 
 ```HTML
 <!doctype html>
@@ -82,7 +82,7 @@ categories: ["程式寫作", "Chrome Extension"]
 </html>
 ```
 
-新增 `popup.js` 檔。
+新增 `popup.js` 檔：
 
 ```JS
 // Copyright (c) 2014 The Chromium Authors. All rights reserved.
