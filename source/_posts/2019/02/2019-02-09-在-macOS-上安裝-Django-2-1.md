@@ -16,7 +16,7 @@ brew install python3
 
 添加環境變數至 `~/.bash_profile` 檔。
 
-```
+```BASH
 export PATH="/usr/local/Cellar/python/3.7.2_1/bin:$PATH"
 ```
 
@@ -49,7 +49,7 @@ python3 get-pip.py
 
 添加環境變數至 `~/.bash_profile` 檔。
 
-```
+```BASH
 export PATH="/usr/local/Cellar/python/3.7.2_1/Frameworks/Python.framework/Versions/3.7/bin:$PATH"
 ```
 
@@ -76,7 +76,7 @@ pip3 install virtualenvwrapper
 
 添加環境變數至 `~/.bash_profile` 檔。
 
-```
+```BASH
 export WORKON_HOME="$HOME/.virtualenvs"
 export VIRTUALENVWRAPPER_PYTHON="/usr/local/Cellar/python/3.7.2_1/Frameworks/Python.framework/Versions/3.7/bin/python3"
 export PROJECT_HOME="$HOME/Devel"
@@ -122,7 +122,7 @@ deactivate
 
 ## 安裝 Django
 
-建立一個虛擬環境後，使用 Pip 安裝 Django。
+進入虛擬環境後，使用 Pip 安裝 Django。
 
 ```BASH
 pip3 install django
