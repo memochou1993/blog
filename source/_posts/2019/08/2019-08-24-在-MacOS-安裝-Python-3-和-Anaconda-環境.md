@@ -20,7 +20,7 @@ bash Anaconda3-2019.07-MacOSX-x86_64.sh
 export PATH=$HOME/library/anaconda3/bin:$PATH
 ```
 
-取消開機時自動啟動。
+取消開機時自動啟動虛擬環境。
 
 ```BASH
 conda config --set auto_activate_base false
