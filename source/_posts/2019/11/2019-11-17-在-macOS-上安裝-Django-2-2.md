@@ -63,3 +63,20 @@ conda install django
 django-admin.py version
 2.2.5
 ```
+
+使用 django-admin 工具建立一個專案。
+
+```BASH
+django-admin startproject mysite
+cd mysite
+```
+
+啟動網頁伺服器。
+
+```BASH
+python3 manage.py runserver
+```
+
+## 瀏覽網頁
+
+前往：<http://127.0.0.1:8000>

@@ -1,6 +1,6 @@
 ---
 title: 在 Oh My Zsh 命令列顯示 Anaconda 虛擬環境名稱
-permalink: 在 Oh My Zsh 命令列顯示 Anaconda 虛擬環境名稱
+permalink: 在-Oh-My-Zsh-命令列顯示-Anaconda-虛擬環境名稱
 date: 2019-11-17 03:13:34
 tags: ["Zsh", "macOS", "命令列工具", "Python", "Anaconda"]
 categories: ["其他", "命令列工具"]
