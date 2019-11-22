@@ -15,13 +15,9 @@ $results = [];
 
 $client = new \GuzzleHttp\Client();
 
-$uri = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest';
+$uri = 'https://jsonplaceholder.typicode.com/todos';
 
-$promise = $client->requestAsync('GET', $uri, [
-    'headers' => [
-        'X-CMC_PRO_API_KEY' => '5d8af388-xxxx-xxxx-xxxx-5b4ea08b7438',
-    ],
-]);
+$promise = $client->requestAsync('GET', $uri);
 
 $promise->then(
     function (\Psr\Http\Message\ResponseInterface $res) use (&$results) {
@@ -35,7 +31,7 @@ $promise->then(
 
 $promise->wait();
 
-echo 'results: '.count($results);
+echo 'results: '.count($results)."\n";
 ```
 
 結果：
@@ -53,16 +49,12 @@ $results = [];
 
 $client = new \GuzzleHttp\Client();
 
-$uri = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest';
+$uri = 'https://jsonplaceholder.typicode.com/todos';
 
 $promise = function ($i) use ($client, $uri) {
     echo $i.': '.date('H:i:s')."\n";
 
-    return $client->getAsync($uri, [
-        'headers' => [
-            'X-CMC_PRO_API_KEY' => '5d8af388-xxxx-xxxx-xxxx-5b4ea08b7438',
-        ],
-    ]);
+    return $client->getAsync($uri);
 };
 
 $promises = [
@@ -97,17 +89,13 @@ $results = [];
 $client = new \GuzzleHttp\Client();
 
 $requests = function ($total) use ($client) {
-    $uri = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest';
+    $uri = 'https://jsonplaceholder.typicode.com/todos';
 
     for ($i = 0; $i < $total; $i++) {
         echo $i.': '.date('H:i:s')."\n";
 
         yield function() use ($client, $uri) {
-            return $client->getAsync($uri, [
-                'headers' => [
-                    'X-CMC_PRO_API_KEY' => '5d8af388-xxxx-xxxx-xxxx-5b4ea08b7438',
-                ],
-            ]);
+            return $client->getAsync($uri);
         };
     }
 };
@@ -128,7 +116,7 @@ $promise = $pool->promise();
 // Force the pool of requests to complete.
 $promise->wait();
 
-echo 'results: '.count($results);
+echo 'results: '.count($results)."\n";
 ```
 
 併發數設為 10，結果：
@@ -162,6 +150,10 @@ results: 10
 9: 15:36:01
 results: 10
 ```
+
+## 程式碼
+
+[GitHub](https://github.com/memochou1993/guzzle-async-example)
 
 ## 參考資料
 
