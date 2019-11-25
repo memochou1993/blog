@@ -118,9 +118,9 @@ class ClientTest extends TestCase
     /** @test */
     public function testQuery()
     {
-        $quzzleClient = new GuzzleClient();
+        $guzzleClient = new GuzzleClient();
 
-        $client = new Client($quzzleClient);
+        $client = new Client($guzzleClient);
 
         $client->query();
     }
