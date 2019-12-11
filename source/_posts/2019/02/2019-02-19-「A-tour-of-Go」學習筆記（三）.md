@@ -16,7 +16,7 @@ categories: ["程式寫作", "Go", "「A tour of Go」學習筆記"]
 
 ## 結構體
 
-一個結構體（ struct ）的一個字段的集合。
+一個結構體（struct）是由一系列具有相同或不同類型的資料構成的資料集合。
 
 ```GO
 package main
