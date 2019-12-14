@@ -82,7 +82,7 @@ cd Laradock
 cp env-example .env
 ```
 
-## 修改 .env 檔
+## 修改環境變數
 
 這是第二個與原書有所出入的部分，專案資料夾的路徑參數名稱由 `APPLICATION` 變成了 `APP_CODE_PATH_HOST`。
 

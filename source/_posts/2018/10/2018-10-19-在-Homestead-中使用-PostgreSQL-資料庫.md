@@ -2,11 +2,13 @@
 title: 在 Homestead 中使用 PostgreSQL 資料庫
 permalink: 在-Homestead-中使用-PostgreSQL-資料庫
 date: 2018-10-19 22:04:22
-tags: ["環境部署", "Homestead", "PostgreSQL", "資料庫"]
-categories: ["環境部署", "Homestead"]
+tags: ["程式寫作", "PHP", "Laravel", "資料庫", "PostgreSQL"]
+categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
-## 修改 .env 檔
+## 修改環境變數
+
+修改 `.env` 檔：
 
 ```ENV
 DB_CONNECTION=pgsql

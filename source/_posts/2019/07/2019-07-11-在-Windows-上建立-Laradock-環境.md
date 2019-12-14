@@ -23,20 +23,20 @@ categories: ["環境部署", "Laradock"]
 git clone https://github.com/Laradock/laradock.git Laradock
 ```
 
-複製範本 env-example 檔作為設定檔。
+複製範本 `env-example` 檔作為設定檔。
 
 ```BASH
 cd Laradock
 cp env-example .env
 ```
 
-修改 .env 檔的 APP_CODE_PATH_HOST 參數到指定的映射路徑：
+修改 `.env` 檔的 `APP_CODE_PATH_HOST` 參數到指定的映射路徑：
 
 ```ENV
 APP_CODE_PATH_HOST=../Projects/laravel
 ```
 
-使用 docker-compose 啟動 Laradock。
+使用 docker-compose 指令啟動 Laradock。
 
 ```BASH
 cd Laradock
@@ -53,13 +53,13 @@ docker-compose exec mysql bash
 
 使用 root 使用者進入資料庫。
 
-```
-# mysql -uroot -proot
+```BASH
+mysql -uroot -proot
 ```
 
 查看所有使用者。
 
-```
+```SQL
 > SELECT user,authentication_string,plugin,host FROM mysql.user;
 ```
 
