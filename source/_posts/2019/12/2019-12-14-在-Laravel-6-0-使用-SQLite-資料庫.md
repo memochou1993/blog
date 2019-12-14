@@ -18,7 +18,7 @@ categories: ["程式寫作", "PHP", "Laravel"]
 DB_CONNECTION=sqlite
 # DB_HOST=127.0.0.1
 # DB_PORT=3306
-DB_DATABASE=database/database.sqlite
+DB_DATABASE=/absolute/path/to/database.sqlite
 # DB_USERNAME=root
 # DB_PASSWORD=
 ```
