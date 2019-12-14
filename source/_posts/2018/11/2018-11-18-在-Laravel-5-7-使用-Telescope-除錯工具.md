@@ -45,7 +45,7 @@ php artisan migrate
 php artisan telescope:publish
 ```
 
-前往 http://telescope.test/telescope
+前往 <http://telescope.test/telescope>
 
 ### 限於本地使用
 
@@ -73,4 +73,20 @@ php artisan migrate
 php artisan telescope:publish
 ```
 
-前往 http://telescope.test/telescope
+將 `config/app.php` 檔中的 `App\Providers\TelescopeServiceProvider::class` 刪除， 並在 `app/Providers/AppServiceProvider.php` 檔中註冊服務提供者。
+
+```PHP
+/**
+ * Register any application services.
+ *
+ * @return void
+ */
+public function register()
+{
+    if ($this->app->isLocal()) {
+        $this->app->register(TelescopeServiceProvider::class);
+    }
+}
+```
+
+前往 <http://telescope.test/telescope>
