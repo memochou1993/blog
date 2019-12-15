@@ -85,4 +85,4 @@ docker-compose up -d gitlab
 
 ## 參考資料
 
-[Install GitLab using docker-compose](https://docs.gitlab.com/omnibus/docker/#install-gitlab-using-docker-compose)
+- [Install GitLab using docker-compose](https://docs.gitlab.com/omnibus/docker/#install-gitlab-using-docker-compose)

@@ -54,4 +54,4 @@ docker push <USERNAME>/laravel-example:latest
 
 ## 參考資料
 
-[Laravel in Docker](https://buddy.works/guides/laravel-in-docker)
+- [Laravel in Docker](https://buddy.works/guides/laravel-in-docker)

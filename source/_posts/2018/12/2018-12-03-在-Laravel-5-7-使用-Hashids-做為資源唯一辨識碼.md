@@ -146,4 +146,4 @@ User::find(1)->toArray();
 
 ## 參考資料
 
-[Use Hashids as an alternative.](https://blog.albert-chen.com/use-hashids-as-an-alternative/)
+- [Use Hashids as an alternative.](https://blog.albert-chen.com/use-hashids-as-an-alternative/)

@@ -208,4 +208,4 @@ node server.js
 
 ## 參考資料
 
-[GraphQL 入門 Part - 從 REST 到 GraphQL](https://ithelp.ithome.com.tw/articles/10188294)
+- [GraphQL 入門 Part I - 從 REST 到 GraphQL](https://ithelp.ithome.com.tw/articles/10188294)

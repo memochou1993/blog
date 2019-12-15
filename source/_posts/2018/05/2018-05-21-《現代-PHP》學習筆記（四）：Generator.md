@@ -99,4 +99,4 @@ foreach (getRows('data.csv') as $row) {
 
 ## 參考資料
 
-Josh Lockhart（2015）。現代 PHP。台北市：碁峯資訊。
+- Josh Lockhart（2015）。現代 PHP。台北市：碁峯資訊。

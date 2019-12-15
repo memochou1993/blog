@@ -295,4 +295,4 @@ export default {
 
 ## 參考資料
 
-[Vue 2 + Firebase: How to build a Vue app with Firebase authentication system in 15 minutes](vue-2-firebase-how-to-build-a-vue-app-with-firebase-authentication-system-in-15-minutes-fdce6f289c3c)
+- [Vue 2 + Firebase: How to build a Vue app with Firebase authentication system in 15 minutes](vue-2-firebase-how-to-build-a-vue-app-with-firebase-authentication-system-in-15-minutes-fdce6f289c3c)

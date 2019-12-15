@@ -203,4 +203,4 @@ print_r($documentStore->getDocuments());
 
 ## 參考資料
 
-Josh Lockhart（2015）。現代 PHP。台北市：碁峯資訊。
+- Josh Lockhart（2015）。現代 PHP。台北市：碁峯資訊。

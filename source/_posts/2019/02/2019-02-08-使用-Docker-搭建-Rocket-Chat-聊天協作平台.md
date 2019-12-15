@@ -151,4 +151,4 @@ docker-compose up -d rocketchat
 
 ## 參考資料
 
-[Rocket.Chat Documentation - Docker Compose](https://rocket.chat/docs/installation/docker-containers/available-images/)
+- [Rocket.Chat Documentation - Docker Compose](https://rocket.chat/docs/installation/docker-containers/available-images/)

@@ -399,4 +399,4 @@ npm run watch
 
 ## 參考資料
 
-[Building a Vue SPA with Laravel](https://medium.com/@weehong/laravel-5-7-vue-vue-router-spa-5e07fd591981)
+- [Building a Vue SPA with Laravel](https://medium.com/@weehong/laravel-5-7-vue-vue-router-spa-5e07fd591981)

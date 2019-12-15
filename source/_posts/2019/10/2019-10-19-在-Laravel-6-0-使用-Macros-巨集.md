@@ -246,4 +246,4 @@ return Response::error('test');
 
 ## 參考資料
 
-[Macroable Laravel Classes](https://coderstape.com/blog/3-macroable-laravel-classes-full-list)
+- [Macroable Laravel Classes](https://coderstape.com/blog/3-macroable-laravel-classes-full-list)

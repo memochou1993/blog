@@ -141,4 +141,4 @@ exec $SHELL
 
 ## 參考資料
 
-[超簡單！十分鐘打造漂亮又好用的 Zsh CMD Line 環境](https://medium.com/statementdog-engineering/prettify-your-zsh-CMD-line-prompt-3ca2acc967f)
+- [超簡單！十分鐘打造漂亮又好用的 Zsh CMD Line 環境](https://medium.com/statementdog-engineering/prettify-your-zsh-CMD-line-prompt-3ca2acc967f)

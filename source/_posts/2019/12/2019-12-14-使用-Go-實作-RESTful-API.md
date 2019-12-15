@@ -6,12 +6,17 @@ tags: ["程式寫作", "Go"]
 categories: ["程式寫作", "Go"]
 ---
 
+## 環境
+
+- macOS
+- Go 1.13.1
+
 ## 建立專案
 
 建立專案目錄。
 
 ```BASH
-mkdir -p $GOPATH/src/github.com/memochou1993/example
+mkdir -p $GOPATH/src/github.com/memochou1993/api-example
 ```
 
 目錄結構如下：
@@ -22,18 +27,18 @@ mkdir -p $GOPATH/src/github.com/memochou1993/example
 |- src/
   |- github.com/
     |- memochou1993/
-      |- example/
+      |- api-example/
 ```
 
 進到專案目錄。
 
 ```BASH
-cd src/github.com/memochou1993/example/
+cd $GOPATH/src/github.com/memochou1993/api-example/
 ```
 
 ## 安裝套件
 
-安裝 `gorilla/mux` 第三方路由套件。
+安裝 `gorilla/mux` 套件。
 
 ```BASH
 go get -u github.com/gorilla/mux
@@ -211,4 +216,4 @@ slice = append(slice1, slice2...)
 
 ## 參考資料
 
-[Golang REST API With Mux](https://www.youtube.com/watch?v=SonwZ6MF5BE)
+- [Golang REST API With Mux](https://www.youtube.com/watch?v=SonwZ6MF5BE)

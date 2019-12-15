@@ -318,7 +318,7 @@ public function findForPassport($username)
 
 ## 參考資料
 
-[Laravel 道場：API 認證（Passport）](https://docs.laravel-dojo.com/laravel/5.5/passport)
-[Laravel 的 API 认证系统 Passport](https://laravel-china.org/docs/laravel/5.5/passport/1309)
-[Laravel 使用 Passport 實作 OAuth2 Client 註冊與認證](http://carlleesnote.blogspot.com/2017/03/laravel-passport-oauth2-client-by-grant.html)
-[Vue.js Todo App - Laravel Passport - Part 9](https://www.youtube.com/watch?v=HGh0cKEVXPI)
+- [Laravel 道場：API 認證（Passport）](https://docs.laravel-dojo.com/laravel/5.5/passport)
+- [Laravel 的 API 认证系统 Passport](https://laravel-china.org/docs/laravel/5.5/passport/1309)
+- [Laravel 使用 Passport 實作 OAuth2 Client 註冊與認證](http://carlleesnote.blogspot.com/2017/03/laravel-passport-oauth2-client-by-grant.html)
+- [Vue.js Todo App - Laravel Passport - Part 9](https://www.youtube.com/watch?v=HGh0cKEVXPI)

@@ -24,4 +24,4 @@ console.log(process.env.MIX_APP_URL);
 
 ## 參考資料
 
-[Laravel Mix](https://laravel.com/docs/6.x/mix#environment-variables)
+- [Laravel Mix](https://laravel.com/docs/6.x/mix#environment-variables)

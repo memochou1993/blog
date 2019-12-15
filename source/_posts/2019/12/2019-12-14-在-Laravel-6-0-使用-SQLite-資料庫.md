@@ -2,7 +2,7 @@
 title: 在 Laravel 6.0 使用 SQLite 資料庫
 permalink: 在-Laravel-6-0-使用-SQLite-資料庫
 date: 2019-12-14 21:46:33
-tags: ["程式寫作", "PHP", "Laravel", "資料庫", "SQLite"]
+tags: ["程式寫作", "PHP", "Laravel", "SQLite", "資料庫"]
 categories: ["程式寫作", "PHP", "Laravel"]
 ---
 

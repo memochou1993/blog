@@ -53,4 +53,4 @@ $cfg['Servers'][$i]['verbose'] = '';
 
 ## 參考資料
 
-[phpMyAdmin](https://docs.phpmyadmin.net/zh_CN/latest/config.html)
+- [phpMyAdmin](https://docs.phpmyadmin.net/zh_CN/latest/config.html)
