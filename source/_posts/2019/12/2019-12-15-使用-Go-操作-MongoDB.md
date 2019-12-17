@@ -157,5 +157,5 @@ func storeBook(w http.ResponseWriter, r *http.Request) {
 
 ## 參考資料
 
-- [Developing a RESTful API with Golang and a MongoDB NoSQL Database](https://www.youtube.com/watch?v=SonwZ6MF5BE)
+- [Developing a RESTful API with Golang and a MongoDB NoSQL Database](https://www.youtube.com/watch?v=oW7PMHEYiSk)
 - [Quick Start: Golang & MongoDB - How to Read Documents](https://www.mongodb.com/blog/post/quick-start-golang--mongodb--how-to-read-documents)
