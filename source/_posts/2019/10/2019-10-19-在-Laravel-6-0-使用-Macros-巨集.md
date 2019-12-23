@@ -19,6 +19,9 @@ namespace App\Mixins;
 
 class StrMixin
 {
+    /**
+     * @return \Closure
+     */
     public static function uppercase()
     {
         return function ($value) {
@@ -82,6 +85,9 @@ namespace App\Mixins;
 
 class CollectionMixin
 {
+    /**
+     * @return \Closure
+     */
     public function uppercase()
     {
         return function () {
@@ -147,6 +153,9 @@ namespace App\Mixins;
 
 class ResponseMixin
 {
+    /**
+     * @return \Closure
+     */
     public function error()
     {
         return function ($error) {
@@ -205,9 +214,67 @@ return Response::error('test');
 }
 ```
 
+## 服務提供者
+
+新增一個 `MixinServiceProvider` 服務提供者來集中管理所有的 Mixin 類別。
+
+```BASH
+php artisan make:provider MixinServiceProvider
+```
+
+修改 `MixinServiceProvider` 服務提供者。
+
+```PHP
+namespace App\Providers;
+
+use App\Mixins\CollectionMixin;
+use App\Mixins\ResponseMixin;
+use App\Mixins\StrMixin;
+use Illuminate\Routing\ResponseFactory;
+use Illuminate\Support\Collection;
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
+
+class MixinServiceProvider extends ServiceProvider
+{
+    /**
+     * Register services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
+    }
+
+    /**
+     * Bootstrap services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        Str::mixin(new StrMixin());
+        Collection::mixin(new CollectionMixin());
+        ResponseFactory::mixin(new ResponseMixin());
+    }
+}
+```
+
+修改 `config` 資料夾的 `app.php` 檔，以註冊服務提供者：
+
+```PHP
+'providers' => [
+
+    // ...
+    App\Providers\MixinServiceProvider::class,
+
+],
+```
+
 ## 補充
 
-帶有巨集的類別有：
+所有帶有巨集的類別有以下：
 
 - Illuminate\Auth\RequestGuard
 - Illuminate\Auth\SessionGuard
