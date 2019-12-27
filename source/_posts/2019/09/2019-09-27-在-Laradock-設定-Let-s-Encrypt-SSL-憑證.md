@@ -1,9 +1,9 @@
 ---
-title: 在 Laradock 設定 Let's Encrypt SSL 憑證
-permalink: 在-Laradock-設定-Let-s-Encrypt-SSL-憑證
+title: 在 Laradock 使用 Certbot 為網站設置 HTTPS 連線
+permalink: 在-Laradock-使用-Certbot-為網站設置-HTTPS-連線
 date: 2019-09-27 21:49:02
-tags: ["環境部署", "Nginx", "SSL", "HTTPS", "Laradock"]
-categories: ["環境部署", "Nginx"]
+tags: ["環境部署", "Laradock", "SSL", "HTTPS", "Nginx"]
+categories: ["環境部署", "Laradock"]
 ---
 
 ## 安裝套件
