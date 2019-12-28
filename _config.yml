@@ -84,6 +84,6 @@ deploy:
   - type: rsync
     host: www.epoch.tw
     user: root
-    root: /var/www/blog
+    root: /var/www/blog/public
     delete: true
     verbose: true
