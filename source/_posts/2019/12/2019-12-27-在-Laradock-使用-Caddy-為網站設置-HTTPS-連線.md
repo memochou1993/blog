@@ -8,7 +8,7 @@ categories: ["環境部署", "Laradock"]
 
 ## 前言
 
-Caddy 是一個開源並使用 Golang 編寫的 Web 伺服器，它使用 Golang 標準庫提供的 HTTP 功能。Caddy 的特性是默認啟用 HTTPS，是第一個無需額外配置即可提供 HTTPS 特性的 Web 伺服器。
+Caddy 是一個開源並使用 Golang 編寫的 Web 伺服器。其特性是默認啟用 HTTPS，是第一個無需額外配置即可提供 HTTPS 的 Web 伺服器。
 
 ## 做法
 
@@ -25,33 +25,34 @@ cd ~/Laradock/caddy/caddy
 https://yourdomain.com
 ```
 
-將 `tls` 開啟，並寫入電子郵件地址。
+將 `tls` 開啟，修改為自己的電子郵件地址。
 
 ```BASH
 #tls self-signed
 tls youremail@gmai.com
 ```
 
-啟動 Caddy 以產生 Let’s Encrypt 憑證。
+啟動 Caddy 容器，以產生 Let’s Encrypt 憑證。
 
 ```BASH
 docker-compose up caddy
 ```
 
-使用 `Ctrl` + `C` 離開後，將所有容器關閉。
+產生後，使用 Ctrl + C 離開，將容器關閉。
 
 ```BASH
 docker-compose down
 ```
 
-再啟動一次容器。
+最後再將 Caddy 和其他容器一起啟動即可。
 
 ```BASH
-docker-compose up -d mysql caddy
+docker-compose up -d caddy mysql phpmyadmin
 ```
 
-訪問網站：https://yourdomain.com
+訪問網站：<https://yourdomain.com>
 
 ## 參考資料
 
 - [Laradock Guides](https://laradock.io/guides/)
+- [Caddy](https://caddyserver.com/)
