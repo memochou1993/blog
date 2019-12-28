@@ -54,5 +54,5 @@ docker-compose up -d caddy mysql phpmyadmin
 
 ## 參考資料
 
-- [Laradock Guides](https://laradock.io/guides/)
+- [Laradock Guides](https://laradock.io/guides/#run-site-on-ssl-with-let-s-encrypt-certificate)
 - [Caddy](https://caddyserver.com/)
