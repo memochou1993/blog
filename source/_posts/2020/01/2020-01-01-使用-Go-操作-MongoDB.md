@@ -396,7 +396,7 @@ func Store(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if err := movie.Store(movie); err != nil {
+	if err := model.Store(movie); err != nil {
 		response(w, http.StatusInternalServerError, err.Error())
 		return
 	}
