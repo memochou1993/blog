@@ -190,7 +190,7 @@ func destroyBook(w http.ResponseWriter, r *http.Request) {
 
 ## 啟動服務
 
-執行以下指令：
+執行應用。
 
 ```BASH
 go run main.go

@@ -90,7 +90,7 @@ govendor init
 govendor fetch github.com/appleboy/com/random
 ```
 
-執行。
+執行應用。
 
 ```GO
 go run main.go

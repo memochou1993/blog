@@ -445,7 +445,7 @@ func Destroy(w http.ResponseWriter, r *http.Request) {
 
 ## 執行
 
-執行應用程式。
+執行應用。
 
 ```BASH
 go run main.go

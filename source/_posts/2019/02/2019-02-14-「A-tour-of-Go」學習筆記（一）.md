@@ -29,7 +29,7 @@ go version
 go version go1.11.5
 ```
 
-執行 Go 程式。
+執行應用。
 
 ```BASH
 go run hello.go
