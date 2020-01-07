@@ -67,10 +67,10 @@ go run main.go
 若要清除快取，使用以下指令：
 
 ```BASH
-go clean -i -x -modcache
+go clean -modcache
 ```
 
-若要找回遺失的套件，或刪除未使用的套件，使用以下指令：
+若要刪除未使用的套件，或找回遺失的套件，使用以下指令：
 
 ```BASH
 go mod tidy
