@@ -58,7 +58,7 @@ go mod init github.com/memochou1993/example
 go mod download
 ```
 
-直接執行，也會自動下載依賴套件。
+或者直接執行，也會下載依賴套件。
 
 ```BASH
 go run main.go
@@ -68,6 +68,12 @@ go run main.go
 
 ```BASH
 go clean -i -x -modcache
+```
+
+若要找回遺失的套件，或刪除未使用的套件，使用以下指令：
+
+```BASH
+go mod tidy
 ```
 
 ### 使用 govendor
