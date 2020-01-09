@@ -2,7 +2,7 @@
 title: 使用 Go 操作 MongoDB
 permalink: 使用-Go-操作-MongoDB
 date: 2020-01-01 21:55:05
-tags: ["程式寫作", "Go", "MongoDB", "資料庫"]
+tags: ["程式寫作", "Go", "MongoDB", "資料庫", "ORM"]
 categories: ["程式寫作", "Go"]
 ---
 
@@ -10,7 +10,7 @@ categories: ["程式寫作", "Go"]
 
 - macOS
 - Go 1.13.4
-- MongoDB
+- MongoDB 4.2.2
 
 ## 建立專案
 
@@ -23,7 +23,7 @@ mkdir -p $GOPATH/src/github.com/memochou1993/mongo-example
 進到專案目錄。
 
 ```BASH
-cd $GOPATH/src/github.com/memochou1993/mongo-example/
+cd $GOPATH/src/github.com/memochou1993/mongo-example
 ```
 
 在專案目錄底下初始化 Go Modules。
