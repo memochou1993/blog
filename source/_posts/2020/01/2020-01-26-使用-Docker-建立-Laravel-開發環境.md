@@ -238,7 +238,7 @@ docker exec -it laravel bash
 
 ## 程式碼
 
-[GitHub](https://github.com/memochou1993/docker-laravel-nginx)
+[GitHub](https://github.com/memochou1993/docker-laravel-example)
 
 ## 參考資料
 
