@@ -90,6 +90,8 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
+- 參數 `+x` 代表給予所有人執行的權限。
+
 查看 Docker Compose 版本。
 
 ```BASH
@@ -231,19 +233,19 @@ docker-compose exec mysql bash
 
 使用 `root` 使用者進入資料庫，密碼為 `root`。
 
-```
+```MYSQL
 # mysql -u root -p
 ```
 
 查看所有使用者。
 
-```
+```MYSQL
 > SELECT user,authentication_string,plugin,host FROM mysql.user;
 ```
 
 新增使用者，並設定權限。
 
-```
+```MYSQL
 > CREATE USER 'ubuntu'@'%' IDENTIFIED WITH mysql_native_password BY 'password';
 > GRANT ALL PRIVILEGES ON *.* TO 'ubuntu'@'%';
 > FLUSH PRIVILEGES;
@@ -258,7 +260,7 @@ mysql -u ubuntu -p
 
 新增 `homestead` 資料庫。
 
-```
+```MYSQL
 > CREATE DATABASE `homestead`;
 > quit;
 ```
