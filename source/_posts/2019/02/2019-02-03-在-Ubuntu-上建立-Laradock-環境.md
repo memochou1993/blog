@@ -280,11 +280,11 @@ mysql -u ubuntu -p
 
 ## 瀏覽網頁
 
-前往 xxx.compute.amazonaws.com
+前往 <xxx.compute.amazonaws.com>
 
 ## 設定相關權限
 
-進到容器。
+進到 workspace 容器。
 
 ```BASH
 docker-compose exec workspace bash

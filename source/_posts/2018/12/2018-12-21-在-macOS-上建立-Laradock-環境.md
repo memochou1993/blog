@@ -122,6 +122,20 @@ docker-compose exec workspace bash
 /var/www# php artisan migrate
 ```
 
+## 設定相關權限
+
+進到 workspace 容器。
+
+```BASH
+docker-compose exec workspace bash
+```
+
+修改 `storage` 資料夾的權限。
+
+```BASH
+chown -R laradock:www-data storage
+```
+
 ## 註冊虛擬主機別名
 
 ```ENV
