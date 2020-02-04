@@ -45,6 +45,19 @@ docker-compose up -d nginx mysql phpmyadmin
 
 ## 設定 MySQL
 
+修改 `mysql\my.cnf` 檔：
+
+```CNF
+[mysqld]
+default_authentication_plugin=mysql_native_password
+```
+
+重新建立 MySQL 容器：
+
+```BASH
+docker-compose build --no-cache mysql
+```
+
 進入 MySQL 容器。
 
 ```BASH
@@ -61,13 +74,6 @@ mysql -uroot -proot
 
 ```SQL
 > SELECT user,authentication_string,plugin,host FROM mysql.user;
-```
-
-修改 `Laradock\mysql\my.cnf` 檔：
-
-```CNF
-[mysqld]
-default_authentication_plugin=mysql_native_password
 ```
 
 ## 建立專案

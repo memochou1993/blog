@@ -225,6 +225,19 @@ cd ~/Laradock && docker-compose restart nginx
 
 ## 設定 MySQL
 
+修改 `mysql\my.cnf` 檔：
+
+```CNF
+[mysqld]
+default_authentication_plugin=mysql_native_password
+```
+
+重新建立 MySQL 容器：
+
+```BASH
+docker-compose build --no-cache mysql
+```
+
 進入 MySQL 容器。
 
 ```BASH
