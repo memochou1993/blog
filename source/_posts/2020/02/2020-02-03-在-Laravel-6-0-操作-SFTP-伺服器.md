@@ -50,7 +50,7 @@ SFTP_PASSWORD=
 取得檔案：
 
 ```PHP
-Storage::disk('sftp')->get('file.csv');
+\Illuminate\Support\Facades\Storage::disk('sftp')->get('file.csv');
 ```
 
 參考資料
