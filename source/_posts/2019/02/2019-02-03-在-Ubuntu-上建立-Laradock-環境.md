@@ -12,13 +12,13 @@ categories: ["環境部署", "Laradock"]
 
 ## 安裝 Docker
 
-更新 APT 套件工具。
+更新 apt 套件工具。
 
 ```BASH
 sudo apt-get update
 ```
 
-安裝以下套件讓 APT 可以透過 HTTPS 使用倉庫。
+安裝以下套件讓 apt 可以透過 HTTPS 使用倉庫。
 
 ```BASH
 sudo apt-get install \
@@ -78,7 +78,7 @@ sudo gpasswd -a ${USER} docker
 
 ## 安裝 Docker Compose
 
-下載 Docker Composer。
+下載執行檔。
 
 ```BASH
 sudo curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
