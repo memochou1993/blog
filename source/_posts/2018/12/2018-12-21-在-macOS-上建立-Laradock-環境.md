@@ -72,6 +72,19 @@ DB_PASSWORD=secret
 
 ## 進入 MySQL
 
+修改 `mysql\my.cnf` 檔：
+
+```CNF
+[mysqld]
+default_authentication_plugin=mysql_native_password
+```
+
+重新建立 MySQL 容器：
+
+```BASH
+docker-compose build --no-cache mysql
+```
+
 修改一般使用者的認證方式。
 
 ```BASH
@@ -107,6 +120,20 @@ docker-compose exec workspace bash
 ```BASH
 /var/www# cd laravel
 /var/www# php artisan migrate
+```
+
+## 設定相關權限
+
+進到 workspace 容器。
+
+```BASH
+docker-compose exec workspace bash
+```
+
+修改 `storage` 資料夾的權限。
+
+```BASH
+chown -R laradock:www-data storage
 ```
 
 ## 註冊虛擬主機別名
