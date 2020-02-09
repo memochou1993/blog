@@ -12,7 +12,7 @@ categories: ["環境部署", "Linux"]
 
 ## 安裝 PHP
 
-更新 APT 套件工具。
+更新 apt 套件工具。
 
 ```BASH
 sudo apt-get update

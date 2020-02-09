@@ -8,7 +8,7 @@ categories: ["環境部署", "Laradock"]
 
 ## 安裝套件
 
-更新 APT 套件工具。
+更新 apt 套件工具。
 
 ```BASH
 sudo apt update && sudo apt upgrade
