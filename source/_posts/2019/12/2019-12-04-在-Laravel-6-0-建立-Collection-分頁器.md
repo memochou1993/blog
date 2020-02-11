@@ -1,6 +1,6 @@
 ---
-title: 在 Laravel 6.0 手動建立分頁器
-permalink: 在-Laravel-6-0-手動建立分頁器
+title: 在 Laravel 6.0 建立 Collection 分頁器
+permalink: 在-Laravel-6-0-建立 Collection 分頁器
 date: 2019-12-04 11:44:24
 tags: ["程式寫作", "PHP", "Laravel"]
 categories: ["程式寫作", "PHP", "Laravel"]
@@ -8,7 +8,7 @@ categories: ["程式寫作", "PHP", "Laravel"]
 
 ## 做法
 
-以擴展 `Collection` 類別為例，新增 `app/Mixins/CollectionMixin.php` 檔：
+新增 `app/Mixins/CollectionMixin.php` 檔：
 
 ```PHP
 namespace App\Mixins;
@@ -76,20 +76,20 @@ return collect($items)->paginate(2, 2);
 
 ```PHP
 {
-  "current_page": 2,
-  "data": {
-    "2": 3,
-    "3": 4
-  },
-  "first_page_url": "?page=1",
-  "from": 3,
-  "last_page": 3,
-  "last_page_url": "?page=3",
-  "next_page_url": "?page=3",
-  "path": "",
-  "per_page": 2,
-  "prev_page_url": "?page=1",
-  "to": 4,
-  "total": 5
+    "current_page": 2,
+    "data": {
+        "2": 3,
+        "3": 4
+    },
+    "first_page_url": "?page=1",
+    "from": 3,
+    "last_page": 3,
+    "last_page_url": "?page=3",
+    "next_page_url": "?page=3",
+    "path": "",
+    "per_page": 2,
+    "prev_page_url": "?page=1",
+    "to": 4,
+    "total": 5
 }
 ```
