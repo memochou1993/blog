@@ -167,16 +167,18 @@ class AuthServiceProvider extends ServiceProvider
 
 ## 發起 HTTP 請求
 
-向 http://passport.test/api/user 發起 `GET` 請求，得到回應如下：
+向 <http://passport.test/api/user> 發起 `GET` 請求，得到回應如下：
 
-```
+```JSON
 [MethodNotAllowedHttpException] No message
 ```
 
 在 `Accept` 輸入 `application/json` 可以得到以下回應：
 
-```
-{"message":"Unauthenticated."}
+```JSON
+{
+    "message": "Unauthenticated."
+}
 ```
 
 ### 客戶端憑證授權
@@ -198,17 +200,19 @@ Route::get('/user', function (Request $request) {
 })->middleware('client');
 ```
 
-在 `Body` 輸入以下鍵値向 http://passport.test/oauth/token 發起 `POST` 請求：
+向 <http://passport.test/oauth/token> 發起 `POST` 請求：
 
-| Key           | Value              |
-| ------------- | ------------------ |
-| grant_type    | client_credentials |
-| client_id     | 2                  |
-| client_secret | 28ch1……ioMe7       |
+```JSON
+{
+    "grant_type": "client_credentials",
+    "client_id" : 2,
+    "client_secret": "28ch1……ioMe7"
+}
+```
 
 得到回應如下：
 
-```
+```JSON
 {
     "token_type": "Bearer",
     "expires_in": 599,
@@ -216,17 +220,27 @@ Route::get('/user', function (Request $request) {
 }
 ```
 
-最後在 `Headers` 輸入以下鍵値，再向 http://passport.test/api/user 發起 `GET` 請求。
-（Value 的部分為：Bearer + 空一格 + Token）
+最後在 `Headers` 輸入以下鍵値，再向 <http://passport.test/api/user> 發起 `GET` 請求。
 
 | Key           | Value               |
 | ------------- | ------------------- |
 | Authorization | Bearer eyJ0e……uAqSw |
 
+- Value 的部分為：Bearer + 空一格 + Token。
+
 結果得到回應如下：
 
-```
-[{"id":1,"name":"Test User","email":"homestead@test.com","email_verified_at":null,"created_at":"2018-11-03 16:27:33","updated_at":"2018-11-03 16:27:33"}]
+```JSON
+[
+    {
+        "id": 1,
+        "name": "Test User",
+        "email": "homestead@test.com",
+        "email_verified_at": null,
+        "created_at": "2018-11-03 16:27:33",
+        "updated_at": "2018-11-03 16:27:33"
+    }
+]
 ```
 
 ### 密碼授權
@@ -239,19 +253,21 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 ```
 
-在 `Body` 輸入以下鍵値向 http://passport.test/oauth/token 發起 `POST` 請求：
+向 <http://passport.test/oauth/token> 發起 `POST` 請求：
 
-| Key           | Value              |
-| ------------- | ------------------ |
-| grant_type    | password           |
-| client_id     | 2                  |
-| client_secret | 28ch1……ioMe7       |
-| username      | homestead@test.com |
-| password      | secret             |
+```JSON
+{
+    "grant_type": "password",
+    "client_id" : 2,
+    "client_secret": "28ch1……ioMe7",
+    "username": "homestead@test.com",
+    "password": "secret"
+}
+```
 
 得到回應如下：
 
-```
+```JSON
 {
     "token_type": "Bearer",
     "expires_in": 599,
@@ -260,55 +276,48 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 }
 ```
 
-最後在 `Headers` 輸入以下鍵値，再向 http://passport.test/api/user 發起 `GET` 請求。
-（Value 的部分為：Bearer + 空一格 + Token）
+最後在 `Headers` 輸入以下鍵値，再向 <http://passport.test/api/user> 發起 `GET` 請求。
 
 | Key           | Value               |
 | ------------- | ------------------- |
 | Authorization | Bearer def50……29a13 |
 
+- Value 的部分為：Bearer + 空一格 + Token。
+
 結果得到回應如下：
 
-```
-[{"id":1,"name":"Test User","email":"homestead@test.com","email_verified_at":null,"created_at":"2018-11-03 16:27:33","updated_at":"2018-11-03 16:27:33"}]
+```JSON
+[
+    {
+        "id": 1,
+        "name": "Test User",
+        "email": "homestead@test.com",
+        "email_verified_at": null,
+        "created_at": "2018-11-03 16:27:33",
+        "updated_at": "2018-11-03 16:27:33"
+    }
+]
 ```
 
-如果要刷新 Token，則在 `Body` 輸入以下鍵値向 http://passport.test/oauth/token 發起 `POST` 請求：
+如果要刷新 Token，則向 <http://passport.test/oauth/token> 發起 `POST` 請求：
 
-| Key           | Value         |
-| ------------- | ------------- |
-| grant_type    | refresh_token |
-| client_id     | 2             |
-| client_secret | 28ch1……ioMe7  |
-| refresh_token | def50……29a13  |
+```JSON
+{
+    "grant_type": "refresh_token",
+    "client_id" : 2,
+    "client_secret": "28ch1……ioMe7",
+    "refresh_token": "def50……29a13"
+}
+```
 
 得到回應如下：
 
-```
+```JSON
 {
     "token_type": "Bearer",
     "expires_in": 599,
     "access_token": "eyJ0e……sLOaA",
     "refresh_token": "def50……9d38c"
-}
-```
-
-## 其他
-
-在使用密碼授權時，如果要既可以使用帳號（username），又可以使用信箱進行認證，可以在 `User` 模型新增以下方法：
-
-```PHP
-/**
- * Find the user instance for the given username.
- *
- * @param  string  $username
- * @return \App\User
- */
-public function findForPassport($username)
-{
-    $email = filter_var(($username), FILTER_VALIDATE_EMAIL);
-
-    return $this->where($email ? compact('email') : compact('username'))->first();
 }
 ```
 
@@ -319,6 +328,6 @@ public function findForPassport($username)
 ## 參考資料
 
 - [Laravel 道場：API 認證（Passport）](https://docs.laravel-dojo.com/laravel/5.5/passport)
-- [Laravel 的 API 认证系统 Passport](https://laravel-china.org/docs/laravel/5.5/passport/1309)
+- [Laravel 的 API 認證系统 Passport](https://laravel-china.org/docs/laravel/5.5/passport/1309)
 - [Laravel 使用 Passport 實作 OAuth2 Client 註冊與認證](http://carlleesnote.blogspot.com/2017/03/laravel-passport-oauth2-client-by-grant.html)
 - [Vue.js Todo App - Laravel Passport - Part 9](https://www.youtube.com/watch?v=HGh0cKEVXPI)
