@@ -52,7 +52,6 @@ class Controller extends BaseController
 在根目錄新增 `docker-compose.yml` 檔：
 
 ```YML
-docker-compose.yml
 version: "3"
 
 services:
