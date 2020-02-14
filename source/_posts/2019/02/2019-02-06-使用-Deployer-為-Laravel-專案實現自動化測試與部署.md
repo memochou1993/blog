@@ -151,7 +151,7 @@ composer global require deployer/deployer -vvv
 
 ### 建立專案
 
-新增 Laravel 專案。
+建立專案。
 
 ```BASH
 laravel new laravel

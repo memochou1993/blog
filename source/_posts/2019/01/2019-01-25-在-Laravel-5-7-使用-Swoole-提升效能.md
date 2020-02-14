@@ -25,7 +25,7 @@ laravel new swoole
 composer require swooletw/laravel-swoole
 ```
 
-## 啟動網頁伺服器
+## 啟動伺服器
 
 ```BASH
 php artisan swoole:http start

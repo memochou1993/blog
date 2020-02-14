@@ -142,7 +142,7 @@ django-admin startproject mysite
 cd mysite
 ```
 
-啟動網頁伺服器。
+啟動伺服器。
 
 ```BASH
 python3 manage.py runserver

@@ -96,7 +96,7 @@ php artisan tinker
 >>> factory('App\Comment', 20)->create()
 ```
 
-啟動網頁伺服器。
+啟動伺服器。
 
 ```BASH
 php artisan serve
@@ -293,7 +293,7 @@ cd vue-apollo
 vue add apollo
 ```
 
-啟動網頁伺服器。
+啟動伺服器。
 
 ```BASH
 npm run serve

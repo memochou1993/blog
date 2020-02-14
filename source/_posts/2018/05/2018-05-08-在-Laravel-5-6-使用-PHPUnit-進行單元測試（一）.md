@@ -17,6 +17,8 @@ categories: ["程式寫作", "PHP", "Laravel"]
 
 ## 建立專案
 
+建立專案。
+
 ```BASH
 laravel new post
 ```

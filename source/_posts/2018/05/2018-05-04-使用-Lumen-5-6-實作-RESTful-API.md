@@ -17,6 +17,8 @@ categories: ["程式寫作", "PHP", "Lumen"]
 
 ## 建立專案
 
+建立專案。
+
 ```BASH
 lumen new journal
 ```

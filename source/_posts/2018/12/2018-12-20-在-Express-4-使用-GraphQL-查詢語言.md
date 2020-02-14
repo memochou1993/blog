@@ -12,6 +12,8 @@ categories: ["程式寫作", "GraphQL"]
 
 ## 建立專案
 
+建立專案。
+
 ```BASH
 mkdir graphql-express
 npm install --save graphql express-graphql express

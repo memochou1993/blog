@@ -13,13 +13,13 @@ categories: ["程式寫作", "PHP", "Laravel"]
 
 ## 建立專案
 
+建立專案。
+
 ```BASH
 laravel new telescope
 ```
 
-## 步驟
-
-### 一般使用
+## 一般使用
 
 安裝 `laravel/telescope` 套件。
 
@@ -47,7 +47,7 @@ php artisan telescope:publish
 
 前往：<http://telescope.test/telescope>
 
-### 限於本地使用
+## 本地使用
 
 安裝 `laravel/telescope` 套件。
 
@@ -90,3 +90,40 @@ public function register()
 ```
 
 前往：<http://telescope.test/telescope>
+
+## 認證
+
+在非本地環境下使用，可以修改 `app/Providers/TelescopeServiceProvider.php` 檔，定義合法的使用者列表：
+
+```PHP
+/**
+ * Register the Telescope gate.
+ *
+ * This gate determines who can access Telescope in non-local environments.
+ *
+ * @return void
+ */
+protected function gate()
+{
+    Gate::define('viewTelescope', function ($user) {
+        return in_array($user->email, [
+            'user@gmail.com',
+        ]);
+    });
+}
+```
+
+如果要取消認證，可以將 `config/telescope.php` 檔中的 `Authorize` 中介層移除：
+
+```PHP
+return [
+    // ...
+
+    'middleware' => [
+        'web',
+        // Authorize::class,
+    ],
+
+    // ...
+];
+```

@@ -8,8 +8,15 @@ categories: ["程式寫作", "PHP", "Laravel"]
 
 ## 建立專案
 
+建立專案。
+
 ```BASH
 laravel new laravel-vuetify
+```
+
+啟動伺服器。
+
+```BASH
 php artisan serve
 ```
 
