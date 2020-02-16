@@ -37,8 +37,6 @@ Output: 21
 
 ## 解答
 
-### 解法一
-
 ```GO
 func reverse(x int) int {
 	// 宣告一個正負數的標記
@@ -75,7 +73,3 @@ func reverse(x int) int {
 ## 程式碼
 
 [GitHub](https://github.com/memochou1993/leetcode-in-go)
-
-## 參考資料
-
-- [LeetCode-in-Go](https://github.com/aQuaYi/LeetCode-in-Go)

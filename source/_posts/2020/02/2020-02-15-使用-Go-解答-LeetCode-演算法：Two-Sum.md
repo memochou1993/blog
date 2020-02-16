@@ -25,25 +25,6 @@ return [0, 1].
 
 ## 解答
 
-### 解法一
-
-```GO
-func twoSum(nums []int, target int) []int {
-	for i := 0; i < len(nums); i++ {
-		for j := i + 1; j < len(nums); j++ {
-			// 判斷總和加起來為目標值
-			if nums[i]+nums[j] == target {
-				return []int{i, j}
-			}
-		}
-	}
-
-	return []int{}
-}
-```
-
-### 解法二
-
 ```GO
 func twoSum(nums []int, target int) []int {
 	// 創建一個空集合，用於放置迭代過的索引
@@ -65,7 +46,3 @@ func twoSum(nums []int, target int) []int {
 ## 程式碼
 
 [GitHub](https://github.com/memochou1993/leetcode-in-go)
-
-## 參考資料
-
-- [LeetCode-in-Go](https://github.com/aQuaYi/LeetCode-in-Go)
