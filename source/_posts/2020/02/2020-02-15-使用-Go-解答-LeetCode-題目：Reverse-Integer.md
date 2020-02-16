@@ -1,6 +1,6 @@
 ---
-title: 使用 Go 解答 LeetCode 演算法：Reverse Integer
-permalink: 使用-Go-解答-LeetCode-演算法：Reverse-Integer
+title: 使用 Go 解答 LeetCode 題目：Reverse Integer
+permalink: 使用-Go-解答-LeetCode-題目：Reverse-Integer
 date: 2020-02-15 21:29:24
 tags: ["程式寫作", "Go", "演算法", "LeetCode"]
 categories: ["程式寫作", "Go", "演算法"]

@@ -1,6 +1,6 @@
 ---
-title: 使用 Go 解答 LeetCode 演算法：Palindrome Number
-permalink: 使用-Go-解答-LeetCode-演算法：Palindrome-Number
+title: 使用 Go 解答 LeetCode 題目：Palindrome Number
+permalink: 使用-Go-解答-LeetCode-題目：Palindrome-Number
 date: 2020-02-16 13:08:04
 tags: ["程式寫作", "Go", "演算法", "LeetCode"]
 categories: ["程式寫作", "Go", "演算法"]

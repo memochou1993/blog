@@ -1,6 +1,6 @@
 ---
-title: 使用 Go 解答 LeetCode 演算法：Two Sum
-permalink: 使用-Go-解答-LeetCode-演算法：Two-Sum
+title: 使用 Go 解答 LeetCode 題目：Two Sum
+permalink: 使用-Go-解答-LeetCode-題目：Two-Sum
 date: 2020-02-15 15:36:54
 tags: ["程式寫作", "Go", "演算法", "LeetCode"]
 categories: ["程式寫作", "Go", "演算法"]
