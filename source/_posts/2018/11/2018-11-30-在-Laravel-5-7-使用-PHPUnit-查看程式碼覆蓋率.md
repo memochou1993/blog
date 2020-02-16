@@ -2,7 +2,7 @@
 title: 在 Laravel 5.7 使用 PHPUnit 查看程式碼覆蓋率
 permalink: 在-Laravel-5-7-使用-PHPUnit-查看程式碼覆蓋率
 date: 2018-11-30 14:27:38
-tags: ["程式寫作", "PHP", "Laravel", "除錯", "PHPUnit", "Xdebug"]
+tags: ["程式寫作", "PHP", "Laravel", "測試", "PHPUnit", "Xdebug"]
 categories: ["程式寫作", "PHP", "Laravel"]
 ---
 

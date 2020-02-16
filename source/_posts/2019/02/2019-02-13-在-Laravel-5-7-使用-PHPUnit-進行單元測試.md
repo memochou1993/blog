@@ -2,7 +2,7 @@
 title: 在 Laravel 5.7 使用 PHPUnit 進行單元測試
 permalink: 在-Laravel-5-7-使用-PHPUnit-進行單元測試
 date: 2019-02-13 20:53:17
-tags: ["程式寫作", "PHP", "Laravel", "PHPUnit"]
+tags: ["程式寫作", "PHP", "Laravel", "測試", "PHPUnit"]
 categories: ["程式寫作", "PHP", "Laravel"]
 ---
 
