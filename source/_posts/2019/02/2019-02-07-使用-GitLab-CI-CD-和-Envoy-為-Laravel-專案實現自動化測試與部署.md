@@ -121,7 +121,7 @@ chmod 600 ~/.ssh/id_rsa ~/.ssh/id_rsa.pub
 
 ### 設定 Nginx
 
-新增 `laravel-envoy.kamisy66.com.conf` 檔：
+新增 `laravel-envoy.xxx.com.conf` 檔：
 
 ```CONF
 server {
