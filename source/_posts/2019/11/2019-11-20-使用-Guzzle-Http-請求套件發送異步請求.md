@@ -3,7 +3,7 @@ title: 使用 Guzzle Http 請求套件發送異步請求
 permalink: 使用-Guzzle-Http-請求套件發送異步請求
 date: 2019-11-20 23:09:35
 tags: ["程式寫作", "PHP", "Guzzle"]
-categories: ["程式寫作", "PHP"]
+categories: ["程式寫作", "PHP", "其他"]
 ---
 
 ## 異步請求

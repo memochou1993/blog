@@ -2,8 +2,8 @@
 title: 在 Windows 上安裝 Go
 permalink: 在-Windows-上安裝-Go
 date: 2020-02-18 08:50:55
-tags: ["環境部署", "Windows", "Go"]
-categories: ["環境部署", "Go"]
+tags: ["程式寫作", "Go"]
+categories: ["程式寫作", "Go", "環境安裝"]
 ---
 
 ## 前言

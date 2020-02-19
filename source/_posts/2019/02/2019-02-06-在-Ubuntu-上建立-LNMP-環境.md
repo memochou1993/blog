@@ -81,6 +81,11 @@ sudo chown -R ${USER}:${USER} ~/.composer
 
 ```BASH
 echo 'export PATH="$PATH:$HOME/.composer/vendor/bin"' >> ~/.bashrc
+```
+
+重新加載啟動文件。
+
+```BASH
 source ~/.bashrc
 ```
 

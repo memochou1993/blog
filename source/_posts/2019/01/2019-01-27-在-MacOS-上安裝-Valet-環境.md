@@ -2,8 +2,8 @@
 title: 在 MacOS 上安裝 Valet 環境
 permalink: 在-MacOS-上安裝-Valet-環境
 date: 2019-01-27 03:17:15
-tags: ["環境部署", "macOS", "Valet", "Laravel"]
-categories: ["環境部署", "Valet"]
+tags: ["程式寫作", "PHP", "Laravel", "macOS", "Valet"]
+categories: ["程式寫作", "PHP", "環境安裝"]
 ---
 
 ## 步驟

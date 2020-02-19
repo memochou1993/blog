@@ -3,7 +3,7 @@ title: 在 MacOS 安裝 Python 3 和 Anaconda 環境
 permalink: 在-MacOS-安裝-Python-3-和-Anaconda-環境
 date: 2019-08-24 00:33:52
 tags: ["程式寫作", "Python", "Anaconda"]
-categories: ["程式寫作", "Python", "其他"]
+categories: ["程式寫作", "Python", "環境安裝"]
 ---
 
 ## 安裝環境

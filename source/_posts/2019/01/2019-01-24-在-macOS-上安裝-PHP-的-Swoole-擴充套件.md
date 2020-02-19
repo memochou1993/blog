@@ -2,7 +2,7 @@
 title: 在 macOS 上安裝 PHP 的 Swoole 擴充套件
 permalink: 在-macOS-上安裝-PHP-的-Swoole-擴充套件
 date: 2019-01-24 11:45:02
-tags: ["環境部署", "PHP", "Swoole", "macOS", "Laravel"]
+tags: ["程式寫作", "PHP", "Swoole", "macOS", "Laravel"]
 categories: ["程式寫作", "PHP", "擴充套件"]
 ---
 

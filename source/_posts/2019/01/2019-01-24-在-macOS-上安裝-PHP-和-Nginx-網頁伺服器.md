@@ -2,8 +2,8 @@
 title: 在 macOS 上安裝 PHP 和 Nginx 網頁伺服器
 permalink: 在-macOS-上安裝-PHP-和-Nginx-網頁伺服器
 date: 2019-01-24 10:35:48
-tags: ["環境部署", "PHP", "Nginx", "macOS", "Laravel"]
-categories: ["環境部署", "Nginx"]
+tags: ["程式寫作", "PHP", "Nginx", "macOS", "Laravel"]
+categories: ["程式寫作", "PHP", "環境安裝"]
 ---
 
 ## 安裝 PHP

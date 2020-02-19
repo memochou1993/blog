@@ -3,7 +3,7 @@ title: 學習 Go Modules 套件管理工具
 permalink: 學習-Go-Modules-套件管理工具
 date: 2019-12-15 14:20:45
 tags: ["程式寫作", "Go"]
-categories: ["程式寫作", "Go"]
+categories: ["程式寫作", "Go", "其他"]
 ---
 
 ## 環境
@@ -13,13 +13,19 @@ categories: ["程式寫作", "Go"]
 
 ## 修改環境變數
 
-修改 `~/.zshrc` 檔的環境變數：
+修改 `~/.zshrc` 檔：
 
 ```ENV
 export GO111MODULE=on
 export GOPATH=$HOME/Workspace/go
 export GOBIN=$GOPATH/bin
 export PATH=$GOBIN:$PATH
+```
+
+重新加載啟動文件。
+
+```BASH
+source ~/.bashrc
 ```
 
 ## 建立專案
