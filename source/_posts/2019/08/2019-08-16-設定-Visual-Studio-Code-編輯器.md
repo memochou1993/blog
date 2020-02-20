@@ -14,6 +14,7 @@ categories: ["其他", "編輯器"]
     "editor.fontSize": 16,
     "editor.fontFamily": "Operator Mono",
     "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "workbench.colorTheme": "Super One Dark",
     "terminal.integrated.fontFamily": "SauceCodePro Nerd Font",
     "terminal.integrated.confirmOnExit": true,
@@ -26,16 +27,24 @@ categories: ["其他", "編輯器"]
     "powermode.enableStatusBarComboTimer": false,
     "namespaceResolver.sortAlphabetically": true,
     "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
-    "php-cs-fixer.lastDownload": 1579943050327,
-    "php-cs-fixer.onsave": true,
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "php-cs-fixer.lastDownload": 1580911750583,
     "go.formatTool": "goimports",
     "go.useLanguageServer": true,
     "[php]": {
+        "editor.formatOnSave": false,
         "editor.defaultFormatter": "junstyle.php-cs-fixer"
     },
     "[vue]": {
+        "editor.formatOnSave": true,
         "editor.defaultFormatter": "octref.vetur"
+    },
+    "[javascript]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[javascriptreact]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "vscode.typescript-language-features"
     }
 }
 ```
