@@ -56,6 +56,7 @@ func index(w http.ResponseWriter, r *http.Request) {
 		return true
 	}
 
+	// 伺服端接受客戶端連線的接口
 	conn, err := upgrader.Upgrade(w, r, nil)
 
 	if err != nil {
@@ -64,11 +65,12 @@ func index(w http.ResponseWriter, r *http.Request) {
 
 	log.Println("Connected...")
 
-	render(conn)
+	handle(conn)
 }
 
-func render(conn *websocket.Conn) {
+func handle(conn *websocket.Conn) {
 	for {
+		// ReadMessage() 方法是一個輔助函式，其內部調用 NextReader() 方法
 		messageType, p, err := conn.ReadMessage()
 
 		if err != nil {
@@ -78,6 +80,7 @@ func render(conn *websocket.Conn) {
 
 		log.Println(string(p))
 
+		// WriteMessage() 方法是一個輔助函式，其內部調用 NextWriter() 方法
 		if err := conn.WriteMessage(messageType, p); err != nil {
 			log.Println(err.Error())
 			return
@@ -99,25 +102,30 @@ func render(conn *websocket.Conn) {
 </head>
 <body>
     <script>
+    // 建立 WebSocket 實例
     const socket = new WebSocket('ws://localhost:8080');
 
-    console.log('Attempting...');
+    console.log('Attempting Connection...');
 
-    socket.onopen = () => {
-        console.log('Opening...');
+    // 當 WebSocket 連線的 readyState 切換至 OPEN 時呼叫的事件監聽器，表示連線已準備傳送、接收資料
+    socket.onopen = (event) => {
+        console.log('Connection Opened...', event);
         socket.send('Hi...');
     };
 
+    // 當 WebSocket 連線的 readyState 切換至 CLOSED 時呼叫的事件監聽器
     socket.onclose = (event) => {
-        console.log('Closing...', event);
+        console.log('Connection Closed...', event);
     };
 
+    // 當瀏覽器接收伺服器的訊息時呼叫的事件監聽器
     socket.onmessage = (message) => {
         console.log(message);
     };
 
+    // 當錯誤發生時呼叫的事件監聽器
     socket.onerror = (error) => {
-        console.log('Error: ', error);
+        console.log('Connection Error: ', error);
     };
     </script>
 </body>
@@ -131,3 +139,6 @@ func render(conn *websocket.Conn) {
 ## 參考資料
 
 - [Go WebSocket Tutorial with the gorilla/websocket Package](https://www.youtube.com/watch?v=dniVs0xKYKk)
+- [WebSocket](https://developer.mozilla.org/zh-TW/docs/WebSockets/WebSockets_reference/WebSocket)
+- [WebSocket Go](https://blog.piasy.com/2018/06/10/WebSocket-Go/index.html)
+- [Gorilla web toolkit - WebSocket](https://www.gorillatoolkit.org/pkg/websocket)
