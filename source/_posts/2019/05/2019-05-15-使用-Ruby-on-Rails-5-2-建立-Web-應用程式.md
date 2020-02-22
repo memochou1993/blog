@@ -1,6 +1,6 @@
 ---
-title: 學習使用 Ruby on Rails 5.2 框架
-permalink: 學習使用-Ruby-on-Rails-5-2-框架
+title: 使用 Ruby on Rails 5.2 建立 Web 應用程式
+permalink: 使用-Ruby-on-Rails-5-2-建立-Web-應用程式
 date: 2019-05-15 14:15:41
 tags: ["程式寫作", "Ruby", "Rails"]
 categories: ["程式寫作", "Ruby", "Rails"]

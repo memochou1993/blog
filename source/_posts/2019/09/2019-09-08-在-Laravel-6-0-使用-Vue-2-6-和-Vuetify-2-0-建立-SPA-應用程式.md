@@ -1,6 +1,6 @@
 ---
-title: 在 Laravel 6.0 整合 Vue 2.6 和 Vuetify 2.0 建立 SPA 應用程式
-permalink: 在-Laravel-6-0-整合-Vue-2-6-和-Vuetify-2-0-建立-SPA-應用程式
+title: 在 Laravel 6.0 使用 Vue 2.6 和 Vuetify 2.0 建立 SPA 應用程式
+permalink: 在-Laravel-6-0-使用-Vue-2-6-和-Vuetify-2-0-建立-SPA-應用程式
 date: 2019-09-08 01:16:40
 tags: ["程式寫作", "PHP", "Laravel", "JavaScript", "Vue", "Vuetify"]
 categories: ["程式寫作", "PHP", "Laravel"]
