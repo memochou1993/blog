@@ -27,7 +27,6 @@ categories: ["其他", "編輯器"]
     "powermode.enableStatusBarComboTimer": false,
     "namespaceResolver.sortAlphabetically": true,
     "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
-    "php-cs-fixer.lastDownload": 1580911750583,
     "go.formatTool": "goimports",
     "go.useLanguageServer": true,
     "[php]": {
