@@ -1,6 +1,6 @@
 ---
-title: 「A tour of Go」學習筆記（一）
-permalink: 「A-tour-of-Go」學習筆記（一）
+title: 「A tour of Go」學習筆記（一）：基礎
+permalink: 「A-tour-of-Go」學習筆記（一）：基礎
 date: 2019-02-14 17:13:09
 tags: ["程式寫作", "Go"]
 categories: ["程式寫作", "Go", "「A tour of Go」學習筆記"]
@@ -9,10 +9,6 @@ categories: ["程式寫作", "Go", "「A tour of Go」學習筆記"]
 ## 前言
 
 本文為「[A tour of Go](https://go-tour-zh-tw.appspot.com/)」語言指南的學習筆記。
-
-## 環境
-
-- macOS
 
 ## 安裝
 
