@@ -29,7 +29,7 @@ categories: ["程式寫作", "Go", "環境安裝"]
           |- project/
 ```
 
-設定 Cmder 的環境變數：
+設定 Cmder 終端機的環境變數：
 
 ```BASH
 set PATH=%ConEmuBaseDir%\Scripts;%PATH%;C:\Users\<USER>\AppData\Roaming\go\bin;
@@ -49,4 +49,15 @@ go version
 
 ```BASH
 go env
+```
+
+## 設定 VS Code 編輯器
+
+修改 `settings.json` 檔：
+
+```JSON
+{
+    "go.goroot": "C:\\Users\\<USER>\\AppData\\Roaming\\go",
+    "go.gopath": "C:\\Users\\<USER>\\Workspace\\go"
+}
 ```
