@@ -2,8 +2,8 @@
 title: 在 CodeIgniter 3.1 使用 PhpSpreadsheet 試算表處理套件
 permalink: 在-CodeIgniter-3-1-使用-PhpSpreadsheet-試算表處理套件
 date: 2018-11-26 17:05:57
-tags: ["程式寫作", "PHP", "CodeIgniter", "Excel"]
-categories: ["程式寫作", "PHP", "CodeIgniter"]
+tags: ["程式設計", "PHP", "CodeIgniter", "Excel"]
+categories: ["程式設計", "PHP", "CodeIgniter"]
 ---
 
 ## 環境

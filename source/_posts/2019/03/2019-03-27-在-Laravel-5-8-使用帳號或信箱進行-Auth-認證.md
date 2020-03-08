@@ -2,8 +2,8 @@
 title: 在 Laravel 5.8 使用帳號或信箱進行 Auth 認證
 permalink: 在-Laravel-5-8-使用帳號或信箱進行-Auth-認證
 date: 2019-03-27 09:19:43
-tags: ["程式寫作", "PHP", "Laravel"]
-categories: ["程式寫作", "PHP", "Laravel"]
+tags: ["程式設計", "PHP", "Laravel"]
+categories: ["程式設計", "PHP", "Laravel"]
 ---
 
 ## 做法

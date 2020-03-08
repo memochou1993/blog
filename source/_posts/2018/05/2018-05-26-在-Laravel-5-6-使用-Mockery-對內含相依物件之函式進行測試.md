@@ -2,8 +2,8 @@
 title: 在 Laravel 5.6 使用 Mockery 對內含相依物件之函式進行測試
 permalink: 在-Laravel-5-6-使用-Mockery-對內含相依物件之函式進行測試
 date: 2018-05-26 10:25:37
-tags: ["程式寫作", "PHP", "Laravel", "PHPUnit", "Mockery"]
-categories: ["程式寫作", "PHP", "Laravel"]
+tags: ["程式設計", "PHP", "Laravel", "PHPUnit", "Mockery"]
+categories: ["程式設計", "PHP", "Laravel"]
 ---
 
 ## 前言

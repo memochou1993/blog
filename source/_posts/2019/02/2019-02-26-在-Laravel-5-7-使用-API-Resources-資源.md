@@ -2,8 +2,8 @@
 title: 在 Laravel 5.7 使用 API Resources 資源
 permalink: 在-Laravel-5-7-使用-API-Resources-資源
 date: 2019-02-26 18:12:28
-tags: ["程式寫作", "PHP", "Laravel"]
-categories: ["程式寫作", "PHP", "Laravel"]
+tags: ["程式設計", "PHP", "Laravel"]
+categories: ["程式設計", "PHP", "Laravel"]
 ---
 
 建立 `ProjectResource.php` 檔。

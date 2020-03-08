@@ -2,8 +2,8 @@
 title: 在 Laravel 6.0 匯出 Excel 檔案
 permalink: 在-Laravel-6-0-匯出-Excel-檔案
 date: 2019-12-21 22:17:40
-tags: ["程式寫作", "PHP", "Laravel"]
-categories: ["程式寫作", "PHP", "Laravel"]
+tags: ["程式設計", "PHP", "Laravel"]
+categories: ["程式設計", "PHP", "Laravel"]
 ---
 
 ## 做法

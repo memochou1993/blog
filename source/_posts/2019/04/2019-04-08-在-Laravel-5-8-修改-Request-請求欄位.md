@@ -2,8 +2,8 @@
 title: 在 Laravel 5.8 修改 Request 請求欄位
 permalink: 在-Laravel-5-8-修改-Request-請求欄位
 date: 2019-04-08 11:32:22
-tags: ["程式寫作", "PHP", "Laravel"]
-categories: ["程式寫作", "PHP", "Laravel"]
+tags: ["程式設計", "PHP", "Laravel"]
+categories: ["程式設計", "PHP", "Laravel"]
 ---
 
 ## 做法

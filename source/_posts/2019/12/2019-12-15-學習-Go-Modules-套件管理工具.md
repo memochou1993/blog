@@ -2,8 +2,8 @@
 title: 學習 Go Modules 套件管理工具
 permalink: 學習-Go-Modules-套件管理工具
 date: 2019-12-15 14:20:45
-tags: ["程式寫作", "Go"]
-categories: ["程式寫作", "Go", "其他"]
+tags: ["程式設計", "Go"]
+categories: ["程式設計", "Go", "其他"]
 ---
 
 ## 環境

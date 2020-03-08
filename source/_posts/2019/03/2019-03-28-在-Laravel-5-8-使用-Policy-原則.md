@@ -2,8 +2,8 @@
 title: 在 Laravel 5.8 使用 Policy 原則
 permalink: 在-Laravel-5-8-使用-Policy-原則
 date: 2019-03-28 01:14:41
-tags: ["程式寫作", "PHP", "Laravel"]
-categories: ["程式寫作", "PHP", "Laravel"]
+tags: ["程式設計", "PHP", "Laravel"]
+categories: ["程式設計", "PHP", "Laravel"]
 ---
 
 ## 前言

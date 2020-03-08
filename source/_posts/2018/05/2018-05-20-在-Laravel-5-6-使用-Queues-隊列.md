@@ -2,8 +2,8 @@
 title: 在 Laravel 5.6 使用 Queues 隊列
 permalink: 在-Laravel-5-6-使用-Queues-隊列
 date: 2018-05-20 10:24:13
-tags: ["程式寫作", "PHP", "Laravel"]
-categories: ["程式寫作", "PHP", "Laravel"]
+tags: ["程式設計", "PHP", "Laravel"]
+categories: ["程式設計", "PHP", "Laravel"]
 ---
 
 ## 環境

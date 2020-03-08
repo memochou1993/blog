@@ -2,8 +2,8 @@
 title: 在 Laravel 5.7 使用 Larastan 靜態分析工具
 permalink: 在-Laravel-5-7-使用-Larastan-靜態分析工具
 date: 2019-01-26 22:28:27
-tags: ["程式寫作", "PHP", "Laravel", "除錯"]
-categories: ["程式寫作", "PHP", "Laravel"]
+tags: ["程式設計", "PHP", "Laravel", "除錯"]
+categories: ["程式設計", "PHP", "Laravel"]
 ---
 
 ## 做法

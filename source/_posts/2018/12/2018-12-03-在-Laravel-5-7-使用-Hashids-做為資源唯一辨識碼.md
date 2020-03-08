@@ -2,8 +2,8 @@
 title: 在 Laravel 5.7 使用 Hashids 做為資源唯一辨識碼
 permalink: 在-Laravel-5-7-使用-Hashids-做為資源唯一辨識碼
 date: 2018-12-03 21:05:54
-tags: ["程式寫作", "PHP", "Laravel"]
-categories: ["程式寫作", "PHP", "Laravel"]
+tags: ["程式設計", "PHP", "Laravel"]
+categories: ["程式設計", "PHP", "Laravel"]
 ---
 
 ## 環境

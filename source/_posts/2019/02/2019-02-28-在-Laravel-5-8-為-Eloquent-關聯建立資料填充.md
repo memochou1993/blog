@@ -2,8 +2,8 @@
 title: 在 Laravel 5.8 為 Eloquent 關聯建立資料填充
 permalink: 在-Laravel-5-8-為-Eloquent-關聯建立資料填充
 date: 2019-02-28 17:46:51
-tags: ["程式寫作", "PHP", "Laravel"]
-categories: ["程式寫作", "PHP", "Laravel"]
+tags: ["程式設計", "PHP", "Laravel"]
+categories: ["程式設計", "PHP", "Laravel"]
 ---
 
 ## 前言

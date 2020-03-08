@@ -2,8 +2,8 @@
 title: 在 Vue 2.6 使用 Laravel Mix 環境變數
 permalink: 在-Vue-2-6-使用-Laravel-Mix-環境變數
 date: 2019-09-21 12:05:19
-tags: ["程式寫作", "PHP", "Laravel", "JavaScript", "Vue", "Mix"]
-categories: ["程式寫作", "PHP", "Laravel"]
+tags: ["程式設計", "PHP", "Laravel", "JavaScript", "Vue", "Mix"]
+categories: ["程式設計", "PHP", "Laravel"]
 ---
 
 ## 做法

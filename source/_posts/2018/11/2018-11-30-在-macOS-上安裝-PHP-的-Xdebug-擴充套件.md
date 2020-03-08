@@ -2,8 +2,8 @@
 title: 在 macOS 上安裝 PHP 的 Xdebug 擴充套件
 permalink: 在-macOS-上安裝-PHP-的-Xdebug-擴充套件
 date: 2018-11-30 10:24:31
-tags: ["程式寫作", "PHP", "Xdebug", "macOS", "Laravel"]
-categories: ["程式寫作", "PHP", "擴充套件"]
+tags: ["程式設計", "PHP", "Xdebug", "macOS", "Laravel"]
+categories: ["程式設計", "PHP", "擴充套件"]
 ---
 
 ## 步驟

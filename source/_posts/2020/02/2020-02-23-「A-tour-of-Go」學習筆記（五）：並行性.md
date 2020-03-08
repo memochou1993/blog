@@ -2,8 +2,8 @@
 title: 「A tour of Go」學習筆記（五）：並行性
 permalink: 「A-tour-of-Go」學習筆記（五）：並行性
 date: 2020-02-23 17:47:10
-tags: ["程式寫作", "Go"]
-categories: ["程式寫作", "Go", "「A tour of Go」學習筆記"]
+tags: ["程式設計", "Go"]
+categories: ["程式設計", "Go", "「A tour of Go」學習筆記"]
 ---
 
 ## 前言

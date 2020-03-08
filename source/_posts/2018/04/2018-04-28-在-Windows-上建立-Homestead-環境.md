@@ -2,8 +2,8 @@
 title: 在 Windows 上建立 Homestead 環境
 permalink: 在-Windows-上建立-Homestead-環境
 date: 2018-04-28 10:16:27
-tags: ["程式寫作", "PHP", "Homestead"]
-categories: ["程式寫作", "PHP", "環境安裝"]
+tags: ["程式設計", "PHP", "Homestead"]
+categories: ["程式設計", "PHP", "環境安裝"]
 ---
 
 ## 環境

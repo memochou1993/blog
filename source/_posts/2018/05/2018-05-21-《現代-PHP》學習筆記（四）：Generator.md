@@ -2,8 +2,8 @@
 title: 《現代 PHP》學習筆記（四）：Generator
 permalink: 《現代-PHP》學習筆記（四）：Generator
 date: 2018-05-21 10:24:27
-tags: ["程式寫作", "PHP"]
-categories: ["程式寫作", "PHP", "《現代 PHP》學習筆記"]
+tags: ["程式設計", "PHP"]
+categories: ["程式設計", "PHP", "《現代 PHP》學習筆記"]
 ---
 
 ## 前言

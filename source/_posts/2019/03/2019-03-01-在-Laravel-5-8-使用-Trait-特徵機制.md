@@ -2,8 +2,8 @@
 title: 在 Laravel 5.8 使用 Trait 特徵機制
 permalink: 在-Laravel-5-8-使用-Trait-特徵機制
 date: 2019-03-01 03:13:33
-tags: ["程式寫作", "PHP", "Laravel"]
-categories: ["程式寫作", "PHP", "Laravel"]
+tags: ["程式設計", "PHP", "Laravel"]
+categories: ["程式設計", "PHP", "Laravel"]
 ---
 
 ## 前言

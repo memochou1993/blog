@@ -2,8 +2,8 @@
 title: 在 Laravel 5.7 使用 UUID 做為資料庫主鍵
 permalink: 在-Laravel-5-7-使用-UUID-做為資料庫主鍵
 date: 2018-12-02 20:45:35
-tags: ["程式寫作", "PHP", "Laravel", "UUID", "資料庫"]
-categories: ["程式寫作", "PHP", "Laravel"]
+tags: ["程式設計", "PHP", "Laravel", "UUID", "資料庫"]
+categories: ["程式設計", "PHP", "Laravel"]
 ---
 
 ## 環境

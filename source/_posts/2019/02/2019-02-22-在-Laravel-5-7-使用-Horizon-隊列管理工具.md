@@ -2,8 +2,8 @@
 title: 在 Laravel 5.7 使用 Horizon 隊列管理工具
 permalink: 在-Laravel-5-7-使用-Horizon-隊列管理工具
 date: 2019-02-22 00:24:59
-tags: ["程式寫作", "PHP", "Laravel", "Horizon"]
-categories: ["程式寫作", "PHP", "Laravel"]
+tags: ["程式設計", "PHP", "Laravel", "Horizon"]
+categories: ["程式設計", "PHP", "Laravel"]
 ---
 
 ## 環境

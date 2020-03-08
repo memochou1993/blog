@@ -2,8 +2,8 @@
 title: 使用 Go 實作 RESTful API
 permalink: 使用-Go-實作-RESTful-API
 date: 2019-12-14 15:31:39
-tags: ["程式寫作", "Go"]
-categories: ["程式寫作", "Go", "其他"]
+tags: ["程式設計", "Go"]
+categories: ["程式設計", "Go", "其他"]
 ---
 
 ## 環境

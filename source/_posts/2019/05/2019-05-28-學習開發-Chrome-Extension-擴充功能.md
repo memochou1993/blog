@@ -2,8 +2,8 @@
 title: 學習開發 Chrome Extension 擴充功能
 permalink: 學習開發-Chrome-Extension-擴充功能
 date: 2019-05-28 11:44:42
-tags: ["程式寫作", "Chrome Extension"]
-categories: ["程式寫作", "Chrome Extension"]
+tags: ["程式設計", "Chrome Extension"]
+categories: ["程式設計", "Chrome Extension"]
 ---
 
 ## 做法

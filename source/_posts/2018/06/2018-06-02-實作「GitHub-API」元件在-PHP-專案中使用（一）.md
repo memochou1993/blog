@@ -2,8 +2,8 @@
 title: 實作「GitHub API」元件在 PHP 專案中使用（一）
 permalink: 實作「GitHub-API」元件在-PHP-專案中使用（一）
 date: 2018-06-02 17:40:32
-tags: ["程式寫作", "PHP", "元件", "GitHub", "API", "Packagist"]
-categories: ["程式寫作", "PHP", "元件"]
+tags: ["程式設計", "PHP", "元件", "GitHub", "API", "Packagist"]
+categories: ["程式設計", "PHP", "元件"]
 ---
 
 ## 前言
