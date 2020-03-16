@@ -258,42 +258,55 @@ Route::middleware('auth:api')->group(function () {
 
 ## 發起 HTTP 請求
 
-向 http://jwt.test/api/users 發起 `GET` 請求，得到回應如下：
+向 <http://jwt.test/api/users> 發起 `GET` 請求，得到回應如下：
 
-```
+```BASH
 [MethodNotAllowedHttpException] No message
 ```
 
 在 `Accept` 輸入 `application/json` 可以得到以下回應：
 
-```
-{"message":"Unauthenticated."}
+```JSON
+{
+  "message": "Unauthenticated."
+}
 ```
 
-在 `Body` 輸入以下鍵値向 http://jwt.test/auth/login 發起 `POST` 請求：
+在 `Body` 輸入以下鍵値向 <http://jwt.test/auth/login> 發起 `POST` 請求：
 
-| Key      | Value          |
-| -------- | -------------- |
-| email    | test@gmail.com |
-| password | secret         |
+| Key | Value |
+| --- | --- |
+| email | test@gmail.com |
+| password | secret |
 
 得到回應如下：
 
-```
-{"token":"eyJ0e……bnWfg"}
+```JSON
+{
+  "token": "eyJ0e……bnWfg"
+}
 ```
 
-最後在 `Headers` 輸入以下鍵値，再向 http://jwt.test/users 發起 `GET` 請求。
+最後在 `Headers` 輸入以下鍵値，再向 <http://jwt.test/users> 發起 `GET` 請求。
 （Value 的部分為：Bearer + 空一格 + Token）
 
-| Key           | Value               |
-| ------------- | ------------------- |
+| Key | Value |
+| --- | --- |
 | Authorization | Bearer eyJ0e……bnWfg |
 
 結果得到回應如下：
 
-```
-[{"id":1,"name":"test","email":"test@gmail.com","email_verified_at":null,"created_at":"2018-11-02 17:34:07","updated_at":"2018-11-02 17:34:07"}]
+```JSON
+[
+  {
+    "id": 1,
+    "name": "test",
+    "email": "test@gmail.com",
+    "email_verified_at": null,
+    "created_at": "2018-11-02 17:34:07",
+    "updated_at": "2018-11-02 17:34:07"
+  }
+]
 ```
 
 ## 程式碼

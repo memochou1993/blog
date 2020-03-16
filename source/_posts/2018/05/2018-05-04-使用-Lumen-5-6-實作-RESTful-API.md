@@ -222,20 +222,20 @@ public function destroy($id)
 
 ## RESTful API 路由風格
 
-| 動詞      | 路徑                 | 動作    | 路由名稱       |
-| --------- | -------------------- | ------- | -------------- |
-| GET       | /photos              | index   | photos.index   |
-| GET       | /photos/create       | create  | photos.create  |
-| POST      | /photos              | store   | photos.store   |
-| GET       | /photos/{photo}      | show    | photos.show    |
-| GET       | /photos/{photo}/edit | edit    | photos.edit    |
-| PUT/PATCH | /photos/{photo}      | update  | photos.update  |
-| DELETE    | /photos/{photo}      | destroy | photos.destroy |
+| 動詞 | 路徑 | 動作 | 路由名稱 |
+| --- | --- | --- | --- |
+| GET | /photos | index | photos.index |
+| GET | /photos/create | create | photos.create |
+| POST | /photos | store | photos.store |
+| GET | /photos/{photo} | show | photos.show |
+| GET | /photos/{photo}/edit | edit | photos.edit |
+| PUT/PATCH | /photos/{photo} | update | photos.update |
+| DELETE | /photos/{photo} | destroy | photos.destroy |
 
 ## 補充
 
-發起 `PUT/PATCH` 或 `DELETE` 請求，需要在 `body` 表單加上：
+發起 `PUT`、`PATCH` 或 `DELETE` 請求，需要在 `body` 表單加上：
 
-| Key      | Value                     |
-| -------- | ------------------------- |
-| \_method | PUT（or PATCH or DELETE） |
+| Key | Value |
+| --- | --- |
+| _method | PUT / PATCH / DELETE |

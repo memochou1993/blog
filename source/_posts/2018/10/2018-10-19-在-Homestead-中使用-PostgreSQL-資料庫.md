@@ -27,13 +27,13 @@ vagrant@homestead:~$ psql -U homestead -h localhost -W database
 
 ## 相關指令
 
-| 指令               | 說明                     |
-| ------------------ | ------------------------ |
-| \h                 | 顯示 SQL 指令的說明      |
-| \?                 | 顯示 psql 指令的說明     |
-| \l                 | 列出所有資料庫           |
-| \c [database_name] | 連接資料庫               |
-| \d                 | 列出當前資料庫的所有表格 |
-| \d [table_name]    | 列出表格結構             |
-| \conninfo          | 列出資料庫資訊           |
-| \q                 | 退出                     |
+| 指令 | 說明 |
+| --- | --- |
+| \h | 顯示 SQL 指令的說明 |
+| \? | 顯示 psql 指令的說明 |
+| \l | 列出所有資料庫 |
+| \c [database_name] | 連接資料庫 |
+| \d | 列出當前資料庫的所有表格 |
+| \d [table_name] | 列出表格結構 |
+| \conninfo | 列出資料庫資訊 |
+| \q | 退出 |

@@ -32,15 +32,15 @@ categories: ["程式設計", "PHP", "元件"]
 
 ### 取得儲存庫資料
 
-| Method | URL                                          |
-| ------ | -------------------------------------------- |
-| GET    | <https://api.github.com/repos/laravel/laravel> |
+| Method | URL |
+| --- | --- |
+| GET | <https://api.github.com/repos/laravel/laravel> |
 
 ### 取得使用者資料
 
-| Method | URL                                       |
-| ------ | ----------------------------------------- |
-| GET    | <https://api.github.com/users/memochou1993> |
+| Method | URL |
+| --- | --- |
+| GET | <https://api.github.com/users/memochou1993> |
 
 本文將使用以上兩個方法實作一個可以讀取 GitHub API 的元件。
 

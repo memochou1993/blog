@@ -149,36 +149,44 @@ class AuthController extends Controller
 
 ## 發起 HTTP 請求
 
-向 http://localhost/lumen/public 發起 `GET` 請求，得到回應如下：
+向 <http://localhost/lumen/public> 發起 `GET` 請求，得到回應如下：
 
 ```TEXT
 Unauthorized.
 ```
 
-在 `Body` 輸入以下鍵値再向 http://localhost/lumen/public/auth/login 發起 `POST` 請求：
+在 `Body` 輸入以下鍵値再向 <http://localhost/lumen/public/auth/login> 發起 `POST` 請求：
 
-| Key      | Value         |
-| -------- | ------------- |
-| email    | test@test.com |
-| password | secret        |
+| Key | Value |
+| --- | --- |
+| email | test@test.com |
+| password | secret |
 
 得到回應如下：
 
 ```JSON
-{"token":"eyJ0e……q5o0M"}
+{
+  "token": "eyJ0e……q5o0M"
+}
 ```
 
-最後在 `Headers` 輸入以下鍵値，再向 http://localhost/lumen/public 發起 `GET` 請求。
+最後在 `Headers` 輸入以下鍵値，再向 <http://localhost/lumen/public> 發起 `GET` 請求。
 （Value 的部分為：Bearer + 空一格 + Token）
 
-| Key           | Value               |
-| ------------- | ------------------- |
+| Key | Value |
+| --- | --- |
 | Authorization | Bearer eyJ0e……q5o0M |
 
 結果得到回應如下：
 
 ```JSON
-{"id":2,"name":"Tester","email":"test@test.com","created_at":"2018-04-19 11:38:53","updated_at":"2018-04-19 11:38:53"}
+{
+  "id": 2,
+  "name": "Tester",
+  "email": "test@test.com",
+  "created_at": "2018-04-19 11:38:53",
+  "updated_at": "2018-04-19 11:38:53"
+}
 ```
 
 ## 程式碼

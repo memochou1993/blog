@@ -51,7 +51,7 @@ sudo vi /etc/sudoers
 
 修改 `sudoers` 檔：
 
-```
+```BASH
 # User privilege specification
 root    ALL=(ALL:ALL) ALL
 deployer ALL=(ALL) NOPASSWD: ALL
@@ -195,8 +195,8 @@ git init
 
 在「Settings」的「CI/CD」新增一組變數。
 
-| KEY             | VALUE                     |
-| --------------- | ------------------------- |
+| KEY | VALUE |
+| --- | --- |
 | SSH_PRIVATE_KEY | 私有金鑰`id_rsa` 檔的內容 |
 
 ### 儲存庫 SSH 設定

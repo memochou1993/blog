@@ -29,10 +29,10 @@ ab -n 1000 -c 10 http://laravel.test
 
 測試結果：
 
-| Environment       | Requests per second | Time taken for tests |
-| ----------------- | ------------------- | -------------------- |
-| PHP Web Server    | 27.182              | 37.3468              |
-| Nginx with Docker | 40.954              | 24.9864              |
-| Nginx             | 64.86               | 15.419               |
-| Nginx & Swoole    | 88.712              | 11.3406              |
-| Swoole            | 106.27              | 9.4876               |
+| Environment | Requests per second | Time taken for tests |
+| --- | --- | --- |
+| PHP Web Server | 27.182 | 37.3468 |
+| Nginx with Docker | 40.954 | 24.9864 |
+| Nginx | 64.86 | 15.419 |
+| Nginx & Swoole | 88.712 | 11.3406 |
+| Swoole | 106.27 | 9.4876 |

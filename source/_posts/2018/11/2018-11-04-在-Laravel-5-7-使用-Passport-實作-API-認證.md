@@ -222,8 +222,8 @@ Route::get('/user', function (Request $request) {
 
 最後在 `Headers` 輸入以下鍵値，再向 <http://passport.test/api/user> 發起 `GET` 請求。
 
-| Key           | Value               |
-| ------------- | ------------------- |
+| Key | Value |
+| --- | --- |
 | Authorization | Bearer eyJ0e……uAqSw |
 
 - Value 的部分為：Bearer + 空一格 + Token。
@@ -278,8 +278,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 最後在 `Headers` 輸入以下鍵値，再向 <http://passport.test/api/user> 發起 `GET` 請求。
 
-| Key           | Value               |
-| ------------- | ------------------- |
+| Key | Value |
+| --- | --- |
 | Authorization | Bearer def50……29a13 |
 
 - Value 的部分為：Bearer + 空一格 + Token。
