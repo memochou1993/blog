@@ -43,9 +43,9 @@ xxxxxxxxxxxxxxxxxx
 
 將內容複製起來，在 DNS 新增一筆 TEXT 紀錄：
 
-Hostname | Value
---- | ---
-_acme-challenge | xxxxxxxxxxxxxxxxxx
+| Hostname | Value |
+| --- | --- |
+| _acme-challenge | xxxxxxxxxxxxxxxxxx |
 
 使用 [DNS Lookup Text Record](https://mxtoolbox.com/TXTLookup.aspx) 工具查看紀錄是否已生效；生效後，按下 Enter。
 
