@@ -3,7 +3,7 @@ title: 在 MacOS 安裝 Composer 套件管理工具
 permalink: 在-MacOS-安裝-Composer-套件管理工具
 date: 2019-08-06 23:24:09
 tags: ["Composer", "PHP"]
-categories: ["套件管理工具", "Composer"]
+categories: ["其他", "套件管理工具"]
 ---
 
 ## 步驟
