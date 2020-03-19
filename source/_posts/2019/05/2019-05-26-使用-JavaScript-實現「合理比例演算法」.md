@@ -117,4 +117,4 @@ console.log(convert(arr, {
 
 ## 程式碼
 
-[GitHub](https://github.com/memochou1993/104calculator-example)
+[GitHub](https://github.com/memochou1993/104calculator-algorithm)

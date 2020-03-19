@@ -12,7 +12,7 @@ categories: ["程式設計", "PHP", "元件"]
 
 ## 專案目錄
 
-```
+```BASH
 |- github-api/
     |- component/
         |- src/
@@ -27,7 +27,7 @@ categories: ["程式設計", "PHP", "元件"]
 
 ## 新增 .gitignore 檔
 
-```
+```ENV
 vendor
 composer.lock
 ```
@@ -65,12 +65,12 @@ composer.lock
 
 ## 新增 README.md 檔
 
-見 https://github.com/memochou1993/github-api/blob/master/README.md
+見 <https://github.com/memochou1993/github-api/blob/master/README.md>
 
 ## 發布
 
 1. 登入 [GitHub](https://github.com/)，創建一個 `github-api` 儲存庫，將元件上傳。
-2. 登入 [Packagist](https://packagist.org/)，註冊 https://github.com/memochou1993/github-api 元件。
+2. 登入 [Packagist](https://packagist.org/)，註冊 <https://github.com/memochou1993/github-api> 元件。
 
 ## 版本控制
 
