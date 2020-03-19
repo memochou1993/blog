@@ -197,4 +197,4 @@ module.exports = UserController
 
 ## 程式碼
 
-[GitHub](https://github.com/memochou1993/adonis)
+[GitHub](https://github.com/memochou1993/adonis-example)
