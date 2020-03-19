@@ -102,4 +102,4 @@ npm run dev
 
 ## 程式碼
 
-[GitHub](https://github.com/memochou1993/laravel-foundation)
+[GitHub](https://github.com/memochou1993/laravel-foundation-preset)

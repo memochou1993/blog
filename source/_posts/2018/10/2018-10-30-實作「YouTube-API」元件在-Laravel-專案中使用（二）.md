@@ -12,7 +12,7 @@ categories: ["程式設計", "PHP", "元件"]
 
 ## 專案目錄
 
-```
+```ENV
 |- youtube-api/
     |- component/
         |- example/
@@ -116,7 +116,7 @@ class YoutubeServiceProvider extends ServiceProvider
 
 ## 建立 .gitignore 檔
 
-```
+```ENV
 /example
 /vendor
 composer.lock
@@ -124,14 +124,14 @@ composer.lock
 
 ## 建立 README.md 檔
 
-```
+```MARKDOWN
 ## 概述
 此元件用於 YouTube API 的讀取。
 ```
 
 ## 修改 composer.json 檔
 
-```
+```ENV
 {
     "name": "memochou1993/youtube-api",
     "description": "YouTube API",
@@ -181,7 +181,7 @@ composer.lock
 ## 發布
 
 1. 登入 [GitHub](https://github.com/)，創建一個 `youtube-api` 儲存庫，將元件上傳。
-2. 登入 [Packagist](https://packagist.org/)，註冊 https://github.com/memochou1993/youtube-api 元件。
+2. 登入 [Packagist](https://packagist.org/)，註冊 <https://github.com/memochou1993/youtube-api> 元件。
 
 ## 版本控制
 
@@ -198,7 +198,7 @@ GitHub 如果沒有自動建立，可以手動為元件啟動掛鉤。
 
 1. 點選 `Settings`。
 2. 點選 `Webhooks`。
-3. 在 `Payload URL` 輸入 https://packagist.org/api/github。
+3. 在 `Payload URL` 輸入 <https://packagist.org/api/github>。
 4. 點選 `Add webhook`。
 
 ## 安裝

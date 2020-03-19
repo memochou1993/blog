@@ -127,7 +127,7 @@ class AuthController extends Controller
 
 ## 程式碼
 
-- [GitHub](https://github.com/memochou1993/airlock-example)
+[GitHub](https://github.com/memochou1993/airlock-example)
 
 ## 參考文件
 
