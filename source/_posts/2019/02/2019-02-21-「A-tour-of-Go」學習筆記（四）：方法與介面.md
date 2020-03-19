@@ -71,7 +71,7 @@ func main() {
 
 以下程式碼，當 `v` 是 `Vertex` 的時候 `Scale` 方法沒有任何作用。因為當 `v` 是一個值（非指針）的時候，方法看到的是 `Vertex` 的副本，無法修改原始值。
 
-```Go
+```GO
 package main
 
 import (

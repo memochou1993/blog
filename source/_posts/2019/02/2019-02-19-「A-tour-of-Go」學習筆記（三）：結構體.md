@@ -181,7 +181,7 @@ func main() {
 
 `slice` 可以重新切片，創建一個新的 `slice` 值指向相同的陣列。
 
-```Go
+```GO
 package main
 
 import "fmt"
