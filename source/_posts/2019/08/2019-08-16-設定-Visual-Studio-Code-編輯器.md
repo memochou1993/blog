@@ -19,7 +19,7 @@ categories: ["其他", "編輯器"]
     "terminal.integrated.fontFamily": "SauceCodePro Nerd Font",
     "terminal.integrated.cursorStyle": "underline",
     "terminal.integrated.cursorBlinking": true,
-    "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
+    "terminal.integrated.shell.osx": "zsh",
     "git.autofetch": true,
     "powermode.enabled": true,
     "powermode.enableShake": false,
@@ -53,7 +53,6 @@ categories: ["其他", "編輯器"]
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
-    "diffEditor.ignoreTrimWhitespace": false,
-    "javascript.updateImportsOnFileMove.enabled": "never"
+    "diffEditor.ignoreTrimWhitespace": false
 }
 ```
