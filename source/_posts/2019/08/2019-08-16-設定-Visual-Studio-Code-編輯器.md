@@ -17,7 +17,6 @@ categories: ["其他", "編輯器"]
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "workbench.colorTheme": "Super One Dark",
     "terminal.integrated.fontFamily": "SauceCodePro Nerd Font",
-    "terminal.integrated.confirmOnExit": true,
     "terminal.integrated.cursorStyle": "underline",
     "terminal.integrated.cursorBlinking": true,
     "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
@@ -26,9 +25,15 @@ categories: ["其他", "編輯器"]
     "powermode.enableShake": false,
     "powermode.enableStatusBarComboTimer": false,
     "namespaceResolver.sortAlphabetically": true,
+    "php-cs-fixer.lastDownload": 1585310494243,
     "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
     "go.formatTool": "goimports",
     "go.useLanguageServer": true,
+    "eslint.alwaysShowStatus": true,
+    "markdownlint.config": {
+        "MD029": false,
+        "MD033": false
+    },
     "[php]": {
         "editor.formatOnSave": false,
         "editor.defaultFormatter": "junstyle.php-cs-fixer"
@@ -44,6 +49,11 @@ categories: ["其他", "編輯器"]
     "[javascriptreact]": {
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "vscode.typescript-language-features"
-    }
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "diffEditor.ignoreTrimWhitespace": false,
+    "javascript.updateImportsOnFileMove.enabled": "never"
 }
 ```
