@@ -1,10 +1,14 @@
 ---
-title: 在 Laravel 7.0 使用 Airlock 實作 API 認證
-permalink: 在-Laravel-7-0-使用-Airlock-實作-API-認證
+title: 在 Laravel 7.0 使用 Sanctum 實作 API 認證
+permalink: 在-Laravel-7-0-使用-Sanctum-實作-API-認證
 date: 2020-03-19 12:28:13
-tags: ["程式設計", "PHP", "Laravel", "API", "Airlock"]
+tags: ["程式設計", "PHP", "Laravel", "API"]
 categories: ["程式設計", "PHP", "Laravel"]
 ---
+
+## 前言
+
+Laravel Sanctum 原來的名字是 Laravel Airlock，因商標爭議改名。
 
 ## 建立專案
 
