@@ -183,4 +183,4 @@ php artisan jwt:generate
 
 ## 程式碼
 
-[GitHub](https://github.com/memochou1993/jwt-lumen)
+- [jwt-lumen](https://github.com/memochou1993/jwt-lumen)

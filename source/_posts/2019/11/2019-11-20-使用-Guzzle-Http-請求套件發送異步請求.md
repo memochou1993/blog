@@ -153,7 +153,7 @@ results: 10
 
 ## 程式碼
 
-[GitHub](https://github.com/memochou1993/guzzle-async-example)
+- [guzzle-async-example](https://github.com/memochou1993/guzzle-async-example)
 
 ## 參考資料
 

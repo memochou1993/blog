@@ -155,7 +155,7 @@ docker-compose up -d --build
 
 ## 程式碼
 
-[GitHub](https://github.com/memochou1993/laravel-dockerize-example)
+- [laravel-docker-example](https://github.com/memochou1993/laravel-docker-example)
 
 ## 參考資料
 

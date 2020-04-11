@@ -134,7 +134,7 @@ func handle(conn *websocket.Conn) {
 
 ## 程式碼
 
-[GitHub](https://github.com/memochou1993/go-websocket-example)
+- [go-websocket-example](https://github.com/memochou1993/go-websocket-example)
 
 ## 參考資料
 

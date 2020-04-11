@@ -113,4 +113,4 @@ public function edit($id)
 
 ## 程式碼
 
-[GitHub](https://github.com/memochou1993/doaj)
+- [doaj](https://github.com/memochou1993/doaj)

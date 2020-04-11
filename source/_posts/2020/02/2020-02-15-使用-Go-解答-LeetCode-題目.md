@@ -12,4 +12,4 @@ categories: ["程式設計", "Go", "演算法"]
 
 ## 程式碼
 
-[GitHub](https://github.com/memochou1993/leetcode-go)
+- [leetcode-go](https://github.com/memochou1993/leetcode-go)

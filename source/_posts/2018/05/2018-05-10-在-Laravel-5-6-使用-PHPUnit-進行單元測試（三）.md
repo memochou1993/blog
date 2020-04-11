@@ -228,4 +228,4 @@ phpunit # 成功
 
 ## 程式碼
 
-[GitHub](https://github.com/memochou1993/post)
+- [post](https://github.com/memochou1993/post)

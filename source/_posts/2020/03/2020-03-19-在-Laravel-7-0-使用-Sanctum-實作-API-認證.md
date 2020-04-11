@@ -131,8 +131,8 @@ class AuthController extends Controller
 
 ## 程式碼
 
-[GitHub](https://github.com/memochou1993/airlock-example)
+- [sanctum-example](https://github.com/memochou1993/sanctum-example)
 
 ## 參考文件
 
-- [Laravel Airlock](https://laravel.com/docs/master/airlock)
+- [Laravel Airlock](https://laravel.com/docs/master/sanctum)

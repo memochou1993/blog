@@ -323,7 +323,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 ## 程式碼
 
-[GitHub](https://github.com/memochou1993/passport-example)
+- [passport-example](https://github.com/memochou1993/passport-example)
 
 ## 參考資料
 

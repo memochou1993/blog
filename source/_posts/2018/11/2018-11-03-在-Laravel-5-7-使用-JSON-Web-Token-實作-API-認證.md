@@ -311,4 +311,4 @@ Route::middleware('auth:api')->group(function () {
 
 ## 程式碼
 
-[GitHub](https://github.com/memochou1993/laravel-jwt)
+- [laravel-jwt](https://github.com/memochou1993/laravel-jwt)

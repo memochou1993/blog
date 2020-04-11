@@ -139,4 +139,4 @@ npm run build
 
 ## 程式碼
 
-[GitHub](https://github.com/memochou1993/slide-electron-vue)
+- [slide-electron-vue](https://github.com/memochou1993/slide-electron-vue)

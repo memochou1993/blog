@@ -103,4 +103,4 @@ composer require memochou1993/github-api
 
 ## 程式碼
 
-[GitHub](https://github.com/memochou1993/github-api)
+- [github-api](https://github.com/memochou1993/github-api)

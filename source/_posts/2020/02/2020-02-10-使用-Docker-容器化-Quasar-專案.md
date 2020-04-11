@@ -1,14 +1,10 @@
 ---
-title: 使用 Docker 容器化 Node 專案
-permalink: 使用-Docker-容器化-Node-專案
+title: 使用 Docker 容器化 Quasar 專案
+permalink: 使用-Docker-容器化-Quasar-專案
 date: 2020-02-10 22:00:57
-tags: ["環境部署", "Docker", "JavaScript", "Node"]
+tags: ["環境部署", "Docker", "JavaScript", "Node", "Quasar"]
 categories: ["環境部署", "Docker"]
 ---
-
-## 前言
-
-以 Quasar 框架為例。
 
 ## 容器化
 

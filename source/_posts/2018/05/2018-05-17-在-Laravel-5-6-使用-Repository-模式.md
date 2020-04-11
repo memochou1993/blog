@@ -254,4 +254,4 @@ php artisan serve
 
 ## 程式碼
 
-[GitHub](https://github.com/memochou1993/repository-example)
+- [laravel-repository-example](https://github.com/memochou1993/laravel-repository-example)

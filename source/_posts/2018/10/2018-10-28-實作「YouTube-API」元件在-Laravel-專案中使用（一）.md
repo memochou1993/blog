@@ -223,4 +223,4 @@ var_dump($youtube->getChannelByName('Google'));
 
 ## 程式碼
 
-[GitHub](https://github.com/memochou1993/youtube-api)
+- [youtube-api](https://github.com/memochou1993/youtube-api)

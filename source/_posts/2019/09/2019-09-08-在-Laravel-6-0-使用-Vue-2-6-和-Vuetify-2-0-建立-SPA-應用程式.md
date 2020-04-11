@@ -395,7 +395,7 @@ npm run watch
 
 ## 程式碼
 
-[GitHub](https://github.com/memochou1993/laravel-spa)
+- [laravel-spa](https://github.com/memochou1993/laravel-spa)
 
 ## 參考資料
 
