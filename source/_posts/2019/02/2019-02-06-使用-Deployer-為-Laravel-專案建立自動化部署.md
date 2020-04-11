@@ -1,6 +1,6 @@
 ---
-title: 使用 Deployer 為 Laravel 專案實現自動化部署
-permalink: 使用-Deployer-為-Laravel-專案實現自動化部署
+title: 使用 Deployer 為 Laravel 專案建立自動化部署
+permalink: 使用-Deployer-為-Laravel-專案建立自動化部署
 date: 2019-02-06 00:42:17
 tags: ["環境部署", "CI/CD", "Linux", "Ubuntu", "Laravel"]
 categories: ["環境部署", "CI/CD"]
