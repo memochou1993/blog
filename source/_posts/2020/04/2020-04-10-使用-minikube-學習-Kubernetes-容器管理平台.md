@@ -9,6 +9,7 @@ categories: ["環境部署", "Kubernetes"]
 ## 環境
 
 - MacOS
+- Docker (with HyperKit)
 
 ## 名詞解釋
 
@@ -47,6 +48,8 @@ minikube version
 ```BASH
 minikube start
 ```
+
+- 使用 `--driver` 參數可以指定虛擬機器。
 
 查看 cluster 資訊。
 
