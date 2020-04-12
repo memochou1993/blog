@@ -8,7 +8,7 @@ categories: ["環境部署", "Kubernetes"]
 
 ## 前言
 
-本文為〈Set Up A CI/CD Pipeline With Kubernetes〉系列文章的學習筆記。
+本文為〈[Set Up A CI/CD Pipeline With Kubernetes](https://www.linux.com/audience/enterprise/set-cicd-pipeline-kubernetes-part-1-overview/)〉系列文章的學習筆記。
 
 ## 環境
 
@@ -138,7 +138,7 @@ kubectl delete deployment nginx
 kubectl apply -f manifests/registry.yaml
 ```
 
-- 如果出現錯誤，到原專案查看 [Pull Request](https://github.com/kenzanlabs/kubernetes-ci-cd/pulls) 改動項目。
+- 如果出現錯誤，到原專案查看 [Pull Request](https://github.com/kenzanlabs/kubernetes-ci-cd/pulls) 可能需要被修正的項目。
 
 查看儲存庫的部署狀態。
 
@@ -170,7 +170,7 @@ docker build -t 127.0.0.1:30400/hello-kenzan:latest -f applications/hello-kenzan
 docker run -d -e "REG_IP=`minikube ip`" -e "REG_PORT=30400" --name socat-registry -p 30400:5000 socat-registry
 ```
 
-把 image 推送到儲存庫，並重新查看儲存庫的網頁，多了一個 hello-kenzan。
+把 image 推送到儲存庫，並重新查看儲存庫的頁面，多了一個 hello-kenzan。
 
 ```BASH
 docker push 127.0.0.1:30400/hello-kenzan:latest
