@@ -8,7 +8,7 @@ categories: ["環境部署", "Kubernetes"]
 
 ## 前言
 
-本文為〈[Set Up A CI/CD Pipeline With Kubernetes](https://www.linux.com/audience/enterprise/set-cicd-pipeline-kubernetes-part-1-overview/)〉系列文章的學習筆記。
+本文為〈[Set Up A CI/CD Pipeline With Kubernetes](https://www.linux.com/audience/enterprise/set-cicd-pipeline-kubernetes-part-1-overview/)〉系列文章（deprecated）的學習筆記。
 
 ## 環境
 
@@ -17,7 +17,7 @@ categories: ["環境部署", "Kubernetes"]
 
 ## 目標
 
-使用 Kubernetes 和 Jenkins 為一個範例應用程式 Kr8sswordz Puzzle 建立 CI/CD 自動化部署流程。
+使用 Kubernetes 和 Jenkins 為範例應用程式建立 CI/CD 自動化部署流程。
 
 ## 環境設定
 
@@ -214,4 +214,4 @@ minikube stop
 
 ## 參考文件
 
-- [Set Up A CI/CD Pipeline With Kubernetes Part 1: Overview](https://www.linux.com/audience/enterprise/set-cicd-pipeline-kubernetes-part-1-overview/)
+- [Set Up A CI/CD Pipeline With Kubernetes Part 1: Overview (deprecated)](https://www.linux.com/audience/enterprise/set-cicd-pipeline-kubernetes-part-1-overview/)
