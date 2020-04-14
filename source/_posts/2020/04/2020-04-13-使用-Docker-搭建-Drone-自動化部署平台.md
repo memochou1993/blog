@@ -42,53 +42,50 @@ version: "3.5"
 
 services:
   drone-server:
-    image: drone/drone:latest
+    image: drone/drone:1
     ports:
       - 8000:80
-      - 8443:443
-    networks:
-      - drone
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - ./:/data
-    env_file:
-      - ./.env
+      - ./data:/data
     restart: always
+    environment:
+      - DRONE_SERVER_HOST=${DRONE_SERVER_HOST}
+      - DRONE_SERVER_PROTO=${DRONE_SERVER_PROTO}
+      - DRONE_GITHUB_CLIENT_ID=${DRONE_GITHUB_CLIENT_ID}
+      - DRONE_GITHUB_CLIENT_SECRET=${DRONE_GITHUB_CLIENT_SECRET}
+      - DRONE_RPC_SECRET=${DRONE_RPC_SECRET}
+      - DRONE_LOGS_COLOR=true
+      - DRONE_LOGS_PRETTY=true
 
   drone-agent:
-    image: drone/agent:latest
-    command: agent
-    depends_on:
-      - drone-server
-    networks:
-      - drone
+    image: drone/drone-runner-docker:1
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    env_file:
-      - ./.env
     restart: always
-
-networks:
-  drone:
-    name: drone_network
+    depends_on:
+      - drone-server
+    environment:
+      - DRONE_RPC_HOST=${DRONE_RPC_HOST}
+      - DRONE_RPC_PROTO=${DRONE_RPC_PROTO}
+      - DRONE_RPC_SECRET=${DRONE_RPC_SECRET}
 ```
 
 建立 `.env` 檔：
 
 ```BASH
-DRONE_GITHUB_CLIENT_ID=xxxxx # GitHub Client ID
-DRONE_GITHUB_CLIENT_SECRET=xxxxx # GitHub Client Secret
-DRONE_SERVER_PROTO=https # http 或 https
-DRONE_SERVER_HOST=drone.domain.com # Drone 應用程式網址
-DRONE_RPC_PROTO=https # http 或 https
-DRONE_RPC_HOST=drone.domain.com # Drone 應用程式網址
-DRONE_RPC_SECRET=xxxxx # server 和 agent 共享的 secret
+DRONE_SERVER_HOST=domain.com
+DRONE_SERVER_PROTO=https
+DRONE_GITHUB_CLIENT_ID=xxxxx
+DRONE_GITHUB_CLIENT_SECRET=xxxxx
+DRONE_RPC_HOST=drone-server
+DRONE_RPC_PROTO=http
+DRONE_RPC_SECRET=xxxxx
 ```
 
 建立 `.gitignore` 檔：
 
 ```BASH
-database.sqlite
+data
 .env
 ```
 
@@ -99,6 +96,11 @@ docker-compose up -d
 ```
 
 前往：<https://drone.domain.com/>
+
+## 環境變數
+
+- Server 的環境變數參考 [Reference](https://docs.drone.io/server/reference/) 頁面。
+- Docker Runner 的環境變數參考 [Reference](https://docs.drone.io/server/reference/) 頁面。
 
 ## 程式碼
 
