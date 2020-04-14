@@ -10,15 +10,17 @@ categories: ["環境部署", "Docker"]
 
 - Ubuntu 18.04 LTS
 
-## 步驟
+## 註冊應用程式
 
 首先到 GitHub 的 [Developer settings](https://github.com/settings/developers) 頁面建立一個 OAuth 應用程式，輸入以下設定：
 
-- Application name: drone-ci
+- Application name: Drone CI
 - Homepage URL: <https://drone.domain.com>
-- Authorization callback URL: <https://drone.domain.com>
+- Authorization callback URL: <https://drone.domain.com/login>
 
 儲存後，獲得一組 Client ID 和 Client Secret。
+
+## 部署應用程式
 
 打開終端機，建立一個 Drone 的 server 和 agent 共享的 secret。
 
@@ -47,8 +49,8 @@ services:
     networks:
       - drone
     volumes:
-      - ./drone-data:/var/lib/drone/
       - /var/run/docker.sock:/var/run/docker.sock
+      - ./:/data
     env_file:
       - ./.env
     restart: always
@@ -86,7 +88,7 @@ DRONE_RPC_SECRET=xxxxx # server 和 agent 共享的 secret
 建立 `.gitignore` 檔：
 
 ```BASH
-drone-data
+database.sqlite
 .env
 ```
 
@@ -97,6 +99,10 @@ docker-compose up -d
 ```
 
 前往：<https://drone.domain.com/>
+
+## 程式碼
+
+- [drone-example](https://github.com/memochou1993/drone-example)
 
 ## 參考資料
 
