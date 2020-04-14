@@ -73,7 +73,7 @@ services:
 建立 `.env` 檔：
 
 ```BASH
-DRONE_SERVER_HOST=domain.com
+DRONE_SERVER_HOST=drone.domain.com
 DRONE_SERVER_PROTO=https
 DRONE_GITHUB_CLIENT_ID=xxxxx
 DRONE_GITHUB_CLIENT_SECRET=xxxxx
