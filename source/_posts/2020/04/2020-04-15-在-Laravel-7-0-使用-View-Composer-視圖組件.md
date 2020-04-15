@@ -26,7 +26,7 @@ class UserComposer
     protected $user;
 
     /**
-     * Create a new profile composer.
+     * Create a new user composer.
      *
      * @param  User  $user
      * @return void
