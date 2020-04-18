@@ -321,6 +321,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 }
 ```
 
+## 部署
+
+部署到正式環境時，需要產生 Passport 金鑰。
+
+```BASH
+php artisan passport:keys
+```
+
 ## 程式碼
 
 - [passport-example](https://github.com/memochou1993/passport-example)
