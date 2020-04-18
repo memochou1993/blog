@@ -65,7 +65,7 @@ useradd --system \
 mkdir /etc/caddy
 ```
 
-在 `/etc/caddy` 資料夾新增 `Caddyfile` 檔：
+以 Laravel 專案為例，在 `/etc/caddy` 資料夾新增 `Caddyfile` 檔：
 
 ```BASH
 laravel.epoch.tw {
