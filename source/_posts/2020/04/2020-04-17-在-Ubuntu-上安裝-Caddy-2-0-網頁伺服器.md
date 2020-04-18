@@ -12,7 +12,7 @@ categories: ["環境部署", "Caddy"]
 
 ## 安裝
 
-到 Caddy 的 [GitHub](https://github.com/caddyserver/caddy/releases) 查看最新版本，下載 Caddy。
+下載 Caddy 的[最新版本](https://github.com/caddyserver/caddy/releases)。
 
 ```BASH
 wget https://github.com/caddyserver/caddy/releases/download/v2.0.0-rc.3/caddy_2.0.0-rc.3_linux_amd64.tar.gz
@@ -24,7 +24,7 @@ wget https://github.com/caddyserver/caddy/releases/download/v2.0.0-rc.3/caddy_2.
 tar zxvf caddy_2.0.0-rc.3_linux_amd64.tar.gz
 ```
 
-將執行檔移到 `/usr/bin/` 路徑。
+將執行檔移到 `/usr/bin/` 目錄。
 
 ```BASH
 sudo mv caddy /usr/bin/
@@ -36,6 +36,8 @@ sudo mv caddy /usr/bin/
 caddy --version
 v2.0.0-rc.3
 ```
+
+## 權限設定
 
 建立一個 `caddy` 群組。
 
@@ -57,34 +59,29 @@ useradd --system \
 
 - `--home-dir` 參數決定 Caddy 存放重要檔案的位置，包括 SSL 憑證等。
 
+## 日誌
+
+新增 `/var/log/caddy` 資料夾，用來存放各個站點的訪問日誌。
+
+```BASH
+sudo mkdir /var/log/caddy
+```
+
+修改資料夾權限。
+
+```BASH
+sudo chown -R caddy:caddy /var/log/caddy
+```
+
 ## Caddyfile
 
-新增 `/etc/caddy` 資料夾。
+新增 `/etc/caddy` 資料夾，在裡面建立一個 `Caddyfile` 檔：
 
 ```BASH
-mkdir /etc/caddy
-```
-
-以 Laravel 專案為例，在 `/etc/caddy` 資料夾新增 `Caddyfile` 檔：
-
-```BASH
-laravel.epoch.tw {
-    root * /var/www/laravel/public
-
-    php_fastcgi 127.0.0.1:9000
-
-    encode gzip
-    file_server
-
-    log {
-        output file /var/log/caddy/laravel_access.log
-    }
-
-    tls email@gmail.com
+domain.com {
+	respond "Hello, world!"
 }
 ```
-
-- 注意 Caddy 2 的指標已有許多更新。
 
 ## 系統服務
 
@@ -146,6 +143,158 @@ sudo systemctl reload caddy
 
 ```BASH
 sudo systemctl stop caddy
+```
+
+## 常用指標
+
+### root
+
+指定站點的根目錄。
+
+- v1:
+
+```BASH
+root /var/www
+```
+
+- v2:
+
+```BASH
+root * /var/www
+```
+
+### php_fastcgi
+
+代理對 FastCGI 伺服器的請求，用於服務 PHP 站點。
+
+- v1
+
+```BASH
+fastcgi / localhost:9000 php
+```
+
+- v2
+
+```BASH
+php_fastcgi localhost:9000
+```
+
+### encode gzip
+
+啟用 Gzip 壓縮。
+
+- v1
+
+```BASH
+gzip
+```
+
+- v2
+
+```BASH
+encode gzip
+```
+
+### file_server
+
+允許在指定的路徑內進行目錄瀏覽。
+
+- v1
+
+```BASH
+browse /subfolder/
+```
+
+- v2
+
+```BASH
+file_server /subfolder/* browse
+```
+
+### log
+
+啟用站點的訪問日誌。
+
+- v1:
+
+```BASH
+log access.log
+```
+
+- v2:
+
+```BASH
+log {
+	output file         access.log
+	format single_field common_log
+}
+```
+
+### reverse_proxy
+
+用於反向代理和負載平衡。
+
+- v1:
+
+```BASH
+proxy / localhost:9005
+```
+
+- v2:
+
+```BASH
+reverse_proxy localhost:9005
+```
+
+## 範例
+
+### PHP 站點
+
+```BASH
+service.domain.com {
+    root * /var/www/service/public
+
+    php_fastcgi 127.0.0.1:9000
+
+    encode gzip
+    file_server
+
+    log {
+        output file /var/log/caddy/service_access.log
+    }
+
+    tls email@gmail.com
+}
+```
+
+### 反向代理
+
+```BASH
+service.domain.com {
+    reverse_proxy 127.0.0.1:8080
+
+    log {
+        output file /var/log/caddy/service_access.log
+    }
+
+    tls email@gmail.com
+}
+```
+
+## 標準輸出
+
+如果要查看 Caddy 標準輸出，執行以下指令：
+
+```BASH
+journalctl -u caddy
+```
+
+## 憑證位置
+
+如果 Caddy 的根目錄設在 `/var/lib/caddy/`，則 SSL 憑證的存放位置在：
+
+```BASH
+/var/lib/caddy/.local/share/caddy/certificates
 ```
 
 ## 參考資料
