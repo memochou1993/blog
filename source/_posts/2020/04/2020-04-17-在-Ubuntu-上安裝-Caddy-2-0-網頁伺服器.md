@@ -24,7 +24,7 @@ wget https://github.com/caddyserver/caddy/releases/download/v2.0.0-rc.3/caddy_2.
 tar zxvf caddy_2.0.0-rc.3_linux_amd64.tar.gz
 ```
 
-將執行檔移到 `/usr/bin/` 路徑：
+將執行檔移到 `/usr/bin/` 路徑。
 
 ```BASH
 sudo mv caddy /usr/bin/
@@ -36,8 +36,6 @@ sudo mv caddy /usr/bin/
 caddy --version
 v2.0.0-rc.3
 ```
-
-## 設定權限
 
 建立一個 `caddy` 群組。
 
@@ -57,9 +55,15 @@ useradd --system \
 	caddy
 ```
 
-- `--home-dir` 參數決定 Caddy 存放重要檔案的位置，包括 SSL 憑證。
+- `--home-dir` 參數決定 Caddy 存放重要檔案的位置，包括 SSL 憑證等。
 
 ## Caddyfile
+
+新增 `/etc/caddy` 資料夾。
+
+```BASH
+mkdir /etc/caddy
+```
 
 在 `/etc/caddy` 資料夾新增 `Caddyfile` 檔：
 
@@ -82,7 +86,7 @@ laravel.epoch.tw {
 
 - 注意 Caddy 2 的指標已有許多更新。
 
-## 設定系統服務
+## 系統服務
 
 在 `/etc/systemd/system` 資料夾新增一個 `caddy.service` 檔：
 
@@ -108,7 +112,7 @@ AmbientCapabilities=CAP_NET_BIND_SERVICE
 WantedBy=multi-user.target
 ```
 
-重新載入服務設定檔。
+載入服務設定檔。
 
 ```BASH
 sudo systemctl daemon-reload
@@ -132,7 +136,7 @@ sudo systemctl start caddy
 sudo systemctl status caddy
 ```
 
-如果修改設定檔，執行以下指令重新啟動 Caddy 服務：
+如果有修改設定檔，執行以下指令：
 
 ```BASH
 sudo systemctl reload caddy
