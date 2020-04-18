@@ -81,7 +81,7 @@ sudo gpasswd -a ${USER} docker
 下載執行檔。
 
 ```BASH
-sudo curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 ```
 
 設定權限。
@@ -96,7 +96,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 ```BASH
 docker-compose -v
-docker-compose version 1.23.2
+docker-compose version 1.25.5
 ```
 
 ## 安裝 PHP
@@ -244,16 +244,22 @@ docker-compose build --no-cache mysql
 docker-compose exec mysql bash
 ```
 
-使用 `root` 使用者進入資料庫，密碼為 `root`。
+使用 `root` 使用者進入資料庫。
 
 ```MYSQL
-# mysql -u root -p
+# mysql -uroot -proot
 ```
 
 查看所有使用者。
 
 ```MYSQL
 > SELECT user,authentication_string,plugin,host FROM mysql.user;
+```
+
+刪除預設使用者。
+
+```BAH
+DROP USER 'default'@'%';
 ```
 
 新增使用者，並設定權限。

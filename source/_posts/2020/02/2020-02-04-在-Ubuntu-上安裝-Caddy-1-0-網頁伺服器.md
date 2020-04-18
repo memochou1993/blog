@@ -86,7 +86,7 @@ sudo mv caddy.service /etc/systemd/system/
 sudo chmod 644 /etc/systemd/system/caddy.service
 ```
 
-重新載入服務。
+重新載入服務設定檔。
 
 ```BASH
 sudo systemctl daemon-reload
