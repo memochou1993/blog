@@ -246,6 +246,14 @@ proxy / localhost:9005
 reverse_proxy localhost:9005
 ```
 
+### tls
+
+用來配置 HTTPS 連線。
+
+```BASH
+tls email
+```
+
 ## 範例
 
 ### PHP 站點
