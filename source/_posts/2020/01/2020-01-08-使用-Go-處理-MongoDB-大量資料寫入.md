@@ -2,7 +2,7 @@
 title: 使用 Go 處理 MongoDB 大量資料寫入
 permalink: 使用-Go-處理-MongoDB-大量資料寫入
 date: 2020-01-08 22:33:24
-tags: ["程式設計", "Go", "MongoDB", "資料庫", "ORM"]
+tags: ["程式設計", "Go", "MongoDB", "NoSQL", "資料庫", "ORM"]
 categories: ["程式設計", "Go", "其他"]
 ---
 

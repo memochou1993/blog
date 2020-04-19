@@ -2,7 +2,7 @@
 title: 使用 Go 操作 MongoDB
 permalink: 使用-Go-操作-MongoDB
 date: 2020-01-01 21:55:05
-tags: ["程式設計", "Go", "MongoDB", "資料庫", "ORM"]
+tags: ["程式設計", "Go", "MongoDB", "NoSQL", "資料庫", "ORM"]
 categories: ["程式設計", "Go", "其他"]
 ---
 
