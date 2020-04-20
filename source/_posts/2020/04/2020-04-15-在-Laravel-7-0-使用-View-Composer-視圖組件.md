@@ -88,7 +88,7 @@ class ComposerServiceProvider extends ServiceProvider
 
 ```PHP
 View::composer(
-    '*', \App\Http\ViewComposers\ProfileComposer::class
+    '*', \App\Http\ViewComposers\UserComposer::class
 );
 ```
 
