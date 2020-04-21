@@ -43,10 +43,12 @@ extension="/usr/local/lib/php/pecl/20170718/swoole.so"
 
 ```BASH
 php -m |grep swoole
-swoole
+```
+
+查看擴充套件的安裝位置。
+
+```BASH
 php -i|grep extension_dir
-extension_dir => /usr/local/lib/php/pecl/20170718 => /usr/local/lib/php/pecl/20170718
-cd /usr/local/lib/php/pecl/20170718 && ls
 ```
 
 查看詳細資訊。

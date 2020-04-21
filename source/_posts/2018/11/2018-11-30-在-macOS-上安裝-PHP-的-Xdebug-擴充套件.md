@@ -28,7 +28,7 @@ vi /usr/local/etc/php/7.2/conf.d/xdebug.ini
 
 加入以下內容：
 
-```
+```BASH
 [xdebug]
 zend_extension="/usr/local/lib/php/pecl/20170718/xdebug.so"
 ```
@@ -38,9 +38,12 @@ zend_extension="/usr/local/lib/php/pecl/20170718/xdebug.so"
 ```BASH
 php -m |grep xdebug
 xdebug
+```
+
+查看擴充套件的安裝位置。
+
+```BASH
 php -i|grep extension_dir
-extension_dir => /usr/local/lib/php/pecl/20170718 => /usr/local/lib/php/pecl/20170718
-cd /usr/local/lib/php/pecl/20170718 && ls
 ```
 
 查看詳細資訊。

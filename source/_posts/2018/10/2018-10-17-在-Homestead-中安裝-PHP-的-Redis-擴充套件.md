@@ -97,10 +97,8 @@ redis
 vagrant@homestead:~$ php --ri redis
 ```
 
-查看所有 PHP 擴充套件。
+查看擴充套件的安裝位置。
 
 ```BASH
 vagrant@homestead:~$ php -i|grep extension_dir
-extension_dir => /usr/lib/php/20170718 => /usr/lib/php/20170718
-vagrant@homestead:~$ cd /usr/lib/php/20170718 && ls
 ```
