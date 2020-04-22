@@ -73,7 +73,9 @@ php artisan migrate
 php artisan telescope:publish
 ```
 
-將 `config/app.php` 檔中的 `App\Providers\TelescopeServiceProvider::class` 刪除， 並在 `app/Providers/AppServiceProvider.php` 檔中註冊服務提供者。
+將 `config/app.php` 檔中的 `App\Providers\TelescopeServiceProvider::class` 刪除。
+
+在 `app/Providers/AppServiceProvider.php` 檔中註冊服務提供者。
 
 ```PHP
 /**
@@ -87,6 +89,23 @@ public function register()
         $this->app->register(TelescopeServiceProvider::class);
     }
 }
+```
+
+為了避免在正式環境執行 Telescope 遷移，需要修改 `config/telescope.php` 檔，將預設啟用改為 `false`：
+
+```PHP
+return [
+
+
+    'enabled' => env('TELESCOPE_ENABLED', false),
+
+];
+```
+
+再修改 `.env` 檔，即可在本地環境啟用 Telescope：
+
+```ENV
+TELESCOPE_ENABLED=true
 ```
 
 前往：<http://telescope.test/telescope>
