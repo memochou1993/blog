@@ -40,7 +40,7 @@ public function posts() {
 
 ### 方法一
 
-以父關聯為主，由上而下建立關聯資料。
+以父模型為主，由上而下建立關聯資料。
 
 修改 `UserSeeder` 資料填充，建立 5 個使用者，為每個使用者個別建立 10 個專案和 10 筆文章。
 
@@ -55,7 +55,7 @@ factory(App\User::class, 5)->create()->each(function ($user) {
 
 ### 方法二
 
-以子關聯為主，由下而上建立關聯資料。
+以子模型為主，由下而上建立關聯資料。
 
 修改 `ProjectSeeder` 資料填充，建立 5 個專案。
 
