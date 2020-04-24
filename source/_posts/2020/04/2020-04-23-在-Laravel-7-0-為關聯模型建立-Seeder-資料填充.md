@@ -93,7 +93,7 @@ $factory->define(Post::class, function (Faker $faker) {
 
 ### 方法三
 
-個別建立關聯資料。
+從資料庫找出既有資料，再建立個別的關聯資料。
 
 修改 `UserSeeder` 資料填充，建立 5 個使用者。
 
@@ -121,4 +121,72 @@ App\User::all()->each(function ($user) {
 });
 ```
 
-此方法雖然多了兩次資料庫的查詢，但解耦了模型之間的資料填充。
+此方法雖然解耦了模型之間的資料填充，但關聯模型一旦複雜，會產生很多次的資料庫查詢。
+
+### 方法四
+
+直接定義好要產生的資料數量及外鍵範圍。
+
+修改 `UserSeeder` 資料填充，建立 5 個使用者。
+
+```PHP
+factory(App\User::class, 5)->create();
+```
+
+修改 `ProjectSeeder` 資料填充，定義一個常數：
+
+```PHP
+public const AMOUNT = 10;
+```
+
+修改 `ProjectFactory` 模型工廠，定義好外鍵範圍：
+
+```PHP
+$factory->define(Project::class, function (Faker $faker) {
+    return [
+        'user_id' => $faker->numberBetween(1, ProjectSeeder::AMOUNT),
+        'created_at'  => now(),
+        'updated_at'  => now(),
+    ];
+});
+```
+
+在 `ProjectSeeder` 資料填充使用插入的方式，一次建立 10 個專案。
+
+```PHP
+$table = DB::table(app(Project::class)->getTable());
+
+$table->insert(
+    factory(Project::class, self::AMOUNT)->make()->toArray()
+);
+```
+
+修改 `PostSeeder` 資料填充，定義一個常數：
+
+```PHP
+public const AMOUNT = 10;
+```
+
+修改 `PostFactory` 模型工廠，定義好外鍵範圍：
+
+```PHP
+$factory->define(Post::class, function (Faker $faker) {
+    return [
+        'post_id' => $faker->numberBetween(1, PostSeeder::AMOUNT),
+        'created_at'  => now(),
+        'updated_at'  => now(),
+    ];
+});
+```
+
+在 `PostSeeder` 資料填充使用插入的方式，一次建立 10 筆文章。
+
+```PHP
+$table = DB::table(app(Post::class)->getTable());
+
+$table->insert(
+    factory(Post::class, self::AMOUNT)->make()->toArray()
+);
+```
+
+此方法是效率最高的，但要注意資料筆數和外鍵範圍的安排。
