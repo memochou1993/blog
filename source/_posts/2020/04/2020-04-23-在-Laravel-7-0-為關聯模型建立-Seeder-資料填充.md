@@ -125,18 +125,18 @@ App\User::all()->each(function ($user) {
 
 ### 方法四
 
-直接定義好要產生的資料數量及外鍵範圍。
+先定義好要建立的資料數量，在模型工廠定義外鍵範圍，再一次性插入資料庫。
 
-修改 `UserSeeder` 資料填充，建立 5 個使用者。
+修改 `UserSeeder` 資料填充，定義一個常數，代表要建立的使用者數量：
 
 ```PHP
-factory(App\User::class, 5)->create();
+public const AMOUNT = 5;
 ```
 
-修改 `ProjectSeeder` 資料填充，定義一個常數：
+建立 5 個使用者。
 
 ```PHP
-public const AMOUNT = 10;
+factory(App\User::class, self::AMOUNT)->create();
 ```
 
 修改 `ProjectFactory` 模型工廠，定義好外鍵範圍：
@@ -144,27 +144,25 @@ public const AMOUNT = 10;
 ```PHP
 $factory->define(Project::class, function (Faker $faker) {
     return [
-        'user_id' => $faker->numberBetween(1, ProjectSeeder::AMOUNT),
+        'user_id' => $faker->numberBetween(1, UserSeeder::AMOUNT),
         'created_at'  => now(),
         'updated_at'  => now(),
     ];
 });
 ```
 
-在 `ProjectSeeder` 資料填充使用插入的方式，一次建立 10 個專案。
-
-```PHP
-$table = DB::table(app(Project::class)->getTable());
-
-$table->insert(
-    factory(Project::class, self::AMOUNT)->make()->toArray()
-);
-```
-
-修改 `PostSeeder` 資料填充，定義一個常數：
+修改 `ProjectSeeder` 資料填充，定義一個常數，代表要建立的專案數量：
 
 ```PHP
 public const AMOUNT = 10;
+```
+
+使用插入的方式，一次建立 10 個專案。
+
+```PHP
+DB::table(app(Project::class)->getTable())->insert(
+    factory(Project::class, self::AMOUNT)->make()->toArray()
+);
 ```
 
 修改 `PostFactory` 模型工廠，定義好外鍵範圍：
@@ -172,21 +170,87 @@ public const AMOUNT = 10;
 ```PHP
 $factory->define(Post::class, function (Faker $faker) {
     return [
-        'post_id' => $faker->numberBetween(1, PostSeeder::AMOUNT),
+        'user_id' => $faker->numberBetween(1, UserSeeder::AMOUNT),
         'created_at'  => now(),
         'updated_at'  => now(),
     ];
 });
 ```
 
+修改 `PostSeeder` 資料填充，定義一個常數，代表要建立的文章數量：
+
+```PHP
+public const AMOUNT = 10;
+```
+
 在 `PostSeeder` 資料填充使用插入的方式，一次建立 10 筆文章。
 
 ```PHP
-$table = DB::table(app(Post::class)->getTable());
-
-$table->insert(
+DB::table(app(Post::class)->getTable())->insert(
     factory(Post::class, self::AMOUNT)->make()->toArray()
 );
 ```
 
-此方法是效率最高的，但要注意資料筆數和外鍵範圍的安排。
+此方法速度最快，但是模型之間的關聯是隨機的，不是每一個使用者都可以有專案和文章。
+
+### 方法五
+
+先定義好要建立的資料數量，在資料填充使用 Collection 產生外鍵列表，將所有資料疊代、合併後，再一次性插入資料庫。
+
+修改 `UserSeeder` 資料填充，定義一個常數，代表要建立的使用者數量：
+
+```PHP
+public const AMOUNT = 5;
+```
+
+建立 5 個使用者。
+
+```PHP
+factory(App\User::class, self::AMOUNT)->create();
+```
+
+修改 `ProjectSeeder` 資料填充，定義一個常數，代表要建立的專案數量：
+
+```PHP
+public const AMOUNT = 10;
+```
+
+使用 Collection 建立外鍵列表，疊代每一個外鍵，產生並合併資料，最後一次為每個使用者建立 10 個專案。
+
+```PHP
+$projects = collect()
+    ->times(UserSeeder::AMOUNT)
+    ->map(function ($userId) {
+        return factory(Project)::class, self::AMOUNT)->make([
+            'user_id' => $userId,
+        ]);
+    })
+    ->collapse()
+    ->toArray();
+
+DB::table(app(Project)::class)->getTable())->insert($projects);
+```
+
+修改 `PostSeeder` 資料填充，定義一個常數，代表要建立的文章數量：
+
+```PHP
+public const AMOUNT = 10;
+```
+
+使用 Collection 建立外鍵列表，疊代每一個外鍵，產生並合併資料，最後一次為每個使用者建立 10 筆文章。
+
+```PHP
+$posts = collect()
+    ->times(UserSeeder::AMOUNT)
+    ->map(function ($userId) {
+        return factory(Post)::class, self::AMOUNT)->make([
+            'user_id' => $userId,
+        ]);
+    })
+    ->collapse()
+    ->toArray();
+
+DB::table(app(Post)::class)->getTable())->insert($posts);
+```
+
+此方法的速度會稍微慢一些，但不會比使用 Eloquent 慢，因為每一個使用者都能夠得到專案和文章，測試資料最完整。
