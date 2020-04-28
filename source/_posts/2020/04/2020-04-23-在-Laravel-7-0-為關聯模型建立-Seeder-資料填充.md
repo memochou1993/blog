@@ -254,3 +254,73 @@ DB::table(app(Post)::class)->getTable())->insert($posts);
 ```
 
 此方法的速度會稍微慢一些，但不會比使用 Eloquent 慢，因為每一個使用者都能夠得到專案和文章，測試資料最完整。
+
+### 方法六
+
+將儲存的假資料儲存在靜態變數中，以供其他資料填充使用。
+
+修改 `UserSeeder` 資料填充：
+
+```PHP
+use App\Models\User;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+
+class UserSeeder extends Seeder
+{
+    private const AMOUNT = 5;
+
+    static private Collection $users;
+
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $admin = app(User::class)->create([
+            'name' => env('ADMIN_NAME'),
+            'email' => env('ADMIN_EMAIL'),
+            'password' => Hash::make(env('ADMIN_PASSWORD')),
+        ]);
+
+        $users = factory(User::class, self::AMOUNT - 1)->create();
+
+        $this->setUsers(new Collection([
+            $admin,
+            $users,
+        ]));
+    }
+
+    /**
+     * Set the test users.
+     *
+     * @param  $users
+     * @return void
+     */
+    public function setUsers($users): void
+    {
+        self::$users = $users;
+    }
+
+    /**
+     * Get the test users.
+     *
+     * @return Collection
+     */
+    public function getUsers(): Collection
+    {
+        return self::$users;
+    }
+}
+```
+
+在 `ProjectSeeder` 和 `PostSeeder` 資料填充中使用：
+
+```PHP
+$users = app(UserSeeder::class)->getUsers();
+```
+
+此方法既不需要把關聯資料寫在同一個檔案中，也不需要再次查詢資料庫。
