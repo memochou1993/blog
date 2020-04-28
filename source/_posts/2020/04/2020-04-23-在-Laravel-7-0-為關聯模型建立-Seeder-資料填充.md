@@ -317,10 +317,20 @@ class UserSeeder extends Seeder
 }
 ```
 
-在 `ProjectSeeder` 和 `PostSeeder` 資料填充中使用：
+修改 `ProjectSeeder` 資料填充，為每個使用者個別建立 10 個專案。
 
 ```PHP
-$users = app(UserSeeder::class)->getUsers();
+app(UserSeeder::class)->getUsers()->each(function ($user) {
+    $user->projects()->saveMany(factory(App\Project::class, 10)->make());
+});
 ```
 
-此方法既不需要把關聯資料寫在同一個檔案中，也不需要再次查詢資料庫。
+修改 `PostSeeder` 資料填充，為每個使用者個別建立 10 筆文章。
+
+```PHP
+app(UserSeeder::class)->getUsers()->each(function ($user) {
+    $user->posts()->saveMany(factory(App\Post::class, 10)->make());
+});
+```
+
+此方法既不需要把關聯資料寫在同一個檔案中，也不需要再次查詢資料庫，不過要多寫一些方法去處理靜態變數的存取。
