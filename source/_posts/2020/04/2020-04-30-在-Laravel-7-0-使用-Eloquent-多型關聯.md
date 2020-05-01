@@ -109,6 +109,21 @@ public function model()
 }
 ```
 
+### 測試資料
+
+進入 Tinker 介面。
+
+```BASH
+php artisan tinker
+```
+
+新增一些測試資料：
+
+```BASH
+factory(App\Page::class)->create();
+factory(App\Post::class)->create();
+```
+
 ### 使用
 
 為第一個頁面新增一張圖片：
@@ -236,6 +251,21 @@ public function model()
 {
     return $this->morphTo();
 }
+```
+
+### 測試資料
+
+進入 Tinker 介面。
+
+```BASH
+php artisan tinker
+```
+
+新增一些測試資料：
+
+```BASH
+factory(App\Page::class)->create();
+factory(App\Post::class)->create();
 ```
 
 ### 使用
@@ -382,6 +412,22 @@ public function posts()
 {
     return $this->morphedByMany(Post::class, 'model', 'model_has_tags');
 }
+```
+
+### 測試資料
+
+進入 Tinker 介面。
+
+```BASH
+php artisan tinker
+```
+
+新增一些測試資料：
+
+```BASH
+factory(App\Page::class)->create();
+factory(App\Post::class)->create();
+factory(App\Tag::class, 2)->create();
 ```
 
 ### 使用
