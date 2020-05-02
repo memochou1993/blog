@@ -1,6 +1,6 @@
 ---
-title: 在 Laravel 5.6 使用 Repository 模式
-permalink: 在-Laravel-5-6-使用-Repository-模式
+title: 在 Laravel 5.6 實現 Repository 模式
+permalink: 在-Laravel-5-6-實現-Repository-模式
 date: 2018-05-17 10:22:15
 tags: ["程式設計", "PHP", "Laravel"]
 categories: ["程式設計", "PHP", "Laravel"]
