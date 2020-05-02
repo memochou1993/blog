@@ -19,13 +19,13 @@ laravel new airlock
 ## 安裝套件
 
 ```BASH
-composer require laravel/airlock
+composer require laravel/sanctum
 ```
 
 ## 發布資源
 
 ```BASH
-php artisan vendor:publish --provider="Laravel\Airlock\AirlockServiceProvider"
+php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
 ```
 
 ## 執行遷移
@@ -39,15 +39,15 @@ php artisan migrate
 修改 `app\Http\Kernel.php` 檔：
 
 ```PHP
-    protected $middlewareGroups = [
-        // ...
+protected $middlewareGroups = [
+    // ...
 
-        'api' => [
-            'throttle:60,1',
-            \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            \Laravel\Airlock\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
-        ],
-    ];
+    'api' => [
+        'throttle:60,1',
+        \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+    ],
+];
 ```
 
 ## 修改模型
@@ -55,11 +55,12 @@ php artisan migrate
 修改 `app\User.php` 檔：
 
 ```PHP
-use Laravel\Airlock\HasApiTokens;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, Notifiable;
+    use HasApiTokens;
+    use Notifiable;
 }
 ```
 
@@ -71,7 +72,7 @@ class User extends Authenticatable
 Route::prefix('auth')->group(function () {
     Route::post('/login', 'AuthController@login');
 
-    Route::middleware('auth:airlock')->group(function ($group) {
+    Route::middleware('auth:sanctum')->group(function () {
         Route::get('/user', 'AuthController@user');
         Route::post('/logout', 'AuthController@logout');
     });
@@ -135,4 +136,4 @@ class AuthController extends Controller
 
 ## 參考文件
 
-- [Laravel Airlock](https://laravel.com/docs/master/sanctum)
+- [Laravel Sanctum](https://laravel.com/docs/master/sanctum)
