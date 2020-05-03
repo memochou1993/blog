@@ -85,3 +85,11 @@ Route::get('/', function () {
 
 - 使用 `php artisan dump-server` 指令查看 `dump()` 中的內容。
 - 使用 `__()` 輔助函式輸出在地化檔案的語句。
+
+## 測試
+
+前往：<http://localhost:8000/zh-tw>
+
+## 程式碼
+
+- [localization-example](https://github.com/memochou1993/localization-example)
