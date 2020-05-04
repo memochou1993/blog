@@ -220,7 +220,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        app(UserSeeder::class)->users()->each(function ($user) {
+        app(UserSeeder::class)->users->each(function ($user) {
             $user->posts()->saveMany(factory(Post::class, self::AMOUNT)->make());
         });
     }
