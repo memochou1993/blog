@@ -151,16 +151,17 @@ class UserRepository extends Repository implements UserRepositoryInterface
 php artisan make:provider RepositoryServiceProvider
 ```
 
-修改服務提供者：
+在服務提供者註冊容器綁定，並且實作 `DeferrableProvider` 介面延遲加載：
 
 ```PHP
 namespace App\Providers;
 
 use App\Repositories\Contracts\UserRepositoryInterface;
 use App\Repositories\UserRepository;
+use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
 
-class RepositoryServiceProvider extends ServiceProvider
+class RepositoryServiceProvider extends ServiceProvider implements DeferrableProvider
 {
     /**
      * Register services.
@@ -184,8 +185,22 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         //
     }
+
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides()
+    {
+        return [
+            UserRepositoryInterface::class,
+        ];
+    }
 }
 ```
+
+- 由於此服務提供者只有做容器綁定的註冊，因此可以延遲載入，以提升系統效能。Laravel 會在綁定的服務被解析時，到 `bootstrap/cache/services.php` 檔中加載對應的服務提供者。
 
 將服務提供者註冊到 `config` 資料夾的 `app.php` 中：
 
