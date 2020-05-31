@@ -1,18 +1,18 @@
 ---
-title: 實作「GitHub API」元件在 PHP 專案中使用（一）
-permalink: 實作「GitHub-API」元件在-PHP-專案中使用（一）
+title: 實作「GitHub API」套件在 PHP 專案中使用（一）
+permalink: 實作「GitHub-API」套件在-PHP-專案中使用（一）
 date: 2018-06-02 17:40:32
-tags: ["程式設計", "PHP", "元件", "GitHub", "API", "Packagist"]
-categories: ["程式設計", "PHP", "元件"]
+tags: ["程式設計", "PHP", "套件開發", "GitHub", "API", "Packagist"]
+categories: ["程式設計", "PHP", "套件開發"]
 ---
 
 ## 前言
 
-本文實作一個可以讀取 GitHub API 的元件。
+本文實作一個可以讀取 GitHub API 的套件。
 
 ## 專案目錄
 
-```
+```BASH
 |- github-api/
     |- dev/
         |- src/
@@ -24,7 +24,7 @@ categories: ["程式設計", "PHP", "元件"]
 
 ```
 
-- 元件的所有檔案都會放在 `src` 資料夾。
+- 套件的所有檔案都會放在 `src` 資料夾。
 
 ## 使用 GitHub API
 
@@ -42,11 +42,11 @@ categories: ["程式設計", "PHP", "元件"]
 | --- | --- |
 | GET | <https://api.github.com/users/memochou1993> |
 
-本文將使用以上兩個方法實作一個可以讀取 GitHub API 的元件。
+本文將使用以上兩個方法實作一個可以讀取 GitHub API 的套件。
 
-## 安裝相依元件
+## 安裝相依套件
 
-讀取 GitHub API 會需要發送 `HTTP` 請求以及獲取響應，所以安裝 `Guzzle` 元件。
+讀取 GitHub API 會需要發送 `HTTP` 請求以及獲取響應，所以安裝 `Guzzle` 套件。
 
 ```BASH
 cd github-api/github-api-dev
@@ -159,7 +159,7 @@ class Github
 
 ```PHP
 require 'vendor/autoload.php'; // 載入 autoload.php
-require 'src/Github.php'; // 載入製作好的元件
+require 'src/Github.php'; // 載入製作好的套件
 
 $github = new \Memo\Github(); // 實例一個 Guthub 物件
 

@@ -1,14 +1,14 @@
 ---
-title: 實作「GitHub API」元件在 PHP 專案中使用（二）
-permalink: 實作「GitHub-API」元件在-PHP-專案中使用（二）
+title: 實作「GitHub API」套件在 PHP 專案中使用（二）
+permalink: 實作「GitHub-API」套件在-PHP-專案中使用（二）
 date: 2018-06-03 17:40:43
-tags: ["程式設計", "PHP", "元件", "GitHub", "API", "Packagist"]
-categories: ["程式設計", "PHP", "元件"]
+tags: ["程式設計", "PHP", "套件開發", "GitHub", "API", "Packagist"]
+categories: ["程式設計", "PHP", "套件開發"]
 ---
 
 ## 前言
 
-本文實作一個可以讀取 GitHub API 的元件。
+本文實作一個可以讀取 GitHub API 的套件。
 
 ## 專案目錄
 
@@ -23,7 +23,7 @@ categories: ["程式設計", "PHP", "元件"]
 
 ```
 
-- 元件的所有檔案都會放在 `src` 資料夾。
+- 套件的所有檔案都會放在 `src` 資料夾。
 
 ## 新增 .gitignore 檔
 
@@ -69,12 +69,12 @@ composer.lock
 
 ## 發布
 
-1. 登入 [GitHub](https://github.com/)，創建一個 `github-api` 儲存庫，將元件上傳。
-2. 登入 [Packagist](https://packagist.org/)，註冊 <https://github.com/memochou1993/github-api> 元件。
+1. 登入 [GitHub](https://github.com/)，創建一個 `github-api` 儲存庫，將套件上傳。
+2. 登入 [Packagist](https://packagist.org/)，註冊 <https://github.com/memochou1993/github-api> 套件。
 
 ## 版本控制
 
-回到 GitHub 為元件建立一個語意化版本作為標籤：
+回到 GitHub 為套件建立一個語意化版本作為標籤：
 
 1. 點選 `release`。
 2. 點選 `Create a new release`。
@@ -83,7 +83,7 @@ composer.lock
 
 ## 啟動掛鉤
 
-啟動 GitHub 掛鉤，讓元件儲存庫更新時送出一個提醒給 Packagist。
+啟動 GitHub 掛鉤，讓套件儲存庫更新時送出一個提醒給 Packagist。
 
 1. 點選 `Settings`。
 2. 點選 `Integrations & services`。
@@ -95,7 +95,7 @@ composer.lock
 
 ## 使用
 
-現在可以輸入以下命令使用做好的元件了。
+現在可以輸入以下命令使用做好的套件了。
 
 ```BASH
 composer require memochou1993/github-api

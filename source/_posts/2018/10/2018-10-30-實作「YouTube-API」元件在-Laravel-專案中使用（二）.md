@@ -1,14 +1,14 @@
 ---
-title: 實作「YouTube API」元件在 Laravel 專案中使用（二）
-permalink: 實作「YouTube-API」元件在-Laravel-專案中使用（二）
+title: 實作「YouTube API」套件在 Laravel 專案中使用（二）
+permalink: 實作「YouTube-API」套件在-Laravel-專案中使用（二）
 date: 2018-10-30 20:57:19
-tags: ["程式設計", "PHP", "Laravel", "元件", "YouTube", "API", "Packagist"]
-categories: ["程式設計", "PHP", "元件"]
+tags: ["程式設計", "PHP", "Laravel", "套件開發", "YouTube", "API", "Packagist"]
+categories: ["程式設計", "PHP", "套件開發"]
 ---
 
 ## 前言
 
-本文實作一個可以讀取 YouTube API 的元件。
+本文實作一個可以讀取 YouTube API 的套件。
 
 ## 專案目錄
 
@@ -126,7 +126,7 @@ composer.lock
 
 ```MARKDOWN
 ## 概述
-此元件用於 YouTube API 的讀取。
+此套件用於 YouTube API 的讀取。
 ```
 
 ## 修改 composer.json 檔
@@ -180,12 +180,12 @@ composer.lock
 
 ## 發布
 
-1. 登入 [GitHub](https://github.com/)，創建一個 `youtube-api` 儲存庫，將元件上傳。
-2. 登入 [Packagist](https://packagist.org/)，註冊 <https://github.com/memochou1993/youtube-api> 元件。
+1. 登入 [GitHub](https://github.com/)，創建一個 `youtube-api` 儲存庫，將套件上傳。
+2. 登入 [Packagist](https://packagist.org/)，註冊 <https://github.com/memochou1993/youtube-api> 套件。
 
 ## 版本控制
 
-在 GitHub 為元件建立一個語意化版本作為標籤：
+在 GitHub 為套件建立一個語意化版本作為標籤：
 
 1. 點選 `release`。
 2. 點選 `Create a new release`。
@@ -194,7 +194,7 @@ composer.lock
 
 ## 啟動掛鉤
 
-GitHub 如果沒有自動建立，可以手動為元件啟動掛鉤。
+GitHub 如果沒有自動建立，可以手動為套件啟動掛鉤。
 
 1. 點選 `Settings`。
 2. 點選 `Webhooks`。
@@ -209,7 +209,7 @@ GitHub 如果沒有自動建立，可以手動為元件啟動掛鉤。
 laravel new youtube
 ```
 
-安裝元件。
+安裝套件。
 
 ```BASH
 composer require memochou1993/youtube-api dev-master

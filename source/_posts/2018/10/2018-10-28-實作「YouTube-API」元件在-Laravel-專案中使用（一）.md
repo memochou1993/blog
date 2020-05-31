@@ -1,18 +1,18 @@
 ---
-title: 實作「YouTube API」元件在 Laravel 專案中使用（一）
-permalink: 實作「YouTube-API」元件在-Laravel-專案中使用（一）
+title: 實作「YouTube API」套件在 Laravel 專案中使用（一）
+permalink: 實作「YouTube-API」套件在-Laravel-專案中使用（一）
 date: 2018-10-28 20:56:37
-tags: ["程式設計", "PHP", "Laravel", "元件", "YouTube", "API", "Packagist"]
-categories: ["程式設計", "PHP", "元件"]
+tags: ["程式設計", "PHP", "Laravel", "套件開發", "YouTube", "API", "Packagist"]
+categories: ["程式設計", "PHP", "套件開發"]
 ---
 
 ## 前言
 
-本文實作一個可以讀取 YouTube API 的元件。
+本文實作一個可以讀取 YouTube API 的套件。
 
 ## 專案目錄
 
-```
+```BASH
 |- youtube-api/
     |- component/
         |- example/
@@ -42,7 +42,7 @@ categories: ["程式設計", "PHP", "元件"]
 
 首先到 [Google 開發者平台](https://console.developers.google.com/)建立專案，並且取得 API Key。
 
-## 安裝相依元件
+## 安裝相依套件
 
 建立 `composer.json` 檔。
 
@@ -57,7 +57,7 @@ categories: ["程式設計", "PHP", "元件"]
 }
 ```
 
-安裝 `Guzzle` 及 `PHPUnit` 相依元件。
+安裝 `Guzzle` 及 `PHPUnit` 相依套件。
 
 ```BASH
 composer install
