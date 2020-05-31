@@ -12,6 +12,8 @@ categories: ["程式設計", "PHP", "套件開發"]
 
 ## 專案目錄
 
+專案目錄如下：
+
 ```BASH
 |- youtube-api/
     |- component/
