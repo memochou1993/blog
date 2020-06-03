@@ -31,7 +31,7 @@ class Company extends Model implements AuthenticatableContract
 
 ## 中介層
 
-如果令牌不是由 `User` 模型所建立，直接將當前的認證模型，例如 `Auth::user()` 帶入有模型綁定的方法中就會發生錯誤。
+如果令牌不是由 `User` 模型所建立，直接將當前的認證模型，例如 `Auth::user()` 注入到具有模型綁定的方法中就會發生錯誤。
 
 ```PHP
 /**
@@ -65,6 +65,7 @@ class VerifyToken
      */
     public function handle($request, Closure $next, string $model)
     {
+        // 確保當前的認證模型是指定的模型
         if (! (class_basename($request->user()) === Str::ucfirst($model))) {
             throw new AuthenticationException();
         }
@@ -83,7 +84,7 @@ protected $routeMiddleware = [
 ];
 ```
 
-在路由中使用如下：
+在路由中使用：
 
 ```PHP
 Route::prefix('api/user')->middleware([
@@ -121,35 +122,75 @@ class Token extends PersonalAccessToken
 }
 ```
 
-修改 `AuthServiceProvider` 服務提供者，在 `boot()` 方法中設定 Sanctum 要使用的 `Token` 模型。
+修改 `AppServiceProvider` 服務提供者，在 `boot()` 方法中設定 Sanctum 要使用的 `Token` 模型。
 
 ```PHP
 namespace App\Providers;
 
-use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use App\Models\Token;
+use Illuminate\Support\ServiceProvider;
 use Laravel\Sanctum\Sanctum;
 
-class AuthServiceProvider extends ServiceProvider
+class AppServiceProvider extends ServiceProvider
 {
     /**
-     * The policy mappings for the application.
+     * Register any application services.
      *
-     * @var array
+     * @return void
      */
-    protected $policies = [
-        // 'App\Model' => 'App\Policies\ModelPolicy',
-    ];
+    public function register()
+    {
+        //
+    }
 
     /**
-     * Register any authentication / authorization services.
+     * Bootstrap any application services.
      *
      * @return void
      */
     public function boot()
     {
-        $this->registerPolicies();
+        Sanctum::usePersonalAccessTokenModel(Token::class);
+    }
+}
+```
 
-        Sanctum::usePersonalAccessTokenModel(\App\Models\Token::class);
+## 遷移檔
+
+如果要客製 Sanctum 的 `personal_access_tokens` 資料表，可以使用以下指令匯出遷移檔。
+
+```BASH
+php artisan vendor:publish --tag=sanctum-migrations
+```
+
+修改 `AppServiceProvider` 服務提供者，停止使用預設的遷移檔：
+
+```PHP
+namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use Laravel\Sanctum\Sanctum;
+
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        Sanctum::ignoreMigrations();
+    }
+
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        //
     }
 }
 ```
