@@ -35,5 +35,5 @@ docker-sync start
 停止。
 
 ```ENV
-docker-compose stop
+docker-sync stop
 ```
