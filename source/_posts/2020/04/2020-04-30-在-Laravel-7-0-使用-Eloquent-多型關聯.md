@@ -622,10 +622,10 @@ return [
 composer dump-autoload
 ```
 
-### 程式碼
+## 程式碼
 
 - [eloquent-polymorphic-relationships-example](https://github.com/memochou1993/eloquent-polymorphic-relationships-example)
 
-### 參考資料
+## 參考資料
 
 - [Eloquent: Relationships](https://laravel.com/docs/master/eloquent-relationships)
