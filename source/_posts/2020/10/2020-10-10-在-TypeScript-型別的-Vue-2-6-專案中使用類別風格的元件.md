@@ -1,6 +1,6 @@
 ---
-title: 在 TypeScript 型別的 Vue 專案中使用類別風格的元件
-permalink: 在-TypeScript-型別的-Vue-專案中使用類別風格的元件
+title: 在 TypeScript 型別的 Vue 2.6 專案中使用類別風格的元件
+permalink: 在-TypeScript-型別的-Vue-2-6-專案中使用類別風格的元件
 date: 2020-10-10 16:12:42
 tags: ["程式設計", "JavaScript", "Vue", "TypeScript"]
 categories: ["程式設計", "JavaScript", "Vue"]
