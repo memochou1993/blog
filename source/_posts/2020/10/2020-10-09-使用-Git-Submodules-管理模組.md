@@ -28,23 +28,12 @@ git clone --recursive <REPOSITORY>
 
 ### 刪除子模組
 
-先執行以下指令。
-
 ```BASH
 git submodule deinit <PATH>
 git rm --cached <PATH>
 rm -rf <PATH>
+rm -rf .git/modules/<PATH>
 ```
-
-修改 `.gitmodules` 檔，刪除不必要的子模組。
-
-```ENV
-[submodule "<PATH>"]
-    path = <PATH>
-    url = <REPOSITORY>
-```
-
-提交修改。
 
 ## 參考資料
 
