@@ -24,7 +24,13 @@ class CollectionMixin
             $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
 
             return (
-                new LengthAwarePaginator($this->forPage($page, $perPage), $this->count(), $perPage, $page, $options)
+                new LengthAwarePaginator(
+                    $this->forPage($page, $perPage)->values(),
+                    $this->count(),
+                    $perPage,
+                    $page,
+                    $options
+                )
             )->withPath('');
         };
     }
