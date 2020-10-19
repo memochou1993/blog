@@ -31,19 +31,7 @@ class Company extends Model implements AuthenticatableContract
 
 ## 中介層
 
-如果令牌不是由 `User` 模型所建立，直接將當前的認證模型，例如 `Auth::user()` 注入到具有模型綁定的方法中就會發生錯誤。
-
-```PHP
-/**
- * @param  User  $user
- */
-public function get(User $user)
-{
-    //
-}
-```
-
-為了避免錯誤的令牌請求，可以建立一個 `VerifyToken` 中介層：
+如果令牌不是由 `User` 模型所建立，需要建立一個 `VerifyToken` 中介層，來區別目前的認證是什麼模型：
 
 ```PHP
 namespace App\Http\Middleware;
