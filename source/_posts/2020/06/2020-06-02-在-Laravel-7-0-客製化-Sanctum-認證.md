@@ -36,11 +36,11 @@ class Company extends Model implements AuthenticatableContract
 ```PHP
 public function viewAny(User $user)
 {
-    // 出現錯誤，因為 $user 不是 User 模型
+    // 出現錯誤，因為 $user 並不是 User 模型
 }
 ```
 
-因此需要建立一個 `VerifyToken` 中介層，來區別目前的認證是什麼模型：
+因此需要建立一個 `VerifyToken` 中介層，來辨別目前的認證是什麼模型：
 
 ```PHP
 namespace App\Http\Middleware;
@@ -85,15 +85,15 @@ protected $routeMiddleware = [
 
 ```PHP
 Route::prefix('api/user')->middleware([
-    'token:user',
     'auth:sanctum',
+    'token:user',
 ])->group(function () {
     // 只有使用 User 模型所建立的令牌能夠進入
 });
 
 Route::prefix('api/company')->middleware([
-    'token:company',
     'auth:sanctum',
+    'token:company',
 ])->group(function () {
     // 只有使用 Company 模型所建立的令牌能夠進入
 });
