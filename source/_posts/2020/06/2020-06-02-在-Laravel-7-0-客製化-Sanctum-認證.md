@@ -31,7 +31,16 @@ class Company extends Model implements AuthenticatableContract
 
 ## 中介層
 
-如果令牌不是由 `User` 模型所建立，需要建立一個 `VerifyToken` 中介層，來區別目前的認證是什麼模型：
+如果令牌不是由 `User` 模型所建立，例如由 `Company` 模型所建立，使用此另牌去存取 `User` 模型的資料，有可能在 Policy 的隱式綁定中出現問題。
+
+```PHP
+public function viewAny(User $user)
+{
+    // 出現錯誤，因為 $user 不是 User 模型
+}
+```
+
+因此需要建立一個 `VerifyToken` 中介層，來區別目前的認證是什麼模型：
 
 ```PHP
 namespace App\Http\Middleware;
