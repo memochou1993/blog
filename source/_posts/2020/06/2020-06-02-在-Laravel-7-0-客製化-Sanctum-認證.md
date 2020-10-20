@@ -191,13 +191,3 @@ class AppServiceProvider extends ServiceProvider
     }
 }
 ```
-
-## 測試
-
-在做單元測試的時候，使用以下方法來認證當前的模型：
-
-```PHP
-$company = factory(Company::class)->make();
-
-Sanctum::actingAs($company);
-```

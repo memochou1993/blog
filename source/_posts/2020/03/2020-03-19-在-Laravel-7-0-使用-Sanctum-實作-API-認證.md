@@ -130,6 +130,24 @@ class AuthController extends Controller
 }
 ```
 
+## 守衛
+
+若要使用全域函式 `auth()` 取得 Sanctum 令牌的所屬模型，將 Guard 指定為 `sanctum`。
+
+```PHP
+auth()->guard('sanctum')->user();
+```
+
+## 測試
+
+在做單元測試的時候，使用以下方法來認證當前的模型。
+
+```PHP
+$user = factory(User::class)->make();
+
+Sanctum::actingAs($user);
+```
+
 ## 程式碼
 
 - [sanctum-example](https://github.com/memochou1993/sanctum-example)
