@@ -80,6 +80,7 @@ namespace App\Http\Controllers;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Artisan;
 use MemoChou1993\Lexicon\Console\ClearCommand;
 use MemoChou1993\Lexicon\Console\SyncCommand;
@@ -101,6 +102,9 @@ class DemoController extends Controller
         if (! in_array($language, ['en', 'zh'])) {
             return redirect()->route('demo');
         }
+
+        // 設置系統語言
+        App::setLocale($language);
 
         // 如果接收到 sync 請求，執行 SyncCommand 指令
         if ($request->input('sync')) {
