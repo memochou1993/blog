@@ -2,7 +2,7 @@
 title: 實作「YouTube API」套件在 Laravel 專案中使用（一）
 permalink: 實作「YouTube-API」套件在-Laravel-專案中使用（一）
 date: 2018-10-28 20:56:37
-tags: ["程式設計", "PHP", "Laravel", "套件開發", "YouTube", "API", "Packagist"]
+tags: ["程式設計", "PHP", "Laravel", "套件開發", "YouTube", "Packagist"]
 categories: ["程式設計", "PHP", "套件開發"]
 ---
 

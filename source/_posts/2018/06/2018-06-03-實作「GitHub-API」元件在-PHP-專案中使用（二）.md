@@ -2,7 +2,7 @@
 title: 實作「GitHub API」套件在 PHP 專案中使用（二）
 permalink: 實作「GitHub-API」套件在-PHP-專案中使用（二）
 date: 2018-06-03 17:40:43
-tags: ["程式設計", "PHP", "套件開發", "GitHub", "API", "Packagist"]
+tags: ["程式設計", "PHP", "套件開發", "GitHub", "Packagist"]
 categories: ["程式設計", "PHP", "套件開發"]
 ---
 

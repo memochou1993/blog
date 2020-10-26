@@ -2,7 +2,7 @@
 title: 在 Laravel 7.0 使用 Sanctum 實作 API 認證
 permalink: 在-Laravel-7-0-使用-Sanctum-實作-API-認證
 date: 2020-03-19 12:28:13
-tags: ["程式設計", "PHP", "Laravel", "API"]
+tags: ["程式設計", "PHP", "Laravel"]
 categories: ["程式設計", "PHP", "Laravel"]
 ---
 

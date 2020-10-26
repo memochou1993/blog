@@ -2,7 +2,7 @@
 title: 在 Laravel 5.8 使用帳號或信箱進行 Passport 認證
 permalink: 在-Laravel-5-8-使用帳號或信箱進行-Passport-認證
 date: 2019-05-01 16:24:20
-tags: ["程式設計", "PHP", "Laravel", "API", "Passport"]
+tags: ["程式設計", "PHP", "Laravel", "Passport"]
 categories: ["程式設計", "PHP", "Laravel"]
 ---
 
