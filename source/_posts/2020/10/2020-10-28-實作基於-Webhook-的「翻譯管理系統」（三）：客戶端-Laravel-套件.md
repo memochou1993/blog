@@ -1,8 +1,8 @@
 ---
-title: 實作可雙向溝通的「翻譯管理系統」（三）：客戶端 Laravel 套件
-permalink: 實作可雙向溝通的「翻譯管理系統」（三）：客戶端-Laravel-套件
+title: 實作基於 Webhook 的「翻譯管理系統」（三）：客戶端 Laravel 套件
+permalink: 實作基於-Webhook-的「翻譯管理系統」（三）：客戶端-Laravel-套件
 date: 2020-10-28 14:09:48
-tags: ["程式設計", "PHP", "Laravel", "Localization", "套件開發", "Lexicon"]
+tags: ["程式設計", "PHP", "Laravel", "Localization", "Lexicon", "套件開發"]
 categories: ["程式設計", "PHP", "Laravel"]
 ---
 
@@ -457,7 +457,7 @@ class Sync
 
 ## 指令
 
-在 `SyncCommand` 類別中，使用了 `Lexicon::export()` 方法。
+在 `SyncCommand` 類別中，使用了 `Lexicon::export()` 方法，用來生成語系檔。
 
 ```PHP
 namespace MemoChou1993\Lexicon\Console;
@@ -512,7 +512,7 @@ class SyncCommand extends Command
 }
 ```
 
-在 `ClearCommand` 類別中，使用了 `Lexicon::clear()` 方法。
+在 `ClearCommand` 類別中，使用了 `Lexicon::clear()` 方法，用來清除語系檔。
 
 ```PHP
 namespace MemoChou1993\Lexicon\Console;

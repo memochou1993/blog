@@ -1,14 +1,14 @@
 ---
-title: 實作可雙向溝通的「翻譯管理系統」（二）：客戶端 PHP 套件
-permalink: 實作可雙向溝通的「翻譯管理系統」（二）：客戶端-PHP-套件
+title: 實作基於 Webhook 的「翻譯管理系統」（二）：客戶端 PHP 套件
+permalink: 實作基於-Webhook-的「翻譯管理系統」（二）：客戶端-PHP-套件
 date: 2020-10-27 14:08:34
-tags: ["程式設計", "PHP", "Laravel", "Localization", "套件開發", "Lexicon"]
+tags: ["程式設計", "PHP", "Laravel", "Localization", "Lexicon", "套件開發"]
 categories: ["程式設計", "PHP", "Laravel"]
 ---
 
 ## 前言
 
-此套件的目的是封裝 Guzzle HTTP 套件，使客戶端不需要知道 API 路徑的情況下，就能夠透過套件所提供的方法獲取服務端的資源。
+此套件的目的是封裝 Guzzle HTTP 套件，使客戶端在不需要知道 API 路徑的情況下，就能夠透過套件所提供的方法獲取服務端的資源。
 
 ## 核心
 

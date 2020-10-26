@@ -1,6 +1,6 @@
 ---
-title: 實作可雙向溝通的「翻譯管理系統」（四）：安裝 Lexicon 服務端
-permalink: 實作可雙向溝通的「翻譯管理系統」（四）：安裝-Lexicon-服務端
+title: 實作基於 Webhook 的「翻譯管理系統」（四）：安裝 Lexicon 服務端
+permalink: 實作基於-Webhook-的「翻譯管理系統」（四）：安裝-Lexicon-服務端
 date: 2020-11-01 15:20:30
 tags: ["程式設計", "PHP", "Laravel", "Localization", "Lexicon"]
 categories: ["程式設計", "PHP", "Laravel"]
@@ -22,8 +22,8 @@ Lexicon 服務端由後端 Laravel 專案以及前端 Vue 專案組成，前端�
 
 ```ENV
 |- lexicon-server/
-    |- resouces
-        |- js (lexicon-client)
+    |- resouces/
+        |- js/ (lexicon-client)
             |- .env.local
     |- .env
 ```
