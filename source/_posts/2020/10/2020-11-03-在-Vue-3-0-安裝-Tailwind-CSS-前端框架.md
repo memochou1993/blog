@@ -23,8 +23,10 @@ yarn add tailwindcss
 安裝 `autoprefixer` 套件。
 
 ```BASH
-yarn add autoprefixer
+yarn add autoprefixer@^9.0.0
 ```
+
+- 避免使用太新的版本，否則可能會導致編譯失敗。
 
 在 `src/assets/css` 資料夾新增 `tailwind.css` 檔：
 
