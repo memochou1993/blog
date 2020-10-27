@@ -92,6 +92,10 @@ createApp(App).use(router).mount('#app');
 </div>
 ```
 
+## 程式碼
+
+- [vue-tailwind-example](https://github.com/memochou1993/vue-tailwind-example)
+
 ## 參考資料
 
 - [Tailwind CSS - Documentation](https://tailwindcss.com/docs/installation)
