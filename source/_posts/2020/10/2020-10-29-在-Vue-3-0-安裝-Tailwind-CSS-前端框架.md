@@ -1,7 +1,7 @@
 ---
 title: 在 Vue 3.0 安裝 Tailwind CSS 前端框架
 permalink: 在-Vue-3-0-安裝-Tailwind-CSS-前端框架
-date: 2020-11-03 22:31:16
+date: 2020-10-29 22:31:16
 tags: ["程式設計", "JavaScript", "Vue", "Tailwind CSS"]
 categories: ["程式設計", "JavaScript", "Vue"]
 ---
