@@ -8,23 +8,24 @@ categories: ["環境部署", "Kubernetes"]
 
 ## 前言
 
-本文為 [Kubernetes 官方文件](https://kubernetes.io/docs/home/)的學習筆記。
+本文為〈[Kubernetes 官方文件](https://kubernetes.io/docs/home/)〉的學習筆記。
 
 ## 環境
 
 - MacOS
+- minikube
 
 ## 更新
 
-使用 Homebrew 重新安裝 minikube。
+使用 Homebrew 安裝 minikube。
 
 ```BASH
-brew reinstall minikube
+brew install minikube
 ```
 
 ## 創建叢集
 
-啟動 minikube 並創建一個叢集。
+啟動 minikube 並創建一個叢集（Cluster）。
 
 ```BASH
 minikube start
@@ -97,7 +98,7 @@ minikube start --kubernetes-version v1.19.0
 minikube start --vm-driver=<driver_name>
 ```
 
-使用以下指令，將 shell 指向 minikube 的 Docker 守護行程。Docker Client 會把 build context 送往 minikube 內的 Docker 守護行程進行打包。打包出來的映像檔會存在 minikube 虛擬機內，如此一來可以加速本地端的實驗。
+使用以下指令，將 shell 指向 minikube 的 Docker 守護行程（daemon）。Docker Client 會把 build context 送往 minikube 內的 Docker 守護行程進行打包。打包出來的映像檔會存在 minikube 虛擬機內，如此一來可以加速本地端的實驗。
 
 ```BASH
 eval $(minikube docker-env)
@@ -119,7 +120,7 @@ docker ps
 --extra-config=kubelet.MaxPods=5
 ```
 
-若要將 `apiserver` 的 `AuthorizationMode` 設定調整為 RBAC，可以使用以下參數：
+若要將 `apiserver` 的 `AuthorizationMode` 設定調整為 RBAC（一種身分驗證方法），使用以下參數：
 
 ```BASH
 --extra-config=apiserver.authorization-mode=RBAC
@@ -127,7 +128,7 @@ docker ps
 
 ## 與叢集互動
 
-### Kubectl
+### kubectl
 
 使用 `minikube start` 指令時，會創建一個名為 `minikube` 的 `kubectl` 上下文。此上下文包含與 minikube 叢集通訊的配置。使用以下指令，查看當前的 `kubectl` 上下文。
 
@@ -145,7 +146,7 @@ minikube dashboard
 
 ### 網路
 
-minikube 虛擬機透過 host-only IP 開放給主機系統，可以使用以下指令獲得此 IP。
+minikube 虛擬機透過 host-only IP 開放給主機系統，可以使用以下指令獲得此 IP：
 
 ```BASH
 minikube ip
