@@ -1,6 +1,6 @@
 ---
 title: 學習 Kubernetes 容器管理平台（三）：服務、擴展、更新
-permalink: 學習 Kubernetes 容器管理平台（三）：服務、擴展、更新
+permalink: 學習-Kubernetes-容器管理平台（三）：服務、擴展、更新
 date: 2020-11-01 22:01:41
 tags: ["環境部署", "Kubernetes", "Docker", "minikube"]
 categories: ["環境部署", "Kubernetes"]
