@@ -278,6 +278,7 @@ kubectl apply -k .
 從指令指定的字面值創建。
 
 ```BASH
+cat <<EOF >./kustomization.yaml
 configMapGenerator:
 - name: special-config-6
   env: configure-pod-container/configmap/game-env-file.properties
