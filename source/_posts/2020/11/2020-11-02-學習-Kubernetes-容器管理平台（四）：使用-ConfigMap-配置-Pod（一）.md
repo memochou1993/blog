@@ -1,7 +1,7 @@
 ---
-title: 學習 Kubernetes 容器管理平台（四）：使用 ConfigMap 配置 Pod
-permalink: 學習-Kubernetes-容器管理平台（四）：使用-ConfigMap-配置-Pod
-date: 2020-11-03 21:05:17
+title: 學習 Kubernetes 容器管理平台（四）：使用 ConfigMap 配置 Pod（一）
+permalink: 學習-Kubernetes-容器管理平台（四）：使用-ConfigMap-配置-Pod（一）
+date: 2020-11-02 21:05:17
 tags: ["環境部署", "Kubernetes", "Docker", "minikube"]
 categories: ["環境部署", "Kubernetes"]
 ---
