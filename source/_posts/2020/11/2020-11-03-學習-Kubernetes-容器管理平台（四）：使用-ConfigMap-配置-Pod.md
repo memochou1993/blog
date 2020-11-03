@@ -17,9 +17,9 @@ categories: ["環境部署", "Kubernetes"]
 
 ## 概述
 
-ConfigMap 允許配置文件與鏡像文件分離，使得容器化的應用程式具有可移植性。
+ConfigMap 允許配置檔案與鏡像檔案分離，使得容器化的應用程式具有可移植性。
 
-## 創建配置文件
+## 創建配置檔案
 
 新增一個 `configure-pod-container/configmap` 資料夾。
 
@@ -111,7 +111,7 @@ data:
     how.nice.to.look=fairlyNice
 ```
 
-在使用 `--from-file` 參數時，可以定義在 ConfigMap 的 Data 部分出現的鍵名，而不是使用預設的文件名稱當做鍵名。
+在使用 `--from-file` 參數時，可以定義在 ConfigMap 的 Data 部分出現的鍵名，而不是使用預設的檔案名稱當做鍵名。
 
 ```BASH
 kubectl create configmap game-config-special-key --from-file=game-special-key=configure-pod-container/configmap/game.properties
@@ -256,7 +256,7 @@ kubectl apply -k .
 
 - 生成的 ConfigMap 名稱具有通過對內容進行雜湊而附加的後綴，這樣可以確保每次修改內容時，都會生成新的 ConfigMap。
 
-如果要定義在 ConfigMap 的 Data 部分出現的鍵名，而不是使用預設的文件名稱當做鍵名：
+如果要定義在 ConfigMap 的 Data 部分出現的鍵名，而不是使用預設的檔案名稱當做鍵名：
 
 ```BASH
 cat <<EOF >./kustomization.yaml
@@ -312,4 +312,261 @@ kubectl apply -k .
 
 ## 定義容器的環境變數
 
-TODO
+### 使用單個 ConfigMap 定義
+
+先清除舊的 ConfigMap 的範例。
+
+```BASH
+kubectl delete pods --all
+kubectl delete configmap --all
+```
+
+創建名為 `special-config` 的 ConfigMap。
+
+```BASH
+kubectl create configmap special-config --from-literal=special.how=very
+```
+
+使用 Pod 定義檔創建 Pod。
+
+```BASH
+kubectl create -f https://kubernetes.io/examples/pods/pod-single-configmap-env-variable.yaml
+```
+
+現在，此 Pod 的輸出會包含環境變數 `SPECIAL_LEVEL_KEY=very`。
+
+### 使用多個 ConfigMap 定義
+
+先清除舊的範例。
+
+```BASH
+kubectl delete pods --all
+kubectl delete configmap --all
+```
+
+創建名為 `special-config` 和 `env-config` 的 ConfigMaps。
+
+```BASH
+kubectl create -f https://kubernetes.io/examples/configmap/configmaps.yaml
+```
+
+使用 Pod 定義檔創建 Pod。
+
+```BASH
+kubectl create -f https://kubernetes.io/examples/pods/pod-multiple-configmap-env-variable.yaml
+```
+
+現在，此 Pod 的輸出會包含環境變數 `SPECIAL_LEVEL_KEY=very` 和 `LOG_LEVEL=INFO`。
+
+### 配置所有 ConfigMap 的鍵值對
+
+先清除舊的範例。
+
+```BASH
+kubectl delete pods --all
+kubectl delete configmap --all
+```
+
+創建一個包含多個鍵值對的 ConfigMap：
+
+```BASH
+kubectl create -f https://kubernetes.io/examples/configmap/configmap-multikeys.yaml
+```
+
+使用 `envFrom` 將所有 ConfigMap 的鍵值對定義為容器的環境變數。
+
+```YAML
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dapi-test-pod
+spec:
+  containers:
+    - name: test-container
+      image: k8s.gcr.io/busybox
+      command: [ "/bin/sh", "-c", "env" ]
+      envFrom:
+      - configMapRef:
+          name: special-config
+  restartPolicy: Never
+```
+
+使用 Pod 定義檔創建 Pod。
+
+```BASH
+kubectl create -f https://kubernetes.io/examples/pods/pod-configmap-envFrom.yaml
+```
+
+現在，此 Pod 的輸出會包含環境變數 `SPECIAL_LEVEL=very` 和 `SPECIAL_TYPE=charm`。
+
+### 在 Pod 定義檔使用 ConfigMap 定義的環境變數
+
+先清除舊的範例。
+
+```BASH
+kubectl delete pods --all
+kubectl delete configmap --all
+```
+
+使用 `$(VAR_NAME)` 的替換語法在 Pod 定義檔的 `command` 中使用 ConfigMap 定義的環境變數。
+
+```YAML
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dapi-test-pod
+spec:
+  containers:
+    - name: test-container
+      image: k8s.gcr.io/busybox
+      command: [ "/bin/sh", "-c", "echo $(SPECIAL_LEVEL_KEY) $(SPECIAL_TYPE_KEY)" ]
+      env:
+        - name: SPECIAL_LEVEL_KEY
+          valueFrom:
+            configMapKeyRef:
+              name: special-config
+              key: SPECIAL_LEVEL
+        - name: SPECIAL_TYPE_KEY
+          valueFrom:
+            configMapKeyRef:
+              name: special-config
+              key: SPECIAL_TYPE
+  restartPolicy: Never
+```
+
+使用 Pod 定義檔創建 Pod。
+
+```BASH
+kubectl create -f https://kubernetes.io/examples/pods/pod-configmap-env-var-valueFrom.yaml
+```
+
+現在，此 Pod 的容器會輸出 `very charm`。
+
+## 定義資料卷的環境變數
+
+創建名為 `special-config` 的 ConfigMap。
+
+```BASH
+kubectl create -f https://kubernetes.io/examples/configmap/configmap-multikeys.yaml
+```
+
+### 將 ConfigMap 中的資料添加到資料卷
+
+先清除舊的範例。
+
+```BASH
+kubectl delete pods --all
+kubectl delete configmap --all
+```
+
+在 Pod 定義檔的 `volumes` 字段下添加 ConfigMap 名稱。這會將 ConfigMap 資料添加到指定為 `volumeMounts.mountPath` 的資料夾（範例為 `/etc/config`）。`command` 字段引用儲存在 ConfigMap 中的 `special.level`。
+
+```YAML
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dapi-test-pod
+spec:
+  containers:
+    - name: test-container
+      image: k8s.gcr.io/busybox
+      command: [ "/bin/sh", "-c", "ls /etc/config/" ]
+      volumeMounts:
+      - name: config-volume
+        mountPath: /etc/config
+  volumes:
+    - name: config-volume
+      configMap:
+        name: special-config
+  restartPolicy: Never
+```
+
+使用 Pod 定義檔創建 Pod。
+
+```BASH
+kubectl create -f https://kubernetes.io/examples/pods/pod-configmap-volume.yaml
+```
+
+現在 Pod 運行時，指令 `ls /etc/config/` 會產生以下輸出：
+
+```BASH
+SPECIAL_LEVEL
+SPECIAL_TYPE
+```
+
+### 將 ConfigMap 中的資料添加到資料卷中的特定路徑
+
+先清除舊的範例。
+
+```BASH
+kubectl delete pods --all
+kubectl delete configmap --all
+```
+
+使用 `path` 字段為特定的 ConfigMap 項目指定預期的檔案路徑。在這裡，`SPECIAL_LEVEL` 將掛載在 `config-volume` 資料卷中 `/etc/config/keys` 資料夾下。
+
+```YAML
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dapi-test-pod
+spec:
+  containers:
+    - name: test-container
+      image: k8s.gcr.io/busybox
+      command: [ "/bin/sh","-c","cat /etc/config/keys" ]
+      volumeMounts:
+      - name: config-volume
+        mountPath: /etc/config
+  volumes:
+    - name: config-volume
+      configMap:
+        name: special-config
+        items:
+        - key: SPECIAL_LEVEL
+          path: keys
+  restartPolicy: Never
+```
+
+使用 Pod 定義檔創建 Pod。
+
+```BASH
+kubectl create -f https://kubernetes.io/examples/pods/pod-configmap-volume-specific-key.yaml
+```
+
+當 Pod 運行時，指令 `cat /etc/config/keys` 會產生以下輸出：
+
+```BASH
+very
+```
+
+## 補充
+
+ConfigMap 的 `data` 字段包含配置資料。它可以很簡單（如用 `--from-literal` 的單個屬性定義）或很複雜（如用 `--from-file` 的配置檔案）
+
+```BASH
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  creationTimestamp: 2016-02-18T19:14:38Z
+  name: example-config
+  namespace: default
+data:
+  # --from-literal
+  example.property.1: hello
+  example.property.2: world
+  # --from-file
+  example.property.file: |-
+    property.1=value-1
+    property.2=value-2
+    property.3=value-3
+```
+
+### 限制
+
+一些限制如下：
+
+- 在 Pod 定義檔引用之前，必須先創建一個 ConfigMap（除非將 ConfigMap 標記為「可選的」）。如果引用的 ConfigMap 不存在，則 Pod 不會啟動。同樣，引用 ConfigMap 中不存在的鍵，也會阻止 Pod 啟動。
+- 如果使用 `envFrom` 來定義環境變數，無效的鍵會被忽略。啟動 Pod 時，無效名稱會被記錄在事件日誌中，使用 `kubectl get events` 指令可以進行查看。
+- ConfigMap 位於特定的命名空間中，每個 ConfigMap 只能被相同命名空間中的 Pod 引用。
+- 不能將 ConfigMap 用於靜態 Pod，Kubernetes 不支援這種用法。
