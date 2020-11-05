@@ -2,7 +2,7 @@
 title: 使用 Kubernetes 和 Jenkins 為應用程式建立自動化部署（二）
 permalink: 使用-Kubernetes-和-Jenkins-為應用程式建立自動化部署（二）
 date: 2020-04-12 20:17:01
-tags: ["環境部署", "Kubernetes", "Docker", "CI/CD"]
+tags: ["環境部署", "Kubernetes", "Docker", "minikube", "CI/CD"]
 categories: ["環境部署", "Kubernetes"]
 ---
 

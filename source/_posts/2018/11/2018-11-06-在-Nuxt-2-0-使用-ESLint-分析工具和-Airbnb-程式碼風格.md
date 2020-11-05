@@ -1,9 +1,9 @@
 ---
-title: 在 Nuxt 2.0 使用 Airbnb 程式碼風格
-permalink: 在-Nuxt-2-0-使用-Airbnb-程式碼風格
+title: 在 Nuxt 2.0 使用 ESLint 分析工具和 Airbnb 程式碼風格
+permalink: 在-Nuxt-2-0-使用-ESLint-分析工具和-Airbnb-程式碼風格
 date: 2018-11-06 00:22:26
-tags: ["程式設計", "JavaScript", "Vue", "Nuxt", "JSLint", "Airbnb"]
-categories: ["程式設計", "JavaScript", "Nuxt"]
+tags: ["程式設計", "JavaScript", "Vue", "ESLint", "Airbnb", "Nuxt"]
+categories: ["程式設計", "JavaScript", "ESLint"]
 ---
 
 ## 環境
@@ -12,7 +12,7 @@ categories: ["程式設計", "JavaScript", "Nuxt"]
 - node 8.11.1
 - npm 5.6.0
 
-## 方法
+## 做法
 
 使用以下指令安裝。
 

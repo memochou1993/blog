@@ -1,7 +1,7 @@
 ---
-title: 實作可雙向溝通的「翻譯管理系統」（五）：安裝 Lexicon 客戶端
-permalink: 實作可雙向溝通的「翻譯管理系統」（五）：安裝-Lexicon-客戶端
-date: 2020-11-02 22:39:03
+title: 實作基於 Webhook 的「翻譯管理系統」（五）：安裝 Lexicon 客戶端
+permalink: 實作基於-Webhook-的「翻譯管理系統」（五）：安裝-Lexicon-客戶端
+date: 2020-10-28 22:39:03
 tags: ["程式設計", "PHP", "Laravel", "Localization", "Lexicon"]
 categories: ["程式設計", "PHP", "Laravel"]
 ---
@@ -313,7 +313,7 @@ body {
 由於 Lexicon 客戶端套件會將語系檔存放至 `resources/lang` 資料夾中，因此還需要修改資料夾的權限。
 
 ```BAHS
-chown 1000:www-data -R resources/lang
+chown laradock:www-data -R resources/lang
 ```
 
 ## 線上演示
