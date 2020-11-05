@@ -241,7 +241,7 @@ go run main.go
 
 ## 程式碼
 
-[mongo-bulk-write](https://github.com/memochou1993/mongo-bulk-write)
+- [mongo-bulk-write](https://github.com/memochou1993/mongo-bulk-write)
 
 ## 參考資料
 

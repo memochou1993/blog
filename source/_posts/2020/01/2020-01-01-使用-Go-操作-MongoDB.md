@@ -452,7 +452,7 @@ go run main.go
 
 ## 程式碼
 
-[go-mongo-example](https://github.com/memochou1993/go-mongo-example)
+- [go-mongo-example](https://github.com/memochou1993/go-mongo-example)
 
 ## 參考資料
 

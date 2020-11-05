@@ -212,7 +212,7 @@ slice = append(slice1, slice2...)
 
 ## 程式碼
 
-[go-api-example](https://github.com/memochou1993/go-api-example)
+- [go-api-example](https://github.com/memochou1993/go-api-example)
 
 ## 參考資料
 
