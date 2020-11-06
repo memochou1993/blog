@@ -1,7 +1,7 @@
 ---
-title: 學習 Kubernetes 容器管理平台（五）：使用 ConfigMap 配置 Pod（二）
-permalink: 學習-Kubernetes-容器管理平台（五）：使用-ConfigMap-配置-Pod（二）
-date: 2020-11-03 20:46:36
+title: 在 Kubernetes 容器管理平台使用 ConfigMap 配置 Redis 資料庫
+permalink: 在-Kubernetes-容器管理平台使用-ConfigMap-配置-Redis-資料庫
+date: 2020-11-04 20:46:36
 tags: ["環境部署", "Kubernetes", "Docker", "minikube"]
 categories: ["環境部署", "Kubernetes"]
 ---
@@ -17,7 +17,7 @@ categories: ["環境部署", "Kubernetes"]
 
 ## 概述
 
-本文使用 ConfigMap 来配置 Redis 服務。
+本文使用 ConfigMap 来配置一個 Redis 服務。
 
 ## 做法
 
