@@ -1,6 +1,6 @@
 ---
-title: 在 Kubernetes 容器管理平台部署一個基於 Redis 資料庫 的 PHP 簽到簿
-permalink: 在-Kubernetes-容器管理平台部署一個基於-Redis-資料庫-的-PHP-簽到簿
+title: 學習 Kubernetes 容器管理平台（七）：部署一個基於 Redis 資料庫的 PHP 簽到簿
+permalink: 學習-Kubernetes-容器管理平台（七）：部署一個基於-Redis-資料庫的-PHP-簽到簿
 date: 2020-11-05 21:15:15
 tags: ["環境部署", "Kubernetes", "Docker", "minikube"]
 categories: ["環境部署", "Kubernetes"]
