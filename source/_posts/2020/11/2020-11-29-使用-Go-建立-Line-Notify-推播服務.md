@@ -1,7 +1,7 @@
 ---
 title: 使用 Go 建立 Line Notify 推播服務
 permalink: 使用-Go-建立-Line-Notify-推播服務
-date: 2020-11-28 21:44:12
+date: 2020-11-29 21:44:12
 tags: ["程式設計", "Go", "Line"]
 categories: ["程式設計", "Go", "其他"]
 ---
