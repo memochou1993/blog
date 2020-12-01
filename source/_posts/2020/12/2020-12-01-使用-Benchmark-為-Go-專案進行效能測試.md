@@ -1,6 +1,6 @@
 ---
-title: 學習 Go Benchmark 效能測試
-permalink: 學習-Go-Benchmark-效能測試
+title: 使用 Benchmark 為 Go 專案進行效能測試
+permalink: 使用-Benchmark-為-Go-專案進行效能測試
 date: 2020-12-01 14:46:04
 tags: ["程式設計", "Go", "測試"]
 categories: ["程式設計", "Go", "其他"]
@@ -8,7 +8,7 @@ categories: ["程式設計", "Go", "其他"]
 
 ## 前言
 
-以下替三種將數字轉為字串的函式做效能測試。
+Go 的 `testing` 標準庫提供 Benchmark 效能測試，以下替三種將數字轉為字串的函式做效能測試。
 
 ## 做法
 
