@@ -2,7 +2,7 @@
 title: 在 GitHub 上部署 Hexo 部落格
 permalink: 在-GitHub-上部署-Hexo-部落格
 date: 2018-04-17 10:15:43
-tags: ["Hexo", "GitHub", "環境部署", "GitHub Pages"]
+tags: ["Hexo", "環境部署", "GitHub", "GitHub Pages"]
 categories: ["其他", "部落格"]
 ---
 
