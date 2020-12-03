@@ -12,6 +12,10 @@ categories: ["程式設計", "Go", "其他"]
 
 先至 GitHub 的 [Personal access tokens](https://github.com/settings/tokens) 頁面申請一個存取令牌。根據需求選擇令牌的作用域，例如要存取公開的儲存庫，就將 `public_repo` 打勾。
 
+### 探索
+
+使用 [GitHub GraphQL API Explorer](https://developer.github.com/v4/explorer/) 進行探索。
+
 ### 實作
 
 新增 `main.go` 檔：
