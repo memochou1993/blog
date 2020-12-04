@@ -1,6 +1,6 @@
 ---
-title: 使用 Go 處理 MongoDB 大量資料寫入
-permalink: 使用-Go-處理-MongoDB-大量資料寫入
+title: 使用 Go 實作 MongoDB 批量操作
+permalink: 使用-Go-實作-MongoDB-批量操作
 date: 2020-01-08 22:33:24
 tags: ["程式設計", "Go", "MongoDB", "NoSQL", "資料庫", "ORM"]
 categories: ["程式設計", "Go", "其他"]
@@ -14,7 +14,7 @@ categories: ["程式設計", "Go", "其他"]
 
 ## 前言
 
-當有大量資料要寫入至 MongoDB 時，可以使用 `bulkWrite()` 方法提高效能。此方法將每 100,000 個請求做為一個批次發送至服務器，而不是每一次發送一個請求。
+對 MongoDB 有多個操作時，可以使用 `bulkWrite()` 方法提高效能。此方法將每 100,000 個請求做為一個批次發送至服務器，而不是每一次發送一個請求。
 
 ## 建立專案
 

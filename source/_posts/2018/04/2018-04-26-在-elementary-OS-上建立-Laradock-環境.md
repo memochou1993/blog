@@ -43,7 +43,7 @@ sudo apt install git
 curl -fsSL get.docker.com -o get-docker.sh
 sh get-docker.sh
 rm get-docker.sh
-docker -v // 檢査是否安裝成功並査看版本
+docker -v // 檢查是否安裝成功並查看版本
 ```
 
 ## 安裝 Docker Compose
@@ -60,7 +60,7 @@ docker -v // 檢査是否安裝成功並査看版本
 sudo curl -L https://github.com/docker/compose/releases/download/1.21.0/docker-compose-$(uname -s)-$(uname -m) -o ~/docker-compose
 sudo chmod +x ~/docker-compose
 sudo mv ~/docker-compose /usr/local/bin/docker-compose
-docker-compose -v // 檢査是否安裝成功並査看版本
+docker-compose -v // 檢查是否安裝成功並查看版本
 ```
 
 ## 新增使用者到群組
