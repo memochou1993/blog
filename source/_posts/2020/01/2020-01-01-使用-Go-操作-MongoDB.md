@@ -450,6 +450,15 @@ func Destroy(w http.ResponseWriter, r *http.Request) {
 go run main.go
 ```
 
+## 補充
+
+在 Go 語言中的 BSON 物件，常見的有以下 4 種類型：
+
+- `D`：一個有序的 BSON 文件。
+- `M`：一個無序的 BSON 文件。
+- `A`：一個 BSON 陣列。
+- `E`：一個 D 類型中的單獨元素。
+
 ## 程式碼
 
 - [go-mongo-example](https://github.com/memochou1993/go-mongo-example)
@@ -457,5 +466,5 @@ go run main.go
 ## 參考資料
 
 - [Build RESTful API with Go and MongoDB](https://github.com/coderminer/restful)
-- [Golang 对 MongoDB 的操作简单封装](https://juejin.im/post/5b3c46115188251aab711733)
+- [Golang 對 MongoDB 的操作簡單封裝](https://juejin.im/post/5b3c46115188251aab711733)
 - [The MongoDB driver for Go](https://godoc.org/github.com/globalsign/mgo)
