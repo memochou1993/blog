@@ -1,9 +1,9 @@
 ---
-title: 使用 Shell 腳本執行 SSH 連線
-permalink: 使用-Shell-腳本執行-SSH-連線
+title: 使用 Bash Shell 腳本執行 SSH 連線
+permalink: 使用-Bash-Shell-腳本執行-SSH-連線
 date: 2019-02-03 02:22:43
-tags: ["SSH", "Shell"]
-categories: ["其他", "SSH"]
+tags: ["Bash Shell", "SSH"]
+categories: ["其他", "Bash Shell"]
 ---
 
 ## 做法
