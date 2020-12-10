@@ -252,7 +252,7 @@ func main() {
 // nil!
 ```
 
-`for` 循環的 `range` 格式可以對 `slice` 或者 `map` 進行迭代循環。
+`for` 循環的 `range` 格式可以對 `slice` 或者 `map` 進行疊代循環。
 
 ```GO
 package main
