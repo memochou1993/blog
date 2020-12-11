@@ -32,7 +32,7 @@ https://yourdomain.com
 tls youremail@gmai.com
 ```
 
-啟動 Caddy 容器，以產生 Let’s Encrypt 憑證。
+啟動 Caddy 容器，以產生 Let's Encrypt 憑證。
 
 ```BASH
 docker-compose up caddy

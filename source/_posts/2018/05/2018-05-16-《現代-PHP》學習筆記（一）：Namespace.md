@@ -21,7 +21,7 @@ categories: ["程式設計", "PHP", "《現代 PHP》學習筆記"]
 2. Composer 套件相依性管理工具對如何建立 PHP 應用程式有了革命性的影響。
 3. PHP 在剛開始是 Rasmus Lerdorf 寫的一些 CGI 腳本片段，被命名為 Personal Home Page Tools。
 4. 1998 年發布 PHP 3，是跟我們現在熟知的 PHP 最相像的第一個版本，重新被命名為 Hypertext Preprocessor。
-5. Sara Golemon 和 Facebook 在 2014 年 O’Reilly 的 OSCON 會議上宣布了第一個 PHP 規範草案，可以在 GitHub 上閱讀內文。
+5. Sara Golemon 和 Facebook 在 2014 年 O'Reilly 的 OSCON 會議上宣布了第一個 PHP 規範草案，可以在 GitHub 上閱讀內文。
 6. PHP 引擎是一個可以解析、直譯和執行 PHP 程式碼的程式，如 Zend Engine 和 HipHop Virtual Machine。
 7. 現在是個成為 PHP 程式設計師的好時機。
 
