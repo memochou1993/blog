@@ -26,4 +26,4 @@ if err, ok := err.(mongo.BulkWriteException); ok {
 }
 ```
 
-- `SetOrdered` 代表即使儲存重複鍵名的資料，也不會後續其他資料的儲存。
+- `SetOrdered` 表示即使儲存重複鍵名的資料，也不會中斷後續其他資料的儲存。
