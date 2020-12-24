@@ -55,6 +55,18 @@ php artisan telescope:publish
 composer require laravel/telescope --dev
 ```
 
+修改 `composer.json` 檔。
+
+```JSON
+"extra": {
+    "laravel": {
+        "dont-discover": [
+            "laravel/telescope"
+        ]
+    }
+},
+```
+
 執行安裝。
 
 ```BASH
