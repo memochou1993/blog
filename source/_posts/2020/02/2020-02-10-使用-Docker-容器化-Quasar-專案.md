@@ -6,10 +6,12 @@ tags: ["環境部署", "Docker", "JavaScript", "Node", "Quasar"]
 categories: ["環境部署", "Docker"]
 ---
 
-## 容器化
+## 做法
+
+新增 `docker-compose.yaml` 檔：
 
 ```YML
-version: '3'
+version: "3"
 
 services:
   app:

@@ -27,7 +27,7 @@ DB_PASSWORD=root
 
 ## 容器化
 
-新增 `docker-compose.yml` 檔：
+新增 `docker-compose.yaml` 檔：
 
 ```YML
 version: "3"

@@ -6,12 +6,12 @@ tags: ["環境部署", "Docker", "JavaScript", "Vue"]
 categories: ["環境部署", "Docker"]
 ---
 
-## 容器化
+## 做法
 
 新增 `docker-compose.yaml` 檔：
 
 ```YAML
-version: '3'
+version: "3"
 
 services:
   app:
@@ -27,16 +27,24 @@ services:
 ```DOCKERFILE
 # build stage
 FROM node:lts-alpine as build-stage
+
 WORKDIR /app
+
 COPY package*.json ./
+
 RUN npm install
+
 COPY . .
+
 RUN npm run build
 
 # production stage
 FROM nginx:stable-alpine as production-stage
+
 COPY --from=build-stage /app/dist /usr/share/nginx/html
+
 EXPOSE 80
+
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
