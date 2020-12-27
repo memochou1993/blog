@@ -180,6 +180,10 @@ docker-compose up -d --build
 
 前往：<http://127.0.0.1:80>
 
+## 後記
+
+後來想到更簡單的方式是在本地端將打包好的靜態資源檔直接上版控，這樣在打包映像檔的時候就不需要再編譯一次靜態檔案。
+
 ## 程式碼
 
 - [json-editor](https://github.com/memochou1993/json-editor/)
