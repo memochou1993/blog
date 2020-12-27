@@ -82,7 +82,7 @@ deploy:
     repository: git@github.com:memochou1993/memochou1993.github.io.git
     branch: master
   - type: rsync
-    host: www.epoch.tw
+    host: epoch.tw
     user: root
     root: /var/www/blog/public
     delete: true
