@@ -33,7 +33,7 @@ sudo mv caddy /usr/bin/
 查看版本。
 
 ```BASH
-caddy --version
+caddy version
 v2.0.0-rc.3
 ```
 
