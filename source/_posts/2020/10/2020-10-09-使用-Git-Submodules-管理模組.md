@@ -14,11 +14,20 @@ categories: ["版本控制"]
 git submodule add <REPOSITORY> <PATH>
 ```
 
-### 更新所有子模組
+### 更新子模組
 
 ```BASH
 git submodule foreach --recursive git pull origin master
 ```
+
+### 下載遺失的子模組
+
+```BASH
+git submodule update --init --recursive
+```
+
+- 參數 `init` 將 `.gitmodules` 中的資訊註冊到 `.git/config` 內。
+- 參數 `update` 將根據 `.git/config` 內的資訊進行更新。
 
 ### 下載包含子模組的專案
 
