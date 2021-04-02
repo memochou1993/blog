@@ -28,7 +28,7 @@ docker logs mysql 2>&1 | grep GENERATED
 使用初始密碼進入容器。
 
 ```BASH
-docker exec -it mysql1 mysql -uroot -p
+docker exec -it mysql mysql -uroot -p
 ```
 
 修改使用者密碼。
