@@ -3,7 +3,7 @@ title: 在 Ubuntu 上安裝 Caddy 1.0 網頁伺服器
 permalink: 在-Ubuntu-上安裝-Caddy-1-0-網頁伺服器
 date: 2020-02-04 01:30:53
 tags: ["環境部署", "網頁伺服器", "Caddy", "Linux", "Ubuntu"]
-categories: ["環境部署", "網頁伺服器", "Caddy"]
+categories: ["環境部署", "網頁伺服器"]
 ---
 
 ## 做法
