@@ -1,6 +1,6 @@
 ---
-title: 在 GitHub 上部署 Hexo 部落格
-permalink: 在-GitHub-上部署-Hexo-部落格
+title: 將 Hexo 部落格部署至 GitHub Pages
+permalink: 將-Hexo-部落格部署至-GitHub-Pages
 date: 2018-04-17 10:15:43
 tags: ["Hexo", "環境部署", "GitHub", "GitHub Pages"]
 categories: ["其他", "部落格"]
