@@ -6,7 +6,7 @@ tags: ["程式設計", "JavaScript", "Vue", "Google Analytics"]
 categories: ["程式設計", "JavaScript", "Vue"]
 ---
 
-## 步驟
+## 安裝
 
 安裝 `vue-analytics` 套件。
 
@@ -38,3 +38,7 @@ Vue.use(VueAnalytics, {
 ```JS
 import '@/plugins/analytics';
 ```
+
+## 參考資料
+
+- [MatteoGabriele/vue-analytics](https://github.com/MatteoGabriele/vue-analytics)

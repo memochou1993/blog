@@ -6,12 +6,12 @@ tags: ["程式設計", "JavaScript", "Vue", "Google Analytics"]
 categories: ["程式設計", "JavaScript", "Vue"]
 ---
 
-## 做法
+## 安裝
 
 安裝 `vue-gtag-next` 套件。
 
 ```BASH
-npm add vue-gtag-next
+yarn add vue-gtag-next
 ```
 
 修改 `main.js` 檔：
