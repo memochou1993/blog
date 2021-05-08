@@ -22,7 +22,7 @@ npm init
 
 ```JSON
 {
-  "name": "ts-example-package",
+  "name": "@memochou1993/ts-example-package",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -173,7 +173,7 @@ npm login
 發布套件。
 
 ```BASH
-npm publish
+npm publish --access=public
 ```
 
 ## 參考資料
