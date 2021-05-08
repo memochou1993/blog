@@ -134,12 +134,8 @@ module.exports = {
 
 執行測試。
 
-```TS
-import { hello } from '../src';
-
-test('hello', () => {
-  expect(hello('World')).toEqual('Hello World');
-});
+```BASH
+npm run test 
 ```
 
 ## 發布套件
