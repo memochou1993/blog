@@ -79,7 +79,7 @@ new Vue({
 
 ```ENV
 RECAPTCHA_ENABLED=true
-RECAPTCHA_BASE_URL=https://www.google.com/recaptcha/api/siteverify
+RECAPTCHA_API_URL=https://www.google.com/recaptcha/api/siteverify
 RECAPTCHA_SECRET_KEY=XXXXXXXXXX
 ```
 
