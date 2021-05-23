@@ -49,19 +49,17 @@ import './plugins/recaptcha';
 new Vue({
   // ...
   methods: {
-    async fetchRecaptchaToken() {
+    async getRecaptchaToken() {
       await this.$recaptchaLoaded();
       const token = await this.$recaptcha('login');
       return token;
     },
-    async login() {
+    async verify() {
       axios({
         method: 'POST',
-        url: '/auth/login',
+        url: '/auth/verify',
         data: {
-          username: this.username,
-          password: this.password,
-          token: await this.fetchRecaptchaToken(),
+          token: await this.getRecaptchaToken(),
         },
       })
         .then(() => {
@@ -78,7 +76,6 @@ new Vue({
 以 Laravel 為例，在 `.env` 檔新增以下參數：
 
 ```ENV
-RECAPTCHA_ENABLED=true
 RECAPTCHA_API_URL=https://www.google.com/recaptcha/api/siteverify
 RECAPTCHA_SECRET_KEY=XXXXXXXXXX
 ```
@@ -86,31 +83,19 @@ RECAPTCHA_SECRET_KEY=XXXXXXXXXX
 向 Google 發出 POST 請求，以進行驗證：
 
 ```PHP
-use GuzzleHttp\Client;
+$client = new \GuzzleHttp\Client();
 
-if (env('RECAPTCHA_ENABLED')) {
-    try {
-        $client = new Client();
+$response = $client->post(env('RECAPTCHA_API_URL'), [
+    'headers' => [
+        'Accept' => 'application/json',
+    ],
+    'form_params' => [
+        'secret' => env('RECAPTCHA_SECRET_KEY'),
+        'response' => $this->request->token,
+    ],
+]);
 
-        $response = $client->post(env('RECAPTCHA_API_URL'), [
-            'headers' => [
-                'Accept' => 'application/json',
-            ],
-            'form_params' => [
-                'secret' => env('RECAPTCHA_SECRET_KEY'),
-                'response' => $this->request->token,
-            ],
-        ]);
-
-        $result = json_decode($response->getBody()->getContents(), true);
-
-        if (!$result['success']) {
-            return abort(403, collect($result['error-codes'])->first());
-        }
-    } catch (ClientException $e) {
-        return $e->getResponse();
-    }
-}
+return $response->getBody();
 ```
 
 ## 參考資料
