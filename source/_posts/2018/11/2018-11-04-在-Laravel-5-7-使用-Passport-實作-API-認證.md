@@ -140,10 +140,7 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Passport::tokensExpireIn(now()->addMinutes(360)); // Token 有效時間
-
         Passport::refreshTokensExpireIn(now()->addDays(7)); // Refresh Token 有效時間
-
-        Passport::pruneRevokedTokens(); // 從資料庫將過期 Token 刪除
     }
 }
 ```
