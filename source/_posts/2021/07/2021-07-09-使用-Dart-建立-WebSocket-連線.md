@@ -40,6 +40,12 @@ void main() {
 }
 ```
 
+執行。
+
+```BASH
+dart server.dart
+```
+
 ## 客戶端
 
 新增 `client.dart` 檔。
@@ -76,6 +82,12 @@ main() {
     );
   }, onError: (err) => print(err));
 }
+```
+
+執行。
+
+```BASH
+dart client.dart
 ```
 
 ## 程式碼
