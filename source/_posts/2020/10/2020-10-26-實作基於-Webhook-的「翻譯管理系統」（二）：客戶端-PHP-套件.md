@@ -130,7 +130,7 @@ composer require memochou1993/lexicon-api-php-client
 
 複製 `.env.example` 範本到 `.env` 檔：
 
-```
+```BASH
 LEXICON_HOST=
 LEXICON_API_KEY=
 ```
