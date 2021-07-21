@@ -98,7 +98,7 @@ php artisan telescope:publish
 public function register()
 {
     if ($this->app->isLocal()) {
-        $this->app->register(TelescopeServiceProvider::class);
+        $this->app->register(App\Providers\TelescopeServiceProvider::class);
     }
 }
 ```
