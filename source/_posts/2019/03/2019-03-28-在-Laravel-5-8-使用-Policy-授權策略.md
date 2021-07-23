@@ -74,7 +74,7 @@ public function show(User $user, Record $record)
 在控制器的建構子使用 `authorizeResource()` 方法，可以一次為所有方法套用授權策略。
 
 ```PHP
-$this->authorizeResource(Record)::class, 'record');
+$this->authorizeResource(Record::class, 'record');
 ```
 
 此方法必須在各個類別方法中注入模型實例，如此 Policy 才能知道需要被處理的對象為何。
