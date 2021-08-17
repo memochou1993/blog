@@ -69,13 +69,15 @@ npm i -D typescript jest ts-jest @types/jest
 - 參數 `compilerOptions.lib` 表示 ES6 語法是可被使用的。
 - 參數 `include` 指定要被編譯的檔案。
 
-在 `package.json` 檔的腳本中，加入 `build` 指令：
+在 `package.json` 檔的腳本中，加入以下指令：
 
 ```JSON
-"scripts": {
+{
+  "scripts": {
     "build": "tsc",
     "test": "jest"
-},
+  },
+}
 ```
 
 在 `src` 資料夾新增 `index.ts` 檔，並新增主要程式碼。
