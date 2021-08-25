@@ -1,6 +1,6 @@
 ---
-title: 處理在 Axios 中使用 Store 和 Router 造成的迴圈依賴
-permalink: 處理在-Axios-中使用-Store-和-Router-造成的迴圈依賴
+title: 處理在 Axios 中使用 Vuex 和 Vue Router 造成的迴圈依賴
+permalink: 處理在-Axios-中使用-Vuex-和-Vue-Router-造成的迴圈依賴
 date: 2021-08-22 02:24:46
 tags: ["程式設計", "JavaScript", "Vue"]
 categories: ["程式設計", "JavaScript", "Vue"]
@@ -8,7 +8,7 @@ categories: ["程式設計", "JavaScript", "Vue"]
 
 ## 做法
 
-將攔截器封裝成方法並匯出，以參數的方式將 Store 和 Router 傳入，而不是直接引入。
+有時會在 Axios 的攔截器使用到 Vuex 或 Vue Router，這時如果出現迴圈依賴（circular dependency）的錯誤訊息，需要將攔截器封裝成方法並匯出，並以參數的方式將 Vuex 和 Vue Router 傳入，而不是直接引入。
 
 ```JS
 export const setInterceptors = (store, router) => {
@@ -24,7 +24,7 @@ export const setInterceptors = (store, router) => {
 };
 ```
 
-在 `main.js` 引入方法，並將 Store 和 Router 傳入。
+在 `main.js` 引入方法，並將 Vuex 和 Vue Router 引入，並傳進方法中。
 
 ```JS
 import {
