@@ -148,6 +148,14 @@ $user = factory(User::class)->make();
 Sanctum::actingAs($user);
 ```
 
+## 設定
+
+如果部署到正式環境，需要在 `.env` 檔設置 SPA 應用程式的網域。
+
+```ENV
+SANCTUM_STATEFUL_DOMAINS=
+```
+
 ## 程式碼
 
 - [sanctum-example](https://github.com/memochou1993/sanctum-example)
