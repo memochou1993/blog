@@ -24,7 +24,8 @@ categories: ["其他", "雲端運算服務"]
 
 1. 進到 [CloudFront](https://console.aws.amazon.com/cloudfront/v3/home) 首頁，點選「建立分佈」。
 2. 選擇來源網域。
-3. 點選「建立分佈」。
+3. 如果有需要，將預設根對象設為「index.html」。
+4. 點選「建立分佈」。
 
 ## 清除快取
 
