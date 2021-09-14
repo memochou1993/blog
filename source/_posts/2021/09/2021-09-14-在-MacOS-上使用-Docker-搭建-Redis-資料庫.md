@@ -16,7 +16,7 @@ categories: ["環境部署", "Docker"]
 下載並啟動 `redis` 映像檔。
 
 ```BASH
-docker run --name redis -d redis
+docker run --name redis -d -p 6379:6379 redis
 ```
 
 進入容器。
