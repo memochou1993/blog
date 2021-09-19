@@ -23,14 +23,16 @@ php artisan serve
 ## 修改 package.json 檔
 
 ```JSON
-"axios": "^0.18",
-"cross-env": "^5.1",
-"laravel-mix": "^4.0.7",
-"lodash": "^4.17.5",
-"resolve-url-loader": "^2.3.1",
-"sass": "^1.15.2",
-"sass-loader": "^7.1.0",
-"vue": "^2.5.17"
+{
+    "axios": "^0.18",
+    "cross-env": "^5.1",
+    "laravel-mix": "^4.0.7",
+    "lodash": "^4.17.5",
+    "resolve-url-loader": "^2.3.1",
+    "sass": "^1.15.2",
+    "sass-loader": "^7.1.0",
+    "vue": "^2.5.17"
+}
 ```
 
 ## 安裝

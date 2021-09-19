@@ -31,7 +31,9 @@ npm install
 編輯 `package.json` 檔，把 `"bootstrap": "^4.0.0"` 改為以下：
 
 ```JSON
-"foundation-sites": "^6.4.4-rc1",
+{
+    "foundation-sites": "^6.4.4-rc1"
+}
 ```
 
 更新 `package.json` 檔。
