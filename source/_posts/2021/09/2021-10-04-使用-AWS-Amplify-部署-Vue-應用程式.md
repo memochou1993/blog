@@ -6,7 +6,7 @@ tags: ["環境部署", "AWS", "Amplify", "Vue"]
 categories: ["雲端運算服務", "AWS"]
 ---
 
-### 建立專案
+## 建立專案
 
 建立專案。
 
@@ -22,7 +22,7 @@ cd amplifyapp
 npm run serve
 ```
 
-### 部署
+## 部署
 
 1. 進到 [Amplify](https://ap-northeast-2.console.aws.amazon.com/amplify/home) 首頁。
 2. 點選 Deliver 的「Get started」按鈕。
