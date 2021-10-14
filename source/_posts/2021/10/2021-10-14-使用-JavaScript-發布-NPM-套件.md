@@ -28,13 +28,13 @@ npm init
 }
 ```
 
-修改 `package.json` 檔，指定只有 `dist` 資料夾中的內容需要被發布。
+修改 `package.json` 檔，指定特定內容需要被發布。
 
 ```JSON
 {
-  "main": "dist/index.js",
+  "main": "index.js",
   "files": [
-    "dist"
+    "index.js"
   ]
 }
 ```
