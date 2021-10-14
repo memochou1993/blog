@@ -46,7 +46,7 @@ const hello = () => {
   console.log('Hello');
 };
 
-module.exports = {
+export {
   hello,
 };
 ```
