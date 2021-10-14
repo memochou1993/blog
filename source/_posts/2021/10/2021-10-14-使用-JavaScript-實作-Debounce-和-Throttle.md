@@ -25,7 +25,7 @@ const debounce = (func, delay = 250) => {
         clearTimeout(timer);
         timer = setTimeout(() => func(e), delay);
     };
-}
+};
 ```
 
 使用方式如下：
@@ -33,7 +33,7 @@ const debounce = (func, delay = 250) => {
 ```JS
 const handle = (e) => {
     console.log(e);
-}
+};
 
 window.addEventListener('mousemove', debounce(handle));
 ```
@@ -54,7 +54,7 @@ const throttle = (func, frame = 250) => {
             last = now;
         }
     };
-}
+};
 ```
 
 使用方式如下：
@@ -62,7 +62,7 @@ const throttle = (func, frame = 250) => {
 ```JS
 const handle = (e) => {
     console.log(e);
-}
+};
 
 window.addEventListener('mousemove', throttle(handle));
 ```
