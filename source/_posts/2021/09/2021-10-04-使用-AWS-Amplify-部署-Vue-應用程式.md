@@ -30,6 +30,32 @@ npm run serve
 4. 指定要連結的專案和分支。
 5. 最後點選「Save and deploy」按鈕。
 
+## 環境變數
+
+如果要配置環境變數，可以點選「Environment variables」頁籤，點選「Manage variables」按鈕，並新增環境變數。
+
+為了讓環境變數生效，需要點選「Build settings」頁籤，將 `amplify.yml` 檔編輯如下：
+
+```YAML
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm ci
+    build:
+      commands:
+        - echo "VUE_APP_API_HOST=$VUE_APP_API_HOST" >> .env 
+        - npm run build
+  artifacts:
+    baseDirectory: dist
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
+```
+
 ## 參考資料
 
 - [Amplify Docs - Vue](https://docs.amplify.aws/start/q/integration/vue/)
