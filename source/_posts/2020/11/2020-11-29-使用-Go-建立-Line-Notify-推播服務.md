@@ -151,6 +151,14 @@ CALLBACK_URL=
 curl https://line-notify.xxx.com/notify\?message\=test
 ```
 
+## 使用存取權杖
+
+若使用個人存取權杖，不須登錄網站服務，即可設定通知。
+
+```BASH
+curl -H "Authorization: Bearer xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" -d "message=Hello World" https://notify-api.line.me/api/notify
+```
+
 ## 程式碼
 
 - [line-notify](https://github.com/memochou1993/line-notify)
