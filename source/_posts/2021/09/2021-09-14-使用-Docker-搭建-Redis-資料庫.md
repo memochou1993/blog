@@ -1,9 +1,9 @@
 ---
-title: 在 MacOS 上使用 Docker 搭建 Redis 資料庫
-permalink: 在-MacOS-上使用-Docker-搭建-Redis-資料庫
+title: 使用 Docker 搭建 Redis 資料庫
+permalink: 使用-Docker-搭建-Redis-資料庫
 date: 2021-09-14 17:06:31
-tags: ["環境部署", "Docker", "macOS", "Redis"]
-categories: ["環境部署", "Docker"]
+tags: ["資料庫", "Redis", "NoSQL", "資料庫", "Docker"]
+categories: ["資料庫", "Redis"]
 ---
 
 ## 環境

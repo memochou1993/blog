@@ -1,9 +1,9 @@
 ---
-title: 在 MacOS 上使用 Docker 搭建 MySQL 資料庫
-permalink: 在-MacOS-上使用-Docker-搭建-MySQL-資料庫
+title: 使用 Docker 搭建 MySQL 資料庫
+permalink: 使用-Docker-搭建-MySQL-資料庫
 date: 2021-03-17 23:11:26
-tags: ["環境部署", "Docker", "macOS", "MySQL"]
-categories: ["環境部署", "Docker"]
+tags: ["資料庫", "MySQL", "SQL", "資料庫", "Docker"]
+categories: ["資料庫", "MySQL"]
 ---
 
 ## 環境
