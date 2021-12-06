@@ -42,6 +42,12 @@ Bringing machine 'k8s' up with 'virtualbox' provider...
 vagrant ssh
 ```
 
+如果要關閉虛擬機器，使用以下指令。
+
+```BASH
+vagrant halt
+```
+
 如果要銷毀虛擬機器，使用以下指令。
 
 ```BASH
