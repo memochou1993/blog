@@ -6,6 +6,10 @@ tags: ["環境部署", "Kubernetes", "Docker"]
 categories: ["環境部署", "Kubernetes"]
 ---
 
+## 前言
+
+本文為「Kubernetes 實作手冊：基礎入門篇」課程的學習筆記。
+
 ## 自動補全
 
 啟用 kubectl 的自動補全功能。
@@ -138,4 +142,3 @@ Connected to localhost.
 ## 參考資料
 
 - [Kubernetes 實作手冊：基礎入門篇](https://hiskio.com/courses/349/about)
-
