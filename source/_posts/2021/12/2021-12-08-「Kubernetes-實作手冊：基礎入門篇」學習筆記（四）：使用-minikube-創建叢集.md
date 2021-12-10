@@ -1,7 +1,7 @@
 ---
 title: 「Kubernetes 實作手冊：基礎入門篇」學習筆記（四）：使用 minikube 創建叢集
 permalink: 「Kubernetes-實作手冊：基礎入門篇」學習筆記（四）：使用-minikube-創建叢集
-date: 2021-12-09 14:35:21
+date: 2021-12-08 14:35:21
 tags: ["環境部署", "Kubernetes", "Docker", "minikube"]
 categories: ["環境部署", "Kubernetes"]
 ---
@@ -79,7 +79,9 @@ sudo ./minikube addons enable dashboard
 kubectl port-forward --address 172.17.8.111 -n kubernetes-dashboard service/kubernetes-dashboard 8888:80
 ```
 
-前往：<http://172.17.8.111:8888>
+- 此 IP 位址定義在 `Vagrantfile` 檔案中。
+
+前往 UI 介面：<http://172.17.8.111:8888>
 
 ## 參考資料
 

@@ -2,7 +2,7 @@
 title: 「Kubernetes 實作手冊：基礎入門篇」學習筆記（二）：使用 kubeadm 創建叢集
 permalink: 「Kubernetes-實作手冊：基礎入門篇」學習筆記（二）：使用-kubeadm-創建叢集
 date: 2021-12-06 15:26:20
-tags: ["環境部署", "Kubernetes", "Docker"]
+tags: ["環境部署", "Kubernetes", "Docker", "kubeadm"]
 categories: ["環境部署", "Kubernetes"]
 ---
 
