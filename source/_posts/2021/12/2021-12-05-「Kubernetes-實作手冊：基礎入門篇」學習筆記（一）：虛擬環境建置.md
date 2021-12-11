@@ -78,6 +78,20 @@ Vagrant 會根據 `Vagrantfile` 檔，呼叫 VirtualBox 去建置一個虛擬機
 Bringing machine 'k8s' up with 'virtualbox' provider...
 ```
 
+如果出現以下錯誤訊息，則需要修改 `Vagrantfile` 檔中的 IP 位址（例如 `192.168.56.231`）：
+
+```BASH
+The IP address configured for the host-only network is not within the
+
+allowed ranges. Please update the address used to be within the allowed
+
+ranges and run the command again.
+
+  Address: 172.17.8.111
+
+  Ranges: 192.168.56.0/21
+```
+
 如果要進到虛擬機器中，使用以下指令。
 
 ```BASH
