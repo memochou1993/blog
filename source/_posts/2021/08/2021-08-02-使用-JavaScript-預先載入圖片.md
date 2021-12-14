@@ -3,7 +3,7 @@ title: 使用 JavaScript 預先載入圖片
 permalink: 使用-JavaScript-預先載入圖片
 date: 2021-08-02 14:04:36
 tags: ["程式設計", "JavaScript"]
-categories: ["程式設計", "JavaScript"]
+categories: ["程式設計", "JavaScript", "其他"]
 ---
 
 ## 做法

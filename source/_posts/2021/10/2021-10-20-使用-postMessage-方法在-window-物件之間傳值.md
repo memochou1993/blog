@@ -3,7 +3,7 @@ title: 使用 postMessage 方法在 window 物件之間傳值
 permalink: 使用-postMessage-方法在-window-物件之間傳值
 date: 2021-10-20 12:58:59
 tags: ["程式設計", "JavaScript"]
-categories: ["程式設計", "JavaScript"]
+categories: ["程式設計", "JavaScript", "其他"]
 ---
 
 ## 做法

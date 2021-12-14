@@ -3,7 +3,7 @@ title: 認識 JavaScript 函數原型的三個方法：call、apply、bind
 permalink: 認識-JavaScript-函數原型的三個方法：call、apply、bind
 date: 2021-10-21 20:46:32
 tags: ["程式設計", "JavaScript"]
-categories: ["程式設計", "JavaScript"]
+categories: ["程式設計", "JavaScript", "其他"]
 ---
 
 ## call
