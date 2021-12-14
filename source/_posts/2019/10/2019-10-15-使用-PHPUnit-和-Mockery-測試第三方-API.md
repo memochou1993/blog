@@ -1,6 +1,6 @@
 ---
-title: 使用 PHPUnit 和 Mockery 開發 API
-permalink: 使用-PHPUnit-和-Mockery-開發-API
+title: 使用 PHPUnit 和 Mockery 測試第三方 API
+permalink: 使用-PHPUnit-和-Mockery-測試第三方-API
 date: 2019-10-15 22:34:57
 tags: ["程式設計", "PHP", "Laravel", "PHPUnit", "測試"]
 categories: ["程式設計", "PHP", "Laravel"]
