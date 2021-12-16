@@ -10,7 +10,7 @@ categories: ["環境部署", "Kubernetes"]
 
 本文為「Kubernetes 實作手冊：基礎入門篇」課程的學習筆記。
 
-## 命令式指令
+## 簡介
 
 所謂的命令式指令（Imperative Commands）指的是，kubectl 選定一個動作並執行，像是：
 
@@ -20,7 +20,7 @@ categories: ["環境部署", "Kubernetes"]
 - kubectl label：幫節點或 Pod 新增標籤。
 - kubectl scale：擴縮 Pod 數量。
 
-優點是簡單且易學，缺點是操作沒有紀錄、沒有樣板可以參考。
+命令式指令的優點是簡單且易學，缺點是操作沒有紀錄、沒有樣板可以參考。
 
 ### 指定配置檔
 
