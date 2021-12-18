@@ -8,7 +8,7 @@ categories: ["程式設計", "Go", "其他"]
 
 ## 環境
 
-- MacOS
+- macOS
 - Go 1.13.4
 - MongoDB 4.2.2
 

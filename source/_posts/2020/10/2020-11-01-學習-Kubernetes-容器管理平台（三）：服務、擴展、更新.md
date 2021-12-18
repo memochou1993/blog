@@ -12,7 +12,7 @@ categories: ["環境部署", "Kubernetes"]
 
 ## 環境
 
-- MacOS
+- macOS
 - minikube
 
 ## 服務

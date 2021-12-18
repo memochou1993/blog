@@ -1,6 +1,6 @@
 ---
-title: 在 MacOS 上安裝 Valet 環境
-permalink: 在-MacOS-上安裝-Valet-環境
+title: 在 macOS 上安裝 Valet 環境
+permalink: 在-macOS-上安裝-Valet-環境
 date: 2019-01-27 03:17:15
 tags: ["程式設計", "PHP", "Laravel", "macOS", "Valet"]
 categories: ["程式設計", "PHP", "環境安裝"]

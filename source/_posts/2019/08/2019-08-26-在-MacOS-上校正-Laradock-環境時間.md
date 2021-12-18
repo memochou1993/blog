@@ -1,6 +1,6 @@
 ---
-title: 在 MacOS 上校正 Laradock 環境時間
-permalink: 在-MacOS-上校正-Laradock-環境時間
+title: 在 macOS 上校正 Laradock 環境時間
+permalink: 在-macOS-上校正-Laradock-環境時間
 date: 2019-08-26 22:07:08
 tags: ["環境部署", "Docker", "Laradock"]
 categories: ["環境部署", "Laradock"]

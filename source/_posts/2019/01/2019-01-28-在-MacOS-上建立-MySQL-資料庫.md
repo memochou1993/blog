@@ -1,6 +1,6 @@
 ---
-title: 在 MacOS 上建立 MySQL 資料庫
-permalink: 在-MacOS-上建立-MySQL-資料庫
+title: 在 macOS 上建立 MySQL 資料庫
+permalink: 在-macOS-上建立-MySQL-資料庫
 date: 2019-01-28 15:43:46
 tags: ["資料庫", "MySQL", "macOS"]
 categories: ["資料庫", "MySQL"]
@@ -66,13 +66,13 @@ mysql -u root -p
 
 建立使用者。
 
-```
+```SQL
 > CREATE USER 'admin'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 ```
 
 設定權限。
 
-```
+```SQL
 > GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost';
 > FLUSH PRIVILEGES;
 > quit;

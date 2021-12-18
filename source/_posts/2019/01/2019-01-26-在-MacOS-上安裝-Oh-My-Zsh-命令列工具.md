@@ -1,6 +1,6 @@
 ---
-title: 在 MacOS 上安裝 Oh My Zsh 命令列工具
-permalink: 在-MacOS-上安裝-Oh-My-Zsh-命令列工具
+title: 在 macOS 上安裝 Oh My Zsh 命令列工具
+permalink: 在-macOS-上安裝-Oh-My-Zsh-命令列工具
 date: 2019-01-26 01:03:50
 tags: ["Zsh", "macOS", "命令列工具"]
 categories: ["其他", "命令列工具"]
