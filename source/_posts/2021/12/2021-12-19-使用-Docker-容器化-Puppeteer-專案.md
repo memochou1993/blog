@@ -3,7 +3,7 @@ title: 使用 Docker 容器化 Puppeteer 專案
 permalink: 使用-Docker-容器化-Puppeteer-專案
 date: 2021-12-19 00:14:10
 tags: ["環境部署", "Docker", "JavaScript", "Node", "爬蟲"]
-categories: ["環境部署", "Docker"]
+categories: ["程式設計", "JavaScript", "環境部署"]
 ---
 
 ## 做法

@@ -3,7 +3,7 @@ title: 使用 Docker 容器化 React 專案
 permalink: 使用-Docker-容器化-React-專案
 date: 2020-12-25 17:18:22
 tags: ["環境部署", "Docker", "JavaScript", "React"]
-categories: ["環境部署", "Docker"]
+categories: ["程式設計", "JavaScript", "環境部署"]
 ---
 
 ## 做法
