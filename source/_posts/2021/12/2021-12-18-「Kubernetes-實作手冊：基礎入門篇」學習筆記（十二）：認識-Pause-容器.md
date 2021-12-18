@@ -12,9 +12,7 @@ categories: ["環境部署", "Kubernetes"]
 
 ## 簡介
 
-Pause 容器又稱 Infrastucture Container，作爲 Init Pod 存在，其他 Pod 都會從 Pause 容器中被 fork 出來。
-
-每個 Pod 裡運行著一個特殊的被稱之爲 Pause 的容器，其他容器則爲業務容器，這些業務容器共享 Pause 容器的網路和儲存空間。
+Pause 容器又稱 Infrastucture Container，每個 Pod 裡運行著一個特殊的被稱之爲 Pause 的容器，其他容器則爲業務容器，這些業務容器共享 Pause 容器的網路和儲存空間。
 
 因此它們之間通訊和資料交換更為高效，同一個 Pod 裡的容器之間僅需通過 localhost 就能互相通訊。
 
@@ -180,7 +178,7 @@ wget 127.0.0.1
 cat index.html
 ```
 
-列出所有的 Docker 容器。
+列出所有的 Docker 容器，會發現當 Pod 被創建時，至少會有一個 Pause 容器在其中。因此 Pause 容器是整個 Pod 中網路的核心，也可以自己用 Docker 創建一個容器後，直接將網路掛載到此 Pause 容器。
 
 ```BASH
 docker ps | grep two-containers
@@ -189,9 +187,7 @@ k8s_client_two-containers_default_f1b30d6e-e3c3-4730-ac30-e6bc023d675b_0
 k8s_POD_two-containers_default_f1b30d6e-e3c3-4730-ac30-e6bc023d675b_0
 ```
 
-會發現當 Pod 被創建時，至少會有一個 Pause 容器在其中。因此 Pause 容器是整個 Pod 中網路的核心，也可以自己用 Docker 創建一個容器後，直接將網路掛載到此 Pause 容器。
-
-在 Kubernetes 中，當 Pod 被創建時，Pause 容器就會被建立，CNI 框架會掛在 Pause 容器身上，使它有網路能力，而其他的所有 Pod 都會將網路掛在此 Pause 容器身上。由於 Pause 容器在 Kubernetes 中的設計相當輕量、簡單，因此也不太會有 crash 的情形發生。
+總結來說，在 Kubernetes 中，當 Pod 被創建時，Pause 容器就會被建立，CNI 框架會掛在 Pause 容器身上，使它具有網路能力，而其他的所有 Pod 都會將網路掛在此 Pause 容器身上。由於 Pause 容器在 Kubernetes 中的設計相當輕量、簡單，因此不太會有 crash 的情形發生。
 
 ## 參考資料
 
