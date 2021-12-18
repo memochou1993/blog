@@ -299,7 +299,7 @@ git push origin master
 
 在專案根目錄新增 `Dockerfile` 檔。
 
-```Dockerfile
+```DOCKERFILE
 # Set the base image for subsequent instructions
 FROM php:7.2
 
