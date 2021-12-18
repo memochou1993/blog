@@ -13,8 +13,8 @@ categories: ["程式設計", "JavaScript", "ESLint"]
 ```BASH
 npm install eslint \
     eslint-config-airbnb-typescript \
-    eslint-plugin-import@^2.22.0 \
-    @typescript-eslint/eslint-plugin@^4.4.1 \
+    eslint-plugin-import \
+    @typescript-eslint/eslint-plugin \
     --save-dev
 ```
 
