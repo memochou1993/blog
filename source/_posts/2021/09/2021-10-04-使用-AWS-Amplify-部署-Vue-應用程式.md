@@ -3,7 +3,7 @@ title: 使用 AWS Amplify 部署 Vue 應用程式
 permalink: 使用-AWS-Amplify-部署-Vue-應用程式
 date: 2021-10-04 15:33:21
 tags: ["環境部署", "AWS", "Amplify", "Vue"]
-categories: ["雲端運算服務", "AWS"]
+categories: ["程式設計", "JavaScript", "環境部署"]
 ---
 
 ## 建立專案

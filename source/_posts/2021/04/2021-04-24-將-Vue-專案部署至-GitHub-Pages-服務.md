@@ -1,9 +1,9 @@
 ---
-title: 將 Vue 專案部署至 GitHub Pages
-permalink: 將-Vue-專案部署至-GitHub-Pages
+title: 將 Vue 專案部署至 GitHub Pages 服務
+permalink: 將-Vue-專案部署至-GitHub-Pages-服務
 date: 2021-04-24 21:19:10
 tags: ["程式設計", "JavaScript", "Vue", "GitHub", "GitHub Pages"]
-categories: ["程式設計", "JavaScript", "Vue"]
+categories: ["程式設計", "JavaScript", "環境部署"]
 ---
 
 ## 做法
@@ -41,7 +41,7 @@ cd -
 sh deploy.sh
 ```
 
-最後，至專案的 [GitHub Pages](https://github.com/memochou1993/keep/settings/pages) 頁面，將分支設置為 `gh-pages`。
+最後，至專案的 GitHub Pages 頁面，將分支設置為 `gh-pages`。
 
 ## 參考資料
 

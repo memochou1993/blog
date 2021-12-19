@@ -1,6 +1,6 @@
 ---
-title: 為 GitHub Pages 設定 Service Worker 資源路徑
-permalink: 為-GitHub-Pages-設定-Service-Worker-資源路徑
+title: 將 PWA 專案部署至 GitHub Pages 服務
+permalink: 將-PWA-專案部署至-GitHub-Pages-服務
 date: 2020-10-25 16:40:59
 tags: ["程式設計", "JavaScript", "PWA", "GitHub", "GitHub Pages"]
 categories: ["程式設計", "JavaScript", "PWA"]
@@ -8,7 +8,7 @@ categories: ["程式設計", "JavaScript", "PWA"]
 
 ## 做法
 
-修改 `manifest.json` 檔的 `start_url` 參數：
+需要修改 `manifest.json` 檔的 `start_url` 參數：
 
 ```JSON
 {
@@ -33,6 +33,8 @@ self.addEventListener("install", (e) => {
   );
 });
 ```
+
+將程式碼推送至 GitHub 後，至專案的 GitHub Pages 頁面，將分支設置為 `gh-pages`。
 
 ## 除錯
 
