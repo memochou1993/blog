@@ -328,7 +328,7 @@ kubectl delete configmap --all
 kubectl create configmap special-config --from-literal=special.how=very
 ```
 
-使用 Pod 定義檔創建 Pod。
+使用 Pod 定義檔創建 Pod 資源。
 
 ```BASH
 kubectl create -f https://kubernetes.io/examples/pods/pod-single-configmap-env-variable.yaml
@@ -351,7 +351,7 @@ kubectl delete configmap --all
 kubectl create -f https://kubernetes.io/examples/configmap/configmaps.yaml
 ```
 
-使用 Pod 定義檔創建 Pod。
+使用 Pod 定義檔創建 Pod 資源。
 
 ```BASH
 kubectl create -f https://kubernetes.io/examples/pods/pod-multiple-configmap-env-variable.yaml
@@ -392,7 +392,7 @@ spec:
   restartPolicy: Never
 ```
 
-使用 Pod 定義檔創建 Pod。
+使用 Pod 定義檔創建 Pod 資源。
 
 ```BASH
 kubectl create -f https://kubernetes.io/examples/pods/pod-configmap-envFrom.yaml
@@ -435,7 +435,7 @@ spec:
   restartPolicy: Never
 ```
 
-使用 Pod 定義檔創建 Pod。
+使用 Pod 定義檔創建 Pod 資源。
 
 ```BASH
 kubectl create -f https://kubernetes.io/examples/pods/pod-configmap-env-var-valueFrom.yaml
@@ -482,7 +482,7 @@ spec:
   restartPolicy: Never
 ```
 
-使用 Pod 定義檔創建 Pod。
+使用 Pod 定義檔創建 Pod 資源。
 
 ```BASH
 kubectl create -f https://kubernetes.io/examples/pods/pod-configmap-volume.yaml
@@ -529,7 +529,7 @@ spec:
   restartPolicy: Never
 ```
 
-使用 Pod 定義檔創建 Pod。
+使用 Pod 定義檔創建 Pod 資源。
 
 ```BASH
 kubectl create -f https://kubernetes.io/examples/pods/pod-configmap-volume-specific-key.yaml
