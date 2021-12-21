@@ -3,7 +3,7 @@ title: 「Kubernetes 實作手冊：基礎入門篇」學習筆記（五）：�
 permalink: 「Kubernetes-實作手冊：基礎入門篇」學習筆記（五）：使用-kind-創建叢集
 date: 2021-12-09 14:32:26
 tags: ["環境部署", "Kubernetes", "Docker", "kind"]
-categories: ["環境部署", "Kubernetes"]
+categories: ["環境部署", "Kubernetes", "「Kubernetes 實作手冊：基礎入門篇」學習筆記"]
 ---
 
 ## 前言
@@ -98,6 +98,20 @@ docker exec -it kind-control-plane bash
 
 ```BASH
 crictl ps
+```
+
+## 補充
+
+如果在創建叢集時，遇到以下錯誤訊息：
+
+```BASH
+k8s: ERROR: failed to create cluster: failed to generate kubeadm config content: failed to get kubernetes version from node: failed to get file: command "docker exec --privileged kind-control-plane cat /kind/version" failed with error: exit status 1
+```
+
+可以使用以下指令：
+
+```BASH
+sudo ./kind create cluster --config hiskio-course/vagrant/kind.yaml
 ```
 
 ## 參考資料
