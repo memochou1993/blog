@@ -79,7 +79,7 @@ kubectl create deployment hello-minikube --image=k8s.gcr.io/echoserver:1.4
 
 - `--image` 參數代表 Docker image 的位址和版本。
 
-將其暴露在 8080 埠，並將服務類型設為 `NodePort`，使服務可以從集群的外部被訪問。
+將其暴露在 8080 埠，並將服務類型設為 `NodePort`，使服務可以從叢集的外部被訪問。
 
 ```BASH
 kubectl expose deployment hello-minikube --type=NodePort --port=8080

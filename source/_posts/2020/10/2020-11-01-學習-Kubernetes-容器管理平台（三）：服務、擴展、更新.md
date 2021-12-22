@@ -17,7 +17,7 @@ categories: ["環境部署", "Kubernetes"]
 
 ## 服務
 
-Kubernetes Pod 是稍縱即逝的。Pod 實際上擁有生命週期。當一個工作 Node 死亡後，在 Node 上運行 Pod 也會消亡。ReplicaSet 會自動地創建新的 Pod 驅動叢集回到目標狀態，以保證應用程式正常運行。這些副本是可替換的；前端系統不應該關心後端副本，即使 Pod 丟失或重新創建。也就是說，Kubernetes 集群中的每個 Pod（即使是在同一個 Node 上）都有一個唯一的 IP 位址，因此需要一種方法自動調度 Pod 之間的變更，以便應用程式保持運行。
+Kubernetes Pod 是稍縱即逝的。Pod 實際上擁有生命週期。當一個工作 Node 死亡後，在 Node 上運行 Pod 也會消亡。ReplicaSet 會自動地創建新的 Pod 驅動叢集回到目標狀態，以保證應用程式正常運行。這些副本是可替換的；前端系統不應該關心後端副本，即使 Pod 丟失或重新創建。也就是說，Kubernetes 叢集中的每個 Pod（即使是在同一個 Node 上）都有一個唯一的 IP 位址，因此需要一種方法自動調度 Pod 之間的變更，以便應用程式保持運行。
 
 Kubernetes 中的服務（Service）是一種抽象概念，它定義了 Pod 的邏輯集合訪問 Pod 的協議。Service 使從屬 Pod 之間的低耦合成為可能。和其他 Kubernetes 對象一樣，Service 用 YAML（推薦）或者 JSON 來定義。Service 下的一組 Pod 通常由 LabelSelector 來標記。
 
