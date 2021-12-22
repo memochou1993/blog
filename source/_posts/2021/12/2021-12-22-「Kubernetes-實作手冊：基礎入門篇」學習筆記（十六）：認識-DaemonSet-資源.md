@@ -1,6 +1,6 @@
 ---
-title: 「Kubernetes 實作手冊：基礎入門篇」學習筆記（十七）：認識 DaemonSet 資源
-permalink: 「Kubernetes-實作手冊：基礎入門篇」學習筆記（十七）：認識-DaemonSet-資源
+title: 「Kubernetes 實作手冊：基礎入門篇」學習筆記（十六）：認識 DaemonSet 資源
+permalink: 「Kubernetes-實作手冊：基礎入門篇」學習筆記（十六）：認識-DaemonSet-資源
 date: 2021-12-22 22:39:09
 tags: ["環境部署", "Kubernetes", "Docker"]
 categories: ["環境部署", "Kubernetes", "「Kubernetes 實作手冊：基礎入門篇」學習筆記"]
