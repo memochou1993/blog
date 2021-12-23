@@ -80,7 +80,7 @@ pi-cn9cv   0/1     Completed   0          3m56s
 pi-xfbnr   0/1     Completed   0          64s
 ```
 
-刪除 Job。
+刪除 Job 資源。
 
 ```BASH
 kubectl delete -f introduction/job/basic.yaml
@@ -106,6 +106,12 @@ default    Job/pi          -                          2s
 default    ├─Pod/pi-6gfqd  False  ContainersNotReady  2s
 default    ├─Pod/pi-qfjp4  False  ContainersNotReady  2s
 default    └─Pod/pi-wdmdr  False  ContainersNotReady  2s
+```
+
+刪除 Job 資源。
+
+```BASH
+kubectl delete -f introduction/job/basic.yaml
 ```
 
 在描述 Job 的 YAML 範例檔，將 `activeDeadlineSeconds` 修改為 3，表示一個 Job 如果運行超過 5 秒，就視為失敗。
@@ -147,6 +153,12 @@ Events:
   Normal   SuccessfulDelete  110s                 job-controller  Deleted pod: pi-sb8x8
   Normal   SuccessfulDelete  110s                 job-controller  Deleted pod: pi-l6h74
   Warning  DeadlineExceeded  110s (x2 over 110s)  job-controller  Job was active longer than specified deadline
+```
+
+刪除 Job 資源。
+
+```BASH
+kubectl delete -f introduction/job/basic.yaml
 ```
 
 順帶一提，由於 `activeDeadlineSeconds` 的權重比 `backoffLimit` 高，因此 Job 一旦到達所設時限，就不會再部署額外的 Pod。
