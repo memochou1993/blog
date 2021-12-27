@@ -56,6 +56,12 @@ heroku open
 heroku logs --tail
 ```
 
+如果要刪除應用程式，執行以下指令。
+
+```BASH
+heroku apps:destroy
+```
+
 ## 參考資料
 
 - [Getting Started on Heroku with Node.js](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
