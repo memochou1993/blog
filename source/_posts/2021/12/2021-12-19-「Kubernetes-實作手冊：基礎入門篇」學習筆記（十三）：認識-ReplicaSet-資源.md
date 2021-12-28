@@ -67,7 +67,7 @@ spec:
 先將主節點上的污點移除。
 
 ```BASH
-kubectl taint node k8s-dev node-role.kubernetes.io/master:NoSchedule-
+kubectl taint node kind-control-plane node-role.kubernetes.io/master:NoSchedule-
 ```
 
 使用配置檔創建 ReplicaSet 資源。
