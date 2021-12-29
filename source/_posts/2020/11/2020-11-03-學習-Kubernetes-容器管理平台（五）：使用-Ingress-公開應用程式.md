@@ -17,12 +17,12 @@ categories: ["環境部署", "Kubernetes"]
 
 ## 概述
 
-Ingress 是一種 Kubernetes 服務，可以提供負載均衡，並將多個應用程式服務公開給外部使用。
+Ingress 是一種 Kubernetes 服務，可以提供負載平衡，並將多個應用程式服務公開給外部使用。
 
 以下是一個將所有流量都發送到同一服務的簡單 Ingress 示意圖：
 
 ```BASH
-客戶端 -> Ingress-managed 負載均衡器 -> Ingress -> 路由规则 -> Service
+客戶端 -> Ingress-managed 負載平衡器 -> Ingress -> 路由规则 -> Service
 ```
 
 ## 設置

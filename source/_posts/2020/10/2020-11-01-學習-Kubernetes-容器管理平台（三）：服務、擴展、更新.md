@@ -27,7 +27,7 @@ Service 也可以用在 ServiceSpec 標記 `type` 的方式暴露：
 
 - ClusterIP：是預設的類型，在叢集的內部 IP 上公開 Service。此類型使得 Service 只能從叢集內訪問。
 - NodePort：使用 NAT 在叢集中每個選定 Node 的相同端口上公開 Service。使用 `<NodeIP>:<NodePort>` 從叢集外部訪問 Service。是 ClusterIP 的超集。
-- LoadBalancer：在當前雲中創建一個外部負載均衡器（如果支援的話），並為 Service 分配一個固定的外部 IP。是 NodePort 的超集。
+- LoadBalancer：在當前雲中創建一個外部負載平衡器（如果支援的話），並為 Service 分配一個固定的外部 IP。是 NodePort 的超集。
 - ExternalName：通過返回帶有該名稱的 CNAME 記錄，使用任意名稱（由 spec 中的 externalName 制定）公開 Service。不使用代理。這種類型需要 kube-dns 的 v1.7 或更高版本。
 
 ```BASH
@@ -177,7 +177,7 @@ kubectl exec -ti $POD_NAME -- curl localhost:8080
 
 擴展 Deployment 將創建新的 Pods，並將資源調度請求分配到有可用資源的節點上，收縮 Deployment 會將 Pods 數量減少至所需的狀態。Kubernetes 還支援 Pods 的自動縮放，將 Pods 數量收縮到 0 也是可以的，但這會終止 Deployment 上所有已經部署的 Pods。
 
-運行應用程式的多個實例，需要在它們之間分配流量。Service 有一種負載均衡器類型（LoadBalancer），可以將網路流量均衡分配到外部可以訪問的 Pods 上。服務將會一直通過端點來監聽 Pods 的運行，保證流量只分配到可用的 Pods 上。
+運行應用程式的多個實例，需要在它們之間分配流量。Service 有一種負載平衡器類型（LoadBalancer），可以將網路流量均衡分配到外部可以訪問的 Pods 上。服務將會一直通過端點來監聽 Pods 的運行，保證流量只分配到可用的 Pods 上。
 
 一旦有了多個應用實例，就可以在不停機的情況下滾動更新。
 
@@ -245,7 +245,7 @@ Events:
   Normal  ScalingReplicaSet  5m28s  deployment-controller  Scaled up replica set kubernetes-bootcamp-57978f5f5d to 4
 ```
 
-現在確認一下 Service 是否有負載均衡流量，查看 Service 的詳細資訊。
+現在確認一下 Service 是否有負載平衡流量，查看 Service 的詳細資訊。
 
 ```BASH
 kubectl describe services/kubernetes-bootcamp
@@ -258,7 +258,7 @@ export NODE_PORT=$(kubectl get services/kubernetes-bootcamp -o go-template='{{(i
 echo NODE_PORT=$NODE_PORT
 ```
 
-進到 minikube 虛擬機中，訪問此 Service。現在每一次的請求都是觸及到不同的 Pod，這代表負載均衡已經成功運作了。
+進到 minikube 虛擬機中，訪問此 Service。現在每一次的請求都是觸及到不同的 Pod，這代表負載平衡已經成功運作了。
 
 ```BASH
 minikube ssh
@@ -302,7 +302,7 @@ kubectl get pods -o wide
 |-------------------------|    |-------------------------|    |-------------------------|
 ```
 
-與應用程式擴展類似，如果公開了 Deployment，Service 將在更新期間僅對可用的 Pod 進行負載均衡。滾動更新允許以下操作：
+與應用程式擴展類似，如果公開了 Deployment，Service 將在更新期間僅對可用的 Pod 進行負載平衡。滾動更新允許以下操作：
 
 - 將應用程式從一個環境提升到另一個環境（通過容器鏡像更新）。
 - 回滾到以前的版本。

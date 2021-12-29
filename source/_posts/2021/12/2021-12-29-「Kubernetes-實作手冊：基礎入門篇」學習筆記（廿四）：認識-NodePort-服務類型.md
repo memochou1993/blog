@@ -112,7 +112,7 @@ kubectl get pods -l app=hello-kubernetes -o wide
 kubectl get svc
 ```
 
-查看名為 `` 的 Service 資源。
+查看名為 `nodeport-demo` 的 Service 資源。
 
 ```BASH
 kubectl describe svc nodeport-demo
