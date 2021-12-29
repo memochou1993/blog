@@ -1,7 +1,7 @@
 ---
-title: 「Kubernetes 實作手冊：基礎入門篇」學習筆記（廿三）：認識 ClusterIP 服務類型
-permalink: 「Kubernetes-實作手冊：基礎入門篇」學習筆記（廿三）：認識-ClusterIP-服務類型
-date: 2021-12-28 14:38:17
+title: 「Kubernetes 實作手冊：基礎入門篇」學習筆記（廿四）：認識 NodePort 服務類型
+permalink: 「Kubernetes-實作手冊：基礎入門篇」學習筆記（廿四）：認識-NodePort-服務類型
+date: 2021-12-29 15:30:16
 tags: ["環境部署", "Kubernetes", "Docker"]
 categories: ["環境部署", "Kubernetes", "「Kubernetes 實作手冊：基礎入門篇」學習筆記"]
 ---
@@ -12,7 +12,7 @@ categories: ["環境部署", "Kubernetes", "「Kubernetes 實作手冊：基礎�
 
 ## 簡介
 
-Kubernetes 的 Service 有不同的類型，選擇 `ClusterIP` 時，可以透過叢集的內部 IP 暴露服務，但是服務只能夠在叢集內部被訪問。
+Kubernetes 的 Service 有不同的類型，選擇 `NodePort` 時，通過每個節點上的 IP 和靜態埠（NodePort）暴露服務。NodePort 服務會路由到自動創建的 ClusterIP 服務。通過請求節點 IP，應用程式可以從集群的外部訪問一個 NodePort 服務。
 
 ## 實作
 
@@ -27,7 +27,7 @@ vagrant ssh
 首先，查看範例資料夾中的 Deployment 配置檔。
 
 ```BASH
-cat introduction/service/clusterIP/hello.yml
+cat introduction/service/nodePort/hello.yml
 ```
 
 配置檔如下：
@@ -69,13 +69,13 @@ spec:
     spec:
       containers:
       - name: client
-        image: hwchiu/netutil
+        image: hwchiu/netutils
 ```
 
 查看範例資料夾中的 Service 配置檔。
 
 ```BASH
-cat introduction/service/clusterIP/service.yml
+cat introduction/service/nodePort/service.yml
 ```
 
 配置檔如下：
@@ -84,9 +84,9 @@ cat introduction/service/clusterIP/service.yml
 apiVersion: v1
 kind: Service
 metadata:
-  name: cluster-demo
+  name: nodeport-demo
 spec:
-  type: ClusterIP
+  type: NodePort
   ports:
   - port: 80
     targetPort: 8080
@@ -97,7 +97,7 @@ spec:
 使用配置檔創建 Deployment 和 Service 資源。
 
 ```BASH
-kubectl apply -R -f introduction/service/clusterIP
+kubectl apply -R -f introduction/service/nodePort
 ```
 
 透過選擇器查看 Pod 列表。
@@ -112,16 +112,37 @@ kubectl get pods -l app=hello-kubernetes -o wide
 kubectl get svc
 ```
 
-查看 Endpoint 列表。
+查看名為 `` 的 Service 資源。
 
 ```BASH
-kubectl get endpoints
+kubectl describe svc nodeport-demo
+```
+
+結果如下，可以看到 NodePort 的埠號：
+
+```BASH
+Name:                     nodeport-demo
+Namespace:                default
+Labels:                   <none>
+Annotations:              <none>
+Selector:                 app=hello-kubernetes
+Type:                     NodePort
+IP Families:              <none>
+IP:                       10.96.143.124
+IPs:                      <none>
+Port:                     <unset>  80/TCP
+TargetPort:               8080/TCP
+NodePort:                 <unset>  30466/TCP
+Endpoints:                10.244.0.6:8080,10.244.1.5:8080,10.244.2.4:8080
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:                   <none>
 ```
 
 進到名為 `client` 的 Pod 中。
 
 ```BASH
-kubectl exec -it client-67674d5464-mth4j -- bash
+kubectl exec -it client-67674d5464-k447k -- bash
 ```
 
 嘗試透過 Cluster IP 去存取服務。
@@ -130,7 +151,7 @@ kubectl exec -it client-67674d5464-mth4j -- bash
 curl 10.96.226.2
 ```
 
-顯示結果如下，代表可以從 Pod 中存取服務。會發現 HTML 中 Pod 的名稱每一次都不太一樣，這是隨機的。
+顯示結果如下，代表可以從 Pod 中存取服務。
 
 ```HTML
 <!DOCTYPE html>
@@ -152,7 +173,7 @@ curl 10.96.226.2
   <table>
     <tr>
       <th>pod:</th>
-      <td>hello-kubernetes-789cbf668d-2lpqm</td>
+      <td>hello-kubernetes-789cbf668d-2pwhw</td>
     </tr>
     <tr>
       <th>node:</th>
@@ -168,19 +189,19 @@ curl 10.96.226.2
 </html>
 ```
 
-進到名為 `kind-worker` 的 Container 中。
+查看名為 `kind-worker` 的 Container 的 IP 位址。
 
 ```BASH
-docker exec -it kind-worker bash
+docker exec -it kind-worker ip addr
 ```
 
-嘗試透過 Cluster IP 去存取服務。
+回到虛擬機，嘗試透過 Node 的 IP 位址和 NodePort 的埠號去存取服務。
 
 ```BASH
-curl 10.96.226.2
+curl 172.17.0.2:30466
 ```
 
-顯示結果如下，代表可以從 Node 中存取服務。
+顯示結果如下，代表可以透過 Node 存取服務。
 
 ```HTML
 <!DOCTYPE html>
@@ -202,7 +223,7 @@ curl 10.96.226.2
   <table>
     <tr>
       <th>pod:</th>
-      <td>hello-kubernetes-789cbf668d-2lpqm</td>
+      <td>hello-kubernetes-789cbf668d-8kpg2</td>
     </tr>
     <tr>
       <th>node:</th>
@@ -218,19 +239,7 @@ curl 10.96.226.2
 </html>
 ```
 
-回到虛擬機。
-
-```BASH
-exit
-```
-
-如果直接從叢集外部透過 Cluster IP 去存取服務，會無法存取。
-
-```BASH
-curl 10.96.226.2
-```
-
-因此 Cluster IP 只能在叢集內部的 Node 或 Pod 中被存取，不允許外部應用程式存取。
+因此 NodePort 可以為節點暴露一個埠號，允許外部應用程式存取。
 
 ## 參考資料
 
