@@ -1,14 +1,14 @@
 ---
-title: 學習使用 Linode 虛擬專用伺服器
-permalink: 學習使用-Linode-虛擬專用伺服器
+title: 將 GoDaddy 的網域轉移至 Linode 託管
+permalink: 將-GoDaddy-的網域轉移至-Linode-託管
 date: 2019-05-07 23:20:15
-tags: ["環境部署", "Linode", "Linux", "VPS"]
-categories: ["其他", "VPS"]
+tags: ["環境部署", "Linode", "Linux", "VPS", "DNS"]
+categories: ["雲端運算服務", "Linode"]
 ---
 
 ## 前言
 
-一直以來作品都是放在 GoDaddy 的共享主機，這次決定搬家到 Linode，並使用虛擬專用伺服器。
+由於使用 Linode 虛擬專用伺服器，因此需要把在 GoDaddy 購買的網域交由給 Linode 託管。
 
 ## 註冊
 

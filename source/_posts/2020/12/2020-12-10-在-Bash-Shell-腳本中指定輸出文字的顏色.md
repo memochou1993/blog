@@ -3,7 +3,7 @@ title: 在 Bash Shell 腳本中指定輸出文字的顏色
 permalink: 在-Bash-Shell-腳本中指定輸出文字的顏色
 date: 2020-12-10 13:38:02
 tags: ["Bash Shell"]
-categories: ["其他", "Bash Shell"]
+categories: ["程式設計", "Bash Shell"]
 ---
 
 ## 前言

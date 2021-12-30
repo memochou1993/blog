@@ -3,7 +3,7 @@ title: 使用 Bash Shell 腳本執行 SSH 連線
 permalink: 使用-Bash-Shell-腳本執行-SSH-連線
 date: 2019-02-03 02:22:43
 tags: ["Bash Shell", "SSH"]
-categories: ["其他", "Bash Shell"]
+categories: ["程式設計", "Bash Shell"]
 ---
 
 ## 做法
