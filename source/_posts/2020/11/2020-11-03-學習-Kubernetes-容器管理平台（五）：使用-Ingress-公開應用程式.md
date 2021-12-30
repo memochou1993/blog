@@ -116,13 +116,13 @@ kubectl apply -f example-ingress.yaml
 kubectl get ingress
 ```
 
-查看 minikube 的 IP 地址。
+查看 minikube 的 IP 位址。
 
 ```BASH
 minikube ip
 ```
 
-修改 `/etc/hosts` 檔，新增一個對應 minikube 的 IP 地址的網域名稱：
+修改 `/etc/hosts` 檔，新增一個對應 minikube 的 IP 位址的網域名稱：
 
 ```BASH
 192.168.64.9 hello-world.info

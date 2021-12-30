@@ -12,7 +12,7 @@ categories: ["環境部署", "Kubernetes", "「Kubernetes 實作手冊：基礎�
 
 ## 簡介
 
-Kubernetes 的 Service 有不同的類型，選擇 `NodePort` 時，通過每個節點上的 IP 和靜態埠（NodePort）暴露服務。NodePort 服務會路由到自動創建的 ClusterIP 服務。通過請求節點 IP，應用程式可以從集群的外部訪問一個 NodePort 服務。
+Kubernetes 的 Service 有不同的類型，選擇 `NodePort` 時，通過每個節點上的 IP 和靜態埠（NodePort）暴露服務。NodePort 服務會路由到自動創建的 ClusterIP 服務。通過請求節點 IP，應用程式可以從叢集的外部訪問一個 NodePort 服務。
 
 ## 實作
 
