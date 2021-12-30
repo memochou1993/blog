@@ -1,6 +1,6 @@
 ---
-title: 學習 Laravel Service Container 服務容器
-permalink: 學習-Laravel-Service-Container-服務容器
+title: 認識 Laravel Service Container 服務容器
+permalink: 認識-Laravel-Service-Container-服務容器
 date: 2019-11-23 13:29:01
 tags: ["程式設計", "PHP", "Laravel"]
 categories: ["程式設計", "PHP", "Laravel"]

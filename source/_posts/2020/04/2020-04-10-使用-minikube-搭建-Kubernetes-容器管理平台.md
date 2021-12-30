@@ -1,6 +1,6 @@
 ---
-title: 使用 minikube 學習 Kubernetes 容器管理平台
-permalink: 使用-minikube-學習-Kubernetes-容器管理平台
+title: 使用 minikube 搭建 Kubernetes 容器管理平台
+permalink: 使用-minikube-搭建-Kubernetes-容器管理平台
 date: 2020-04-10 17:36:24
 tags: ["環境部署", "Kubernetes", "Docker", "minikube"]
 categories: ["環境部署", "Kubernetes"]

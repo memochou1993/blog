@@ -1,6 +1,6 @@
 ---
-title: 學習 Kubernetes 容器管理平台（八）：使用 Persistent Volume 部署 WordPress 內容管理系統
-permalink: 學習-Kubernetes-容器管理平台（八）：使用-Persistent-Volume-部署-WordPress-內容管理系統
+title: 認識 Kubernetes 容器管理平台（八）：使用 Persistent Volume 部署 WordPress 內容管理系統
+permalink: 認識-Kubernetes-容器管理平台（八）：使用-Persistent-Volume-部署-WordPress-內容管理系統
 date: 2020-11-09 22:32:20
 tags: ["環境部署", "Kubernetes", "Docker", "minikube"]
 categories: ["環境部署", "Kubernetes"]

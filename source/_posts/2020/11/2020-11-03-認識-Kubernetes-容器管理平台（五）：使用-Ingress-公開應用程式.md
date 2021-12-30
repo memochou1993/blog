@@ -1,6 +1,6 @@
 ---
-title: 學習 Kubernetes 容器管理平台（五）：使用 Ingress 公開應用程式
-permalink: 學習-Kubernetes-容器管理平台（五）：使用-Ingress-公開應用程式
+title: 認識 Kubernetes 容器管理平台（五）：使用 Ingress 公開應用程式
+permalink: 認識-Kubernetes-容器管理平台（五）：使用-Ingress-公開應用程式
 date: 2020-11-03 16:53:06
 tags: ["環境部署", "Kubernetes", "Docker", "minikube"]
 categories: ["環境部署", "Kubernetes"]

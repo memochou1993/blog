@@ -1,6 +1,6 @@
 ---
-title: 學習 Kubernetes 容器管理平台（二）：叢集、部署、豆莢
-permalink: 學習-Kubernetes-容器管理平台（二）：叢集、部署、豆莢
+title: 認識 Kubernetes 容器管理平台（二）：叢集、部署、豆莢
+permalink: 認識-Kubernetes-容器管理平台（二）：叢集、部署、豆莢
 date: 2020-10-31 16:58:11
 tags: ["環境部署", "Kubernetes", "Docker", "minikube"]
 categories: ["環境部署", "Kubernetes"]
