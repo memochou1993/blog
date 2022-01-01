@@ -21,7 +21,7 @@ Pod DNS Policy 可以指定 Kubernetes 如何處理 Pod 的 DNS，有以下四�
 - Default：Pod 的 DNS 繼承自節點的 DNS。
 - None：忽略所有配置，使用 Pod 的 YAML 配置檔中的 `dnsConfig` 欄位自定義 DNS。
 - ClusterFirst：預設的選項，所有請求會優先在叢集所在域查詢，如果沒有才會轉發到上游 DNS。
-- ClusterFirstWithHostNet：使用 Host Network，同時使用 CoreDNS 做為 Pod 預設的 DNS 的配置。
+- ClusterFirstWithHostNet：和 ClusterFirst 選項一樣，但是可以使 Pod 被外部網路直接訪問，也可以被叢集內的其他 Pod 訪問。
 
 ## 實作
 
