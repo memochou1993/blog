@@ -19,15 +19,15 @@ npm install eslint \
     --save-dev
 ```
 
-新增 `.eslintrc.json` 檔：
+在根目錄新增 `.eslintrc.json` 檔：
 
 ```JS
 {
-    "extends": "airbnb",
-    "env": {
-        "browser": true,
-        "node": true
-    }
+  "extends": "airbnb",
+  "env": {
+    "browser": true,
+    "node": true
+  }
 }
 ```
 
