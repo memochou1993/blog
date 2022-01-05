@@ -206,6 +206,10 @@ env | grep -i version
 version=202020202
 ```
 
+### 補充
+
+使用 Volume 來存取 ConfigMap 會比使用 Env 好，因為使用 Env 的情況下，容器內的環境變數可以透過節點的 `/proc/$pid/environ` 被存取；而使用 Volume 在預設情況下只有擁有使用 Docker 權限的使用者可以存取，多了一層保護。
+
 ## 編碼
 
 使用 `base64` 指令可以為文字進行 base64 格式的編碼。

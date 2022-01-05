@@ -254,6 +254,10 @@ foo: bar
 
 至於容器中的應用程式是如何知道 ConfigMap 更新，需要透過其他方式去實現，例如使用 inotify 的方式去監聽特定檔案系統是否有檔案變動，來達到自動重載的功能。
 
+### 補充
+
+使用 Volume 來存取 ConfigMap 會比使用 Env 好，因為使用 Env 的情況下，容器內的環境變數可以透過節點的 `/proc/$pid/environ` 被存取；而使用 Volume 在預設情況下只有擁有使用 Docker 權限的使用者可以存取，多了一層保護。
+
 ## 參考資料
 
 - [Kubernetes 實作手冊：基礎入門篇](https://hiskio.com/courses/349/about)
