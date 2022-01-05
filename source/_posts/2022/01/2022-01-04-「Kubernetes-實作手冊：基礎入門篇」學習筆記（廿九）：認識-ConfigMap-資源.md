@@ -123,6 +123,13 @@ kubectl apply -f introduction/storage/configmap/pod-vol.yaml
 kubectl exec -it config-vol-5455c65b48-fg4kc -- bash
 ```
 
+列出所有的 key 檔案。
+
+```BASH
+ls /tmp/config/
+key  key.new  version.data.new  version.date
+```
+
 印出其中一個檔案。
 
 ```BASH
@@ -181,6 +188,12 @@ kubectl apply -f introduction/storage/configmap/pod-env.yaml
 
 ```BASH
 kubectl exec -it config-env-7468975c6b-tshz2 -- bash
+```
+
+列出所有的環境變數。
+
+```BASH
+env
 ```
 
 印出其中一個環境變數。
