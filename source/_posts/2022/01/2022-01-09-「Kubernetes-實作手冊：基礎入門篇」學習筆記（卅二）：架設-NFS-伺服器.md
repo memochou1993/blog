@@ -18,12 +18,20 @@ NFS（Network File System）即網路檔案系統，是一種分散式檔案系�
 
 ## 實作
 
+以下使用 kind 的環境。
+
+```BASH
+cd vagrant/kind
+vagrant up
+vagrant ssh
+```
+
 ### 安裝 NFS 伺服器
 
 安裝 `nfs-kernel-server` 套件。
 
 ```BASH
-sudo apt-get install nfs-kernel-server
+sudo apt-get -y install nfs-kernel-server
 ```
 
 在根目錄建立 `nfsshare` 資料夾。
@@ -62,7 +70,13 @@ sudo showmount -e
 cat introduction/storage/nfs/deploy.yaml
 ```
 
-配置檔如下：
+使用 `ifconfig` 指令查詢虛擬機的 IP 位址。
+
+```BASH
+ifconfig
+```
+
+配置檔如下，將 `nfs.server` 欄位修改為虛擬機的 IP 位址：
 
 ```YAML
 apiVersion: apps/v1
@@ -123,25 +137,25 @@ Events:
 先更新各個節點上的儲存褲列表。
 
 ```BASH
-docker exec -it kind-control-plane sed -i -re 's/([a-z]{2}.)?archive.ubuntu.com|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
-docker exec -it kind-worker sed -i -re 's/([a-z]{2}.)?archive.ubuntu.com|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
-docker exec -it kind-worker2 sed -i -re 's/([a-z]{2}.)?archive.ubuntu.com|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
+docker exec kind-control-plane sed -i -re 's/([a-z]{2}.)?archive.ubuntu.com|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
+docker exec kind-worker sed -i -re 's/([a-z]{2}.)?archive.ubuntu.com|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
+docker exec kind-worker2 sed -i -re 's/([a-z]{2}.)?archive.ubuntu.com|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
 ```
 
 先更新各個節點上的套件。
 
 ```BASH
-docker exec -it kind-control-plane apt-get -y update
-docker exec -it kind-worker apt-get -y update
-docker exec -it kind-worker2 apt-get -y update
+docker exec kind-control-plane apt-get -y update
+docker exec kind-worker apt-get -y update
+docker exec kind-worker2 apt-get -y update
 ```
 
 在各個節點上安裝 NFS 的客戶端套件
 
 ```BASH
-docker exec -it kind-control-plane apt-get -y install nfs-common
-docker exec -it kind-worker apt-get -y install nfs-common
-docker exec -it kind-worker2 apt-get -y install nfs-common
+docker exec kind-control-plane apt-get -y install nfs-common
+docker exec kind-worker apt-get -y install nfs-common
+docker exec kind-worker2 apt-get -y install nfs-common
 ```
 
 進到其中一個 Pod 資源，在共享的資料夾新增一個檔案。
@@ -166,7 +180,7 @@ hello
 cat introduction/storage/nfs/write.yaml
 ```
 
-配置檔如下：
+配置檔如下，將 `nfs.server` 欄位修改為虛擬機的 IP 位址：
 
 ```YAML
 apiVersion: apps/v1
