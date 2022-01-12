@@ -76,7 +76,7 @@ cat introduction/storage/nfs/deploy.yaml
 ifconfig
 ```
 
-配置檔如下，將 `nfs.server` 欄位修改為虛擬機的 IP 位址：
+配置檔如下，將 NFS Server 的 IP 位址修改為虛擬機的 IP 位址：
 
 ```YAML
 apiVersion: apps/v1
@@ -180,7 +180,7 @@ hello
 cat introduction/storage/nfs/write.yaml
 ```
 
-配置檔如下，將 `nfs.server` 欄位修改為虛擬機的 IP 位址：
+配置檔如下，將 NFS Server 的 IP 位址修改為虛擬機的 IP 位址：
 
 ```YAML
 apiVersion: apps/v1
