@@ -114,7 +114,7 @@ kubectl exec -it `kubectl get pods --selector=app=jenkins --output=jsonpath={.it
 2. 輸入名稱「Hello-Kenzan Pipeline」，並選擇「Pipeline」選項；
 3. 將「Pipeline」區塊的「Definition」設定為「Pipeline script from SCM」；
 4. 將「SCM」設定為「Git」；
-5. 將「Repository URL」設定為：https://github.com/&lt;YOUR_REPOSITORY&gt;/kubernetes-ci-cd
+5. 將「Repository URL」設定為：https://github.com/&lt;YOUR_REPOSITORY&gt;/kubernetes-ci-cd
 
 由於 `Jenkinsfile` 已經被寫好在專案的根目錄，因此點選「Save」。
 

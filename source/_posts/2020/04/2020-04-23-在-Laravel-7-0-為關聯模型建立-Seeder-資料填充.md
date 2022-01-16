@@ -8,7 +8,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 ## 前言
 
-本文以「一個使用者擁有多個專案和多筆文章」為例，為關聯模型建立資料填充。
+本文以「一個使用者擁有多個專案和多筆文章」為例，為關聯模型建立資料填充。
 
 ## 關聯方法
 
@@ -180,7 +180,7 @@ use App\Project;
 use App\Traits\HasStaticAttributes;
 use Illuminate\Database\Seeder;
 
-class UserSeeder extends Seeder
+class ProjectSeeder extends Seeder
 {
     use HasStaticAttributes;
 
@@ -207,7 +207,7 @@ use App\Post;
 use App\Traits\HasStaticAttributes;
 use Illuminate\Database\Seeder;
 
-class UserSeeder extends Seeder
+class PostSeeder extends Seeder
 {
     use HasStaticAttributes;
 
