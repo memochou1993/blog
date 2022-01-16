@@ -41,8 +41,6 @@ Schema::create('users', function (Blueprint $table) {
 以 `User` 模型為例：
 
 ```PHP
-<?php
-
 namespace App;
 
 use Spatie\BinaryUuid\HasBinaryUuid; // 調用特徵機制

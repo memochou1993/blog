@@ -70,8 +70,6 @@ php artisan voyager:admin your@email.com --create
 4. 在 https://unsplash.com 找到適合的圖片放到 `public\vendor\tcg\voyager\assets\images\widget-backgrounds` 資料夾。
 
 ```PHP
-<?php
-
 namespace App\Widgets;
 
 use App\Item;

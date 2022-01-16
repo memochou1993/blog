@@ -39,8 +39,6 @@ categories: ["程式設計", "PHP", "套件開發"]
 在 `src/config` 資料夾中新增一個 `youtube.php` 檔。
 
 ```PHP
-<?php
-
 return [
 
     'key' => env('YOUTUBE_API_KEY', 'YOUR_API_KEY')
@@ -53,8 +51,6 @@ return [
 在 `src/Facades` 資料夾中新增一個 `Youtube.php` 檔。
 
 ```PHP
-<?php
-
 namespace Memo\Youtube\Facades;
 
 use Illuminate\Support\Facades\Facade;
@@ -78,8 +74,6 @@ class Youtube extends Facade {
 在 `src` 資料夾中新增一個 `YoutubeServiceProvider.php` 檔。
 
 ```PHP
-<?php
-
 namespace Memo\Youtube;
 
 use Illuminate\Support\ServiceProvider;

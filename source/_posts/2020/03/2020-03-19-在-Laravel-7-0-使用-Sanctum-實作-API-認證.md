@@ -90,8 +90,6 @@ php artisan make:controller AuthController
 修改 `app\Http\Controllers\AuthController.php` 檔：
 
 ```PHP
-<?php
-
 namespace App\Http\Controllers;
 
 use App\User;
