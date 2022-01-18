@@ -1,6 +1,6 @@
 ---
-title: 「Kubernetes 實作手冊：基礎入門篇」學習筆記（廿一）：認識 Flannel 網路外掛
-permalink: 「Kubernetes-實作手冊：基礎入門篇」學習筆記（廿一）：認識-Flannel-網路外掛
+title: 「Kubernetes 實作手冊：基礎入門篇」學習筆記（廿一）：認識 CNI 解決方案
+permalink: 「Kubernetes-實作手冊：基礎入門篇」學習筆記（廿一）：認識-CNI-解決方案
 date: 2021-12-26 14:45:58
 tags: ["環境部署", "Kubernetes", "Docker"]
 categories: ["環境部署", "Kubernetes", "「Kubernetes 實作手冊：基礎入門篇」學習筆記"]
@@ -12,7 +12,7 @@ categories: ["環境部署", "Kubernetes", "「Kubernetes 實作手冊：基礎�
 
 ## 簡介
 
-Flannel 是一個 Kubernetes 的 CNI 實作解決方案，安裝簡單，透過一個 YAML 檔就可以安裝，但現在已不被官方推薦。
+Flannel 是一個 Kubernetes 的其中一種 CNI 實作解決方案，安裝簡單，透過一個 YAML 檔就可以安裝，但現在已不被官方推薦。
 
 CNI 最重要的能力就是能夠支援跨節點的溝通，如何讓不同節點內的 Pod 可以互相存取。過往 Docker 的單節點互相存取不會太困難，因為都在同個系統中，而跨節點的存取則是相對麻煩，因為中間牽涉到許多不同的節點和元件。
 
