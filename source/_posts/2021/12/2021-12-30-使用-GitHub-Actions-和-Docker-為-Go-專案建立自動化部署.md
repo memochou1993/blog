@@ -21,7 +21,7 @@ cd go-pipeline-example
 go mod init go-pipeline-example
 ```
 
-建立 `main.go` 檔：
+新增 `main.go` 檔：
 
 ```GO
 package main
