@@ -297,12 +297,20 @@ service.domain.com {
 journalctl -u caddy
 ```
 
-## 憑證位置
+## 憑證
 
-如果 Caddy 的根目錄設在 `/var/lib/caddy/`，則 SSL 憑證的存放位置在：
+Caddy 的根目錄設在 `/var/lib/caddy/`，則 SSL 憑證的存放位置在以下路徑。
 
 ```BASH
 /var/lib/caddy/.local/share/caddy/certificates
+```
+
+如果要強制更新 SSL 憑證，可以將憑證刪除後，再重新啟動 Caddy 服務。
+
+```BASH
+cd /var/lib/caddy/.local/share/caddy/certificates/acme-v02.api.letsencrypt.org-directory
+rm -rf example.com
+systemctl restart caddy
 ```
 
 ## 參考資料
