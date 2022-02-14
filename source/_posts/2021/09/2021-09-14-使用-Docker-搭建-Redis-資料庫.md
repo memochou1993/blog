@@ -16,13 +16,20 @@ categories: ["資料庫", "Redis"]
 下載並啟動 `redis` 映像檔。
 
 ```BASH
-docker run --name redis -d -p 6379:6379 redis
+docker run --name redis -d -p 6379:6379 redis --requirepass my-password
 ```
 
 進入容器。
 
 ```BASH
-docker exec -it redis redis-cli
+docker exec -it redis redis-cli -a my-password
+```
+
+檢查連線。
+
+```BASH
+127.0.0.1:6379> PING
+PONG
 ```
 
 ## 參考資料
