@@ -37,7 +37,7 @@ func main() {
 }
 
 func hello() string {
-	return "Hello Go!" // 使測試失敗
+	return "Hello World!"
 }
 ```
 
@@ -63,16 +63,6 @@ func TestHello(t *testing.T) {
 
 ```BASH
 go test
-```
-
-測試結果為失敗，以利之後觀察 GitHub Actions 的錯誤訊息。
-
-```BASH
---- FAIL: TestHello (0.00s)
-    main_test.go:11: expected: Hello World!, actual: Hello Go!
-FAIL
-exit status 1
-FAIL    github.com/memochou1993/go-pipeline-example     0.299s
 ```
 
 ## 建立存取令牌
@@ -173,7 +163,7 @@ CMD ["main"]
 docker build -t go-pipeline-example:dev .
 ```
 
-執行映像檔並退出。
+執行映像檔並刪除容器。
 
 ```BASH
 docker run --rm go-pipeline-example:dev
@@ -183,7 +173,7 @@ docker run --rm go-pipeline-example:dev
 
 ```BASH
 Version: dev
-Hello Go!
+Hello World!
 ```
 
 指定版本為 `1.0.0`，並再次建立映像檔。由於 Dockerfile 中的 `go build` 腳本使用了 `-ldflags` 參數，因此可以把 `main.go` 檔中的 `version` 變數的值修改為 `1.0.0`。
@@ -219,37 +209,6 @@ git remote add origin git@github.com:memochou1993/go-pipeline-example.git
 git push -u origin main
 ```
 
-## 修正錯誤
-
-修改 `main.go` 檔：
-
-```GO
-func hello() string {
-	return "Hello World!"
-}
-```
-
-進行測試。
-
-```BASH
-go test
-```
-
-測試結果為成功。
-
-```BASH
-PASS
-ok      github.com/memochou1993/go-pipeline-example     0.683s
-```
-
-再次推送程式碼。
-
-```BASH
-git add .
-git commit -m "Fix test"
-git push
-```
-
 ## 建立標籤
 
 最後，添加標籤，並推送至專案儲存庫。
@@ -259,7 +218,7 @@ git tag v1.0.0
 git push --tags
 ```
 
-GitHub Actions 會觸發 `deploy` 的工作，將版本 `1.0.0` 的映像檔推送至 Docker Hub。
+只要添加標籤，GitHub Actions 的 `deploy` 流程就會被觸發，並且將版本 `1.0.0` 的映像檔推送至 Docker Hub。
 
 ## 程式碼
 
