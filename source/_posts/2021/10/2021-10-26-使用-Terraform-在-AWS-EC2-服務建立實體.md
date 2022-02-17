@@ -6,19 +6,13 @@ tags: ["環境部署", "Terraform", "AWS", "EC2"]
 categories: ["環境部署", "Terraform"]
 ---
 
-## 安裝指令
-
-安裝 `terraform` 指令。
-
-```BASH
-brew install terraform
-```
+## 做法
 
 建立工作資料夾。
 
 ```BASH
-mkdir terraform-practice
-cd terraform-practice
+mkdir -p terraform-practice/ec2
+cd terraform-practice/ec2
 ```
 
 使用 `init` 指令初始化工作資料夾，需要的供應商外掛（provider plugins）將會被下載下來。
