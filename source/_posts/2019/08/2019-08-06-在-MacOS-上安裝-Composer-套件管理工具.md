@@ -8,7 +8,7 @@ categories: ["程式設計", "PHP", "其他"]
 
 ## 步驟
 
-使用 `brew` 指令安裝 Composer。
+使用 `brew` 安裝 Composer。
 
 ```BASH
 brew install composer

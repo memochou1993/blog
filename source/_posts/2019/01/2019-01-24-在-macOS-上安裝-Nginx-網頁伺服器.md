@@ -8,7 +8,7 @@ categories: ["環境部署", "網頁伺服器"]
 
 ## 安裝
 
-使用 `brew` 指令安裝 Nginx。
+使用 `brew` 安裝 Nginx。
 
 ```BASH
 brew install nginx

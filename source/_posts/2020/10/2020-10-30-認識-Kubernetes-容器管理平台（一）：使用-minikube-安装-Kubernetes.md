@@ -3,7 +3,7 @@ title: 認識 Kubernetes 容器管理平台（一）：使用 minikube 安装 Ku
 permalink: 認識-Kubernetes-容器管理平台（一）：使用-minikube-安装-Kubernetes
 date: 2020-10-30 14:02:16
 tags: ["環境部署", "Kubernetes", "Docker", "minikube"]
-categories: ["環境部署", "Kubernetes"]
+categories: ["環境部署", "Kubernetes", "其他"]
 ---
 
 ## 前言

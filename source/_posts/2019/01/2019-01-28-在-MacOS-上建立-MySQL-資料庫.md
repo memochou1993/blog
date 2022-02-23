@@ -8,7 +8,7 @@ categories: ["資料庫", "MySQL"]
 
 ## 安裝
 
-使用 `brew` 指令安裝 MySQL。
+使用 `brew` 安裝 MySQL。
 
 ```BASH
 brew install mysql
