@@ -3,7 +3,7 @@ title: 使用 Docker 搭建 Rocket.Chat 聊天協作平台
 permalink: 使用-Docker-搭建-Rocket-Chat-聊天協作平台
 date: 2019-02-08 18:55:08
 tags: ["環境部署", "Docker", "Linux", "Ubuntu", "Rocket.Chat"]
-categories: ["環境部署", "Docker"]
+categories: ["環境部署", "Docker", "其他"]
 ---
 
 ## 環境

@@ -3,7 +3,7 @@ title: 使用 Docker 搭建 MinIO 儲存服務
 permalink: 使用-Docker-搭建-MinIO-儲存服務
 date: 2021-07-10 23:54:20
 tags: ["環境部署", "Docker", "MinIO", "Storage Service"]
-categories: ["環境部署", "Docker"]
+categories: ["環境部署", "Docker", "其他"]
 ---
 
 ## 建立服務

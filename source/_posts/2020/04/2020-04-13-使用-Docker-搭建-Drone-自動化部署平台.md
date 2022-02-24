@@ -3,7 +3,7 @@ title: 使用 Docker 搭建 Drone 自動化部署平台
 permalink: 使用-Docker-搭建-Drone-自動化部署平台
 date: 2020-04-13 21:15:41
 tags: ["環境部署", "Docker", "Drone", "GitHub", "CI/CD"]
-categories: ["環境部署", "Docker"]
+categories: ["環境部署", "Docker", "其他"]
 ---
 
 ## 環境
