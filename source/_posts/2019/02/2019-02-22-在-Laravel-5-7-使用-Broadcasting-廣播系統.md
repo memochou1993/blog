@@ -130,7 +130,7 @@ window.Echo = new Echo({
 });
 ```
 
-修改 `resources/js/components/ExampleComponent.vue` 組件。
+修改 `resources/js/components/ExampleComponent.vue` 元件。
 
 ```HTML
 <form action="">
@@ -163,7 +163,7 @@ window.Echo = new Echo({
 </script>
 ```
 
-修改 `resources/views/welcome.blade.php` 檔，並註冊組件。
+修改 `resources/views/welcome.blade.php` 檔，並註冊元件。
 
 ```HTML
 <!doctype html>
@@ -178,7 +178,7 @@ window.Echo = new Echo({
     <body>
         <div id="app">
             <div class="content">
-                <!-- 註冊組件 -->
+                <!-- 註冊元件 -->
                 <example-component></example-component>
             </div>
         </div>

@@ -39,7 +39,7 @@ Service 也可以用在 ServiceSpec 標記 `type` 的方式暴露：
 |-----------------------|
 ```
 
-Service 透過一組 Pod 路由通訊。Service 是一種抽象，它允許 Pod 死亡並在 Kubernetes 中複製，而不會影響應用程式。在依賴的 Pod（如應用程式中的前端和後端組件）之間進行發現和路由是由 Kubernetes Service 處理的。
+Service 透過一組 Pod 路由通訊。Service 是一種抽象，它允許 Pod 死亡並在 Kubernetes 中複製，而不會影響應用程式。在依賴的 Pod（如應用程式中的前端和後端元件）之間進行發現和路由是由 Kubernetes Service 處理的。
 
 Service 匹配一組 Pod 是使用標籤（Label）和選擇器（Selector），它們是允許對 Kubernetes 中的對象進行邏輯操作的一種分組原語。標籤是附加在對象上的鍵值對，可以以多種方式使用：
 

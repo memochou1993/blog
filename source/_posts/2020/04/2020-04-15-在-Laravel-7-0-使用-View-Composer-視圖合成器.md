@@ -1,6 +1,6 @@
 ---
-title: 在 Laravel 7.0 使用 View Composer 視圖組件
-permalink: 在-Laravel-7-0-使用-View-Composer-視圖組件
+title: 在 Laravel 7.0 使用 View Composer 視圖合成器
+permalink: 在-Laravel-7-0-使用-View-Composer-視圖合成器
 date: 2020-04-15 14:44:27
 tags: ["程式設計", "PHP", "Laravel"]
 categories: ["程式設計", "PHP", "Laravel"]
