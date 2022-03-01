@@ -1,6 +1,6 @@
 ---
-title: 使用 Node 和 Hardhat 開發智能合約（二）：互動與提交
-permalink: 使用-Node-和-Hardhat-開發智能合約（二）：互動與提交
+title: 使用 Node 和 Hardhat 開發智能合約（二）：與智能合約互動
+permalink: 使用-Node-和-Hardhat-開發智能合約（二）：與智能合約互動
 date: 2022-02-26 00:36:18
 tags: ["區塊鏈", "Ethereum", "Web3", "JavaScript", "Node", "Solidity", "Hardhat", "Smart Contract"]
 categories: ["區塊鏈"]
@@ -116,10 +116,6 @@ The message is: Hello World!
 Updating the message...
 The new message is: This is the new message.
 ```
-
-## 提交
-
-// TODO
 
 ## 程式碼
 
