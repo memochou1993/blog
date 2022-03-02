@@ -18,7 +18,7 @@ categories: ["區塊鏈"]
 
 ## 開發
 
-新增專案。
+建立專案。
 
 ```BASH
 mkdir smart-contract-example

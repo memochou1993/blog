@@ -8,7 +8,7 @@ categories: ["程式設計", "JavaScript", "Node"]
 
 ## 做法
 
-新增專案。
+建立專案。
 
 ```BASH
 npm init

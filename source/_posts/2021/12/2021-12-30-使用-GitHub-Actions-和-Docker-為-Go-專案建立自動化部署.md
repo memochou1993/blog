@@ -8,7 +8,7 @@ categories: ["環境部署", "CI/CD"]
 
 ## 建立專案
 
-新增專案。
+建立專案。
 
 ```BASH
 mkdir go-pipeline-example
