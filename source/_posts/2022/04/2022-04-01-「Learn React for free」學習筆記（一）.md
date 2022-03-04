@@ -53,7 +53,7 @@ cd react-info-site
 新增 `index.js` 檔。
 
 ```JS
-// 將內容炫染到指定節點
+// 將內容渲染到指定節點
 ReactDOM.render(<h1>Hello, World!</h1>, document.getElementById('root'));
 ```
 
