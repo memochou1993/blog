@@ -6,17 +6,12 @@ tags: ["資料庫", "MySQL", "SQL", "資料庫", "Docker"]
 categories: ["資料庫", "MySQL"]
 ---
 
-## 環境
-
-- macOS (M1)
-- Docker Desktop preview
-
-## 做法
+## 安裝
 
 下載並啟動 `mysql/mysql-server` 映像檔。
 
 ```BASH
-docker run --name=mysql -d -p 3306:3306 mysql/mysql-server
+docker run -d --name=mysql -p 3306:3306 mysql/mysql-server
 ```
 
 等待 `health` 狀態從 `starting` 變成 `healthy` 後，使用以下指令取得初始密碼。
