@@ -1,6 +1,6 @@
 ---
-title: 使用 Node 和 Hardhat 開發智能合約（一）：開發與部署智能合約
-permalink: 使用-Node-和-Hardhat-開發智能合約（一）：開發與部署智能合約
+title: 使用 JavaScript 開發智能合約（一）：開發與部署智能合約
+permalink: 使用-JavaScript-開發智能合約（一）：開發與部署智能合約
 date: 2022-02-25 20:34:03
 tags: ["區塊鏈", "Ethereum", "Web3", "JavaScript", "Node", "Solidity", "Hardhat", "Smart Contract", "DApp"]
 categories: ["區塊鏈"]
@@ -8,7 +8,9 @@ categories: ["區塊鏈"]
 
 ## 前言
 
-本文參考 Alchemy 的[範例](https://docs.alchemy.com/alchemy/)進行實作，Alchemy 是一個區塊鏈開發者平台，能夠讓開發者訪問以太坊區塊鏈上的 API 端點，並且可以讀寫交易。網路與範例不同，使用的是 `rinkeby` 測試網路。
+本文參考 Alchemy 的[範例](https://docs.alchemy.com/alchemy/)進行實作，Alchemy 是一個區塊鏈開發者平台，能夠讓開發者訪問以太坊區塊鏈上的 API 端點，並且可以讀寫交易。
+
+本文採用的區塊鏈測試網路與範例文章不同，使用的是 `rinkeby` 測試網路。
 
 ## 前置作業
 
@@ -31,7 +33,7 @@ cd smart-contract-example
 npm init
 ```
 
-安裝 `hardhat` 套件。
+安裝 `hardhat` 套件。Hardhat 是一個自動化構建智能合約的環境和工具。
 
 ```BASH
 npm install --save-dev hardhat
@@ -55,7 +57,7 @@ mkdir contracts
 mkdir scripts
 ```
 
-在 `contracts` 資料夾新增 `HelloWorld.sol` 檔。
+在 `contracts` 資料夾新增 `HelloWorld.sol` 檔。需要使用 Solidity 語言撰寫。
 
 ```SOLIDITY
 // SPDX-License-Identifier: MIT
@@ -175,6 +177,7 @@ Contract deployed to address: 0x6839691078Ef669589F65Fca9968f6430D509812
 ## 程式碼
 
 - [smart-contract-example](https://github.com/memochou1993/smart-contract-example)
+- [smart-contract-client-example](https://github.com/memochou1993/smart-contract-client-example)
 
 ## 參考資料
 

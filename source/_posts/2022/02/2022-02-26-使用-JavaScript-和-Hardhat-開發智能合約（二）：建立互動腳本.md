@@ -1,6 +1,6 @@
 ---
-title: 使用 Node 和 Hardhat 開發智能合約（二）：與智能合約互動
-permalink: 使用-Node-和-Hardhat-開發智能合約（二）：與智能合約互動
+title: 使用 JavaScript 開發智能合約（二）：建立互動腳本
+permalink: 使用-JavaScript-開發智能合約（二）：建立互動腳本
 date: 2022-02-26 00:36:18
 tags: ["區塊鏈", "Ethereum", "Web3", "JavaScript", "Node", "Solidity", "Hardhat", "Smart Contract", "DApp"]
 categories: ["區塊鏈"]
@@ -8,7 +8,9 @@ categories: ["區塊鏈"]
 
 ## 前言
 
-本文參考 Alchemy 的[範例](https://docs.alchemy.com/alchemy/)進行實作，Alchemy 是一個區塊鏈開發者平台，能夠讓開發者訪問以太坊區塊鏈上的 API 端點，並且可以讀寫交易。網路與範例不同，使用的是 `rinkeby` 測試網路。
+本文參考 Alchemy 的[範例](https://docs.alchemy.com/alchemy/)進行實作，Alchemy 是一個區塊鏈開發者平台，能夠讓開發者訪問以太坊區塊鏈上的 API 端點，並且可以讀寫交易。
+
+本文採用的區塊鏈測試網路與範例文章不同，使用的是 `rinkeby` 測試網路。
 
 ## 互動
 
@@ -35,7 +37,7 @@ const contract = require("../artifacts/contracts/HelloWorld.sol/HelloWorld.json"
 console.log(JSON.stringify(contract.abi));
 ```
 
-執行腳本。
+執行 `interact.js` 檔。
 
 ```BASH
 npx hardhat run scripts/interact.js
@@ -79,7 +81,7 @@ async function main() {
 main();
 ```
 
-執行 `interact.js` 腳本。
+執行 `interact.js` 檔。
 
 ```BASH
 npx hardhat run scripts/interact.js
@@ -120,6 +122,7 @@ The new message is: This is the new message.
 ## 程式碼
 
 - [smart-contract-example](https://github.com/memochou1993/smart-contract-example)
+- [smart-contract-client-example](https://github.com/memochou1993/smart-contract-client-example)
 
 ## 參考資料
 

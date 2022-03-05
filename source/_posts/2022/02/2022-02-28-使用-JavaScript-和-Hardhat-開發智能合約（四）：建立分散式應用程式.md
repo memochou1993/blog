@@ -1,6 +1,6 @@
 ---
-title: 使用 Node 和 Hardhat 開發智能合約（四）：建立分散式應用程式
-permalink: 使用-Node-和-Hardhat-開發智能合約（四）：建立分散式應用程式
+title: 使用 JavaScript 開發智能合約（四）：建立分散式應用程式
+permalink: 使用-JavaScript-開發智能合約（四）：建立分散式應用程式
 date: 2022-02-28 14:02:58
 tags: ["區塊鏈", "Ethereum", "Web3", "JavaScript", "Node", "Solidity", "Hardhat", "Smart Contract", "DApp"]
 categories: ["區塊鏈"]
@@ -8,11 +8,13 @@ categories: ["區塊鏈"]
 
 ## 前言
 
-本文參考 Alchemy 的[範例](https://docs.alchemy.com/alchemy/)進行實作，Alchemy 是一個區塊鏈開發者平台，能夠讓開發者訪問以太坊區塊鏈上的 API 端點，並且可以讀寫交易。網路與範例不同，使用的是 `rinkeby` 測試網路。
+本文參考 Alchemy 的[範例](https://docs.alchemy.com/alchemy/)進行實作，Alchemy 是一個區塊鏈開發者平台，能夠讓開發者訪問以太坊區塊鏈上的 API 端點，並且可以讀寫交易。
+
+本文採用的區塊鏈測試網路與範例文章不同，使用的是 `rinkeby` 測試網路。
 
 ## 建立專案
 
-將 `hello-world-part-four-tutorial` 範例專案克隆下來，並建立前端專案。
+將 `hello-world-part-four-tutorial` 範例專案克隆下來，並建立一個 React 前端專案。
 
 ```BASH
 git clone https://github.com/alchemyplatform/hello-world-part-four-tutorial.git
@@ -357,6 +359,7 @@ const onUpdatePressed = async () => {
 ## 程式碼
 
 - [smart-contract-example](https://github.com/memochou1993/smart-contract-example)
+- [smart-contract-client-example](https://github.com/memochou1993/smart-contract-client-example)
 
 ## 參考資料
 

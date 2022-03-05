@@ -1,6 +1,6 @@
 ---
-title: 使用 Node 和 Web3 腳本發送交易
-permalink: 使用-Node-和-Web3-腳本發送交易
+title: 使用 JavaScript 和 Web3 腳本發送交易
+permalink: 使用-JavaScript-和-Web3-腳本發送交易
 date: 2022-02-23 22:24:50
 tags: ["區塊鏈", "Ethereum", "Web3", "JavaScript", "Node"]
 categories: ["區塊鏈"]
