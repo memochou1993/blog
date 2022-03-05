@@ -57,7 +57,7 @@ REACT_APP_ALCHEMY_KEY=wss://eth-rinkeby.ws.alchemyapi.io/v2/your-api-key
 更新 `src/util/interact.js` 檔。
 
 ```JS
-require('dotenv').config();
+require("dotenv").config();
 const alchemyKey = process.env.REACT_APP_ALCHEMY_KEY;
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
 const web3 = createAlchemyWeb3(alchemyKey);
