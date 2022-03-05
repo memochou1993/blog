@@ -2,13 +2,13 @@
 title: 使用 Node 和 Hardhat 開發智能合約（一）：開發與部署智能合約
 permalink: 使用-Node-和-Hardhat-開發智能合約（一）：開發與部署智能合約
 date: 2022-02-25 20:34:03
-tags: ["區塊鏈", "Ethereum", "Web3", "JavaScript", "Node", "Solidity", "Hardhat", "Smart Contract"]
+tags: ["區塊鏈", "Ethereum", "Web3", "JavaScript", "Node", "Solidity", "Hardhat", "Smart Contract", "DApp"]
 categories: ["區塊鏈"]
 ---
 
 ## 前言
 
-本文參考 Alchemy 的[範例](https://docs.alchemy.com/alchemy/)進行實作，Alchemy 是一個區塊鏈開發者平台，能夠讓開發者訪問以太坊區塊鏈上的 API 端點，並且可以讀寫交易。
+本文參考 Alchemy 的[範例](https://docs.alchemy.com/alchemy/)進行實作，Alchemy 是一個區塊鏈開發者平台，能夠讓開發者訪問以太坊區塊鏈上的 API 端點，並且可以讀寫交易。網路與範例不同，使用的是 `rinkeby` 測試網路。
 
 ## 前置作業
 
