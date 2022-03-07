@@ -50,11 +50,24 @@ cd react-info-site
 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 ```
 
-新增 `index.js` 檔。
+新增 `index.js` 檔，試著渲染一個標題到指定節點。
 
 ```JS
-// 將內容渲染到指定節點
+// 將標題渲染到指定節點
 ReactDOM.render(<h1>Hello, World!</h1>, document.getElementById('root'));
+```
+
+修改 `index.js` 檔，試著渲染一個列表到指定節點。
+
+```JS
+// 將列表渲染到指定節點
+ReactDOM.render(
+  <ul>
+    <li>Thing 1</li>
+    <li>Thing 2</li>
+  </ul>,
+  document.getElementById('root')
+);
 ```
 
 ## 參考資料
