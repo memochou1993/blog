@@ -70,6 +70,23 @@ ReactDOM.render(
 );
 ```
 
+修改 `index.js` 檔，試著渲染一個自定義的元件到指定節點。
+
+```JS
+function MainContent() {
+  return (
+      <main>Hello World!</main>
+  );
+};
+
+ReactDOM.render(
+  <div>
+      <MainContent />
+  </div>,
+  document.getElementById('root')
+);
+```
+
 ## 參考資料
 
 - [Learn React for free](https://scrimba.com/learn/learnreact)
