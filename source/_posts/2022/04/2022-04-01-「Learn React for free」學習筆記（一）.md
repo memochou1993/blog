@@ -87,6 +87,38 @@ ReactDOM.render(
 );
 ```
 
+## JSX
+
+所謂 JSX 是一個 JavaScript 的語法擴充。
+
+```JS
+const element = <h1>你好，世界！</h1>;
+```
+
+使用 JSX 渲染一個字串，JSX 會為其產生一個 React 的 `element` 元素。
+
+```JS
+const element = <h1>Hello, World!</h1>;
+
+ReactDOM.render(element, document.getElementById('root'));
+```
+
+使用 JSX 渲染一個列表。
+
+```JS
+const nav = (
+  <nav>
+    <ul>
+      <li>Pricing</li>
+      <li>About</li>
+      <li>Contact</li>
+    </ul>
+  </nav>
+);
+
+ReactDOM.render(nav, document.getElementById('root'));
+```
+
 ## 參考資料
 
 - [Learn React for free](https://scrimba.com/learn/learnreact)
