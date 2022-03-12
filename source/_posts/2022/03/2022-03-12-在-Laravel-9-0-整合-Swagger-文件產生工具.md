@@ -59,65 +59,184 @@ class Controller extends BaseController
 }
 ```
 
-在 `ArticleController.php` 中加入註解。
+以 `ArticleController` 為例，在各個方法中加入註解。
 
 ```PHP
-/**
- * Display a listing of the resource.
- *
- * @OA\Get(
- *     tags={"Article"},
- *     path="/api/articles",
- *     security={{"sanctum":{}}},
- *     operationId="get-articles",
- *     summary="Display a listing of the articles.",
- *     description="Display a listing of the articles.",
- *     @OA\Response(
- *       response="200",
- *       description="OK",
- *       @OA\JsonContent()
- *     )
- * )
- *
- * @return AnonymousResourceCollection
- */
-public function index(Request $request)
-{
-    // ...
-}
+namespace App\Http\Controllers;
 
-/**
- * Display the specified resource.
- *
- * @OA\Get(
- *     tags={"Article"},
- *     path="/api/articles/{id}",
- *     security={{"sanctum":{}}},
- *     operationId="get-article",
- *     summary="Display the specified article.",
- *     description="Display the specified article.",
- *     @OA\Parameter(
- *       name="id",
- *       description="Article ID",
- *       required=true,
- *       in="path",
- *       @OA\Schema(
- *         type="integer"
- *       )
- *     ),
- *     @OA\Response(
- *       response="200",
- *       description="OK",
- *       @OA\JsonContent()
- *     )
- * )
- *
- * @param Article $article
- * @return ArticleResource
- */
-public function show(Article $article)
+use App\Http\Requests\ArticleStoreRequest;
+use App\Http\Requests\ArticleUpdateRequest;
+use App\Http\Resources\ArticleResource;
+use App\Models\Article;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Symfony\Component\HttpFoundation\Response;
+
+class ArticleController extends Controller
 {
-    // ...
+    /**
+     * Instantiate a new controller instance.
+     */
+    public function __construct() {
+        $this->authorizeResource(Article::class);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @OA\Get(
+     *     tags={"Article"},
+     *     path="/api/articles",
+     *     security={{"sanctum":{}}},
+     *     @OA\Response(response=200, description="OK", @OA\JsonContent()),
+     *     @OA\Response(response=401, description="Unauthorized", @OA\JsonContent()),
+     * )
+     *
+     * @return AnonymousResourceCollection
+     */
+    public function index(Request $request)
+    {
+        $articles = $request->user()->articles()->with(['chain'])->get();
+
+        return ArticleResource::collection($articles);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @OA\Post(
+     *     tags={"Article"},
+     *     path="/api/articles",
+     *     security={{"sanctum":{}}},
+     *     @OA\RequestBody(
+     *         @OA\MediaType(
+     *             mediaType="application/json",
+     *             @OA\Schema(
+     *                 @OA\Property(property="name", type="string", default=""),
+     *                 @OA\Property(property="address", type="string", default=""),
+     *                 @OA\Property(property="is_enabled", type="boolean", default=false),
+     *                 @OA\Property(property="chain_id", type="integer", default=0),
+     *             ),
+     *         ),
+     *     ),
+     *     @OA\Response(response=201, description="Created", @OA\JsonContent()),
+     *     @OA\Response(response=401, description="Unauthorized", @OA\JsonContent()),
+     *     @OA\Response(response=403, description="Forbidden", @OA\JsonContent()),
+     *     @OA\Response(response=404, description="Not Found", @OA\JsonContent()),
+     *     @OA\Response(response=422, description="Unprocessable Content", @OA\JsonContent()),
+     * )
+     *
+     * @param ArticleStoreRequest $request
+     * @return ArticleResource
+     */
+    public function store(ArticleStoreRequest $request)
+    {
+        $article = $request->user()->articles()->create($request->all());
+
+        return new ArticleResource($article);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @OA\Get(
+     *     tags={"Article"},
+     *     path="/api/articles/{id}",
+     *     security={{"sanctum":{}}},
+     *     @OA\Parameter(
+     *         name="id",
+     *         description="Article ID",
+     *         required=true,
+     *         in="path",
+     *         @OA\Schema(type="integer"),
+     *     ),
+     *     @OA\Response(response=200, description="OK", @OA\JsonContent()),
+     *     @OA\Response(response=401, description="Unauthorized", @OA\JsonContent()),
+     *     @OA\Response(response=403, description="Forbidden", @OA\JsonContent()),
+     *     @OA\Response(response=404, description="Not Found", @OA\JsonContent()),
+     * )
+     *
+     * @param Article $article
+     * @return ArticleResource
+     */
+    public function show(Article $article)
+    {
+        return new ArticleResource($article);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @OA\Put(
+     *     tags={"Article"},
+     *     path="/api/articles/{id}",
+     *     security={{"sanctum":{}}},
+     *     @OA\Parameter(
+     *         name="id",
+     *         description="Article ID",
+     *         required=true,
+     *         in="path",
+     *         @OA\Schema(type="integer"),
+     *     ),
+     *     @OA\RequestBody(
+     *         @OA\MediaType(
+     *             mediaType="application/json",
+     *             @OA\Schema(
+     *                 @OA\Property(property="name", type="string", default=""),
+     *                 @OA\Property(property="address", type="string", default=""),
+     *                 @OA\Property(property="is_enabled", type="boolean", default=false),
+     *                 @OA\Property(property="chain_id", type="integer", default=0),
+     *             ),
+     *         ),
+     *     ),
+     *     @OA\Response(response=200, description="OK", @OA\JsonContent()),
+     *     @OA\Response(response=401, description="Unauthorized", @OA\JsonContent()),
+     *     @OA\Response(response=403, description="Forbidden", @OA\JsonContent()),
+     *     @OA\Response(response=404, description="Not Found", @OA\JsonContent()),
+     *     @OA\Response(response=422, description="Unprocessable Content", @OA\JsonContent()),
+     * )
+     *
+     * @param ArticleUpdateRequest $request
+     * @param Article $article
+     * @return ArticleResource
+     */
+    public function update(ArticleUpdateRequest $request, Article $article)
+    {
+        $article->update($request->all());
+
+        return new ArticleResource($article);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @OA\Delete(
+     *     tags={"Article"},
+     *     path="/api/articles/{id}",
+     *     security={{"sanctum":{}}},
+     *     @OA\Parameter(
+     *         name="id",
+     *         description="Article ID",
+     *         required=true,
+     *         in="path",
+     *         @OA\Schema(type="integer"),
+     *     ),
+     *     @OA\Response(response=204, description="No Content", @OA\JsonContent()),
+     *     @OA\Response(response=401, description="Unauthorized", @OA\JsonContent()),
+     *     @OA\Response(response=403, description="Forbidden", @OA\JsonContent()),
+     *     @OA\Response(response=404, description="Not Found", @OA\JsonContent()),
+     * )
+     *
+     * @param Article $article
+     * @return JsonResponse
+     */
+    public function destroy(Article $article)
+    {
+        $article->delete();
+
+        return response()->json(null, Response::HTTP_NO_CONTENT);
+    }
 }
 ```
 
