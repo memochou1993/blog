@@ -12,7 +12,7 @@ categories: ["環境部署", "Kubernetes", "「Kubernetes 實作手冊：基礎�
 
 ## 簡介
 
-ConfigMap 是 Kubernetes 的一種 API 物件，用來將非機密性的資料保存到鍵值對中。使用時，Pod 可以將其用做環境變數、命令行參數，或者 Volume 中的配置檔案。
+ConfigMap 是 Kubernetes 的一種 API 物件，用來將非機密性的資料保存到鍵值對中。使用時，Pod 可以將其用做環境變數、命令列參數，或者 Volume 中的配置檔案。
 
 ConfigMap 將環境配置訊息和 Container 解耦，以便於應用配置的修改。
 
