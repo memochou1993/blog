@@ -52,14 +52,14 @@ cd react-info-site
 
 新增 `index.js` 檔，試著渲染一個標題到指定節點。
 
-```JS
+```JSX
 // 將標題渲染到指定節點
 ReactDOM.render(<h1>Hello, World!</h1>, document.getElementById('root'));
 ```
 
 修改 `index.js` 檔，試著渲染一個列表到指定節點。
 
-```JS
+```JSX
 // 將列表渲染到指定節點
 ReactDOM.render(
   <ul>
@@ -72,7 +72,7 @@ ReactDOM.render(
 
 修改 `index.js` 檔，試著渲染一個自定義的元件到指定節點。
 
-```JS
+```JSX
 function MainContent() {
   return (
       <main>Hello World!</main>
@@ -91,13 +91,13 @@ ReactDOM.render(
 
 所謂 JSX 是一個 JavaScript 的語法擴充。
 
-```JS
+```JSX
 const element = <h1>你好，世界！</h1>;
 ```
 
 使用 JSX 渲染一個字串，JSX 會為其產生一個 React 的 `element` 元素。
 
-```JS
+```JSX
 const element = <h1>Hello, World!</h1>;
 
 ReactDOM.render(element, document.getElementById('root'));
@@ -105,7 +105,7 @@ ReactDOM.render(element, document.getElementById('root'));
 
 使用 JSX 渲染一個列表。
 
-```JS
+```JSX
 const nav = (
   <nav>
     <ul>
@@ -123,7 +123,7 @@ ReactDOM.render(nav, document.getElementById('root'));
 
 使用方法建立一個以 `CamelCase` 為命名方式的元件。
 
-```JS
+```JSX
 function MyPage() {
   return (
     <div>
@@ -132,20 +132,122 @@ function MyPage() {
           <img src="./react-logo.svg" width="40px" />
         </nav>
       </header>
-      <h1>Reasons I'm excited to learn React</h1>
-      <ol>
-        <li>It's a popular library, so I'll be able to fit in with the cool kids!</li>
-        <li>I'm more likely to get a job as a developer if I know React</li>
-      </ol>
+      <main>
+        <h1>Reasons I'm excited to learn React</h1>
+        <ol>
+          <li>It's a popular library, so I'll be able to fit in with the cool kids!</li>
+          <li>I'm more likely to get a job as a developer if I know React</li>
+        </ol>
+      </main>
       <footer>
         <small>© 2022 Memo Chou</small>
       </footer>
     </div>
   );
-};
+}
 
 ReactDOM.render(<MyPage />, document.getElementById('root'));
 ```
+
+將不同的區塊拆分成元件，並且組合在一起。
+
+```JSX
+function Header() {
+  return (
+    <header>
+      <nav>
+        <img src="./react-logo.svg" width="40px" />
+      </nav>
+    </header>
+  );
+}
+
+function MainContent() {
+  return (
+    <main>
+      <h1>Reasons I'm excited to learn React</h1>
+      <ol>
+        <li>It's a popular library, so I'll be able to fit in with the cool kids!</li>
+        <li>I'm more likely to get a job as a developer if I know React</li>
+      </ol>
+    </main>
+  );
+}
+
+function Footer() {
+  return (
+    <footer>
+      <small>© 2022 Memo Chou</small>
+    </footer>
+  );
+}
+
+function MyPage() {
+  return (
+    <div>
+      <Header />
+      <MainContent />
+      <Footer />
+    </div>
+  );
+}
+
+ReactDOM.render(<MyPage />, document.getElementById('root'));
+```
+
+## 套用樣式
+
+新增 `style.css` 檔。
+
+```CSS
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    width: 60px;
+}
+
+.nav-items {
+    list-style: none;
+    display: flex;
+}
+
+.nav-items > li {
+    padding: 10px;
+}
+```
+
+將 `style.css` 檔引入 `index.html` 中。
+
+```HTML
+<link rel="stylesheet" href="style.css">
+```
+
+套用樣式到 `Header` 元件。
+
+```JSX
+function Header() {
+  return (
+    <header>
+      <nav className="nav">
+        <img src="./react-logo.svg" className="nav-logo" />
+        <ul className="nav-items">
+          <li>Pricing</li>
+          <li>About</li>
+          <li>Contact</li>
+        </ul>
+      </nav>
+    </header>
+  );
+}
+```
+
+## 程式碼
+
+- [react-info-site](https://github.com/memochou1993/react-info-site)
 
 ## 參考資料
 
