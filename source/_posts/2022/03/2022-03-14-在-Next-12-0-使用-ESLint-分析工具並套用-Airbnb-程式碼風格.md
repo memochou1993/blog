@@ -31,26 +31,10 @@ yarn add prop-types
 {
   "extends": "airbnb",
   "rules": {
+    "react/prop-types": "off",
     "react/jsx-props-no-spreading": "off"
   }
 }
-```
-
-將 `_app.js` 檔重新命名為 `_app.jsx` 檔，並修改如下。
-
-```JS
-import React from 'react';
-import PropTypes from 'prop-types';
-import '../styles/globals.css';
-
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />;
-}
-
-App.propTypes = {
-  Component: PropTypes.element.isRequired,
-  pageProps: PropTypes.element.isRequired,
-};
 ```
 
 執行檢查。
