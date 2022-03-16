@@ -245,6 +245,169 @@ function Header() {
 }
 ```
 
+## 匯出與匯入
+
+為了將元件放置在各自的檔案，並且可以將元件匯出與匯入，需要使用到 `webpack` 工具，並且進行編譯。
+
+首先，修改 `package.json` 檔。
+
+```JSON
+{
+  "name": "project",
+  "scripts": {
+    "watch": "webpack -w",
+    "build": "webpack"
+  },
+  "dependencies": {
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "webpack": "^2.0",
+    "babel-core": "^6.0",
+    "babel-loader": "^7.0",
+    "babel-preset-env": "*",
+    "babel-preset-react": "*"
+  }
+}
+```
+
+新增 `webpack.config.js` 檔。
+
+```JS
+module.exports = {
+  "output": {
+    "filename": "[name].pack.js"
+  },
+  "module": {
+    "rules": [
+      {
+        "use": {
+          "loader": "babel-loader",
+          "options": {
+            "presets": [
+              "babel-preset-env",
+              "babel-preset-react"
+            ],
+          },
+        },
+        "exclude": /node_modules/,
+        "test": /\.js$/
+      }
+    ]
+  },
+  "entry": {
+    "index": "./index"
+  }
+}
+```
+
+修改 `index.html` 檔。
+
+```HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="root"></div>
+    <script src="index.pack.js"></script>
+</body>
+</html>
+```
+
+新增 `Header.js` 檔。
+
+```JS
+import React from "react"
+
+export default function Header() {
+  return (
+    <header>
+      <nav className="nav">
+        <img src="./react-logo.svg" className="nav-logo" />
+        <ul className="nav-items">
+          <li>Pricing</li>
+          <li>About</li>
+          <li>Contact</li>
+        </ul>
+      </nav>
+    </header>
+  )
+}
+```
+
+新增 `MainContent.js` 檔。
+
+```JS
+import React from "react"
+
+export default function MainContent() {
+  return (
+    <main>
+      <h1>Reasons I'm excited to learn React</h1>
+      <ol>
+        <li>It's a popular library, so I'll be able to fit in with the cool kids!</li>
+        <li>I'm more likely to get a job as a developer if I know React</li>
+      </ol>
+    </main>
+  )
+}
+```
+
+新增 `Footer.js` 檔。
+
+```JS
+import React from "react"
+
+export default function Footer() {
+  return (
+    <footer>
+      <small>© 2022 Memo Chou</small>
+    </footer>
+  )
+}
+```
+
+修改 `index.js` 檔。
+
+```JS
+import React from "react"
+import ReactDOM from "react-dom"
+import Header from "./Header"
+import MainContent from "./MainContent"
+import Footer from "./Footer"
+
+function App() {
+  return (
+    <div>
+      <Header />
+      <MainContent />
+      <Footer />
+    </div>
+  )
+}
+
+ReactDOM.render(<App />, document.getElementById('root'))
+```
+
+執行編譯。
+
+```BASH
+npm run watch
+```
+
+啟動伺服器。
+
+```BASH
+live-server
+```
+
 ## 程式碼
 
 - [react-info-site](https://github.com/memochou1993/react-info-site)
