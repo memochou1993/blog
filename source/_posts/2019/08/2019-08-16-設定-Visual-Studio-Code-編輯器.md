@@ -14,45 +14,68 @@ categories: ["其他", "編輯器"]
     "editor.fontSize": 16,
     "editor.fontFamily": "Operator Mono",
     "editor.suggestSelection": "first",
+    "files.autoSave":"afterDelay",
+    "files.autoSaveDelay": 250,
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "workbench.colorTheme": "Super One Dark",
+    "workbench.editor.untitled.hint": "hidden",
     "terminal.integrated.fontFamily": "SauceCodePro Nerd Font",
     "terminal.integrated.cursorStyle": "underline",
     "terminal.integrated.cursorBlinking": true,
-    "terminal.integrated.shell.osx": "zsh",
     "git.autofetch": true,
-    "powermode.enabled": true,
-    "powermode.enableShake": false,
-    "powermode.enableStatusBarComboTimer": false,
     "namespaceResolver.sortAlphabetically": true,
-    "php-cs-fixer.lastDownload": 1585310494243,
+    "php-cs-fixer.lastDownload": 1644850927895,
     "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
     "go.formatTool": "goimports",
     "go.useLanguageServer": true,
+    "go.toolsManagement.autoUpdate": true,
     "eslint.alwaysShowStatus": true,
     "markdownlint.config": {
         "MD029": false,
         "MD033": false
     },
+    "diffEditor.ignoreTrimWhitespace": false,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "tabnine.experimentalAutoImports": true,
+    "powermode.enabled": true,
+    "powermode.combo.location": "statusbar",
+    "powermode.combo.counterEnabled": "default",
+    "powermode.combo.timerEnabled": "hide",
+    "powermode.shake.enabled": false,
     "[php]": {
         "editor.formatOnSave": false,
-        "editor.defaultFormatter": "junstyle.php-cs-fixer"
+        "editor.defaultFormatter": "junstyle.php-cs-fixer",
+        "editor.tabSize": 4
     },
     "[vue]": {
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "octref.vetur"
+        "editor.formatOnSave": false,
+        "editor.defaultFormatter": "octref.vetur",
+        "editor.tabSize": 2
     },
     "[javascript]": {
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "vscode.typescript-language-features"
+        "editor.formatOnSave": false,
+        "editor.defaultFormatter": "vscode.typescript-language-features",
+        "editor.tabSize": 2
     },
-    "[javascriptreact]": {
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "vscode.typescript-language-features"
+    "[typescript]": {
+        "editor.formatOnSave": false,
+        "editor.defaultFormatter": "vscode.typescript-language-features",
+        "editor.tabSize": 2
     },
-    "[jsonc]": {
+    "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
-    "diffEditor.ignoreTrimWhitespace": false
+    "[dart]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.rulers": [
+            80
+        ],
+        "editor.selectionHighlight": false,
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        "editor.suggestSelection": "first",
+        "editor.tabCompletion": "onlySnippets",
+        "editor.wordBasedSuggestions": false
+    }
 }
 ```
