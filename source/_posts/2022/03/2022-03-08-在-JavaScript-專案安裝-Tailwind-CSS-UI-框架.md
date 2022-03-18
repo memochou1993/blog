@@ -38,7 +38,7 @@ module.exports = {
 };
 ```
 
-修改主要的 `style.css` 樣式檔。
+修改主要的 CSS 樣式檔，添加 `@tailwind` 裝飾器。
 
 ```CSS
 @tailwind base;
