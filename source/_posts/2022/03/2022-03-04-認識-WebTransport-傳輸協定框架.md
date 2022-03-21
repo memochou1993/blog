@@ -22,7 +22,7 @@ WebTransport 是一個 Web API，使用 HTTP/3 協議作為雙向傳輸。它用
 
 ### WebTransport 可以替代 WebSockets 嗎？
 
-也許可以。在某些用例中，WebSockets 或WebTransport 可作為可用的有效通訊協議。
+也許可以。在某些用例中，WebSockets 或 WebTransport 可作為可用的有效通訊協議。
 
 WebSockets 通訊圍繞單一、可靠、有序的訊息流建模，這對於某些類型的通訊需求來說是很好的。如果您需要這些特性，那麼 WebTransport 的 Streams API 也可以提供它們。相比之下，WebTransport 的資料報 API 提供低延遲交付，但不保證可靠性或排序，因此它們不能直接替代 WebSocket。
 
