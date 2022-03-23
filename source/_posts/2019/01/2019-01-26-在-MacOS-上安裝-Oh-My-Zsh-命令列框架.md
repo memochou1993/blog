@@ -1,8 +1,8 @@
 ---
-title: 在 macOS 上安裝 Oh My Zsh 命令列框架
-permalink: 在-macOS-上安裝-Oh-My-Zsh-命令列框架
+title: 在 macOS 上安裝 Oh My Zsh 命令列框架和 Powerlevel9k 主題
+permalink: 在-macOS-上安裝-Oh-My-Zsh-命令列框架和-Powerlevel9k-主題
 date: 2019-01-26 01:03:50
-tags: ["Zsh", "macOS", "Shell"]
+tags: ["Shell", "Zsh", "macOS", "Oh My Zsh"]
 categories: ["其他", "Shell"]
 ---
 
