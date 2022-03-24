@@ -28,16 +28,23 @@ sso_role_name=PowerUserAccess
 output=json
 ```
 
-開啟瀏覽器，以 AWS SSO 登入。
+添加環境變數。
 
 ```BASH
-aws-vault login --backend=file playground-PowerUser
+export AWS_VAULT_BACKEND=file
+export AWS_VAULT_FILE_PASSPHRASE=root
 ```
 
-執行 `aws` 指令。
+使用以下命令，以 AWS SSO 登入。
 
 ```BASH
-aws-vault exec --backend=file playground-PowerUser -- aws s3 ls
+aws-vault login playground-PowerUser
+```
+
+使用以下命令，執行 `aws` 指令。
+
+```BASH
+aws-vault exec playground-PowerUser -- aws s3 ls
 ```
 
 ## 參考資料
