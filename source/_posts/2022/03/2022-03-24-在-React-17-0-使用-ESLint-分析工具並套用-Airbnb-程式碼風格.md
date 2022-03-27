@@ -25,6 +25,9 @@ module.exports = {
   plugins: [
     'react',
   ],
+  parserOptions: {
+    ecmaVersion: '2020', // or above
+  },
   rules: {
     //
   },
