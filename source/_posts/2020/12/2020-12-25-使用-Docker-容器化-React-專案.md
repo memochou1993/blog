@@ -36,13 +36,13 @@ FROM node:lts-alpine as builder
 
 WORKDIR /app
 
-COPY package.json ./
+COPY package*.json ./
 
-RUN yarn
+RUN npm ci
 
 COPY . .
 
-RUN yarn build
+RUN npm run build
 
 # final stage
 FROM nginx:stable-alpine
@@ -52,6 +52,12 @@ COPY --from=builder /app/build /usr/share/nginx/html
 EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
+```
+
+新增 `.dockerignore` 檔。
+
+```ENV
+/node_modules
 ```
 
 編譯並啟動容器：
