@@ -1,6 +1,6 @@
 ---
-title: 使用範例開發 Solana 鏈上程式（二）：履約保證
-permalink: 使用範例開發-Solana-鏈上程式（二）：履約保證
+title: 使用 Rust 開發 Solana 鏈上程式（二）：履約保證
+permalink: 使用-Rust-開發-Solana-鏈上程式（二）：履約保證
 date: 2022-04-14 23:43:32
 tags: ["區塊鏈", "Solana", "Rust", "Web3", "JavaScript", "Node", "Smart Contract", "DApp"]
 categories: ["區塊鏈"]
@@ -1474,7 +1474,7 @@ solana program deploy target/deploy/solana_escrow.so
 Program Id: FWwUWeewacUBg3tU6mT8xSCbkeLhTLves6VGJtFXaatj
 ```
 
-將 Program Id 更新到 `program_pub.json` 檔：
+將 Program ID 更新到 `program_pub.json` 檔：
 
 ```JSON
 "FWwUWeewacUBg3tU6mT8xSCbkeLhTLves6VGJtFXaatj"

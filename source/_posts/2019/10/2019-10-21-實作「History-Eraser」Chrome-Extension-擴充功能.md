@@ -2,7 +2,7 @@
 title: 實作「History Eraser」Chrome Extension 擴充功能
 permalink: 實作「History-Eraser」Chrome-Extension-擴充功能
 date: 2019-10-21 22:59:11
-tags: ["程式設計", "Chrome", "Chrome Extension"]
+tags: ["程式設計", "Chrome", "Chrome Extension", "JavaScript"]
 categories: ["程式設計", "Chrome Extension"]
 ---
 
