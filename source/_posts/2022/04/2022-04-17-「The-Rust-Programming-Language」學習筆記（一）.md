@@ -421,7 +421,182 @@ fn main() {
 
 ### 函式
 
-TODO
+Rust 程式碼使用 snake case 式作為函式與變數名稱的慣例風格。所有的字母都是小寫，並用底線區隔單字。
+
+```RS
+fn main() {
+    println!("Hello, world!");
+
+    another_function();
+}
+
+fn another_function() {
+    println!("另一支函式。");
+}
+```
+
+#### 參數
+
+可以定義函式成擁有參數（parameters）的，這是函式簽名（signatures）中特殊的變數。當函式有參數時，可以提供那些參數的確切數值。嚴格上來說，傳遞的數值會叫做引數（arguments）。
+
+```RS
+fn main() {
+    another_function(5);
+}
+
+fn another_function(x: i32) {
+    println!("x 的數值為：{}", x);
+}
+```
+
+#### 陳述式與表達式
+
+函式本體是由一系列的陳述式（statements）並在最後可以選擇加上表達式（expression）來組成。Rust 是門基於表達式（expression-based）的語言。陳述式（statements）是進行一些動作的指令，且不回傳任何數值。表達式（expressions）則是計算並產生數值。
+
+```RS
+fn main() {
+    let x = 5;
+
+    let y = {
+        let x = 3;
+        x + 1
+    };
+
+    println!("y 的數值為：{}", y);
+}
+```
+
+注意到 `x + 1` 這行沒有加上分號，因為表達式結尾不會加上分號。如果在此表達式加上分號的話，它就不會回傳數值。
+
+#### 函式回傳值
+
+函式可以回傳數值給呼叫它們的程式碼，我們不會為回傳值命名，但我們必須用箭頭（`->`）來宣告它們的型別。在 Rust 中，回傳值其實就是函式本體最後一行的表達式。可以用 return 關鍵字加上一個數值來提早回傳函式，但多數函式都能用最後一行的表達式作為數值回傳。
+
+```RS
+fn five() -> i32 {
+    5
+}
+
+fn main() {
+    let x = five();
+
+    println!("x 的數值為：{}", x);
+}
+```
+
+### 註解
+
+這是一個簡單的註解。
+
+```RS
+// 安安，你好
+```
+
+經常看到以下格式，註解會位於要說明的程式碼上一行。
+
+```RS
+fn main() {
+    // 幸運 777！
+    let lucky_number = 7;
+}
+```
+
+### 控制流程
+
+#### if 表達式
+
+`if` 能依照條件判斷對程式碼產生分支。
+
+```RS
+fn main() {
+    let number = 3;
+
+    if number < 5 {
+        println!("條件為真");
+    } else {
+        println!("條件為否");
+    }
+}
+```
+
+值得注意的是程式碼的條件判斷必須是 `bool`。如果條件不是 `bool` 的話，我們就會遇到錯誤。
+
+#### else if 表達式
+
+想要實現多重條件的話，可以將 `if` 和 `else` 組合成 `else if` 表達式。
+
+```RS
+fn main() {
+    let number = 6;
+
+    if number % 4 == 0 {
+        println!("數字可以被 4 整除");
+    } else if number % 3 == 0 {
+        println!("數字可以被 3 整除");
+    } else if number % 2 == 0 {
+        println!("數字可以被 2 整除");
+    } else {
+        println!("數字無法被 4、3、2 整除");
+    }
+}
+```
+
+#### 在 let 陳述式中使用 if 表達式
+
+因為 `if` 是表達式，所以可以像這樣放在 `let` 陳述式的右邊，將結果賦值給變數。
+
+```RS
+fn main() {
+    let condition = true;
+    let number = if condition { 5 } else { 6 };
+
+    println!("數字結果為：{}", number);
+}
+```
+
+### 使用迴圈重複執行
+
+#### 使用 loop 重複執行程式碼
+
+`loop` 關鍵字告訴 Rust 去反覆不停地執行一段程式碼直到你親自告訴它要停下來。
+
+```RS
+fn main() {
+    loop {
+        println!("再一次！");
+    }
+}
+```
+
+如果有迴圈在迴圈之內的話，`break` 和 `continue` 會用在該位置最內層的迴圈中。可以選擇在迴圈使用「迴圈標籤」（loop label），然後使用 `break` 和 `continue` 加上那些迴圈標籤定義的關鍵字，而不是作用在最內層迴圈而已。
+
+```RS
+fn main() {
+    let mut count = 0;
+    'counting_up: loop {
+        println!("count = {}", count);
+        let mut remaining = 10;
+
+        loop {
+            println!("remaining = {}", remaining);
+            if remaining == 9 {
+                break;
+            }
+            if count == 2 {
+                break 'counting_up;
+            }
+            remaining -= 1;
+        }
+
+        count += 1;
+    }
+    println!("End count = {}", count);
+}
+```
+
+#### 使用 while 做條件迴圈
+
+#### 使用 for 遍歷集合
 
 ## 參考資料
 
