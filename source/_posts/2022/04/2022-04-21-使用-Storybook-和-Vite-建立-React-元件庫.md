@@ -21,6 +21,13 @@ cd storybook-react
 npm init
 ```
 
+新增 `.gitignore` 檔。
+
+```ENV
+/node_modules
+/dist
+```
+
 ## 安裝依賴套件
 
 安裝 Vite 工具。
@@ -49,9 +56,96 @@ npx sb@latest init
 npm run storybook
 ```
 
-## 建立元件
+## 編譯
 
-TODO
+安裝依賴套件。
+
+```BASH
+npm i @babel/cli cross-env babel-preset-react-app -D
+```
+
+將 `stories` 資料夾重新命名為 `src`，並修改 `.storybook/main.js` 檔。
+
+```JS
+module.exports = {
+  stories: [
+    '../src/**/*.stories.mdx',
+    '../src/**/*.stories.@(js|jsx|ts|tsx)'
+  ],
+  addons: [
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions'
+  ],
+  framework: '@storybook/react'
+}
+```
+
+建立 `src/index.js` 檔。
+
+```JS
+export * from './Button';
+```
+
+修改 `package.json` 檔。
+
+```JSON
+{
+  "scripts": {
+    "build": "cross-env BABEL_ENV=production babel src -d dist",
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
+  }
+}
+```
+
+執行編譯。
+
+```BASH
+npm run build
+```
+
+## 發布
+
+修改 `package.json` 檔，注意套件名稱必須是獨一無二的。
+
+```JSON
+{
+  "name": "@memochou1993/storybook-react",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dist/index.js",
+  "repository": "https://github.com/memochou1993/storybook-react.git"
+}
+```
+
+提交修改。
+
+```BASH
+git add .
+git commit -m "Rename folder"
+```
+
+新增版本。
+
+```BASH
+npm version 0.1.0 -m "First release"
+```
+
+登入 NPM。
+
+```BASH
+npm login
+```
+
+發布套件。
+
+```JSON
+npm publish --access=public
+```
 
 ## 程式碼
 
