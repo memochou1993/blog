@@ -15,7 +15,7 @@ categories: ["區塊鏈"]
 建立專案。
 
 ```BASH
-npx create-next-app@latest solana-swap-ui --typescript
+npx create-next-app@latest solana-swap --typescript
 ```
 
 ## 安裝套件
@@ -10425,7 +10425,7 @@ module.exports = withPlugins(plugins, nextConfig);
 
 ## 程式碼
 
-- [solana-swap-ui](https://github.com/memochou1993/solana-swap-ui)
+- [solana-swap](https://github.com/memochou1993/solana-swap)
 
 ## 參考資料
 
