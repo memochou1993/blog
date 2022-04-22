@@ -66,6 +66,14 @@ solana config set --url localhost
 solana-test-validator
 ```
 
+## 充值
+
+為錢包充值 1 SOL。
+
+```BASH
+solana airdrop 1
+```
+
 ## 使用範例專案
 
 下載 `example-helloworld` 範例專案。
