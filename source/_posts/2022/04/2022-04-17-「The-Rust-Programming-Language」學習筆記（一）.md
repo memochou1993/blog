@@ -594,9 +594,66 @@ fn main() {
 }
 ```
 
+其中一種使用 `loop` 的用途是重試某些可能覺得會失敗的動作，像是檢查一個執行緒是否已經完成其任務。這樣可能就會想傳遞任務結果給之後的程式碼。
+
+```RS
+fn main() {
+    let mut counter = 0;
+
+    let result = loop {
+        counter += 1;
+
+        if counter == 10 {
+            break counter * 2;
+        }
+    };
+
+    println!("結果為：{}", result);
+}
+```
+
 #### 使用 while 做條件迴圈
 
+在程式中用條件判斷迴圈的執行通常是很有用的。當條件為真時，迴圈就繼續執行。當條件不再符合時，程式就用 break 停止迴圈。這樣的循環行為可以用 `loop`、`if`、`else` 和 `break` 組合出來。但是這種模式非常常見，所以 Rust 有提供內建的結構稱為 `while` 迴圈。
+
+```RS
+fn main() {
+    let mut number = 3;
+
+    while number != 0 {
+        println!("{}!", number);
+
+        number -= 1;
+    }
+
+    println!("升空！！！");
+}
+```
+
 #### 使用 for 遍歷集合
+
+可以使用 `for` 迴圈來對集合的每個元素執行一些程式碼。
+
+```RS
+fn main() {
+    let a = [10, 20, 30, 40, 50];
+
+    for element in a {
+        println!("數值為：{}", element);
+    }
+}
+```
+
+`for` 迴圈的安全性與簡潔程度讓它成為 Rust 最常被使用的迴圈結構。就算你想執行的是依照次數循環的程式碼，多數 Rustaceans 還是會選擇 `for` 迴圈。要這麼做的方法是使用 `Range`，這是標準函式庫提供的型別，用來產生一連串的數字序列，從指定一個數字開始一直到另一個數字之前結束。
+
+```RS
+fn main() {
+    for number in (1..4).rev() {
+        println!("{}!", number);
+    }
+    println!("升空！！！");
+}
+```
 
 ## 參考資料
 
