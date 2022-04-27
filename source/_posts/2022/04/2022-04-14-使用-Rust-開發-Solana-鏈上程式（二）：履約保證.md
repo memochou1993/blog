@@ -1555,5 +1555,5 @@ Sending Bob's transaction...
 
 ## 參考資料
 
-- [A Starter Kit for New Solana Developer](https://hackmd.io/@ironaddicteddog/solana-starter-kit)
+- [A Starter Kit for New Solana Developer](https://book.solmeet.dev/notes/solana-starter-kit)
 - [Solana 開發者的入門指南](https://youtu.be/OIjsPrcPe8s)

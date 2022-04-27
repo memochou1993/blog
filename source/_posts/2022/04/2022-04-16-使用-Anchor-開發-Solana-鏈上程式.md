@@ -629,5 +629,5 @@ describe('anchor-escrow', () => {
 ## 參考資料
 
 - [Anchor: A Minimal Example](https://project-serum.github.io/anchor/tutorials/tutorial-0.html)
-- [Anchor: A Powerful Framework for Solana Developers](https://hackmd.io/@ironaddicteddog/solana-anchor-escrow)
+- [Anchor: A Powerful Framework for Solana Developers](https://book.solmeet.dev/notes/intro-to-anchor)
 - [Solana 開發者的入門指南](https://youtu.be/r4n-zedNwUg)
