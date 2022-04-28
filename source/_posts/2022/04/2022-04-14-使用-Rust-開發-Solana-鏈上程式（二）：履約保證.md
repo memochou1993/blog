@@ -2,13 +2,13 @@
 title: 使用 Rust 開發 Solana 鏈上程式（二）：履約保證
 permalink: 使用-Rust-開發-Solana-鏈上程式（二）：履約保證
 date: 2022-04-14 23:43:32
-tags: ["區塊鏈", "Solana", "Rust", "Web3", "JavaScript", "Node", "Smart Contract", "DApp"]
+tags: ["區塊鏈", "Solana", "Rust", "Web3", "JavaScript", "Smart Contract", "DApp"]
 categories: ["區塊鏈"]
 ---
 
 ## 前言
 
-本文為「[Solana 開發者的入門指南](https://youtu.be/OIjsPrcPe8s)」影片的學習筆記。
+本文為「Solana 開發者的入門指南」影片的學習筆記。
 
 ## 建立專案
 

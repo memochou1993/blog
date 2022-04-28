@@ -2,13 +2,13 @@
 title: 在 Next 12.0 使用 Raydium 建立 Solana 的 Swap 介面
 permalink: 在-Next-12-0-使用-Raydium-建立-Solana-的-Swap-介面
 date: 2022-04-22 21:01:43
-tags: ["區塊鏈", "Solana", "Rust", "Web3", "JavaScript", "Node", "Smart Contract", "DApp"]
+tags: ["區塊鏈", "Solana", "Rust", "Web3", "JavaScript", "Smart Contract", "DApp"]
 categories: ["區塊鏈"]
 ---
 
 ## 前言
 
-本文為「[Solana 開發者的入門指南](https://youtu.be/Ot2lvBLja40)」影片的學習筆記。
+本文為「Solana 開發者的入門指南」影片的學習筆記。
 
 ## 建立專案
 
