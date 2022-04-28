@@ -23,7 +23,7 @@ cd solana-nft-example
 
 ### 建立錢包
 
-下載 [Arweave](https://chrome.google.com/webstore/detail/arweave/iplppiggblloelhoglpmkmbinggcaaoc) 錢包。
+到 [Arweave Faucet](https://faucet.arweave.net/) 頁面進行身份驗證，再下載[錢包](https://chrome.google.com/webstore/detail/arweave/iplppiggblloelhoglpmkmbinggcaaoc)，匯入 keyfile 檔案。
 
 ### 下載素材
 
@@ -228,7 +228,108 @@ yarn rarity
 
 ## 上傳圖片
 
-TODO
+進到 `arweave-image-uploader` 資料夾。
+
+```BASH
+cd arweave-image-uploader
+```
+
+安裝 `dotenv` 套件。
+
+```BASH
+yarn add dotenv
+```
+
+新增 `.env` 檔，將 Arweave 錢包的 keyfile 檔案的內容貼上。
+
+```ENV
+KEY={"kty":"RSA","e":"...","n":"..."}
+```
+
+查看本地錢包地址。
+
+```BASH
+solana address
+```
+
+更新 `arweave-image-uploader/uploader.js` 檔，並且修改 `address` 參數為自己的錢包地址。
+
+```JS
+// ...
+import dotenv from "dotenv";
+dotenv.config();
+
+// ...
+const getNftName = (name) => `SolMeet-3 ART #${name}`;
+
+// ...
+const getMetadata = (name, imageUrl, attributes) => ({
+  name: getNftName(name),
+  symbol: "SMT",
+  description: "My Art Work",
+  seller_fee_basis_points: 100,
+  external_url: "https://solmeet.dev",
+  attributes,
+  collection: {
+    name: "SolMeet",
+    family: "Dev",
+  },
+  properties: {
+    files: [
+      {
+        uri: imageUrl,
+        type: "image/png",
+      },
+    ],
+    category: "image",
+    maxSupply: 0,
+    creators: [
+      {
+        address: "C4pPW8ZmWFYsAUNcFzEUA7mgdS6ABV9Z3sBobPvVthgi",
+        share: 100,
+      },
+    ],
+  },
+  image: imageUrl,
+});
+
+// ...
+let key = JSON.parse(process.env.KEY);
+
+// ...
+let metadataUri = [];
+
+// ...
+metadataUri.push(metadataUrl);
+
+// ...
+const uris = JSON.stringify(metadataUri);
+fs.writeFileSync("./public/arweave-uris.json", uris);
+```
+
+刪除預設圖片。
+
+```BASH
+rm -rf public/images
+```
+
+複製生成的圖片。
+
+```BASH
+cp -r ../hashlips_art_engine/build/images/ public/images/
+```
+
+複製 `_metadata.csv` 檔。
+
+```BASH
+cp ../hashlips_art_engine/build/_metadata.csv public/data.csv
+```
+
+上傳圖片。
+
+```BASH
+yarn upload
+```
 
 ## 鑄造
 
