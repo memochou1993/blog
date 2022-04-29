@@ -3,7 +3,7 @@ title: 使用 JavaScript 建立簡單的 Web3 腳本
 permalink: 使用-JavaScript-建立簡單的-Web3-腳本
 date: 2022-02-23 00:37:10
 tags: ["區塊鏈", "Ethereum", "Web3", "JavaScript", "Node"]
-categories: ["區塊鏈"]
+categories: ["區塊鏈", "Ethereum"]
 ---
 
 ## 前言

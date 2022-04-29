@@ -3,7 +3,7 @@ title: 使用 Anchor 開發 Solana 鏈上程式
 permalink: 使用-Anchor-開發-Solana-鏈上程式
 date: 2022-04-16 15:54:01
 tags: ["區塊鏈", "Solana", "Rust", "Web3", "JavaScript", "Smart Contract", "DApp"]
-categories: ["區塊鏈"]
+categories: ["區塊鏈", "Solana"]
 ---
 
 ## 前言

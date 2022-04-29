@@ -3,7 +3,7 @@ title: 使用 Metaplex 標準在 Solana 公有鏈上建立 NFT 非同質化代�
 permalink: 使用-Metaplex-標準在-Solana-公有鏈上建立-NFT-非同質化代幣
 date: 2022-04-27 23:11:16
 tags: ["區塊鏈", "Solana", "Rust", "Web3", "JavaScript", "Smart Contract", "NFT", "DApp", "Metaplex"]
-categories: ["區塊鏈"]
+categories: ["區塊鏈", "Solana"]
 ---
 
 ## 前言

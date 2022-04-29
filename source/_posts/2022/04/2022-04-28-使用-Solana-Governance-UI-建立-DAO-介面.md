@@ -3,6 +3,7 @@ title: 使用 Solana Governance UI 建立 DAO 介面
 permalink: 使用-Solana-Governance-UI-建立-DAO-介面
 date: 2022-04-28 20:05:15
 tags: ["區塊鏈", "Solana", "Rust", "Web3", "JavaScript", "Smart Contract", "NFT", "DAO"]
+categories: ["區塊鏈", "Solana"]
 ---
 
 ## 前言
