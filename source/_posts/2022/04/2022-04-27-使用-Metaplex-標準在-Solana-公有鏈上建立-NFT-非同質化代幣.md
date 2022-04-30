@@ -255,14 +255,29 @@ solana address
 更新 `arweave-image-uploader/uploader.js` 檔，並且修改 `address` 參數為自己的錢包地址。
 
 ```JS
-// ...
+import fs from "fs";
+import path, { dirname } from "path";
+import { fileURLToPath } from "url";
+import Arweave from "arweave";
+import csv from "csv-parser";
 import dotenv from "dotenv";
+
 dotenv.config();
 
-// ...
-const getNftName = (name) => `SolMeet-3 ART #${name}`;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const results = [];
 
-// ...
+const initOptions = {
+  host: "arweave.net", // Hostname or IP address for a Arweave host
+  port: 443, // Port
+  protocol: "https", // Network protocol http or https
+  timeout: 20000, // Network request timeouts in milliseconds
+  logging: false, // Enable network request logging
+};
+
+const getNftName = (name) => `ART #${name}`;
+
 const getMetadata = (name, imageUrl, attributes) => ({
   name: getNftName(name),
   symbol: "SMT",
@@ -293,18 +308,154 @@ const getMetadata = (name, imageUrl, attributes) => ({
   image: imageUrl,
 });
 
-// ...
+// run localy
+// npx @textury/arlocal
+const initOptionsLocal = {
+  host: "localhost", // Hostname or IP address for a Arweave host
+  port: 1984, // Port
+  protocol: "http", // Network protocol http or https
+  timeout: 20000, // Network request timeouts in milliseconds
+  // logging: false,     // Enable network request logging
+};
+
+const arweave = Arweave.init(initOptions);
 let key = JSON.parse(process.env.KEY);
 
-// ...
+const runUpload = async (data, contentType, isUploadByChunk = false) => {
+  const tx = await arweave.createTransaction({ data: data }, key);
+
+  tx.addTag(...contentType);
+
+  await arweave.transactions.sign(tx, key);
+
+  if (isUploadByChunk) {
+    const uploader = await arweave.transactions.getUploader(tx);
+
+    while (!uploader.isComplete) {
+      await uploader.uploadChunk();
+      console.log(
+        `${uploader.pctComplete}% complete, ${uploader.uploadedChunks}/${uploader.totalChunks}`
+      );
+    }
+  }
+
+  //   Do we need to post with uploader?
+  await arweave.transactions.post(tx);
+
+  //   console.log("url", `http://localhost:1984/${tx.id}`);
+  //   console.log("url", `https://arweave.net/${tx.id}`);
+  return tx;
+};
+
+const folder = "./public/images/";
+let metadataCollection = {};
+
 let metadataUri = [];
 
-// ...
-metadataUri.push(metadataUrl);
+const getAttributes = (props) => {
+  // map attributes to the proper key/value objects
+  const attrs = Object.keys(props).map((key) => {
+    return {
+      trait_type: key,
+      value: props[key],
+    };
+  });
 
-// ...
-const uris = JSON.stringify(metadataUri);
-fs.writeFileSync("./public/arweave-uris.json", uris);
+  return attrs;
+};
+
+const iterateOverItems = async () => {
+  try {
+    for (const row of results) {
+      // get separately name and props
+      const { Name: name, ...props } = row;
+      console.log("name", name);
+      const nameByNumber = Number.parseInt(name);
+
+      const filePath = folder + nameByNumber + ".png";
+      console.log("filePath", filePath);
+
+      let newItem = {};
+
+      try {
+        const data = fs.readFileSync(filePath);
+        // if (!data) console.warn(`Can't find file: ${filePath}`);
+
+        const contentType = ["Content-Type", "image/png"];
+        const { id } = await runUpload(data, contentType, true);
+        const imageUrl = id ? `https://arweave.net/${id}` : undefined;
+        console.log("imageUrl", imageUrl);
+
+        const attributes = getAttributes(props);
+
+        const metadata = getMetadata(name, imageUrl, attributes);
+        const metaContentType = ["Content-Type", "application/json"];
+        const metadataString = JSON.stringify(metadata);
+        const { id: metadataId } = await runUpload(
+          metadataString,
+          metaContentType
+        );
+        const metadataUrl = id
+          ? `https://arweave.net/${metadataId}`
+          : undefined;
+
+        metadataUri.push(metadataUrl);
+
+        console.log("metadataUrl", metadataUrl);
+        newItem = {
+          [nameByNumber]: {
+            name: getNftName(name),
+            uri: metadataUrl,
+          },
+        };
+      } catch (error) {
+        newItem = {
+          [nameByNumber]: undefined,
+        };
+      }
+
+      //   update collection with new item
+      metadataCollection = { ...metadataCollection, ...newItem };
+    }
+
+    // All images iterated
+    console.log(metadataCollection);
+
+    // Save data to json in /public/
+    const data = JSON.stringify(metadataCollection);
+    fs.writeFileSync("./public/arweave-images.json", data);
+    const uris = JSON.stringify(metadataUri);
+    fs.writeFileSync("./public/arweave-uris.json", uris);
+  } catch (e) {
+    // Catch anything bad that happens
+    console.error("We've thrown! Whoops!", e);
+  }
+};
+
+const readCsv = async () => {
+  //   Consider to use local wallet instead of generated one.
+  //.  I'm not sure how this works, since newly generated wallet have 0 balance. 🤷🏻‍♂️
+  //.  So, I comment out this line for now.
+  //   key = await arweave.wallets.generate();
+
+  fs.createReadStream(path.resolve(__dirname, "public", "data.csv"))
+    .pipe(csv())
+    .on("data", (data) => results.push(data))
+    .on("end", () => {
+      //   console.log(results);
+      //   {
+      //     Name: '0000',
+      //     'Background Color': 'palegreen',
+      //     'Head Color': 'lightblue',
+      //     'Neck Color': 'lightslategray',
+      //      ...
+      //   },
+
+      iterateOverItems();
+    });
+};
+
+readCsv();
 ```
 
 刪除預設圖片。
@@ -313,7 +464,7 @@ fs.writeFileSync("./public/arweave-uris.json", uris);
 rm -rf public/images
 ```
 
-複製生成的圖片。
+複製生成圖片。
 
 ```BASH
 cp -r ../hashlips_art_engine/build/images/ public/images/
@@ -329,6 +480,53 @@ cp ../hashlips_art_engine/build/_metadata.csv public/data.csv
 
 ```BASH
 yarn upload
+```
+
+輸出結果如下：
+
+```JSON
+{
+  '0': {
+    name: 'ART #0',
+    uri: 'https://arweave.net/mph4r2j1yaMKdxOIYI9VWYdAC2Vtpr26gGQfn6A_N5Q'
+  },
+  '1': {
+    name: 'ART #1',
+    uri: 'https://arweave.net/ELf4G6Y1Kpvx4HTvbr5XoIDdZYHU7xcfb_xYwVxrQE8'
+  },
+  '2': {
+    name: 'ART #2',
+    uri: 'https://arweave.net/DHTri_WX3ZFhiMSrNM5TDgsPmKWhjI_svzFMsd9aP24'
+  },
+  '3': {
+    name: 'ART #3',
+    uri: 'https://arweave.net/y10tzH7fRfQcPs-tJQ447legbpc6yyPp1hlJnHjIYmc'
+  },
+  '4': {
+    name: 'ART #4',
+    uri: 'https://arweave.net/CJ-FT3YhNlFnqesu5NEg4rQtK-hKCZGZsCLlca9BfZo'
+  },
+  '5': {
+    name: 'ART #5',
+    uri: 'https://arweave.net/mxJxDsoXihGQ8qGboDF2Obp53R_BumtcV3-4u71y3_o'
+  },
+  '6': {
+    name: 'ART #6',
+    uri: 'https://arweave.net/xie1vd_7Es1OhPG_Va2ZKqn6nBW7MJE17aYPP4HWVxw'
+  },
+  '7': {
+    name: 'ART #7',
+    uri: 'https://arweave.net/WUkMGPGPOpQ-7sIHS0sFxuqgxdl8zfG-X2DJsWUa__4'
+  },
+  '8': {
+    name: 'ART #8',
+    uri: 'https://arweave.net/ix_qbKOPHDJGZKnRT86AcDnJJ7GbH5yLjw_NnnB6G3U'
+  },
+  '9': {
+    name: 'ART #9',
+    uri: 'https://arweave.net/NX8eGxe_a1LSBYmp4_FZSj00p5UFKQUsUUTQ6t5P1NE'
+  }
+}
 ```
 
 ## 鑄造
