@@ -531,7 +531,64 @@ yarn upload
 
 ## 鑄造
 
-TODO
+使用 `mainnet-fork` 網路測試。
+
+```BASH
+solana config set --url https://rpc-mainnet-fork.epochs.studio
+solana config set --ws wss://rpc-mainnet-fork.epochs.studio/ws
+```
+
+```BASH
+mkdir mint
+cd mint
+```
+
+新增 `mint.js` 檔。
+
+```JS
+const fs = require("fs");
+const { exec } = require("child_process");
+
+// Use metaboss to interact with Metaplex
+
+const main = () => {
+  const content = fs.readFileSync(
+    "../arweave-image-uploader/public/arweave-uris.json",
+    "utf-8"
+  );
+  const parsed = JSON.parse(content);
+  const nftUris = parsed;
+
+  nftUris.forEach((uri) => {
+    console.log("uri", uri);
+    // Mint
+    exec(
+      `metaboss mint one --external-metadata-uri ${uri} --keypair ${process.env.KEYPAIR} --receiver ${process.env.RECEIVER} --immutable --primary-sale-happened`,
+      (error, stdout, stderr) => {
+        if (error) {
+          console.error(`${error}`);
+          return;
+        }
+        console.log(`${stdout}`);
+        console.error(`${stderr}`);
+
+        // Extract mint
+        const regex = /[A-HJ-NP-Za-km-z1-9]{40,50}/g;
+        const nftMint = stdout.match(regex)[1];
+        console.log(`nftMint: ${nftMint}`);
+      }
+    );
+  });
+};
+
+main();
+```
+
+執行以下指令。
+
+```BASH
+KEYPAIR=~/.config/solana/id.json RECEIVER=<RECEIVER_ADDRESS> AUTHORITY=<RECEIVER_ADDRESS> node mint.js 
+```
 
 ## 參考資料
 
