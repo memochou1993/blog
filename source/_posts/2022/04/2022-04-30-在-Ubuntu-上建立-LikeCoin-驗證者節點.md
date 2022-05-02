@@ -57,7 +57,32 @@ cd likecoin-chain
 make -C deploy setup-node
 ```
 
-為了節省時間，選擇一個已知的區塊開始同步資料，而不是從創世區塊開始。使用以下指令查詢當前的區塊高度和區塊雜湊。
+## 同步資料
+
+同步資料有許多種方法，可以挑選一種方法進行。
+
+### fastsync
+
+執行 `initialize-systemctl` 腳本，將服務註冊到 `systemd` 管理程式。
+
+```BASH
+make -C deploy initialize-systemctl
+```
+
+執行 `start-node` 腳本，開始與其他節點同步資料。
+
+```BASH
+make -C deploy start-node
+```
+
+使用 `systemctl` 指令查看 `liked` 服務狀態。
+
+```BASH
+sudo systemctl status liked
+```
+### statesync
+
+選擇一個已知的區塊開始同步資料，而不是從創世區塊開始。使用以下指令查詢當前的區塊高度和區塊雜湊。
 
 ```BASH
 curl -s https://fotan-node-1.like.co:443/rpc/block | jq '{ height: .result.block.header.height, hash: .result.block_id.hash }'
@@ -106,6 +131,53 @@ make -C deploy start-node
 ```BASH
 sudo systemctl status liked
 ```
+
+### snapshot
+
+安裝 `zstd` 命令列工具。
+
+```BASH
+sudo apt-get update
+sudo apt install zstd
+```
+
+從社群的驗證者所提供的[快照列表](https://public.nnkken.dev/liked-data-archive/)下載快照檔案。
+
+```BASH
+wget https://public.nnkken.dev/liked-data-archive/liked-data-2022-04-30.tar.zst
+```
+
+解壓縮。
+
+```BASH
+tar --use-compress-program=unzstd -xvf liked-data-2022-04-30.tar.zst
+```
+
+覆蓋快照檔案。
+
+```BASH
+mv data ~/.liked/data
+```
+
+執行 `initialize-systemctl` 腳本，將服務註冊到 `systemd` 管理程式。
+
+```BASH
+make -C deploy initialize-systemctl
+```
+
+執行 `start-node` 腳本，開始與其他節點同步資料。
+
+```BASH
+make -C deploy start-node
+```
+
+使用 `systemctl` 指令查看 `liked` 服務狀態。
+
+```BASH
+sudo systemctl status liked
+```
+
+## 檢查狀態
 
 使用 `journalctl` 指令檢查 `liked` 服務日誌。
 
