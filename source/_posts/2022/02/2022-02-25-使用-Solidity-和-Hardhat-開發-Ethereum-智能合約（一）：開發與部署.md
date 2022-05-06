@@ -1,6 +1,6 @@
 ---
-title: 使用 Solidity 和 Hardhat 開發智能合約（一）：開發與部署智能合約
-permalink: 使用-Solidity-和-Hardhat-開發智能合約（一）：開發與部署智能合約
+title: 使用 Solidity 和 Hardhat 開發 Ethereum 智能合約（一）：開發與部署智能合約
+permalink: 使用-Solidity-和-Hardhat-開發-Ethereum-智能合約（一）：開發與部署智能合約
 date: 2022-02-25 20:34:03
 tags: ["區塊鏈", "Ethereum", "Web3", "JavaScript", "Node", "Solidity", "Hardhat", "Smart Contract", "DApp"]
 categories: ["區塊鏈", "Ethereum"]
