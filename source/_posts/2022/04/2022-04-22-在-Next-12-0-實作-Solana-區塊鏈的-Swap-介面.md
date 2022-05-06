@@ -1,8 +1,8 @@
 ---
-title: 在 Next 12.0 使用 Raydium 建立 Solana 的 Swap 介面
-permalink: 在-Next-12-0-使用-Raydium-建立-Solana-的-Swap-介面
+title: 在 Next 12.0 實作 Solana 區塊鏈的 Swap 介面
+permalink: 在-Next-12-0-實作-Solana-區塊鏈的-Swap-介面
 date: 2022-04-22 21:01:43
-tags: ["區塊鏈", "Solana", "Rust", "Web3", "JavaScript", "Smart Contract", "DApp"]
+tags: ["區塊鏈", "Solana", "Rust", "Web3", "JavaScript", "Smart Contract", "DApp", "Raydium"]
 categories: ["區塊鏈", "Solana"]
 ---
 
@@ -418,11 +418,6 @@ $placeholder_grey: #f1f1f2
 $swap_btn_border_color: #5ac4be
 $token_list_bgc: #1c274f
 $slippage_setting_warning_red: #f5222d
-```
-
-更新 `` 檔。
-
-```CSS
 ```
 
 ## 實作代幣交換
