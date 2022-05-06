@@ -22,7 +22,7 @@ categories: ["程式設計", "JavaScript", "Nuxt"]
 建立專案。
 
 ```BASH
-npx create-nuxt-app todo-nuxt
+npx create-nuxt-app todo-list-nuxt
 ```
 
 ## 首頁
@@ -614,4 +614,4 @@ export default () => store;
 
 ## 程式碼
 
-- [todo-nuxt](https://github.com/memochou1993/todo-nuxt)
+- [todo-list-nuxt](https://github.com/memochou1993/todo-list-nuxt)
