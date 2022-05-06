@@ -59,7 +59,7 @@ mkdir scripts
 
 在 `contracts` 資料夾新增 `HelloWorld.sol` 檔。需要使用 Solidity 語言撰寫。
 
-```SOLIDITY
+```SOL
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.7.3;
 
