@@ -1,6 +1,6 @@
 ---
-title: 使用 Nuxt 2.0 實作「代辦事項清單」
-permalink: 使用-Nuxt-2-0-實作「代辦事項清單」
+title: 使用 Nuxt 2.0 實作「To-Do List」應用程式
+permalink: 使用-Nuxt-2-0-實作「To-Do-List」應用程式
 date: 2018-11-09 00:27:53
 tags: ["程式設計", "JavaScript", "Vue", "Nuxt"]
 categories: ["程式設計", "JavaScript", "Nuxt"]
