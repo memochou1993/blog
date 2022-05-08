@@ -11,8 +11,8 @@ categories: ["程式設計", "JavaScript", "React"]
 建立專案。
 
 ```BASH
-mkdir storybook-react
-cd storybook-react
+mkdir react-storybook
+cd react-storybook
 ```
 
 初始化專案。
@@ -77,7 +77,7 @@ export {
 
 ```JSON
 {
-  "name": "@memochou1993/storybook-react",
+  "name": "@memochou1993/react-storybook",
   "version": "0.1.0",
   "description": "",
   "main": "./dist/index.cjs.js",
@@ -182,8 +182,8 @@ npm run build
 
 ```JSON
 {
-  "name": "@memochou1993/storybook-react",
-  "repository": "https://github.com/memochou1993/storybook-react.git"
+  "name": "@memochou1993/react-storybook",
+  "repository": "https://github.com/memochou1993/react-storybook.git"
 }
 ```
 
@@ -214,7 +214,7 @@ npm publish --access=public
 
 ## 程式碼
 
-- [storybook-react](https://github.com/memochou1993/storybook-react)
+- [react-storybook](https://github.com/memochou1993/react-storybook)
 
 ## 參考資料
 
