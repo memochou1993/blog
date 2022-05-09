@@ -37,8 +37,8 @@ Node v14.17.3
 建立專案。
 
 ```BASH
-mkdir todo-list-solidity
-cd todo-list-solidity
+mkdir eth-todo-list
+cd eth-todo-list
 ```
 
 新增 `.gitignore` 檔。
@@ -51,7 +51,7 @@ cd todo-list-solidity
 
 ```JSON
 {
-  "name": "todo-list-solidity",
+  "name": "eth-todo-list",
   "version": "0.1.0",
   "description": "",
   "main": "truffle-config.js",
@@ -544,7 +544,7 @@ truffle test
 
 ## 程式碼
 
-- [todo-list-solidity](https://github.com/memochou1993/todo-list-solidity)
+- [eth-todo-list](https://github.com/memochou1993/eth-todo-list)
 
 ## 參考資料
 
