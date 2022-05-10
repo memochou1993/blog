@@ -1,7 +1,7 @@
 ---
 title: 使用 Solidity 和 Truffle 開發 Ethereum 智能合約
 permalink: 使用-Solidity-和-Truffle-開發-Ethereum-智能合約
-date: 2022-05-06 15:37:55
+date: 2022-05-07 15:37:55
 tags: ["區塊鏈", "Ethereum", "Web3", "Solidity", "Smart Contract", "DApp", "Truffle"]
 categories: ["區塊鏈", "Ethereum"]
 ---
