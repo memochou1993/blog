@@ -1,6 +1,6 @@
 ---
-title: 使用 Rust 開發 Solana 鏈上程式（一）：環境建置
-permalink: 使用-Rust-開發-Solana-鏈上程式（一）：環境建置
+title: 使用 Rust 在 Solana 區塊鏈開發鏈上程式（一）：環境建置
+permalink: 使用-Rust-在-Solana-區塊鏈開發鏈上程式（一）：環境建置
 date: 2022-04-14 15:16:51
 tags: ["區塊鏈", "Solana", "Rust", "Web3", "JavaScript", "Smart Contract", "DApp"]
 categories: ["區塊鏈", "Solana"]
