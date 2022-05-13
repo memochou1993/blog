@@ -241,7 +241,7 @@ truffle compile
 truffle migrate --reset
 ```
 
-## 匯入錢包
+## 設置錢包
 
 在 MetaMask 錢包新增一個測試網路：
 
