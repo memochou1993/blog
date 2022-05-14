@@ -68,7 +68,7 @@ contract Staking is ERC20, Ownable {
     function removeStake()
         public
     {
-        require(stakes[msg.sender].amount != 0, "Stake does not exists.");
+        require(stakes[msg.sender].amount != 0, "Stake does not exist.");
         uint256 _amount = stakes[msg.sender].amount;
         delete stakes[msg.sender];
         removeStakeholder(msg.sender);
