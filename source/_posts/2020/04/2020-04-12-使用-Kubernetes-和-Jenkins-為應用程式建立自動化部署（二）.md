@@ -135,6 +135,6 @@ Jenkins 會從 GitHub 將程式碼拉取下來，並建立映像檔後進行部�
 minikube service hello-kenzan
 ```
 
-## 參考文件
+## 參考資料
 
 - [Set Up A CI/CD Pipeline With A Jenkins Pod In Kubernetes (deprecated)](https://www.linux.com/audience/devops/set-cicd-pipeline-jenkins-pod-kubernetes-part-2/)

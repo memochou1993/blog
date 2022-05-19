@@ -158,6 +158,6 @@ SANCTUM_STATEFUL_DOMAINS=
 
 - [sanctum-example](https://github.com/memochou1993/sanctum-example)
 
-## 參考文件
+## 參考資料
 
 - [Laravel Sanctum](https://laravel.com/docs/master/sanctum)

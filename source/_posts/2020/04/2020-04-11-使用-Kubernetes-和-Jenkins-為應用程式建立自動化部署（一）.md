@@ -212,6 +212,6 @@ kubectl delete deployment hello-kenzan
 minikube stop
 ```
 
-## 參考文件
+## 參考資料
 
 - [Set Up A CI/CD Pipeline With Kubernetes Part 1: Overview (deprecated)](https://www.linux.com/audience/enterprise/set-cicd-pipeline-kubernetes-part-1-overview/)
