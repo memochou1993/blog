@@ -24,7 +24,7 @@ cargo new solana-escrow --lib
 cd solana-escrow
 ```
 
-## 實作後端程式
+## 後端實作
 
 更新 `Cargo.toml` 檔。
 
@@ -808,7 +808,7 @@ solana address -k keys/bob.json
 "CYHvpgywtnbwzdSGYX29fPnMG46EijQbSXrit6wXqfR6"
 ```
 
-## 實作前端程式
+## 前端實作
 
 使用 `npm` 指令初始化專案。
 

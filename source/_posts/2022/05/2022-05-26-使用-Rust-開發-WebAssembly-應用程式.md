@@ -38,7 +38,7 @@ npm install npm@latest -g
 
 ## 建立專案
 
-建立 `rust-webassembly-example` 專案。
+建立專案。
 
 ```BASH
 cargo generate --git https://github.com/rustwasm/wasm-pack-template --name rust-webassembly-example
@@ -122,12 +122,6 @@ wasm.greet();
 cd www
 ```
 
-安裝依賴套件。
-
-```BASH
-npm install
-```
-
 再來，使用本地建立的 `rust-webassembly-example` 套件，而不是預設的 `hello-wasm-pack` 套件，因此需要將 `www/package.json` 檔修改如下：
 
 ```JSON
@@ -140,7 +134,7 @@ npm install
 }
 ```
 
-再一次安裝依賴套件。
+安裝依賴套件。
 
 ```BASH
 npm install
