@@ -2,7 +2,7 @@
 title: 建立 Web3 腳本發送 Ethereum 區塊鏈交易
 permalink: 建立-Web3-腳本發送-Ethereum-區塊鏈交易
 date: 2022-02-23 22:24:50
-tags: ["區塊鏈", "Ethereum", "Web3", "JavaScript", "Node"]
+tags: ["區塊鏈", "Ethereum", "Web3", "JavaScript", "Node", "Alchemy"]
 categories: ["區塊鏈", "Ethereum"]
 ---
 
