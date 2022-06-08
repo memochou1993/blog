@@ -245,7 +245,7 @@ truffle migrate --reset
 
 在 MetaMask 錢包新增一個測試網路：
 
-- 網路名稱：localhost 7545
+- 網路名稱：Localhost 7545
 - RPC URL：<http://localhost:7545>
 - 鏈 ID：1337
 - Currency Symbol：ETH
@@ -493,7 +493,7 @@ const { assert } = require("chai")
 
 const TodoList = artifacts.require('./TodoList.sol')
 
-contract('TodoList', (accouts) => {
+contract('TodoList', (accounts) => {
   before(async () => {
     this.todoList = await TodoList.deployed()
   })
