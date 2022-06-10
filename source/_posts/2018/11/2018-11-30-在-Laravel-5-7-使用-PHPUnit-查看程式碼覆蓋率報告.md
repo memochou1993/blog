@@ -1,8 +1,8 @@
 ---
-title: 在 Laravel 5.7 使用 PHPUnit 查看程式碼覆蓋率
-permalink: 在-Laravel-5-7-使用-PHPUnit-查看程式碼覆蓋率
+title: 在 Laravel 5.7 使用 PHPUnit 查看程式碼覆蓋率報告
+permalink: 在-Laravel-5-7-使用-PHPUnit-查看程式碼覆蓋率報告
 date: 2018-11-30 14:27:38
-tags: ["程式設計", "PHP", "Laravel", "測試", "PHPUnit", "Xdebug"]
+tags: ["程式設計", "PHP", "Laravel", "測試", "PHPUnit", "Xdebug", "Code Coverage"]
 categories: ["程式設計", "PHP", "Laravel"]
 ---
 
@@ -11,7 +11,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 - macOS
 - xdebug 2.6.1
 
-### 使用指令
+## 做法
 
 執行 `phpunit` 指令，並加上 `--coverage-html` 參數，以及輸出路徑。
 
@@ -19,7 +19,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 phpunit --coverage-html ./report
 ```
 
-### 修改 `phpunit.xml` 檔
+修改 `phpunit.xml` 檔
 
 ```XML
 <phpunit backupGlobals="false"
