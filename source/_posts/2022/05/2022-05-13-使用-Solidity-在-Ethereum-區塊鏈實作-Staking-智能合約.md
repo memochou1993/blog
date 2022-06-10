@@ -2,7 +2,7 @@
 title: 使用 Solidity 在 Ethereum 區塊鏈實作 Staking 智能合約
 permalink: 使用-Solidity-在-Ethereum-區塊鏈實作-Staking-智能合約
 date: 2022-05-13 23:17:47
-tags: ["區塊鏈", "Ethereum" "Solidity", "Web3",, "Smart Contract", "DApp", "Truffle"]
+tags: ["區塊鏈", "Ethereum" "Solidity", "Web3", "Smart Contract", "DApp", "Truffle"]
 categories: ["區塊鏈", "Ethereum"]
 ---
 
