@@ -1,8 +1,8 @@
 ---
-title: 建立 Web3 腳本與 Ethereum 區塊鏈互動
-permalink: 建立-Web3-腳本與-Ethereum-區塊鏈互動
+title: 使用 Web3 套件與 Ethereum 區塊鏈互動
+permalink: 使用-Web3-套件與-Ethereum-區塊鏈互動
 date: 2022-02-23 00:37:10
-tags: ["區塊鏈", "Ethereum", "Web3", "JavaScript", "Node", "Alchemy"]
+tags: ["區塊鏈", "Ethereum", "Node", "JavaScript", "Web3", "Alchemy", "MetaMask"]
 categories: ["區塊鏈", "Ethereum"]
 ---
 
