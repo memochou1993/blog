@@ -8,7 +8,7 @@ categories: ["程式設計", "JavaScript", "環境部署"]
 
 ## 做法
 
-## 方法一
+### 方法一
 
 使用 `actions-gh-pages` 的 GitHub Action 樣板，在 `.github/workflows` 資料夾新增 `gh-pages.yaml` 檔。
 
@@ -61,7 +61,7 @@ git commit -m "Add deploy script"
 git push
 ```
 
-## 方法二
+### 方法二
 
 安裝 `gh-pages` 套件。
 
