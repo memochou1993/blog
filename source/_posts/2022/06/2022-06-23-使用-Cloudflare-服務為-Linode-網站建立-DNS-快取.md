@@ -10,7 +10,9 @@ categories: ["雲端運算服務", "Linode"]
 
 首先，在 [Cloudflare](https://dash.cloudflare.com/) 建立一個帳號。
 
-點選「Add a site」新增一個網站，輸入網站的網域名稱。Cloudflare 掃描此網站的所有 DNS 紀錄。
+點選「Add a site」新增一個網站，輸入網站的網域名稱。
+
+Cloudflare 會開始掃描此網站的所有 DNS 紀錄。
 
 進到 GoDaddy 點選 DNS 管理，將原來由 Linode 提供的名稱伺服器刪除：
 
