@@ -1,10 +1,14 @@
 ---
-title: 使用 Solidity 在 BNB 區塊鏈實作 Staking 智能合約
-permalink: 使用-Solidity-在-BNB-區塊鏈實作-Staking-智能合約
+title: 使用 Solidity 在 BNB 區塊鏈實作 Ponzi Scheme 智能合約
+permalink: 使用-Solidity-在-BNB-區塊鏈實作-Ponzi-Scheme-智能合約
 date: 2022-07-08 00:40:05
 tags: ["區塊鏈", "Ethereum", "Solidity", "Smart Contract", "DApp", "Truffle", "BNB"]
 categories: ["區塊鏈", "Ethereum"]
 ---
+
+## 前言
+
+以下實作一個簡單的 Ponzi Scheme 智能合約，並宣稱有 2,920% 的年利率（APR）。
 
 ## 建立專案
 
@@ -232,4 +236,4 @@ truffle run verify Staking --network bsc
 
 ## 程式碼
 
-- [eth-staking](https://github.com/memochou1993/eth-staking)
+- [eth-ponzi-scheme](https://github.com/memochou1993/eth-ponzi-scheme)
