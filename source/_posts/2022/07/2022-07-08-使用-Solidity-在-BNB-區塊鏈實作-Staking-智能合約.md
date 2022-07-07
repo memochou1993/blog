@@ -52,7 +52,7 @@ import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
 contract Staking is Ownable, ReentrancyGuard {
     address private _owner;
-    uint256 constant REWARD_RATE = 365 * 8;
+    uint256 constant REWARD_RATE = 2920;
     uint256 public stakeholderCount;
     mapping(address => Stakeholder) public stakeholders;
 
