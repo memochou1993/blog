@@ -25,6 +25,7 @@ truffle init
 
 ```ENV
 /node_modules
+/build
 .env
 ```
 

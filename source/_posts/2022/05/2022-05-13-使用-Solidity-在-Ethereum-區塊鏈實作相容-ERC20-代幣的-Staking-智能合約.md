@@ -25,6 +25,7 @@ truffle init
 
 ```ENV
 /node_modules
+/build
 ```
 
 安裝依賴套件。
