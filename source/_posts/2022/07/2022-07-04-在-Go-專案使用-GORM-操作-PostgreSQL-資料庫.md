@@ -80,14 +80,21 @@ type Log struct {
 - `EventName` 為一個簡短的可變字串，因此使用 `varchar(255)` 來儲存。
 - `Amount` 為一個龐大數字（`uint256`），因此使用 `numeric(78,0)` 來儲存。
 
-## 大數轉換
+## 數字轉型
 
-轉換金額從 `big.Int` 到 `pgtype.Numeric`。
+轉換 `big.Int` 型別到 `pgtype.Numeric` 型別。
 
 ```GO
-amount := new(pgtype.Numeric)
-if err := amount.Set(stake.Amount.String()); err != nil {
-	log.Fatal(err)
+import (
+	"github.com/jackc/pgtype"
+)
+
+func ToNumeric(v interface{}) *pgtype.Numeric {
+	n := pgtype.Numeric{}
+	if err := n.Set(v); err != nil {
+		log.Fatal(err)
+	}
+	return &n
 }
 ```
 
@@ -103,6 +110,24 @@ database.DB().Create(logs)
 
 ```GO
 database.DB().CreateInBatches(logs, 100)
+```
+
+## 型別擴充
+
+如果需要將 `Numeric` 序列化或反序列化，需要改用 `shopspring-numeric` 包。
+
+```GO
+package model
+
+import (
+	"github.com/jackc/pgtype/ext/shopspring-numeric"
+)
+
+type Log struct {
+	// ...
+	Amount             pgtype.Numeric `gorm:"not null;type:numeric(78,0);" json:"amount"`
+	// ...
+}
 ```
 
 ## 遷移
