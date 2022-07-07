@@ -6,7 +6,7 @@ tags: ["區塊鏈", "Ethereum", "Solidity", "Smart Contract", "DApp", "Truffle"]
 categories: ["區塊鏈", "Ethereum"]
 ---
 
-## 做法
+## 建立專案
 
 建立專案。
 
@@ -21,11 +21,19 @@ cd eth-staking
 truffle init
 ```
 
+新增 `.gitignore` 檔。
+
+```ENV
+/node_modules
+```
+
 安裝依賴套件。
 
 ```BASH
 npm install @openzeppelin/contracts
 ```
+
+## 實作
 
 建立 `contracts/ERC20Mock.sol` 檔，建立測試用的 ERC20 代幣。
 
@@ -44,7 +52,7 @@ contract ERC20Mock is ERC20 {
 }
 ```
 
-建立 `contracts/Staking.sol` 檔。
+建立 `contracts/Staking.sol` 檔，實作質押合約。
 
 ```SOL
 // SPDX-License-Identifier: MIT
@@ -239,7 +247,19 @@ contract MyStake is Ownable, ReentrancyGuard {
 }
 ```
 
-啟動 Ganache 並執行部署腳本。
+## 部署
+
+新增 `migrations/2_deploy_my_stake_contract.js` 檔。
+
+```JS
+const MyStake = artifacts.require('MyStake');
+
+module.exports = (deployer) => {
+  deployer.deploy(MyStake);
+};
+```
+
+執行部署腳本。
 
 ```BASH
 truffle migrate --reset
