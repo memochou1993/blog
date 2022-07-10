@@ -1,8 +1,8 @@
 ---
-title: 使用 Solidity 在 BNB 區塊鏈實作 Ponzi Scheme 智能合約
-permalink: 使用-Solidity-在-BNB-區塊鏈實作-Ponzi-Scheme-智能合約
+title: 使用 Solidity 在 BSC 區塊鏈實作 Ponzi Scheme 智能合約
+permalink: 使用-Solidity-在-BSC-區塊鏈實作-Ponzi-Scheme-智能合約
 date: 2022-07-08 00:40:05
-tags: ["區塊鏈", "Ethereum", "Solidity", "Smart Contract", "DApp", "Truffle", "BNB"]
+tags: ["區塊鏈", "Ethereum", "Solidity", "Truffle", "Smart Contract", "BSC"]
 categories: ["區塊鏈", "Ethereum"]
 ---
 
@@ -224,6 +224,12 @@ module.exports = {
     bscscan: BSCSCAN_API_KEY,
   },
 };
+```
+
+執行部署。
+
+```BASH
+truffle migrate --network bsc
 ```
 
 ## 提交認證
