@@ -1,8 +1,8 @@
 ---
-title: 使用 AWS Amplify 服務部署 Vue 應用程式
-permalink: 使用-AWS-Amplify-服務部署-Vue-應用程式
-date: 2021-10-04 15:33:21
-tags: ["環境部署", "AWS", "Amplify", "Vue"]
+title: 使用 AWS Amplify 服務部署 Nuxt 應用程式
+permalink: 使用-AWS-Amplify-服務部署-Nuxt-應用程式
+date: 2022-07-14 00:45:38
+tags: ["環境部署", "AWS", "Amplify", "Vue", "Nuxt"]
 categories: ["程式設計", "JavaScript", "環境部署"]
 ---
 
@@ -11,8 +11,7 @@ categories: ["程式設計", "JavaScript", "環境部署"]
 建立專案。
 
 ```BASH
-npm install -g @vue/cli
-vue create amplifyapp
+npx create-nuxt-app amplifyapp
 ```
 
 ## 部署
@@ -36,8 +35,8 @@ frontend:
         - npm ci
     build:
       commands:
-        - echo "VUE_APP_API_URL=$VUE_APP_API_URL" >> .env 
-        - npm run build
+        - echo "API_URL=$API_URL" >> .env 
+        - npm run generate
   artifacts:
     baseDirectory: dist
     files:
@@ -49,5 +48,4 @@ frontend:
 
 ## 參考資料
 
-- [Amplify Docs - Vue](https://docs.amplify.aws/start/q/integration/vue/)
-- [使用 AWS Amplify 建立簡單的 Web 應用程式](https://aws.amazon.com/tw/getting-started/hands-on/build-react-app-amplify-graphql/)
+- [Amplify Docs - Nuxt](https://docs.amplify.aws/guides/hosting/nuxt/q/platform/js/)
