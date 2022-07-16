@@ -540,10 +540,6 @@ contract('TodoList', (accounts) => {
 truffle test
 ```
 
-## 程式碼
-
-- [eth-todo-list-legacy](https://github.com/memochou1993/eth-todo-list-legacy)
-
 ## 參考資料
 
 - [Build Your First Blockchain App Using Ethereum Smart Contracts and Solidity](https://youtu.be/coQ5dg8wM2o)
