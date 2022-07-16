@@ -1,6 +1,6 @@
 ---
-title: 使用 Web3 套件發送 Ethereum 區塊鏈交易
-permalink: 使用-Web3-套件發送-Ethereum-區塊鏈交易
+title: 使用 Alchemy Web3.js 套件發送 Ethereum 區塊鏈交易
+permalink: 使用-Alchemy-Web3-js-套件發送-Ethereum-區塊鏈交易
 date: 2022-02-23 22:24:50
 tags: ["區塊鏈", "Ethereum", "Node", "JavaScript", "Web3", "Alchemy", "MetaMask"]
 categories: ["區塊鏈", "Ethereum"]
