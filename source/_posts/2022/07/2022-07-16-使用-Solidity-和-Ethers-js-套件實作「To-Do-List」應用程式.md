@@ -102,7 +102,7 @@ module.exports = function(deployer) {
 };
 ```
 
-執行部署。
+部署至 Ganache 本地區塊鏈。
 
 ```BASH
 truffle migrate --reset
@@ -124,7 +124,13 @@ truffle migrate --reset
 安裝套件。
 
 ```BASH
-npm i vite ethers --save
+npm i vite ethers dotenv --save
+```
+
+新增 `.env` 檔。
+
+```ENV
+VITE_CONTRACT_ADDRESS=
 ```
 
 修改 `package.json` 檔。
@@ -164,7 +170,7 @@ npm i vite ethers --save
 import { ethers } from 'ethers';
 import { abi } from '../build/contracts/TodoList.json';
 
-const CONTRACT_ADDRESS = '0xB15DcE2F04b6C85918EcC46015c4F4d2A0cBf504';
+const { VITE_CONTRACT_ADDRESS } = import.meta.env;
 
 class App {
   constructor() {
@@ -182,7 +188,7 @@ class App {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     await provider.send('eth_requestAccounts');
     const signer = provider.getSigner();
-    this.contract = new ethers.Contract(CONTRACT_ADDRESS, abi, signer);
+    this.contract = new ethers.Contract(VITE_CONTRACT_ADDRESS, abi, signer);
   }
 
   async renderTasks() {
@@ -228,6 +234,71 @@ class App {
 }
 
 window.onload = () => new App();
+```
+
+啟動網頁。
+
+```BASH
+npm run dev
+```
+
+## 部署
+
+安裝套件。
+
+```BASH
+npm i @truffle/hdwallet-provider truffle-plugin-verify --save-dev
+```
+
+修改 `.env` 檔。
+
+```ENV
+PROVIDER_URL=
+PRIVATE_KEY=
+ETHERSCAN_API_KEY=
+```
+
+修改 `truffle-config.js` 檔。
+
+```JS
+const HDWalletProvider = require('@truffle/hdwallet-provider');
+require('dotenv').config();
+
+const { PROVIDER_URL, PRIVATE_KEY, ETHERSCAN_API_KEY } = process.env;
+
+module.exports = {
+  networks: {
+    development: {
+      host: '127.0.0.1',
+      port: 7545,
+      network_id: '*',
+    },
+    goerli: {
+      provider: () => new HDWalletProvider(PRIVATE_KEY, PROVIDER_URL),
+      network_id: 5,
+    },
+  },
+  plugins: [
+    'truffle-plugin-verify',
+  ],
+  api_keys: {
+    etherscan: ETHERSCAN_API_KEY,
+  },
+};
+```
+
+部署到 Goerli 測試網路。
+
+```BASH
+truffle migrate --network goerli
+```
+
+## 提交認證
+
+在 Etherscan 提交認證。
+
+```BASH
+truffle run verify TodoList --network goerli
 ```
 
 ## 程式碼
