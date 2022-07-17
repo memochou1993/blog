@@ -130,7 +130,7 @@ npm i vite ethers dotenv --save
 新增 `.env` 檔。
 
 ```ENV
-VITE_CONTRACT_ADDRESS=
+VITE_CONTRACT_ADDRESS=your-contract-address
 ```
 
 修改 `package.json` 檔。
@@ -253,9 +253,9 @@ npm i @truffle/hdwallet-provider truffle-plugin-verify --save-dev
 修改 `.env` 檔。
 
 ```ENV
-PROVIDER_URL=
-PRIVATE_KEY=
-ETHERSCAN_API_KEY=
+PROVIDER_URL=wss://eth-goerli.g.alchemy.com/v2/your-api-key
+PRIVATE_KEY=your-private-key
+ETHERSCAN_API_KEY=your-api-key
 ```
 
 修改 `truffle-config.js` 檔。
