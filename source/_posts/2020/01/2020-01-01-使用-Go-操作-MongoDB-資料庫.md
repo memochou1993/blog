@@ -26,7 +26,7 @@ mkdir -p $GOPATH/src/github.com/memochou1993/mongo-example
 cd $GOPATH/src/github.com/memochou1993/mongo-example
 ```
 
-在專案目錄底下初始化 Go Modules。
+初始化 Go Modules。
 
 ```BASH
 go mod init github.com/memochou1993/mongo-example

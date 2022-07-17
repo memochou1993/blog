@@ -28,7 +28,20 @@ export PATH=$GOBIN:$PATH
 source ~/.bashrc
 ```
 
-## 建立專案
+## 使用
+
+建立專案。
+
+```BASH
+mkdir go-mod-example
+cd go-mod-example
+```
+
+初始化 Go Modules。
+
+```BASH
+go mod init github.com/memochou1993/go-mod-example
+```
 
 在 `src` 資料夾新增 `main.go` 檔：
 
@@ -46,25 +59,13 @@ func main() {
 }
 ```
 
-## 做法
-
-可以使用 Go 1.11 版本以後推出的 Go Modules 套件管理工具，或使用第三方套件，例如  `kardianos/govendor`。
-
-### 使用 Go Modules
-
-在專案目錄底下初始化。
-
-```BASH
-go mod init github.com/memochou1993/example
-```
-
 下載依賴套件。
 
 ```BASH
 go mod download
 ```
 
-或者直接執行，也會下載依賴套件。
+直接執行應用程式，也會下載依賴套件。
 
 ```BASH
 go run main.go
@@ -81,33 +82,3 @@ go clean -modcache
 ```BASH
 go mod tidy
 ```
-
-### 使用 govendor
-
-安裝 `kardianos/govendor` 套件。
-
-```BASH
-go get -u github.com/kardianos/govendor
-```
-
-在專案目錄底下初始化。
-
-```BASH
-govendor init
-```
-
-下載依賴套件。
-
-```BASH
-govendor fetch github.com/appleboy/com/random
-```
-
-執行應用。
-
-```GO
-go run main.go
-```
-
-## 參考資料
-
-- [Go 語言 1.11 版本新功能 Go Modules](https://www.youtube.com/watch?v=MXjYRrZnHh0)
