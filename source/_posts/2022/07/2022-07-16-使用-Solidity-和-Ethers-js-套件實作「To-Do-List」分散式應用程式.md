@@ -67,10 +67,8 @@ contract TodoList {
     }
 
     function updateTask(uint256 _idx, bool _completed) public {
-        Task memory _task = tasks[_idx];
-        _task.completed = _completed;
-        tasks[_idx] = _task;
-        emit TaskUpdated(_idx, _task);
+        tasks[_idx].completed = _completed;
+        emit TaskUpdated(_idx, tasks[_idx]);
     }
 
     event TaskCreated(uint256 idx, Task task);
@@ -87,6 +85,17 @@ module.exports = {
       host: '127.0.0.1',
       port: 7545,
       network_id: '*',
+    },
+  },
+  compilers: {
+    solc: {
+      version: '0.8.14',
+      settings: {
+        optimizer: {
+          enabled: false,
+          runs: 200,
+        },
+      },
     },
   },
 };
@@ -276,6 +285,17 @@ module.exports = {
     goerli: {
       provider: () => new HDWalletProvider(PRIVATE_KEY, PROVIDER_URL),
       network_id: 5,
+    },
+  },
+  compilers: {
+    solc: {
+      version: '0.8.14',
+      settings: {
+        optimizer: {
+          enabled: false,
+          runs: 200,
+        },
+      },
     },
   },
   plugins: [
