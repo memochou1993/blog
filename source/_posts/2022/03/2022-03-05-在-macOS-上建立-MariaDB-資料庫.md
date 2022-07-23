@@ -2,7 +2,7 @@
 title: 在 macOS 上建立 MariaDB 資料庫
 permalink: 在-macOS-上建立-MariaDB-資料庫
 date: 2022-03-05 23:17:44
-tags: ["資料庫", "MySQL", "MariaDB", "SQL", "資料庫", "Docker"]
+tags: ["資料庫", "MariaDB", "SQL", "MySQL", "Docker"]
 categories: ["資料庫", "MySQL"]
 ---
 
@@ -22,4 +22,4 @@ docker exec -it mariadb mysql -uroot -proot
 
 ## 參考資料
 
-[mariadb](https://hub.docker.com/_/mariadb)
+- [mariadb](https://hub.docker.com/_/mariadb)
