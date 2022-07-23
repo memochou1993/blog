@@ -53,15 +53,23 @@ contract TodoList {
         bool completed;
     }
 
-    mapping(uint256 => Task) public tasks;
+    Task[] public tasks;
 
     constructor() {
         createTask("Check out https://github.com/memochou1993");
     }
 
+    function getTasks()
+        external
+        view
+        returns (Task[] memory)
+    {
+        return tasks;
+    }
+
     function createTask(string memory _content) public {
         uint256 _idx = taskCount;
-        tasks[_idx] = Task(_idx, _content, false);
+        tasks.push(Task(_idx, _content, false));
         taskCount++;
         emit TaskCreated(_idx, tasks[_idx]);
     }
@@ -201,11 +209,10 @@ class App {
   }
 
   async renderTasks() {
-    const taskCount = await this.contract.taskCount();
+    const tasks = await this.contract.getTasks();
     const list = document.getElementById('list');
     list.textContent = '';
-    for (let i = 0; i < taskCount; i++) {
-      const task = await this.contract.tasks(i);
+    tasks.forEach((task) => {
       const [idx, content, completed] = task;
       const checkbox = document.createElement('input');
       checkbox.type = 'checkbox';
@@ -216,7 +223,7 @@ class App {
       item.textContent = content;
       item.prepend(checkbox);
       list.append(item);
-    }
+    });
   }
 
   async createTask() {
