@@ -1,6 +1,6 @@
 ---
-title: 使用 Solidity 在 Ethereum 區塊鏈實作相容 ERC20 代幣的 Staking 智能合約
-permalink: 使用-Solidity-在-Ethereum-區塊鏈實作相容-ERC20-代幣的-Staking-智能合約
+title: 使用 Solidity 實作相容 ERC20 代幣的 Staking 智能合約
+permalink: 使用-Solidity-實作相容-ERC20-代幣的-Staking-智能合約
 date: 2022-05-13 23:17:47
 tags: ["區塊鏈", "Ethereum", "Solidity", "Smart Contract", "DApp", "Truffle"]
 categories: ["區塊鏈", "Ethereum"]

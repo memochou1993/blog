@@ -1,6 +1,6 @@
 ---
-title: 使用 Solidity 在 BSC 區塊鏈實作 Ponzi Scheme 智能合約
-permalink: 使用-Solidity-在-BSC-區塊鏈實作-Ponzi-Scheme-智能合約
+title: 使用 Solidity 實作 Ponzi Scheme 智能合約
+permalink: 使用-Solidity-實作-Ponzi-Scheme-智能合約
 date: 2022-07-08 00:40:05
 tags: ["區塊鏈", "Ethereum", "Solidity", "Truffle", "Smart Contract", "BSC"]
 categories: ["區塊鏈", "Ethereum"]
@@ -8,7 +8,7 @@ categories: ["區塊鏈", "Ethereum"]
 
 ## 前言
 
-以下實作一個簡單的 Ponzi Scheme 智能合約，並宣稱有 2,920% 的年利率（APR）。
+以下實作一個簡單的 Ponzi Scheme 智能合約，並宣稱有 2,920% 的年利率（APR），最後部署至 BSC 區塊鏈上。
 
 ## 建立專案
 

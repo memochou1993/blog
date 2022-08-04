@@ -2,7 +2,7 @@
 title: 使用 Docker 搭建 Redis 資料庫
 permalink: 使用-Docker-搭建-Redis-資料庫
 date: 2021-09-14 17:06:31
-tags: ["資料庫", "Redis", "NoSQL", "資料庫", "Docker"]
+tags: ["資料庫", "Redis", "NoSQL", "Docker"]
 categories: ["資料庫", "Redis"]
 ---
 
@@ -34,4 +34,4 @@ PONG
 
 ## 參考資料
 
-[redis](https://hub.docker.com/_/redis)
+- [redis](https://hub.docker.com/_/redis)

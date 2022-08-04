@@ -8,10 +8,17 @@ categories: ["程式設計", "Go", "其他"]
 
 ## 做法
 
-建立新專案，並啟用 Go module。
+建立專案。
 
 ```BASH
-go mod init github.com/memochou1993/go-session
+mkdir go-session-example
+cd go-session-example
+```
+
+初始化 Go Modules。
+
+```BASH
+go mod init github.com/memochou1993/go-session-example
 ```
 
 下載 `gorilla/sessions` 套件。
@@ -91,7 +98,7 @@ go run main.go
 
 ## 程式碼
 
-- [go-session](https://github.com/memochou1993/go-session)
+- [go-session-example](https://github.com/memochou1993/go-session-example)
 
 ## 參考資料
 

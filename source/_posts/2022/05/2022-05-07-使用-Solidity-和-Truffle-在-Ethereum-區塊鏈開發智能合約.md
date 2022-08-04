@@ -84,8 +84,6 @@ cd eth-todo-list
 npm install
 ```
 
-## 建立合約
-
 使用 `truffle` 指令初始化專案。
 
 ```BASH
@@ -179,7 +177,7 @@ truffle console
 > .exit
 ```
 
-## 實作合約
+## 合約實作
 
 修改 `contracts/TodoList.sol` 檔。
 
@@ -252,7 +250,7 @@ truffle migrate --reset
 
 將 Ganache 中帳戶的私鑰匯入至 MetaMask 錢包。
 
-## 實作介面
+## 前端實作
 
 新增 `bs-config.json` 檔，用來配置 `lite-server` 伺服器。
 
@@ -541,10 +539,6 @@ contract('TodoList', (accounts) => {
 ```BASH
 truffle test
 ```
-
-## 程式碼
-
-- [eth-todo-list](https://github.com/memochou1993/eth-todo-list)
 
 ## 參考資料
 

@@ -2,7 +2,7 @@
 title: 使用 Docker 搭建 Oracle 12 資料庫
 permalink: 使用-Docker-搭建-Oracle-12-資料庫
 date: 2021-12-02 20:11:26
-tags: ["資料庫", "Oracle", "SQL", "資料庫", "Docker"]
+tags: ["資料庫", "Oracle", "SQL", "Docker"]
 categories: ["資料庫", "Oracle"]
 ---
 

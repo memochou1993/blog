@@ -12,7 +12,14 @@ categories: ["程式設計", "Go", "其他"]
 
 ## 實作
 
-建立新專案，並啟用 Go module。
+建立專案。
+
+```BASH
+mkdir go-coinmarketcap-api-example
+cd go-coinmarketcap-api-example
+```
+
+初始化 Go Modules。
 
 ```BASH
 go mod init github.com/memochou1993/go-coinmarketcap-api-example

@@ -8,13 +8,20 @@ categories: ["程式設計", "Go", "其他"]
 
 ## 做法
 
+建立專案。
+
+```BASH
+mkdir go-websocket-example
+cd go-websocket-example
+```
+
 新增 `main.go` 檔。
 
 ```BASH
 touch main.go
 ```
 
-在專案目錄底下初始化。
+初始化 Go Modules。
 
 ```BASH
 go mod init github.com/memochou1993/go-websocket-example
