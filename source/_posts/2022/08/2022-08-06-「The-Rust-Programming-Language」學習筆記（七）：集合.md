@@ -304,7 +304,124 @@ for b in "नमस्ते".bytes() {
 
 ## 雜湊映射
 
-TODO
+`HashMap<K, V>` 型別會儲存一個鍵（key）型別 `K` 對應到一個數值（value）型別 `V`。它透過雜湊函式（hashing function）來決定要將這些鍵與值放在記憶體何處。雜湊映射適合用於當不想像向量那樣用索引搜尋資料，而是透過一個可以為任意型別的鍵來搜尋的情況。
+
+### 建立雜湊映射
+
+一種建立空的雜湊映射的方式是使用 `new` 並透過 `insert` 加入新元素。
+
+```RS
+use std::collections::HashMap;
+
+let mut scores = HashMap::new();
+
+scores.insert(String::from("藍隊"), 10);
+scores.insert(String::from("黃隊"), 50);
+```
+
+另一種建構雜湊映射的方式為使用疊代器並在一個元組組成的向量中使用 `collect` 方法，其中每個元組都包含一個鍵與值的配對。
+
+```RS
+use std::collections::HashMap;
+
+let teams = vec![String::from("藍隊"), String::from("黃隊")];
+let initial_scores = vec![10, 50];
+
+let mut scores: HashMap<_, _> =
+teams.into_iter().zip(initial_scores.into_iter()).collect();
+```
+
+### 雜湊映射與所有權
+
+像是 `i32` 這種有實作 `Copy` 特徵的型別，其數值可以被拷貝進雜湊映射之中。但對於像是 `String` 這種擁有所有權的數值，則會被移動到雜湊映射，並且成為該數值新的擁有者。
+
+```RS
+use std::collections::HashMap;
+
+let field_name = String::from("Favorite color");
+let field_value = String::from("藍隊");
+
+let mut map = HashMap::new();
+map.insert(field_name, field_value);
+// field_name 和 field_value 在這之後就不能使用了
+```
+
+### 讀取雜湊映射
+
+可以透過 `get` 方法並提供鍵來取得其在雜湊映射對應的值。
+
+```RS
+use std::collections::HashMap;
+
+let mut scores = HashMap::new();
+
+scores.insert(String::from("藍隊"), 10);
+scores.insert(String::from("黃隊"), 50);
+
+let team_name = String::from("藍隊");
+let score = scores.get(&team_name);
+```
+
+也可以使用 `for` 迴圈用類似的方式來遍歷雜湊映射中每個鍵值配對。
+
+```RS
+use std::collections::HashMap;
+
+let mut scores = HashMap::new();
+
+scores.insert(String::from("藍隊"), 10);
+scores.insert(String::from("黃隊"), 50);
+
+for (key, value) in &scores {
+    println!("{}: {}", key, value);
+}
+```
+
+### 更新雜湊映射
+
+雖然鍵值配對的數量可以增加，但每個鍵同一時間就只能有一個對應的值而已。當想要改變雜湊映射的資料的話，必須決定如何處理當一個鍵已經有一個值的情況。
+
+#### 覆蓋數值
+
+如果我們在雜湊映射插入一個鍵值配對，然後又在相同鍵插入不同的數值的話，該鍵相對應的數值就會被取代。
+
+```RS
+use std::collections::HashMap;
+
+let mut scores = HashMap::new();
+
+scores.insert(String::from("藍隊"), 10);
+scores.insert(String::from("藍隊"), 25);
+
+println!("{:?}", scores);
+```
+
+#### 只在鍵沒有值的情況下插入數值
+
+通常檢查某個特定的鍵有沒有數值，如果沒有的話才插入數值是很常見的。雜湊映射提供了一個特別的 API 叫做 `entry` 讓你可以用想要檢查的鍵作為參數。`entry` 方法的回傳值是一個枚舉叫做 `Entry`，它代表了一個可能存在或不存在的數值。
+
+#### 依據舊值更新數值
+
+雜湊映射還有另一種常見的用法是，依照鍵的舊數值來更新它。舉例來說，以下展示了一支如何計算一些文字內每個單字各出現多少次的程式碼。我們使用雜湊映射，鍵為單字然後值為我們每次追蹤計算對應單字出現多少次的次數。如果我們是第一次看到該單字的話，我們插入數值 0。
+
+```RS
+use std::collections::HashMap;
+
+let text = "hello world wonderful world";
+
+let mut map = HashMap::new();
+
+for word in text.split_whitespace() {
+    let count = map.entry(word).or_insert(0);
+    *count += 1;
+}
+
+println!("{:?}", map);
+```
+
+### 雜湊函式
+
+HashMap 預設是使用一種叫做 SipHash 的雜湊函式（hashing function），這可以透過雜湊表（hash table）抵禦阻斷服務（Denial of Service, DoS）的攻擊。這並不是最快的雜湊演算法，但為了提升安全性而犧牲一點效能是值得的。
 
 ## 參考資料
 
