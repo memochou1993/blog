@@ -48,7 +48,7 @@ const hello = () => {
 
 export {
   hello,
-};
+}
 ```
 
 測試發布，查看即將發布的檔案列表。
