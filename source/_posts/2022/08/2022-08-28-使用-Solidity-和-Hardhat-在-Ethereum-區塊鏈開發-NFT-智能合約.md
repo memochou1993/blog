@@ -6,6 +6,10 @@ tags: ["區塊鏈", "Ethereum", "Solidity", "JavaScript", "Node", "Hardhat", "Sm
 categories: ["區塊鏈", "Ethereum"]
 ---
 
+## 前言
+
+本文為「[Alchemy - How to Create an NFT Tutorial](https://docs.alchemy.com/docs/how-to-create-an-nft)」教學的學習筆記。
+
 ## 建立專案
 
 建立專案。
