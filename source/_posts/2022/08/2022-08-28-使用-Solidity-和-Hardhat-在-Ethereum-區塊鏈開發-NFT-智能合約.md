@@ -43,7 +43,7 @@ npx hardhat
 npx hardhat test
 ```
 
-## 實作合約
+## 合約實作
 
 安裝依賴。
 
