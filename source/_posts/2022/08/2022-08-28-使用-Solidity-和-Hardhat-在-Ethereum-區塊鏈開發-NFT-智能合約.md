@@ -2,7 +2,7 @@
 title: 使用 Solidity 和 Hardhat 在 Ethereum 區塊鏈開發 NFT 智能合約
 permalink: 使用-Solidity-和-Hardhat-在-Ethereum-區塊鏈開發-NFT-智能合約
 date: 2022-08-28 22:00:37
-tags: ["區塊鏈", "Ethereum", "Solidity", "JavaScript", "Node", "Hardhat", "Smart Contract", "DApp", "Alchemy", "NFT", "IPFS", "Pinata"]
+tags: ["區塊鏈", "Ethereum", "Solidity", "JavaScript", "Node", "Smart Contract", "DApp", "Hardhat", "NFT", "Alchemy", "IPFS", "Pinata"]
 categories: ["區塊鏈", "Ethereum"]
 ---
 
