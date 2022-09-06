@@ -49,7 +49,7 @@ composer.lock
         }
     ],
     "support": {
-        "email": "memochou1993@hotmail.com"
+        "email": "memochou1993@gmail.com"
     },
     "require": {
         "php" : ">=5.6.0",
