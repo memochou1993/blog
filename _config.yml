@@ -87,3 +87,10 @@ deploy:
     root: /var/www/blog/public
     delete: true
     verbose: true
+
+# RSS feed
+feed:
+  type: atom
+  path: atom.xml
+  limit: 0
+  content: false
