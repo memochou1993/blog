@@ -3,7 +3,7 @@ title: 將 Hexo 部落格部署至 GitHub Pages 服務
 permalink: 將-Hexo-部落格部署至-GitHub-Pages-服務
 date: 2018-04-17 10:15:43
 tags: ["Hexo", "環境部署", "GitHub", "GitHub Pages"]
-categories: ["其他", "Hexo"]
+categories: ["靜態網頁生成器", "Hexo"]
 ---
 
 ## 環境
