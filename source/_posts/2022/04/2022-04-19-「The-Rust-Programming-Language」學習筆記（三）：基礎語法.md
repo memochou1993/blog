@@ -1,7 +1,7 @@
 ---
-title: 「The Rust Programming Language」學習筆記（二）：基礎語法
-permalink: 「The-Rust-Programming-Language」學習筆記（二）：基礎語法
-date: 2022-04-18 21:09:25
+title: 「The Rust Programming Language」學習筆記（三）：基礎語法
+permalink: 「The-Rust-Programming-Language」學習筆記（三）：基礎語法
+date: 2022-04-19 21:09:25
 tags: ["程式設計", "Rust"]
 categories: ["程式設計", "Rust", "「The Rust Programming Language」學習筆記"]
 ---

@@ -1,6 +1,6 @@
 ---
-title: 「The Rust Programming Language」學習筆記（八）：泛型型別、特徵與生命週期
-permalink: 「The-Rust-Programming-Language」學習筆記（八）：泛型型別、特徵與生命週期
+title: 「The Rust Programming Language」學習筆記（十）：泛型、特徵與生命週期
+permalink: 「The-Rust-Programming-Language」學習筆記（十）：泛型、特徵與生命週期
 date: 2022-09-18 14:21:15
 tags: ["程式設計", "Rust"]
 categories: ["程式設計", "Rust", "「The Rust Programming Language」學習筆記"]

@@ -1,6 +1,6 @@
 ---
-title: 「The Rust Programming Language」學習筆記（四）：結構體
-permalink: 「The-Rust-Programming-Language」學習筆記（四）：結構體
+title: 「The Rust Programming Language」學習筆記（五）：結構體
+permalink: 「The-Rust-Programming-Language」學習筆記（五）：結構體
 date: 2022-05-24 02:23:48
 tags: ["程式設計", "Rust"]
 categories: ["程式設計", "Rust", "「The Rust Programming Language」學習筆記"]

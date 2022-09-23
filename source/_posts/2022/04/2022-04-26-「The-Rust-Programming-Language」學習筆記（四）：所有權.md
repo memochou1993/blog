@@ -1,6 +1,6 @@
 ---
-title: 「The Rust Programming Language」學習筆記（三）：所有權
-permalink: 「The-Rust-Programming-Language」學習筆記（三）：所有權
+title: 「The Rust Programming Language」學習筆記（四）：所有權
+permalink: 「The-Rust-Programming-Language」學習筆記（四）：所有權
 date: 2022-04-26 16:58:11
 tags: ["程式設計", "Rust"]
 categories: ["程式設計", "Rust", "「The Rust Programming Language」學習筆記"]

@@ -1,6 +1,6 @@
 ---
-title: 「The Rust Programming Language」學習筆記（九）：測試
-permalink: 「The-Rust-Programming-Language」學習筆記（九）：測試
+title: 「The Rust Programming Language」學習筆記（十一）：測試
+permalink: 「The-Rust-Programming-Language」學習筆記（十一）：測試
 tags: ["程式設計", "Rust"]
 categories: ["程式設計", "Rust", "「The Rust Programming Language」學習筆記"]
 ---

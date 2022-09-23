@@ -1,9 +1,9 @@
 ---
-title: 使用 Rust 實作「猜謎遊戲」應用程式
-permalink: 使用-Rust-實作「猜謎遊戲」應用程式
-date: 2022-07-24 15:06:33
+title: 「The Rust Programming Language」學習筆記（二）：設計猜謎遊戲
+permalink: 「The-Rust-Programming-Language」學習筆記（二）：設計猜謎遊戲
+date: 2022-04-18 15:06:33
 tags: ["程式設計", "Rust"]
-categories: ["程式設計", "Rust", "其他"]
+categories: ["程式設計", "Rust", "「The Rust Programming Language」學習筆記"]
 ---
 
 ## 前言
