@@ -163,7 +163,7 @@ php-fpm
 
 新增 `.dockerignore` 檔：
 
-```IGNORE
+```ENV
 .git
 tests
 vendor
