@@ -1,6 +1,6 @@
 ---
-title: 使用 Rust 和 WebAssemply 實作「康威生命遊戲」應用程式
-permalink: 使用-Rust-和-WebAssemply-實作「康威生命遊戲」應用程式
+title: 使用 Rust 和 WebAssembly 實作「康威生命遊戲」應用程式
+permalink: 使用-Rust-和-WebAssembly-實作「康威生命遊戲」應用程式
 date: 2022-06-04 20:49:01
 tags: ["程式設計", "WebAssembly", "Rust", "JavaScript", "Canvas"]
 categories: ["程式設計", "WebAssembly"]
