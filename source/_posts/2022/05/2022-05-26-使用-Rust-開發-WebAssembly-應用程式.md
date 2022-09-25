@@ -2,7 +2,7 @@
 title: 使用 Rust 開發 WebAssembly 應用程式
 permalink: 使用-Rust-開發-WebAssembly-應用程式
 date: 2022-05-26 21:17:52
-tags: ["程式設計", "Rust", "WebAssembly", "Wasm", "Rust"]
+tags: ["程式設計", "Rust", "WebAssembly", "Wasm", "JavaScript"]
 categories: ["程式設計", "Rust", "WebAssembly"]
 ---
 
