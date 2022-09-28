@@ -44,7 +44,7 @@ npm install npm@latest -g
 cargo generate --git https://github.com/rustwasm/wasm-pack-template --name rust-webassembly-example
 ```
 
-## 後端實作
+## 實作後端
 
 進入專案。
 
@@ -100,7 +100,7 @@ export function greet() {
 }
 ```
 
-## 前端實作
+## 實作前端
 
 在專案目錄建立一個前端專案。
 

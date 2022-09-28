@@ -69,7 +69,7 @@ anchor_escrow = "CVXMDc2cNvT94Ghz9m9UUbskSwPfd6nHcZpxXZwJFE8b"
 declare_id!("CVXMDc2cNvT94Ghz9m9UUbskSwPfd6nHcZpxXZwJFE8b");
 ```
 
-## 後端實作
+## 實作後端
 
 更新 `src/lib.rs` 檔。其中 `#[program]` 區塊是用來定義一個程式，其中的每一個方法用來定義其 RPC 請求處理器，也就是所謂 Solana 的 Instruction 處理器，而這些處理器就是用來讓客戶端使用的端點。
 
@@ -357,7 +357,7 @@ impl<'info> Exchange<'info> {
 anchor build
 ```
 
-## 前端實作
+## 實作前端
 
 配合教材，將 `@project-serum/anchor` 依賴套件降級。
 

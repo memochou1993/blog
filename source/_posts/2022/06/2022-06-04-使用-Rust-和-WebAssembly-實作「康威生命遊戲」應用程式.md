@@ -116,7 +116,7 @@ npm run start
 index(row, column, universe) = row * width(universe) + column
 ```
 
-## 後端實作
+## 實作後端
 
 首先，修改 `src/lib.rs` 檔，定義一個 `Cell` 枚舉。這裡使用 `#[repr(u8)]` 屬性，用來表示每一個細胞都是一個位元組，並使用 `0` 來表示死細胞，使用 `1` 來表示活細胞，如此一來就可以使用加法來計算一個細胞的周圍存在多少活細胞。
 
@@ -291,7 +291,7 @@ impl Universe {
 wasm-pack build
 ```
 
-## 前端實作
+## 實作前端
 
 修改 `www/index.html` 檔。
 

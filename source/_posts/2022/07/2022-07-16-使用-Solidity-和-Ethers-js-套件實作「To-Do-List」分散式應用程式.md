@@ -136,7 +136,7 @@ truffle migrate --reset
 
 將 Ganache 中帳戶的私鑰匯入至 MetaMask 錢包。
 
-## 前端實作
+## 實作前端
 
 安裝依賴套件。
 
