@@ -1,6 +1,5 @@
 ---
 title: 在 macOS 上建立 MySQL 資料庫
-permalink: 在-macOS-上建立-MySQL-資料庫
 date: 2019-01-28 15:43:46
 tags: ["資料庫", "MySQL", "macOS"]
 categories: ["資料庫", "MySQL"]

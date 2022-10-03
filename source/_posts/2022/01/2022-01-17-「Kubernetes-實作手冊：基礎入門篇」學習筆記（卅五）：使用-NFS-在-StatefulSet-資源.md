@@ -1,6 +1,5 @@
 ---
 title: 「Kubernetes 實作手冊：基礎入門篇」學習筆記（卅五）：使用 NFS 在 StatefulSet 資源
-permalink: 「Kubernetes-實作手冊：基礎入門篇」學習筆記（卅五）：使用-NFS-在-StatefulSet-資源
 date: 2022-01-17 20:49:25
 tags: ["環境部署", "Kubernetes", "Docker"]
 categories: ["環境部署", "Kubernetes", "「Kubernetes 實作手冊：基礎入門篇」學習筆記"]

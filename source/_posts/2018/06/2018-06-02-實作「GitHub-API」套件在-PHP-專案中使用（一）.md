@@ -1,6 +1,5 @@
 ---
 title: 實作「GitHub API」套件在 PHP 專案中使用（一）
-permalink: 實作「GitHub-API」套件在-PHP-專案中使用（一）
 date: 2018-06-02 17:40:32
 tags: ["程式設計", "PHP", "套件開發", "GitHub", "Packagist"]
 categories: ["程式設計", "PHP", "套件開發"]

@@ -1,6 +1,5 @@
 ---
 title: 「Kubernetes 實作手冊：基礎入門篇」學習筆記（七）：使用 kubeconfig 配置叢集
-permalink: 「Kubernetes-實作手冊：基礎入門篇」學習筆記（七）：使用-kubeconfig-配置叢集
 date: 2021-12-11 17:17:54
 tags: ["環境部署", "Kubernetes", "Docker"]
 categories: ["環境部署", "Kubernetes", "「Kubernetes 實作手冊：基礎入門篇」學習筆記"]

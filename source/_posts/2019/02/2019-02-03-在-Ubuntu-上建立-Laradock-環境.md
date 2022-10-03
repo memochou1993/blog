@@ -1,6 +1,5 @@
 ---
 title: 在 Ubuntu 上建立 Laradock 環境
-permalink: 在-Ubuntu-上建立-Laradock-環境
 date: 2019-02-03 19:13:17
 tags: ["環境部署", "Linux", "Ubuntu", "Docker", "Laradock", "Laravel"]
 categories: ["環境部署", "Laradock"]

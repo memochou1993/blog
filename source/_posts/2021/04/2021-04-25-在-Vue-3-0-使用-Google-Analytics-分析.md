@@ -1,6 +1,5 @@
 ---
 title: 在 Vue 3.0 使用 Google Analytics 分析
-permalink: 在-Vue-3-0-使用-Google-Analytics-分析
 date: 2021-04-25 23:29:13
 tags: ["程式設計", "JavaScript", "Vue", "Google Analytics"]
 categories: ["程式設計", "JavaScript", "Vue"]

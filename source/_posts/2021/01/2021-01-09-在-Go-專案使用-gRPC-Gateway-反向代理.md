@@ -1,6 +1,5 @@
 ---
 title: 在 Go 專案使用 gRPC-Gateway 反向代理
-permalink: 在-Go-專案使用-gRPC-Gateway-反向代理
 date: 2021-01-09 19:52:26
 tags: ["程式設計", "Go", "gRPC", "RPC"]
 categories: ["程式設計", "Go", "gRPC"]

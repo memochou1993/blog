@@ -1,6 +1,5 @@
 ---
 title: 在 CodeIgniter 3.1 使用 WeChat 開放平台授權
-permalink: 在-CodeIgniter-3-1-使用-WeChat-開放平台授權
 date: 2019-01-04 22:04:48
 tags: ["程式設計", "PHP", "CodeIgniter", "WeChat"]
 categories: ["程式設計", "PHP", "CodeIgniter"]

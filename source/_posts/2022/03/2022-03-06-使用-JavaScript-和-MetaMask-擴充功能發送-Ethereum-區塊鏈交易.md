@@ -1,6 +1,5 @@
 ---
 title: 使用 JavaScript 和 MetaMask 擴充功能發送-Ethereum-區塊鏈交易
-permalink: 使用-JavaScript-和-MetaMask-擴充功能發送-Ethereum-區塊鏈交易
 date: 2022-03-06 23:20:02
 tags: ["區塊鏈", "Ethereum", "JavaScript", "Web3", "MetaMask"]
 categories: ["區塊鏈", "Ethereum"]

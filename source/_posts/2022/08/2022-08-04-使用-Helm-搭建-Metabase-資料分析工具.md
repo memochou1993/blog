@@ -1,6 +1,5 @@
 ---
 title: 使用 Helm 搭建 Metabase 資料分析工具
-permalink: 使用-Helm-搭建-Metabase-資料分析工具
 date: 2022-08-04 16:50:31
 tags: ["環境部署", "Kubernetes", "Helm", "Metabase", "BI Tool"]
 categories: ["環境部署", "Kubernetes", "Helm"]

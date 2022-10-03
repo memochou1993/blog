@@ -1,6 +1,5 @@
 ---
 title: 認識 WebTransport 傳輸協定框架
-permalink: 認識-WebTransport-傳輸協定框架
 date: 2022-03-04 01:52:30
 tags: ["程式設計", "JavaScript", "WebTransport"]
 categories: ["程式設計", "JavaScript", "其他"]

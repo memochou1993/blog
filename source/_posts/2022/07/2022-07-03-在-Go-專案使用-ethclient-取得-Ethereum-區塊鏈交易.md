@@ -1,6 +1,5 @@
 ---
 title: 在 Go 專案使用 ethclient 取得 Ethereum 區塊鏈交易
-permalink: 在-Go-專案使用-ethclient-取得-Ethereum-區塊鏈交易
 date: 2022-07-03 12:30:43
 tags: ["區塊鏈", "Ethereum", "Etherscan"]
 categories: ["區塊鏈", "Ethereum"]

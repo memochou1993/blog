@@ -1,6 +1,5 @@
 ---
 title: 使用 Solidity 和 Ethers.js 套件實作「To-Do List」分散式應用程式
-permalink: 使用-Solidity-和-Ethers-js-套件實作「To-Do-List」分散式應用程式
 date: 2022-07-16 01:15:30
 tags: ["區塊鏈", "Ethereum", "Solidity", "JavaScript", "Ethers", "Smart Contract", "DApp", "Truffle"]
 categories: ["區塊鏈", "Ethereum"]

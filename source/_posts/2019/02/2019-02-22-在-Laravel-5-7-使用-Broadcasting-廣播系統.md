@@ -1,6 +1,5 @@
 ---
 title: 在 Laravel 5.7 使用 Broadcasting 廣播系統
-permalink: 在-Laravel-5-7-使用-Broadcasting-廣播系統
 date: 2019-02-22 11:18:36
 tags: ["程式設計", "PHP", "Laravel"]
 categories: ["程式設計", "PHP", "Laravel"]

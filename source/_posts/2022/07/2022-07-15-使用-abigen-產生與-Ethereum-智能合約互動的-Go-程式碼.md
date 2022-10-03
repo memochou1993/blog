@@ -1,6 +1,5 @@
 ---
 title: 使用 abigen 產生與 Ethereum 智能合約互動的 Go 程式碼
-permalink: 使用-abigen-產生與-Ethereum-智能合約互動的-Go-程式碼
 date: 2022-07-15 23:43:54
 tags: ["區塊鏈", "Ethereum", "Solidity", "Smart Contract", "Go"]
 categories: ["區塊鏈", "Ethereum"]

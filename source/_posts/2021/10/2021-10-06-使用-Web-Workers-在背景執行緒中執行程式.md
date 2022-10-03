@@ -1,6 +1,5 @@
 ---
 title: 使用 Web Workers 在背景執行緒中執行程式
-permalink: 使用-Web-Workers-在背景執行緒中執行程式
 date: 2021-10-06 11:52:45
 tags: ["程式設計", "JavaScript"]
 categories: ["程式設計", "JavaScript", "其他"]

@@ -1,6 +1,5 @@
 ---
 title: 建立「Functional Programming in JavaScript」工作坊
-permalink: 建立「Functional-Programming-in-JavaScript」工作坊
 date: 2022-09-19 23:19:11
 tags: ["程式設計", "JavaScript", "TypeScript", "Vite", "Functional Programming", "TDD", "Testing", "Workshop"]
 categories: ["程式設計", "JavaScript", "其他"]

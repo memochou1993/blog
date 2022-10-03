@@ -1,6 +1,5 @@
 ---
 title: 使用 JavaScript 發布 NPM 套件
-permalink: 使用-JavaScript-發布-NPM-套件
 date: 2021-10-14 14:34:52
 tags: ["程式設計", "JavaScript", "npm"]
 categories: ["程式設計", "JavaScript", "其他"]

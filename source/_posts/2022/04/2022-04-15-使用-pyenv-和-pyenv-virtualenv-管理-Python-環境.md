@@ -1,6 +1,5 @@
 ---
 title: 使用 pyenv 和 pyenv-virtualenv 管理 Python 環境
-permalink: 使用-pyenv-和-pyenv-virtualenv-管理-Python-環境
 date: 2022-04-15 16:40:21
 tags: ["程式設計", "Python"]
 categories: ["程式設計", "Python", "環境安裝"]

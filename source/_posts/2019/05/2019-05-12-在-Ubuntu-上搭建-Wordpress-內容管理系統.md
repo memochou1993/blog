@@ -1,6 +1,5 @@
 ---
 title: 在 Ubuntu 上搭建 Wordpress 內容管理系統
-permalink: 在-Ubuntu-上搭建-Wordpress-內容管理系統
 date: 2019-05-12 01:16:39
 tags: ["環境部署", "Linux", "Ubuntu", "PHP", "Wordpress"]
 categories: ["環境部署", "Wordpress"]

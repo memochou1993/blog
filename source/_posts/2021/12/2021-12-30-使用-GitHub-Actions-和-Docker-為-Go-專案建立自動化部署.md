@@ -1,6 +1,5 @@
 ---
 title: 使用 GitHub Actions 和 Docker 為 Go 專案建立自動化部署
-permalink: 使用-GitHub-Actions-和-Docker-為-Go-專案建立自動化部署
 date: 2021-12-30 21:43:29
 tags: ["環境部署", "CI/CD", "Docker", "Go", "GitHub"]
 categories: ["環境部署", "CI/CD"]

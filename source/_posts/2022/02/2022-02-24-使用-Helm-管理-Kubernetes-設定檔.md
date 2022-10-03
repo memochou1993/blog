@@ -1,6 +1,5 @@
 ---
 title: 使用 Helm 管理 Kubernetes 設定檔
-permalink: 使用-Helm-管理-Kubernetes-設定檔
 date: 2022-02-24 00:00:16
 tags: ["環境部署", "Kubernetes", "Helm"]
 categories: ["環境部署", "Kubernetes", "Helm"]

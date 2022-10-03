@@ -1,6 +1,5 @@
 ---
 title: 使用 Yew 開發 WebAssembly 應用程式
-permalink: 使用-Yew-開發-WebAssembly-應用程式
 date: 2022-09-26 21:32:40
 tags: ["程式設計", "Rust", "WebAssembly", "Wasm", "JavaScript", "Yew"]
 categories: ["程式設計", "Rust", "WebAssembly"]

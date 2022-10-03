@@ -1,6 +1,5 @@
 ---
 title: 使用 CloudFront 為 AWS S3 物件建立分佈
-permalink: 使用-CloudFront-為-AWS-S3-物件建立分佈
 date: 2021-09-07 21:50:40
 tags: ["環境部署", "AWS", "S3", "Storage Service", "CloudFront"]
 categories: ["雲端運算服務", "AWS"]

@@ -1,6 +1,5 @@
 ---
 title: 在 CentOS 上建立 Laradock 環境
-permalink: 在-CentOS-上建立-Laradock-環境
 date: 2020-02-06 09:56:48
 tags: ["環境部署", "Linux", "CentOS", "Docker", "Laradock", "Laravel"]
 categories: ["環境部署", "Laradock"]

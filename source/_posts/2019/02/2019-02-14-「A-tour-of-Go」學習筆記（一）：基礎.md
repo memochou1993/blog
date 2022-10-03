@@ -1,6 +1,5 @@
 ---
 title: 「A tour of Go」學習筆記（一）：基礎
-permalink: 「A-tour-of-Go」學習筆記（一）：基礎
 date: 2019-02-14 17:13:09
 tags: ["程式設計", "Go"]
 categories: ["程式設計", "Go", "「A tour of Go」學習筆記"]

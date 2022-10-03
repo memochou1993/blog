@@ -1,6 +1,5 @@
 ---
 title: 使用 TypeScript 實作「密碼產生器」套件
-permalink: 使用-TypeScript-實作「密碼產生器」套件
 date: 2021-05-09 00:50:31
 tags: ["程式設計", "JavaScript", "TypeScript", "npm", "Jest"]
 categories: ["程式設計", "JavaScript", "TypeScript"]

@@ -1,6 +1,5 @@
 ---
 title: 使用 Flutter 建立 Web 應用程式
-permalink: 使用-Flutter-建立-Web-應用程式
 date: 2021-07-08 22:22:34
 tags: ["程式設計", "Dart", "Flutter"]
 categories: ["程式設計", "Dart", "Flutter"]

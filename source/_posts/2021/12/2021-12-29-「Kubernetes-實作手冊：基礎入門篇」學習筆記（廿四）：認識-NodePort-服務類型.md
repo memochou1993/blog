@@ -1,6 +1,5 @@
 ---
 title: 「Kubernetes 實作手冊：基礎入門篇」學習筆記（廿四）：認識 NodePort 服務類型
-permalink: 「Kubernetes-實作手冊：基礎入門篇」學習筆記（廿四）：認識-NodePort-服務類型
 date: 2021-12-29 15:30:16
 tags: ["環境部署", "Kubernetes", "Docker"]
 categories: ["環境部署", "Kubernetes", "「Kubernetes 實作手冊：基礎入門篇」學習筆記"]

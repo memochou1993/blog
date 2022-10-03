@@ -1,6 +1,5 @@
 ---
 title: 使用 Storybook 和 Vite 建立 React 元件庫
-permalink: 使用-Storybook-和-Vite-建立-React-元件庫
 date: 2022-04-20 15:24:54
 tags: ["程式設計", "JavaScript", "React", "TypeScript", "Vite", "Storybook"]
 categories: ["程式設計", "JavaScript", "React"]

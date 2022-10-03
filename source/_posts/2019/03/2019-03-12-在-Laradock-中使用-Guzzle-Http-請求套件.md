@@ -1,6 +1,5 @@
 ---
 title: 在 Laradock 中使用 Guzzle Http 請求套件
-permalink: 在-Laradock-中使用-Guzzle-Http-請求套件
 date: 2019-03-12 23:01:28
 tags: ["環境部署", "Nginx", "Laravel", "Laradock", "Guzzle"]
 categories: ["環境部署", "Laradock"]

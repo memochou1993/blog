@@ -1,6 +1,5 @@
 ---
 title: 在 JavaScript 專案安裝 Tailwind CSS UI 框架
-permalink: 在-JavaScript-專案安裝-Tailwind-CSS-UI-框架
 date: 2022-03-08 14:34:20
 tags: ["程式設計", "JavaScript", "UI Framework", "Tailwind CSS"]
 categories: ["程式設計", "JavaScript", "其他"]

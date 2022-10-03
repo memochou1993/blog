@@ -1,6 +1,5 @@
 ---
 title: 使用 Docker 搭建 GitLab 程式碼管理平台
-permalink: 使用-Docker-搭建-GitLab-程式碼管理平台
 date: 2019-02-08 20:43:53
 tags: ["環境部署", "Docker", "Linux", "Ubuntu", "GitLab"]
 categories: ["環境部署", "Docker", "其他"]

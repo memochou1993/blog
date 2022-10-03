@@ -1,6 +1,5 @@
 ---
 title: 在 macOS 上安裝 Nginx 網頁伺服器
-permalink: 在-macOS-上安裝-Nginx-網頁伺服器
 date: 2019-01-24 10:35:48
 tags: ["環境部署", "網頁伺服器", "Nginx", "macOS"]
 categories: ["環境部署", "網頁伺服器"]

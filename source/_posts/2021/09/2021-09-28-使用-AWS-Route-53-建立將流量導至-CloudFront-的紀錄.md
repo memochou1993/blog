@@ -1,6 +1,5 @@
 ---
 title: 使用 AWS Route 53 建立將流量導至 CloudFront 的紀錄
-permalink: 使用-AWS-Route-53-建立將流量導至-CloudFront-的紀錄
 date: 2021-09-28 16:31:31
 tags: ["環境部署", "AWS", "S3", "Route 53", "CloudFront"]
 categories: ["雲端運算服務", "AWS"]

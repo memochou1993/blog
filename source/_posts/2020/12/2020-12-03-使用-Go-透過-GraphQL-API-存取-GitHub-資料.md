@@ -1,6 +1,5 @@
 ---
 title: 使用 Go 透過 GraphQL API 存取 GitHub 資料
-permalink: 使用-Go-透過-GraphQL-API-存取-GitHub-資料
 date: 2020-12-03 20:53:42
 tags: ["程式設計", "Go", "GitHub", "GraphQL"]
 categories: ["程式設計", "Go", "其他"]

@@ -1,6 +1,5 @@
 ---
 title: 在 Node 專案使用 Puppeteer 生成網頁截圖
-permalink: 在-Node-專案使用-Puppeteer-生成網頁截圖
 date: 2021-12-18 23:54:09
 tags: ["程式設計", "JavaScript", "Node", "爬蟲"]
 categories: ["程式設計", "JavaScript", "Node"]

@@ -1,6 +1,5 @@
 ---
 title: 在 Laravel 5.7 使用 Voyager 後台管理系統
-permalink: 在-Laravel-5-7-使用-Voyager-後台管理系統
 date: 2018-11-23 02:58:23
 tags: ["程式設計", "PHP", "Laravel", "後台管理系統", "Voyager"]
 categories: ["程式設計", "PHP", "Laravel"]

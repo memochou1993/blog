@@ -1,6 +1,5 @@
 ---
 title: 在 Laravel 8.0 使用檔案系統上傳檔案到 MinIO 儲存服務
-permalink: 在-Laravel-8-0-使用檔案系統上傳檔案到-MinIO-儲存服務
 date: 2021-09-16 23:26:07
 tags: ["程式設計", "PHP", "Laravel", "MinIO", "Storage Service"]
 categories: ["程式設計", "PHP", "Laravel"]

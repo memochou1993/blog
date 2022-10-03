@@ -1,6 +1,5 @@
 ---
 title: 「The Rust Programming Language」學習筆記（七）：套件與模組
-permalink: 「The-Rust-Programming-Language」學習筆記（七）：套件與模組
 date: 2022-07-31 20:12:10
 tags: ["程式設計", "Rust"]
 categories: ["程式設計", "Rust", "「The Rust Programming Language」學習筆記"]

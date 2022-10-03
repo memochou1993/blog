@@ -1,6 +1,5 @@
 ---
 title: 「Kubernetes 實作手冊：基礎入門篇」學習筆記（十）：認識命令式指令
-permalink: 「Kubernetes-實作手冊：基礎入門篇」學習筆記（十）：認識命令式指令
 date: 2021-12-14 16:15:23
 tags: ["環境部署", "Kubernetes", "Docker"]
 categories: ["環境部署", "Kubernetes", "「Kubernetes 實作手冊：基礎入門篇」學習筆記"]

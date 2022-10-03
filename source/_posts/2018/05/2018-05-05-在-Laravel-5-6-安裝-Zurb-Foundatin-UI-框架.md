@@ -1,6 +1,5 @@
 ---
 title: 在 Laravel 5.6 安裝 Zurb Foundatin UI 框架
-permalink: 在-Laravel-5-6-安裝-Zurb-Foundatin-UI-框架
 date: 2018-05-05 10:19:53
 tags: ["程式設計", "Laravel", "UI Framework", "Zurb Foundatin"]
 categories: ["程式設計", "PHP", "Laravel"]

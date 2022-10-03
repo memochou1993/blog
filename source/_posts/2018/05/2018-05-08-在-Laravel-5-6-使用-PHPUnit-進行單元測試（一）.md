@@ -1,6 +1,5 @@
 ---
 title: 在 Laravel 5.6 使用 PHPUnit 進行單元測試（一）
-permalink: 在-Laravel-5-6-使用-PHPUnit-進行單元測試（一）
 date: 2018-05-08 10:20:33
 tags: ["程式設計", "PHP", "Laravel", "Testing", "PHPUnit"]
 categories: ["程式設計", "PHP", "Laravel"]

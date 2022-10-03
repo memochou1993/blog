@@ -1,6 +1,5 @@
 ---
 title: 使用 Solidity 實作 Ponzi Scheme 智能合約
-permalink: 使用-Solidity-實作-Ponzi-Scheme-智能合約
 date: 2022-07-08 00:40:05
 tags: ["區塊鏈", "Ethereum", "Solidity", "ERC-20", "Truffle", "Smart Contract", "BSC"]
 categories: ["區塊鏈", "Ethereum"]

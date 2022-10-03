@@ -1,6 +1,5 @@
 ---
 title: 在 Vue 3.0 使用 ESLint 分析工具並套用 Airbnb 程式碼風格
-permalink: 在-Vue-3-0-使用-ESLint-分析工具並套用-Airbnb-程式碼風格
 date: 2020-10-29 23:05:27
 tags: ["程式設計", "JavaScript", "ESLint", "Airbnb", "Vue"]
 categories: ["程式設計", "JavaScript", "ESLint"]

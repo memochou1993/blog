@@ -1,6 +1,5 @@
 ---
 title: 使用 Go 下載 YouTube 影片
-permalink: 使用-Go-下載-YouTube-影片
 date: 2020-11-27 20:48:13
 tags: ["程式設計", "Go", "YouTube"]
 categories: ["程式設計", "Go", "其他"]

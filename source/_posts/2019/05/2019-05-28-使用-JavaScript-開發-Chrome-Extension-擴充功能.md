@@ -1,6 +1,5 @@
 ---
 title: 使用 JavaScript 開發 Chrome Extension 擴充功能
-permalink: 使用-JavaScript-開發-Chrome-Extension-擴充功能
 date: 2019-05-28 11:44:42
 tags: ["程式設計", "Chrome", "Chrome Extension", "JavaScript"]
 categories: ["程式設計", "Chrome Extension"]

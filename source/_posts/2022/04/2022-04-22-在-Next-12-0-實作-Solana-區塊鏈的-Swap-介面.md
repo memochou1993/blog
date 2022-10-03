@@ -1,6 +1,5 @@
 ---
 title: 在 Next 12.0 實作 Solana 區塊鏈的 Swap 介面
-permalink: 在-Next-12-0-實作-Solana-區塊鏈的-Swap-介面
 date: 2022-04-22 21:01:43
 tags: ["區塊鏈", "Solana", "Rust", "JavaScript", "Smart Contract", "DApp", "Raydium"]
 categories: ["區塊鏈", "Solana"]

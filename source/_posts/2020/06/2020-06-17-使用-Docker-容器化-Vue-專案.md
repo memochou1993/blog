@@ -1,6 +1,5 @@
 ---
 title: 使用 Docker 容器化 Vue 專案
-permalink: 使用-Docker-容器化-Vue-專案
 date: 2020-06-17 22:52:56
 tags: ["環境部署", "Docker", "JavaScript", "Vue"]
 categories: ["程式設計", "JavaScript", "環境部署"]

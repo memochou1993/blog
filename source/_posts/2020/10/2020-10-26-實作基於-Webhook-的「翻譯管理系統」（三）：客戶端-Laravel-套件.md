@@ -1,6 +1,5 @@
 ---
 title: 實作基於 Webhook 的「翻譯管理系統」（三）：客戶端 Laravel 套件
-permalink: 實作基於-Webhook-的「翻譯管理系統」（三）：客戶端-Laravel-套件
 date: 2020-10-26 14:09:48
 tags: ["程式設計", "PHP", "Laravel", "Localization", "Lexicon", "套件開發"]
 categories: ["程式設計", "PHP", "Laravel"]

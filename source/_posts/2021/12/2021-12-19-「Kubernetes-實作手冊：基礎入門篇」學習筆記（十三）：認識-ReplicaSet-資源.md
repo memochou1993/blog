@@ -1,6 +1,5 @@
 ---
 title: 「Kubernetes 實作手冊：基礎入門篇」學習筆記（十三）：認識 ReplicaSet 資源
-permalink: 「Kubernetes-實作手冊：基礎入門篇」學習筆記（十三）：認識-ReplicaSet-資源
 date: 2021-12-19 22:41:39
 tags: ["環境部署", "Kubernetes", "Docker"]
 categories: ["環境部署", "Kubernetes", "「Kubernetes 實作手冊：基礎入門篇」學習筆記"]

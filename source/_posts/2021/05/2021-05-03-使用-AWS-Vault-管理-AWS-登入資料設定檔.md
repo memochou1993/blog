@@ -1,6 +1,5 @@
 ---
 title: 使用 AWS Vault 管理 AWS 登入資料設定檔
-permalink: 使用-AWS-Vault-管理-AWS-登入資料設定檔
 date: 2021-05-03 23:11:34
 tags: ["環境部署", "AWS", "雲端運算服務"]
 categories: ["雲端運算服務", "AWS"]

@@ -1,6 +1,5 @@
 ---
 title: 在 macOS 上安裝 Node 和 npm 套件管理工具
-permalink: 在-macOS-上安裝-Node-和-npm-套件管理工具
 date: 2019-08-06 23:32:12
 tags: ["程式設計", "JavaScript", "Node", "npm", "套件管理工具"]
 categories: ["程式設計", "JavaScript", "Node"]

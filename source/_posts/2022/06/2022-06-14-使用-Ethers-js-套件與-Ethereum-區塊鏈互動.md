@@ -1,6 +1,5 @@
 ---
 title: 使用 Ethers.js 套件與 Ethereum 區塊鏈互動
-permalink: 使用-Ethers-js-套件與-Ethereum-區塊鏈互動
 date: 2022-06-14 00:23:25
 tags: ["區塊鏈", "Ethereum", "JavaScript", "Ethers", "MetaMask"]
 categories: ["區塊鏈", "Ethereum"]

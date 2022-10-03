@@ -1,6 +1,5 @@
 ---
 title: 使用 TapPay SDK 串接金流服務
-permalink: 使用-TapPay-SDK-串接金流服務
 date: 2021-09-03 20:40:56
 tags: ["金流", "Go", "JavaScript", "TapPay"]
 categories: ["其他", "金流"]

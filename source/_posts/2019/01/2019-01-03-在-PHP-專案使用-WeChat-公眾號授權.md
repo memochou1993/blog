@@ -1,6 +1,5 @@
 ---
 title: 在 PHP 專案使用 WeChat 公眾號授權
-permalink: 在-PHP-專案使用-WeChat-公眾號授權
 date: 2019-01-03 22:26:01
 tags: ["程式設計", "PHP", "WeChat"]
 categories: ["程式設計", "PHP", "其他"]

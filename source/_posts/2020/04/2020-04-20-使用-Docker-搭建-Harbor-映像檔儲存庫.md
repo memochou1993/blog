@@ -1,6 +1,5 @@
 ---
 title: 使用 Docker 搭建 Harbor 映像檔儲存庫
-permalink: 使用-Docker-搭建-Harbor-映像檔儲存庫
 date: 2020-04-20 22:08:26
 tags: ["環境部署", "Docker", "Harbor", "Linux", "Ubuntu"]
 categories: ["環境部署", "Docker", "其他"]

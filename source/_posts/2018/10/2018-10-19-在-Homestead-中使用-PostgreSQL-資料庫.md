@@ -1,6 +1,5 @@
 ---
 title: 在 Homestead 中使用 PostgreSQL 資料庫
-permalink: 在-Homestead-中使用-PostgreSQL-資料庫
 date: 2018-10-19 22:04:22
 tags: ["資料庫", "PostgreSQL", "PHP", "Laravel"]
 categories: ["資料庫", "PostgreSQL"]

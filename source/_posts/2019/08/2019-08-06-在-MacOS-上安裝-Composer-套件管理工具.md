@@ -1,6 +1,5 @@
 ---
 title: 在 macOS 上安裝 Composer 套件管理工具
-permalink: 在-macOS-上安裝-Composer-套件管理工具
 date: 2019-08-06 23:24:09
 tags: ["程式設計", "PHP", "Composer", "套件管理工具"]
 categories: ["程式設計", "PHP", "其他"]

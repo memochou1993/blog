@@ -1,6 +1,5 @@
 ---
 title: 透過 WebHooks 將 GitLab 事件推送至 Slack 群組
-permalink: 透過-WebHooks-將-GitLab-事件推送至-Slack-群組
 date: 2022-07-12 23:56:22
 tags: ["其他", "WebHooks", "GitLab", "Slack"]
 categories: ["其他", "Git Repository"]

@@ -1,6 +1,5 @@
 ---
 title: 使用 Lumen 5.6 實作 RESTful API 應用程式
-permalink: 使用-Lumen-5-6-實作-RESTful-API-應用程式
 date: 2018-05-04 10:19:40
 tags: ["程式設計", "PHP", "Laravel", "Lumen"]
 categories: ["程式設計", "PHP", "Lumen"]

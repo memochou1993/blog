@@ -1,6 +1,5 @@
 ---
 title: 「A tour of Go」學習筆記（三）：結構體
-permalink: 「A-tour-of-Go」學習筆記（三）：結構體
 date: 2019-02-19 13:25:59
 tags: ["程式設計", "Go"]
 categories: ["程式設計", "Go", "「A tour of Go」學習筆記"]

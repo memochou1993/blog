@@ -1,6 +1,5 @@
 ---
 title: 使用 Git Submodules 管理模組
-permalink: 使用-Git-Submodules-管理模組
 date: 2020-10-09 23:04:05
 tags: ["版本控制", "Git"]
 categories: ["版本控制"]

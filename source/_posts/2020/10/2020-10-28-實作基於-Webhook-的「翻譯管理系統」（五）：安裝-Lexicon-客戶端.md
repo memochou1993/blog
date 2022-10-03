@@ -1,6 +1,5 @@
 ---
 title: 實作基於 Webhook 的「翻譯管理系統」（五）：安裝 Lexicon 客戶端
-permalink: 實作基於-Webhook-的「翻譯管理系統」（五）：安裝-Lexicon-客戶端
 date: 2020-10-28 22:39:03
 tags: ["程式設計", "PHP", "Laravel", "Localization", "Lexicon"]
 categories: ["程式設計", "PHP", "Laravel"]

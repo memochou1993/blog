@@ -1,6 +1,5 @@
 ---
 title: 在 Go 專案使用 Session 認證
-permalink: 在-Go-專案使用-Session-認證
 date: 2021-05-29 16:13:38
 tags: ["程式設計", "Go"]
 categories: ["程式設計", "Go", "其他"]

@@ -1,6 +1,5 @@
 ---
 title: 使用 Docker 容器化需要編譯資源的 Laravel 專案
-permalink: 使用-Docker-容器化需要編譯資源的-Laravel-專案
 date: 2020-12-27 15:15:37
 tags: ["環境部署", "Docker", "PHP", "Laravel", "Mix"]
 categories: ["程式設計", "PHP", "環境部署"]

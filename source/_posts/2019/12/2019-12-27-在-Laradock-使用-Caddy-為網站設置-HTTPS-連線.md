@@ -1,6 +1,5 @@
 ---
 title: 在 Laradock 使用 Caddy 為網站設置 HTTPS 連線
-permalink: 在-Laradock-使用-Caddy-為網站設置-HTTPS-連線
 date: 2019-12-27 10:56:24
 tags: ["環境部署", "Laradock", "SSL", "HTTPS", "Caddy"]
 categories: ["環境部署", "Laradock"]

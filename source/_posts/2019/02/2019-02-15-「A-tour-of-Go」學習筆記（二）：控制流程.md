@@ -1,6 +1,5 @@
 ---
 title: 「A tour of Go」學習筆記（二）：控制流程
-permalink: 「A-tour-of-Go」學習筆記（二）：控制流程
 date: 2019-02-15 10:42:53
 tags: ["程式設計", "Go"]
 categories: ["程式設計", "Go", "「A tour of Go」學習筆記"]

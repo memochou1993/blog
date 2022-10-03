@@ -1,6 +1,5 @@
 ---
 title: 在 Laravel 9.0 整合 Swagger 文件產生工具
-permalink: 在-Laravel-9-0-整合-Swagger-文件產生工具
 date: 2022-03-12 16:20:35
 tags: ["程式設計", "PHP", "Laravel", "Swagger"]
 categories: ["程式設計", "PHP", "Laravel"]

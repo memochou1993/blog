@@ -1,6 +1,5 @@
 ---
 title: 在 Laravel 6.0 使用 Macros 巨集
-permalink: 在-Laravel-6-0-使用-Macros-巨集
 date: 2019-10-19 16:18:40
 tags: ["程式設計", "PHP", "Laravel"]
 categories: ["程式設計", "PHP", "Laravel"]

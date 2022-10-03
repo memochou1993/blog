@@ -1,6 +1,5 @@
 ---
 title: 在 Windows 上使用 VMware 安裝 Ubuntu
-permalink: 在-Windows-上使用-VMware-安裝-Ubuntu
 date: 2018-04-20 10:16:09
 tags: ["環境部署", "Windows", "Linux", "Ubuntu"]
 categories: ["環境部署", "Linux"]

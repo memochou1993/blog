@@ -1,6 +1,5 @@
 ---
 title: 使用 Docker 搭建 PostgreSQL 資料庫
-permalink: 使用-Docker-搭建-PostgreSQL-資料庫
 date: 2022-07-23 21:49:58
 tags: ["資料庫", "PostgreSQL", "SQL", "Docker"]
 categories: ["資料庫", "PostgreSQL"]

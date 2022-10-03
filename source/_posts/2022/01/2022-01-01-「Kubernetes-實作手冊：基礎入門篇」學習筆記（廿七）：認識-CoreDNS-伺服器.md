@@ -1,6 +1,5 @@
 ---
 title: 「Kubernetes 實作手冊：基礎入門篇」學習筆記（廿七）：認識 CoreDNS 伺服器
-permalink: 「Kubernetes-實作手冊：基礎入門篇」學習筆記（廿七）：認識-CoreDNS-伺服器
 date: 2022-01-01 21:06:00
 tags: ["環境部署", "Kubernetes", "Docker"]
 categories: ["環境部署", "Kubernetes", "「Kubernetes 實作手冊：基礎入門篇」學習筆記"]

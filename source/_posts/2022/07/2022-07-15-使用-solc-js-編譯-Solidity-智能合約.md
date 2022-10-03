@@ -1,6 +1,5 @@
 ---
 title: 使用 solc-js 編譯 Solidity 智能合約
-permalink: 使用-solc-js-編譯-Solidity-智能合約
 date: 2022-07-15 23:34:43
 tags: ["區塊鏈", "Ethereum", "Solidity", "Smart Contract"]
 categories: ["區塊鏈", "Ethereum"]

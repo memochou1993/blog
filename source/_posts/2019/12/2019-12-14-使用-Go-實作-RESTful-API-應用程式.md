@@ -1,6 +1,5 @@
 ---
 title: 使用 Go 實作 RESTful API 應用程式
-permalink: 使用-Go-實作-RESTful-API-應用程式
 date: 2019-12-14 15:31:39
 tags: ["程式設計", "Go"]
 categories: ["程式設計", "Go", "其他"]

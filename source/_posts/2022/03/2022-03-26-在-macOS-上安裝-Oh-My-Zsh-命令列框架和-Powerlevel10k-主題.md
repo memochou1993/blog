@@ -1,6 +1,5 @@
 ---
 title: 在 macOS 上安裝 Oh My Zsh 命令列框架和 Powerlevel10k 主題
-permalink: 在-macOS-上安裝-Oh-My-Zsh-命令列框架和-Powerlevel10k-主題
 date: 2022-03-26 21:38:55
 tags: ["Shell", "Zsh", "macOS", "Oh My Zsh"]
 categories: ["其他", "Shell"]

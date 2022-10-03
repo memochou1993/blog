@@ -1,6 +1,5 @@
 ---
 title: 將 PWA 專案部署至 GitHub Pages 服務
-permalink: 將-PWA-專案部署至-GitHub-Pages-服務
 date: 2020-10-25 16:40:59
 tags: ["程式設計", "JavaScript", "PWA", "GitHub", "GitHub Pages"]
 categories: ["程式設計", "JavaScript", "PWA"]

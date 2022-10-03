@@ -1,6 +1,5 @@
 ---
 title: 「The Rust Programming Language」學習筆記（八）：集合
-permalink: 「The-Rust-Programming-Language」學習筆記（八）：集合
 date: 2022-08-06 22:45:36
 tags: ["程式設計", "Rust"]
 categories: ["程式設計", "Rust", "「The Rust Programming Language」學習筆記"]

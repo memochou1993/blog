@@ -1,6 +1,5 @@
 ---
 title: 在 TypeScript 型別的 Vue 2.6 專案中使用 Vuetify 前端框架
-permalink: 在-TypeScript-型別的-Vue-2-6-專案中使用-Vuetify-前端框架
 date: 2020-10-10 02:29:21
 tags: ["程式設計", "JavaScript", "Vue", "Vuetify", "TypeScript"]
 categories: ["程式設計", "JavaScript", "Vue"]

@@ -1,6 +1,5 @@
 ---
 title: 在 Echo 4 使用 JSON Web Token 實作 API 認證
-permalink: 在-Echo-4-使用-JSON-Web-Token-實作-API-認證
 date: 2020-11-13 20:14:24
 tags: ["程式設計", "Go", "Echo", "JWT"]
 categories: ["程式設計", "Go", "Echo"]

@@ -1,6 +1,5 @@
 ---
 title: 使用 JavaScript 將文字複製到剪貼簿
-permalink: 使用-JavaScript-將文字複製到剪貼簿
 date: 2022-07-15 01:07:15
 tags: ["程式設計", "JavaScript"]
 categories: ["程式設計", "JavaScript", "其他"]

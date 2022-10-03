@@ -1,6 +1,5 @@
 ---
 title: 在 Ubuntu 上建立 LikeCoin 驗證者節點
-permalink: 在-Ubuntu-上建立-LikeCoin-驗證者節點
 date: 2022-04-30 01:03:32
 tags: ["區塊鏈", "LikeCoin"]
 categories: ["區塊鏈", "LikeCoin"]

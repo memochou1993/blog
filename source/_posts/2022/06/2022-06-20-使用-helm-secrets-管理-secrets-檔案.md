@@ -1,6 +1,5 @@
 ---
 title: 使用 helm-secrets 管理 secrets 檔案
-permalink: 使用-helm-secrets-管理-secrets-檔案
 date: 2022-06-20 12:09:38
 tags: ["環境部署", "Kubernetes", "Helm"]
 categories: ["環境部署", "Kubernetes", "Helm"]

@@ -1,6 +1,5 @@
 ---
 title: 在 Ubuntu 上建立 LNMP 環境
-permalink: 在-Ubuntu-上建立-LNMP-環境
 date: 2019-02-06 23:44:04
 tags: ["環境部署", "Linux", "Ubuntu", "Nginx", "MySQL", "PHP"]
 categories: ["環境部署", "Linux"]

@@ -1,6 +1,5 @@
 ---
 title: 「The Rust Programming Language」學習筆記（一）：開始入門
-permalink: 「The-Rust-Programming-Language」學習筆記（一）：開始入門
 date: 2022-04-17 21:09:25
 tags: ["程式設計", "Rust"]
 categories: ["程式設計", "Rust", "「The Rust Programming Language」學習筆記"]

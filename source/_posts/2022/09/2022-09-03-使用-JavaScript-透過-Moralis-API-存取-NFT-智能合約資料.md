@@ -1,6 +1,5 @@
 ---
 title: 使用 JavaScript 透過 Moralis API 存取 NFT 智能合約資料
-permalink: 使用-JavaScript-透過-Moralis-API-存取-NFT-智能合約資料
 date: 2022-09-03 21:32:51
 tags: ["區塊鏈", "NFT", "JavaScript"]
 categories: ["區塊鏈", "其他"]

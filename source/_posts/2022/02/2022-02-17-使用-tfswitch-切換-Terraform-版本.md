@@ -1,6 +1,5 @@
 ---
 title: 使用 tfswitch 切換 Terraform 版本
-permalink: 使用-tfswitch-切換-Terraform-版本
 date: 2022-02-17 19:28:58
 tags: ["環境部署", "Terraform"]
 categories: ["環境部署", "Terraform"]

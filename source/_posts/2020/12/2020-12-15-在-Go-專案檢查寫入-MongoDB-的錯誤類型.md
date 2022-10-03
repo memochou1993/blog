@@ -1,6 +1,5 @@
 ---
 title: 在 Go 專案檢查寫入 MongoDB 的錯誤類型
-permalink: 在-Go-專案檢查寫入-MongoDB-的錯誤類型
 date: 2020-12-15 00:21:39
 tags: ["程式設計", "Go", "MongoDB", "NoSQL", "資料庫", "ORM"]
 categories: ["程式設計", "Go", "其他"]

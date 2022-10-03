@@ -1,6 +1,5 @@
 ---
 title: 「Kubernetes 實作手冊：基礎入門篇」學習筆記（卅四）：認識 StorageClass 資源
-permalink: 「Kubernetes-實作手冊：基礎入門篇」學習筆記（卅四）：認識-StorageClass-資源
 date: 2022-01-12 23:51:07
 tags: ["環境部署", "Kubernetes", "Docker"]
 categories: ["環境部署", "Kubernetes", "「Kubernetes 實作手冊：基礎入門篇」學習筆記"]

@@ -1,6 +1,5 @@
 ---
 title: 使用 JavaScript 實現「合理比例演算法」
-permalink: 使用-JavaScript-實現「合理比例演算法」
 date: 2019-05-26 23:06:59
 tags: ["程式設計", "JavaScript", "演算法"]
 categories: ["程式設計", "JavaScript", "演算法"]

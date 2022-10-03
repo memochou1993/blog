@@ -1,6 +1,5 @@
 ---
 title: 在 Laravel 6.0 建立 LengthAwarePaginator 分頁器
-permalink: 在-Laravel-6-0-建立-LengthAwarePaginator-分頁器
 date: 2020-02-11 17:23:36
 tags: ["程式設計", "PHP", "Laravel"]
 categories: ["程式設計", "PHP", "Laravel"]

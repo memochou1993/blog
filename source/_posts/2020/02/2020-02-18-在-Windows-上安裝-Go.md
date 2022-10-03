@@ -1,6 +1,5 @@
 ---
 title: 在 Windows 上安裝 Go
-permalink: 在-Windows-上安裝-Go
 date: 2020-02-18 08:50:55
 tags: ["程式設計", "Go"]
 categories: ["程式設計", "Go", "環境安裝"]

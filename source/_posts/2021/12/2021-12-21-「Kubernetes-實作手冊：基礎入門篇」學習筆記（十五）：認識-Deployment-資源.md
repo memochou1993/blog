@@ -1,6 +1,5 @@
 ---
 title: 「Kubernetes 實作手冊：基礎入門篇」學習筆記（十五）：認識 Deployment 資源
-permalink: 「Kubernetes-實作手冊：基礎入門篇」學習筆記（十五）：認識-Deployment-資源
 date: 2021-12-21 14:32:59
 tags: ["環境部署", "Kubernetes", "Docker"]
 categories: ["環境部署", "Kubernetes", "「Kubernetes 實作手冊：基礎入門篇」學習筆記"]

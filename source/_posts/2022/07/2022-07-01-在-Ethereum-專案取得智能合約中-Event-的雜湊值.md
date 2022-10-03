@@ -1,6 +1,5 @@
 ---
 title: 在 Ethereum 專案取得智能合約中 Event 的雜湊值
-permalink: 在-Ethereum-專案取得智能合約中-Event-的雜湊值
 date: 2022-07-01 10:44:26
 tags: ["區塊鏈", "Ethereum", "JavaScript", "Ethers"]
 categories: ["區塊鏈", "Ethereum"]

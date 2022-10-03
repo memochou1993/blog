@@ -1,6 +1,5 @@
 ---
 title: 使用 Solidity 和 Hardhat 在 Ethereum 區塊鏈開發智能合約（二）：建立互動腳本
-permalink: 使用-Solidity-和-Hardhat-在-Ethereum-區塊鏈開發智能合約（二）：建立互動腳本
 date: 2022-02-26 00:36:18
 tags: ["區塊鏈", "Ethereum", "Solidity", "JavaScript", "Node", "Hardhat", "Smart Contract", "DApp", "Alchemy"]
 categories: ["區塊鏈", "Ethereum"]

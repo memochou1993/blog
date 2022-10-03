@@ -1,6 +1,5 @@
 ---
 title: 在 Go 專案使用 graceful shutdown 終止應用程式
-permalink: 在-Go-專案使用-graceful-shutdown-終止應用程式
 date: 2022-02-13 21:44:37
 tags: ["程式設計", "Go"]
 categories: ["程式設計", "Go", "其他"]

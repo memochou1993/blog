@@ -1,6 +1,5 @@
 ---
 title: 「Kubernetes 實作手冊：基礎入門篇」學習筆記（十四）：認識 kubectl 套件
-permalink: 「Kubernetes-實作手冊：基礎入門篇」學習筆記（十四）：認識-kubectl-套件
 date: 2021-12-20 22:28:59
 tags: ["環境部署", "Kubernetes", "Docker"]
 categories: ["環境部署", "Kubernetes", "「Kubernetes 實作手冊：基礎入門篇」學習筆記"]

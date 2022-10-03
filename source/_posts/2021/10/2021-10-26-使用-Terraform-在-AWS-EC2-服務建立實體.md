@@ -1,6 +1,5 @@
 ---
 title: 使用 Terraform 在 AWS EC2 服務建立實體
-permalink: 使用-Terraform-在-AWS-EC2-服務建立實體
 date: 2021-10-26 16:59:49
 tags: ["環境部署", "Terraform", "AWS", "EC2"]
 categories: ["環境部署", "Terraform"]

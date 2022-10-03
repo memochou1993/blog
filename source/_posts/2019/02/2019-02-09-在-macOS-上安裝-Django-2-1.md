@@ -1,6 +1,5 @@
 ---
 title: 在 macOS 上安裝 Django 2.1
-permalink: 在-macOS-上安裝-Django-2-1
 date: 2019-02-09 18:19:24
 tags: ["程式設計", "Python", "Django"]
 categories: ["程式設計", "Python", "Django"]

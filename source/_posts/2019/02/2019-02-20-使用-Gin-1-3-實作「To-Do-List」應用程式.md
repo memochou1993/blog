@@ -1,6 +1,5 @@
 ---
 title: 使用 Gin 1.3 實作「To-Do List」應用程式
-permalink: 使用-Gin-1-3-實作「To-Do-List」應用程式
 date: 2019-02-20 17:29:41
 tags: ["程式設計", "Go"]
 categories: ["程式設計", "Go", "Gin"]

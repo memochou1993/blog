@@ -1,6 +1,5 @@
 ---
 title: 在 Go 專案將 Struct 轉換為 JSON 字串
-permalink: 在-Go-專案將-Struct-轉換為-JSON-字串
 date: 2020-12-08 14:08:18
 tags: ["程式設計", "Go"]
 categories: ["程式設計", "Go", "其他"]

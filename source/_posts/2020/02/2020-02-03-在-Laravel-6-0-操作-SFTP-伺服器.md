@@ -1,6 +1,5 @@
 ---
 title: 在 Laravel 6.0 操作 SFTP 伺服器
-permalink: 在-Laravel-6-0-操作-SFTP-伺服器
 date: 2020-02-03 14:50:00
 tags: ["程式設計", "PHP", "Laravel", "SFTP"]
 categories: ["程式設計", "PHP", "Laravel"]

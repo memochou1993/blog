@@ -1,6 +1,5 @@
 ---
 title: 使用 Cloudflare 服務為 Linode 網站建立 DNS 快取
-permalink: 使用-Cloudflare-服務為-Linode-網站建立-DNS-快取
 date: 2022-06-23 23:42:39
 tags: ["環境部署", "Linode", "GoDaddy", "Cloudflare", "DNS"]
 categories: ["雲端運算服務", "Linode"]

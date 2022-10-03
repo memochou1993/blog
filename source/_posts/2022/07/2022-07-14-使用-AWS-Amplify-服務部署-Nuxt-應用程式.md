@@ -1,6 +1,5 @@
 ---
 title: 使用 AWS Amplify 服務部署 Nuxt 應用程式
-permalink: 使用-AWS-Amplify-服務部署-Nuxt-應用程式
 date: 2022-07-14 00:45:38
 tags: ["環境部署", "AWS", "Amplify", "Vue", "Nuxt"]
 categories: ["程式設計", "JavaScript", "環境部署"]

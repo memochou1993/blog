@@ -1,6 +1,5 @@
 ---
 title: 使用 AdonisJs 4.0 建立 Web 應用程式
-permalink: 使用-AdonisJs-4-0-建立-Web-應用程式
 date: 2019-01-22 00:36:06
 tags: ["程式設計", "JavaScript", "Node", "AdonisJs"]
 categories: ["程式設計", "JavaScript", "Node"]

@@ -1,6 +1,5 @@
 ---
 title: 將 Node 專案部署至 Heroku 平台
-permalink: 將-Node-專案部署至-Heroku-平台
 date: 2021-12-19 21:47:09
 tags: ["程式設計", "JavaScript", "Node", "Heroku"]
 categories: ["程式設計", "JavaScript", "環境部署"]

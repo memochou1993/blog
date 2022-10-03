@@ -1,6 +1,5 @@
 ---
 title: 使用 Benchmark 為 Go 專案進行效能測試
-permalink: 使用-Benchmark-為-Go-專案進行效能測試
 date: 2020-12-01 14:46:04
 tags: ["程式設計", "Go", "Testing"]
 categories: ["程式設計", "Go", "其他"]

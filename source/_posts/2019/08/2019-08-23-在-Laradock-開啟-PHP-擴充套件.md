@@ -1,6 +1,5 @@
 ---
 title: 在 Laradock 開啟 PHP 擴充套件
-permalink: 在-Laradock-開啟-PHP-擴充套件
 date: 2019-08-23 21:00:14
 tags: ["環境部署", "Docker", "Laradock", "PHP"]
 categories: ["環境部署", "Laradock"]

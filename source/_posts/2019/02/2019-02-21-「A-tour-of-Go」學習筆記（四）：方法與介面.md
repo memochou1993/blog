@@ -1,6 +1,5 @@
 ---
 title: 「A tour of Go」學習筆記（四）：方法與介面
-permalink: 「A-tour-of-Go」學習筆記（四）：方法與介面
 date: 2019-02-21 10:25:58
 tags: ["程式設計", "Go"]
 categories: ["程式設計", "Go", "「A tour of Go」學習筆記"]

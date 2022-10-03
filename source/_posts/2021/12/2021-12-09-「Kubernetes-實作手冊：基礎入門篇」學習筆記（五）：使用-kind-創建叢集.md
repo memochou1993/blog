@@ -1,6 +1,5 @@
 ---
 title: 「Kubernetes 實作手冊：基礎入門篇」學習筆記（五）：使用 kind 創建叢集
-permalink: 「Kubernetes-實作手冊：基礎入門篇」學習筆記（五）：使用-kind-創建叢集
 date: 2021-12-09 14:32:26
 tags: ["環境部署", "Kubernetes", "Docker", "kind"]
 categories: ["環境部署", "Kubernetes", "「Kubernetes 實作手冊：基礎入門篇」學習筆記"]

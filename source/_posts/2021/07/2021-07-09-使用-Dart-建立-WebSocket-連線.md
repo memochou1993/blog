@@ -1,6 +1,5 @@
 ---
 title: 使用 Dart 建立 WebSocket 連線
-permalink: 使用-Dart-建立-WebSocket-連線
 date: 2021-07-09 14:30:08
 tags: ["程式設計", "Dart", "WebSocket"]
 categories: ["程式設計", "Dart", "其他"]

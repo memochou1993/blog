@@ -1,6 +1,5 @@
 ---
 title: 使用 Go 建立 WebSocket 伺服器
-permalink: 使用-Go-建立-WebSocket-伺服器
 date: 2020-02-19 00:26:38
 tags: ["程式設計", "Go", "WebSocket"]
 categories: ["程式設計", "Go", "其他"]

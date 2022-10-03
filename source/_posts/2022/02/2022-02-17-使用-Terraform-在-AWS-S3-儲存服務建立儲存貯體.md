@@ -1,6 +1,5 @@
 ---
 title: 使用 Terraform 在 AWS S3 儲存服務建立儲存貯體
-permalink: 使用-Terraform-在-AWS-S3-儲存服務建立儲存貯體
 date: 2022-02-17 23:14:29
 tags: ["環境部署", "Terraform", "AWS", "S3", "Storage Service"]
 categories: ["環境部署", "Terraform"]

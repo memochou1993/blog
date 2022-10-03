@@ -1,6 +1,5 @@
 ---
 title: 在 Laravel 7.0 使用 VarExporter 生成 PHP 檔案
-permalink: 在-Laravel-7-0-使用-VarExporter-生成-PHP-檔案
 date: 2020-06-20 23:00:12
 tags: ["程式設計", "PHP", "Laravel"]
 categories: ["程式設計", "PHP", "Laravel"]

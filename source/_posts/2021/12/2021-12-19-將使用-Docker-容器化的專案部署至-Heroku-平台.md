@@ -1,6 +1,5 @@
 ---
 title: 將使用 Docker 容器化的專案部署至 Heroku 平台
-permalink: 將使用-Docker-容器化的專案部署至-Heroku-平台
 date: 2021-12-19 22:04:39
 tags: ["環境部署", "Heroku", "雲端運算服務", "Docker"]
 categories: ["雲端運算服務", "Heroku"]

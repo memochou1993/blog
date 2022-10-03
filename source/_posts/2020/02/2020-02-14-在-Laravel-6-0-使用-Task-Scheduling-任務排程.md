@@ -1,6 +1,5 @@
 ---
 title: 在 Laravel 6.0 使用 Task Scheduling 任務排程
-permalink: 在-Laravel-6-0-使用-Task-Scheduling-任務排程
 date: 2020-02-14 22:32:39
 tags: ["程式設計", "PHP", "Laravel", "Cron"]
 categories: ["程式設計", "PHP", "Laravel"]

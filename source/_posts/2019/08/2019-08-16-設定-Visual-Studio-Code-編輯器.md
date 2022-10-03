@@ -1,6 +1,5 @@
 ---
 title: 設定 Visual Studio Code 編輯器
-permalink: 設定-Visual-Studio-Code-編輯器
 date: 2019-08-16 00:55:04
 tags: ["編輯器", "Visual Studio Code"]
 categories: ["其他", "編輯器"]
