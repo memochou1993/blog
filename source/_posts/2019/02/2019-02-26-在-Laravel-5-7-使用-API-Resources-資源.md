@@ -7,13 +7,13 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 建立 `ProjectResource.php` 檔。
 
-```BASH
+```bash
 php artisan make:resource ProjectResource
 ```
 
 指定 API 欄位，並使用 `whenLoaded` 方法避免總是載入關聯資料。
 
-```PHP
+```php
 public function toArray($request)
 {
     return [
@@ -30,7 +30,7 @@ public function toArray($request)
 
 修改 `ProjectController.php` 檔。
 
-```PHP
+```php
 use App\Project;
 use App\Http\Resources\ProjectResource as Resource;
 
@@ -51,7 +51,7 @@ public function show(Project $project, $id)
 
 添加額外資訊。
 
-```PHP
+```php
 use Illuminate\Support\Str;
 
 class ResponseHelper

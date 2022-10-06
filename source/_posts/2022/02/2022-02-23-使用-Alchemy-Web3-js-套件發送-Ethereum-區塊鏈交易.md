@@ -19,33 +19,33 @@ categories: ["區塊鏈", "Ethereum"]
 
 建立專案。
 
-```BASH
+```bash
 mkdir web3-sendtx-example
 cd web3-sendtx-example
 ```
 
 安裝 `@alch/alchemy-web3` 套件。
 
-```BASH
+```bash
 npm install @alch/alchemy-web3
 ```
 
 安裝 `dot-env` 套件。
 
-```BASH
+```bash
 npm install dotenv --save
 ```
 
 新增 `.env` 檔。
 
-```ENV
+```env
 API_URL=https://eth-rinkeby.alchemyapi.io/v2/your-api-key
 PRIVATE_KEY=your-private-key
 ```
 
 新增 `index.js` 檔。
 
-```JS
+```js
 require('dotenv').config();
 
 async function main() {
@@ -80,13 +80,13 @@ main();
 
 執行腳本。
 
-```JS
+```js
 node index.js
 ```
 
 結果如下：
 
-```BASH
+```bash
 node index.js
 🎉 The hash of your transaction is:  0x95c59fcbbb6823ceb205ab88bd23a94a2dfdca47f78c10e760a73dc3e4c3e9a5 
  Check Alchemy's Mempool to view the status of your transaction!

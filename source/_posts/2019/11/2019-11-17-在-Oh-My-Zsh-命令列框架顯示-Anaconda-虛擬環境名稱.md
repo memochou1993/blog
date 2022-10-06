@@ -7,19 +7,19 @@ categories: ["其他", "Shell"]
 
 修改 `~/.zshrc` 檔：
 
-```BASH
+```bash
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(... anaconda ...)
 ```
 
 修改符號：
 
-```BASH
+```bash
 POWERLEVEL9K_ANACONDA_LEFT_DELIMITER=""
 POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER=""
 ```
 
 完成設定，執行以下指令：
 
-```BASH
+```bash
 exec $SHELL
 ```

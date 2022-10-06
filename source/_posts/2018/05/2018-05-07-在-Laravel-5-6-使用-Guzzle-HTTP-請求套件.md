@@ -11,13 +11,13 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 ## 安裝
 
-```BASH
+```bash
 composer require guzzlehttp/guzzle
 ```
 
 ## 設定路由
 
-```PHP
+```php
 Route::resource('/journals', 'JournalController');
 ```
 
@@ -25,7 +25,7 @@ Route::resource('/journals', 'JournalController');
 
 在控制器調用 `GuzzleHttp\Client` 套件。
 
-```PHP
+```php
 use GuzzleHttp\Client;
 ```
 
@@ -33,7 +33,7 @@ use GuzzleHttp\Client;
 
 取得所有期刊
 
-```PHP
+```php
 public function index()
 {
     $client = new Client();
@@ -48,7 +48,7 @@ public function index()
 
 取得特定期刊
 
-```PHP
+```php
 public function show($id)
 {
     $client = new Client();
@@ -63,7 +63,7 @@ public function show($id)
 
 刪除期刊
 
-```PHP
+```php
 public function destroy(Request $request, $id)
 {
     $client = new Client();
@@ -80,7 +80,7 @@ public function destroy(Request $request, $id)
 
 儲存期刊
 
-```PHP
+```php
 public function store(Request $request)
 {
     $client = new Client();
@@ -97,7 +97,7 @@ public function store(Request $request)
 
 更新期刊
 
-```PHP
+```php
 public function edit($id)
 {
     $client = new Client();

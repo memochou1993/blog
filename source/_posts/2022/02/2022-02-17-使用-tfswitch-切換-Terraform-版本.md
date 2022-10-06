@@ -9,25 +9,25 @@ categories: ["環境部署", "Terraform"]
 
 安裝 `tfswitch` 指令。
 
-```BASH
+```bash
 brew install warrensbox/tap/tfswitch
 ```
 
 確認 `tfswitch` 版本。
 
-```BASH
+```bash
 tfswitch -v
 ```
 
 列出並選擇一個版本。
 
-```BASH
+```bash
 tfswitch -l
 ```
 
 確認 `terraform` 的版本。
 
-```BASH
+```bash
 terraform -v
 ```
 

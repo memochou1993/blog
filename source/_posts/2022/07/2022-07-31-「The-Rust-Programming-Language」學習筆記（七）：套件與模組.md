@@ -30,7 +30,7 @@ Rust 有一系列的功能能讓開發者管理程式碼組織，包含哪些細
 
 首先，輸入 cargo new 指令。
 
-```BASH
+```bash
 cargo new my-project
 ```
 
@@ -44,13 +44,13 @@ cargo new my-project
 
 要建立一個新的函式庫叫做 restaurant 的話，執行以下指令。
 
-```BASH
+```bash
 cargo new --lib restaurant
 ```
 
 修改 `src/lib.rs` 檔。
 
-```RS
+```rs
 mod front_of_house {
     mod hosting {
         fn add_to_waitlist() {}
@@ -72,7 +72,7 @@ mod front_of_house {
 
 稍早提到 `src/main.rs` 和 `src/lib.rs` 屬於 crate 的源頭。之所以這樣命名的原因是因為這兩個文件的內容都會在 crate 源頭模組架構中組成一個模組叫做 crate，這樣的結構稱之為模組樹（module tree）。
 
-```BASH
+```bash
 crate
  └── front_of_house
      ├── hosting
@@ -95,7 +95,7 @@ crate
 
 以下展示兩種從 crate 源頭定義的 `eat_at_restaurant` 函式內呼叫 `add_to_waitlist` 的方法。
 
-```RS
+```rs
 mod front_of_house {
     mod hosting {
         fn add_to_waitlist() {}
@@ -119,7 +119,7 @@ pub fn eat_at_restaurant() {
 
 嘗試編譯範例，得到以下錯誤資訊。
 
-```BASH
+```bash
 cargo build
    Compiling restaurant v0.1.0 (file:///projects/restaurant)
 error[E0603]: module `hosting` is private
@@ -133,7 +133,7 @@ error[E0603]: module `hosting` is private
 
 將 `hosting` 模組加上 `pub` 關鍵字。
 
-```RS
+```rs
 mod front_of_house {
     pub mod hosting {
         fn add_to_waitlist() {}
@@ -153,7 +153,7 @@ pub fn eat_at_restaurant() {
 
 在 `add_to_waitlist` 的函式定義加上 `pub` 公開它。
 
-```RS
+```rs
 mod front_of_house {
     pub mod hosting {
         pub fn add_to_waitlist() {}
@@ -177,7 +177,7 @@ pub fn eat_at_restaurant() {
 
 考慮以下程式碼，這模擬了一個主廚修正一個錯誤的訂單，並親自提供給顧客的場景。函式 `fix_incorrect_order` 呼叫了函式 `serve_order`，不過這次是使用 `super` 來指定 `serve_order` 的路徑。
 
-```RS
+```rs
 fn serve_order() {}
 
 mod back_of_house {
@@ -198,7 +198,7 @@ mod back_of_house {
 
 如果我們在結構體定義之前加上 `pub` 的話，我們的確能公開結構體，但是結構體內的欄位仍然會是私有的。我們可以視情況決定每個欄位要不要公開。
 
-```RS
+```rs
 mod back_of_house {
     pub struct Breakfast {
         pub toast: String,
@@ -234,7 +234,7 @@ pub fn eat_at_restaurant() {
 
 如果公開枚舉的話，那它所有的變體也都會公開。我們只需要在 `enum` 關鍵字之前加上 `pub` 就好。
 
-```RS
+```rs
 mod back_of_house {
     pub enum Appetizer {
         Soup,
@@ -258,7 +258,7 @@ pub fn eat_at_restaurant() {
 
 在以下範例中，引入了 `crate::front_of_house::hosting` 模組進 `eat_at_restaurant` 函式的作用域中，所以我們要呼叫函式 `add_to_waitlist` 的話，只需要指明 hosting::`add_to_waitlist`。
 
-```RS
+```rs
 mod front_of_house {
     pub mod hosting {
         pub fn add_to_waitlist() {}
@@ -278,7 +278,7 @@ pub fn eat_at_restaurant() {
 
 也可以使用 `use` 加上相對路徑來引入項目。
 
-```RS
+```rs
 mod front_of_house {
     pub mod hosting {
         pub fn add_to_waitlist() {}
@@ -298,7 +298,7 @@ pub fn eat_at_restaurant() {
 
 另一方面，如果是要使用 `use` 引入結構體、枚舉或其他項目的話，直接指明完整路徑反而是符合習慣的方式。
 
-```RS
+```rs
 use std::collections::HashMap;
 
 fn main() {
@@ -309,7 +309,7 @@ fn main() {
 
 這樣的習慣有個例外，那就是如果我們將兩個相同名稱的項目使用 `use` 陳述式引入作用域時，因為 Rust 不會允許。
 
-```RS
+```rs
 use std::fmt;
 use std::io;
 
@@ -328,7 +328,7 @@ fn function2() -> io::Result<()> {
 
 要在相同作用域中使用 `use` 引入兩個同名型別的話，還有另一個辦法。在路徑之後，我們可以用 `as` 指定一個該型別在本地的新名稱，或者說別名。
 
-```RS
+```rs
 use std::fmt::Result;
 use std::io::Result as IoResult;
 
@@ -345,7 +345,7 @@ fn function2() -> IoResult<()> {
 
 當使用 `use` 關鍵字將名稱引入作用域時，該有效名稱在新的作用域中是私有的。要是我們希望呼叫我們這段程式碼時，也可以使用這個名稱的話（就像該名稱是在此作用域內定義的），我們可以組合 `pub` 和 `use`。這樣的技巧稱之為重新匯出（re-exporting），因為我們將項目引入作用域，並同時公開給其他作用域引用。
 
-```RS
+```rs
 mod front_of_house {
     pub mod hosting {
         pub fn add_to_waitlist() {}
@@ -367,7 +367,7 @@ pub fn eat_at_restaurant() {
 
 要在專案內使用 `rand` 外部套件的話，我們會在 `Cargo.toml`` 加上此行：
 
-```TOML
+```toml
 rand = "0.8.3"
 ```
 
@@ -375,7 +375,7 @@ rand = "0.8.3"
 
 接下來加上一行 `use` 後面接著 crate 的名稱 `rand`，然後列出我們想要引入作用域的項目。
 
-```RS
+```rs
 use rand::Rng;
 
 fn main() {
@@ -385,7 +385,7 @@ fn main() {
 
 注意到標準函式庫（std）對於我們的套件來說也是一個外部 crate。由於標準函式庫會跟著 Rust 語言發佈，所以我們不需要更改 `Cargo.toml` 來包含 std。但是我們仍然需使用 `use` 來將它的項目引入我們套件的作用域中。舉例來說，要使用 `HashMap` 我們可以這樣寫：
 
-```RS
+```rs
 use std::collections::HashMap;
 ```
 
@@ -395,27 +395,27 @@ use std::collections::HashMap;
 
 如果我們要使用在相同 crate 或是相同模組內定義的數個項目，針對每個項目都單獨寫一行的話，會佔據我們檔案內很多空間。
 
-```RS
+```rs
 use std::cmp::Ordering;
 use std::io;
 ```
 
 可以改使用巢狀路徑（nested paths）來只用一行就能將數個項目引入作用域中。
 
-```RS
+```rs
 use std::{cmp::Ordering, io};
 ```
 
 兩個 `use` 陳述式且其中一個是另一個的子路徑，例如以下情形。
 
-```RS
+```rs
 use std::io;
 use std::io::Write;
 ```
 
 要將這兩個路徑合為一個 use 陳述式的話，我們可以在巢狀路徑使用 `self` 關鍵字。
 
-```RS
+```rs
 use std::io::{self, Write};
 ```
 
@@ -423,7 +423,7 @@ use std::io::{self, Write};
 
 如果我們想要將在一個路徑中所定義的所有公開項目引入作用域的話，我們可以在指明路徑之後加上全域（glob）運算子「`*`」。
 
-```RS
+```rs
 use std::collections::*;
 ```
 
@@ -433,7 +433,7 @@ use std::collections::*;
 
 將 `front_of_house` 模組移到它自己的檔案 `src/front_of_house.rs`。
 
-```RS
+```rs
 pub mod hosting {
     pub fn add_to_waitlist() {}
 }
@@ -441,7 +441,7 @@ pub mod hosting {
 
 然後在 crate 源頭檔案加上這個模組。修改 `src/lib.rs` 檔。
 
-```RS
+```rs
 mod front_of_house;
 
 pub use crate::front_of_house::hosting;
@@ -457,13 +457,13 @@ pub fn eat_at_restaurant() {
 
 繼續將範例中的 `hosting` 模組也取出並移到它自己的檔案中，修改 `src/front_of_house.rs` 檔。
 
-```RS
+```rs
 pub mod hosting;
 ```
 
 新增 `src/front_of_house/hosting.rs` 檔。
 
-```RS
+```rs
 pub fn add_to_waitlist() {}
 ```
 

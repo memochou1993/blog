@@ -18,20 +18,20 @@ categories: ["區塊鏈", "Solana"]
 
 下載 `solana-labs/governance-ui` 專案。
 
-```BASH
+```bash
 git clone git@github.com:solana-labs/governance-ui.git
 cd governance-ui
 ```
 
 安裝依賴。
 
-```JS
+```js
 yarn
 ```
 
 更新 `utils/connection.ts` 檔。
 
-```JS
+```js
 // ...
 import { Commitment, Connection } from '@solana/web3.js'
 // ...
@@ -62,7 +62,7 @@ export function getConnectionContext(cluster: string): ConnectionContext {
 
 啟動服務。
 
-```BASH
+```bash
 yarn dev
 ```
 

@@ -22,7 +22,7 @@ categories: ["環境部署", "Kubernetes", "其他"]
 
 建立 `mysql-deployment.yaml` 檔，這是 MySQL 的 Deployment 設定檔：
 
-```YAML
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -94,7 +94,7 @@ spec:
 
 建立 `wordpress-deployment.yaml` 檔，這是 WordPress 的 Deployment 設定檔：
 
-```YAML
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -168,7 +168,7 @@ spec:
 
 新建 `kustomization.yaml` 檔，添加一個 Secret 生成器，以及 MySQL 和 WordPress 資源配置。
 
-```YAML
+```yaml
 secretGenerator:
 - name: mysql-pass
   literals:
@@ -182,31 +182,31 @@ resources:
 
 創建所有資源。
 
-```BASH
+```bash
 kubectl apply -k .
 ```
 
 查看所有 Secrets。
 
-```BASH
+```bash
 kubectl get secrets
 ```
 
 查看所有 PersistentVolumeClaims。
 
-```BASH
+```bash
 kubectl get pvc
 ```
 
 查看所有 Pods。
 
-```BASH
+```bash
 kubectl get pods
 ```
 
 查看所有 Services。
 
-```BASH
+```bash
 kubectl get services
 ```
 
@@ -214,7 +214,7 @@ kubectl get services
 
 訪問應用程式。
 
-```BASH
+```bash
 minikube service wordpress
 ```
 
@@ -222,6 +222,6 @@ minikube service wordpress
 
 清除所有資源。
 
-```BASH
+```bash
 kubectl delete -k .
 ```

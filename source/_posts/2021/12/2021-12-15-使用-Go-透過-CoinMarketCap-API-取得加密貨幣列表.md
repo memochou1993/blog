@@ -13,38 +13,38 @@ categories: ["程式設計", "Go", "其他"]
 
 建立專案。
 
-```BASH
+```bash
 mkdir go-coinmarketcap-api-example
 cd go-coinmarketcap-api-example
 ```
 
 初始化 Go Modules。
 
-```BASH
+```bash
 go mod init github.com/memochou1993/go-coinmarketcap-api-example
 ```
 
 下載 `joho/godotenv` 套件。
 
-```BASH
+```bash
 go get github.com/joho/godotenv
 ```
 
 新增 `.env` 檔，將 API Key 填入：
 
-```ENV
+```env
 COINMARKETCAP_API_KEY=
 ```
 
 新增 `.gitignore` 檔：
 
-```ENV
+```env
 .env
 ```
 
 新增 `main.go` 檔：
 
-```GO
+```go
 package main
 
 import (
@@ -88,6 +88,6 @@ func main() {
 
 執行程式。
 
-```BASH
+```bash
 go run main.go
 ```

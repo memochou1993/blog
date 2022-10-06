@@ -18,26 +18,26 @@ categories: ["環境部署", "Laradock"]
 
 從 GitHub 上將 Laradock 下載下來。
 
-```BASH
+```bash
 git clone https://github.com/Laradock/laradock.git Laradock
 ```
 
 複製範本 `env-example` 檔作為設定檔。
 
-```BASH
+```bash
 cd Laradock
 cp env-example .env
 ```
 
 修改 `.env` 檔的 `APP_CODE_PATH_HOST` 參數到指定的映射路徑：
 
-```ENV
+```env
 APP_CODE_PATH_HOST=../Projects/laravel
 ```
 
 使用 docker-compose 指令啟動 Laradock。
 
-```BASH
+```bash
 cd Laradock
 docker-compose up -d nginx mysql phpmyadmin
 ```
@@ -46,32 +46,32 @@ docker-compose up -d nginx mysql phpmyadmin
 
 修改 `mysql\my.cnf` 檔：
 
-```CNF
+```cnf
 [mysqld]
 default_authentication_plugin=mysql_native_password
 ```
 
 重新建立 MySQL 容器：
 
-```BASH
+```bash
 docker-compose build --no-cache mysql
 ```
 
 進入 MySQL 容器。
 
-```BASH
+```bash
 docker-compose exec mysql bash
 ```
 
 使用 root 使用者進入資料庫。
 
-```BASH
+```bash
 mysql -uroot -proot
 ```
 
 查看所有使用者。
 
-```SQL
+```sql
 > SELECT user,authentication_string,plugin,host FROM mysql.user;
 ```
 
@@ -79,33 +79,33 @@ mysql -uroot -proot
 
 建立專案資料夾。
 
-```BASH
+```bash
 cd Projects
 mkdir laravel
 ```
 
 使用 laradock 使用者進入 workspace 容器。
 
-```BASH
+```bash
 cd Laradock
 docker-compose exec --user=laradock workspace bash
 ```
 
 安裝 Laravel 安裝器。
 
-```BASH
+```bash
 laradock@107a4945c6fe:/var/www$ composer global require laravel/installer
 ```
 
 建立專案。
 
-```ENV
+```env
 laradock@107a4945c6fe:/var/www$ laravel new
 ```
 
 修改 `.env` 檔。
 
-```ENV
+```env
 DB_CONNECTION=mysql
 DB_HOST=mysql
 DB_PORT=3306
@@ -116,6 +116,6 @@ DB_PASSWORD=secret
 
 執行遷移。
 
-```BASH
+```bash
 laradock@107a4945c6fe:/var/www$ php artisan migrate
 ```

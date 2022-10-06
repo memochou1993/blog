@@ -9,33 +9,33 @@ categories: ["區塊鏈", "Ethereum"]
 
 建立專案。
 
-```BASH
+```bash
 mkdir eth-go-binding-example
 cd eth-go-binding-example
 ```
 
 初始化 Go Modules。
 
-```BASH
+```bash
 go mod init github.com/memochou1993/eth-go-binding-example
 ```
 
 新增 `.env` 檔。
 
-```BASH
+```bash
 CONTRACT_ADDRESS=your-contract-address
 PROVIDER_URL=wss://eth-goerli.g.alchemy.com/v2/your-api-key
 ```
 
 新增 `.gitignore` 檔。
 
-```ENV
+```env
 .env
 ```
 
 將 JSON 格式的 ABI 從 Truffle 專案複製到 `abi/TodoList.json` 檔。
 
-```JSON
+```json
 [
   {
     "inputs": [],
@@ -48,13 +48,13 @@ PROVIDER_URL=wss://eth-goerli.g.alchemy.com/v2/your-api-key
 
 使用 `abigen` 工具產生 Go 程式碼。
 
-```BASH
+```bash
 abigen --abi="abi/TodoList.json" --type="TodoList" --pkg="contract" --out="contract/todo_list.go"
 ```
 
 新增 `main.go` 檔。
 
-```GO
+```go
 package main
 
 import (
@@ -91,13 +91,13 @@ func main() {
 
 執行程式碼。
 
-```BASH
+```bash
 go run main.go
 ```
 
 輸出如下：
 
-```BASH
+```bash
 {0 Check out https://github.com/memochou1993 false}
 ```
 

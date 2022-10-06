@@ -12,7 +12,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 ## 安裝套件
 
-```BASH
+```bash
 composer require predis/predis
 ```
 
@@ -20,7 +20,7 @@ composer require predis/predis
 
 設定一個可以儲存包裹的工作。
 
-```BASH
+```bash
 php artisan make:job StorePackage
 ```
 
@@ -28,7 +28,7 @@ php artisan make:job StorePackage
 
 新增 `App\Jobs\StorePackage.php` 檔並建立工作：
 
-```PHP
+```php
 namespace App\Jobs;
 
 use Illuminate\Bus\Queueable;
@@ -60,7 +60,7 @@ class StorePackage implements ShouldQueue
 
 在 `PackageController` 的 `index()` 方法內推入隊列。
 
-```PHP
+```php
 public function index()
 {
     dispatch(New \App\Jobs\StorePackage);
@@ -71,7 +71,7 @@ public function index()
 
 讓隊列工人從隊列拉出工作並執行它們。
 
-```BASH
+```bash
 php artisan queue:work --timeout=10 --sleep=10 --tries=3
 ```
 

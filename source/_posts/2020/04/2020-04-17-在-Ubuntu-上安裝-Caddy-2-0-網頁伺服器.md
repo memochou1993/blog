@@ -13,25 +13,25 @@ categories: ["環境部署", "網頁伺服器"]
 
 下載 Caddy 的[最新版本](https://github.com/caddyserver/caddy/releases)。
 
-```BASH
+```bash
 wget https://github.com/caddyserver/caddy/releases/download/v2.0.0-rc.3/caddy_2.0.0-rc.3_linux_amd64.tar.gz
 ```
 
 解壓縮。
 
-```BASH
+```bash
 tar zxvf caddy_2.0.0-rc.3_linux_amd64.tar.gz
 ```
 
 將執行檔移到 `/usr/bin/` 目錄。
 
-```BASH
+```bash
 sudo mv caddy /usr/bin/
 ```
 
 查看版本。
 
-```BASH
+```bash
 caddy version
 v2.0.0-rc.3
 ```
@@ -40,13 +40,13 @@ v2.0.0-rc.3
 
 建立一個 `caddy` 群組。
 
-```BASH
+```bash
 groupadd --system caddy
 ```
 
 建立一個 `caddy` 使用者。
 
-```BASH
+```bash
 useradd --system \
 	--gid caddy \
 	--create-home \
@@ -62,13 +62,13 @@ useradd --system \
 
 新增 `/var/log/caddy` 資料夾，用來存放各個站點的訪問日誌。
 
-```BASH
+```bash
 sudo mkdir /var/log/caddy
 ```
 
 修改資料夾權限。
 
-```BASH
+```bash
 sudo chown -R caddy:caddy /var/log/caddy
 ```
 
@@ -76,7 +76,7 @@ sudo chown -R caddy:caddy /var/log/caddy
 
 新增 `/etc/caddy` 資料夾，在裡面建立一個 `Caddyfile` 檔：
 
-```BASH
+```bash
 domain.com {
 	respond "Hello, world!"
 }
@@ -86,7 +86,7 @@ domain.com {
 
 在 `/etc/systemd/system` 資料夾新增一個 `caddy.service` 檔：
 
-```SERVICE
+```service
 [Unit]
 Description=Caddy
 Documentation=https://caddyserver.com/docs/
@@ -110,37 +110,37 @@ WantedBy=multi-user.target
 
 載入服務設定檔。
 
-```BASH
+```bash
 sudo systemctl daemon-reload
 ```
 
 將 Caddy 服務設置為自動啟動。
 
-```BASH
+```bash
 sudo systemctl enable caddy
 ```
 
 啟用 Caddy 服務。
 
-```BASH
+```bash
 sudo systemctl start caddy
 ```
 
 檢查 Caddy 服務狀態。
 
-```BASH
+```bash
 sudo systemctl status caddy
 ```
 
 如果有修改設定檔，執行以下指令：
 
-```BASH
+```bash
 sudo systemctl reload caddy
 ```
 
 如果要關閉 Caddy 服務，執行以下指令：
 
-```BASH
+```bash
 sudo systemctl stop caddy
 ```
 
@@ -152,13 +152,13 @@ sudo systemctl stop caddy
 
 - v1:
 
-```BASH
+```bash
 root /var/www
 ```
 
 - v2:
 
-```BASH
+```bash
 root * /var/www
 ```
 
@@ -168,13 +168,13 @@ root * /var/www
 
 - v1
 
-```BASH
+```bash
 fastcgi / localhost:9000 php
 ```
 
 - v2
 
-```BASH
+```bash
 php_fastcgi localhost:9000
 ```
 
@@ -184,13 +184,13 @@ php_fastcgi localhost:9000
 
 - v1
 
-```BASH
+```bash
 gzip
 ```
 
 - v2
 
-```BASH
+```bash
 encode gzip
 ```
 
@@ -200,13 +200,13 @@ encode gzip
 
 - v1
 
-```BASH
+```bash
 browse /subfolder/
 ```
 
 - v2
 
-```BASH
+```bash
 file_server /subfolder/* browse
 ```
 
@@ -216,13 +216,13 @@ file_server /subfolder/* browse
 
 - v1:
 
-```BASH
+```bash
 log access.log
 ```
 
 - v2:
 
-```BASH
+```bash
 log {
 	output file         access.log
 	format single_field common_log
@@ -235,13 +235,13 @@ log {
 
 - v1:
 
-```BASH
+```bash
 proxy / localhost:9005
 ```
 
 - v2:
 
-```BASH
+```bash
 reverse_proxy localhost:9005
 ```
 
@@ -249,7 +249,7 @@ reverse_proxy localhost:9005
 
 用來配置 HTTPS 連線。
 
-```BASH
+```bash
 tls email
 ```
 
@@ -257,7 +257,7 @@ tls email
 
 ### PHP 站點
 
-```BASH
+```bash
 service.domain.com {
     root * /var/www/service/public
 
@@ -276,7 +276,7 @@ service.domain.com {
 
 ### 反向代理
 
-```BASH
+```bash
 service.domain.com {
     reverse_proxy 127.0.0.1:8080
 
@@ -292,7 +292,7 @@ service.domain.com {
 
 如果要查看 Caddy 標準輸出，執行以下指令：
 
-```BASH
+```bash
 journalctl -u caddy
 ```
 
@@ -300,13 +300,13 @@ journalctl -u caddy
 
 Caddy 的根目錄設在 `/var/lib/caddy/`，則 SSL 憑證的存放位置在以下路徑。
 
-```BASH
+```bash
 /var/lib/caddy/.local/share/caddy/certificates
 ```
 
 如果要強制更新 SSL 憑證，可以將憑證刪除後，再重新啟動 Caddy 服務。
 
-```BASH
+```bash
 cd /var/lib/caddy/.local/share/caddy/certificates/acme-v02.api.letsencrypt.org-directory
 rm -rf example.com
 systemctl restart caddy

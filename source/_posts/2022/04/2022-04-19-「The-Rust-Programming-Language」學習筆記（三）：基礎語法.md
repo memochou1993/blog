@@ -15,7 +15,7 @@ categories: ["程式設計", "Rust", "「The Rust Programming Language」學習�
 
 執行以下程式，會收到一則錯誤訊息。
 
-```RS
+```rs
 fn main() {
     let x = 5;
     println!("x 的數值為：{}", x);
@@ -26,7 +26,7 @@ fn main() {
 
 可以在變數名稱前面加上 `mut` 讓它們可以成為可變的，加上 `mut` 也向未來的讀取者表明了其他部分的程式碼將會改變此變數的數值。
 
-```RS
+```rs
 fn main() {
     let mut x = 5;
     println!("x 的數值為：{}", x);
@@ -37,7 +37,7 @@ fn main() {
 
 執行後，會得到以下訊息。
 
-```RS
+```rs
 cargo run
    Compiling hello_cargo v0.1.0 (/Users/memochou/Projects/hello_cargo)
     Finished dev [unoptimized + debuginfo] target(s) in 0.93s
@@ -54,7 +54,7 @@ x 的數值為：6
 
 最後一個差別是常數只能被常數表達式設置，不能用任一在運行時產生的其他數值設置。
 
-```RS
+```rs
 const THREE_HOURS_IN_SECONDS: u32 = 60 * 60 * 3;
 ```
 
@@ -64,7 +64,7 @@ Rust 的常數命名規則為使用全部英文大寫並用底寫區隔每個單
 
 我們可以用 `let` 關鍵字來重複宣告相同的變數名稱來遮蔽一個變數。
 
-```RS
+```rs
 fn main() {
     let x = 5;
 
@@ -81,7 +81,7 @@ fn main() {
 
 執行後，會得到以下訊息。
 
-```BASH
+```bash
 cargo run
    Compiling variables v0.1.0 (file:///projects/variables)
     Finished dev [unoptimized + debuginfo] target(s) in 0.31s
@@ -94,21 +94,21 @@ x 的數值為：6
 
 另一個 `mut` 與遮蔽不同的地方是，我們能有效地再次運用 `let` 產生新的變數，可以在重新運用相同名稱時改變它的型別。
 
-```RS
+```rs
 let spaces = "   ";
 let spaces = spaces.len();
 ```
 
 不過，可變變數仍然是無法變更變數型別的，如果這樣做的話我們就會拿到編譯期錯誤。
 
-```RS
+```rs
 let mut spaces = "   ";
 spaces = spaces.len();
 ```
 
 執行後，會得到以下訊息。
 
-```BASH
+```bash
 cargo run
    Compiling hello_cargo v0.1.0 (/Users/memochou/Projects/hello_cargo)
 error[E0308]: mismatched types
@@ -132,7 +132,7 @@ error[E0308]: mismatched types
 
 Rust 還有針對有小數點的浮點數提供兩種基本型別：`f32` 和 `f64`，分別佔有 32 位元與 64 位元的大小。而預設的型別為 `f64`，因為現代的電腦處理的速度幾乎和 `f32` 一樣卻還能擁有更高的精準度。所有的浮點數型別都是帶號的（signed）。
 
-```RS
+```rs
 fn main() {
     let x = 2.0; // f64
 
@@ -144,7 +144,7 @@ fn main() {
 
 Rust 支援所有想得到的數值型別基本運算：加法、減法、乘法、除法和取餘。整數除法會取最接進的下界數值。
 
-```RS
+```rs
 fn main() {
     // 加法
     let sum = 5 + 10;
@@ -168,7 +168,7 @@ fn main() {
 
 Rust 中的布林型別有兩個可能的值：`true` 和 `false`。布林值的大小為一個位元組。
 
-```RS
+```rs
 fn main() {
     let t = true;
 
@@ -180,7 +180,7 @@ fn main() {
 
 Rust 的 char 型別是最基本的字母型別。
 
-```RS
+```rs
 fn main() {
     let c = 'z';
     let z = 'ℤ';
@@ -196,7 +196,7 @@ fn main() {
 
 建立一個元組的方法是寫一個用括號囊括起來的數值列表，每個值再用逗號分隔開來。元組的每一格都是一個獨立型別，不同數值不必是相同型別。
 
-```RS
+```rs
 fn main() {
     let tup: (i32, f64, u8) = (500, 6.4, 1);
 }
@@ -204,7 +204,7 @@ fn main() {
 
 此變數 `tup` 就是整個元組，因為一個元組就被視為單一複合元素。要拿到元組中的每個獨立數值的話，我們可以用模式配對（pattern matching）來解構一個元組的數值。
 
-```RS
+```rs
 fn main() {
     let tup = (500, 6.4, 1);
 
@@ -216,7 +216,7 @@ fn main() {
 
 也可以直接用句號（`.`）再加上數值的索引來取得元組內的元素。
 
-```RS
+```rs
 fn main() {
     let x: (i32, f64, u8) = (500, 6.4, 1);
 
@@ -236,7 +236,7 @@ fn main() {
 
 和元組不一樣的是，陣列中的每個型別必須是一樣的。和其他語言的陣列不同，Rust 的陣列是固定長度的。
 
-```RS
+```rs
 fn main() {
     let a = [1, 2, 3, 4, 5];
 }
@@ -246,26 +246,26 @@ fn main() {
 
 如果知道元素的多寡不會變的話，陣列就是個不錯的選擇。
 
-```RS
+```rs
 let months = ["一月", "二月", "三月", "四月", "五月", "六月", "七月",
               "八月", "九月", "十月", "十一月", "十二月"];
 ```
 
 要詮釋陣列型別的話，可以在中括號寫出型別和元素個數，並用分號區隔開來。
 
-```RS
+```rs
 let a: [i32; 5] = [1, 2, 3, 4, 5];
 ```
 
 如果想建立的陣列中每個元素數值都一樣的話，可以指定一個數值後加上分號，最後寫出元素個數。
 
-```RS
+```rs
 let a = [3; 5]; // 和 let a = [3, 3, 3, 3, 3]; 一樣
 ```
 
 一個陣列是被分配在堆疊上且已知固定大小的一整塊記憶體，可以使用索引來取得陣列的元素。
 
-```RS
+```rs
 fn main() {
     let a = [1, 2, 3, 4, 5];
 
@@ -278,7 +278,7 @@ fn main() {
 
 Rust 程式碼使用 snake case 式作為函式與變數名稱的慣例風格。所有的字母都是小寫，並用底線區隔單字。
 
-```RS
+```rs
 fn main() {
     println!("Hello, world!");
 
@@ -294,7 +294,7 @@ fn another_function() {
 
 可以定義函式成擁有參數（parameters）的，這是函式簽名（signatures）中特殊的變數。當函式有參數時，可以提供那些參數的確切數值。嚴格上來說，傳遞的數值會叫做引數（arguments）。
 
-```RS
+```rs
 fn main() {
     another_function(5);
 }
@@ -308,7 +308,7 @@ fn another_function(x: i32) {
 
 函式本體是由一系列的陳述式（statements）並在最後可以選擇加上表達式（expression）來組成。Rust 是門基於表達式（expression-based）的語言。陳述式（statements）是進行一些動作的指令，且不回傳任何數值。表達式（expressions）則是計算並產生數值。
 
-```RS
+```rs
 fn main() {
     let x = 5;
 
@@ -327,7 +327,7 @@ fn main() {
 
 函式可以回傳數值給呼叫它們的程式碼，我們不會為回傳值命名，但我們必須用箭頭（`->`）來宣告它們的型別。在 Rust 中，回傳值其實就是函式本體最後一行的表達式。可以用 return 關鍵字加上一個數值來提早回傳函式，但多數函式都能用最後一行的表達式作為數值回傳。
 
-```RS
+```rs
 fn five() -> i32 {
     5
 }
@@ -343,13 +343,13 @@ fn main() {
 
 這是一個簡單的註解。
 
-```RS
+```rs
 // 安安，你好
 ```
 
 經常看到以下格式，註解會位於要說明的程式碼上一行。
 
-```RS
+```rs
 fn main() {
     // 幸運 777！
     let lucky_number = 7;
@@ -362,7 +362,7 @@ fn main() {
 
 `if` 能依照條件判斷對程式碼產生分支。
 
-```RS
+```rs
 fn main() {
     let number = 3;
 
@@ -380,7 +380,7 @@ fn main() {
 
 想要實現多重條件的話，可以將 `if` 和 `else` 組合成 `else if` 表達式。
 
-```RS
+```rs
 fn main() {
     let number = 6;
 
@@ -400,7 +400,7 @@ fn main() {
 
 因為 `if` 是表達式，所以可以像這樣放在 `let` 陳述式的右邊，將結果賦值給變數。
 
-```RS
+```rs
 fn main() {
     let condition = true;
     let number = if condition { 5 } else { 6 };
@@ -415,7 +415,7 @@ fn main() {
 
 `loop` 關鍵字告訴 Rust 去反覆不停地執行一段程式碼直到你親自告訴它要停下來。
 
-```RS
+```rs
 fn main() {
     loop {
         println!("再一次！");
@@ -425,7 +425,7 @@ fn main() {
 
 如果有迴圈在迴圈之內的話，`break` 和 `continue` 會用在該位置最內層的迴圈中。可以選擇在迴圈使用「迴圈標籤」（loop label），然後使用 `break` 和 `continue` 加上那些迴圈標籤定義的關鍵字，而不是作用在最內層迴圈而已。
 
-```RS
+```rs
 fn main() {
     let mut count = 0;
     'counting_up: loop {
@@ -451,7 +451,7 @@ fn main() {
 
 其中一種使用 `loop` 的用途是重試某些可能覺得會失敗的動作，像是檢查一個執行緒是否已經完成其任務。這樣可能就會想傳遞任務結果給之後的程式碼。
 
-```RS
+```rs
 fn main() {
     let mut counter = 0;
 
@@ -471,7 +471,7 @@ fn main() {
 
 在程式中用條件判斷迴圈的執行通常是很有用的。當條件為真時，迴圈就繼續執行。當條件不再符合時，程式就用 break 停止迴圈。這樣的循環行為可以用 `loop`、`if`、`else` 和 `break` 組合出來。但是這種模式非常常見，所以 Rust 有提供內建的結構稱為 `while` 迴圈。
 
-```RS
+```rs
 fn main() {
     let mut number = 3;
 
@@ -489,7 +489,7 @@ fn main() {
 
 可以使用 `for` 迴圈來對集合的每個元素執行一些程式碼。
 
-```RS
+```rs
 fn main() {
     let a = [10, 20, 30, 40, 50];
 
@@ -501,7 +501,7 @@ fn main() {
 
 `for` 迴圈的安全性與簡潔程度讓它成為 Rust 最常被使用的迴圈結構。就算你想執行的是依照次數循環的程式碼，多數 Rustaceans 還是會選擇 `for` 迴圈。要這麼做的方法是使用 `Range`，這是標準函式庫提供的型別，用來產生一連串的數字序列，從指定一個數字開始一直到另一個數字之前結束。
 
-```RS
+```rs
 fn main() {
     for number in (1..4).rev() {
         println!("{}!", number);

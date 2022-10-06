@@ -13,7 +13,7 @@ categories: ["程式設計", "Go", "「A tour of Go」學習筆記"]
 
 一個結構體（struct）是由一系列具有相同或不同型別的資料構成的資料集合。
 
-```GO
+```go
 package main
 
 import "fmt"
@@ -32,7 +32,7 @@ func main() {
 
 結構體字段使用 `.` 符號來存取。
 
-```GO
+```go
 package main
 
 import "fmt"
@@ -53,7 +53,7 @@ func main() {
 
 結構體字段可以通過結構體指針來訪問。
 
-```GO
+```go
 package main
 
 import "fmt"
@@ -75,7 +75,7 @@ func main() {
 
 通過結構體字段的值作為列表來分配一個結構體，或使用 `{Key:Value}` 語法賦值。
 
-```GO
+```go
 package main
 
 import "fmt"
@@ -100,7 +100,7 @@ func main() {
 
 表達式 `new(T)` 分配了一個零初始化的 `T` 值，並返回指向它的指針。
 
-```GO
+```go
 package main
 
 import "fmt"
@@ -124,14 +124,14 @@ func main() {
 
 型別 `[n]T` 是一個有 `n` 個型別為 `T` 的值的陣列。
 
-```GO
+```go
 var a [10]int
 // [0 0 0 0 0 0 0 0 0 0]
 ```
 
 陣列的長度是其型別的一部分，因此陣列不能改變大小。
 
-```GO
+```go
 package main
 
 import "fmt"
@@ -155,7 +155,7 @@ func main() {
 
 一個切片（slice）指向一個陣列，並且包含長度訊息。`[]T` 是一個元素型別為 `T` 的 `slice`。
 
-```GO
+```go
 package main
 
 import "fmt"
@@ -180,7 +180,7 @@ func main() {
 
 `slice` 可以重新切片，創建一個新的 `slice` 值指向相同的陣列。
 
-```GO
+```go
 package main
 
 import "fmt"
@@ -205,7 +205,7 @@ func main() {
 
 `slice` 由函式 `make` 創建。這會分配一個零長度的陣列並且返回一個 `slice` 指向這個陣列。為了指定容量，可以傳遞第三個參數到 `make`。
 
-```GO
+```go
 package main
 
 import "fmt"
@@ -234,7 +234,7 @@ func printSlice(s string, x []int) {
 
 空 `slice` 的值為 `nil`，一個 `nil` 的 `slice` 的長度和容量是 0。
 
-```GO
+```go
 package main
 
 import "fmt"
@@ -253,7 +253,7 @@ func main() {
 
 `for` 循環的 `range` 格式可以對 `slice` 或者 `map` 進行疊代循環。
 
-```GO
+```go
 package main
 
 import "fmt"
@@ -278,7 +278,7 @@ func main() {
 
 使用 `_` 符號忽略 `key`。
 
-```GO
+```go
 package main
 
 import "fmt"
@@ -312,7 +312,7 @@ func main() {
 
 集合（map）是一種無序的鍵值對的集合，使用 `make` 而不是 `new` 來創建；值為 `nil` 的 `map` 是空的，並且不能賦值。
 
-```GO
+```go
 package main
 
 import "fmt"
@@ -336,7 +336,7 @@ func main() {
 
 `map` 的文法跟結構體文法相似，不過必須有鍵名。
 
-```GO
+```go
 package main
 
 import "fmt"
@@ -363,7 +363,7 @@ func main() {
 
 使用 `m[key] = elem` 語法存取 `map`。使用 `elem, ok = m[key]` 語法檢測元素是否存在。
 
-```GO
+```go
 package main
 
 import "fmt"
@@ -394,7 +394,7 @@ func main() {
 
 函式為值。
 
-```GO
+```go
 package main
 
 import (
@@ -417,7 +417,7 @@ func main() {
 
 閉包是一個函式值，它來自函式體的外部的變數引用。函式可以對這個引用值進行存取；意即，這個函式被「綁定」在這個變數上。
 
-```GO
+```go
 package main
 
 import "fmt"

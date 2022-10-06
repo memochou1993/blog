@@ -14,7 +14,7 @@ categories: ["環境部署", "CI/CD"]
 
 在本機新增 Laravel 專案，並推送至 GitLab 儲存庫。
 
-```BASH
+```bash
 laravel new laravel-envoy
 cd laravel-envoy
 git init
@@ -30,7 +30,7 @@ git push -u origin master
 
 新增 `deployer` 使用者。
 
-```BASH
+```bash
 sudo adduser deployer --disabled-password
 ```
 
@@ -38,19 +38,19 @@ sudo adduser deployer --disabled-password
 
 讓 `deployer` 使用者可以存取 `/var/www` 資料夾。
 
-```BASH
+```bash
 sudo setfacl -R -m u:deployer:rwx /var/www
 ```
 
 為 `deployer` 使用者添加 sudo 權限。
 
-```BASH
+```bash
 sudo vi /etc/sudoers
 ```
 
 修改 `sudoers` 檔：
 
-```BASH
+```bash
 # User privilege specification
 root    ALL=(ALL:ALL) ALL
 deployer ALL=(ALL) NOPASSWD: ALL
@@ -60,7 +60,7 @@ deployer ALL=(ALL) NOPASSWD: ALL
 
 登入 `deployer` 使用者，新增 `~/.ssh` 資料夾，並設定權限。
 
-```BASH
+```bash
 sudo su - deployer
 mkdir ~/.ssh
 chmod 700 ~/.ssh
@@ -68,19 +68,19 @@ chmod 700 ~/.ssh
 
 新增 `authorized_keys` 檔。
 
-```BASH
+```bash
 vi ~/.ssh/authorized_keys
 ```
 
 將遠端伺服器的公有金鑰的內容複製到 `authorized_keys` 檔。
 
-```TEXT
+```txt
 ssh-rsa ...
 ```
 
 設定金鑰權限。
 
-```BASH
+```bash
 chmod 600 ~/.ssh/authorized_keys
 ```
 
@@ -88,13 +88,13 @@ chmod 600 ~/.ssh/authorized_keys
 
 新增 `id_rsa` 檔。
 
-```BASH
+```bash
 vi ~/.ssh/id_rsa
 ```
 
 將本機的私有金鑰 `aws.pem` 檔的內容複製到 `~/.ssh/id_rsa` 檔。
 
-```TEXT
+```txt
 -----BEGIN OPENSSH PRIVATE KEY-----
 ...
 -----END OPENSSH PRIVATE KEY-----
@@ -102,19 +102,19 @@ vi ~/.ssh/id_rsa
 
 新增 `id_rsa.pub` 檔。
 
-```BASH
+```bash
 touch ~/.ssh/id_rsa.pub
 ```
 
 將 `authorized_keys` 檔的內容複製到 `~/.ssh/id_rsa.pub` 檔。
 
-```BASH
+```bash
 cat ~/.ssh/authorized_keys >> ~/.ssh/id_rsa.pub
 ```
 
 設定金鑰權限。
 
-```BASH
+```bash
 chmod 600 ~/.ssh/id_rsa ~/.ssh/id_rsa.pub
 ```
 
@@ -122,7 +122,7 @@ chmod 600 ~/.ssh/id_rsa ~/.ssh/id_rsa.pub
 
 新增 `laravel-envoy.xxx.com.conf` 檔：
 
-```CONF
+```conf
 server {
   listen 80;
   listen [::]:80;
@@ -150,13 +150,13 @@ server {
 
 建立軟連結。
 
-```BASH
+```bash
 sudo ln -s /etc/nginx/sites-available/laravel-envoy.xxx.com.conf /etc/nginx/sites-enabled/laravel-envoy.xxx.com.conf
 ```
 
 重啟 Nginx 服務。
 
-```BASH
+```bash
 sudo nginx -s reload
 ```
 
@@ -164,25 +164,25 @@ sudo nginx -s reload
 
 建立專案目錄。
 
-```BASH
+```bash
 mkdir /var/www/laravel-envoy
 ```
 
 複製一個 Laravel 專案的 `.env` 檔，或複製 `.env.production` 檔。
 
-```BASH
+```bash
 cp /var/www/laravel/.env /var/www/laravel-envoy/.env
 ```
 
 複製一個 Laravel 專案的 `storage` 資料夾。
 
-```BASH
+```bash
 cp -r /var/www/laravel/storage /var/www/laravel-envoy/storage
 ```
 
 建立 `releases` 資料夾並初始化 Git。
 
-```BASH
+```bash
 mkdir /var/www/laravel-envoy/releases
 cd /var/www/laravel-envoy/releases
 git init
@@ -202,7 +202,7 @@ git init
 
 將 `id_rsa.pub` 檔的內容複製到儲存庫 SSH 設定。
 
-```BASH
+```bash
 cat ~/.ssh/id_rsa.pub
 ```
 
@@ -210,7 +210,7 @@ cat ~/.ssh/id_rsa.pub
 
 登入 `deployer` 使用者，下載儲存庫的專案。
 
-```BASH
+```bash
 cd /var/www
 git clone ssh://git@xxx/laravel-envoy.git
 ```
@@ -219,13 +219,13 @@ git clone ssh://git@xxx/laravel-envoy.git
 
 在本機使用 Composer 安裝 Envoy。
 
-```BASH
+```bash
 composer global require laravel/envoy
 ```
 
 在 `~/.ssh` 資料夾新增 `config` 檔。
 
-```ENV
+```env
 Host xxx.com
     HostName xx.xxx.xxx.xxx
     User deployer
@@ -234,7 +234,7 @@ Host xxx.com
 
 在專案根目錄新增 `Envoy.blade.php` 檔。
 
-```PHP
+```php
 @servers(['web' => 'deployer@xx.xxx.xxx.xxx'])
 
 @setup
@@ -286,7 +286,7 @@ Host xxx.com
 
 推送至 GitLab 儲存庫。
 
-```BASH
+```bash
 git add Envoy.blade.php
 git commit -m "Add Envoy"
 git push origin master
@@ -298,7 +298,7 @@ git push origin master
 
 在專案根目錄新增 `Dockerfile` 檔。
 
-```DOCKERFILE
+```dockerfile
 # Set the base image for subsequent instructions
 FROM php:7.2
 
@@ -324,25 +324,25 @@ RUN composer global require "laravel/envoy=~1.0"
 
 登入 Docker。
 
-```BASH
+```bash
 docker login
 ```
 
 建立 Docker 映像檔。
 
-```BASH
+```bash
 docker build -t <USERNAME>/laravel-envoy:latest .
 ```
 
 推送至 Docker Hub。
 
-```BASH
+```bash
 docker push <USERNAME>/laravel-envoy:latest
 ```
 
 推送至 GitLab 儲存庫。
 
-```BASH
+```bash
 git add Dockerfile
 git commit -m "Add Dockerfile"
 git push origin master
@@ -352,7 +352,7 @@ git push origin master
 
 在專案根目錄新增 `.gitlab-ci.yml` 檔。
 
-```YML
+```yaml
 image: registry.hub.docker.com/<USERNAME>/laravel-envoy:latest
 
 services:
@@ -396,7 +396,7 @@ deploy_production:
 
 推送至 GitLab 儲存庫。
 
-```BASH
+```bash
 git add .gitlab-ci.yml
 git commit -m "Add gitlab-ci"
 git push origin master

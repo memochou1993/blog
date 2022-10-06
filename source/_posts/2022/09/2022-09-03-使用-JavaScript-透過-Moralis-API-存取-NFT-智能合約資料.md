@@ -9,7 +9,7 @@ categories: ["區塊鏈", "其他"]
 
 新增 `.env` 檔。
 
-```ENV
+```env
 VITE_ERC721_CONTRACT_ADDRESS=0x...
 VITE_ERC1155_CONTRACT_ADDRESS=0x...
 VITE_MORALIS_API_URL=https://deep-index.moralis.io/api/v2
@@ -18,7 +18,7 @@ VITE_MORALIS_API_KEY=your-api-key
 
 新增 `api.js` 檔。
 
-```JS
+```js
 const {
   VITE_ERC721_CONTRACT_ADDRESS,
   VITE_ERC1155_CONTRACT_ADDRESS,

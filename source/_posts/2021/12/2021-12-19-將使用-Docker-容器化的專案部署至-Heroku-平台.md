@@ -9,49 +9,49 @@ categories: ["雲端運算服務", "Heroku"]
 
 登入 Heroku CLI。
 
-```BASH
+```bash
 heroku container:login
 ```
 
 進入專案目錄。
 
-```BASH
+```bash
 cd my-project
 ```
 
 在 Heroku 建立應用程式，同時會建立一個容器儲存庫。
 
-```BASH
+```bash
 heroku create
 ```
 
 創建應用程式的映像檔，並推送到 Heroku 容器儲存庫。
 
-```BASH
+```bash
 heroku container:push web
 ```
 
 釋出映像檔，並啟動應用程式。
 
-```BASH
+```bash
 heroku container:release web
 ```
 
 開啟應用程式。
 
-```BASH
+```bash
 heroku open
 ```
 
 查看日誌。
 
-```BASH
+```bash
 heroku logs --tail
 ```
 
 如果要刪除應用程式，執行以下指令。
 
-```BASH
+```bash
 heroku apps:destroy
 ```
 

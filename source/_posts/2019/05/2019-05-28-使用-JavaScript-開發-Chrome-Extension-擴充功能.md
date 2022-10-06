@@ -9,7 +9,7 @@ categories: ["程式設計", "Chrome Extension"]
 
 使用範例，建立 `manifest.json` 檔：
 
-```JSON
+```json
 {
   "manifest_version": 2,
   "name": "Getting started example",
@@ -29,7 +29,7 @@ categories: ["程式設計", "Chrome Extension"]
 
 新增 `popup.html` 檔：
 
-```HTML
+```html
 <!doctype html>
 <!--
  This page is shown when the extension button is clicked, because the
@@ -83,7 +83,7 @@ categories: ["程式設計", "Chrome Extension"]
 
 新增 `popup.js` 檔：
 
-```JS
+```js
 // Copyright (c) 2014 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
@@ -220,6 +220,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 在應用程式上點選「檢查彈出式視窗」，並在主控台輸入以下程式碼以重新載入畫面。
 
-```JS
+```js
 location.reload(true)
 ```

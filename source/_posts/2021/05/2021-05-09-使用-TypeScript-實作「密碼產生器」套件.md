@@ -7,25 +7,25 @@ categories: ["程式設計", "JavaScript", "TypeScript"]
 
 ## 建立專案
 
-```BASH
+```bash
 mkdir password-generator-js
 ```
 
 使用以下指令建立 `package.json` 檔：
 
-```BASH
+```bash
 npm init
 ```
 
 安裝 TypeScript 和 Jest 測試套件。
 
-```BASH
+```bash
 npm i -D typescript jest ts-jest @types/jest
 ```
 
 建立 `tsconfig.json` 檔：
 
-```BASH
+```bash
 {
   "compilerOptions": {
     "outDir": "dist",
@@ -42,7 +42,7 @@ npm i -D typescript jest ts-jest @types/jest
 
 安裝 `eslint` 代碼檢查套件。
 
-```BASH
+```bash
 npm install eslint \
     eslint-config-airbnb-typescript \
     eslint-plugin-import@^2.22.0 \
@@ -52,7 +52,7 @@ npm install eslint \
 
 修改 `.eslintrc.js` 檔：
 
-```JS
+```js
 module.exports = {
   extends: [
     'airbnb-typescript/base',
@@ -65,7 +65,7 @@ module.exports = {
 
 新增 `.eslintignore` 檔：
 
-```BASH
+```bash
 node_modules/
 dist/
 jest.config.js
@@ -73,7 +73,7 @@ jest.config.js
 
 在 `package.json` 檔的腳本中，加入以下指令：
 
-```JSON
+```json
 {
   "scripts": {
     "build": "tsc",
@@ -87,7 +87,7 @@ jest.config.js
 
 在 `src` 資料夾建立 `index.ts` 檔：
 
-```TS
+```ts
 interface Config {
   length: number,
   letters: boolean,
@@ -119,7 +119,7 @@ export default class Generator {
 
 在 `test` 資料夾新增 `index.test.ts` 檔：
 
-```JS
+```js
 import Generator from '../src';
 
 test('generate', () => {
@@ -136,7 +136,7 @@ test('generate', () => {
 
 執行測試。
 
-```BASH
+```bash
 npm run test 
 ```
 
@@ -144,14 +144,14 @@ npm run test
 
 建立 `.gitignore` 檔，並推送至 GitHub。
 
-```BASH
+```bash
 dist/
 node_modules/
 ```
 
 修改 `package.json` 檔，指定只有 `dist` 資料夾中的內容需要被發布。
 
-```JSON
+```json
 {
   "main": "dist/index.js",
   "files": [
@@ -162,19 +162,19 @@ node_modules/
 
 測試發布，查看即將發布的檔案列表。
 
-```BASH
+```bash
 npm publish --dry-run
 ```
 
 登入 `npm` 套件管理平台。
 
-```BASH
+```bash
 npm login
 ```
 
 發布套件。
 
-```BASH
+```bash
 npm publish --access=public
 ```
 

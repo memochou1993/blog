@@ -11,7 +11,7 @@ categories: ["程式設計", "PHP", "套件開發"]
 
 ## 專案目錄
 
-```BASH
+```bash
 |- github-api/
     |- component/
         |- src/
@@ -26,14 +26,14 @@ categories: ["程式設計", "PHP", "套件開發"]
 
 ## 新增 .gitignore 檔
 
-```ENV
+```env
 vendor
 composer.lock
 ```
 
 ## 新增 composer.json 檔
 
-```JSON
+```json
 {
     "name": "memochou1993/github-api",
     "description": "GitHub API",
@@ -96,7 +96,7 @@ composer.lock
 
 現在可以輸入以下命令使用做好的套件了。
 
-```BASH
+```bash
 composer require memochou1993/github-api
 ```
 

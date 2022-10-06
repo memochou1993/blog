@@ -9,7 +9,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 以 `User` 模型為例，在 `app\Http\ViewComposers\` 資料夾新增一個 `UserComposer.php` 檔：
 
-```PHP
+```php
 namespace App\Http\ViewComposers;
 
 use App\User;
@@ -50,7 +50,7 @@ class UserComposer
 
 在 `app\Providers` 資料夾新增一個 `app\Providers\ComposerServiceProvider.php` 服務提供者：
 
-```PHP
+```php
 namespace App\Providers;
 
 use Illuminate\Support\Facades\View;
@@ -85,7 +85,7 @@ class ComposerServiceProvider extends ServiceProvider
 
 在 `composer()` 方法的第 1 個參數，可以使用「`*`」萬用字元將資料傳遞給所有視圖。
 
-```PHP
+```php
 View::composer(
     '*', \App\Http\ViewComposers\UserComposer::class
 );
@@ -93,7 +93,7 @@ View::composer(
 
 將服務提供者註冊到 `config\app.php` 檔：
 
-```PHP
+```php
 return [
 
     'providers' => [
@@ -108,7 +108,7 @@ return [
 
 在視圖中使用變數：
 
-```HTML
+```html
 <div>{{ count }}</div>
 ```
 

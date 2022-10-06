@@ -9,19 +9,19 @@ categories: ["程式設計", "JavaScript", "React"]
 
 安裝依賴套件。
 
-```BASH
+```bash
 npm install -D tailwindcss postcss autoprefixer
 ```
 
 初始化專案，建立 `tailwind.config.js` 設定檔。
 
-```BASH
+```bash
 npx tailwindcss init -p
 ```
 
 修改 `tailwind.config.js` 檔。
 
-```JS
+```js
 module.exports = {
   content: [
     './src/**/*.{js,jsx,ts,tsx}',
@@ -35,7 +35,7 @@ module.exports = {
 
 修改 `app.css` 檔，添加 `@tailwind` 裝飾器。
 
-```CSS
+```css
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -43,7 +43,7 @@ module.exports = {
 
 在元件中使用。
 
-```JS
+```js
 import './App.css';
 
 function App() {
@@ -59,7 +59,7 @@ export default App;
 
 啟動服務。
 
-```BASH
+```bash
 npm run start
 ```
 

@@ -13,7 +13,7 @@ Vuetify 的型別宣告定義在 `node_modules/vuetify/types` 中，因此 Vueti
 
 修改根目錄的 `tsconfig.json` 檔，將 `vuetify` 的型別宣告添加到 `types` 列表中。
 
-```JSON
+```json
 {
   "compilerOptions": {
     "types": [

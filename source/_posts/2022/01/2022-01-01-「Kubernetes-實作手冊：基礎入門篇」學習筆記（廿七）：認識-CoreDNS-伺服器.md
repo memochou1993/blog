@@ -26,7 +26,7 @@ Pod DNS Policy 可以指定 Kubernetes 如何處理 Pod 的 DNS，有以下四�
 
 查看 Pod 列表，只有 `coredns` 是透過 CNI 框架去部署的 IP 位址，其餘的 Pod 皆是與 Host Network 、節點共享網路。
 
-```BASH
+```bash
 kubectl -n kube-system get pods -o wide
 NAME                                         READY   STATUS    RESTARTS   AGE     IP           NODE                 NOMINATED NODE   READINESS GATES
 coredns-6955765f44-4tvlr                     1/1     Running   0          3m23s   10.244.0.2   kind-control-plane   <none>           <none>
@@ -45,7 +45,7 @@ kube-scheduler-kind-control-plane            1/1     Running   0          3m39s 
 
 查看 Service 列表，在 `kube-system` 命名空間中已有 `kube-dns` 服務。在叢集裡，可以使用 `10.96.0.10` 這個 Cluster IP 去存取 `coredns` 的服務。
 
-```BASH
+```bash
 kubectl -n kube-system get svc
 NAME       TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)                  AGE
 kube-dns   ClusterIP   10.96.0.10   <none>        53/UDP,53/TCP,9153/TCP   103s
@@ -53,7 +53,7 @@ kube-dns   ClusterIP   10.96.0.10   <none>        53/UDP,53/TCP,9153/TCP   103s
 
 使用配置檔創建範例資料夾中的所有 Pod。
 
-```BASH
+```bash
 kubectl apply -R -f introduction/pod_dns
 ```
 
@@ -61,13 +61,13 @@ kubectl apply -R -f introduction/pod_dns
 
 查看配置檔。
 
-```BASH
+```bash
 cat introduction/pod_dns/basic.yaml
 ```
 
 配置檔如下：
 
-```YAML
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -83,7 +83,7 @@ spec:
 
 查看 Pod 中的 `/etc/resolv.conf` 檔。
 
-```BASH
+```bash
 kubectl exec default -- cat /etc/resolv.conf
 search hitronhub.home
 nameserver 10.0.2.3
@@ -91,7 +91,7 @@ nameserver 10.0.2.3
 
 查看名為 `default` 的 Pod 所在的節點。
 
-```BASH
+```bash
 kubectl get pods -o wide
 NAME                        READY   STATUS    RESTARTS   AGE     IP           NODE           NOMINATED NODE   READINESS GATES
 clusterfirst                1/1     Running   0          4m57s   10.244.2.2   kind-worker    <none>           <none>
@@ -104,7 +104,7 @@ none                        1/1     Running   0          4m57s   10.244.2.4   ki
 
 查看名為 `kind-worker2` 的節點中的 `/etc/resolv.conf` 檔。
 
-```BASH
+```bash
 docker exec kind-worker2 cat /etc/resolv.conf
 nameserver 10.0.2.3
 search hitronhub.home
@@ -116,13 +116,13 @@ Pod 與節點的 Name Server相同。
 
 查看配置檔。
 
-```BASH
+```bash
 cat introduction/pod_dns/none.yaml
 ```
 
 配置檔如下：
 
-```YAML
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -150,7 +150,7 @@ spec:
 
 查看 Pod 中的 `/etc/resolv.conf` 檔。
 
-```BASH
+```bash
 kubectl exec -it none -- cat /etc/resolv.conf
 search ns1.svc.cluster-domain.example my.dns.search.suffix
 nameserver 8.8.8.8
@@ -163,13 +163,13 @@ options ndots:2 edns0
 
 查看配置檔。
 
-```BASH
+```bash
 cat introduction/pod_dns/clusterFirst.yaml
 ```
 
 配置檔如下：
 
-```YAML
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -185,7 +185,7 @@ spec:
 
 查看 Pod 中的 `/etc/resolv.conf` 檔，Pod 的 Name Server 指向 CoreDNS 的 Cluster IP。
 
-```BASH
+```bash
 kubectl exec clusterfirst -- cat /etc/resolv.conf
 search default.svc.cluster.local svc.cluster.local cluster.local hitronhub.home
 nameserver 10.96.0.10
@@ -196,13 +196,13 @@ options ndots:5
 
 查看配置檔。
 
-```BASH
+```bash
 cat introduction/pod_dns/clusterwithhost.yaml
 ```
 
 配置檔如下：
 
-```YAML
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -218,7 +218,7 @@ spec:
 
 查看 Pod 中的 `/etc/resolv.conf` 檔，Pod 的 Name Server 指向 CoreDNS 的 Cluster IP。
 
-```BASH
+```bash
 kubectl exec -it clusterfirstwithhost -- cat /etc/resolv.conf
 search default.svc.cluster.local svc.cluster.local cluster.local hitronhub.home
 nameserver 10.96.0.10

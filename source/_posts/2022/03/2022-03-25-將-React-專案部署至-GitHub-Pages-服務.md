@@ -11,7 +11,7 @@ categories: ["程式設計", "JavaScript", "環境部署"]
 
 使用 `actions-gh-pages` 的 GitHub Action 樣板，在 `.github/workflows` 資料夾新增 `gh-pages.yaml` 檔。
 
-```YAML
+```yaml
 name: GitHub Pages
 
 on:
@@ -54,7 +54,7 @@ jobs:
 
 推送程式碼。
 
-```BASH
+```bash
 git add .
 git commit -m "Add deploy script"
 git push
@@ -64,13 +64,13 @@ git push
 
 安裝 `gh-pages` 套件。
 
-```BASH
+```bash
 npm install gh-pages --save-dev
 ```
 
 修改 `package.json` 檔，添加 `homepage` 內容。
 
-```JSON
+```json
 {
   "name": "my-app",
   "homepage": "https://<your-github-username>.github.io/my-app"
@@ -79,7 +79,7 @@ npm install gh-pages --save-dev
 
 並且添加 `deploy` 指令。
 
-```JSON
+```json
 {
   "scripts": {
     "deploy": "gh-pages -d build"
@@ -89,13 +89,13 @@ npm install gh-pages --save-dev
 
 執行編譯。
 
-```BASH
+```bash
 npm run build
 ```
 
 執行部署。
 
-```BASH
+```bash
 npm run deploy
 ```
 

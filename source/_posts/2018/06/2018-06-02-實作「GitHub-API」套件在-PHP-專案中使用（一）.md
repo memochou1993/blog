@@ -13,7 +13,7 @@ categories: ["程式設計", "PHP", "套件開發"]
 
 專案目錄如下：
 
-```BASH
+```bash
 |- github-api/
     |- dev/
         |- src/
@@ -49,7 +49,7 @@ categories: ["程式設計", "PHP", "套件開發"]
 
 讀取 GitHub API 會需要發送 `HTTP` 請求以及獲取響應，所以安裝 `Guzzle` 套件。
 
-```BASH
+```bash
 cd github-api/github-api-dev
 composer require guzzlehttp/guzzle
 ```
@@ -58,7 +58,7 @@ composer require guzzlehttp/guzzle
 
 在 `src` 資料夾中新增一個 `Github.php` 檔。
 
-```PHP
+```php
 namespace Memo;
 
 class Github
@@ -158,7 +158,7 @@ class Github
 
 新增一個 `index.php` 檔。
 
-```PHP
+```php
 require 'vendor/autoload.php'; // 載入 autoload.php
 require 'src/Github.php'; // 載入製作好的套件
 
@@ -188,7 +188,7 @@ var_dump($github->getBody());
 
 結果：
 
-```PHP
+```php
 object(stdClass)#19 (2) {
   ["url"]=>
   string(63) "https://api.github.com/repos/laravel/laravel/topics?per_page=10"

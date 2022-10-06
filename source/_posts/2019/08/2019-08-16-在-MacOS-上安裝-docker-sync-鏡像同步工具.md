@@ -13,13 +13,13 @@ categories: ["環境部署", "Laradock"]
 
 安裝。
 
-```BASH
+```bash
 gem install --user-install docker-sync
 ```
 
 將指令加進環境變數。
 
-```ENV
+```env
 if which ruby >/dev/null && which gem >/dev/null; then
   PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
@@ -27,12 +27,12 @@ fi
 
 啟動。
 
-```ENV
+```env
 docker-sync start
 ```
 
 停止。
 
-```ENV
+```env
 docker-sync stop
 ```

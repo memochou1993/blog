@@ -19,7 +19,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 Lexicon 服務端由後端 Laravel 專案以及前端 Vue 專案組成，前端專案以子模組的形式置於 `resources/js` 資料夾中。
 
-```ENV
+```env
 |- lexicon-server/
     |- resouces/
         |- js/ (lexicon-client)
@@ -31,7 +31,7 @@ Lexicon 服務端由後端 Laravel 專案以及前端 Vue 專案組成，前端�
 
 將專案連同子模組從遠端一起下載下來。
 
-```BASH
+```bash
 git clone --recursive git@github.com:memochou1993/lexicon-server.git
 ```
 
@@ -41,7 +41,7 @@ git clone --recursive git@github.com:memochou1993/lexicon-server.git
 
 首先使用 Composer 安裝後端專案的相依套件。
 
-```BASH
+```bash
 composer install
 ```
 
@@ -49,13 +49,13 @@ composer install
 
 複製 `.env.example` 範本。
 
-```BASH
+```bash
 cp .env.example .env
 ```
 
 修改 `.env` 檔中 MySQL 和 Redis 的連線設定。
 
-```ENV
+```env
 DB_CONNECTION=mysql
 DB_HOST=<YOUR_DB_HOST>
 DB_PORT=3306
@@ -70,19 +70,19 @@ REDIS_PORT=6379
 
 修改 `.env` 檔中的 `CACHE_DRIVER` 參數為 `redis`。
 
-```ENV
+```env
 CACHE_DRIVER=redis
 ```
 
 修改 `.env` 檔中的 `LEXICON_DEMO_HOOK_URL` 參數為客戶端的 Webhook 網址。
 
-```ENV
+```env
 LEXICON_DEMO_HOOK_URL=https://lexicon-demo.epoch.tw/api/lexicon
 ```
 
 生成 `APP_KEY` 環境變數。
 
-```BASH
+```bash
 php artisan key:gen
 ```
 
@@ -90,19 +90,19 @@ php artisan key:gen
 
 執行 Lexicon 初始化指令，建立一個管理者帳號。
 
-```BASH
+```bash
 php artisan lexicon:init
 ```
 
 執行 Lexicon 展示指令，建立一些示範資料。
 
-```BASH
+```bash
 php artisan lexicon:demo
 ```
 
 Lexicon 展示指令會生成 2 個令牌：
 
-```BASH
+```bash
 API Token: <API_TOKEN>
 Personal Access Token: <PERSONAL_ACCESS_TOKEN>
 ```
@@ -114,7 +114,7 @@ Personal Access Token: <PERSONAL_ACCESS_TOKEN>
 
 進到前端專案。
 
-```BASH
+```bash
 cd resources/js
 ```
 
@@ -122,7 +122,7 @@ cd resources/js
 
 使用 Yarn 安裝前端專案的相依套件。
 
-```BASH
+```bash
 yarn install
 ```
 
@@ -130,13 +130,13 @@ yarn install
 
 複製 `.env.local.example` 範本。
 
-```BASH
+```bash
 cp .env.local.example .env.production.local
 ```
 
 修改 `.env.production.local` 檔。
 
-```ENV
+```env
 VUE_APP_API_URL=https://lexicon.epoch.tw/api
 VUE_APP_API_DEMO_TOKEN=<PERSONAL_ACCESS_TOKEN>
 ```
@@ -148,13 +148,13 @@ VUE_APP_API_DEMO_TOKEN=<PERSONAL_ACCESS_TOKEN>
 
 使用 Yarn 執行編譯。
 
-```BASH
+```bash
 yarn build
 ```
 
-## 線上演示
+## 線上展示
 
-前往：[Lexicon](https://lexicon.epoch.tw)
+- [Lexicon](https://lexicon.epoch.tw)
 
 ## 程式碼
 

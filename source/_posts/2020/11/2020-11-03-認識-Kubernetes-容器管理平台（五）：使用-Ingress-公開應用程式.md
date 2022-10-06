@@ -20,7 +20,7 @@ Ingress 是一種 Kubernetes 服務，可以提供負載平衡，並將多個應
 
 以下是一個將所有流量都發送到同一服務的簡單 Ingress 示意圖：
 
-```BASH
+```bash
 客戶端 -> Ingress-managed 負載平衡器 -> Ingress -> 路由规则 -> Service
 ```
 
@@ -28,7 +28,7 @@ Ingress 是一種 Kubernetes 服務，可以提供負載平衡，並將多個應
 
 一個最簡單的 Ingress 設定檔如下：
 
-```YAML
+```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -52,37 +52,37 @@ spec:
 
 Ingress 不支援以 `docker` 做為 VM 驅動的網路環境，因此使用 `hyperkit` 做為 minikube 的 VM 驅動。
 
-```BASH
+```bash
 minikube start --vm=true --driver=hyperkit
 ```
 
 啟用 Ingress 外掛。
 
-```BASH
+```bash
 minikube addons enable ingress
 ```
 
 確認 Ingress 控制器處於運行狀態。
 
-```BASH
+```bash
 kubectl get pods -n kube-system
 ```
 
 部署一個名為 `web` 的 Deployment。
 
-```BASH
+```bash
 kubectl create deployment web --image=gcr.io/google-samples/hello-app:1.0
 ```
 
 將 Deployment 公開。
 
-```BASH
+```bash
 kubectl expose deployment web --type=NodePort --port=8080
 ```
 
 建立一個 `example-ingress.yaml` 檔，是 Ingress 的設定檔，負責通過 `hellow-world.info` 網域，將服務請求轉發到 `web` 服務。
 
-```YAML
+```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -105,37 +105,37 @@ spec:
 
 創建 Ingress 資源。
 
-```BASH
+```bash
 kubectl apply -f example-ingress.yaml
 ```
 
 查看 Ingress 物件的詳細資訊。
 
-```BASH
+```bash
 kubectl get ingress
 ```
 
 查看 minikube 的 IP 位址。
 
-```BASH
+```bash
 minikube ip
 ```
 
 修改 `/etc/hosts` 檔，新增一個對應 minikube 的 IP 位址的網域名稱：
 
-```BASH
+```bash
 192.168.64.9 hello-world.info
 ```
 
 嘗試將請求發送給 `web` 服務。
 
-```BASH
+```bash
 curl hello-world.info
 ```
 
 輸出：
 
-```BASH
+```bash
 Hello, world!
 Version: 1.0.0
 Hostname: web-79d88c97d6-bqxgw

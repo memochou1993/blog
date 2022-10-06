@@ -9,20 +9,20 @@ categories: ["區塊鏈", "Ethereum"]
 
 建立專案。
 
-```BASH
+```bash
 mkdir eth-erc-1155
 cd eth-erc-1155
 ```
 
 初始化 Truffle 專案。
 
-```BASH
+```bash
 truffle init
 ```
 
 修改 `truffle-config.js` 檔。
 
-```JS
+```js
 module.exports = {
   networks: {
     development: {
@@ -41,7 +41,7 @@ module.exports = {
 
 新增 `.gitignore` 檔。
 
-```ENV
+```env
 /node_modules
 /build
 .env
@@ -49,7 +49,7 @@ module.exports = {
 
 新增 `ERC1155NFT.sol` 檔。
 
-```SOL
+```sol
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.13;
 
@@ -80,7 +80,7 @@ contract ERC1155NFT is ERC1155URIStorage, Ownable {
 
 新增 `migrations/2_deploy_contracts.js` 檔。
 
-```JS
+```js
 const ERC1155NFT = artifacts.require("ERC1155NFT");
 
 module.exports = (deployer) => {
@@ -90,6 +90,6 @@ module.exports = (deployer) => {
 
 執行部署。
 
-```BASH
+```bash
 truffle migrate
 ```

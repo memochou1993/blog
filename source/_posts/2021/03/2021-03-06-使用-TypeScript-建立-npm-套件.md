@@ -7,19 +7,19 @@ categories: ["程式設計", "JavaScript", "TypeScript"]
 
 ## 建立專案
 
-```BASH
+```bash
 mkdir ts-example-package
 ```
 
 使用以下指令建立 `package.json` 檔：
 
-```BASH
+```bash
 npm init
 ```
 
 生成後 `package.json` 檔如下：
 
-```JSON
+```json
 {
   "name": "@memochou1993/ts-example-package",
   "version": "1.0.0",
@@ -43,13 +43,13 @@ npm init
 
 安裝 TypeScript 和 Jest 測試套件。
 
-```BASH
+```bash
 npm i -D typescript jest ts-jest @types/jest
 ```
 
 建立 `tsconfig.json` 檔：
 
-```BASH
+```bash
 {
   "compilerOptions": {
     "outDir": "dist",
@@ -70,7 +70,7 @@ npm i -D typescript jest ts-jest @types/jest
 
 在 `package.json` 檔的腳本中，加入以下指令：
 
-```JSON
+```json
 {
   "scripts": {
     "build": "tsc",
@@ -81,7 +81,7 @@ npm i -D typescript jest ts-jest @types/jest
 
 在 `src` 資料夾新增 `index.ts` 檔，並新增主要程式碼。
 
-```TS
+```ts
 export function hello(name: string): string {
   return `Hello ${name}`;
 }
@@ -89,13 +89,13 @@ export function hello(name: string): string {
 
 執行編譯。
 
-```BASH
+```bash
 npm run build
 ```
 
 編譯後的 JavaScript 檔在 `dist` 資料夾裡，內容如下：
 
-```JS
+```js
 "use strict";
 exports.__esModule = true;
 exports.hello = void 0;
@@ -110,7 +110,7 @@ exports.hello = hello;
 
 在 `test` 資料夾新增 `index.test.ts` 檔：
 
-```TS
+```ts
 import { hello } from '../src';
 
 test('hello', () => {
@@ -120,13 +120,13 @@ test('hello', () => {
 
 建立 Jest 設定檔：
 
-```BASH
+```bash
 node_modules/.bin/ts-jest config:init
 ```
 
 建立的 `jest.config.js` 檔如下：
 
-```JSON
+```json
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
@@ -135,7 +135,7 @@ module.exports = {
 
 執行測試。
 
-```BASH
+```bash
 npm run test 
 ```
 
@@ -143,14 +143,14 @@ npm run test
 
 建立 `.gitignore` 檔，並推送至 GitHub。
 
-```BASH
+```bash
 dist/
 node_modules/
 ```
 
 修改 `package.json` 檔，指定只有 `dist` 資料夾中的內容需要被發布。
 
-```JSON
+```json
 {
   "main": "dist/index.js",
   "files": [
@@ -161,19 +161,19 @@ node_modules/
 
 測試發布，查看即將發布的檔案列表。
 
-```BASH
+```bash
 npm publish --dry-run
 ```
 
 登入 `npm` 套件管理平台。
 
-```BASH
+```bash
 npm login
 ```
 
 發布套件。
 
-```BASH
+```bash
 npm publish --access=public
 ```
 

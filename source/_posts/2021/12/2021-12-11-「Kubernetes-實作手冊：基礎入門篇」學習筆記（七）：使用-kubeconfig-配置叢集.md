@@ -19,7 +19,7 @@ kubectl 預設會去找 `$HOME/.kube/config` 路徑。
 
 以 Rancher 建立的叢集為例，定義了 Cluster、Context 和 User 資訊，其 `kubeconfig` 檔如下：
 
-```BASH
+```bash
 apiVersion: v1
 kind: Config
 clusters:
@@ -97,31 +97,31 @@ Rancher 定義了兩個叢集，一個是 Rancher Server，另一個是 Kubernet
 
 使用 `config view` 指令查看名為 `rancher` 的 `kubeconfig` 檔。例如：
 
-```BASH
+```bash
 kubectl config view --kubeconfig rancher
 ```
 
 使用 `config get-contexts` 指令取得 `rancher` 環境下的 Cluster 列表。例如：
 
-```BASH
+```bash
 kubectl config get-contexts --kubeconfig rancher
 ```
 
 切換在 `rancher` 環境裡，要使用的 Cluster。例如：
 
-```BASH
+```bash
 kubectl config use-context sandbox --kubeconfig rancher
 ```
 
 顯示在 `rancher` 環境裡，正在使用的 Cluster。例如：
 
-```BASH
+```bash
 kubectl config current-context --kubeconfig rancher
 ```
 
 取得 Pod 列表。
 
-```BASH
+```bash
 kubectl get pods -n kube-system --kubeconfig rancher
 ```
 

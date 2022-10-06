@@ -17,7 +17,7 @@ Krew 是一個用來管理各種 kubectl 套件的管理工具。
 
 執行以下指令，安裝 Krew 套件管理工具。
 
-```BASH
+```bash
 (
   set -x; cd "$(mktemp -d)" &&
   OS="$(uname | tr '[:upper:]' '[:lower:]')" &&
@@ -35,25 +35,25 @@ echo 'export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"' >> ~/.bashrc
 
 使用以下指令列出所有套件。
 
-```BASH
+```bash
 kubectl krew list
 ```
 
 使用以下指令尋找套件。
 
-```BASH
+```bash
 kubectl krew search
 ```
 
 安裝 `tree` 套件，可以用樹狀結構來表示 Kubernetes 中各資源的關係。
 
-```BASH
+```bash
 kubectl krew install tree
 ```
 
 使用 `kubectl tree` 指令，用樹狀結構列出某個 ReplicaSet 與其他資源的關係。
 
-```BASH
+```bash
 kubectl tree rs test-rs
 NAMESPACE  NAME                 READY  REASON  AGE
 default    ReplicaSet/test-rs   -              22h
@@ -66,7 +66,7 @@ default    └─Pod/test-rs-swzkt  True           22h
 
 使用 `kubectl tree` 指令，用樹狀結構列出某個 Deployment 與其他資源的關係。
 
-```BASH
+```bash
 kubectl tree -n kube-system deployment coredns
 NAMESPACE    NAME                              READY  REASON  AGE
 kube-system  Deployment/coredns                -              23h

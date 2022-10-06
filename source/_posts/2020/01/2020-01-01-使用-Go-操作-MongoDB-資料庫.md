@@ -15,19 +15,19 @@ categories: ["程式設計", "Go", "其他"]
 
 建立專案目錄。
 
-```BASH
+```bash
 mkdir -p $GOPATH/src/github.com/memochou1993/mongo-example
 ```
 
 進到專案目錄。
 
-```BASH
+```bash
 cd $GOPATH/src/github.com/memochou1993/mongo-example
 ```
 
 初始化 Go Modules。
 
-```BASH
+```bash
 go mod init github.com/memochou1993/mongo-example
 ```
 
@@ -35,13 +35,13 @@ go mod init github.com/memochou1993/mongo-example
 
 安裝 `gorilla/mux` 套件。
 
-```BASH
+```bash
 go get github.com/gorilla/mux
 ```
 
 安裝 `globalsign/mgo` 套件。
 
-```BASH
+```bash
 go get github.com/globalsign/mgo
 ```
 
@@ -49,7 +49,7 @@ go get github.com/globalsign/mgo
 
 首先新增 `main.go` 檔：
 
-```GO
+```go
 package main
 
 import (
@@ -65,7 +65,7 @@ func main() {
 
 新增 `routes/api.go` 檔，並定義相關路由：
 
-```GO
+```go
 package routes
 
 import (
@@ -118,7 +118,7 @@ func register(method string, pattern string, handler http.HandlerFunc, middlewar
 
 新增 `controllers/movie.go` 檔，並定義相關方法，待之後實作：
 
-```GO
+```go
 package controllers
 
 import (
@@ -151,7 +151,7 @@ func Destroy(w http.ResponseWriter, r *http.Request) {
 
 新增 `models/db.go` 檔，封裝對資料庫的操作。
 
-```GO
+```go
 package models
 
 import (
@@ -272,7 +272,7 @@ func RemoveByID(db string, collection string, id string) error {
 
 新增 `models/movie.go` 模型，封裝對資源的操作。
 
-```GO
+```go
 package models
 
 import (
@@ -327,7 +327,7 @@ func (m *Movie) Remove(id string) error {
 
 修改 `controllers/movie.go` 檔，實作相關方法：
 
-```GO
+```go
 package controllers
 
 import (
@@ -445,7 +445,7 @@ func Destroy(w http.ResponseWriter, r *http.Request) {
 
 執行應用。
 
-```BASH
+```bash
 go run main.go
 ```
 

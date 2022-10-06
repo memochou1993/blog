@@ -14,7 +14,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 安裝 `spatie/laravel-binary-uuid` 套件。
 
-```BASH
+```bash
 composer require spatie/laravel-binary-uuid
 ```
 
@@ -22,7 +22,7 @@ composer require spatie/laravel-binary-uuid
 
 以 `users` 遷移檔為例：
 
-```PHP
+```php
 Schema::create('users', function (Blueprint $table) {
     $table->uuid('uuid');
     $table->primary('uuid');
@@ -39,7 +39,7 @@ Schema::create('users', function (Blueprint $table) {
 
 以 `User` 模型為例：
 
-```PHP
+```php
 namespace App;
 
 use Spatie\BinaryUuid\HasBinaryUuid; // 調用特徵機制

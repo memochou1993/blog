@@ -20,7 +20,7 @@ categories: ["程式設計", "PHP", "《現代 PHP》學習筆記"]
 
 介面的例子如下：
 
-```PHP
+```php
 interface MyInterface
 {
     //
@@ -31,7 +31,7 @@ interface MyInterface
 
 範例 2-6：DocumentStore 類別定義
 
-```PHP
+```php
 class DocumentStore
 {
     protected $data = [];
@@ -54,7 +54,7 @@ class DocumentStore
 
 範例 2-7：Documentable 介面定義
 
-```PHP
+```php
 interface Documentable
 {
     public function getId();
@@ -67,7 +67,7 @@ interface Documentable
 
 範例 2-8：HtmlDocument 類別定義
 
-```PHP
+```php
 class HtmlDocument implements Documentable
 {
     protected $url;
@@ -105,7 +105,7 @@ class HtmlDocument implements Documentable
 
 範例 2-9：StreamDocument 類別定義
 
-```PHP
+```php
 class StreamDocument implements Documentable
 {
     protected $resource;
@@ -141,7 +141,7 @@ class StreamDocument implements Documentable
 
 範例 2-10：CommandOutputDocument 類別定義
 
-```PHP
+```php
 class CommandOutputDocument implements Documentable
 {
     protected $command;
@@ -167,7 +167,7 @@ class CommandOutputDocument implements Documentable
 
 範例 2-11：蒐集來自不同來源的文字
 
-```PHP
+```php
 require 'Documentable.php';
 require 'DocumentStore.php';
 require 'HtmlDocument.php';

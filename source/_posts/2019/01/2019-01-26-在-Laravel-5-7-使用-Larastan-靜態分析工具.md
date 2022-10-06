@@ -9,13 +9,13 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 安裝 `nunomaduro/larastan` 套件。
 
-```BASH
+```bash
 composer require --dev nunomaduro/larastan
 ```
 
 執行檢查。
 
-```BASH
+```bash
 php artisan code:analyse --level=5 --paths="app"
 ```
 
@@ -26,7 +26,7 @@ php artisan code:analyse --level=5 --paths="app"
 
 如果是檢查專案，在專案根目錄新增 `phpstan.neon` 檔：
 
-```ENV
+```env
 includes:
     - ./vendor/nunomaduro/larastan/extension.neon
 parameters:
@@ -40,7 +40,7 @@ parameters:
 
 如果是檢查套件，在套件根目錄新增 `phpstan.neon.dist` 檔：
 
-```ENV
+```env
 includes:
     - ./vendor/nunomaduro/larastan/extension.neon
 parameters:
@@ -51,6 +51,6 @@ parameters:
 
 執行檢查。
 
-```BASH
+```bash
 ./vendor/bin/phpstan analyse
 ```

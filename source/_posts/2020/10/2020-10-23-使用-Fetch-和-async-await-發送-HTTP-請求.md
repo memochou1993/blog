@@ -9,7 +9,7 @@ categories: ["程式設計", "JavaScript", "其他"]
 
 使用 `async/await` 的方式，有順序性地等待 `Fetch` 回應。
 
-```JS
+```js
 async function fetchData(url, defer) {
   // 使用 await 語法取得 response
   const response = await fetch(url);

@@ -13,7 +13,7 @@ Laravel Mix 使用了許多的動態方法，為了避免出現錯誤提示，�
 
 修改 `webpack.mix.js` 檔：
 
-```JS
+```js
 const mix = require('laravel-mix');
 
 mix

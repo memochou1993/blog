@@ -15,7 +15,7 @@ categories: ["環境部署", "Docker", "其他"]
 
 在 `/home/rocketchat` 資料夾新增 `docker-compose.yml` 檔：
 
-```YML
+```yaml
 version: '2'
 
 services:
@@ -101,7 +101,7 @@ services:
 
 在 `/etc/nginx/sites-available` 資料夾新增 `rocketchat.xxx.com.conf` 檔：
 
-```CONF
+```conf
 server {
   listen       80;
   server_name  rocketchat.xxx.com;
@@ -114,13 +114,13 @@ server {
 
 建立軟連結。
 
-```BASH
+```bash
 sudo ln -s /etc/nginx/sites-available/rocketchat.xxx.com.conf /etc/nginx/sites-enabled/rocketchat.xxx.com.conf
 ```
 
 重啟 Nginx 服務。
 
-```BASH
+```bash
 sudo nginx -s reload
 ```
 
@@ -128,25 +128,25 @@ sudo nginx -s reload
 
 啟動 MongoDB 服務。
 
-```BASH
+```bash
 docker-compose up -d mongo
 ```
 
 啟動 MongoDB 初始化服務。
 
-```BASH
+```bash
 docker-compose up -d mongo-init-replica
 ```
 
 啟動 Rocket.Chat 服務。
 
-```BASH
+```bash
 docker-compose up -d rocketchat
 ```
 
 ## 瀏覽網頁
 
-前往：<http://rocketchat.xxx.com>
+前往 <http://rocketchat.xxx.com> 瀏覽。
 
 ## 參考資料
 

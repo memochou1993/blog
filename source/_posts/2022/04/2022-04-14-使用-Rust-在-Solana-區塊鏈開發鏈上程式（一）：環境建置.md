@@ -13,13 +13,13 @@ categories: ["區塊鏈", "Solana"]
 
 安裝 Rust 語言。
 
-```BASH
+```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
 查看版本。
 
-```BASH
+```bash
 rustup --version
 rustup 1.24.3 (ce5817a94 2021-05-31)
 ```
@@ -28,19 +28,19 @@ rustup 1.24.3 (ce5817a94 2021-05-31)
 
 安裝 Solana 命令列工具。
 
-```BASH
+```bash
 sh -c "$(curl -sSfL https://release.solana.com/v1.10.0/install)"
 ```
 
 將執行檔路徑添加至環境變數。
 
-```BASH
+```bash
 export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
 ```
 
 查看版本。
 
-```BASH
+```bash
 solana --version
 solana-cli 1.10.0 (src:7dbde224; feat:275730699)
 ```
@@ -49,19 +49,19 @@ solana-cli 1.10.0 (src:7dbde224; feat:275730699)
 
 使用 `solana-keygen` 指令建立一個錢包（一組公私鑰）。
 
-```BASH
+```bash
 solana-keygen new
 ```
 
 將命令列設定的 `url` 參數設置成 `localhost`。
 
-```BASH
+```bash
 solana config set --url localhost
 ```
 
 開啟一個新的終端視窗，使用 `solana-test-validator` 指令，啟動一個本地的 Solana 節點。
 
-```BASH
+```bash
 solana-test-validator
 ```
 
@@ -69,7 +69,7 @@ solana-test-validator
 
 為錢包充值 1 SOL。
 
-```BASH
+```bash
 solana airdrop 1
 ```
 
@@ -77,44 +77,44 @@ solana airdrop 1
 
 下載 `example-helloworld` 範例專案。
 
-```BASH
+```bash
 git clone https://github.com/solana-labs/example-helloworld.git solana-example
 cd solana-example
 ```
 
 安裝依賴套件。
 
-```BASH
+```bash
 npm ci
 ```
 
 安裝 TypeScript Node 執行環境。
 
-```BASH
+```bash
 npm i -g ts-node
 ```
 
 編譯 `helloworld` 鏈上程式。
 
-```BASH
+```bash
 npm run build:program-rust
 ```
 
 部署 `helloworld` 鏈上程式。
 
-```BASH
+```bash
 solana program deploy dist/program/helloworld.so
 ```
 
 啟動客戶端。
 
-```BASH
+```bash
 npm run start
 ```
 
 輸出訊息如下：
 
-```BASH
+```bash
 Let's say hello to a Solana account...
 Connection to cluster established: http://localhost:8899 { 'feature-set': 275730699, 'solana-core': '1.10.0' }
 Using account C4pPW8ZmWFYsAUNcFzEUA7mgdS6ABV9Z3sBobPvVthgi containing 499999998.6475557 SOL to pay for fees

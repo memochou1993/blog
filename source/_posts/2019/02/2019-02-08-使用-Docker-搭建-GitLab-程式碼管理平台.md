@@ -15,7 +15,7 @@ categories: ["環境部署", "Docker", "其他"]
 
 在 `/home/gitlab` 資料夾新增 `docker-compose.yml` 檔：
 
-```YML
+```yaml
 web:
   image: 'gitlab/gitlab-ce:latest'
   restart: always
@@ -43,7 +43,7 @@ web:
 
 在 `/etc/nginx/sites-available` 資料夾新增 `gitlab.xxx.com.conf` 檔：
 
-```CONF
+```conf
 server {
   listen       80;
   server_name  gitlab.xxx.com;
@@ -56,13 +56,13 @@ server {
 
 建立軟連結。
 
-```BASH
+```bash
 sudo ln -s /etc/nginx/sites-available/gitlab.xxx.com.conf /etc/nginx/sites-enabled/gitlab.xxx.com.conf
 ```
 
 重啟 Nginx 服務。
 
-```BASH
+```bash
 sudo nginx -s reload
 ```
 
@@ -70,13 +70,13 @@ sudo nginx -s reload
 
 啟動 GitLab 服務。
 
-```BASH
+```bash
 docker-compose up -d gitlab
 ```
 
 ## 瀏覽網頁
 
-前往：<http://gitlab.xxx.com>
+前往 <http://gitlab.xxx.com> 瀏覽。
 
 ## 補充
 

@@ -9,49 +9,49 @@ categories: ["資料庫", "PostgreSQL"]
 
 下載並啟動 `postgres` 映像檔。
 
-```BASH
+```bash
 docker run -d --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=root postgres
 ```
 
 進入容器。
 
-```BASH
+```bash
 docker exec -it postgres bash
 ```
 
 或使用 `psql` 指令直接進入 PostgreSQL 互動介面。
 
-```BASH
+```bash
 docker exec -it postgres psql -U postgres
 ```
 
 建立使用者。
 
-```BASH
+```bash
 postgres> create role root with login password 'root';
 ```
 
 查看使用者列表。
 
-```BASH
+```bash
 \du
 ```
 
 建立資料庫。
 
-```BASH
+```bash
 postgres> create database test owner root;
 ```
 
 查看資料庫列表。
 
-```BASH
+```bash
 postgres> \l
 ```
 
 離開互動介面。
 
-```BASH
+```bash
 postgres> \q
 ```
 

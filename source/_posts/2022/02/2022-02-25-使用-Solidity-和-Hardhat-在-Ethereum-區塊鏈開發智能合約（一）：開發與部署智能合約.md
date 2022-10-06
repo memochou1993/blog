@@ -21,44 +21,44 @@ categories: ["區塊鏈", "Ethereum"]
 
 建立專案。
 
-```BASH
+```bash
 mkdir smart-contract-example
 cd smart-contract-example
 ```
 
 初始化專案。
 
-```BASH
+```bash
 npm init
 ```
 
 安裝 `hardhat` 套件。Hardhat 是一個自動化構建智能合約的環境和工具。
 
-```BASH
+```bash
 npm install --save-dev hardhat
 ```
 
 使用 `npx` 執行 hardhat 指令，並選擇「Create an empty hardhat.config.js」選項。
 
-```BASH
+```bash
 npx hardhat
 ```
 
 新增 `contracts` 資料夾，用來放置智能合約。
 
-```BASH
+```bash
 mkdir contracts
 ```
 
 新增 `scripts` 資料夾，用來放置部署腳本，以及與智能合約互動的腳本。
 
-```BASH
+```bash
 mkdir scripts
 ```
 
 在 `contracts` 資料夾新增 `HelloWorld.sol` 檔。需要使用 Solidity 語言撰寫。
 
-```SOL
+```sol
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.7.3;
 
@@ -87,26 +87,26 @@ contract HelloWorld {
 
 安裝 `dot-env` 套件。
 
-```BASH
+```bash
 npm install dotenv --save
 ```
 
 新增 `.env` 檔。
 
-```ENV
+```env
 API_URL=https://eth-rinkeby.alchemyapi.io/v2/your-api-key
 PRIVATE_KEY=your-private-key
 ```
 
 安裝 `@nomiclabs/hardhat-ethers` 和 `ethers` 套件。
 
-```BASH
+```bash
 npm install --save-dev @nomiclabs/hardhat-ethers "ethers@^5.0.0"
 ```
 
 將 `hardhat.config.js` 檔修改如下：
 
-```JS
+```js
 /**
  * @type import('hardhat/config').HardhatUserConfig
  */
@@ -131,13 +131,13 @@ module.exports = {
 
 使用以下指令編譯智能合約。
 
-```BASH
+```bash
 npx hardhat compile
 ```
 
 在 `scripts` 資料夾新增 `deploy.js` 檔。
 
-```JS
+```js
 async function main() {
   // 實例化一個 HelloWorld 合約工廠
   const HelloWorld = await ethers.getContractFactory('HelloWorld');
@@ -161,13 +161,13 @@ main()
 
 使用以下指令，將智能合約部署在 `rinkeby` 測試網路。
 
-```BASH
+```bash
 npx hardhat run scripts/deploy.js --network rinkeby
 ```
 
 顯示結果如下：
 
-```BASH
+```bash
 Contract deployed to address: 0x6839691078Ef669589F65Fca9968f6430D509812
 ```
 

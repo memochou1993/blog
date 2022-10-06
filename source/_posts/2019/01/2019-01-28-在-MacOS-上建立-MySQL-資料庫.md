@@ -9,43 +9,43 @@ categories: ["資料庫", "MySQL"]
 
 使用 `brew` 安裝 MySQL。
 
-```BASH
+```bash
 brew install mysql
 ```
 
 使用 `brew services` 啟動 MySQL。
 
-```BASH
+```bash
 brew services start mysql
 ```
 
 或使用以下指令：
 
-```BASH
+```bash
 mysql.server start
 ```
 
 使用 `brew services` 停止 MySQL。
 
-```BASH
+```bash
 brew services stop mysql
 ```
 
 或使用以下指令：
 
-```BASH
+```bash
 mysql.server stop
 ```
 
 使用 `brew services` 重新啟動 MySQL。
 
-```BASH
+```bash
 brew services restart mysql
 ```
 
 或使用以下指令：
 
-```BASH
+```bash
 mysql.server restart
 ```
 
@@ -53,25 +53,25 @@ mysql.server restart
 
 設定 `root` 使用者密碼。
 
-```BASH
+```bash
 mysqladmin -u root password
 ```
 
 使用 `root` 使用者進入資料庫。
 
-```BASH
+```bash
 mysql -u root -p
 ```
 
 建立使用者。
 
-```SQL
+```sql
 > CREATE USER 'admin'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 ```
 
 設定權限。
 
-```SQL
+```sql
 > GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost';
 > FLUSH PRIVILEGES;
 > quit;
@@ -79,6 +79,6 @@ mysql -u root -p
 
 使用 `admin` 使用者進入資料庫。
 
-```BASH
+```bash
 mysql -u admin -p
 ```

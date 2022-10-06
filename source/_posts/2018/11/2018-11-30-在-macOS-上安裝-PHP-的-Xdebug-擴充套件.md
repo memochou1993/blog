@@ -9,44 +9,44 @@ categories: ["程式設計", "PHP", "擴充套件"]
 
 安裝 PHP 的 Xdebug 擴充套件。
 
-```BASH
+```bash
 pecl install xdebug
 ```
 
 修改 `php.ini` 檔，並刪除第一行 `zend_extension="xdebug.so"`。
 
-```BASH
+```bash
 vi /usr/local/etc/php/7.2/php.ini
 ```
 
 新增 `xdebug.ini` 檔。
 
-```BASH
+```bash
 vi /usr/local/etc/php/7.2/conf.d/xdebug.ini
 ```
 
 加入以下內容：
 
-```BASH
+```bash
 [xdebug]
 zend_extension="/usr/local/lib/php/pecl/20170718/xdebug.so"
 ```
 
 使用指令查看擴充套件是否安裝成功，或在 PHP 腳本中使用 `phpinfo()` 查看。
 
-```BASH
+```bash
 php -m |grep xdebug
 xdebug
 ```
 
 查看擴充套件的安裝位置。
 
-```BASH
+```bash
 php -i|grep extension_dir
 ```
 
 查看詳細資訊。
 
-```BASH
+```bash
 vagrant@homestead:~$ php --ri xdebug
 ```

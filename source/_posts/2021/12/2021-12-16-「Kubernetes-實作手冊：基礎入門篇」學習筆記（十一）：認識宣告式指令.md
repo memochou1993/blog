@@ -22,19 +22,19 @@ categories: ["環境部署", "Kubernetes", "「Kubernetes 實作手冊：基礎�
 
 例如使用 `kubectl apply` 指令，指定一個 YAML 檔，並創建資源。
 
-```BASH
+```bash
 kubectl apply -f introduction/pod/basic.yaml
 ```
 
 如果配置檔有修改，可以使用 `kubectl diff` 指令，指定一個 YAML 檔，並查看變化。
 
-```BASH
+```bash
 kubectl diff -f introduction/pod/basic.yaml
 ```
 
 如果修改了配置檔，再執行一次 `kubectl apply` 即可套用變化。
 
-```BASH
+```bash
 kubectl apply -f introduction/pod/basic.yaml
 ```
 

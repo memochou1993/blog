@@ -14,7 +14,7 @@ categories: ["程式設計", "Go", "其他"]
 
 修改 `~/.zshrc` 檔：
 
-```ENV
+```env
 export GO111MODULE=on
 export GOPATH=$HOME/Workspace/go
 export GOBIN=$GOPATH/bin
@@ -23,7 +23,7 @@ export PATH=$GOBIN:$PATH
 
 重新加載啟動文件。
 
-```BASH
+```bash
 source ~/.bashrc
 ```
 
@@ -31,20 +31,20 @@ source ~/.bashrc
 
 建立專案。
 
-```BASH
+```bash
 mkdir go-mod-example
 cd go-mod-example
 ```
 
 初始化 Go Modules。
 
-```BASH
+```bash
 go mod init github.com/memochou1993/go-mod-example
 ```
 
 在 `src` 資料夾新增 `main.go` 檔：
 
-```GO
+```go
 package main
 
 import (
@@ -60,24 +60,24 @@ func main() {
 
 下載依賴套件。
 
-```BASH
+```bash
 go mod download
 ```
 
 直接執行應用程式，也會下載依賴套件。
 
-```BASH
+```bash
 go run main.go
 ```
 
 若要清除快取，使用以下指令：
 
-```BASH
+```bash
 go clean -modcache
 ```
 
 若要刪除未使用的套件，或找回遺失的套件，使用以下指令：
 
-```BASH
+```bash
 go mod tidy
 ```

@@ -30,7 +30,7 @@ categories: ["程式設計", "PHP", "《現代 PHP》學習筆記"]
 
 名稱空間的例子如下：
 
-```PHP
+```php
 namespace Symfony\Component\HttpFoundation;
 ```
 
@@ -38,7 +38,7 @@ namespace Symfony\Component\HttpFoundation;
 
 這裡下載作者提供的範例進行實作：
 
-```BASH
+```bash
 git clone https://github.com/codeguy/modern-php.git
 ```
 
@@ -48,7 +48,7 @@ git clone https://github.com/codeguy/modern-php.git
 
 範例 2-1：不使用別名的名稱空間
 
-```PHP
+```php
 require 'vendor/autoload.php';
 
 $response = new \Symfony\Component\HttpFoundation\Response('Oops', 400);
@@ -60,7 +60,7 @@ $response->send();
 
 範例 2-2：使用預設別名的名稱空間
 
-```PHP
+```php
 require 'vendor/autoload.php';
 
 use Symfony\Component\HttpFoundation\Response;
@@ -73,7 +73,7 @@ $response->send();
 
 範例 2-3：使用自訂別名的名稱空間
 
-```PHP
+```php
 require 'vendor/autoload.php';
 
 use Symfony\Component\HttpFoundation\Response as Res;
@@ -88,7 +88,7 @@ $r->send();
 
 若是要匯入函式，使用 `use function`：
 
-```PHP
+```php
 use function Namespace\functionName;
 
 functionName();
@@ -98,7 +98,7 @@ functionName();
 
 實作：
 
-```PHP
+```php
 namespace Foo\Bar {
     function foo() {
         return true;
@@ -113,7 +113,7 @@ namespace {
 
 若是要匯入常數，使用 `use const`：
 
-```PHP
+```php
 use const Namespace\CONST_NAME;
 
 echo CONST_NAME;
@@ -123,7 +123,7 @@ echo CONST_NAME;
 
 實作：
 
-```PHP
+```php
 namespace Foo\Bar {
     const FOO = true;
 }
@@ -136,7 +136,7 @@ namespace {
 
 多重匯入：
 
-```PHP
+```php
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Cookie;
@@ -146,7 +146,7 @@ use Symfony\Component\HttpFoundation\Cookie;
 
 範例 2-4：在其他名稱空間中使用不正確的類別名稱
 
-```PHP
+```php
 namespace My\App;
 
 class Foo
@@ -162,7 +162,7 @@ class Foo
 
 範例 2-5：在其他名稱空間中使用正確的類別名稱
 
-```PHP
+```php
 namespace My\App;
 
 class Foo

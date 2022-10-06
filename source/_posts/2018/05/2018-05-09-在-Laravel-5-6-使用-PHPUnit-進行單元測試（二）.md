@@ -18,7 +18,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 新增 `app/Repositories/PostRepository.php` 檔。
 
-```PHP
+```php
 namespace App\Repositories;
 
 use App\Post;
@@ -31,13 +31,13 @@ class PostRepository
 
 建立 `tests/ArticleRepositoryTest.php` 測試類別。
 
-```PHP
+```php
 use App\Post; // 調用 Post 模型
 ```
 
 設定 `setUp()` 方法以開始測試。
 
-```PHP
+```php
 protected $repository = null;
 
 public function setUp()
@@ -54,7 +54,7 @@ public function setUp()
 
 新增 `seedData()` 方法以產生 100 筆假文章。
 
-```PHP
+```php
 protected function seedData()
 {
     // 新增 100 筆假文章
@@ -69,7 +69,7 @@ protected function seedData()
 
 新增 `testFetchLatestPost()` 方法以測試取得最新 1 筆文章。
 
-```PHP
+```php
 public function testFetchLatestPost()
 {
     // 使用 PostRepository 的 latestPost() 方法
@@ -89,7 +89,7 @@ public function testFetchLatestPost()
 
 設定 `tearDown()` 方法以結束測試。
 
-```PHP
+```php
 public function tearDown()
 {
     // 重置資料庫
@@ -102,13 +102,13 @@ public function tearDown()
 
 執行測試。
 
-```BASH
+```bash
 phpunit # 失敗
 ```
 
 回到 `PostRepository` 增加 `latestPost()` 方法。
 
-```PHP
+```php
 public function latestPost()
 {
     return Post::query()->orderBy('id', 'desc')->limit(1)->get();
@@ -117,13 +117,13 @@ public function latestPost()
 
 執行測試。
 
-```BASH
+```bash
 phpunit # 成功
 ```
 
 新增 `testCreatePost()` 方法以測試新增文章。
 
-```PHP
+```php
 public function testCreatePost()
 {
     $postCount = $this->repository->postCount();
@@ -141,13 +141,13 @@ public function testCreatePost()
 
 執行測試。
 
-```BASH
+```bash
 phpunit # 失敗
 ```
 
 回到 `PostRepository` 增加 `postCount()` 和 `create()` 方法。
 
-```PHP
+```php
 public function postCount()
 {
     return Post::count();
@@ -161,7 +161,7 @@ public function create(array $attributes)
 
 執行測試。
 
-```BASH
+```bash
 phpunit # 成功
 ```
 

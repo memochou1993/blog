@@ -13,7 +13,7 @@ categories: ["程式設計", "Go", "「A tour of Go」學習筆記"]
 
 `goroutine` 是由 Go 運行時所管理的輕量級執行緒（thread）。以下會啟動一個新的 `goroutine` 並且執行：
 
-```GO
+```go
 go f(x, y, z)
 ```
 
@@ -21,7 +21,7 @@ go f(x, y, z)
 
 `goroutine` 在相同的地址空間中運行。
 
-```GO
+```go
 package main
 
 import (
@@ -46,7 +46,7 @@ func main() {
 
 通道（channel）是帶有型別的管道，可以通過它使用通道操作符 `<-` 來發送或接收值。
 
-```GO
+```go
 ch <- v    // 將 v 發送至名為 ch 的 channel
 v := <-ch  // 從名為 ch 的 channel 接收值並賦予 v
 ```
@@ -55,7 +55,7 @@ v := <-ch  // 從名為 ch 的 channel 接收值並賦予 v
 
 就像集合和切片一樣，`channel` 在使用前必須先創建：
 
-```GO
+```go
 ch := make(chan int)
 ```
 
@@ -63,7 +63,7 @@ ch := make(chan int)
 
 以下範例對切片中的數進行求和，將任務分配給兩個 `goroutine`。一旦兩個 `goroutine` 完成了它們的計算，它就能算出最終的結果。
 
-```GO
+```go
 package main
 
 import "fmt"
@@ -92,13 +92,13 @@ func main() {
 
 `channel` 是可以具有緩衝的。將緩衝長度作為第二個參數提供給 `make()` 函式，來初始化一個具有緩衝的 `channel`。
 
-```GO
+```go
 ch := make(chan int, 100)
 ```
 
 只有當 `channel` 的緩衝區被填滿後，向其發送資料時才會阻塞。當緩衝區為空時，接收的一端會阻塞。
 
-```GO
+```go
 package main
 
 import "fmt"
@@ -122,7 +122,7 @@ func main() {
 
 `channel` 與檔案不同，通常情況下無需關閉。只有在必須告訴接收者不再有需要發送的值時才有必要關閉，例如停止一個 `range` 迴圈。
 
-```GO
+```go
 package main
 
 import (
@@ -153,7 +153,7 @@ func main() {
 
 `select` 會阻塞到某個分支可以繼續執行為止，這時就會執行該分支。當多個分支都準備好時，會隨機選擇一個執行。
 
-```GO
+```go
 package main
 
 import "fmt"
@@ -188,7 +188,7 @@ func main() {
 
 為了在嘗試發送或接收時不發生阻塞，可以使用 `default` 分支：
 
-```GO
+```go
 package main
 
 import (
@@ -224,7 +224,7 @@ Go 標準庫提供了 `sync.Mutex` 型別以及兩個方法：`Lock()` 和 `Unlo
 
 也可以用 `defer` 語句來保證互斥鎖一定會被解鎖。
 
-```GO
+```go
 package main
 
 import (

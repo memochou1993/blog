@@ -14,19 +14,19 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 ## 建立專案
 
-```BASH
+```bash
 laravel new swoole
 ```
 
 ## 安裝套件
 
-```BASH
+```bash
 composer require swooletw/laravel-swoole
 ```
 
 ## 啟動伺服器
 
-```BASH
+```bash
 php artisan swoole:http start
 ```
 
@@ -34,7 +34,7 @@ php artisan swoole:http start
 
 在 `/usr/local/etc/nginx/servers` 資料夾新增 `swoole.test.conf` 檔：
 
-```CONF
+```conf
 server {
   listen       80;
   server_name  swoole.test;
@@ -47,13 +47,13 @@ server {
 
 在 `/private/etc/hosts` 檔新增以下內容：
 
-```ENV
+```env
 127.0.0.1 swoole.test
 ```
 
 ## 瀏覽網頁
 
-前往 <http://swoole.test/>
+前往 <http://swoole.test/> 瀏覽。
 
 ## 參考資料
 

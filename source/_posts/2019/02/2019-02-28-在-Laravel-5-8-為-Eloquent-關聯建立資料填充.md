@@ -13,7 +13,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 修改 `app/User.php` 檔。
 
-```PHP
+```php
 /**
  * Get the route key for the model.
  *
@@ -37,7 +37,7 @@ public function projects()
 
 修改 `app/Project.php` 檔。
 
-```PHP
+```php
 /**
  * Get the users that belong to the project.
  *
@@ -61,7 +61,7 @@ public function environments()
 
 修改 `app/Environment.php` 檔。
 
-```PHP
+```php
 /**
  * Get the project that the environments belongs to.
  *
@@ -77,13 +77,13 @@ public function project()
 
 建立 `ProjectsTableSeeder.php` 檔。
 
-```BASH
+```bash
 php artisan make:seed ProjectsTableSeeder
 ```
 
 為第一個使用者建立 10 筆私人專案，並為每筆專案建立 5 筆設定檔。
 
-```PHP
+```php
 factory(Project::class, 10)->create([
     'private' => true,
 ])->each(
@@ -99,13 +99,13 @@ factory(Project::class, 10)->create([
 
 建立 `UserProjectTableSeeder.php` 檔。
 
-```BASH
+```bash
 php artisan make:seed UserProjectTableSeeder
 ```
 
 為所有使用者與 10 筆專案建立隨機的多對多關聯。
 
-```PHP
+```php
 /**
  * Get all public projects.
  */

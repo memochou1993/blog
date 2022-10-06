@@ -12,7 +12,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 ## 安裝
 
-```BASH
+```bash
 composer require tcg/voyager
 ```
 
@@ -20,13 +20,13 @@ composer require tcg/voyager
 
 修改 `.env` 檔。
 
-```ENV
+```env
 APP_URL=voyager.test
 ```
 
 ## 執行安裝
 
-```BASH
+```bash
 php artisan voyager:install --with-dummy
 ```
 
@@ -34,7 +34,7 @@ php artisan voyager:install --with-dummy
 
 ## 指派管理員
 
-```BASH
+```bash
 php artisan voyager:admin your@email.com --create
 ```
 
@@ -55,7 +55,7 @@ php artisan voyager:admin your@email.com --create
 
 修改 `config\voyager.php` 檔。
 
-```PHP
+```php
 'widgets' => [
     'TCG\\Voyager\\Widgets\\UserDimmer',
 ],
@@ -68,7 +68,7 @@ php artisan voyager:admin your@email.com --create
 3. 新增 `app\Widgets\ItemDimmer.php` 檔。
 4. 在 https://unsplash.com 找到適合的圖片放到 `public\vendor\tcg\voyager\assets\images\widget-backgrounds` 資料夾。
 
-```PHP
+```php
 namespace App\Widgets;
 
 use App\Item;
@@ -121,7 +121,7 @@ class ItemDimmer extends BaseDimmer
 
 修改 `config\voyager.php` 檔。
 
-```PHP
+```php
 'widgets' => [
     'App\\Widgets\\ItemDimmer',
 ],

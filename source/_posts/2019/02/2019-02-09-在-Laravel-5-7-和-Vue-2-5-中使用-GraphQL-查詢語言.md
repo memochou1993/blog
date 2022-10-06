@@ -19,26 +19,26 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 新增 Laravel 專案。
 
-```BASH
+```bash
 laravel new booksql-laravel
 ```
 
 安裝 `nuwave/lighthouse` 套件。
 
-```BASH
+```bash
 composer require nuwave/lighthouse
 ```
 
 發布資源。
 
-```BASH
+```bash
 php artisan vendor:publish --provider="Nuwave\Lighthouse\Providers\LighthouseServiceProvider" --tag=schema
 php artisan vendor:publish --provider="Nuwave\Lighthouse\Providers\LighthouseServiceProvider" --tag=config
 ```
 
 修改 `config/lighthouse.php` 檔中 `models` 指定的命名空間。
 
-```PHP
+```php
 'namespaces' => [
     'models' => 'App',
     'queries' => 'App\\Http\\GraphQL\\Queries',
@@ -53,67 +53,67 @@ php artisan vendor:publish --provider="Nuwave\Lighthouse\Providers\LighthouseSer
 
 下載 `lighthouse-tutorial` 範例。
 
-```BASH
+```bash
 git clone https://github.com/nuwave/lighthouse-tutorial.git
 cd lighthouse-tutorial
 ```
 
 或在新專案安裝 `nuwave/lighthouse` 套件。
 
-```BASH
+```bash
 composer require nuwave/lighthouse
 ```
 
 建立設定檔。
 
-```BASH
+```bash
 cp .env.example .env
 ```
 
 生成金鑰。
 
-```BASH
+```bash
 php artisan key:generate
 ```
 
 安裝相依套件。
 
-```BASH
+```bash
 composer install
 ```
 
 執行遷移。
 
-```BASH
+```bash
 php artisan migrate
 ```
 
 新增填充。
 
-```BASH
+```bash
 php artisan tinker
 >>> factory('App\Comment', 20)->create()
 ```
 
 啟動伺服器。
 
-```BASH
+```bash
 php artisan serve
 ```
 
-前往：<http://127.0.0.1:8000>
+前往 <http://127.0.0.1:8000> 瀏覽。
 
 ### 跨域資源共享
 
 安裝 `laravel-cors` 套件。
 
-```BASH
+```bash
 composer require barryvdh/laravel-cors
 ```
 
 修改 `config/lighthouse.php` 檔：
 
-```PHP
+```php
 'route' => [
     'prefix' => '',
     'middleware' => [
@@ -126,7 +126,7 @@ composer require barryvdh/laravel-cors
 
 安裝 GraphQL Playground 開發工具。
 
-```BASH
+```bash
 brew cask install graphql-playground
 ```
 
@@ -134,17 +134,17 @@ brew cask install graphql-playground
 
 或安裝 Laravel GraphQL Playground 網頁開發工具。
 
-```BASH
+```bash
 composer require --dev mll-lab/laravel-graphql-playground
 ```
 
-前往：<http://127.0.0.1:8000/graphql-playground>
+前往 <http://127.0.0.1:8000/graphql-playground> 瀏覽。
 
 ### 架構
 
 查看 `routes/graphql/schema.graphql` 檔。
 
-```JS
+```js
 """This is a custom built-in Scalar type from LightHouse. It handles Carbon dates"""
 scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
 
@@ -181,7 +181,7 @@ type Query {
 
 執行查詢。
 
-```JS
+```js
 query {
   post(id: 1) {
     title
@@ -198,7 +198,7 @@ query {
 
 新增修改。
 
-```JS
+```js
 type Mutation {
     createUser(
         name: String! @rules(apply: ["required", "min:4"]),
@@ -210,7 +210,7 @@ type Mutation {
 
 執行修改。
 
-```JS
+```js
 mutation {
   createUser(
     name:"Test",
@@ -227,13 +227,13 @@ mutation {
 
 新增一個查詢類別。
 
-```BASH
+```bash
 php artisan lighthouse:query LatestPost
 ```
 
 修改 `app/Http/GraphQL/Queries/LatestPost.php` 檔：
 
-```PHP
+```php
 namespace App\Http\GraphQL\Queries;
 
 use App\Post;
@@ -261,7 +261,7 @@ class LatestPost
 
 修改 `routes/graphql/schema.graphql` 檔：
 
-```JS
+```js
 type Query {
     latestPost: Post
 }
@@ -269,7 +269,7 @@ type Query {
 
 執行查詢。
 
-```JS
+```js
 query {
   latestPost {
     title
@@ -281,36 +281,36 @@ query {
 
 ### 建立前端專案
 
-```BASH
+```bash
 vue create vue-apollo
 ```
 
 安裝套件。
 
-```BASH
+```bash
 cd vue-apollo
 vue add apollo
 ```
 
 啟動伺服器。
 
-```BASH
+```bash
 npm run serve
 ```
 
-前往：<http://localhost:8080>
+前往 <http://localhost:8080> 瀏覽。
 
 ### 設定
 
 修改 `src/vue-apollo.js` 檔：
 
-```JS
+```js
 const httpEndpoint = process.env.VUE_APP_GRAPHQL_HTTP || 'http://localhost:8000/graphql';
 ```
 
 執行查詢。
 
-```JS
+```js
 import gql from 'graphql-tag';
 
 export default {
@@ -333,7 +333,7 @@ export default {
 
 執行修改。
 
-```JS
+```js
 methods: {
   createUser() {
     this.$apollo.mutate({

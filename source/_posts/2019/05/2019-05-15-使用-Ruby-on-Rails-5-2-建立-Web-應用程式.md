@@ -9,7 +9,7 @@ categories: ["程式設計", "Ruby", "Rails"]
 
 使用 `gem` 安裝 `rails`。
 
-```BASH
+```bash
 gem install rails
 rails --version
 Rails 5.2.3
@@ -19,30 +19,30 @@ Rails 5.2.3
 
 建立專案。
 
-```BASH
+```bash
 rails new blog
 cd blog
 ```
 
 啟動網頁服務器。
 
-```BASH
+```bash
 rails server
 ```
 
-前往：<http://localhost:3000/>
+前往 <http://localhost:3000/> 瀏覽。
 
 ## 新增歡迎頁面
 
 新增 `Welcome` 控制器，並附帶 `index` 方法。
 
-```BASH
+```bash
 rails generate controller Welcome index
 ```
 
 修改 `config` 資料夾的 `routes.rb` 檔。
 
-```RB
+```rb
 Rails.application.routes.draw do
   get 'welcome/index'
 
@@ -52,7 +52,7 @@ end
 
 查看路由。
 
-```BASH
+```bash
 rails routes
 ```
 
@@ -60,7 +60,7 @@ rails routes
 
 修改 `config` 資料夾的 `routes.rb` 檔，並新增一個 `articles` 資源路由。
 
-```RUBY
+```rb
 Rails.application.routes.draw do
   get 'welcome/index'
 
@@ -74,13 +74,13 @@ end
 
 新增 `Articles` 控制器。
 
-```BASH
+```bash
 rails generate controller Articles
 ```
 
 修改 `app/controllers` 資料夾的 `articles_controller.rb` 檔：
 
-```RB
+```rb
 class ArticlesController < ApplicationController
   def index
     @articles = Article.all
@@ -111,7 +111,7 @@ end
 
 在 `views/articles` 資料夾新增 `new.html.erb` 視圖。
 
-```HTML
+```html
 <%= form_with scope: :article, url: articles_path, local: true do |form| %>
   <p>
     <%= form.label :title %><br>
@@ -131,7 +131,7 @@ end
 
 在 `views/articles` 資料夾新增 `new.html.erb` 視圖。
 
-```HTML
+```html
 <p>
   <strong>Title:</strong>
   <%= @article.title %>
@@ -143,18 +143,18 @@ end
 </p>
 ```
 
-前往：<http://localhost:3000/articles/new>
+前往 <http://localhost:3000/articles/new> 瀏覽。
 
 ## 新增模型
 
 新增 `Article` 模型。
 
-```BASH
+```bash
 rails generate model Article title:string text:text
 ```
 
 執行遷移。
 
-```BASH
+```bash
 rails db:migrate
 ```

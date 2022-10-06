@@ -9,7 +9,7 @@ categories: ["程式設計", "JavaScript", "其他"]
 
 新增 `worker.js` 檔，可以在裡面處理複雜的運算。使用 `postMessage` 方法可以將內容傳送至主執行緒。
 
-```JS
+```js
 let i = 0;
 
 setInterval(() => {
@@ -20,7 +20,7 @@ setInterval(() => {
 
 在主執行緒，可以透過 `onmessage` 接收 worker 傳過來的內容。
 
-```HTML
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>

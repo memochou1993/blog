@@ -9,13 +9,13 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 安裝套件。
 
-```BASH
+```bash
 composer require league/flysystem-sftp
 ```
 
 修改 `config/filesystems.php` 檔，新增一個儲存系統：
 
-```PHP
+```php
 return [
 
     // ...
@@ -39,7 +39,7 @@ return [
 
 修改 `.env` 檔：
 
-```ENV
+```env
 SFTP_HOST=
 SFTP_PORT=
 SFTP_USERNAME=
@@ -48,7 +48,7 @@ SFTP_PASSWORD=
 
 取得檔案：
 
-```PHP
+```php
 \Illuminate\Support\Facades\Storage::disk('sftp')->get('file.csv');
 ```
 

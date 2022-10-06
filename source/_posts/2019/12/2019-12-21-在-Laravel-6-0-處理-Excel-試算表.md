@@ -9,19 +9,19 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 安裝 `maatwebsite/excel` 套件，此套件封裝了 `PHPOffice/PhpSpreadsheet` 套件。
 
-```BASH
+```bash
 composer require maatwebsite/excel
 ```
 
 建立 `BookingsExport` 匯出類別。
 
-```BASH
+```bash
 php artisan make:export BookingsExport
 ```
 
 修改 `BookingsExport` 匯出類別。
 
-```PHP
+```php
 namespace App\Exports;
 
 use App\Repositories\BookingRepository;
@@ -207,7 +207,7 @@ class BookingsExport implements
 
 依賴注入至指定的控制器。
 
-```PHP
+```php
 public function export(BookingsExport $bookingsExport)
 {
     return $bookingsExport->download('bookings.xlsx');

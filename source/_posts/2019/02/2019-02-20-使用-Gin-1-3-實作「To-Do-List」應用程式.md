@@ -13,13 +13,13 @@ categories: ["程式設計", "Go", "Gin"]
 
 安裝 `gin-gonic/gin` 包。
 
-```BASH
+```bash
 go get -u github.com/gin-gonic/gin
 ```
 
 新增 `main.go` 檔。
 
-```GO
+```go
 package main
 
 import (
@@ -167,7 +167,7 @@ func destroyTodo(c *gin.Context) {
 
 在 `helpers` 資料夾新增 `cast.go` 檔。
 
-```GO
+```go
 package helpers
 
 import (
@@ -186,6 +186,6 @@ func StringToBinary(str string) int {
 
 執行應用。
 
-```BASH
+```bash
 go run main.go
 ```

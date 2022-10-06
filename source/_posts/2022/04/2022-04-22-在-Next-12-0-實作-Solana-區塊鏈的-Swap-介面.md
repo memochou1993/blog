@@ -13,7 +13,7 @@ categories: ["區塊鏈", "Solana"]
 
 建立專案。
 
-```BASH
+```bash
 npx create-next-app@latest solana-swap --typescript
 ```
 
@@ -21,13 +21,13 @@ npx create-next-app@latest solana-swap --typescript
 
 刪除 `yarn.lock` 檔。
 
-```BASH
+```bash
 rm yarn.lock
 ```
 
 更新 `package.json` 檔。
 
-```BASH
+```bash
 {
   "name": "solmeet-4-swap-ui",
   "private": true,
@@ -76,7 +76,7 @@ rm yarn.lock
 
 安裝依賴套件。
 
-```BASH
+```bash
 yarn
 ```
 
@@ -84,7 +84,7 @@ yarn
 
 建立相關資料夾。
 
-```BASH
+```bash
 mkdir utils && touch utils/{ids.ts,layouts.ts,liquidity.ts,pools.ts,safe-math.ts,swap.ts,tokenList.ts,tokens.ts,web3.ts}
 mkdir views && mkdir views/{commons,jupiter,raydium}
 touch views/commons/{Navigator.tsx,WalletProvider.tsx,SplTokenList.tsx,Notify.tsx} && touch views/jupiter/{FeeInfo.tsx,JupiterForm.tsx,JupiterProvider.tsx} && touch views/raydium/{index.tsx,SlippageSetting.tsx,SwapOperateContainer.tsx,TokenList.tsx,TokenSelect.tsx,TitleRow.tsx}
@@ -97,7 +97,7 @@ mkdir chakra && touch chakra/style.js
 
 更新 `views/commons/Navigator.tsx` 檔。
 
-```TS
+```ts
 import { FunctionComponent } from "react";
 import Link from "next/link";
 import {
@@ -141,7 +141,7 @@ export default Navigator;
 
 更新 `views/commons/Notify.tsx` 檔。
 
-```TS
+```ts
 import { FunctionComponent } from "react";
 import {
   Alert,
@@ -196,7 +196,7 @@ export default Notify;
 
 更新 `views/commons/SplTokenList.tsx` 檔。
 
-```TS
+```ts
 import { FunctionComponent } from "react";
 import style from "../../styles/swap.module.sass";
 import { TOKENS } from "../../utils/tokens";
@@ -265,7 +265,7 @@ export default SplTokenList;
 
 更新 `views/commons/WalletProvider.tsx` 檔。
 
-```TS
+```ts
 import React, { FunctionComponent, useMemo } from "react";
 import {
   ConnectionProvider,
@@ -321,7 +321,7 @@ export const Wallet: FunctionComponent = props => {
 
 更新 `pages/raydium.tsx` 檔。
 
-```TS
+```ts
 import { FunctionComponent } from "react";
 
 const RaydiumPage: FunctionComponent = () => {
@@ -333,7 +333,7 @@ export default RaydiumPage;
 
 更新 `pages/_app.tsx` 檔。
 
-```TS
+```ts
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { Wallet } from "../views/commons/WalletProvider";
@@ -357,7 +357,7 @@ export default SwapUI;
 
 更新 `styles/globals.css` 檔。
 
-```CSS
+```css
 html,
 body {
   font-size: 10px;
@@ -376,7 +376,7 @@ body {
 
 更新 `styles/navigator.module.sass` 檔。
 
-```CSS
+```css
 @import './color.module.sass'
 
 .dappioLogo
@@ -408,7 +408,7 @@ body {
 
 更新 `styles/color.module.sass` 檔。
 
-```CSS
+```css
 $white: #eee
 $main_blue: rgb(19, 27, 51)
 $swap_card_bgc: #131a35
@@ -423,7 +423,7 @@ $slippage_setting_warning_red: #f5222d
 
 更新 `utils/ids.ts` 檔。
 
-```TS
+```ts
 import { PublicKey } from '@solana/web3.js'
 
 export const SYSTEM_PROGRAM_ID = new PublicKey('11111111111111111111111111111111')
@@ -465,7 +465,7 @@ export const TEMP_LP_TOKEN_ASSOCIATED_SEED = 'temp_lp_token_associated_seed'
 
 更新 `utils/layouts.ts` 檔。
 
-```TS
+```ts
 import { bool, publicKey, struct, u32, u64, u8 } from '@project-serum/borsh'
 
 // https://github.com/solana-labs/solana-program-library/blob/master/token/js/client/token.js#L210
@@ -500,7 +500,7 @@ export function getBigNumber(num: any) {
 
 更新 `utils/liquidity.ts` 檔。
 
-```TS
+```ts
 //@ts-ignore
 import { struct } from "buffer-layout";
 import { publicKey, u128, u64 } from "@project-serum/borsh";
@@ -755,7 +755,7 @@ export async function getLpMintListDecimals(
 
 更新 `utils/pools.ts` 檔。
 
-```TS
+```ts
 import { cloneDeep } from "lodash-es";
 
 // @ts-ignore
@@ -5140,7 +5140,7 @@ export const LIQUIDITY_POOLS: LiquidityPoolInfo[] = [
 
 更新 `utils/safe-math.ts` 檔。
 
-```TS
+```ts
 import BigNumber from "bignumber.js";
 
 // https://github.com/MikeMcl/bignumber.js
@@ -5178,7 +5178,7 @@ export class TokenAmount {
 
 更新 `utils/swap.ts` 檔。
 
-```TS
+```ts
 import { Buffer } from "buffer";
 import { closeAccount } from "@project-serum/serum/lib/token-instructions";
 import { OpenOrders } from "@project-serum/serum";
@@ -5876,7 +5876,7 @@ export async function setupPools(conn: Connection) {
 
 更新 `utils/tokenList.ts` 檔。
 
-```TS
+```ts
 import { TokenListProvider } from "@solana/spl-token-registry";
 
 const SPLTokenRegistrySource = async () => {
@@ -5892,7 +5892,7 @@ export default SPLTokenRegistrySource;
 
 更新 `utils/tokens.ts` 檔。
 
-```TS
+```ts
 import { cloneDeep } from 'lodash-es';
 
 /**
@@ -8502,7 +8502,7 @@ updateTokenTagsChange()
 
 更新 `utils/web3.ts` 檔。
 
-```TS
+```ts
 import { initializeAccount } from "@project-serum/serum/lib/token-instructions";
 import { WalletContextState } from "@solana/wallet-adapter-react";
 
@@ -8870,7 +8870,7 @@ export const getSPLTokenData = async (
 
 更新 `views/raydium/TitleRow.tsx` 檔。
 
-```TS
+```ts
 import style from "../../styles/swap.module.sass";
 import {
   Tooltip,
@@ -9019,7 +9019,7 @@ export default TitleRow;
 
 更新 `views/raydium/TokenList.tsx` 檔。
 
-```TS
+```ts
 import { FunctionComponent, useEffect, useRef, useState } from "react";
 import { CloseIcon } from "@chakra-ui/icons";
 import SPLTokenRegistrySource from "../../utils/tokenList";
@@ -9147,7 +9147,7 @@ export default TokenList;
 
 更新 `views/raydium/SlippageSetting.tsx` 檔。
 
-```TS
+```ts
 import { useState, useEffect, FunctionComponent } from "react";
 import { CloseIcon } from "@chakra-ui/icons";
 import style from "../../styles/swap.module.sass";
@@ -9252,7 +9252,7 @@ export default SlippageSetting;
 
 更新 `views/raydium/TokenSelect.tsx` 檔。
 
-```TS
+```ts
 import { FunctionComponent, useEffect, useState } from "react";
 import { ArrowDownIcon } from "@chakra-ui/icons";
 import { useWallet } from "@solana/wallet-adapter-react";
@@ -9381,7 +9381,7 @@ export default TokenSelect;
 
 更新 `views/raydium/SwapOperateContainer.tsx` 檔。
 
-```TS
+```ts
 import { FunctionComponent } from "react";
 import { ArrowUpDownIcon, QuestionOutlineIcon } from "@chakra-ui/icons";
 import { Tooltip } from "@chakra-ui/react";
@@ -9569,7 +9569,7 @@ export default SwapOperateContainer;
 更新 `views/raydium/index.tsx` 檔。
 
 
-```TS
+```ts
 import { useState, useEffect, FunctionComponent } from "react";
 import TokenList from "./TokenList";
 import TitleRow from "./TitleRow";
@@ -9956,7 +9956,7 @@ export default SwapPage;
 
 更新 `pages/raydium.tsx` 檔。
 
-```JS
+```js
 import { FunctionComponent } from "react";
 import Swap from "../views/raydium/index";
 import { ChakraProvider } from "@chakra-ui/react";
@@ -9979,7 +9979,7 @@ export default RaydiumPage;
 
 更新 `styles/swap.module.sass` 檔。
 
-```CSS
+```css
 @import './color.module'
 
 .swapPage
@@ -10351,7 +10351,7 @@ export default RaydiumPage;
 
 更新 `chakra/style.js` 檔。
 
-```JS
+```js
 import {
   extendTheme
 } from "@chakra-ui/react"
@@ -10369,7 +10369,7 @@ export default theme
 
 更新 `next.config.js` 檔。
 
-```JS
+```js
 /** @type {import('next').NextConfig} */
 const withPlugins = require("next-compose-plugins");
 

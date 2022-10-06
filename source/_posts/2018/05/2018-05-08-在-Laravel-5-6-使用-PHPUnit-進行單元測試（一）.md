@@ -18,7 +18,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 建立專案。
 
-```BASH
+```bash
 laravel new post
 ```
 
@@ -26,7 +26,7 @@ laravel new post
 
 設定 `initDatabase()` 方法以初始化資料庫。
 
-```PHP
+```php
 protected function initDatabase()
 {
     // 使用 sqlite 作為測試資料庫
@@ -47,7 +47,7 @@ protected function initDatabase()
 
 設定 `resetDatabase()` 方法以重置資料庫。
 
-```PHP
+```php
 protected function resetDatabase()
 {
     // 呼叫 migrate:reset 重置遷移和填充
@@ -59,13 +59,13 @@ protected function resetDatabase()
 
 新增 `Post` 模型和 `create_posts_table` 遷移。
 
-```BASH
+```bash
 php artisan make:model Post -m
 ```
 
 配置可寫入欄位。
 
-```PHP
+```php
 protected $fillable = ['title', 'content'],
 ```
 
@@ -78,7 +78,7 @@ use App\Post;
 
 設定 `setUp()` 方法以開始測試。
 
-```PHP
+```php
 public function setUp()
 {
     // 在測試類定義自己的方法，需要調用 setUp() 方法
@@ -90,7 +90,7 @@ public function setUp()
 
 新增 `testEmptyResult()` 方法以測試文章為空。
 
-```PHP
+```php
 public function testEmptyResult()
 {
     // 取得所有文章
@@ -104,7 +104,7 @@ public function testEmptyResult()
 
 新增 `testCreateAndList()` 以測試新增文章。
 
-```PHP
+```php
 public function testCreateAndList()
 {
     // 新增 10 筆文章
@@ -123,7 +123,7 @@ public function testCreateAndList()
 
 設定 `tearDown()` 方法以結束測試。
 
-```PHP
+```php
 public function tearDown()
 {
     // 重置資料庫
@@ -133,7 +133,7 @@ public function tearDown()
 
 執行測試。
 
-```BASH
+```bash
 phpunit
 ```
 

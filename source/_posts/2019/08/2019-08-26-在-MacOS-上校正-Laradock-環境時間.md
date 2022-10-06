@@ -9,19 +9,19 @@ categories: ["環境部署", "Laradock"]
 
 修改 `.env` 檔，開啟 SSH 連線。
 
-```ENV
+```env
 WORKSPACE_INSTALL_WORKSPACE_SSH=true
 ```
 
 修改 `insecure_id_rsa` 檔的權限。
 
-```BASH
+```bash
 chmod 0600 workspace/insecure_id_rsa
 ```
 
 修改 `docker-compose.yml` 檔
 
-```YML
+```yaml
 workspace:
   ...
   privileged: true
@@ -29,12 +29,12 @@ workspace:
 
 重建 `workspace` 容器。
 
-```BASH
+```bash
 docker-compose build workspace
 ```
 
 校正時間。
 
-```BASH
+```bash
 ssh -p 2222 -i workspace/insecure_id_rsa root@localhost date -u $(date +%m%d%H%M%Y)
 ```

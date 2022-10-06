@@ -9,19 +9,19 @@ categories: ["程式設計", "Python", "環境安裝"]
 
 到官方網站下載 [Anaconda](https://www.anaconda.com/distribution/#download-section) 指令列安裝器。下載後，打開終端機執行安裝腳本，並指定安裝目錄為 `~/library/anaconda3`。
 
-```BASH
+```bash
 bash Anaconda3-2019.07-MacOSX-x86_64.sh
 ```
 
 將 `conda` 指令添加至環境變數。
 
-```ENV
+```env
 export PATH=$HOME/library/anaconda3/bin:$PATH
 ```
 
 取消開機時自動啟動虛擬環境。
 
-```BASH
+```bash
 conda config --set auto_activate_base false
 ```
 
@@ -29,13 +29,13 @@ conda config --set auto_activate_base false
 
 使用 `conda` 指令安裝 keras，tensorflow 會一併安裝。
 
-```BASH
+```bash
 conda install keras
 ```
 
 查看 keras 套件版本。
 
-```BASH
+```bash
 python3
 >>> import keras
 Using TensorFlow backend.
@@ -45,7 +45,7 @@ Using TensorFlow backend.
 
 查看 tensorflow 套件版本。
 
-```BASH
+```bash
 python3
 >>> import tensorflow
 >>> tensorflow.__version__
@@ -56,7 +56,7 @@ python3
 
 使用 `jupyter` 指令打開筆記本。
 
-```BASH
+```bash
 cd ~
 jupyter notebook
 ```

@@ -13,20 +13,20 @@ categories: ["程式設計", "Go", "「A tour of Go」學習筆記"]
 
 使用 Homebrew 安裝 Go。
 
-```BASH
+```bash
 brew install go
 ```
 
 查看 Go 版本。
 
-```BASH
+```bash
 go version
 go version go1.11.5
 ```
 
 執行應用。
 
-```BASH
+```bash
 go run hello.go
 ```
 
@@ -34,7 +34,7 @@ go run hello.go
 
 每個 Go 程式由包組成，程式運行的入口是 `main` 包。
 
-```GO
+```go
 package main
 
 import (
@@ -53,7 +53,7 @@ func main() {
 
 使用 `import` 關鍵字導入包，可以使用圓括號或編寫多個導入語句。
 
-```GO
+```go
 package main
 
 import "fmt"
@@ -71,7 +71,7 @@ func main() {
 
 導入一個包之後，可以用其導出的名稱來調用它，並以大寫字母調用包的函式。
 
-```GO
+```go
 package main
 
 import (
@@ -90,7 +90,7 @@ func main() {
 
 函式可以接收參數，型別放在參數名稱之後。
 
-```GO
+```go
 package main
 
 import "fmt"
@@ -108,7 +108,7 @@ func main() {
 
 若函式的每一個參數皆為相同型別，可簡寫為：
 
-```GO
+```go
 package main
 
 import "fmt"
@@ -128,7 +128,7 @@ func main() {
 
 函式可以返回一個以上的值。
 
-```GO
+```go
 package main
 
 import "fmt"
@@ -149,7 +149,7 @@ func main() {
 
 函式所返回的值可以像變數一樣命名，並直接使用 `return` 語句，將當前的值返回。
 
-```GO
+```go
 package main
 
 import "fmt"
@@ -171,7 +171,7 @@ func main() {
 
 使用 `var` 關鍵字宣告變數，型別放在參數名稱之後。
 
-```GO
+```go
 package main
 
 import "fmt"
@@ -188,7 +188,7 @@ func main() {
 
 宣告變數時，可以包含初始值，型別可以被省略。
 
-```GO
+```go
 package main
 
 import "fmt"
@@ -205,7 +205,7 @@ func main() {
 
 使用 `:=` 賦值語句宣告變數，作為 `var` 關鍵字的簡寫。
 
-```GO
+```go
 package main
 
 import "fmt"
@@ -225,7 +225,7 @@ func main() {
 
 Go 的基本型別有 bool、string、int、int8、int16、int32、int64、uint、uint8、uint16、uint32、uint64、uintptr、byte（uint8 的別名）、rune(int32 的別名)、float32、float64、complex64、complex128。
 
-```GO
+```go
 package main
 
 import (
@@ -255,7 +255,7 @@ func main() {
 
 使用表達式 `T(v)` 將 `v` 的型別轉換為 `T`。
 
-```GO
+```go
 package main
 
 import (
@@ -275,7 +275,7 @@ func main() {
 
 使用 `:=` 賦值語句也可以轉換型別。
 
-```GO
+```go
 package main
 
 import (
@@ -297,7 +297,7 @@ func main() {
 
 使用 `const` 關鍵字宣告變數，不能使用 `:=` 賦值語句。
 
-```GO
+```go
 package main
 
 import "fmt"
@@ -320,7 +320,7 @@ func main() {
 
 數值常數是高精度的值。
 
-```GO
+```go
 package main
 
 import "fmt"

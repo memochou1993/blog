@@ -11,7 +11,7 @@ categories: ["程式設計", "JavaScript", "其他"]
 
 使用已被淘汰的 `document.execCommand` 方法。
 
-```JS
+```js
 const copy = (value) => {
   const ele = document.createElement('textarea');
   ele.value = value;
@@ -25,7 +25,7 @@ const copy = (value) => {
 
 實際使用。
 
-```JS
+```js
 document.getElementById('copy').addEventListener('click', () => {
   copy('Hello, World!');
 });
@@ -35,7 +35,7 @@ document.getElementById('copy').addEventListener('click', () => {
 
 使用新的 Clipboard API 方法。
 
-```JS
+```js
 const copy = (value) => {
   navigator.clipboard.writeText(value);
 };
@@ -43,7 +43,7 @@ const copy = (value) => {
 
 實際使用。
 
-```JS
+```js
 document.getElementById('copy').addEventListener('click', () => {
   copy('Hello, World!');
 });

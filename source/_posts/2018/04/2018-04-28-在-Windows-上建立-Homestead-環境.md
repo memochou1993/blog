@@ -19,27 +19,27 @@ categories: ["程式設計", "PHP", "環境安裝"]
 
 新增一個 `laravel/homestead` 盒子。
 
-```BASH
+```bash
 vagrant box add laravel/homestead
 ```
 
 從 Github 上下載 Homestead 下來。
 
-```BASH
+```bash
 cd ~/
 git clone https://github.com/laravel/homestead.git ~/Homestead
 ```
 
 切換到想要的版本。
 
-```BASH
+```bash
 cd Homestead
 git checkout v7.4.0
 ```
 
 初始化。
 
-```BASH
+```bash
 init.bat
 ```
 
@@ -47,7 +47,7 @@ init.bat
 
 打開 `Homestead.yaml` 檔，修改站台和共享資料夾等路徑。
 
-```ENV
+```env
 folders:
     - map: D:\Projects // 任意位置都可以
       to: /home/vagrant/Projects
@@ -67,14 +67,14 @@ databases:
 
 編輯 C:\Windows\System32\drivers\etc\hosts 檔，新增以下虛擬主機路徑：
 
-```ENV
+```env
 192.168.10.10  homestead.test
 192.168.10.10  test.test
 ```
 
 ## 啟動 Homestead
 
-```BASH
+```bash
 cd ~/Homestead
 vagrant up
 ```
@@ -83,13 +83,13 @@ vagrant up
 
 如果沒有公開金鑰，先執行以下命令：
 
-```BASH
+```bash
 ssh-keygen
 ```
 
 再登入 Homestead。
 
-```BASH
+```bash
 vagrant ssh
 ```
 
@@ -97,13 +97,13 @@ vagrant ssh
 
 如果沒有 Laravel 安裝器，先執行以下命令：
 
-```BASH
+```bash
 composer global require "laravel/installer"
 ```
 
 再建立專案。
 
-```BASH
+```bash
 cd Projects
 laravel new laravel
 ```
@@ -116,12 +116,12 @@ laravel new laravel
 
 關閉虛擬機。
 
-```BASH
+```bash
 vagrant halt
 ```
 
 暫停虛擬機。
 
-```BASH
+```bash
 vagrant suspend
 ```

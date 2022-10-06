@@ -9,7 +9,7 @@ categories: ["程式設計", "JavaScript", "ESLint"]
 
 安裝依賴套件。
 
-```BASH
+```bash
 npm install eslint \
     eslint-config-airbnb \
     eslint-plugin-jsx-a11y \
@@ -20,7 +20,7 @@ npm install eslint \
 
 在根目錄新增 `.eslintrc.json` 檔：
 
-```JS
+```js
 {
   "extends": "airbnb",
   "env": {
@@ -32,7 +32,7 @@ npm install eslint \
 
 修改 `package.json` 檔：
 
-```JS
+```js
 {
   "scripts": {
     "lint": "eslint src"
@@ -42,6 +42,6 @@ npm install eslint \
 
 執行檢查。
 
-```BASH
+```bash
 npm run lint
 ```

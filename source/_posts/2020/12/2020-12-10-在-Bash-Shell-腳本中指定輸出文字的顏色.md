@@ -13,7 +13,7 @@ categories: ["程式設計", "Bash Shell"]
 
 使用 echo 指令如下：
 
-```BASH
+```bash
 echo -e "\e[31mHello World\e[0m"
 ```
 
@@ -23,7 +23,7 @@ echo -e "\e[31mHello World\e[0m"
 
 使用 Bash Shell 腳本如下：
 
-```BASH
+```bash
 #!/bin/bash
 printf "\e[31mHello World\e[0m"
 ```

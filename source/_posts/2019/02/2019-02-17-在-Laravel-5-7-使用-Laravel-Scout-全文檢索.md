@@ -13,7 +13,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 至 Algolia 註冊帳號，並建立專案。
 
-```BASH
+```bash
 laravel new scout
 ```
 
@@ -21,25 +21,25 @@ laravel new scout
 
 安裝 `laravel/scout` 套件。
 
-```BASH
+```bash
 composer require laravel/scout
 ```
 
 發布資源。
 
-```BASH
+```bash
 php artisan vendor:publish --provider="Laravel\Scout\ScoutServiceProvider"
 ```
 
 安裝驅動套件。
 
-```BASH
+```bash
 composer require algolia/algoliasearch-client-php
 ```
 
 修改 `.env` 檔。
 
-```ENV
+```env
 SCOUT_QUEUE＝true
 ALGOLIA_APP_ID=<Application ID>
 ALGOLIA_SECRET=<Admin API Key>
@@ -47,7 +47,7 @@ ALGOLIA_SECRET=<Admin API Key>
 
 在模型使用 `Searchable` 特徵機制。
 
-```PHP
+```php
 namespace App;
 
 use Laravel\Scout\Searchable;
@@ -61,7 +61,7 @@ class Project extends Model
 
 可以在模型中使用 `shouldBeSearchable()` 方法，決定是否將資料加入至檢索索引。
 
-```PHP
+```php
 /**
  * Determine if the model should be searchable.
  *
@@ -75,18 +75,18 @@ public function shouldBeSearchable()
 
 一次導入模型的所有資料至檢索索引。
 
-```BASH
+```bash
 php artisan scout:import "App\Project"
 ```
 
 新增一筆資料至檢索索引。
 
-```PHP
+```php
 $project = $user->projects()->create($request->all());
 ```
 
 使用全文檢索。
 
-```PHP
+```php
 $projects = App\Project::search('Test Project')->get();
 ```

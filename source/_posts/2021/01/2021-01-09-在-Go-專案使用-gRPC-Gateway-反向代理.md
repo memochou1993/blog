@@ -13,7 +13,7 @@ gRPC-Gateway 可以讓專案同時支援 gRPC 以及 HTTP API 的服務。
 
 建立專案。
 
-```BASH
+```bash
 mkdir grpc-gateway-go-example
 cd grpc-gateway-go-example
 go mod init
@@ -21,7 +21,7 @@ go mod init
 
 目錄結構如下：
 
-```BASH
+```bash
 |- client/
 |- gen/
 |- proto/
@@ -32,7 +32,7 @@ go mod init
 
 安裝相關套件。
 
-```BASH
+```bash
 go install \
     github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway \
     github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2 \
@@ -42,7 +42,7 @@ go install \
 
 執行後，會在 `$GOBIN` 目錄生成以下執行檔：
 
-```BASH
+```bash
 protoc-gen-grpc-gateway
 protoc-gen-openapiv2
 protoc-gen-go
@@ -53,14 +53,14 @@ protoc-gen-go-grpc
 
 下載所需定義檔。
 
-```BASH
+```bash
 mkdir -p proto/google/api
 cp ../grpc-gateway/third_party/googleapis/google/api/* ./proto/google/api 
 ```
 
 新增 `hello.proto` 檔：
 
-```PROTO
+```proto
 syntax = "proto3";
 
 option go_package = ".;hello";
@@ -87,7 +87,7 @@ message HelloResponse {
 
 使用以下指令，生成 `hello.pb.go` 和 `hello_grpc.pb.go` 檔：
 
-```BASH
+```bash
 protoc -I ./proto \
     --go_out=./gen \
     --go-grpc_out=./gen \
@@ -96,7 +96,7 @@ protoc -I ./proto \
 
 使用以下指令，生成 `hello.pb.gw.go` 檔：
 
-```BASH
+```bash
 protoc -I ./proto --grpc-gateway_out ./gen \
     --grpc-gateway_opt logtostderr=true \
     --grpc-gateway_opt paths=source_relative \
@@ -107,7 +107,7 @@ protoc -I ./proto --grpc-gateway_out ./gen \
 
 在 `server` 資料夾新增 `main.go` 檔：
 
-```GO
+```go
 package main
 
 import (
@@ -162,13 +162,13 @@ func main() {
 
 使用終端機執行服務端程式：
 
-```BASH
+```bash
 go run server/main.go
 ```
 
 使用 curl 指令呼叫 API。
 
-```BASH
+```bash
 curl -d '{"greeting":"world"}' -H "Content-Type: application/json" -X POST http://localhost:8890/hello
 {"reply":"Hello, world"}
 ```
@@ -177,7 +177,7 @@ curl -d '{"greeting":"world"}' -H "Content-Type: application/json" -X POST http:
 
 在 `client` 資料夾新增 `main.go` 檔：
 
-```GO
+```go
 package main
 
 import (
@@ -212,7 +212,7 @@ func main() {
 
 使用終端機執行客戶端程式：
 
-```BASH
+```bash
 go run client/main.go
 Response received: Hello, World!
 ```

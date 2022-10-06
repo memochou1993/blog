@@ -18,7 +18,7 @@ categories: ["環境部署", "Kubernetes", "其他"]
 
 使用 Homebrew 安裝 minikube。
 
-```BASH
+```bash
 brew install minikube
 ```
 
@@ -26,19 +26,19 @@ brew install minikube
 
 啟動 minikube 並創建一個叢集（Cluster）。
 
-```BASH
+```bash
 minikube start
 ```
 
 使用 `kubectl` 指令與叢集進行互動。以下使用 `echoserver` 映像檔創建一個  Kubernetes Deployment，並開放在 8080 埠號。
 
-```BASH
+```bash
 kubectl create deployment hello-minikube --image=k8s.gcr.io/echoserver:1.10
 ```
 
 要訪問 `hello-minikube` 這個 Deployment，需要將其做為 Service 公開：
 
-```BASH
+```bash
 kubectl expose deployment hello-minikube --type=NodePort --port=8080
 ```
 
@@ -46,7 +46,7 @@ kubectl expose deployment hello-minikube --type=NodePort --port=8080
 
 檢查 Pod 運行狀態。
 
-```BASH
+```bash
 kubectl get pod
 ```
 
@@ -55,31 +55,31 @@ kubectl get pod
 
 獲取 Service 的 URL。
 
-```BASH
+```bash
 minikube service hello-minikube --url
 ```
 
 刪除 `hello-minikube` Service。
 
-```BASH
+```bash
 kubectl delete services hello-minikube
 ```
 
 刪除 `hello-minikube` Deployment。
 
-```BASH
+```bash
 kubectl delete deployment hello-minikube
 ```
 
 停止本地 minikube 叢集：
 
-```BASH
+```bash
 minikube stop
 ```
 
 刪除本地 minikube 叢集：
 
-```BASH
+```bash
 minikube delete
 ```
 
@@ -87,25 +87,25 @@ minikube delete
 
 使用以下指令，指定 Kubernetes 版本。
 
-```BASH
+```bash
 minikube start --kubernetes-version v1.19.0
 ```
 
 使用以下指令，指定 VM 驅動。
 
-```BASH
+```bash
 minikube start --vm-driver=<driver_name>
 ```
 
 使用以下指令，將 shell 指向 minikube 的 Docker 守護行程（daemon）。Docker Client 會把 build context 送往 minikube 內的 Docker 守護行程進行打包。打包出來的映像檔會存在 minikube 虛擬機內，如此一來可以加速本地端的實驗。
 
-```BASH
+```bash
 eval $(minikube docker-env)
 ```
 
 現在可以使用 Docker 與 minikube 虛擬機內的 Docker 守護行程進行通訊。
 
-```BASH
+```bash
 docker ps
 ```
 
@@ -115,13 +115,13 @@ docker ps
 
 例如要在 `Kubelet` 上將 `MaxPods` 設定調整為 5，可以使用以下參數：
 
-```BASH
+```bash
 --extra-config=kubelet.MaxPods=5
 ```
 
 若要將 `apiserver` 的 `AuthorizationMode` 設定調整為 RBAC（一種身分驗證方法），使用以下參數：
 
-```BASH
+```bash
 --extra-config=apiserver.authorization-mode=RBAC
 ```
 
@@ -131,7 +131,7 @@ docker ps
 
 使用 `minikube start` 指令時，會創建一個名為 `minikube` 的 `kubectl` 上下文。此上下文包含與 minikube 叢集通訊的配置。使用以下指令，查看當前的 `kubectl` 上下文。
 
-```BASH
+```bash
 kubectl config current-context
 ```
 
@@ -139,7 +139,7 @@ kubectl config current-context
 
 使用以下指令，開啟 UI 介面。
 
-```BASH
+```bash
 minikube dashboard
 ```
 
@@ -147,13 +147,13 @@ minikube dashboard
 
 minikube 虛擬機透過 host-only IP 開放給主機系統，可以使用以下指令獲得此 IP：
 
-```BASH
+```bash
 minikube ip
 ```
 
 在 NodePort 上，可以透過此 IP 位址訪問任何類型同為 NodePort 的服務。要確定服務的 NodePort，使用以下指令：
 
-```BASH
+```bash
 kubectl get service $SERVICE --output='jsonpath="{.spec.ports[0].nodePort}"'
 ```
 
@@ -161,7 +161,7 @@ kubectl get service $SERVICE --output='jsonpath="{.spec.ports[0].nodePort}"'
 
 minikube 支援 `hostPath` 類型的 Persistent Volume，它們會映射為 minikube 虛擬機内的目錄。以下是 Persistent Volume 的配置範例：
 
-```YAML
+```yaml
 apiVersion: v1
 kind: PersistentVolume
 metadata:

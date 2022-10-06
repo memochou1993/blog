@@ -13,7 +13,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 在 `Client` 類別中，定義了 `fetchProject` 方法，此方法可以向服務端獲取專案的所有翻譯鍵以及翻譯值。
 
-```PHP
+```php
 declare(strict_types=1);
 
 namespace MemoChou1993\Lexicon;
@@ -123,13 +123,13 @@ class Client
 
 安裝套件。
 
-```PHP
+```php
 composer require memochou1993/lexicon-api-php-client
 ```
 
 複製 `.env.example` 範本到 `.env` 檔：
 
-```BASH
+```bash
 LEXICON_HOST=
 LEXICON_API_KEY=
 ```
@@ -139,7 +139,7 @@ LEXICON_API_KEY=
 
 初始化 `Client` 類別，並使用 `fetchProject` 方法獲取資源。
 
-```PHP
+```php
 $client = new \MemoChou1993\Lexicon\Client();
 
 $project = $client->fetchProject();

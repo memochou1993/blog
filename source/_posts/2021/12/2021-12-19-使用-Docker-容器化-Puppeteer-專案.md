@@ -9,7 +9,7 @@ categories: ["程式設計", "JavaScript", "環境部署"]
 
 在程式碼中，使用 `--no-sandbox` 參數啟動瀏覽器。
 
-```JS
+```js
 await puppeteer.launch({
   args: [
     '--no-sandbox'
@@ -19,7 +19,7 @@ await puppeteer.launch({
 
 新增 `Dockerfile` 檔：
 
-```DOCKERFILE
+```dockerfile
 FROM node:12-slim
 
 WORKDIR /app
@@ -46,7 +46,7 @@ CMD [ "node", "main.js" ]
 
 新增 `docker-compose.yaml` 檔：
 
-```YAML
+```yaml
 version: "3"
 
 services:
@@ -59,7 +59,7 @@ services:
 
 啟動專案。
 
-```BASH
+```bash
 docker compose up -d
 ```
 

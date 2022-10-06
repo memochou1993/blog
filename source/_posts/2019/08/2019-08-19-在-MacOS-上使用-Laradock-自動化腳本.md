@@ -9,24 +9,24 @@ categories: ["環境部署", "Laradock"]
 
 安裝 docker-sync 鏡像同步工具。
 
-```BASH
+```bash
 sh sync.sh install
 ```
 
 啟動服務。
 
-```BASH
+```bash
 sh sync.sh up <SERVICES>
 ```
 
 關閉服務。
 
-```BASH
+```bash
 sh sync.sh down
 ```
 
 以 `laradock` 的身份進入虛擬機。
 
-```BASH
+```bash
 sh sync.sh bash
 ```

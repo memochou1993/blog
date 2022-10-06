@@ -15,7 +15,7 @@ categories: ["程式設計", "Go", "其他"]
 
 透過以下網址，取得指定 ID 的影片資訊檔。
 
-```ENV
+```env
 https://youtube.com/get_video_info?video_id=<ID>
 ```
 
@@ -35,7 +35,7 @@ YouTube 的影片分為不需解密與需要解密兩種，前者會直接提供
 
 在 `app` 資料夾建立一個 `client.go` 檔，用來取得影片資訊檔：
 
-```GO
+```go
 package app
 
 import (
@@ -114,7 +114,7 @@ func (c *Client) GetVideo(ctx context.Context, id string) *model.Video {
 
 在 `app/model` 資料夾建立一個 `video.go` 檔，用來定義一個影片的結構體並解析影片資訊檔：
 
-```GO
+```go
 package model
 
 import (
@@ -173,7 +173,7 @@ func (v *Video) ParseVideoInfo(info string) {
 
 在 `app/controller` 資料夾建立一個 `main.go` 檔，做為控制器：
 
-```GO
+```go
 package controller
 
 import (
@@ -254,7 +254,7 @@ func download(w http.ResponseWriter, filename string, data []byte) {
 
 在根目錄建立 `main.go` 檔，以提供服務：
 
-```GO
+```go
 package main
 
 import (

@@ -15,13 +15,13 @@ Go 的 `testing` 標準庫內建單元測試方法，不過 `testify` 套件進�
 
 下載 Testify 套件。
 
-```BASH
+```bash
 go get github.com/stretchr/testify
 ```
 
 新增 `main.go` 檔：
 
-```GO
+```go
 package main
 
 func twoSum(nums []int, target int) []int {
@@ -40,7 +40,7 @@ func twoSum(nums []int, target int) []int {
 
 新增 `main_test.go` 檔，並建立測試案例：
 
-```GO
+```go
 package main
 
 import (
@@ -97,7 +97,7 @@ func TestProblem(t *testing.T) {
 
 執行測試：
 
-```BASH
+```bash
 go test ./...
 ```
 

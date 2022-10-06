@@ -9,14 +9,14 @@ categories: ["區塊鏈", "Ethereum"]
 
 新增 `.env` 檔。
 
-```ENV
+```env
 ETHERSCAN_URL=https://api-goerli.etherscan.io
 ETHERSCAN_API_KEY=
 ```
 
 新增 `etherscan/client.go` 檔：
 
-```GO
+```go
 package etherscan
 
 import (

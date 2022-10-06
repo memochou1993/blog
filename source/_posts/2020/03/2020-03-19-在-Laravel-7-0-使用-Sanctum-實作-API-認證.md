@@ -11,25 +11,25 @@ Laravel Sanctum 原來的名字是 Laravel Airlock，因商標爭議改名。
 
 ## 建立專案
 
-```BASH
+```bash
 laravel new airlock
 ```
 
 ## 安裝套件
 
-```BASH
+```bash
 composer require laravel/sanctum
 ```
 
 ## 發布資源
 
-```BASH
+```bash
 php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
 ```
 
 ## 執行遷移
 
-```BASH
+```bash
 php artisan migrate
 ```
 
@@ -37,7 +37,7 @@ php artisan migrate
 
 修改 `app\Http\Kernel.php` 檔：
 
-```PHP
+```php
 protected $middlewareGroups = [
     // ...
 
@@ -53,7 +53,7 @@ protected $middlewareGroups = [
 
 修改 `app\User.php` 檔：
 
-```PHP
+```php
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -67,7 +67,7 @@ class User extends Authenticatable
 
 修改 `routes\api.php` 檔：
 
-```PHP
+```php
 Route::prefix('auth')->group(function () {
     Route::post('/login', 'AuthController@login');
 
@@ -82,13 +82,13 @@ Route::prefix('auth')->group(function () {
 
 建立控制器。
 
-```BASH
+```bash
 php artisan make:controller AuthController
 ```
 
 修改 `app\Http\Controllers\AuthController.php` 檔：
 
-```PHP
+```php
 namespace App\Http\Controllers;
 
 use App\User;
@@ -131,7 +131,7 @@ class AuthController extends Controller
 
 若要使用全域函式 `auth()` 取得 Sanctum 令牌的所屬模型，將 Guard 指定為 `sanctum`。
 
-```PHP
+```php
 auth()->guard('sanctum')->user();
 ```
 
@@ -139,7 +139,7 @@ auth()->guard('sanctum')->user();
 
 在做單元測試的時候，使用以下方法來認證當前的模型。
 
-```PHP
+```php
 $user = factory(User::class)->make();
 
 Sanctum::actingAs($user);
@@ -149,7 +149,7 @@ Sanctum::actingAs($user);
 
 如果部署到正式環境，需要在 `.env` 檔設置 SPA 應用程式的網域。
 
-```ENV
+```env
 SANCTUM_STATEFUL_DOMAINS=
 ```
 

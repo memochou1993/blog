@@ -17,26 +17,26 @@ StorageClass 可以用於動態分配 PersistentVolume 使用。
 
 以下使用 kind 的環境，並安裝好 NFS 伺服器。
 
-```BASH
+```bash
 cd vagrant/kind
 vagrant ssh
 ```
 
 使用 `ifconfig` 指令查詢虛擬機的 IP 位址。
 
-```BASH
+```bash
 ifconfig
 ```
 
 查看範例資料夾中的 NFS Client Provisioner 的 Deployment 配置檔。
 
-```BASH
+```bash
 cat introduction/storage/pv_pvc/pv.yaml
 ```
 
 配置檔如下，將 NFS Server 的 IP 位址修改為虛擬機的 IP 位址：
 
-```YAML
+```yaml
 kind: Deployment
 apiVersion: apps/v1
 metadata:
@@ -76,20 +76,20 @@ spec:
 
 使用配置檔創建 Role 和 Deployment 資源。
 
-```BASH
+```bash
 kubectl apply -f introduction/storage/storageclass/nfs_provisioner/rbac.yaml
 kubectl apply -f introduction/storage/storageclass/nfs_provisioner/deploy.yaml
 ```
 
 查看範例資料夾中的 StorageClass 配置檔。
 
-```BASH
+```bash
 cat introduction/storage/storageclass/nfs_provisioner/sc.yaml
 ```
 
 配置檔如下：
 
-```YAML
+```yaml
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
@@ -101,13 +101,13 @@ parameters:
 
 使用配置檔創建 StorageClass 資源。
 
-```BASH
+```bash
 kubectl apply -f introduction/storage/storageclass/nfs_provisioner/sc.yaml
 ```
 
 查看 StorageClass 列表。
 
-```BASH
+```bash
 kubectl get sc
 NAME                  PROVISIONER             RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
 managed-nfs-storage   fuseim.pri/ifs          Delete          Immediate              false                  25s
@@ -115,13 +115,13 @@ managed-nfs-storage   fuseim.pri/ifs          Delete          Immediate         
 
 查看範例資料夾中的第一個 Pod 配置檔。
 
-```BASH
+```bash
 cat introduction/storage/storageclass/pod.yaml
 ```
 
 配置檔如下：
 
-```YAML
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -154,13 +154,13 @@ spec:
 
 查看範例資料夾中的第二個 Pod 配置檔。
 
-```BASH
+```bash
 cat introduction/storage/storageclass/pod-2.yaml
 ```
 
 配置檔如下：
 
-```YAML
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -193,19 +193,19 @@ spec:
 
 查看 PVC 列表。
 
-```BASH
+```bash
 kubectl get pvc
 ```
 
 查看 PV 列表。
 
-```BASH
+```bash
 kubectl get pvc
 ```
 
 查看 `/nfsshare` 資料夾，可以看到新增了 2 個對應的資料夾。
 
-```BASH
+```bash
 ls /nfsshare
 ```
 

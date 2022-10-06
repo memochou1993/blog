@@ -16,7 +16,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 在 `User` 模型新增關聯。
 
-```PHP
+```php
 public function phone()
 {
     // 把主鍵當外鍵用
@@ -26,7 +26,7 @@ public function phone()
 
 在 `Phone` 模型新增關聯。
 
-```PHP
+```php
 public function user()
 {
     // 把主鍵當外鍵用
@@ -36,13 +36,13 @@ public function user()
 
 取得使用者唯一的手機號碼。
 
-```PHP
+```php
 return App\User::find($user)->phone()->get();
 ```
 
 取得手機號碼唯一的使用者。
 
-```PHP
+```php
 return App\Phone::find($phone)->user()->get();
 ```
 
@@ -52,7 +52,7 @@ return App\Phone::find($phone)->user()->get();
 
 在 `User` 模型新增關聯。
 
-```PHP
+```php
 public function posts()
 {
     // 外鍵為 `posts.user_id`
@@ -62,7 +62,7 @@ public function posts()
 
 在 `Post` 模型新增關聯。
 
-```PHP
+```php
 public function user()
 {
     // 外鍵為 `posts.user_id`
@@ -72,13 +72,13 @@ public function user()
 
 取得使用者所有的文章。
 
-```PHP
+```php
 return App\User::find($user)->posts()->get();
 ```
 
 取得文章唯一的使用者。
 
-```PHP
+```php
 return App\Post::find($post)->user()->get();
 ```
 
@@ -88,7 +88,7 @@ return App\Post::find($post)->user()->get();
 
 設置 `UserColor` 樞紐資料表。
 
-```PHP
+```php
 Schema::create('user_color', function (Blueprint $table) {
     $table->increments('id');
     $table->integer('user_id');
@@ -99,13 +99,13 @@ Schema::create('user_color', function (Blueprint $table) {
 
 在 `UserColor` 模型改寫資料表名稱。
 
-```PHP
+```php
 protected $table = 'user_color';
 ```
 
 在 `User` 模型新增關聯。
 
-```PHP
+```php
 public function colors()
 {
     // 外鍵為 `user_color.color_id` 及 `user_color.user_id`
@@ -115,7 +115,7 @@ public function colors()
 
 在 `Color` 模型新增關聯。
 
-```PHP
+```php
 public function users()
 {
     // 外鍵為 `user_color.color_id` 及 `user_color.user_id`
@@ -125,12 +125,12 @@ public function users()
 
 取得使用者所有的代表色。
 
-```PHP
+```php
 return App\User::find($user)->colors()->get();
 ```
 
 取得代表色所有的使用者。
 
-```PHP
+```php
 return App\Color::find($color)->users()->get();
 ```

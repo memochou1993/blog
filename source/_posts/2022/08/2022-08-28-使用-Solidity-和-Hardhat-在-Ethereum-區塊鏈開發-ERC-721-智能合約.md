@@ -13,32 +13,32 @@ categories: ["區塊鏈", "Ethereum"]
 
 建立專案。
 
-```BASH
+```bash
 mkdir eth-nft-example
 cd eth-nft-example
 ```
 
 建立 `package.json` 檔。
 
-```BASH
+```bash
 npm init -y
 ```
 
 安裝 `hardhat` 依賴套件。
 
-```BASH
+```bash
 npm install hardhat --save-dev
 ```
 
 使用 Hardhat 初始化專案。
 
-```BASH
+```bash
 npx hardhat
 ```
 
 檢查專案配置是否正常。
 
-```BASH
+```bash
 npx hardhat test
 ```
 
@@ -46,19 +46,19 @@ npx hardhat test
 
 安裝依賴。
 
-```BASH
+```bash
 npm install @openzeppelin/contracts
 ```
 
 刪除 `contracts/Lock.sol` 範例檔。
 
-```BASH
+```bash
 rm contracts/Lock.sol
 ```
 
 新增 `contracts/MyNFT.sol` 檔。
 
-```SOL
+```sol
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
@@ -94,13 +94,13 @@ contract MyNFT is ERC721URIStorage, Ownable {
 
 安裝依賴套件。
 
-```BASH
+```bash
 npm install dotenv --save
 ```
 
 建立 `.env` 檔。
 
-```BASH
+```bash
 API_URL=https://eth-goerli.alchemyapi.io/v2/your-api-key
 API_KEY=your-api-key
 PRIVATE_KEY=your-metamask-private-key
@@ -108,7 +108,7 @@ PRIVATE_KEY=your-metamask-private-key
 
 更新 `hardhat.config.js` 檔。
 
-```JS
+```js
 /**
 * @type import('hardhat/config').HardhatUserConfig
 */
@@ -132,7 +132,7 @@ module.exports = {
 
 修改 `scripts/deploy.js` 檔。
 
-```JS
+```js
 async function main() {
   // Grab the contract factory 
   const MyNFT = await ethers.getContractFactory("MyNFT");
@@ -152,13 +152,13 @@ main()
 
 執行部署。
 
-```BASH
+```bash
 npx hardhat run scripts/deploy.js --network goerli
 ```
 
 輸出訊息如下。
 
-```BASH
+```bash
 Contract deployed to address: 0xAdEc9c114D4E094545E60E2e856Ab57552831c00
 ```
 
@@ -170,7 +170,7 @@ Contract deployed to address: 0xAdEc9c114D4E094545E60E2e856Ab57552831c00
 
 建立一個 `nft-metadata.json` 檔，做為 NFT 的描述檔，並修改 `image` 欄位，將其設置為圖片的 URI。
 
-```JSON
+```json
 {
   "attributes": [
     {
@@ -194,7 +194,7 @@ Contract deployed to address: 0xAdEc9c114D4E094545E60E2e856Ab57552831c00
 
 建立 `src/mint.js` 檔，將 `tokenURI` 變數設定為 NFT 的描述檔的 URI。
 
-```JS
+```js
 require("dotenv").config();
 
 const ethers = require("ethers");
@@ -228,13 +228,13 @@ mintNFT()
 
 執行鑄造腳本。
 
-```BASH
+```bash
 node scripts/mint.js
 ```
 
 輸出訊息如下。
 
-```BASH
+```bash
 NFT Minted! Check it out at: https://goerli.etherscan.io/tx/0xbba6d2d835fbe58dde91d04676b04a85a5bbf088e78bee7c6166a1155769f58a
 ```
 

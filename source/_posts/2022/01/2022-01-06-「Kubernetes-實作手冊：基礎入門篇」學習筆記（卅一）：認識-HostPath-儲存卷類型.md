@@ -21,7 +21,7 @@ HostPath 儲存卷存在許多安全風險，應盡可能避免使用 HostPath�
 
 以下使用 kind 的環境。
 
-```BASH
+```bash
 cd vagrant/kind
 vagrant up
 vagrant ssh
@@ -31,13 +31,13 @@ vagrant ssh
 
 查看範例資料夾中的 Deployment 配置檔。
 
-```BASH
+```bash
 cat introduction/storage/hostpath/pod-dir.yaml
 ```
 
 配置檔如下：
 
-```YAML
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -67,13 +67,13 @@ spec:
 
 使用配置檔創建 Deployment 資源。
 
-```BASH
+```bash
 kubectl apply -f introduction/storage/hostpath/pod-dir.yaml
 ```
 
 查看 Pod 所在的節點位置。
 
-```BASH
+```bash
 kubectl get pods -o wide
 NAME                            READY   STATUS    RESTARTS   AGE    IP           NODE           NOMINATED NODE   READINESS GATES
 hostpath-dir-66f78996cb-8rx4c   1/1     Running   0          2m4s   10.244.1.3   kind-worker    <none>           <none>
@@ -81,21 +81,21 @@ hostpath-dir-66f78996cb-8rx4c   1/1     Running   0          2m4s   10.244.1.3  
 
 進入節點。
 
-```BASH
+```bash
 docker exec -it kind-worker bash
 cd tmp
 ```
 
 使用另一個終端機視窗進入 Pod。
 
-```BASH
+```bash
 kubectl exec -it hostpath-dir-66f78996cb-8rx4c -- bash
 cd test
 ```
 
 在節點的 `tmp` 資料夾中新增檔案，而 Pod 的 `test` 資料夾也會出現相同檔案。
 
-```BASH
+```bash
 touch hello
 echo "world" >> hello
 ```
@@ -106,13 +106,13 @@ echo "world" >> hello
 
 查看範例資料夾中的 Deployment 配置檔。
 
-```BASH
+```bash
 cat introduction/storage/hostpath/pod-file.yaml
 ```
 
 配置檔如下：
 
-```YAML
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -142,13 +142,13 @@ spec:
 
 使用配置檔創建 Deployment 資源。
 
-```BASH
+```bash
 kubectl apply -f introduction/storage/hostpath/pod-file.yaml
 ```
 
 查看 Pod 所在的節點位置。
 
-```BASH
+```bash
 kubectl get pods -o wide
 NAME                            READY   STATUS    RESTARTS   AGE    IP           NODE           NOMINATED NODE   READINESS GATES
 hostpath-file-9544994db-rdfhg   1/1     Running   0          66s    10.244.2.3   kind-worker2   <none>           <none>
@@ -156,21 +156,21 @@ hostpath-file-9544994db-rdfhg   1/1     Running   0          66s    10.244.2.3  
 
 進入節點。
 
-```BASH
+```bash
 docker exec -it kind-worker2 bash
 cat tmp/data
 ```
 
 使用另一個終端機視窗進入 Pod。
 
-```BASH
+```bash
 kubectl exec -it hostpath-file-9544994db-rdfhg -- bash
 cat my-data
 ```
 
 在節點中的檔案寫入內容，而 Pod 的檔案也會跟著同步。
 
-```BASH
+```bash
 echo "test" >> my-data
 ```
 

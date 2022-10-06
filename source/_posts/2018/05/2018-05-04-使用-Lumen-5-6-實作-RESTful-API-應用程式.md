@@ -18,7 +18,7 @@ categories: ["程式設計", "PHP", "Lumen"]
 
 建立專案。
 
-```BASH
+```bash
 lumen new journal
 ```
 
@@ -26,7 +26,7 @@ lumen new journal
 
 設置 `Homestead.yaml` 檔。
 
-```ENV
+```env
 sites:
     - map: journal.test
       to: /home/vagrant/Projects/journal/public
@@ -37,13 +37,13 @@ databases:
 
 設置 `hosts` 檔。
 
-```ENV
+```env
 192.168.10.10 journal.test
 ```
 
 設置 `.env` 檔。
 
-```ENV
+```env
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
@@ -54,7 +54,7 @@ DB_PASSWORD=secret
 
 啟動 Homestead。
 
-```BASH
+```bash
 cd Homestead
 vagrant up
 ```
@@ -63,13 +63,13 @@ vagrant up
 
 新增 `journals` 資料表。
 
-```BASH
+```bash
 php artisan make:migration create_journals_table
 ```
 
 配置欄位。
 
-```PHP
+```php
 Schema::create('journals', function (Blueprint $table) {
     $table->increments('id');
     $table->string('title');
@@ -80,7 +80,7 @@ Schema::create('journals', function (Blueprint $table) {
 
 執行遷移。
 
-```BASH
+```bash
 php artisan migrate
 ```
 
@@ -88,13 +88,13 @@ php artisan migrate
 
 手動新增 `database\seeds\JournalsTableSeeder.php` 檔，並編輯為：
 
-```PHP
+```php
 $journals = factory(App\Journal::class, 20)->create();
 ```
 
 在 `DatabaseSeeder.php` 呼叫。
 
-```PHP
+```php
 public function run()
 {
     $this->call('JournalsTableSeeder');
@@ -103,7 +103,7 @@ public function run()
 
 手動新增 `database\factories\JournalFactory.php` 檔，並編輯為：
 
-```PHP
+```php
 $factory->define(App\Journal::class, function (Faker $faker) {
     return [
         'title' => $faker->realText(rand(10,20)),
@@ -114,7 +114,7 @@ $factory->define(App\Journal::class, function (Faker $faker) {
 
 執行填充。
 
-```BASH
+```bash
 php artisan db:seed
 ```
 
@@ -122,7 +122,7 @@ php artisan db:seed
 
 手動新增 `app\Journal` 模型，並配置可寫入欄位。
 
-```PHP
+```php
 protected $fillable = [
     'title', 'creator'
 ];
@@ -132,7 +132,7 @@ protected $fillable = [
 
 由於沒有視圖，因此不用 create 和 edit 路由。
 
-```PHP
+```php
 $router->group(['prefix' => 'api/journals'],  function($router) {
     $router->get('/', 'JournalController@index');
     $router->post('/', 'JournalController@store');
@@ -146,7 +146,7 @@ $router->group(['prefix' => 'api/journals'],  function($router) {
 
 取得所有期刊。
 
-```PHP
+```php
 public function index(Request $request)
 {
     return response()->json(Journal::all());
@@ -155,7 +155,7 @@ public function index(Request $request)
 
 儲存期刊。
 
-```PHP
+```php
 public function store(Request $request)
 {
     $this->validate($request, [
@@ -171,7 +171,7 @@ public function store(Request $request)
 
 取得指定期刊。
 
-```PHP
+```php
 public function show($id)
 {
     return response()->json(Journal::find($id));
@@ -180,7 +180,7 @@ public function show($id)
 
 更新指定期刊。
 
-```PHP
+```php
 public function update(Request $request, $id)
 {
     $journal = Journal::findOrFail($id);
@@ -193,7 +193,7 @@ public function update(Request $request, $id)
 
 刪除指定期刊。
 
-```PHP
+```php
 public function destroy($id)
 {
     Journal::findOrFail($id)->delete();
@@ -206,7 +206,7 @@ public function destroy($id)
 
 使用 Postman 向網址 journal.test/api/journals 發起 `GET` 請求，得到回應如下：
 
-```JSON
+```json
 [
     {
         "id": 1,

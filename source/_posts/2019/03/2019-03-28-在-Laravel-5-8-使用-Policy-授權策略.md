@@ -13,13 +13,13 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 新增 Policy 授權策略。
 
-```BASH
+```bash
 php artisan make:policy RecordPolicy --model=Record
 ```
 
 在 `app/Policies` 資料夾的 `RecordPolicy.php` 檔撰寫授權邏輯，第一個參數 `$user` 是當前登入的使用者實例。
 
-```PHP
+```php
 /**
  * Determine whether the user can view the record.
  *
@@ -37,7 +37,7 @@ public function view(User $user, Record $record)
 
 在控制器中使用 `authorize()` 方法，在驗證失敗後會自動導向 403 頁面。
 
-```PHP
+```php
 public function show(User $user, Record $record)
 {
     $this->authorize('view', $record);
@@ -48,7 +48,7 @@ public function show(User $user, Record $record)
 
 在不帶有模型實例的方法中使用時，需要將其模型類別帶入。
 
-```PHP
+```php
 public function store(User $user)
 {
     $this->authorize('create', Record::class);
@@ -59,7 +59,7 @@ public function store(User $user)
 
 如果要手動帶入使用者實例，可以使用 `authorizeForUser()` 方法。
 
-```PHP
+```php
 public function show(User $user, Record $record)
 {
     $this->authorizeForUser($user, 'view', $record);
@@ -72,13 +72,13 @@ public function show(User $user, Record $record)
 
 在控制器的建構子使用 `authorizeResource()` 方法，可以一次為所有方法套用授權策略。
 
-```PHP
+```php
 $this->authorizeResource(Record::class, 'record');
 ```
 
 此方法必須在各個類別方法中注入模型實例，如此 Policy 才能知道需要被處理的對象為何。
 
-```PHP
+```php
 public function show(Record $record)
 {
     //
@@ -89,7 +89,7 @@ public function show(Record $record)
 
 如果模型不是放在預設的資料夾，而是 `App\Models` 的話，需要修改 Policy 的自動發現方法。在 `AppServiceProvider` 服務提供者的 `boot()` 方法中加入以下：
 
-```PHP
+```php
 \Illuminate\Support\Facades\Gate::guessPolicyNamesUsing(function ($model) {
     return 'App\\Policies\\'.class_basename($model).'Policy';
 });

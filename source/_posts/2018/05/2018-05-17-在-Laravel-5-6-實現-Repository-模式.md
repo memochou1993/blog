@@ -16,17 +16,17 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 ## 建立專案
 
-```BASH
+```bash
 laravel new package
 ```
 
 ## 新增遷移
 
-```BASH
+```bash
 php artisan make:migration create_packages_table
 ```
 
-```PHP
+```php
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -56,11 +56,11 @@ class CreatePackagesTable extends Migration
 
 ## 新增填充
 
-```BASH
+```bash
 php artisan make:seed PackagesTableSeeder
 ```
 
-```PHP
+```php
 use Illuminate\Database\Seeder;
 
 class PackagesTableSeeder extends Seeder
@@ -77,11 +77,11 @@ class PackagesTableSeeder extends Seeder
 }
 ```
 
-```BASH
+```bash
 php artisan make:factory PackageFactory
 ```
 
-```PHP
+```php
 use Faker\Generator as Faker;
 
 $factory->define(App\Package::class, function (Faker $faker) {
@@ -98,17 +98,17 @@ $factory->define(App\Package::class, function (Faker $faker) {
 
 執行遷移
 
-```BASH
+```bash
 php artisan migrate --seed
 ```
 
 ## 新增模型
 
-```BASH
+```bash
 php artisan make:model Package
 ```
 
-```PHP
+```php
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -127,7 +127,7 @@ class Package extends Model
 
 手動新增 `app\Contracts\PackageInterface.php` 檔。
 
-```PHP
+```php
 namespace App\Contracts;
 
 interface PackageInterface
@@ -140,7 +140,7 @@ interface PackageInterface
 
 手動新增 `app\Repositories\PackageRepository.php` 檔。
 
-```PHP
+```php
 namespace App\Repositories;
 
 use App\Contracts\PackageInterface;
@@ -166,11 +166,11 @@ class PackageRepository implements PackageInterface
 
 ## 新增控制器
 
-```BASH
+```bash
 php artisan make:controller PackageController
 ```
 
-```PHP
+```php
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -198,7 +198,7 @@ class PackageController extends Controller
 
 手動新增 `app\Providers\RepositoryServiceProvider.php` 檔。
 
-```PHP
+```php
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
@@ -237,7 +237,7 @@ class RepositoryServiceProvider extends ServiceProvider
 
 在 `config\app.php` 檔註冊服務提供者。
 
-```PHP
+```php
 'providers' => [
     // ...
     App\Providers\RepositoryServiceProvider::class,
@@ -246,7 +246,7 @@ class RepositoryServiceProvider extends ServiceProvider
 
 ## 重啟服務
 
-```BASH
+```bash
 php artisan clear-compiled
 php artisan serve
 ```

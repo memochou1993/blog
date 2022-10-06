@@ -9,7 +9,7 @@ categories: ["程式設計", "Go", "其他"]
 
 假設有以下結構體：
 
-```GO
+```go
 type User struct {
 	Name string `json:"name,omitempty"`
 	Age  int    `json:"age,omitempty"`
@@ -20,7 +20,7 @@ type User struct {
 
 使用 `json.Marshal()` 方法：
 
-```GO
+```go
 func main() {
 	v := User{
 		Name: "Memo Chou",
@@ -38,7 +38,7 @@ func main() {
 
 輸出如下：
 
-```BASH
+```bash
 {"name":"Memo Chou","age":18}
 ```
 
@@ -46,7 +46,7 @@ func main() {
 
 使用 `json.NewEncoder()` 方法：
 
-```GO
+```go
 func main() {
 	v := User{
 		Name: "Memo Chou",
@@ -64,7 +64,7 @@ func main() {
 
 輸出如下：
 
-```BASH
+```bash
 {"name":"Memo Chou","age":18}
 ```
 

@@ -17,7 +17,7 @@ CronJob 資源是一個或多個基於時間間隔重複調度的 Job 資源。�
 
 以下使用 kind 的環境。
 
-```BASH
+```bash
 cd vagrant/kind
 vagrant up
 vagrant ssh
@@ -25,13 +25,13 @@ vagrant ssh
 
 首先，查看範例資料夾中的 CronJob 配置檔。
 
-```BASH
+```bash
 cat introduction/cronjob/basic.yaml
 ```
 
 以下是一個描述 CronJob 的 YAML 範例檔。和 Job 類似。
 
-```YAML
+```yaml
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
@@ -55,13 +55,13 @@ spec:
 
 使用配置檔創建 CronJob 資源。
 
-```BASH
+```bash
 kubectl apply -f introduction/cronjob/basic.yaml
 ```
 
 隔一段時間，查看此 CronJob 與其他資源的關係。
 
-```BASH
+```bash
 kubectl tree cronjob pi
 NAMESPACE  NAME                         READY  REASON        AGE
 default    CronJob/pi                   -                    3m37s
@@ -75,7 +75,7 @@ default    │ └─Pod/pi-1640244540-x5zs8  False  PodCompleted  2m34s
 
 列出所有的 CronJob 資源。
 
-```BASH
+```bash
 kubectl get cronjobs
 NAME   SCHEDULE      SUSPEND   ACTIVE   LAST SCHEDULE   AGE
 pi     */1 * * * *   False     1        23s             4m2s
@@ -83,7 +83,7 @@ pi     */1 * * * *   False     1        23s             4m2s
 
 刪除 CronJob 資源。
 
-```BASH
+```bash
 kubectl delete -f introduction/cronjob/basic.yaml
 ```
 

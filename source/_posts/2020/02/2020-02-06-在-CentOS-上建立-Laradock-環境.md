@@ -13,44 +13,44 @@ categories: ["環境部署", "Laradock"]
 
 更新 yum 套件工具。
 
-```BASH
+```bash
 sudo yum update
 ```
 
 安裝以下套件。
 
-```BASH
+```bash
 sudo yum install -y yum-utils device-mapper-persistent-data lvm2
 ```
 
 添加倉庫。
 
-```BASH
+```bash
 sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 ```
 
 安裝最新版本的 Docker 引擎。
 
-```BASH
+```bash
 sudo yum install docker-ce docker-ce-cli containerd.io
 ```
 
 啟動 Docker 服務。
 
-```BASH
+```bash
 sudo systemctl start docker
 ```
 
 查看 Docker 版本。
 
-```BASH
+```bash
 docker -v
 Docker version 19.03.5
 ```
 
 將目前使用者加進 `docker` 群組。
 
-```BASH
+```bash
 sudo gpasswd -a ${USER} docker
 ```
 
@@ -60,25 +60,25 @@ sudo gpasswd -a ${USER} docker
 
 下載執行檔。
 
-```BASH
+```bash
 sudo curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 ```
 
 設定權限。
 
-```BASH
+```bash
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
 建立軟連結。
 
-```BASH
+```bash
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 ```
 
 查看 Docker Compose 版本。
 
-```BASH
+```bash
 docker-compose -v
 docker-compose version 1.25.3
 ```
@@ -87,24 +87,24 @@ docker-compose version 1.25.3
 
 從 GitHub 上將 Laradock 下載下來。
 
-```BASH
+```bash
 git clone https://github.com/Laradock/laradock.git Laradock
 ```
 
 複製範本 `env-example` 檔作為設定檔。
 
-```BASH
+```bash
 cd ~/Laradock && cp env-example .env
 ```
 
 修改 `.env` 檔的 `APP_CODE_PATH_HOST` 參數到指定的映射路徑：
 
-```ENV
+```env
 APP_CODE_PATH_HOST=/var/www
 ```
 
 使用 `docker-compose` 啟動 Laradock。
 
-```BASH
+```bash
 cd ~/Laradock && docker-compose up -d nginx mysql phpmyadmin
 ```

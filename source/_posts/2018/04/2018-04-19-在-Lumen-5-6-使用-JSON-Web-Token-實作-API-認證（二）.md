@@ -24,13 +24,13 @@ categories: ["程式設計", "PHP", "Lumen"]
 
 新增 `users` 資料表。
 
-```BASH
+```bash
 php artisan make:migration create_users_table
 ```
 
 配置欄位。
 
-```PHP
+```php
 Schema::create('users', function (Blueprint $table) {
     $table->increments('id');
     $table->string('name');
@@ -44,13 +44,13 @@ Schema::create('users', function (Blueprint $table) {
 
 新增 `UsersTableSeeder` 填充。
 
-```BASH
+```bash
 php artisan make:seeder UsersTableSeeder
 ```
 
 建立一名測試用使用者帳號。
 
-```PHP
+```php
 App\User::create([
     'name' => 'test',
     'email' => 'test@gmail.com',
@@ -60,7 +60,7 @@ App\User::create([
 
 執行遷移。
 
-```BASH
+```bash
 php artisan migrate --seed
 ```
 
@@ -68,7 +68,7 @@ php artisan migrate --seed
 
 手動在 `app` 資料夾新增 `User` 模型。
 
-```PHP
+```php
 // ...
 use Tymon\JWTAuth\Contracts\JWTSubject; // 調用相關類別
 
@@ -91,7 +91,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 
 ## 新增路由
 
-```PHP
+```php
 $router->post('auth/login', 'AuthController@login');
 
 $router->group(['middleware' => 'auth:api'], function($router) {
@@ -103,7 +103,7 @@ $router->group(['middleware' => 'auth:api'], function($router) {
 
 手動在 `app\Http\Controllers` 資料夾新增 `UserController` 控制器。
 
-```PHP
+```php
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -120,7 +120,7 @@ class UserController extends Controller
 
 手動在 `app\Http\Controllers` 資料夾再新增 `AuthController` 控制器。
 
-```PHP
+```php
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -150,7 +150,7 @@ class AuthController extends Controller
 
 向 <http://localhost/lumen/public> 發起 `GET` 請求，得到回應如下：
 
-```TEXT
+```txt
 Unauthorized.
 ```
 
@@ -163,7 +163,7 @@ Unauthorized.
 
 得到回應如下：
 
-```JSON
+```json
 {
   "token": "eyJ0e……q5o0M"
 }
@@ -178,7 +178,7 @@ Unauthorized.
 
 結果得到回應如下：
 
-```JSON
+```json
 {
   "id": 2,
   "name": "Tester",

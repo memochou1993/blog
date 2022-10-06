@@ -13,7 +13,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 首先，為 `User` 模型建立 `projects()` 和 `posts()` 關聯方法：
 
-```PHP
+```php
 /**
  * Get all of the projects for the user.
  *
@@ -39,7 +39,7 @@ public function posts() {
 
 首先，建立一個 `UserSeeder` 資料填充，建立 5 個使用者，為每個使用者建立 10 個專案和 10 筆文章。
 
-```PHP
+```php
 use App\Post;
 use App\Project;
 use App\User;
@@ -70,7 +70,7 @@ class UserSeeder extends Seeder
 
 首先，在 `App\Traits` 資料夾建立一個 `HasStaticAttributes` 特徵機制：
 
-```PHP
+```php
 trait HasStaticAttributes
 {
     /**
@@ -149,7 +149,7 @@ trait HasStaticAttributes
 
 建立一個 `UserSeeder` 資料填充，引入特徵機制，建立 5 個使用者：
 
-```PHP
+```php
 use App\User;
 use App\Traits\HasStaticAttributes;
 use Illuminate\Database\Seeder;
@@ -174,7 +174,7 @@ class UserSeeder extends Seeder
 
 建立一個 `ProjectSeeder` 資料填充，引入特徵機制，從 `UserSeeder` 取得測試資料，並為每個使用者建立 10 個專案。
 
-```PHP
+```php
 use App\Project;
 use App\Traits\HasStaticAttributes;
 use Illuminate\Database\Seeder;
@@ -201,7 +201,7 @@ class ProjectSeeder extends Seeder
 
 建立一個 `PostSeeder` 資料填充，引入特徵機制，從 `UserSeeder` 取得測試資料，並為每個使用者建立 10 筆文章。
 
-```PHP
+```php
 use App\Post;
 use App\Traits\HasStaticAttributes;
 use Illuminate\Database\Seeder;

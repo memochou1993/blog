@@ -21,7 +21,7 @@ ReplicaSet 用於管理相同的 Pod，確保任何時間內都會有滿足數�
 
 以下使用 kind 的環境。
 
-```BASH
+```bash
 cd vagrant/kind
 vagrant up
 vagrant ssh
@@ -29,19 +29,19 @@ vagrant ssh
 
 使用以下指令可以看到各種資源的縮寫。其中，ReplicaSet 的縮寫為 `rs`。
 
-```BASH
+```bash
 kubectl api-resources
 ```
 
 首先，查看範例資料夾中的 ReplicaSet 配置檔。
 
-```BASH
+```bash
 cat introduction/rs/basic.yaml
 ```
 
 以下是一個描述 ReplicaSet 的 YAML 範例檔，其中 `template` 的部分其實就是 Pod 的配置檔的格式，並透過標籤綁定在一起。
 
-```BASH
+```bash
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
@@ -65,19 +65,19 @@ spec:
 
 先將主節點上的污點移除。
 
-```BASH
+```bash
 kubectl taint node kind-control-plane node-role.kubernetes.io/master:NoSchedule-
 ```
 
 使用配置檔創建 ReplicaSet 資源。
 
-```BASH
+```bash
 kubectl apply -f introduction/rs/basic.yaml
 ```
 
 列出 ReplicaSet 清單。
 
-```BASH
+```bash
 kubectl get rs
 ```
 
@@ -87,44 +87,44 @@ kubectl get rs
 
 如果刪除某一個 Pod 資源。
 
-```BASH
+```bash
 kubectl delete pod test-rs-4fskw
 ```
 
 因為有 ReplicaSet 的幫忙，可以看到馬上會有一個新的 Pod 資源被生成。
 
-```BASH
+```bash
 kubectl get pods
 ```
 
 可以使用 `kubectl edit rs` 指令修改 ReplicaSet 資源。
 
-```BASH
+```bash
 kubectl edit rs test-rs
 ```
 
 例如，將 Pod 的數量改為 5 個。
 
-```YAML
+```yaml
 spec:
   replicas: 5
 ```
 
 再列出一次 Pod 清單，可以看到 Pod 的數量變為 5 個。
 
-```BASH
+```bash
 kubectl get pods
 ```
 
 如果觀察其中一個 Pod 資源。
 
-```BASH
+```bash
 kubectl describe pod
 ```
 
 可以看到此 Pod 是由 `ReplicaSet/test-rs` 這個 ReplicaSet 所控制。
 
-```YAML
+```yaml
 Controlled By:  ReplicaSet/test-rs
 ```
 

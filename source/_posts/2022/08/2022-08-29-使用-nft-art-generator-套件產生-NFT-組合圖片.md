@@ -9,26 +9,26 @@ categories: ["程式設計", "JavaScript", "其他"]
 
 建立專案。
 
-```BASH
+```bash
 mkdir nft-art-generator-example
 cd nft-art-generator-example
 ```
 
 下載素材圖片。
 
-```BASH
+```bash
 git clone https://github.com/BelleShih/Leopard-cat.git images
 ```
 
 安裝套件。
 
-```BASH
+```bash
 npm install -g nft-art-generator
 ```
 
 產生圖片。
 
-```BASH
+```bash
 nft-generate --save-config
 
 ? Where are your images located? In the current directory

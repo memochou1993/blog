@@ -9,7 +9,7 @@ categories: ["程式設計", "JavaScript", "PWA"]
 
 需要修改 `manifest.json` 檔的 `start_url` 參數：
 
-```JSON
+```json
 {
   "start_url": "/<REPOSITORY>/index.html"
 }
@@ -17,7 +17,7 @@ categories: ["程式設計", "JavaScript", "PWA"]
 
 修改 `service-worker.js` 檔的資源路徑：
 
-```JS
+```js
 self.addEventListener("install", (e) => {
   e.waitUntil(
     caches.open("store").then((cache) => {

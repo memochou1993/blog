@@ -9,13 +9,13 @@ categories: ["程式設計", "JavaScript", "Vue"]
 
 安裝 `vue-gtm` 套件。
 
-```BASH
+```bash
 yarn add vue-gtm
 ```
 
 修改 `main.js` 檔：
 
-```JS
+```js
 import { createGtm } from 'vue-gtm';
 import App from './App.vue';
 
@@ -33,7 +33,7 @@ createApp(App)
 
 使用 `gtm.trackEvent()` 方法推送事件。
 
-```JS
+```js
 gtm.trackEvent({
     event: 'my-event',
     category: 'common',

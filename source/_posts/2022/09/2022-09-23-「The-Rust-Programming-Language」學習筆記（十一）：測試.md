@@ -26,13 +26,13 @@ categories: ["程式設計", "Rust", "「The Rust Programming Language」學習�
 
 以下建立一個函式庫專案叫做 `adder`。
 
-```BASH
+```bash
 cargo new adder --lib
 ```
 
 專案中的 `src/lib.rs` 檔如下。
 
-```RS
+```rs
 pub fn add(left: usize, right: usize) -> usize {
     left + right
 }
@@ -55,13 +55,13 @@ mod tests {
 
 以下執行 `cargo test` 命令會執行專案中的所有測試。
 
-```BASH
+```bash
 cargo test
 ```
 
 讓我們再加上另一個測試，不過這次要讓測試失敗！測試會在測試函式恐慌時失敗，每個測試會跑在新的執行緒（thread）上，然後當主執行緒看到測試執行緒死亡時，就會將該測試標記為失敗的。引發恐慌最簡單的辦法，那就是呼叫 `panic!` 巨集。
 
-```BASH
+```bash
 #[cfg(test)]
 mod tests {
     #[test]
@@ -82,7 +82,7 @@ mod tests {
 
 標準函式庫提供的 `assert!` 巨集可以在要確保測試中的一些條件為 `true` 時使用。
 
-```RS
+```rs
 #[derive(Debug)]
 struct Rectangle {
     width: u32,
@@ -98,7 +98,7 @@ impl Rectangle {
 
 建立一個寬度為 `8`、長度為 `7` 的 `Rectangle` 實例，並判定它可以包含另一個寬度為 `5`、長度為 `1` 的 `Rectangle` 實例。
 
-```RS
+```rs
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -123,7 +123,7 @@ mod tests {
 
 再加另一個測試，這是是判定小長方形無法包含大長方形：
 
-```RS
+```rs
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -152,7 +152,7 @@ mod tests {
 
 以下函式叫做 `add_two` 並對參數加上 `2` 然後回傳為結果。然後我們使用 `assert_eq!` 巨集來測試此函式。
 
-```RS
+```rs
 pub fn add_two(a: i32) -> i32 {
     a + 2
 }
@@ -174,7 +174,7 @@ mod tests {
 
 可以寫一個一個與失敗訊息一同顯示的自訂訊息，作為 `assert!`、`assert_eq!` 與 `assert_ne!` 巨集的選擇性引數。可以傳入一個包含 `{}` 佔位符（placeholder）的格式化字串以及其對應的數值。自訂訊息可以用來紀錄判定的意義，當測試失敗時，你可以更清楚知道程式碼的問題。
 
-```RS
+```rs
 pub fn greeting(name: &str) -> String {
     String::from("哈囉！")
 }
@@ -201,7 +201,7 @@ mod tests {
 
 除了檢查我們的程式碼有沒有回傳我們預期的正確數值，檢查我們的程式碼有沒有如我們預期處理錯誤條件也是很重要的。為此我們可以加上另一個屬性 `should_panic` 到我們的測試函式。此屬性讓函式的程式碼恐慌時才會通過測試，反之如果函式的程式碼沒有恐慌的話測試就會失敗。
 
-```RS
+```rs
 pub struct Guess {
     value: i32,
 }
@@ -230,7 +230,7 @@ mod tests {
 
 使用 `should_panic` 的測試可能會有點模棱兩可，因為它們只代表該程式碼會造成某種恐慌而已。`should_panic` 測試只要是有恐慌都會通過，就算是不同於我們預期發生的恐慌而造成的也一樣。要讓測試 `should_panic` 更精準的話，我們可以加上選擇性的 `expected` 參數到 `should_panic` 中。這樣測試就會確保錯誤訊息會包含我們所寫的文字。
 
-```RS
+```rs
 pub struct Guess {
     value: i32,
 }
@@ -265,7 +265,7 @@ mod tests {
 
 目前為止，我們的測試在失敗時就會恐慌。我們也可以寫出使用 `Result<T, E>` 的測試！以下重寫成 `Result<T, E>` 的版本並回傳 `Err` 而非恐慌：
 
-```RS
+```rs
 #[cfg(test)]
 mod tests {
     #[test]
@@ -295,7 +295,7 @@ mod tests {
 
 如果不想平行執行測試，或者想要能更加掌控使用的執行緒數量，可以傳遞 `--test-threads` 的選項以及希望在測試執行檔使用的執行緒數量。
 
-```BASH
+```bash
 cargo test -- --test-threads=1
 ```
 
@@ -305,7 +305,7 @@ cargo test -- --test-threads=1
 
 如果測試通過的話，Rust 的測試函式庫預設會獲取所有印出的標準輸出。舉例來說，如果在測試中呼叫 `println!` 然後測試通過的話，不會在終端機看到 `println!` 的輸出，只會看到一行表達測試通過的訊息。如果測試失敗，才會看到所有印出的標準輸出與失敗訊息。
 
-```RS
+```rs
 fn prints_and_returns_10(a: i32) -> i32 {
     println!("我得到的數值為 {}", a);
     10
@@ -331,7 +331,7 @@ mod tests {
 
 如果我們希望在測試通過時也能看到印出的數值，我們可以用 `--show-output` 告訴 Rust 也在成功的測試顯示輸出結果。
 
-```BASH
+```bash
 cargo test -- --show-output
 ```
 
@@ -339,7 +339,7 @@ cargo test -- --show-output
 
 有時執行完整所有的測試會很花時間。如果正專注於程式碼的特定部分，可能會想要只執行與該程式碼有關的測試。
 
-```RS
+```rs
 pub fn add_two(a: i32) -> i32 {
     a + 2
 }
@@ -367,13 +367,13 @@ mod tests {
 
 可以向 `cargo test` 傳遞想要執行的測試名稱作為引數。只有名稱為 `one_hundred` 的測試會執行，其他兩個的名稱並不符合。
 
-```BASH
+```bash
 cargo test one_hundred
 ```
 
 也可以指定部分測試名稱，然後任何測試名稱中有相符的就會被執行。舉例來說，因為有兩個測試的名稱都包含 `add`，我們可以透過執行 `cargo test add` 來執行這兩個測試。
 
-```BASH
+```bash
 cargo test add
 ```
 
@@ -381,7 +381,7 @@ cargo test add
 
 有時候有些特定的測試執行會花非常多時間，所以可能希望在執行 `cargo test` 時能排除它們。與其列出所有想要的測試作為引數，可以在花時間的測試前加上 `ignore` 屬性詮釋來排除它們。
 
-```RS
+```rs
 #[test]
 fn it_works() {
     assert_eq!(2 + 2, 4);
@@ -398,13 +398,13 @@ fn expensive_test() {
 
 當有時間能夠執行 `ignored` 的測試時，可以執行以下指令。
 
-```BASH
+```bash
 cargo test -- --ignored
 ```
 
 如果想執行所有程式，無論他們是不是被忽略的話，可以執行以下指令。
 
-```BASH
+```bash
 cargo test -- --include-ignored
 ```
 
@@ -420,7 +420,7 @@ Rust 社群將測試分為兩大分類術語：單元測試（unit tests）和�
 
 測試模組上的 `#[cfg(test)]` 詮釋會告訴 Rust 當你執行 `cargo test` 才會編譯並執行測試程式碼。而不是當你執行 `cargo build`。當你想要建構函式庫時，這能節省編譯時間並降低編譯出的檔案所佔的空間，因為這些測試沒有被包含到。整合測試位於不同目錄，所以它們不需要 `#[cfg(test)]`。但是因為單元測試與程式碼位於相同的檔案下，因此需要使用 `#[cfg(test)]` 來指明它們不應該被包含在編譯結果。
 
-```RS
+```rs
 #[cfg(test)]
 mod tests {
     #[test]
@@ -436,7 +436,7 @@ mod tests {
 
 在測試領域的社群中對於是否應該直接測試私有函式一直存在著爭議，而且有些其他語言會讓測試私有函式變得很困難，甚至不可能。不管你認為哪個論點比較理想，Rust 的隱私權規則還是能讓你測試私有函式。考慮以下範例。
 
-```RS
+```rs
 pub fn add_two(a: i32) -> i32 {
     internal_adder(a, 2)
 }
@@ -468,7 +468,7 @@ mod tests {
 
 建立 `tests/integration_test.rs` 檔。
 
-```RS
+```rs
 use adder;
 
 #[test]
@@ -479,13 +479,13 @@ fn it_adds_two() {
 
 不用對 `tests/integration_test.rs` 的任何程式碼詮釋 `#[cfg(test)]`。Cargo 會特別對待 `tests` 目錄並只在我們執行 `cargo test` 時，編譯此目錄的檔案。
 
-```BASH
+```bash
 cargo test
 ```
 
 我們一樣能用測試函式的名稱來作為 `cargo test` 的引數，來執行特定整合測試。要執行特定整合測試檔案內的所有測試，可以用 `--test` 作為 `cargo test` 的引數並加上檔案名稱
 
-```BASH
+```bash
 cargo test --test integration_test
 ```
 
@@ -499,7 +499,7 @@ cargo test --test integration_test
 
 當你希望擁有一些能協助數個整合測試檔案的輔助函式，並提取它們到一個通用模組時，就會發現 `tests` 目錄下的檔案行為是不同的。舉例來說，我們建立了 `tests/common.rs` 並寫了一個函式 `setup`，然後我們希望 `setup` 能被不同測試檔案的數個測試函式呼叫。
 
-```RS
+```rs
 pub fn setup() {
     // 在此設置測試函式庫會用到的程式碼
 }
@@ -509,7 +509,7 @@ pub fn setup() {
 
 在我們建立 `tests/common/mod.rs` 之後，我們可以將它以模組的形式用在任何整合測試檔案中。
 
-```RS
+```rs
 use adder;
 
 mod common;

@@ -15,7 +15,7 @@ categories: ["程式設計", "PHP", "環境部署"]
 
 新增 `Dockerfile` 檔：
 
-```YAML
+```yaml
 version: "3"
 
 services:
@@ -54,7 +54,7 @@ volumes:
 
 新增 `docker-compose.yaml` 檔：
 
-```DOCKERFILE
+```dockerfile
 # 使用 Composer 映像檔下載依賴套件
 FROM composer:2.0 as vendor
 
@@ -125,7 +125,7 @@ ENTRYPOINT ["sh", "/etc/entrypoint.sh"]
 
 新增 `docker/nginx/conf.d/default.conf` 檔：
 
-```CONF
+```conf
 server {
     listen 80;
 
@@ -153,7 +153,7 @@ server {
 
 新增 `docker/entrypoint.sh` 檔：
 
-```BASH
+```bash
 #!/usr/bin/env bash
 
 service nginx start
@@ -162,7 +162,7 @@ php-fpm
 
 新增 `.dockerignore` 檔：
 
-```ENV
+```env
 .git
 tests
 vendor
@@ -171,13 +171,13 @@ vendor
 
 執行編譯並啟動。
 
-```ENV
+```env
 docker-compose up -d --build
 ```
 
 ## 瀏覽網頁
 
-前往：<http://127.0.0.1:80>
+前往 <http://127.0.0.1:80> 瀏覽。
 
 ## 後記
 

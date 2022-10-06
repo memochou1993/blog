@@ -21,7 +21,7 @@ Rust 有提供 `panic!` 巨集，當 `panic!` 巨集執行時，程式就會印�
 
 先在小程式內嘗試呼叫 `panic!` 巨集。
 
-```RS
+```rs
 fn main() {
     panic!("◢▆▅▄▃ 崩╰(〒皿〒)╯潰 ▃▄▅▆◣");
 }
@@ -29,7 +29,7 @@ fn main() {
 
 顯示結果如下。
 
-```BASH
+```bash
 $ cargo run
    Compiling panic v0.1.0 (file:///projects/panic)
     Finished dev [unoptimized + debuginfo] target(s) in 0.25s
@@ -40,7 +40,7 @@ note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 
 另一個例子，這是函式庫發生錯誤而呼叫 `panic!`，而不是來自於我們在程式碼自己呼叫的巨集。
 
-```RS
+```rs
 fn main() {
     let v = vec![1, 2, 3];
 
@@ -56,7 +56,7 @@ fn main() {
 
 顯示結果如下。
 
-```BASH
+```bash
 $ cargo run
    Compiling panic v0.1.0 (file:///projects/panic)
     Finished dev [unoptimized + debuginfo] target(s) in 0.27s
@@ -67,7 +67,7 @@ note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 
 此錯誤指向 `main.rs` 的第四行，也就是嘗試存取索引 99 的地方。下一行提示告訴我們可以設置 `RUST_BACKTRACE` 環境變數來取得 `backtrace` 以知道錯誤發生時到底發生什麼事。`backtrace` 是一個函式列表，指出得到此錯誤時到底依序呼叫了哪些函式。Rust 的 `backtraces` 運作方式和其他語言一樣：讀取 `backtrace` 關鍵是從最一開始讀取直到你看到你寫的檔案。那就會是問題發生的源頭。程式碼以上的行數就是呼叫的程式，而以下則是其他呼叫程式碼的程式。這些行數可能還會包含 Rust 核心程式碼、標準函式庫程式碼，或是所使用的 crate。我們設置 `RUST_BACKTRACE` 環境變數的值不為 `0`，來嘗試取得 `backtrace`。
 
-```BASH
+```bash
 $ RUST_BACKTRACE=1 cargo run
 thread 'main' panicked at 'index out of bounds: the len is 3 but the index is 99', src/main.rs:4:5
 stack backtrace:
@@ -98,7 +98,7 @@ note: Some details are omitted, run with `RUST_BACKTRACE=full` for a verbose bac
 
 使用 `Result` 型別處理可能的錯誤，`Result` 枚舉的定義有兩個變體 `Ok` 和 `Err`，如以下所示：
 
-```RS
+```rs
 enum Result<T, E> {
     Ok(T),
     Err(E),
@@ -109,7 +109,7 @@ enum Result<T, E> {
 
 以下呼叫一個可能會失敗的函式，並回傳 `Result` 型別。
 
-```RS
+```rs
 use std::fs::File;
 
 fn main() {
@@ -121,7 +121,7 @@ fn main() {
 
 如果 `File::open` 成功的話，變數 `f` 的數值就會獲得包含檔案控制代碼的 `Ok` 實例。如果失敗的話，`f` 的值就會是包含為何產生該錯誤的資訊的 `Err` 實例。
 
-```RS
+```rs
 use std::fs::File;
 
 fn main() {
@@ -140,7 +140,7 @@ fn main() {
 
 `match` 的另一個分支則負責處理從 `File::open` 中取得的 `Err` 數值。在此範例中，選擇呼叫 `panic!` 巨集。如果檔案 `hello.txt` 不存在當前的目錄的話，就會執行此程式碼，接著就會看到來自 `panic!` 巨集的輸出結果：
 
-```BASH
+```bash
 $ cargo run
    Compiling error-handling v0.1.0 (file:///projects/error-handling)
     Finished dev [unoptimized + debuginfo] target(s) in 0.73s
@@ -153,7 +153,7 @@ note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 
 以上範例不管 `File::open` 為何失敗都會呼叫 `panic!`。我們希望做的是依據不同的錯誤原因採取不同的動作，如果 `File::open` 是因為檔案不存在的話，我們想要建立檔案並回傳新檔案的控制代碼。如果 `File::open` 是因為其他原因失敗的話，像是我們沒有開啟檔案的權限，我們仍然要呼叫 `panic!`。
 
-```RS
+```rs
 use std::fs::File;
 use std::io::ErrorKind;
 
@@ -181,7 +181,7 @@ fn main() {
 
 更熟練的 Rustacean 可能會像這樣寫：
 
-```RS
+```rs
 use std::fs::File;
 use std::io::ErrorKind;
 
@@ -202,7 +202,7 @@ fn main() {
 
 雖然 `match` 已經足以勝任指派的任務了，但它還是有點冗長，而且可能無法正確傳遞錯誤的嚴重性。`Result<T, E>` 型別有非常多的輔助方法來執行不同的任務。其中一個方法就是 `unwrap`，這是和我們在範例所寫的 `match` 表達式一樣，擁有類似效果的捷徑方法。如果 `Result` 的值是 `Ok` 變體，`unwrap` 會回傳 `Ok` 裡面的值；如果 `Result` 是 `Err` 變體的話，`unwrap` 會呼叫 `panic!` 巨集。
 
-```RS
+```rs
 use std::fs::File;
 
 fn main() {
@@ -212,7 +212,7 @@ fn main() {
 
 如果沒有 `hello.txt` 這個檔案並執行此程式碼的話，我們會看到從 `unwrap` 方法所呼叫的 `panic!` 回傳訊息：
 
-```BASH
+```bash
 thread 'main' panicked at 'called `Result::unwrap()` on an `Err` value: Error {
 repr: Os { code: 2, message: "No such file or directory" } }',
 src/libcore/result.rs:906:4
@@ -220,7 +220,7 @@ src/libcore/result.rs:906:4
 
 還有另一個方法 `expect` 和 `unwrap` 類似，不過能讓我們選擇 `panic!` 回傳的錯誤訊息。使用 `expect` 而非 `unwrap` 並提供完善的錯誤訊息可以表明開發者的意圖，讓追蹤恐慌的源頭更容易。
 
-```RS
+```rs
 use std::fs::File;
 
 fn main() {
@@ -230,7 +230,7 @@ fn main() {
 
 我們使用 `expect` 的方式和 `unwrap` 一樣，不是回傳檔案控制代碼就是呼叫 `panic!` 巨集。使用 `expect` 呼叫 `panic!` 時的錯誤訊息會是我們傳遞給 `expect` 的參數，而不是像 `unwrap` 使用 `panic!` 預設的訊息。訊息看起來就會像這樣：
 
-```BASH
+```bash
 thread 'main' panicked at '開啟 hello.txt 失敗: Error { repr: Os { code:
 2, message: "No such file or directory" } }', src/libcore/result.rs:906:4
 ```
@@ -243,7 +243,7 @@ thread 'main' panicked at '開啟 hello.txt 失敗: Error { repr: Os { code:
 
 舉例來說，一個從檔案讀取使用者名稱的函式。如果檔案不存在或無法讀取的話，此函式會回傳該錯誤給呼叫此函式的程式碼。
 
-```RS
+```rs
 use std::fs::File;
 use std::io::{self, Read};
 
@@ -268,7 +268,7 @@ fn read_username_from_file() -> Result<String, io::Error> {
 
 以下範例是另一個 `read_username_from_file` 的實作，不過這次使用 `?` 運算子。
 
-```RS
+```rs
 use std::fs::File;
 use std::io;
 use std::io::Read;
@@ -285,7 +285,7 @@ fn read_username_from_file() -> Result<String, io::Error> {
 
 使用 `?` 運算子可以消除大量樣板程式碼並讓函式實作更簡單。我們還可以再進一步將方法直接串接到 `?` 後來簡化程式碼。
 
-```RS
+```rs
 use std::fs::File;
 use std::io;
 use std::io::Read;
@@ -301,7 +301,7 @@ fn read_username_from_file() -> Result<String, io::Error> {
 
 以下是另一個更簡短的寫法。
 
-```RS
+```rs
 use std::fs;
 use std::io;
 
@@ -318,7 +318,7 @@ fn read_username_from_file() -> Result<String, io::Error> {
 
 若在 `main` 函式中回傳值為 `()`，如果使用 `?` 運算子會發生什麼事：
 
-```RS
+```rs
 use std::fs::File;
 
 fn main() {
@@ -328,7 +328,7 @@ fn main() {
 
 `?` 運算子會拿到 `File::open` 回傳的 `Result` 數值，但是此 `main` 函式的回傳值為 `()`，而非 `Result`。當我們編譯此程式碼時，我們會得到以下錯誤訊息：
 
-```BASH
+```bash
 $ cargo run
    Compiling error-handling v0.1.0 (file:///projects/error-handling)
 error[E0277]: the `?` operator can only be used in a function that returns `Result` or `Option` (or another type that implements `FromResidual`)
@@ -350,7 +350,7 @@ error: could not compile `error-handling` due to previous error
 
 `main` 可以擁有的另一種回傳型別為 `Result<(), E>`。不過我們更改 `main` 的回傳型別為 `Result<(), Box<dyn Error>>`，並在結尾的回傳數值加上 `Ok(())`。這樣的程式碼是能編譯的：
 
-```RS
+```rs
 use std::error::Error;
 use std::fs::File;
 
@@ -383,7 +383,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 
 如果開發者知道一些編譯器不知道的邏輯的話，直接在 `Result` 呼叫 `unwrap` 來直接取得 `Ok` 的數值是很有用的。還是會有個 `Result` 數值需要做處理，呼叫的程式碼還是有機會失敗的，就算在特定場合中邏輯上是不可能的。如果能保證在親自審閱程式碼後，絕對不可能會有 `Err` 變體的話，那麼呼叫 `unwrap` 是完全可以接受的。以下範例就是如此：
 
-```RS
+```rs
 use std::net::IpAddr;
 
 let home: IpAddr = "127.0.0.1".parse().unwrap();
@@ -413,7 +413,7 @@ let home: IpAddr = "127.0.0.1".parse().unwrap();
 
 可以建立一個新的型別，並且建立一個驗證產生實例的函式，這樣就不必在每個地方都做驗證。函式可以安全地以這個新型別作為簽名，並放心地使用收到的數值。
 
-```RS
+```rs
 pub struct Guess {
     value: i32,
 }

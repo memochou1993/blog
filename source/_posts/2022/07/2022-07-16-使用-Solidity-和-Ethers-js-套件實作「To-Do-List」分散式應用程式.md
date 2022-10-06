@@ -14,7 +14,7 @@ categories: ["區塊鏈", "Ethereum"]
 
 安裝 Truffle 命令列工具。
 
-```BASH
+```bash
 npm install -g truffle@5.0.2
 ```
 
@@ -22,14 +22,14 @@ npm install -g truffle@5.0.2
 
 使用 `truffle` 指令初始化專案。
 
-```BASH
+```bash
 truffle init eth-todo-list
 cd eth-todo-list
 ```
 
 新增 `.gitignore` 檔。
 
-```ENV
+```env
 /node_modules
 /build
 /dist
@@ -39,7 +39,7 @@ cd eth-todo-list
 
 新增 `contracts/TodoList.sol` 檔。
 
-```SOL
+```sol
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -85,7 +85,7 @@ contract TodoList {
 
 修改 `truffle-config.js` 檔，將網路指向 Ganache 的端點。
 
-```JS
+```js
 module.exports = {
   networks: {
     development: {
@@ -110,7 +110,7 @@ module.exports = {
 
 新增 `migrations/2_deploy_contracts.js` 檔。
 
-```JS
+```js
 const TodoList = artifacts.require('TodoList');
 
 module.exports = function(deployer) {
@@ -120,7 +120,7 @@ module.exports = function(deployer) {
 
 部署至 Ganache 本地區塊鏈。
 
-```BASH
+```bash
 truffle migrate --reset
 ```
 
@@ -139,19 +139,19 @@ truffle migrate --reset
 
 安裝依賴套件。
 
-```BASH
+```bash
 npm i vite ethers dotenv --save
 ```
 
 新增 `.env` 檔。
 
-```ENV
+```env
 VITE_CONTRACT_ADDRESS=your-contract-address
 ```
 
 修改 `package.json` 檔。
 
-```JSON
+```json
 {
   "scripts": {
     "dev": "vite",
@@ -164,7 +164,7 @@ VITE_CONTRACT_ADDRESS=your-contract-address
 
 在根目錄新增 `index.html` 檔。
 
-```HTML
+```html
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -182,7 +182,7 @@ VITE_CONTRACT_ADDRESS=your-contract-address
 
 新增 `src/main.js` 檔。
 
-```JS
+```js
 import { ethers } from 'ethers';
 import { abi } from '../build/contracts/TodoList.json';
 
@@ -253,7 +253,7 @@ window.onload = () => new App();
 
 啟動網頁。
 
-```BASH
+```bash
 npm run dev
 ```
 
@@ -261,13 +261,13 @@ npm run dev
 
 安裝套件。
 
-```BASH
+```bash
 npm i @truffle/hdwallet-provider truffle-plugin-verify --save-dev
 ```
 
 修改 `.env` 檔。
 
-```ENV
+```env
 PROVIDER_URL=wss://eth-goerli.g.alchemy.com/v2/your-api-key
 PRIVATE_KEY=your-private-key
 ETHERSCAN_API_KEY=your-api-key
@@ -275,7 +275,7 @@ ETHERSCAN_API_KEY=your-api-key
 
 修改 `truffle-config.js` 檔。
 
-```JS
+```js
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 require('dotenv').config();
 
@@ -315,7 +315,7 @@ module.exports = {
 
 部署到 Goerli 測試網路。
 
-```BASH
+```bash
 truffle migrate --network goerli
 ```
 
@@ -323,7 +323,7 @@ truffle migrate --network goerli
 
 在 Etherscan 提交認證。
 
-```BASH
+```bash
 truffle run verify TodoList --network goerli
 ```
 

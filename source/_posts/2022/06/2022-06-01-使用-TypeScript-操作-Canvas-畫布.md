@@ -9,7 +9,7 @@ categories: ["程式設計", "JavaScript", "TypeScript"]
 
 建立一個 `App` 物件。
 
-```TS
+```ts
 class App {
   private canvas:  HTMLCanvasElement;
 
@@ -31,7 +31,7 @@ new App();
 
 初始化一個 `canvas` 畫布，並使用 `getContext` 方法取得渲染環境和繪圖函式。
 
-```TS
+```ts
 constructor() {
   this.canvas = document.getElementById('canvas') as HTMLCanvasElement;
   this.ctx = this.canvas.getContext('2d') as CanvasRenderingContext2D;
@@ -40,7 +40,7 @@ constructor() {
 
 監聽畫布，並建立一個 `handleCanvasClick` 處理器。
 
-```TS
+```ts
 constructor() {
   // ...
   this.canvas.addEventListener('click', (e) => this.handleCanvasClick(e));
@@ -53,7 +53,7 @@ handleCanvasClick(e: MouseEvent) {
 
 使用 `ctx` 提供的繪圖函式繪製一個矩形。
 
-```TS
+```ts
 handleCanvasClick(e: MouseEvent) {
   const x = e.offsetX;
   const y = e.offsetY;
@@ -63,7 +63,7 @@ handleCanvasClick(e: MouseEvent) {
 
 使用 `ctx` 提供的繪圖函式繪製一個橢圓形。
 
-```TS
+```ts
 handleCanvasClick(e: MouseEvent) {
   this.ctx.beginPath();
   this.ctx.ellipse(x, y, 75, 100, Math.PI / 2, 0, 2 * Math.PI);
@@ -73,7 +73,7 @@ handleCanvasClick(e: MouseEvent) {
 
 新增 `index.html` 檔。
 
-```HTML
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -129,7 +129,7 @@ handleCanvasClick(e: MouseEvent) {
 
 實作不同物件的處理器，以選取工具並繪製指定的圖形。
 
-```TS
+```ts
 class App {
   private canvas:  HTMLCanvasElement;
 

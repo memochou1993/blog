@@ -17,13 +17,13 @@ Rust 程式設計語言能寫出更快更可靠的軟體。高層的易讀易用
 
 使用以下指令安裝 Rust 語言。
 
-```BASH
+```bash
 curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
 ```
 
 查看版本。
 
-```BASH
+```bash
 rustc --version
 rustc 1.60.0 (7737e0b5c 2022-04-04)
 ```
@@ -32,14 +32,14 @@ rustc 1.60.0 (7737e0b5c 2022-04-04)
 
 建立專案。
 
-```BASH
+```bash
 mkdir rust-example
 cd rust-example
 ```
 
 新增 `main.rs` 檔。
 
-```RS
+```rs
 fn main() {
     println!("Hello, world!")
 }
@@ -47,19 +47,19 @@ fn main() {
 
 使用 `rustc` 指令進行編譯。
 
-```BASH
+```bash
 rustc main.rs
 ```
 
 運行執行檔。
 
-```BASH
+```bash
 ./main
 ```
 
 輸出結果如下。
 
-```BASH
+```bash
 Hello, world!
 ```
 
@@ -81,20 +81,20 @@ Rust 是一門預先編譯（ahead-of-time compiled）的語言，代表可以�
 
 Cargo 是 Rust 的建構系統與套件管理工具。使用以下指令查看 Cargo 版本。
 
-```BASH
+```bash
 cargo --version
 cargo 1.60.0 (d1fd9fe2c 2022-03-01)
 ```
 
 使用 Cargo 建立專案。
 
-```BASH
+```bash
 cargo new hello_cargo
 ```
 
 專案中的 `Cargo.toml` 檔是 Cargo 配置文件的格式，用的是 TOML 格式。
 
-```TOML
+```toml
 [package]
 name = "hello_cargo"
 version = "0.1.0"
@@ -111,7 +111,7 @@ edition = "2021"
 
 查看專案中的 `src/main.rs` 檔。
 
-```RS
+```rs
 fn main() {
     println!("Hello, world!");
 }
@@ -121,13 +121,13 @@ Cargo 預設會產生一個「Hello, world!」程式。專案的根目錄是用�
 
 使用 `cargo` 指令進行編譯。
 
-```BASH
+```bash
 cargo build
 ```
 
 運行執行檔。
 
-```BASH
+```bash
 ./target/debug/hello_cargo
 ```
 
@@ -135,13 +135,13 @@ cargo build
 
 如果要編譯執行檔並且直接運行，可以使用以下指令。
 
-```BASH
+```bash
 cargo run
 ```
 
 如果要檢查程式碼，確保它能編譯通過但不會產生執行檔，可以使用以下指令。
 
-```BASH
+```bash
 cargo check
 ```
 

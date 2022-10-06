@@ -17,7 +17,7 @@ Debounce（去抖動）是讓一個函式在連續被觸發時只執行最後一
 
 簡單的實作方式如下：
 
-```JS
+```js
 const debounce = (func, delay = 250) => {
     let timer = null;
     return (e) => {
@@ -29,7 +29,7 @@ const debounce = (func, delay = 250) => {
 
 使用方式如下：
 
-```JS
+```js
 const handle = (e) => {
     console.log(e);
 };
@@ -43,7 +43,7 @@ Throttle（節流閥）可以讓一個函式不要執行得太頻繁，能夠控
 
 簡單的實作方式如下：
 
-```JS
+```js
 const throttle = (func, frame = 250) => {
     let last = 0;
     return (e) => {
@@ -58,7 +58,7 @@ const throttle = (func, frame = 250) => {
 
 使用方式如下：
 
-```JS
+```js
 const handle = (e) => {
     console.log(e);
 };

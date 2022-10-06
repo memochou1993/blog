@@ -13,13 +13,13 @@ categories: ["區塊鏈", "Ethereum"]
 
 安裝依賴。
 
-```BASH
+```bash
 npm i solidity-coverage@beta -D
 ```
 
 新增 `.solcover.js` 檔。
 
-```JS
+```js
 module.exports = {
   client: require('ganache-cli'),
   providerOptions: {},
@@ -28,7 +28,7 @@ module.exports = {
 
 修改 `truffle-config.js` 檔。
 
-```JS
+```js
 module.exports = {
   // ...
   plugins: [
@@ -39,7 +39,7 @@ module.exports = {
 
 修改 `package.json` 檔，添加 `coverage` 指令。
 
-```JSON
+```json
 {
   "scripts": {
     "coverage": "truffle run coverage"
@@ -49,13 +49,13 @@ module.exports = {
 
 執行測試，並產生程式碼覆蓋率報告。
 
-```BASH
+```bash
 npm run coverage
 ```
 
 查看報告。
 
-```BASH
+```bash
 live-server ./coverage
 ```
 

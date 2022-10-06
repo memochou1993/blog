@@ -9,7 +9,7 @@ categories: ["程式設計", "JavaScript", "ESLint"]
 
 安裝依賴套件。
 
-```BASH
+```bash
 npm install eslint \
     eslint-config-airbnb-typescript \
     eslint-plugin-import \
@@ -19,7 +19,7 @@ npm install eslint \
 
 修改 `.eslintrc.js` 檔：
 
-```JS
+```js
 module.exports = {
   extends: [
     'airbnb-typescript/base',
@@ -33,7 +33,7 @@ module.exports = {
 
 修改 `package.json` 檔：
 
-```JS
+```js
 {
   "scripts": {
     "lint": "eslint src"
@@ -43,6 +43,6 @@ module.exports = {
 
 執行檢查。
 
-```BASH
+```bash
 npm run lint
 ```

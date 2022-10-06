@@ -9,19 +9,19 @@ categories: ["程式設計", "JavaScript", "Node"]
 
 初始化專案。
 
-```BASH
+```bash
 npm init
 ```
 
 安裝 `ws` 依賴套件。
 
-```BASH
+```bash
 npm install ws
 ```
 
 新增 `main.js` 檔：
 
-```JS
+```js
 const { WebSocketServer } = require('ws');
 
 const wss = new WebSocketServer({ port: 8080 });
@@ -37,26 +37,26 @@ wss.on('connection', (ws) => {
 
 在瀏覽器的 Console 進行測試：
 
-```JS
+```js
 var ws = new WebSocket('ws://localhost:8080')
 ws.onmessage = (e) => console.log('received:', e.data)
 ```
 
 客戶端在 WebSocket 建立連線後，會馬上收到訊息：
 
-```BASH
+```bash
 received: Hello, world!
 ```
 
 客戶端可以使用 `send()` 方法發送訊息：
 
-```JS
+```js
 ws.send('Hi!')
 ```
 
 服務端會馬上收到訊息：
 
-```BASH
+```bash
 received: Hi!
 ```
 

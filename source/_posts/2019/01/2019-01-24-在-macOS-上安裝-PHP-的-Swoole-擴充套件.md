@@ -9,25 +9,25 @@ categories: ["程式設計", "PHP", "擴充套件"]
 
 更新 PECL 倉庫。
 
-```BASH
+```bash
 pecl channel-update pecl.php.net
 ```
 
 安裝 PHP 的 Swoole 擴充套件。
 
-```BASH
+```bash
 pecl install swoole
 ```
 
 修改 `php.ini` 檔，並刪除第一行 `extension="swoole.so"`。
 
-```BASH
+```bash
 vi /usr/local/etc/php/7.2/php.ini
 ```
 
 新增 `swoole.ini` 檔。
 
-```BASH
+```bash
 vi /usr/local/etc/php/7.2/conf.d/swoole.ini
 ```
 
@@ -40,19 +40,19 @@ extension="/usr/local/lib/php/pecl/20170718/swoole.so"
 
 使用指令查看擴充套件是否安裝成功，或在 PHP 腳本中使用 `phpinfo()` 查看。
 
-```BASH
+```bash
 php -m |grep swoole
 ```
 
 查看擴充套件的安裝位置。
 
-```BASH
+```bash
 php -i|grep extension_dir
 ```
 
 查看詳細資訊。
 
-```BASH
+```bash
 vagrant@homestead:~$ php --ri swoole
 ```
 
@@ -62,26 +62,26 @@ vagrant@homestead:~$ php --ri swoole
 
 出現 `openssl/ssl.h` 找不到的警告：
 
-```TEXT
+```txt
 fatal error: 'openssl/ssl.h' file not found
 ```
 
 確認 `openssl` 是否有安裝：
 
-```BASH
+```bash
 brew search openssl
 ```
 
 安裝 `openssl`：
 
-```BASH
+```bash
 brew install openssl
 Warning: openssl 1.0.2q is already installed and up-to-date
 ```
 
 在標頭檔目錄建立 `openssl` 資料夾的軟連結：
 
-```BASH
+```bash
 ln -s /usr/local/Cellar/openssl/1.0.2q/include/openssl /usr/local/include/
 ```
 
@@ -95,13 +95,13 @@ error: "Enable openssl support, require openssl library."
 
 查看 `openssl` 詳細資訊。
 
-```BASH
+```bash
 brew info openssl
 ```
 
 設置環境變量。
 
-```TEXT
+```txt
 For compilers to find openssl you may need to set:
   export LDFLAGS="-L/usr/local/opt/openssl/lib"
   export CPPFLAGS="-I/usr/local/opt/openssl/include"
@@ -109,7 +109,7 @@ For compilers to find openssl you may need to set:
 
 若仍然出現警告，則重新安裝 `openssl`。
 
-```BASH
+```bash
 brew reinstall openssl
 ```
 
@@ -117,13 +117,13 @@ brew reinstall openssl
 
 出現 `extension` 錯誤的警告：
 
-```TEXT
+```txt
 swoole.so doesn't appear to be a valid Zend extension
 ```
 
 使用：
 
-```ENV
+```env
 extension=swoole.so
 ```
 

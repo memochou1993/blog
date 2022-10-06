@@ -11,7 +11,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 設計一個檢查請求參數是否符合特定關聯的驗證規則，例如可接受 `projects` 和 `environments` 參數，則以下請求將通過驗證：
 
-```PHP
+```php
 api/users/me/projects?with=projects
 api/users/me/projects?with=environments
 api/users/me/projects?with=projects,environments
@@ -20,13 +20,13 @@ api/users/me/projects?with=environments,projects
 
 新增 `With` 驗證規則。
 
-```BASH
+```bash
 php artisan make:rule With
 ```
 
 修改 `app/Rules/With.php` 檔。
 
-```PHP
+```php
 namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
@@ -86,7 +86,7 @@ class With implements Rule
 
 在 `app/Http/Requests/ProjectRequest.php` 檔使用。
 
-```PHP
+```php
 public function rules()
 {
     return [
@@ -104,13 +104,13 @@ public function rules()
 
 新增 `Unique` 驗證規則。
 
-```BASH
+```bash
 php artisan make:rule Unique
 ```
 
 修改 `app/Rules/Unique.php` 檔。
 
-```PHP
+```php
 namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
@@ -165,7 +165,7 @@ class Unique implements Rule
 
 在 `app/Http/Requests/ProjectRequest.php` 檔使用。
 
-```PHP
+```php
 public function rules()
 {
     return [

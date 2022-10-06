@@ -19,19 +19,19 @@ categories: ["程式設計", "Go", "其他"]
 
 建立專案目錄。
 
-```BASH
+```bash
 mkdir -p $GOPATH/src/github.com/memochou1993/mongo-bulk-example
 ```
 
 進到專案目錄。
 
-```BASH
+```bash
 cd $GOPATH/src/github.com/memochou1993/mongo-bulk-example
 ```
 
 初始化 Go Modules。
 
-```BASH
+```bash
 go mod init github.com/memochou1993/mongo-bulk-example
 ```
 
@@ -39,7 +39,7 @@ go mod init github.com/memochou1993/mongo-bulk-example
 
 安裝 `go.mongodb.org/mongo-driver` 套件。
 
-```BASH
+```bash
 go get go.mongodb.org/mongo-driver
 ```
 
@@ -47,7 +47,7 @@ go get go.mongodb.org/mongo-driver
 
 新增 `main.go` 檔：
 
-```GO
+```go
 package main
 
 import (
@@ -101,7 +101,7 @@ func main() {
 
 新增一個 `upsert()` 方法，用來更新或新增記錄。
 
-```GO
+```go
 func upsert(ctx context.Context, c *mongo.Collection, amount int) {
 	defer measure(time.Now())
 
@@ -126,7 +126,7 @@ func upsert(ctx context.Context, c *mongo.Collection, amount int) {
 
 新增一個 `bulkUpsert()` 方法，用來批量更新或新增記錄。
 
-```GO
+```go
 func bulkUpsert(ctx context.Context, c *mongo.Collection, amount int) {
 	defer measure(time.Now())
 
@@ -156,7 +156,7 @@ func bulkUpsert(ctx context.Context, c *mongo.Collection, amount int) {
 
 新增一個 `measure` 方法，用來計算經過時間：
 
-```GO
+```go
 func measure(start time.Time) {
 	duration += time.Since(start)
 	// 印出執行時間
@@ -170,7 +170,7 @@ func measure(start time.Time) {
 
 將 `main()` 方法修改如下：
 
-```GO
+```go
 func main() {
 	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Minute)
 	defer cancel()
@@ -204,14 +204,14 @@ func main() {
 
 測試 `upsert()` 方法：
 
-```GO
+```go
 go run main.go
 1
 ```
 
 測試 `bulkUpsert()` 方法：
 
-```GO
+```go
 go run main.go
 2
 ```

@@ -13,7 +13,7 @@ Laravel 提供一個 Macroable 特徵機制，用來擴展基礎類別。
 
 以 `Str` 類別為例，新增 `app/Mixins/StrMixin.php` 檔：
 
-```PHP
+```php
 namespace App\Mixins;
 
 class StrMixin
@@ -32,7 +32,7 @@ class StrMixin
 
 在 `app/Providers/AppServiceProvider.php` 檔註冊：
 
-```PHP
+```php
 namespace App\Providers;
 
 use App\Mixins\StrMixin;
@@ -65,13 +65,13 @@ class AppServiceProvider extends ServiceProvider
 
 使用：
 
-```PHP
+```php
 echo Str::uppercase('test');
 ```
 
 結果：
 
-```PHP
+```php
 TEST
 ```
 
@@ -79,7 +79,7 @@ TEST
 
 以 `Collection` 類別為例，新增 `app/Mixins/CollectionMixin.php` 檔：
 
-```PHP
+```php
 namespace App\Mixins;
 
 class CollectionMixin
@@ -100,7 +100,7 @@ class CollectionMixin
 
 在 `app/Providers/AppServiceProvider.php` 檔註冊：
 
-```PHP
+```php
 namespace App\Providers;
 
 use App\Mixins\CollectionMixin;
@@ -133,13 +133,13 @@ class AppServiceProvider extends ServiceProvider
 
 使用：
 
-```PHP
+```php
 return collect(['test'])->uppercase()->toArray();
 ```
 
 結果：
 
-```PHP
+```php
 ["TEST"]
 ```
 
@@ -147,7 +147,7 @@ return collect(['test'])->uppercase()->toArray();
 
 以 ResponseFactory 類別為例，新增 `app/Mixins/ResponseMixin.php` 檔：
 
-```PHP
+```php
 namespace App\Mixins;
 
 class ResponseMixin
@@ -168,7 +168,7 @@ class ResponseMixin
 
 在 `app/Providers/AppServiceProvider.php` 檔註冊：
 
-```PHP
+```php
 namespace App\Providers;
 
 use App\Mixins\ResponseMixin;
@@ -201,13 +201,13 @@ class AppServiceProvider extends ServiceProvider
 
 使用：
 
-```PHP
+```php
 return Response::error('test');
 ```
 
 結果：
 
-```PHP
+```php
 {
   "error": "test"
 }
@@ -217,13 +217,13 @@ return Response::error('test');
 
 新增一個 `MixinServiceProvider` 服務提供者來集中管理所有的 Mixin 類別。
 
-```BASH
+```bash
 php artisan make:provider MixinServiceProvider
 ```
 
 修改 `MixinServiceProvider` 服務提供者。
 
-```PHP
+```php
 namespace App\Providers;
 
 use App\Mixins\CollectionMixin;
@@ -262,7 +262,7 @@ class MixinServiceProvider extends ServiceProvider
 
 修改 `config` 資料夾的 `app.php` 檔，以註冊服務提供者：
 
-```PHP
+```php
 'providers' => [
 
     // ...

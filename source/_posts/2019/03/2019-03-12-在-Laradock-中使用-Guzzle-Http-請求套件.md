@@ -7,13 +7,13 @@ categories: ["環境部署", "Laradock"]
 
 ## 安裝套件
 
-```BASH
+```bash
 composer require guzzlehttp/guzzle
 ```
 
 ## 使用
 
-```PHP
+```php
 use GuzzleHttp\Client;
 
 $client = new Client([
@@ -31,13 +31,13 @@ return $response->getBody();
 
 在 Laradock 中，專案之間使用 Guzzsle 發出 HTTP 請求時，會出現以下錯誤：
 
-```TEXT
+```txt
 cURL error 7: Failed to connect to laravel.test port 80: Connection refused
 ```
 
 此時，需要修改 `Laradock` 資料夾的 `docker-compose.yml` 檔，在 `nginx` 的 `networks` 參數下設置別名，當 Nginx 容器啟動時，配置會自動生效：
 
-```YML
+```yaml
 ### NGINX Server #########################################
     nginx:
       build:

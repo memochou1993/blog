@@ -16,7 +16,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 在 Laravel 專案根目錄執行以下命令：
 
-```BASH
+```bash
 npm install
 ```
 
@@ -26,19 +26,19 @@ npm install
 
 編譯 Sass 檔。
 
-```PHP
+```php
 mix.sass('resources/assets/sass/app.sass', 'public/css');
 ```
 
 編譯 JavaScript 檔。
 
-```PHP
+```php
 mix.js('resources/assets/js/app.js', 'public/js');
 ```
 
 整合 CSS 檔。
 
-```PHP
+```php
 mix.styles([
     'public/css/style.css',
     'public/css/navbar.css'
@@ -47,13 +47,13 @@ mix.styles([
 
 產生原始碼映射表（Source Maps）。
 
-```PHP
+```php
 mix.sourceMaps();
 ```
 
 串接。
 
-```PHP
+```php
 mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');
 ```
@@ -62,19 +62,19 @@ mix.js('resources/assets/js/app.js', 'public/js')
 
 編譯並展開所有資源。
 
-```BASH
+```bash
 npm run dev
 ```
 
 編譯並壓縮所有資源。
 
-```BASH
+```bash
 npm run prod
 ```
 
 編譯並監聽所有資源。
 
-```BASH
+```bash
 npm run watch // 在 Windows 環境
 npm run watch-poll // 在虛擬機環境
 ```
@@ -83,18 +83,18 @@ npm run watch-poll // 在虛擬機環境
 
 - 如果遇到 `symlink` 問題，在執行命令後面添加 `--no-bin-links`：
 
-```BASH
+```bash
 npm install --no-bin-links
 ```
 
 - 如果遇到 `cross-env` 問題，輸入以下命令全域安裝 `cross-env`：
 
-```BASH
+```bash
 npm i -g cross-env --no-bin-links
 ```
 
 - 如果遇到 `node-sass` 問題，輸入以下命令重建 `node-sass`：
 
-```BASH
+```bash
 npm rebuild node-sass --no-bin-links
 ```

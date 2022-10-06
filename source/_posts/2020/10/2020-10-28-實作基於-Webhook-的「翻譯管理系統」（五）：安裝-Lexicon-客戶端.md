@@ -19,7 +19,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 建立一個新的專案。
 
-```BASH
+```bash
 laravel new lexicon-domo
 ```
 
@@ -27,7 +27,7 @@ laravel new lexicon-domo
 
 安裝 Lexicon 的客戶端套件。
 
-```PHP
+```php
 composer require memochou1993/lexicon-api-laravel-client
 ```
 
@@ -35,7 +35,7 @@ composer require memochou1993/lexicon-api-laravel-client
 
 修改 `.env` 檔，設置 Lexicon 服務端的網址，以及向服務端存取資源的 API 金鑰。
 
-```ENV
+```env
 LEXICON_HOST=https://lexicon.epoch.tw
 LEXICON_API_KEY=<API_TOKEN>
 ```
@@ -44,7 +44,7 @@ LEXICON_API_KEY=<API_TOKEN>
 
 修改 `app/Console/Kernel.php` 檔，以註冊 Lexicon 客戶端的指令。
 
-```PHP
+```php
 use MemoChou1993\Lexicon\Console\ClearCommand;
 use MemoChou1993\Lexicon\Console\SyncCommand;
 
@@ -59,13 +59,13 @@ class Kernel extends ConsoleKernel
 
 如果要獲取服務端的語系資源，並生成本地的語系檔，執行以下指令。
 
-```BASH
+```bash
 php artisan lexicon:sync
 ```
 
 如果要清除本地的語系檔，執行以下指令。
 
-```BASH
+```bash
 php artisan lexicon:clear
 ```
 
@@ -73,13 +73,13 @@ php artisan lexicon:clear
 
 新增一個 `DemoController` 控制器。
 
-```BASH
+```bash
 php artisan make:controller DemoController
 ```
 
 修改 `DemoController` 控制器。
 
-```PHP
+```php
 namespace App\Http\Controllers;
 
 use Illuminate\Contracts\View\View;
@@ -148,7 +148,7 @@ class DemoController extends Controller
 
 新增一個路由。
 
-```PHP
+```php
 use App\Http\Controllers\DemoController;
 
 Route::get('/{language?}', DemoController::class)->name('demo');
@@ -158,7 +158,7 @@ Route::get('/{language?}', DemoController::class)->name('demo');
 
 在 `resources/views` 資料夾新增 `demo.blade.php` 檔。
 
-```HTML
+```html
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -311,13 +311,13 @@ body {
 
 由於 Lexicon 客戶端套件會將語系檔存放至 `resources/lang` 資料夾中，因此還需要修改資料夾的權限。
 
-```BAHS
+```bash
 chown laradock:www-data -R resources/lang
 ```
 
-## 線上演示
+## 線上展示
 
-前往：[Lexicon Demo](https://lexicon-demo.epoch.tw)
+- [Lexicon Demo](https://lexicon-demo.epoch.tw)
 
 ## 程式碼
 

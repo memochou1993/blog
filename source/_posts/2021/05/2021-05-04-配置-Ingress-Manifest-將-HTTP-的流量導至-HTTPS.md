@@ -9,13 +9,13 @@ categories: ["環境部署", "Kubernetes", "其他"]
 
 使用以下語法，讓 ALB 將 HTTP 的流量導至 HTTPS：
 
-```BASH
+```bash
 alb.ingress.kubernetes.io/actions.${action-name}
 ```
 
 修改 `ingress.yaml` 檔：
 
-```YAML
+```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
@@ -46,13 +46,13 @@ spec:
 
 套用設定。
 
-```BASH
+```bash
 kubectl apply -f ingress.yaml
 ```
 
 查看 Ingress 狀態。
 
-```BASH
+```bash
 kubectl describe ingress my-service
 ```
 

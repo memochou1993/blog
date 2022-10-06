@@ -9,7 +9,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 根據請求方法，將同一資源的表單請求驗證寫在同一個檔案。
 
-```PHP
+```php
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;

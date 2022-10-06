@@ -13,7 +13,7 @@ categories: ["程式設計", "PHP", "套件開發"]
 
 專案目錄如下：
 
-```BASH
+```bash
 |- youtube-api/
     |- component/
         |- example/
@@ -60,7 +60,7 @@ categories: ["程式設計", "PHP", "套件開發"]
 
 安裝 `Guzzle` 及 `PHPUnit` 相依套件。
 
-```BASH
+```bash
 composer install
 ```
 
@@ -68,7 +68,7 @@ composer install
 
 在 `src` 資料夾中新增一個 `Youtube.php` 檔。
 
-```PHP
+```php
 namespace Memo\Youtube;
 
 use GuzzleHttp\Client;
@@ -140,7 +140,7 @@ class Youtube
 
 新增一個 `phpunit.xml` 檔，並將 API Key 設為環境變數。
 
-```XML
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit backupGlobals="false"
          backupStaticAttributes="false"
@@ -165,7 +165,7 @@ class Youtube
 
 在 `tests` 資料夾新增一個 `YoutubeTest.php` 檔。
 
-```PHP
+```php
 namespace Memo\Youtube\Tests;
 
 use Memo\Youtube\Youtube;
@@ -203,7 +203,7 @@ class YoutubeTest extends TestCase
 
 執行測試。
 
-```BASH
+```bash
 vendor/bin/phpunit
 ```
 
@@ -211,7 +211,7 @@ vendor/bin/phpunit
 
 在 `example` 資料夾新增一個 `index.php` 檔。
 
-```PHP
+```php
 require '../vendor/autoload.php';
 require '../src/Youtube.php';
 

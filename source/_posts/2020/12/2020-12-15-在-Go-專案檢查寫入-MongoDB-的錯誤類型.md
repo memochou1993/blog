@@ -9,7 +9,7 @@ categories: ["程式設計", "Go", "其他"]
 
 使用以下方式檢查寫入資料庫的錯誤類型，並且使用錯誤代碼 `11000` 來檢查是否儲存重複資料。
 
-```GO
+```go
 const ErrorDuplicateKey = 11000
 
 opts := options.InsertMany().SetOrdered(false)

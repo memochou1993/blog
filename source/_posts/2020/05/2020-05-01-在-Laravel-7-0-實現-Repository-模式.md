@@ -9,7 +9,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 建立專案。
 
-```BASH
+```bash
 laravel new laravel-abstract-repository-example
 ```
 
@@ -17,7 +17,7 @@ laravel new laravel-abstract-repository-example
 
 使用 SQLite 資料庫，在 `database` 資料夾新增 `database.sqlite` 檔，修改 `.env` 檔如下：
 
-```ENV
+```env
 DB_CONNECTION=sqlite
 DB_HOST=127.0.0.1
 DB_PORT=3306
@@ -30,7 +30,7 @@ DB_PASSWORD=
 
 資料夾結構如下：
 
-```BASH
+```bash
 |- app/
   |- Repositories/
     |- Contracts/
@@ -44,7 +44,7 @@ DB_PASSWORD=
 
 在 `app/Repositories/Contracts` 資料夾新增一個 `RepositoryInterface.php` 介面，規定所有模型共用的資料庫存取方法。
 
-```PHP
+```php
 namespace App\Repositories\Contracts;
 
 use Illuminate\Database\Eloquent\Model;
@@ -57,7 +57,7 @@ interface RepositoryInterface
 
 在 `app/Repositories/Contracts` 資料夾新增一個 `UserRepositoryInterface.php` 介面，規定 `User` 模型專屬的資料庫存取方法。
 
-```PHP
+```php
 namespace App\Repositories\Contracts;
 
 use Illuminate\Database\Eloquent\Model;
@@ -73,7 +73,7 @@ interface UserRepositoryInterface
 
 在 `app/Repositories` 資料夾新增一個 `Repository` 抽象類別，實作 `RepositoryInterface` 介面：
 
-```PHP
+```php
 namespace App\Repositories;
 
 use App\Repositories\Contracts\RepositoryInterface;
@@ -114,7 +114,7 @@ abstract class Repository implements RepositoryInterface
 
 在 `app/Repositories` 資料夾新增一個 `UserRepository` 具象類別，擴展 `Repository` 抽象類別，並實作 `UserRepositoryInterface` 介面：
 
-```PHP
+```php
 namespace App\Repositories;
 
 use App\User;
@@ -146,13 +146,13 @@ class UserRepository extends Repository implements UserRepositoryInterface
 
 新增一個 `RepositoryServiceProvider` 服務提供者。
 
-```BASH
+```bash
 php artisan make:provider RepositoryServiceProvider
 ```
 
 在服務提供者註冊容器綁定，並且實作 `DeferrableProvider` 介面延遲加載：
 
-```PHP
+```php
 namespace App\Providers;
 
 use App\Repositories\Contracts\UserRepositoryInterface;
@@ -203,7 +203,7 @@ class RepositoryServiceProvider extends ServiceProvider implements DeferrablePro
 
 將服務提供者註冊到 `config` 資料夾的 `app.php` 中：
 
-```PHP
+```php
 return [
 
     'providers' => [
@@ -218,7 +218,7 @@ return [
 
 重新產生 Composer 自動載入檔案。
 
-```BASH
+```bash
 composer dump-autoload
 ```
 
@@ -226,7 +226,7 @@ composer dump-autoload
 
 修改 `routes` 資料夾的 `web.php` 檔：
 
-```PHP
+```php
 Route::get('/id/{id}', 'UserController@getById');
 Route::get('/email/{email}', 'UserController@getByEmail');
 ```
@@ -235,13 +235,13 @@ Route::get('/email/{email}', 'UserController@getByEmail');
 
 新增一個 `UserController` 控制器。
 
-```BASH
+```bash
 php artisan make:controller UserController
 ```
 
 修改控制器，將 `UserRepositoryInterface` 介面注入到建構子中，並實作相關方法：
 
-```PHP
+```php
 namespace App\Http\Controllers;
 
 use App\Repositories\Contracts\UserRepositoryInterface;
@@ -272,13 +272,13 @@ class UserController extends Controller
 
 新增一個 `UserControllerTest` 測試案例。
 
-```BASH
+```bash
 php artisan make:test UserControllerTest
 ```
 
 修改測試案例。
 
-```PHP
+```php
 namespace Tests\Feature;
 
 use App\User;
@@ -321,7 +321,7 @@ class UserControllerTest extends TestCase
 
 執行測試。
 
-```PHP
+```php
 phpunit
 OK
 ```

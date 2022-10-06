@@ -13,19 +13,19 @@ Tailwind CSS 的 CDN 連結只適用於開發環境，如果要在正式環境�
 
 安裝 `tailwindcss` 依賴套件。
 
-```BASH
+```bash
 npm install -D tailwindcss
 ```
 
 初始化專案，建立 `tailwind.config.js` 設定檔。
 
-```BASH
+```bash
 npx tailwindcss init
 ```
 
 修改 `tailwind.config.js` 檔，其中 `content` 參數是指向專案中 `.html` 檔或 `.js` 檔的路徑。
 
-```JS
+```js
 module.exports = {
   content: [
       './**/*.{html,js}',
@@ -39,7 +39,7 @@ module.exports = {
 
 修改主要的 CSS 樣式檔，添加 `@tailwind` 裝飾器。
 
-```CSS
+```css
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -49,7 +49,7 @@ module.exports = {
 
 修改 `package.json` 檔。
 
-```JSON
+```json
 {
     "scripts": {
         "watch": "tailwindcss -i ./src/style.css -o ./dist/style.css --watch",
@@ -60,13 +60,13 @@ module.exports = {
 
 執行編譯。
 
-```BASH
+```bash
 npm run build
 ```
 
 將編譯後的 `style.css` 檔引入到 `index.html` 檔。
 
-```HTML
+```html
 <!doctype html>
 <html>
 <head>

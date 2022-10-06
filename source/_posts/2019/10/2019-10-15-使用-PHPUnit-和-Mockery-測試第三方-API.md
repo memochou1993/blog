@@ -17,19 +17,19 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 建立專案。
 
-```BASH
+```bash
 laravel new coin
 ```
 
 將 API Key 寫入專案的 `.env` 檔：
 
-```ENV
+```env
 CMC_PRO_API_KEY=5d8af388-xxxx-xxxx-xxxx-5b4ea08b7438
 ```
 
 修改 `phpunit.xml` 檔，新增 `CMC_PRO_API_KEY` 環境變數：
 
-```XML
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit backupGlobals="false"
          backupStaticAttributes="false"
@@ -70,7 +70,7 @@ CMC_PRO_API_KEY=5d8af388-xxxx-xxxx-xxxx-5b4ea08b7438
 
 安裝 `guzzlehttp/guzzle` 套件。
 
-```BASH
+```bash
 composer require guzzlehttp/guzzle
 ```
 
@@ -78,7 +78,7 @@ composer require guzzlehttp/guzzle
 
 在 `app` 資料夾新增 `Services/Client.php` 檔：
 
-```PHP
+```php
 namespace App\Services;
 
 use GuzzleHttp\Client as GuzzleClient;
@@ -107,7 +107,7 @@ class Client
 
 在 `tests/Unit` 資料夾新增 `Services/ClientTest.php` 檔：
 
-```PHP
+```php
 namespace Tests\Unit\Services;
 
 use App\Services\Client;
@@ -130,7 +130,7 @@ class ClientTest extends TestCase
 
 執行測試。
 
-```BASH
+```bash
 phpunit
 
 OK, but incomplete, skipped, or risky tests!
@@ -138,7 +138,7 @@ OK, but incomplete, skipped, or risky tests!
 
 修改 `app/Services` 資料夾的 `Client.php` 檔，以獲取用來測試的資料：
 
-```PHP
+```php
 namespace App\Services;
 
 use GuzzleHttp\Client as GuzzleClient;
@@ -169,7 +169,7 @@ class Client
 
 執行測試。
 
-```BASH
+```bash
 phpunit
 
 OK, but incomplete, skipped, or risky tests!
@@ -177,7 +177,7 @@ OK, but incomplete, skipped, or risky tests!
 
 使用 Mockery 假造物件，將 `tests/Unit/Services` 資料夾的 `ClientTest.php` 檔修改為：
 
-```PHP
+```php
 namespace Tests\Unit\Services;
 
 use Mockery;
@@ -216,7 +216,7 @@ class ClientTest extends TestCase
 
 修改 `app/Services` 資料夾的 `Client.php` 檔：
 
-```PHP
+```php
 namespace App\Services;
 
 use Illuminate\Support\Arr;
@@ -250,7 +250,7 @@ class Client
 
 執行測試。
 
-```BASH
+```bash
 phpunit
 
 OK
@@ -258,7 +258,7 @@ OK
 
 為了測試程式碼的執行次數，將 `tests/Unit/Services` 資料夾的 `ClientTest.php` 檔修改為：
 
-```PHP
+```php
 namespace Tests\Unit\Services;
 
 use Mockery;
@@ -304,7 +304,7 @@ class ClientTest extends TestCase
 
 執行測試。
 
-```BASH
+```bash
 phpunit
 
 OK
@@ -312,7 +312,7 @@ OK
 
 為了測試沒有回傳值的程式碼，需要使用 Mockery 的 `spy` 方法。將 `tests/Unit/Services` 資料夾的 `ClientTest.php` 檔修改為：
 
-```PHP
+```php
 namespace Tests\Unit\Services;
 
 use Mockery;
@@ -365,7 +365,7 @@ class ClientTest extends TestCase
 
 在 `app` 資料夾新增 `Services/Log.php` 檔：
 
-```PHP
+```php
 namespace App\Services;
 
 class Log
@@ -379,7 +379,7 @@ class Log
 
 修改 `app/Services` 資料夾的 `Client.php` 檔：
 
-```PHP
+```php
 namespace App\Services;
 
 use Illuminate\Support\Arr;
@@ -421,7 +421,7 @@ class Client
 
 執行測試。
 
-```BASH
+```bash
 phpunit
 
 OK
@@ -429,7 +429,7 @@ OK
 
 在路由使用 Client 服務：
 
-```PHP
+```php
 Route::get('/', function (\App\Services\Client $client) {
     return $client->query();
 });
@@ -437,7 +437,7 @@ Route::get('/', function (\App\Services\Client $client) {
 
 結果：
 
-```JSON
+```json
 {
   "USD": {
     "price": 7967.28751166,

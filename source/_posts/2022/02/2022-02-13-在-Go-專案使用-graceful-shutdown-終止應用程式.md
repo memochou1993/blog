@@ -9,7 +9,7 @@ categories: ["程式設計", "Go", "其他"]
 
 新增 `main.go` 檔：
 
-```GO
+```go
 package main
 
 import (

@@ -32,19 +32,19 @@ categories: ["環境部署", "Kubernetes", "其他"]
 
 首先安裝 minikube，minikube 可以將 Kubernetes 運行在本地端，方便學習與開發。
 
-```BASH
+```bash
 brew install minikube
 ```
 
 查看 minikube 的版本。
 
-```BASH
+```bash
 minikube version
 ```
 
 使用管理員權限啟動一個 cluster。
 
-```BASH
+```bash
 minikube start
 ```
 
@@ -52,19 +52,19 @@ minikube start
 
 查看 cluster 資訊。
 
-```BASH
+```bash
 kubectl cluster-info
 ```
 
 查看 minikube 狀態。
 
-```BASH
+```bash
 minikube status
 ```
 
 啟動 Kubernetes 圖形化介面。
 
-```BASH
+```bash
 minikube dashboard
 ```
 
@@ -72,7 +72,7 @@ minikube dashboard
 
 部署一個 hello-minikube 範例。
 
-```BASH
+```bash
 kubectl create deployment hello-minikube --image=k8s.gcr.io/echoserver:1.4
 ```
 
@@ -80,7 +80,7 @@ kubectl create deployment hello-minikube --image=k8s.gcr.io/echoserver:1.4
 
 將其暴露在 8080 埠，並將服務類型設為 `NodePort`，使服務可以從叢集的外部被訪問。
 
-```BASH
+```bash
 kubectl expose deployment hello-minikube --type=NodePort --port=8080
 ```
 
@@ -89,19 +89,19 @@ kubectl expose deployment hello-minikube --type=NodePort --port=8080
 
 查看 pod 列表。
 
-```BASH
+```bash
 kubectl get pods
 ```
 
 查看 cluster 的 IP。
 
-```BASH
+```bash
 minikube ip
 ```
 
 查看服務列表。
 
-```BASH
+```bash
 kubectl get services
 NAME             TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
 hello-minikube   NodePort    10.103.2.111   <none>        8080:31220/TCP   3m48s
@@ -110,7 +110,7 @@ kubernetes       ClusterIP   10.96.0.1      <none>        443/TCP          16m
 
 開啟 hello-minikube 服務。
 
-```BASH
+```bash
 minikube service hello-minikube
 ```
 
@@ -118,31 +118,31 @@ minikube service hello-minikube
 
 暫停 Kubernetes。
 
-```BASH
+```bash
 minikube pause
 ```
 
 停止 cluster。
 
-```BASH
+```bash
 minikube stop
 ```
 
 增加預設記憶體限制（需要重新啟動）。
 
-```BASH
+```bash
 minikube config set memory 16384
 ```
 
 查看附加元件列表。
 
-```BASH
+```bash
 minikube addons list
 ```
 
 刪除所有 cluster。
 
-```BASH
+```bash
 minikube delete --all
 ```
 
@@ -150,13 +150,13 @@ minikube delete --all
 
 查看副本數。
 
-```BASH
+```bash
 kubectl get deployments
 ```
 
 將 hello-minikube 的副本數設定成 3。
 
-```BASH
+```bash
 kubectl scale deployments/hello-minikube --replicas=3
 ```
 
@@ -164,61 +164,61 @@ kubectl scale deployments/hello-minikube --replicas=3
 
 用 minikube 啟動一個 cluster。
 
-```BASH
+```bash
 minikube start
 ```
 
 用 minikube 開啟 Kubernetes 圖形化介面。
 
-```BASH
+```bash
 minikube dashboard
 ```
 
 建立一個服務。
 
-```BASH
+```bash
 kubectl create deployment hello-minikube --image=k8s.gcr.io/echoserver:1.4
 ```
 
 暴露一個 NodePort 服務。
 
-```BASH
+```bash
 kubectl expose deployment hello-minikube --type=NodePort --port=8080
 ```
 
 在瀏覽器打開一個服務。
 
-```BASH
+```bash
 minikube service hello-minikube
 ```
 
 更新 cluster。
 
-```BASH
+```bash
 minikube start --kubernetes-version=latest
 ```
 
 啟動第二個 cluster。
 
-```BASH
+```bash
 minikube start -p cluster2
 ```
 
 停止 cluster。
 
-```BASH
+```bash
 minikube stop
 ```
 
 刪除 cluster。
 
-```BASH
+```bash
 minikube delete
 ```
 
 刪除所有 cluster。
 
-```BASH
+```bash
 minikube delete --all
 ```
 

@@ -9,32 +9,32 @@ categories: ["程式設計", "Go", "其他"]
 
 建立專案。
 
-```BASH
+```bash
 mkdir go-session-example
 cd go-session-example
 ```
 
 初始化 Go Modules。
 
-```BASH
+```bash
 go mod init github.com/memochou1993/go-session-example
 ```
 
 下載 `gorilla/sessions` 套件。
 
-```BASH
+```bash
 go get github.com/gorilla/sessions
 ```
 
 下載 `joho/godotenv` 套件。
 
-```BASH
+```bash
 go get github.com/joho/godotenv
 ```
 
 新增一個 `main.go` 檔：
 
-```GO
+```go
 var (
 	key        = []byte(os.Getenv("SESSION_KEY"))
 	store      = sessions.NewCookieStore(key)
@@ -77,13 +77,13 @@ func logout(w http.ResponseWriter, r *http.Request) {
 
 新增 `.env` 檔：
 
-```ENV
+```env
 SESSION_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 執行。
 
-```BASH
+```bash
 go run main.go
 ```
 

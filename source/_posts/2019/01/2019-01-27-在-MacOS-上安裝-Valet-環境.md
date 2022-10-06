@@ -9,25 +9,25 @@ categories: ["程式設計", "PHP", "環境安裝"]
 
 安裝 `laravel/valet` 套件。
 
-```BASH
+```bash
 composer global require laravel/valet
 ```
 
 啟動。
 
-```BASH
+```bash
 valet install
 ```
 
 更新 Composer 環境變數：
 
-```BASH
+```bash
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 ```
 
 建立專案目錄。
 
-```BASH
+```bash
 mkdir ~/Sites
 cd ~/Sites
 valet park
@@ -36,13 +36,13 @@ This directory has been added to Valet's paths.
 
 建立專案。
 
-```BASH
+```bash
 laravel new laravel
 ```
 
 停止 Valet。
 
-```BASH
+```bash
 valet uninstall
 ```
 
@@ -50,19 +50,19 @@ valet uninstall
 
 使用 HTTPS 的站點：
 
-```BASH
+```bash
 valet secure laravel
 ```
 
 還原回 HTTP 的站點：
 
-```BASH
+```bash
 valet unsecure laravel
 ```
 
 ## 瀏覽網頁
 
-前往：<http://laravel.test>
+前往 <http://laravel.test> 瀏覽。
 
 ## 補充
 

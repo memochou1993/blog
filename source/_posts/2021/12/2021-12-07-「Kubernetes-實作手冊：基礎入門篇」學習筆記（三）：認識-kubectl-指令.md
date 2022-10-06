@@ -13,7 +13,7 @@ categories: ["環境部署", "Kubernetes", "「Kubernetes 實作手冊：基礎�
 
 啟用 kubectl 的自動補全功能。
 
-```BASH
+```bash
 source <(kubectl completion bash)
 ```
 
@@ -23,7 +23,7 @@ source <(kubectl completion bash)
 
 取得 Pod 列表。
 
-```BASH
+```bash
 kubectl -n kube-system get pods
 ```
 
@@ -34,7 +34,7 @@ kubectl -n kube-system get pods
 
 使用 JsonPath 輸出指定資訊。例如：
 
-```BASH
+```bash
 kubectl -n kube-system get pods -o=jsonpath='{.items[*].metadata.name}'
 ```
 
@@ -42,13 +42,13 @@ kubectl -n kube-system get pods -o=jsonpath='{.items[*].metadata.name}'
 
 取得指定 Pod 的資源描述。例如：
 
-```BASH
+```bash
 kubectl -n kube-system describe pods kube-apiserver-k8s-dev
 ```
 
 取得指定 Node 的資源描述。例如：
 
-```BASH
+```bash
 kubectl -n kube-system describe nodes k8s-dev
 ```
 
@@ -56,7 +56,7 @@ kubectl -n kube-system describe nodes k8s-dev
 
 取得 Kubernetes 的 Client 和 Server 版本。
 
-```BASH
+```bash
 kubectl version
 ```
 
@@ -64,7 +64,7 @@ kubectl version
 
 查看 Kubernetes 叢集的詳細資訊。
 
-```BASH
+```bash
 kubectl cluster-info
 ```
 
@@ -72,13 +72,13 @@ kubectl cluster-info
 
 查看 Node 的 CPU 和 memory 的使用量。
 
-```BASH
+```bash
 kubectl top nodes
 ```
 
 查看 Pod 的 CPU 和 memory 的使用量。
 
-```BASH
+```bash
 kubectl top pods
 ```
 
@@ -86,7 +86,7 @@ kubectl top pods
 
 查看各資源 API 版本。
 
-```BASH
+```bash
 kubectl api-versions
 ```
 
@@ -94,7 +94,7 @@ kubectl api-versions
 
 查看各資源的日誌。例如：
 
-```BASH
+```bash
 kubectl -n kube-system logs kube-apiserver-k8s-dev
 ```
 
@@ -104,7 +104,7 @@ kubectl -n kube-system logs kube-apiserver-k8s-dev
 
 將檔案從本地複製到容器，或從容器複製到本地。例如：
 
-```BASH
+```bash
 kubectl -n kube-system cp kube-apiserver-k8s-dev:/tmp/test.txt
 ```
 
@@ -112,13 +112,13 @@ kubectl -n kube-system cp kube-apiserver-k8s-dev:/tmp/test.txt
 
 使用互動模式進入到指定容器內。例如：
 
-```BASH
+```bash
 kubectl -n kube-system exec -it etcd-k8s-dev sh
 ```
 
 在指定容器執行指令。例如：
 
-```BASH
+```bash
 kubectl -n kube-system exec etcd-k8s-dev ip addr
 ```
 
@@ -126,13 +126,13 @@ kubectl -n kube-system exec etcd-k8s-dev ip addr
 
 將本地的通訊埠轉發到容器的對外埠。例如：
 
-```BASH
+```bash
 sudo kubectl -n kube-system port-forward pod/coredns-6955765f44-pz4sw 53:53
 ```
 
 使用 `telnet` 指令測試本地的 53 埠。
 
-```BASH
+```bash
 telnet localhost  53
 Trying ::1...
 Connected to localhost.

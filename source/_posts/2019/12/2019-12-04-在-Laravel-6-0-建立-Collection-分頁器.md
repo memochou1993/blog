@@ -9,7 +9,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 新增 `app/Mixins/CollectionMixin.php` 檔：
 
-```PHP
+```php
 namespace App\Mixins;
 
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -38,7 +38,7 @@ class CollectionMixin
 
 在 `app/Providers/AppServiceProvider.php` 檔註冊：
 
-```PHP
+```php
 namespace App\Providers;
 
 use App\Mixins\CollectionMixin;
@@ -71,7 +71,7 @@ class AppServiceProvider extends ServiceProvider
 
 使用：
 
-```PHP
+```php
 $items = [1, 2, 3, 4, 5];
 
 return collect($items)->paginate(2, 2);
@@ -79,7 +79,7 @@ return collect($items)->paginate(2, 2);
 
 結果：
 
-```PHP
+```php
 {
     "current_page": 2,
     "data": {

@@ -12,19 +12,19 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 ## 建立專案
 
-```BASH
+```bash
 laravel new passport
 ```
 
 ## 安裝套件
 
-```BASH
+```bash
 composer require laravel/passport
 ```
 
 ## 執行遷移
 
-```BASH
+```bash
 php artisan migrate
 ```
 
@@ -32,13 +32,13 @@ php artisan migrate
 
 新增 `UsersTableSeeder` 填充。
 
-```BASH
+```bash
 php artisan make:seed UsersTableSeeder
 ```
 
 在 `UsersTableSeeder.php` 檔新增一名測試用使用者資訊。
 
-```PHP
+```php
 public function run()
 {
     App\User::create([
@@ -51,7 +51,7 @@ public function run()
 
 執行填充。
 
-```BASH
+```bash
 php artisan db:seed
 ```
 
@@ -59,13 +59,13 @@ php artisan db:seed
 
 執行安裝。
 
-```BASH
+```bash
 php artisan passport:install
 ```
 
 得到以下資訊。
 
-```TEXT
+```txt
 Personal access client created successfully.
 Client ID: 1
 Client Secret: AHB4p……tdffF
@@ -76,13 +76,13 @@ Client Secret: 28ch1……ioMe7
 
 若只有密碼授權，執行：
 
-```BASH
+```bash
 php artisan passport:client --password
 ```
 
 若只有客戶端憑證授權，執行：
 
-```BASH
+```bash
 php artisan passport:client --client
 ```
 
@@ -90,7 +90,7 @@ php artisan passport:client --client
 
 修改 `User` 模型。
 
-```PHP
+```php
 namespace App;
 
 use Laravel\Passport\HasApiTokens;
@@ -107,7 +107,7 @@ class User extends Authenticatable
 
 在 `app\Providers\AuthServiceProvider.php` 檔註冊路由。
 
-```PHP
+```php
 namespace App\Providers;
 
 use Laravel\Passport\Passport;
@@ -148,7 +148,7 @@ class AuthServiceProvider extends ServiceProvider
 
 修改 `config/auth.php` 檔。
 
-```PHP
+```php
 'guards' => [
     'web' => [
         'driver' => 'session',
@@ -165,13 +165,13 @@ class AuthServiceProvider extends ServiceProvider
 
 向 <http://passport.test/api/user> 發起 `GET` 請求，得到回應如下：
 
-```JSON
+```json
 [MethodNotAllowedHttpException] No message
 ```
 
 在 `Accept` 輸入 `application/json` 可以得到以下回應：
 
-```JSON
+```json
 {
     "message": "Unauthenticated."
 }
@@ -181,7 +181,7 @@ class AuthServiceProvider extends ServiceProvider
 
 在 `app/Http/Kernel.php` 的 `routeMiddleware` 新增中介層。
 
-```PHP
+```php
 protected $routeMiddleware = [
     // ...
     'client' => \Laravel\Passport\Http\Middleware\CheckClientCredentials::class,
@@ -190,7 +190,7 @@ protected $routeMiddleware = [
 
 修改路由。
 
-```PHP
+```php
 Route::get('/user', function (Request $request) {
     return \App\User::get();
 })->middleware('client');
@@ -198,7 +198,7 @@ Route::get('/user', function (Request $request) {
 
 向 <http://passport.test/oauth/token> 發起 `POST` 請求：
 
-```JSON
+```json
 {
     "grant_type": "client_credentials",
     "client_id" : 2,
@@ -208,7 +208,7 @@ Route::get('/user', function (Request $request) {
 
 得到回應如下：
 
-```JSON
+```json
 {
     "token_type": "Bearer",
     "expires_in": 599,
@@ -226,7 +226,7 @@ Route::get('/user', function (Request $request) {
 
 結果得到回應如下：
 
-```JSON
+```json
 [
     {
         "id": 1,
@@ -243,7 +243,7 @@ Route::get('/user', function (Request $request) {
 
 使用預設路由。
 
-```PHP
+```php
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -251,7 +251,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 向 <http://passport.test/oauth/token> 發起 `POST` 請求：
 
-```JSON
+```json
 {
     "grant_type": "password",
     "client_id" : 2,
@@ -263,7 +263,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 得到回應如下：
 
-```JSON
+```json
 {
     "token_type": "Bearer",
     "expires_in": 599,
@@ -282,7 +282,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 結果得到回應如下：
 
-```JSON
+```json
 [
     {
         "id": 1,
@@ -297,7 +297,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 如果要刷新 Token，則向 <http://passport.test/oauth/token> 發起 `POST` 請求：
 
-```JSON
+```json
 {
     "grant_type": "refresh_token",
     "client_id" : 2,
@@ -308,7 +308,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 得到回應如下：
 
-```JSON
+```json
 {
     "token_type": "Bearer",
     "expires_in": 599,
@@ -321,7 +321,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 部署到正式環境時，需要產生 Passport 金鑰。
 
-```BASH
+```bash
 php artisan passport:keys
 ```
 

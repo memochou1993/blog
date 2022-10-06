@@ -12,25 +12,25 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 ## 建立專案
 
-```BASH
+```bash
 laravel new jwt
 ```
 
 ## 安裝套件
 
-```BASH
+```bash
 composer require tymon/jwt-auth 1.*
 ```
 
 ## 發布資源
 
-```BASH
+```bash
 php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
 ```
 
 ## 生成密鑰
 
-```BASH
+```bash
 php artisan jwt:secret
 ```
 
@@ -38,7 +38,7 @@ php artisan jwt:secret
 
 修改 `User` 模型。
 
-```PHP
+```php
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
@@ -94,7 +94,7 @@ class User extends Authenticatable implements JWTSubject
 
 在 `config/app.php` 新增靜態代理。
 
-```PHP
+```php
 'aliases' => [
     // ...
     'JWTAuth' => 'Tymon\JWTAuth\Facades\JWTAuth',
@@ -106,7 +106,7 @@ class User extends Authenticatable implements JWTSubject
 
 修改 `config/auth.php` 檔。
 
-```PHP
+```php
 
     'defaults' => [
         'guard' => 'api', // 改成 api
@@ -130,13 +130,13 @@ class User extends Authenticatable implements JWTSubject
 
 新增 `UsersTableSeeder` 填充。
 
-```BASH
+```bash
 php artisan make:seed UsersTableSeeder
 ```
 
 在 `UsersTableSeeder.php` 檔新增一名測試用使用者資訊。
 
-```PHP
+```php
 public function run()
 {
     App\User::create([
@@ -149,7 +149,7 @@ public function run()
 
 執行遷移。
 
-```BASH
+```bash
 php artisan migrate --seed
 ```
 
@@ -157,7 +157,7 @@ php artisan migrate --seed
 
 新增 `AuthController` 控制器。
 
-```PHP
+```php
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -226,7 +226,7 @@ class AuthController extends Controller
 
 新增 `UserController` 控制器。
 
-```PHP
+```php
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -244,7 +244,7 @@ class UserController extends Controller
 
 在 `routes\api.php` 新增路由。
 
-```PHP
+```php
 Route::prefix('auth')->group(function () {
     Route::post('login', 'AuthController@login')->name('login');
     Route::post('logout', 'AuthController@logout')->name('logout');
@@ -259,13 +259,13 @@ Route::middleware('auth:api')->group(function () {
 
 向 <http://jwt.test/api/users> 發起 `GET` 請求，得到回應如下：
 
-```BASH
+```bash
 [MethodNotAllowedHttpException] No message
 ```
 
 在 `Accept` 輸入 `application/json` 可以得到以下回應：
 
-```JSON
+```json
 {
   "message": "Unauthenticated."
 }
@@ -280,7 +280,7 @@ Route::middleware('auth:api')->group(function () {
 
 得到回應如下：
 
-```JSON
+```json
 {
   "token": "eyJ0e……bnWfg"
 }
@@ -295,7 +295,7 @@ Route::middleware('auth:api')->group(function () {
 
 結果得到回應如下：
 
-```JSON
+```json
 [
   {
     "id": 1,

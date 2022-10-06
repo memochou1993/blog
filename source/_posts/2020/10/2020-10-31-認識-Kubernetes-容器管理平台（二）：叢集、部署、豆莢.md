@@ -23,7 +23,7 @@ Kubernetes 協調一個高可用的電腦叢集（Cluster），每個電腦作�
 - Master 調度整個叢集
 - Nodes 負責運行應用
 
-```BASH
+```bash
 |----------------------------------------------------|
 |                       Cluster                      |
 |----------------------------------------------------|
@@ -51,19 +51,19 @@ Kubernetes 既可以部署在物理機上，也可以部署在虛擬機上。min
 
 查看 minikube 版本。
 
-```BASH
+```bash
 minikube version
 ```
 
 啟動 minikube ，創建一個 Kubernetes 叢集。
 
-```BASH
+```bash
 minikube start
 ```
 
 查看 kubectl 版本。
 
-```BASH
+```bash
 kubectl version
 ```
 
@@ -72,13 +72,13 @@ kubectl version
 
 查看叢集資訊。
 
-```BASH
+```bash
 kubectl cluster-info
 ```
 
 查看叢集中的所有工作節點（Nodes），狀態為 `Ready`，表示可以用來部署應用程式。
 
-```BASH
+```bash
 kubectl get nodes
 ```
 
@@ -94,13 +94,13 @@ kubectl get nodes
 
 首先，創建一個應用程式的 Deployment。執行以下指令，Kubernetes 會找尋一個合適的 Node，並將應用程式調度到這個 Node 上。
 
-```BASH
+```bash
 kubectl create deployment kubernetes-bootcamp --image=gcr.io/google-samples/kubernetes-bootcamp:v1
 ```
 
 查看所有的 Deployments。
 
-```BASH
+```bash
 kubectl get deployments
 ```
 
@@ -108,13 +108,13 @@ kubectl get deployments
 
 創建一個 proxy，這個 proxy 允許我們使用 API 和 Kubernetes 叢集互動。
 
-```BASH
+```bash
 kubectl proxy
 ```
 
 使用 API 查看 Kubernetes 版本。
 
-```BASH
+```bash
 curl http://localhost:8001/version
 ```
 
@@ -132,7 +132,7 @@ Pod 為特定於應用程式的「邏輯主機」建模，並且可以包含相�
 
 Pod 是 Kubernetes 裡的最小單位，當我們在 Kubernetes 上創建 Deployment 時，該 Deployment 會在其中創建包含容器的 Pod（而不是直接創建容器）。每個 Pod 都與調度它的 Node 綁定，並保持在那裡，直到終止（根據重啟策略）或刪除。如果 Node 發生故障，則會在叢集中的其他可用 Node 上調度相同的 Pod。
 
-```BASH
+```bash
        10.10.10.1
       (IP Address)
 |-----------------------|
@@ -154,7 +154,7 @@ Pod 是 Kubernetes 裡的最小單位，當我們在 Kubernetes 上創建 Deploy
 - Kubelet，負責 Kubernetes 主節點和工作節點之間通訊的過程，負責管理 Pod 和機器上運行的容器。
 - 容器運行時（如 Docker）負責從倉庫中提取容器映像，解壓縮容器以及運行應用程式。
 
-```BASH
+```bash
 |-------------------------|
 |          Node           |
 |-------------------------|
@@ -173,49 +173,49 @@ Pod 是 Kubernetes 裡的最小單位，當我們在 Kubernetes 上創建 Deploy
 
 首先，查看所有的 Pods。
 
-```BASH
+```bash
 kubectl get pods
 ```
 
 查看 Pods 所包含的容器，以及容器所使用的映像檔。
 
-```BASH
+```bash
 kubectl describe pods
 ```
 
 創建一個 proxy。
 
-```BASH
+```bash
 kubectl proxy
 ```
 
 取得此 Pod 的名字，記錄一下，存進 `POD_NAME` 環境變數中。
 
-```BASH
+```bash
 export POD_NAME=$(kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}')
 echo POD_NAME=$POD_NAME
 ```
 
 查看此 Pod 的日誌。
 
-```BASH
+```bash
 kubectl logs $POD_NAME
 ```
 
 列出此 Pod 的環境變數。
 
-```BASH
+```bash
 kubectl exec $POD_NAME env
 ```
 
 進入此 Pod 的容器。
 
-```BASH
+```bash
 kubectl exec -ti $POD_NAME bash
 ```
 
 使用 curl 指令確認應用程式正在運行中。
 
-```BASH
+```bash
 root@kubernetes-bootcamp:/# curl localhost:8080
 ```

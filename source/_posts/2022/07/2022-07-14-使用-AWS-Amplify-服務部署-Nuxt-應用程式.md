@@ -9,7 +9,7 @@ categories: ["程式設計", "JavaScript", "環境部署"]
 
 建立專案。
 
-```BASH
+```bash
 npx create-nuxt-app amplifyapp
 ```
 
@@ -25,7 +25,7 @@ npx create-nuxt-app amplifyapp
 
 點選「Build settings」頁籤，將 `amplify.yml` 檔編輯如下：
 
-```YAML
+```yaml
 version: 1
 frontend:
   phases:

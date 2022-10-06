@@ -9,7 +9,7 @@ categories: ["程式設計", "JavaScript", "環境部署"]
 
 新增 `docker-compose.yaml` 檔：
 
-```YML
+```yaml
 version: "3"
 
 services:
@@ -22,7 +22,7 @@ services:
 
 新增 `Dockerfile` 檔：
 
-```DOCKERFILE
+```dockerfile
 # build stage
 FROM node:alpine as builder
 
@@ -48,7 +48,7 @@ CMD [ "yarn", "start" ]
 
 新增 `.dockerignore` 檔：
 
-```ENV
+```env
 .git
 .gitignore
 Dockerfile
@@ -60,10 +60,10 @@ dist
 
 編譯並啟動容器：
 
-```BASH
+```bash
 docker-compose up -d --build
 ```
 
 ## 瀏覽網頁
 
-前往：<http://127.0.0.1:3000>
+前往 <http://127.0.0.1:3000> 瀏覽。

@@ -13,25 +13,25 @@ categories: ["環境部署", "Linux"]
 
 更新 apt 套件工具。
 
-```BASH
+```bash
 sudo apt-get update
 ```
 
 安裝 PHP 及擴充套件。
 
-```BASH
+```bash
 sudo apt-get install -y php php7.2-fpm php-mysql php-zip php-cli php-mbstring php-xml php-curl
 ```
 
 查看 PHP 版本
 
-```BASH
+```bash
 php --version
 ```
 
 查看 PHP-FPM 版本
 
-```BASH
+```bash
 php-fpm7.2 --version
 ```
 
@@ -39,13 +39,13 @@ php-fpm7.2 --version
 
 安裝 Git 及相關套件。
 
-```BASH
+```bash
 sudo apt-get install -y curl git unzip
 ```
 
 查看 Git 版本
 
-```BASH
+```bash
 git --version
 ```
 
@@ -53,7 +53,7 @@ git --version
 
 下載 Composer 並安裝。
 
-```BASH
+```bash
 cd ~
 curl -sS https://getcomposer.org/installer -o composer-setup.php
 HASH=48e3236262b34d30969dca3c37281b3b4bbe3221bda826ac6a9a62d6444cdb0dcd0615698a5cbe587c3f0fe57a54d8f5
@@ -66,25 +66,25 @@ sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
 查看 Composer 版本。
 
-```BASH
+```bash
 composer --version
 ```
 
 修改權限。
 
-```BASH
+```bash
 sudo chown -R ${USER}:${USER} ~/.composer
 ```
 
 將套件執行檔路徑寫進環境變數。
 
-```BASH
+```bash
 echo 'export PATH="$PATH:$HOME/.composer/vendor/bin"' >> ~/.bashrc
 ```
 
 重新加載啟動文件。
 
-```BASH
+```bash
 source ~/.bashrc
 ```
 
@@ -92,13 +92,13 @@ source ~/.bashrc
 
 使用 Composer 安裝。
 
-```BASH
+```bash
 composer global require laravel/installer
 ```
 
 查看 Laravel 安裝器版本。
 
-```BASH
+```bash
 laravel --version
 ```
 
@@ -106,19 +106,19 @@ laravel --version
 
 安裝 Nginx。
 
-```BASH
+```bash
 sudo apt-get install -y nginx
 ```
 
 查看 Nginx 版本。
 
-```BASH
+```bash
 nginx -v
 ```
 
 在 `/etc/nginx/sites-availabl` 資料夾新增 `laravel.xxx.com.conf` 檔：
 
-```CONF
+```conf
 server {
   listen 80;
   listen [::]:80;
@@ -143,13 +143,13 @@ server {
 
 建立設定檔軟連結。
 
-```BASH
+```bash
 sudo ln -s /etc/nginx/sites-available/laravel.xxx.com.conf /etc/nginx/sites-enabled/laravel.xxx.com.conf
 ```
 
 重啟 Nginx 服務。
 
-```BASH
+```bash
 sudo nginx -s reload
 ```
 
@@ -161,44 +161,44 @@ sudo nginx -s reload
 
 安裝 MySQL。
 
-```BASH
+```bash
 sudo apt-get install -y mysql-server
 ```
 
 查看 MySQL 版本。
 
-```BASH
+```bash
 mysql --version
 ```
 
 進行安全設定。
 
-```BASH
+```bash
 sudo mysql_secure_installation
 ```
 
 使用 `root` 使用者進入資料庫。
 
-```BASH
+```bash
 sudo mysql
 ```
 
 查看所有使用者。
 
-```SQL
+```sql
 > SELECT user,authentication_string,plugin,host FROM mysql.user;
 ```
 
 修改 `root` 使用者的認證套件為 `mysql_native_password`。
 
-```SQL
+```sql
 > ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 > FLUSH PRIVILEGES;
 ```
 
 新增 `ubuntu` 使用者，並設定權限。
 
-```SQL
+```sql
 > CREATE USER 'ubuntu'@'localhost' IDENTIFIED BY 'password';
 > GRANT ALL PRIVILEGES ON *.* TO 'ubuntu'@'localhost';
 > FLUSH PRIVILEGES;
@@ -207,13 +207,13 @@ sudo mysql
 
 使用 `ubuntu` 使用者進入資料庫。
 
-```BASH
+```bash
 mysql -u ubuntu -p
 ```
 
 新增 `homestead` 資料庫。
 
-```SQL
+```sql
 > CREATE DATABASE `homestead`;
 > quit;
 ```
@@ -222,39 +222,39 @@ mysql -u ubuntu -p
 
 修改 `/var/www` 資料夾的權限。
 
-```BASH
+```bash
 sudo chown -R ${USER}:${USER} /var/www
 ```
 
 建立專案。
 
-```BASH
+```bash
 cd /var/www
 laravel new laravel
 ```
 
 修改 `.env` 檔。
 
-```ENV
+```env
 DB_USERNAME=ubuntu
 DB_PASSWORD=password
 ```
 
 執行遷移。
 
-```BASH
+```bash
 php artisan migrate --seed
 ```
 
 修改權限，讓 Nginx 使用者可以存取 `storage` 和 `bootstrap/cache` 資料夾。
 
-```BASH
+```bash
 sudo setfacl -R -m u:www-data:rwx /var/www/laravel/storage /var/www/laravel/bootstrap/cache
 ```
 
 ## 瀏覽網頁
 
-前往：<http://laravel.xxx.com>
+前往 <http://laravel.xxx.com> 瀏覽。
 
 ## 參考資料
 

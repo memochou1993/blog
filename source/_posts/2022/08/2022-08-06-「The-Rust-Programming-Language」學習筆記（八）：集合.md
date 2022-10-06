@@ -27,13 +27,13 @@ Rust 的標準函式庫提供一些非常實用的資料結構稱之為集合（
 
 要建立一個新的空向量的話，我們呼叫 `Vec::new` 函式。標準函式庫提供的 `Vec<T>` 型別可以持有任意型別，然後當特定向量要持有特定型別時，我們可以在尖括號內指定該型別。
 
-```RS
+```rs
 let v: Vec<i32> = Vec::new();
 ```
 
 Rust 還提供了 `vec!` 巨集讓我們能方便地建立一個新的向量並取得提供的數值。以下建立了一個新的 `Vec<i32>`，並擁有數值 1、2 和 3。整數型別為 `i32` 是因為這是預設整數型別。
 
-```RS
+```rs
 let v = vec![1, 2, 3];
 ```
 
@@ -41,7 +41,7 @@ let v = vec![1, 2, 3];
 
 要在建立向量之後新增元素的話，可以使用 `push` 方法。與其他變數一樣，如果想要變更其數值的話，需要使用 `mut` 關鍵字使它成為可變的。
 
-```RS
+```rs
 let mut v: Vec<i32> = Vec::new();
 v.push(5);
 v.push(6);
@@ -52,7 +52,7 @@ v.push(7);
 
 就像其它 `struct` 一樣，向量會在作用域結束時被釋放。當向量被釋放時，其所有內容也都會被釋放，代表它持有的那些整數都會被清除。
 
-```RS
+```rs
 {
     let v = vec![1, 2, 3, 4];
     // 使用 v 做些事情
@@ -63,7 +63,7 @@ v.push(7);
 
 取得向量中數值的方法，可以使用索引語法與 `get` 方法。
 
-```RS
+```rs
 let v = [1, 2, 3, 4, 5];
 let third: &i32 = &v[2];
 println!("第三個元素為 {}", third);
@@ -76,7 +76,7 @@ match v.get(2) {
 
 Rust 提供兩種取得元素引用方式，第一個 `[]` 方法會讓程式恐慌，因為它引用了不存在的元素。此方法適用於當你希望一有無效索引時就讓程式崩潰的狀況。當使用 `get` 方法來索取向量不存在的索引時，它會回傳 `None` 而不會恐慌。如果正常情況下偶而會不小心存取超出向量範圍索引的話，就會想要只用此方法。
 
-```RS
+```rs
 let v = vec![1, 2, 3, 4, 5];
 
 let does_not_exist = &v[100];
@@ -85,7 +85,7 @@ let does_not_exist = v.get(100);
 
 有個規則是我們不能在同個作用域同時擁有可變與不可變引用。在此我們有一個向量第一個元素的不可變引用，然後我們嘗試在向量後方新增元素。如果我們嘗試在此動作後繼續使用第一個引用的話，程式會無法執行。
 
-```RS
+```rs
 let mut v = vec![1, 2, 3, 4, 5];
 
 let first = &v[0];
@@ -101,7 +101,7 @@ println!("第一個元素為 {}", first);
 
 想要依序存取向量中每個元素的話，我們可以遍歷所有元素而不必用索引一個一個取得。
 
-```RS
+```rs
 let v = vec![1, 2, 3, 4, 5];
 
 for i in &v {
@@ -111,7 +111,7 @@ for i in &v {
 
 還可以遍歷可變向量中的每個元素取得可變引用來改變每個元素。
 
-```RS
+```rs
 let mut v = vec![1, 2, 3, 4, 5];
 
 for i in &mut v {
@@ -126,7 +126,7 @@ for i in &mut v {
 
 舉例來說，假設我們想從表格中的一行取得數值，但是有些行內的列會包含整數、浮點數以及一些字串。我們可以定義一個枚舉，其變體會持有不同的數值型別，然後所有的枚舉變體都會被視為相同型別：就是它們的枚舉。
 
-```RS
+```rs
 enum SpreadsheetCell {
     Int(i32),
     Float(f64),
@@ -156,13 +156,13 @@ Rust 的標準函式庫還包含了其他種類的字串型別，像是 `OsStrin
 
 許多 `Vec<T>` 可使用的方法在 `String` 也都能用，像是用 `new` 函式建立新的字串。
 
-```RS
+```rs
 let mut s = String::new();
 ```
 
 通常我們會希望建立字串的同時能夠初始化資料，為此我們可以使用 `to_string` 方法，任何有實作 `Display` 特徵的型別都可以使用此方法，就像字串字面值的使用方式一樣。
 
-```RS
+```rs
 let data = "初始內容";
 
 let s = data.to_string();
@@ -173,7 +173,7 @@ let s = "初始內容".to_string();
 
 我們也可以用函式 `String::from` 從字串字面值建立 String。和使用 `to_string` 的效果一樣。
 
-```RS
+```rs
 let s = String::from("初始內容");
 ```
 
@@ -181,7 +181,7 @@ let s = String::from("初始內容");
 
 字串是 UTF-8 編碼的，所以我們可以包含任何正確編碼的資料。
 
-```RS
+```rs
 let hello = String::from("السلام عليكم");
 let hello = String::from("Dobrý den");
 let hello = String::from("Hello");
@@ -199,7 +199,7 @@ let hello = String::from("Hola");
 
 可以使用 `push_str` 方法來追加一個字串切片使字串增長。
 
-```RS
+```rs
 let mut s = String::from("foo");
 s.push_str("bar");
 // foobar
@@ -207,7 +207,7 @@ s.push_str("bar");
 
 而 `push` 方法會取得一個字元作為參數並加到 `String` 上。
 
-```RS
+```rs
 let mut s = String::from("lo");
 s.push('l');
 // lol
@@ -215,7 +215,7 @@ s.push('l');
 
 通常會想要組合兩個字串在一起，其中一種方式是用 `+` 運算子。
 
-```RS
+```rs
 let s1 = String::from("Hello, ");
 let s2 = String::from("world!");
 let s3 = s1 + &s2; // 注意到 s1 被移動因此無法再被使用
@@ -225,7 +225,7 @@ let s3 = s1 + &s2; // 注意到 s1 被移動因此無法再被使用
 
 如果要完成更複雜的字串組合的話，我們可以改使用 `format!` 巨集：
 
-```RS
+```rs
 let s1 = String::from("tic");
 let s2 = String::from("tac");
 let s3 = String::from("toe");
@@ -242,7 +242,7 @@ Rust 字串並不支援索引。
 
 將「Здравствуйте」用 UTF-8 編碼後的位元組長度，因為該字串的每個 Unicode 純量都佔據兩個位元組。因此字串位元組的索引不會永遠都能對應到有效的 Unicode 純量數值。
 
-```RS
+```rs
 let hello = String::from("Здравствуйте");
 ```
 
@@ -252,7 +252,7 @@ Rust 還有一個不允許索引 `String` 來取得字元的原因是因為，�
 
 與其在 `[]` 只使用一個數字來索引，你可以在 `[]` 指定一個範圍來建立包含特定位元組的字串切片。
 
-```RS
+```rs
 let hello = "Здравствуйте";
 
 let s = &hello[0..4];
@@ -264,7 +264,7 @@ let s = &hello[0..4];
 
 要對字串的部分進行操作最好的方式是明確表達想要的是字元還是位元組。對獨立的 Unicode 純量型別來說的話，就是使用 `chars` 方法。對「नमस्ते」呼叫 `chars` 會將六個擁有 `char` 型別的數值拆開並回傳，這樣一來就可以遍歷每個元素。
 
-```RS
+```rs
 for c in "नमस्ते".chars() {
     println!("{}", c);
 }
@@ -272,7 +272,7 @@ for c in "नमस्ते".chars() {
 
 此程式碼會顯示以下輸出：
 
-```RS
+```rs
 न
 म
 स
@@ -283,7 +283,7 @@ for c in "नमस्ते".chars() {
 
 而 `bytes` 方法會回傳每個原始位元組。
 
-```RS
+```rs
 for b in "नमस्ते".bytes() {
     println!("{}", b);
 }
@@ -291,7 +291,7 @@ for b in "नमस्ते".bytes() {
 
 此程式碼會印出此 `String` 的 18 個位元組。
 
-```RS
+```rs
 224
 164
 // --省略--
@@ -309,7 +309,7 @@ for b in "नमस्ते".bytes() {
 
 一種建立空的雜湊映射的方式是使用 `new` 並透過 `insert` 加入新元素。
 
-```RS
+```rs
 use std::collections::HashMap;
 
 let mut scores = HashMap::new();
@@ -320,7 +320,7 @@ scores.insert(String::from("黃隊"), 50);
 
 另一種建構雜湊映射的方式為使用疊代器並在一個元組組成的向量中使用 `collect` 方法，其中每個元組都包含一個鍵與值的配對。
 
-```RS
+```rs
 use std::collections::HashMap;
 
 let teams = vec![String::from("藍隊"), String::from("黃隊")];
@@ -334,7 +334,7 @@ teams.into_iter().zip(initial_scores.into_iter()).collect();
 
 像是 `i32` 這種有實作 `Copy` 特徵的型別，其數值可以被拷貝進雜湊映射之中。但對於像是 `String` 這種擁有所有權的數值，則會被移動到雜湊映射，並且成為該數值新的擁有者。
 
-```RS
+```rs
 use std::collections::HashMap;
 
 let field_name = String::from("Favorite color");
@@ -349,7 +349,7 @@ map.insert(field_name, field_value);
 
 可以透過 `get` 方法並提供鍵來取得其在雜湊映射對應的值。
 
-```RS
+```rs
 use std::collections::HashMap;
 
 let mut scores = HashMap::new();
@@ -363,7 +363,7 @@ let score = scores.get(&team_name);
 
 也可以使用 `for` 迴圈用類似的方式來遍歷雜湊映射中每個鍵值配對。
 
-```RS
+```rs
 use std::collections::HashMap;
 
 let mut scores = HashMap::new();
@@ -384,7 +384,7 @@ for (key, value) in &scores {
 
 如果我們在雜湊映射插入一個鍵值配對，然後又在相同鍵插入不同的數值的話，該鍵相對應的數值就會被取代。
 
-```RS
+```rs
 use std::collections::HashMap;
 
 let mut scores = HashMap::new();
@@ -403,7 +403,7 @@ println!("{:?}", scores);
 
 雜湊映射還有另一種常見的用法是，依照鍵的舊數值來更新它。舉例來說，以下展示了一支如何計算一些文字內每個單字各出現多少次的程式碼。我們使用雜湊映射，鍵為單字然後值為我們每次追蹤計算對應單字出現多少次的次數。如果我們是第一次看到該單字的話，我們插入數值 0。
 
-```RS
+```rs
 use std::collections::HashMap;
 
 let text = "hello world wonderful world";

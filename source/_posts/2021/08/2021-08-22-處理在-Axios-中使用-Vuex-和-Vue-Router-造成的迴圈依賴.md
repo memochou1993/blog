@@ -9,7 +9,7 @@ categories: ["程式設計", "JavaScript", "Vue"]
 
 有時會在 Axios 的攔截器使用到 Vuex 或 Vue Router，這時如果出現迴圈依賴（circular dependency）的錯誤訊息，需要將攔截器封裝成方法並匯出，並以參數的方式將 Vuex 和 Vue Router 傳入，而不是直接引入。
 
-```JS
+```js
 export const setInterceptors = (store, router) => {
   client.interceptors.request.use((config) => {
     // use store
@@ -25,7 +25,7 @@ export const setInterceptors = (store, router) => {
 
 在 `main.js` 引入方法，並將 Vuex 和 Vue Router 引入，並傳進方法中。
 
-```JS
+```js
 import {
   setInterceptors,
 } from '@/plugins/axios';

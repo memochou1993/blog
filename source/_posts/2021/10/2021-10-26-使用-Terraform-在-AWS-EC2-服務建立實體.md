@@ -9,20 +9,20 @@ categories: ["環境部署", "Terraform"]
 
 建立工作資料夾。
 
-```BASH
+```bash
 mkdir -p terraform-practice/ec2
 cd terraform-practice/ec2
 ```
 
 使用 `init` 指令初始化工作資料夾，需要的供應商外掛（provider plugins）將會被下載下來。
 
-```BASH
+```bash
 terraform init
 ```
 
 在工作資料夾新增 `main.tf` 檔：
 
-```TF
+```tf
 terraform {
   required_providers {
     aws = {
@@ -69,19 +69,19 @@ resource "aws_instance" "my-server" {
 
 使用 `plan` 指令查看執行計畫。
 
-```BASH
+```bash
 aws-vault exec --backend=file playground-PowerUser -- terraform plan
 ```
 
 使用 `apply` 指令建立實體。
 
-```BASH
+```bash
 aws-vault exec --backend=file playground-PowerUser -- terraform apply
 ```
 
 使用 `destroy` 指令刪除實體。
 
-```BASH
+```bash
 aws-vault exec --backend=file playground-PowerUser -- terraform destroy
 ```
 

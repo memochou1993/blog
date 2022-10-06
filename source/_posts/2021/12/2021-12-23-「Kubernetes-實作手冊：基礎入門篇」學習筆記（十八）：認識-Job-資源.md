@@ -19,7 +19,7 @@ Job 有完成模式和並行模式：如果 `completions` 大於 1，`parallelis
 
 以下使用 kind 的環境。
 
-```BASH
+```bash
 cd vagrant/kind
 vagrant up
 vagrant ssh
@@ -27,13 +27,13 @@ vagrant ssh
 
 首先，查看範例資料夾中的 Job 配置檔。
 
-```BASH
+```bash
 cat introduction/job/basic.yaml
 ```
 
 以下是一個描述 Job 的 YAML 範例檔。由於 `completions` 設定為 5，`parallelism` 預設為 1，因此最終需要跑完 5 個成功的 Pod，一次一個。而 `backoffLimit` 設定為 4，代表如果出現 4 個失敗的 Pod，就要結束 Job。
 
-```YAML
+```yaml
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -54,13 +54,13 @@ spec:
 
 使用配置檔創建 Job 資源。
 
-```BASH
+```bash
 kubectl apply -f introduction/job/basic.yaml
 ```
 
 查看此 Job 與其他資源的關係。一開始只會有一個 Pod。
 
-```BASH
+```bash
 kubectl tree job pi
 NAMESPACE  NAME            READY  REASON              AGE
 default    Job/pi          -                          2s
@@ -69,7 +69,7 @@ default    └─Pod/pi-bxqpc  False  ContainersNotReady  2s
 
 列出所有的 Job，顯示皆已完成。
 
-```BASH
+```bash
 kubectl get jobs
 NAME       READY   STATUS      RESTARTS   AGE
 pi-7z8c6   0/1     Completed   0          56s
@@ -81,25 +81,25 @@ pi-xfbnr   0/1     Completed   0          64s
 
 刪除 Job 資源。
 
-```BASH
+```bash
 kubectl delete -f introduction/job/basic.yaml
 ```
 
 在描述 Job 的 YAML 範例檔，將 `parallelism` 修改為 3，表示使用並行模式，一次運行 3 個 Pod。
 
-```BASH
+```bash
 parallelism: 3
 ```
 
 再創建一次 Job 資源。
 
-```BASH
+```bash
 kubectl apply -f introduction/job/basic.yaml
 ```
 
 查看此 Job 與其他資源的關係。一開始就會有三個 Pod。
 
-```BASH
+```bash
 NAMESPACE  NAME            READY  REASON              AGE
 default    Job/pi          -                          2s
 default    ├─Pod/pi-6gfqd  False  ContainersNotReady  2s
@@ -109,25 +109,25 @@ default    └─Pod/pi-wdmdr  False  ContainersNotReady  2s
 
 刪除 Job 資源。
 
-```BASH
+```bash
 kubectl delete -f introduction/job/basic.yaml
 ```
 
 在描述 Job 的 YAML 範例檔，將 `activeDeadlineSeconds` 修改為 3，表示一個 Job 如果運行超過 5 秒，就視為失敗。
 
-```BASH
+```bash
 activeDeadlineSeconds: 5
 ```
 
 再創建一次 Job 資源。
 
-```BASH
+```bash
 kubectl apply -f introduction/job/basic.yaml
 ```
 
 列出所有的 Job，顯示皆未完成。
 
-```BASH
+```bash
 kubectl get jobs
 NAME   COMPLETIONS   DURATION   AGE
 pi     0/5           78s        78s
@@ -135,13 +135,13 @@ pi     0/5           78s        78s
 
 觀察一下 Job 詳細資訊。
 
-```BASH
+```bash
 kubectl describe job
 ```
 
 結果如下，可以看到失敗的原因為 `DeadlineExceeded`。
 
-```BASH
+```bash
 Events:
   Type     Reason            Age                  From            Message
   ----     ------            ----                 ----            -------
@@ -156,7 +156,7 @@ Events:
 
 刪除 Job 資源。
 
-```BASH
+```bash
 kubectl delete -f introduction/job/basic.yaml
 ```
 

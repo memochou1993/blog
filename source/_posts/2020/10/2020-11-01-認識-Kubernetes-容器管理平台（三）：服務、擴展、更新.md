@@ -29,7 +29,7 @@ Service 也可以用在 ServiceSpec 標記 `type` 的方式暴露：
 - LoadBalancer：在當前雲中創建一個外部負載平衡器（如果支援的話），並為 Service 分配一個固定的外部 IP。是 NodePort 的超集。
 - ExternalName：通過返回帶有該名稱的 CNAME 記錄，使用任意名稱（由 spec 中的 externalName 制定）公開 Service。不使用代理。這種類型需要 kube-dns 的 v1.7 或更高版本。
 
-```BASH
+```bash
 |-----------------------|
 |         Service       |
 | |--------| |--------| |
@@ -46,7 +46,7 @@ Service 匹配一組 Pod 是使用標籤（Label）和選擇器（Selector），
 - 嵌入版本標籤。
 - 使用標籤將對象進行分類。
 
-```BASH
+```bash
 |---------------------|
 |       Service       |
 |       s:App=A       |
@@ -61,94 +61,94 @@ Service 匹配一組 Pod 是使用標籤（Label）和選擇器（Selector），
 
 首先，查看所有的 Pods。
 
-```BASH
+```bash
 kubectl get pods
 ```
 
 查看所有的 Services。
 
-```BASH
+```bash
 kubectl get services
 ```
 
 使用 `NodePort` 類型暴露此服務。此 Service 將擁有一個唯一的叢集 IP、內部埠號和外部 IP（Node 的 IP）。
 
-```BASH
+```bash
 kubectl expose deployment/kubernetes-bootcamp --type="NodePort" --port 8080
 ```
 
 查看此 Service 的外部埠號。
 
-```BASH
+```bash
 kubectl describe services/kubernetes-bootcamp
 ```
 
 取得此 Service 的 Node 的埠號，記錄一下，存進 `NODE_PORT` 環境變數中。
 
-```BASH
+```bash
 export NODE_PORT=$(kubectl get services/kubernetes-bootcamp -o go-template='{{(index .spec.ports 0).nodePort}}')
 echo NODE_PORT=$NODE_PORT
 ```
 
 從本機透過 minikube 執行應用程式。
 
-```BASH
+```bash
 minikube service kubernetes-bootcamp
 ```
 
 或進到 minikube 虛擬機中，訪問此 Service。
 
-```BASH
+```bash
 minikube ssh
 docker@minikube:~$ curl localhost:<NODE_PORT>
 ```
 
 Deployment 會自動幫 Pod 建立標籤，查看一下 Deployment 的詳細資訊。
 
-```BASH
+```bash
 kubectl describe deployment
 ```
 
 可以使用標籤來查詢符合條件的所有 Pods：
 
-```BASH
+```bash
 kubectl get pods -l app=kubernetes-bootcamp
 ```
 
 也可以查詢 Services：
 
-```BASH
+```bash
 kubectl get services -l app=kubernetes-bootcamp
 ```
 
 套用一個新的標籤給 Pod：
 
-```BASH
+```bash
 kubectl label pod $POD_NAME run=v1
 ```
 
 使用新的標籤查詢 Pods：
 
-```BASH
+```bash
 kubectl get pods -l run=v1
 ```
 
 使用標籤刪除符合查詢條件的 Service：
 
-```BASH
+```bash
 kubectl delete service -l app=kubernetes-bootcamp
 ```
 
 進到 minikube 虛擬機中，此 Service 已無法從外部被訪問。
 
-```BASH
+```bash
 minikube ssh
 docker@minikube:~$ curl localhost:<NODE_PORT>
 ```
 
 但是其實 Service 還是在 Pod 中運行，因為此應用程式仍被 Deployment 所管理。
 
-```BASH
+```bash
 kubectl exec -ti $POD_NAME -- curl localhost:8080
 ```
 
@@ -158,7 +158,7 @@ kubectl exec -ti $POD_NAME -- curl localhost:8080
 
 所謂「擴縮」，是透過改變 Deployment 中的副本數量來實現的。在執行 `kubectl run` 指令時，可以透過`--replicas` 參數來設置 Deployment 的副本數量，
 
-```BASH
+```bash
 |-------------------------|    |-------------------------|
 |         Service         |    |         Service         |
 | |---------------------| |    | |---------| |---------| |
@@ -184,7 +184,7 @@ kubectl exec -ti $POD_NAME -- curl localhost:8080
 
 首先，查看所有的 Deployments 資訊。
 
-```BASH
+```bash
 kubectl get deployments
 NAME                  READY   UP-TO-DATE   AVAILABLE   AGE
 kubernetes-bootcamp   1/1     1            1           26s
@@ -198,7 +198,7 @@ kubernetes-bootcamp   1/1     1            1           26s
 
 再來，查看由 Deployment 所創建的 `ReplicaSet` 資訊。
 
-```BASH
+```bash
 kubectl get rs
 NAME                             DESIRED   CURRENT   READY   AGE
 kubernetes-bootcamp-57978f5f5d   1         1         1       9m28s
@@ -209,13 +209,13 @@ kubernetes-bootcamp-57978f5f5d   1         1         1       9m28s
 
 現在，使用 `kubectl scale` 指令，將 Deployment 調整到 4 個副本。
 
-```BASH
+```bash
 kubectl scale deployments/kubernetes-bootcamp --replicas=4
 ```
 
 再查看一次 Deployments 資訊。
 
-```BASH
+```bash
 kubectl get deployments                                                                                                             4.28G 
 NAME                  READY   UP-TO-DATE   AVAILABLE   AGE
 kubernetes-bootcamp   4/4     4            4           15m
@@ -223,7 +223,7 @@ kubernetes-bootcamp   4/4     4            4           15m
 
 然後查看所有的 Pods 資訊，現在有 4 個不同 IP 位址的 Pods 了。
 
-```BASH
+```bash
 kubectl get pods -o wide
 NAME                                   READY   STATUS    RESTARTS   AGE     IP           NODE       NOMINATED NODE   READINESS GATES
 kubernetes-bootcamp-57978f5f5d-9lxcn   1/1     Running   0          16m     172.17.0.2   minikube   <none>           <none>
@@ -234,7 +234,7 @@ kubernetes-bootcamp-57978f5f5d-z7glk   1/1     Running   0          3m10s   172.
 
 這個改變會被記錄到 Deployment 的活動日誌中，查看 Deployment 的詳細資訊：
 
-```BASH
+```bash
 kubectl describe deployments/kubernetes-bootcamp
 ...
 Events:
@@ -246,39 +246,39 @@ Events:
 
 現在確認一下 Service 是否有負載平衡流量，查看 Service 的詳細資訊。
 
-```BASH
+```bash
 kubectl describe services/kubernetes-bootcamp
 ```
 
 取得此 Service 的 Node 的埠號，記錄一下，存進 `NODE_PORT` 環境變數中。
 
-```BASH
+```bash
 export NODE_PORT=$(kubectl get services/kubernetes-bootcamp -o go-template='{{(index .spec.ports 0).nodePort}}')
 echo NODE_PORT=$NODE_PORT
 ```
 
 進到 minikube 虛擬機中，訪問此 Service。現在每一次的請求都是觸及到不同的 Pod，這代表負載平衡已經成功運作了。
 
-```BASH
+```bash
 minikube ssh
 docker@minikube:~$ curl localhost:<NODE_PORT>
 ```
 
 如果要收縮 Service 到 2 個副本，執行以下指令：
 
-```BASH
+```bash
 kubectl scale deployments/kubernetes-bootcamp --replicas=2
 ```
 
 查看一下 Deployment 資訊。
 
-```BASH
+```bash
 kubectl get deployments
 ```
 
 並確認一下 Pods，已經有 2 個 Pods 被終止了。
 
-```BASH
+```bash
 kubectl get pods -o wide
 ```
 
@@ -288,7 +288,7 @@ kubectl get pods -o wide
 
 前面我們將應用程式擴展為運行多個實例，這是在不影響應用程式可用性的情況下執行更新的要求。預設情形下，更新期間不可用的 Pod 的最大值和可以創建的新的 Pod 數量都是 1。這兩個選項都可以被設置為數字或百分比。在 Kubernetes 中，更新是經過版本控制的，任何 Deployment 更新都可以恢復到以前的版本。
 
-```BASH
+```bash
 |-------------------------|    |-------------------------|    |-------------------------|
 |         Service         |    |         Service         |    |         Service         |
 | |---------| |---------| |    | |---------| |---------| |    | |---------| |---------| |
@@ -311,57 +311,57 @@ kubectl get pods -o wide
 
 首先，查看所有的 Deployments。
 
-```BASH
+```bash
 kubectl get deployments
 ```
 
 查看所有的 Pods。
 
-```BASH
+```bash
 kubectl get pods
 ```
 
 查看應用程式的映像檔版本。
 
-```BASH
+```bash
 kubectl describe pods
 ```
 
 使用 `set image` 指令，更新映像檔版本。
 
-```BASH
+```bash
 kubectl set image deployments/kubernetes-bootcamp kubernetes-bootcamp=jocatalin/kubernetes-bootcamp:v2
 ```
 
 取得此 Service 的 Node 的埠號，記錄一下，存進 `NODE_PORT` 環境變數中。
 
-```BASH
+```bash
 export NODE_PORT=$(kubectl get services/kubernetes-bootcamp -o go-template='{{(index .spec.ports 0).nodePort}}')
 echo NODE_PORT=$NODE_PORT
 ```
 
 進到 minikube 虛擬機中，訪問此 Service。現在此應用程式已經被更新為版本 2 了。
 
-```BASH
+```bash
 minikube ssh
 docker@minikube:~$ curl localhost:<NODE_PORT>
 ```
 
 確認一下更新狀態。
 
-```BASH
+```bash
 kubectl rollout status deployments/kubernetes-bootcamp
 ```
 
 現在，更新映像檔版本到 10。
 
-```BASH
+```bash
 kubectl set image deployments/kubernetes-bootcamp kubernetes-bootcamp=gcr.io/google-samples/kubernetes-bootcamp:v10
 ```
 
 查看一下 Deployments，發現預期副本的數量和可供使用者使用的副本數量不一樣。
 
-```BASh
+```bash
 kubectl get deployments
 NAME                  READY   UP-TO-DATE   AVAILABLE   AGE
 kubernetes-bootcamp   2/4     3            2           21m
@@ -369,7 +369,7 @@ kubernetes-bootcamp   2/4     3            2           21m
 
 查看所有的 Pods，有一些 Pods 的狀態可能會顯示為 `ErrImagePull` 或 `ImagePullBackOff`。
 
-```BASH
+```bash
 kubectl get pods
 NAME                                  READY   STATUS             RESTARTS   AGE
 kubernetes-bootcamp-597654dbd-j5xmt   0/1     ImagePullBackOff   0          5m22s
@@ -381,13 +381,13 @@ kubernetes-bootcamp-769746fd4-t9zf9   1/1     Running            0          5m22
 
 由於根本沒有版本 10 的映像檔，因此需要回復到先前的版本。
 
-```BASH
+```bash
 kubectl rollout undo deployments/kubernetes-bootcamp
 ```
 
 現在，查看所有的 Deployments。
 
-```BASH
+```bash
 kubectl get deployments
 NAME                  READY   UP-TO-DATE   AVAILABLE   AGE
 kubernetes-bootcamp   4/4     4            4           34m
@@ -395,7 +395,7 @@ kubernetes-bootcamp   4/4     4            4           34m
 
 再查看所有的 Pods，全部都回復正常了。
 
-```BASH
+```bash
 NAME                                  READY   STATUS    RESTARTS   AGE
 kubernetes-bootcamp-769746fd4-59wpw   1/1     Running   0          26m
 kubernetes-bootcamp-769746fd4-qd4tz   1/1     Running   0          44s

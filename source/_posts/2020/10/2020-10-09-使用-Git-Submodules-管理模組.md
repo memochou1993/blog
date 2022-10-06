@@ -9,19 +9,19 @@ categories: ["版本控制"]
 
 ### 新增子模組
 
-```BASH
+```bash
 git submodule add <REPOSITORY> <PATH>
 ```
 
 ### 更新子模組
 
-```BASH
+```bash
 git submodule foreach --recursive git pull origin master
 ```
 
 ### 下載遺失的子模組
 
-```BASH
+```bash
 git submodule update --init --recursive
 ```
 
@@ -30,13 +30,13 @@ git submodule update --init --recursive
 
 ### 下載包含子模組的專案
 
-```BASH
+```bash
 git clone --recursive <REPOSITORY>
 ```
 
 ### 刪除子模組
 
-```BASH
+```bash
 git submodule deinit <PATH>
 git rm --cached <PATH>
 rm -rf <PATH>

@@ -9,19 +9,19 @@ categories: ["程式設計", "JavaScript", "Node"]
 
 建立專案。
 
-```BASH
+```bash
 npm init
 ```
 
 安裝依賴套件。
 
-```BASH
+```bash
 npm i puppeteer
 ```
 
 新增 `main.js` 檔：
 
-```JS
+```js
 const puppeteer = require('puppeteer');
 
 (async () => {
@@ -40,7 +40,7 @@ const puppeteer = require('puppeteer');
 
 如果要將特定元素隱藏，可以使用 `page.evaluate()` 方法執行一段程式：
 
-```JS
+```js
 await page.evaluate(() => {
   document.querySelector('#some-button').style.display = 'none';
 });
@@ -48,7 +48,7 @@ await page.evaluate(() => {
 
 也可以使用選擇器獲取特定節點並進行截圖：
 
-```JS
+```js
 const ele = await page.$('#my-card');
 if (ele) {
   const box = await ele.boundingBox();

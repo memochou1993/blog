@@ -9,32 +9,32 @@ categories: ["程式設計", "Go", "其他"]
 
 建立專案。
 
-```BASH
+```bash
 mkdir go-websocket-example
 cd go-websocket-example
 ```
 
 新增 `main.go` 檔。
 
-```BASH
+```bash
 touch main.go
 ```
 
 初始化 Go Modules。
 
-```BASH
+```bash
 go mod init github.com/memochou1993/go-websocket-example
 ```
 
 下載 `gorilla/websocket` 套件。
 
-```BASH
+```bash
 go get github.com/gorilla/websocket
 ```
 
 修改 `main.go` 檔：
 
-```GO
+```go
 package main
 
 import (
@@ -97,7 +97,7 @@ func handle(conn *websocket.Conn) {
 
 新增 `index.html` 檔：
 
-```HTML
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>

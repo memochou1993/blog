@@ -9,7 +9,7 @@ categories: ["程式設計", "JavaScript", "環境部署"]
 
 新增 `.gitlab-ci.yml` 檔。
 
-```YAML
+```yaml
 image: node:14-alpine
 
 pages:
@@ -28,7 +28,7 @@ pages:
 
 將程式碼推送到 `main` 分支。
 
-```BASH
+```bash
 git add .gitlab-ci.yml
 git commit -m "Add deploy script"
 git push

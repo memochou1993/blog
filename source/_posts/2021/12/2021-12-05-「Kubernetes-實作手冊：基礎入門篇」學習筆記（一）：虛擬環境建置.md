@@ -13,13 +13,13 @@ categories: ["環境部署", "Kubernetes", "「Kubernetes 實作手冊：基礎�
 
 下載課程所需要使用的檔案。
 
-```BASH
+```bash
 git clone https://github.com/hwchiu/hiskio-course.git
 ```
 
 進入到 `vagrant` 資料夾，檢查 `Vagrantfile` 檔：
 
-```YAML
+```yaml
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
@@ -67,19 +67,19 @@ end
 
 執行以下指令，啟動一個虛擬機器。
 
-```BASH
+```bash
 vagrant up
 ```
 
 Vagrant 會根據 `Vagrantfile` 檔，呼叫 VirtualBox 去建置一個虛擬機器。
 
-```BASH
+```bash
 Bringing machine 'k8s' up with 'virtualbox' provider...
 ```
 
 如果出現以下錯誤訊息，則需要修改 `Vagrantfile` 檔中的 IP 位址（例如 `192.168.56.231`）：
 
-```BASH
+```bash
 The IP address configured for the host-only network is not within the
 
 allowed ranges. Please update the address used to be within the allowed
@@ -93,19 +93,19 @@ ranges and run the command again.
 
 如果要進到虛擬機器中，使用以下指令。
 
-```BASH
+```bash
 vagrant ssh
 ```
 
 如果要關閉虛擬機器，使用以下指令。
 
-```BASH
+```bash
 vagrant halt
 ```
 
 如果要銷毀虛擬機器，使用以下指令。
 
-```BASH
+```bash
 vagrant destroy
 ```
 

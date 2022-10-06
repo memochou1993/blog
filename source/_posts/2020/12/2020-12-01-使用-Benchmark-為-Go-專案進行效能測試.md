@@ -13,7 +13,7 @@ Go 的 `testing` 標準庫提供 Benchmark 效能測試，以下替三種將數�
 
 新增 `main.go` 檔：
 
-```GO
+```go
 import (
 	"fmt"
 	"log"
@@ -41,7 +41,7 @@ func print03(num int) string {
 
 新增 `main_test.go`：
 
-```GO
+```go
 package main
 
 import "testing"
@@ -92,7 +92,7 @@ func BenchmarkPrint03(b *testing.B) {
 
 執行效能測試：
 
-```BASH
+```bash
 go test -v -bench=. -run=none -benchmem .
 ```
 - 參數 `-v` 輸出測試的方法名稱等日誌。

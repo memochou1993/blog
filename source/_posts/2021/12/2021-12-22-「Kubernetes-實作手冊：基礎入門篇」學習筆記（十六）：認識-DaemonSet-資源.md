@@ -23,7 +23,7 @@ DaemonSet 確保全部（或者某些）節點上運行某一個 Pod 的副本�
 
 以下使用 kind 的環境。
 
-```BASH
+```bash
 cd vagrant/kind
 vagrant up
 vagrant ssh
@@ -31,13 +31,13 @@ vagrant ssh
 
 首先，查看範例資料夾中的 DaemonSet 配置檔。
 
-```BASH
+```bash
 cat introduction/ds/basic.yaml
 ```
 
 以下是一個描述 DaemonSet 的 YAML 範例檔，其中 `template` 的部分其實就是 Pod 的配置檔的格式，並透過標籤綁定在一起。
 
-```YAML
+```yaml
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
@@ -65,13 +65,13 @@ spec:
 
 使用配置檔創建 DaemonSet 資源。
 
-```BASH
+```bash
 kubectl apply -f introduction/ds/basic.yaml
 ```
 
 查看此 DaemonSet 與其他資源的關係。
 
-```BASH
+```bash
 kubectl tree ds test-ds
 NAMESPACE  NAME                                     READY  REASON  AGE
 default    DaemonSet/test-ds                        -              2m43s

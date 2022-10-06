@@ -13,7 +13,7 @@ categories: ["程式設計", "JavaScript", "Express"]
 
 建立專案。
 
-```BASH
+```bash
 mkdir graphql-express
 npm install --save graphql express-graphql express
 ```
@@ -22,7 +22,7 @@ npm install --save graphql express-graphql express
 
 新增 `GraphQLSchema.js` 檔：
 
-```JS
+```js
 const { buildSchema } = require('graphql');
 
 exports.schema = buildSchema(`
@@ -99,7 +99,7 @@ exports.rootValue = {
 
 新增 `server.js` 檔：
 
-```JS
+```js
 const express = require('express');
 const graphqlHTTP = require('express-graphql');
 
@@ -118,7 +118,7 @@ app.listen(3000);
 
 ## 啟動服務
 
-```BASH
+```bash
 node server.js
 ```
 
@@ -149,7 +149,7 @@ node server.js
 
 得到結果：
 
-```JSON
+```json
 {
   "data": {
     "users": [

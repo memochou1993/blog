@@ -9,20 +9,20 @@ categories: ["程式設計", "PHP", "環境部署"]
 
 建立專案。
 
-```BASH
+```bash
 cd ~/Projects
 laravel new laravel
 ```
 
 拉取 `richarvey/nginx-php-fpm` 映像檔。
 
-```BASH
+```bash
 docker pull richarvey/nginx-php-fpm:latest
 ```
 
 啟動容器。
 
-```BASH
+```bash
 docker run -d --name laravel --restart=always -p 8081:80 -v ~/Projects/laravel:/var/www/html richarvey/nginx-php-fpm
 ```
 
@@ -33,7 +33,7 @@ docker run -d --name laravel --restart=always -p 8081:80 -v ~/Projects/laravel:/
 
 進入容器。
 
-```BASH
+```bash
 docker exec -it laravel bash
 ```
 
@@ -42,22 +42,22 @@ docker exec -it laravel bash
 
 在容器中修改 Nginx 設定。
 
-```BASH
+```bash
 vi /etc/nginx/sites-available/default.conf
 ```
 
 修改 `default.conf` 檔的 `root` 參數。
 
-```ENV
+```env
 root /var/www/html/public;
 ```
 
 重新啟動 Nginx 服務。
 
-```BASH
+```bash
 nginx -s reload
 ```
 
 ## 瀏覽網頁
 
-前往：<http://localhost:8081>
+前往 <http://localhost:8081> 瀏覽。

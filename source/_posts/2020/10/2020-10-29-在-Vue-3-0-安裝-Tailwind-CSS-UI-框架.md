@@ -9,19 +9,19 @@ categories: ["程式設計", "JavaScript", "Vue"]
 
 建立 Vue 專案。
 
-```BASH
+```bash
 vue create vue-tailwind
 ```
 
 安裝 `tailwindcss` 套件。
 
-```BASH
+```bash
 yarn add tailwindcss
 ```
 
 安裝 `autoprefixer` 套件。
 
-```BASH
+```bash
 yarn add autoprefixer@^9.0.0
 ```
 
@@ -29,7 +29,7 @@ yarn add autoprefixer@^9.0.0
 
 在 `src/assets/css` 資料夾新增 `tailwind.css` 檔：
 
-```CSS
+```css
 /* noinspection CssInvalidAtRule */
 @tailwind base;
 /* noinspection CssInvalidAtRule */
@@ -40,7 +40,7 @@ yarn add autoprefixer@^9.0.0
 
 在根目錄新增 `tailwind.config.js` 檔：
 
-```JS
+```js
 module.exports = {
   future: {
     // removeDeprecatedGapUtilities: true,
@@ -60,7 +60,7 @@ module.exports = {
 
 在根目錄新增 `postcss.config.js` 檔：
 
-```JS
+```js
 const tailwindcss = require('tailwindcss');
 const autoprefixer = require('autoprefixer');
 
@@ -74,7 +74,7 @@ module.exports = {
 
 修改 `main.js` 檔，將 `tailwind.css` 檔引入：
 
-```JS
+```js
 import { createApp } from 'vue';
 import App from '@/App';
 import router from '@/router';
@@ -85,7 +85,7 @@ createApp(App).use(router).mount('#app');
 
 使用：
 
-```HTML
+```html
 <div class="flex flex-wrap">
   <div class="w-full text-center">
     Form

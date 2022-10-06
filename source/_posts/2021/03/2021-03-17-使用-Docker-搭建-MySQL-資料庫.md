@@ -9,25 +9,25 @@ categories: ["資料庫", "MySQL"]
 
 下載並啟動 `mysql/mysql-server` 映像檔。
 
-```BASH
+```bash
 docker run -d --name=mysql -p 3306:3306 mysql/mysql-server
 ```
 
 等待 `health` 狀態從 `starting` 變成 `healthy` 後，使用以下指令取得初始密碼。
 
-```BASH
+```bash
 docker logs mysql 2>&1 | grep GENERATED
 ```
 
 使用初始密碼進入容器。
 
-```BASH
+```bash
 docker exec -it mysql mysql -uroot -p
 ```
 
 修改使用者密碼。
 
-```MYSQL
+```sql
 mysql> ALTER user 'root'@'localhost' identified by 'root';
 mysql> UPDATE mysql.user SET Host='%' WHERE Host='localhost' AND User='root';
 mysql> FLUSH PRIVILEGES;

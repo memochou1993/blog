@@ -9,20 +9,20 @@ categories: ["程式設計", "JavaScript", "React"]
 
 建立專案。
 
-```BASH
+```bash
 mkdir react-storybook
 cd react-storybook
 ```
 
 初始化專案。
 
-```BASH
+```bash
 npm init
 ```
 
 新增 `.gitignore` 檔。
 
-```ENV
+```env
 /node_modules
 /dist
 ```
@@ -31,19 +31,19 @@ npm init
 
 安裝 Vite 工具。
 
-```BASH
+```bash
 npm i vite -D
 ```
 
 安裝 React 框架。
 
-```BASH
+```bash
 npm i react@17.0.0 react-dom@17.0.0 -D
 ```
 
 安裝 Storybook 工具。
 
-```BASH
+```bash
 npx sb@latest init
 ```
 
@@ -51,7 +51,7 @@ npx sb@latest init
 
 啟動 Storybook 介面。
 
-```BASH
+```bash
 npm run storybook
 ```
 
@@ -59,7 +59,7 @@ npm run storybook
 
 新增 `index.ts` 檔，將元件匯出。
 
-```TS
+```ts
 import Button from "./components/Button";
 
 const components = {
@@ -74,7 +74,7 @@ export {
 
 更新 `package.json` 檔。
 
-```JSON
+```json
 {
   "name": "@memochou1993/react-storybook",
   "version": "0.1.0",
@@ -126,7 +126,7 @@ export {
 
 新增 `vite.config.ts` 檔：
 
-```TS
+```ts
 import react from '@vitejs/plugin-react';
 import path from 'node:path';
 import { defineConfig } from 'vite';
@@ -163,7 +163,7 @@ export default defineConfig({
 
 修改 `tsconfig.json` 檔。
 
-```JSON
+```json
 {
   "isolatedModules": true,
 }
@@ -171,7 +171,7 @@ export default defineConfig({
 
 執行編譯。
 
-```BASH
+```bash
 npm run build
 ```
 
@@ -179,7 +179,7 @@ npm run build
 
 修改 `package.json` 檔，注意套件名稱必須是獨一無二的。
 
-```JSON
+```json
 {
   "name": "@memochou1993/react-storybook",
   "repository": "https://github.com/memochou1993/react-storybook.git"
@@ -188,26 +188,26 @@ npm run build
 
 提交修改。
 
-```BASH
+```bash
 git add .
 git commit -m "Initial commit"
 ```
 
 新增版本。
 
-```BASH
+```bash
 npm version 0.1.0 -m "First release"
 ```
 
 登入 NPM。
 
-```BASH
+```bash
 npm login
 ```
 
 發布套件。
 
-```JSON
+```json
 npm publish --access=public
 ```
 

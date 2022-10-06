@@ -36,7 +36,7 @@ categories: ["雲端運算服務", "AWS"]
 
 使用 `dig` 指令檢查。
 
-```BASH
+```bash
 dig xxxxxxxxxx.test.epoch.tw.
 
 ;; ANSWER SECTION:
@@ -51,7 +51,7 @@ xxxxxxxxxx.test.epoch.tw. 30 IN CNAME yyyyyyyyyy.zzzzzzzzzz.acm-validations.aws.
 
 使用 `dig` 指令檢查。
 
-```BASH
+```bash
 dig CNAME test.epoch.tw.
 
 ;; ANSWER SECTION:

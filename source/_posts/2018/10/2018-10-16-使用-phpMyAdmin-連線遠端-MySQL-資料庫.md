@@ -14,7 +14,7 @@ categories: ["資料庫", "MySQL"]
 
 編輯 `phpMyAdmin/config.inc.php` 檔，找到以下設定：
 
-```PHP
+```php
 /**
  * Servers configuration
  */
@@ -34,7 +34,7 @@ $cfg['Servers'][$i]['AllowNoPassword'] = false;
 
 新增以下內容：
 
-```PHP
+```php
 /**
  * Second server
  */

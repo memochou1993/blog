@@ -9,7 +9,7 @@ categories: ["區塊鏈", "Ethereum"]
 
 新增 `index.html` 檔。
 
-```HTML
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +27,7 @@ categories: ["區塊鏈", "Ethereum"]
 
 新增 `app.js` 檔。
 
-```JS
+```js
 if (typeof window.ethereum !== 'undefined') {
   console.log('MetaMask is installed!');
 }
@@ -61,7 +61,7 @@ button.addEventListener('click', async () => {
 
 啟動網頁。
 
-```BASH
+```bash
 live-server
 ```
 

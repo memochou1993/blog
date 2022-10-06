@@ -21,7 +21,7 @@ StatefulSet 是用來管理有狀態應用的資源。StatefulSet 用來管理�
 
 以下使用 kind 的環境。
 
-```BASH
+```bash
 cd vagrant/kind
 vagrant up
 vagrant ssh
@@ -29,13 +29,13 @@ vagrant ssh
 
 首先，查看範例資料夾中的 StatefulSet 配置檔。
 
-```BASH
+```bash
 cat introduction/sts/basic.yaml
 ```
 
 以下是一個描述 StatefulSet 的 YAML 範例檔，其中 `template` 的部分其實就是 Pod 的配置檔的格式，並透過標籤綁定在一起。
 
-```YAML
+```yaml
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -60,13 +60,13 @@ spec:
 
 使用配置檔創建 StatefulSet 資源。
 
-```BASH
+```bash
 kubectl apply -f introduction/sts/basic.yaml
 ```
 
 查看此 StatefulSet 與其他資源的關係。
 
-```BASH
+```bash
 kubectl tree sts test-sts
 NAMESPACE  NAME                                      READY  REASON  AGE
 default    StatefulSet/test-sts                      -              4m40s
@@ -80,37 +80,37 @@ default    └─Pod/test-sts-2                          True           4m29s
 
 使用 `kubectl rollout status` 指令，查看 StatefulSet 的更新狀態。
 
-```BASH
+```bash
 kubectl rollout status sts test-sts
 ```
 
 結果如下：
 
-```BASH
+```bash
 partitioned roll out complete: 3 new pods have been updated...
 ```
 
 更新 StatefulSet 配置檔，將 `image` 改為其他的映像檔。
 
-```BASH
+```bash
 image: hwchiu/netutils
 ```
 
 再套用一次配置檔。
 
-```BASH
+```bash
 kubectl apply -f introduction/sts/basic.yaml
 ```
 
 查看 StatefulSet 的更新狀態。
 
-```BASH
+```bash
 kubectl rollout status sts test-sts
 ```
 
 結果如下：
 
-```BASH
+```bash
 Waiting for 1 pods to be ready...
 Waiting for 1 pods to be ready...
 Waiting for partitioned roll out to finish: 1 out of 3 new pods have been updated...
@@ -124,13 +124,13 @@ partitioned roll out complete: 3 new pods have been updated...
 
 使用另一個終端機視窗觀察 Pod 的變化。
 
-```BASH
+```bash
 kubectl get pods -o wide -w
 ```
 
 可以看到 Pod 的生成順序為：
 
-```BASH
+```bash
 test-sts-0
 test-sts-1
 test-sts-2
@@ -140,19 +140,19 @@ test-sts-2
 
 使用 `kubectl rollout undo` 指令。
 
-```BASH
+```bash
 kubectl rollout undo sts test-sts
 ```
 
 查看 StatefulSet 的更新狀態。
 
-```BASH
+```bash
 kubectl rollout status sts test-sts
 ```
 
 結果如下：
 
-```BASH
+```bash
 Waiting for 1 pods to be ready...
 Waiting for partitioned roll out to finish: 1 out of 3 new pods have been updated...
 Waiting for 1 pods to be ready...
@@ -165,13 +165,13 @@ partitioned roll out complete: 3 new pods have been updated...
 
 使用另一個終端機視窗觀察 Pod 的變化。
 
-```BASH
+```bash
 kubectl get pods -o wide -w
 ```
 
 可以看到新的 Pod 的生成順序為：
 
-```BASH
+```bash
 test-sts-2
 test-sts-1
 test-sts-0

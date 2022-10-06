@@ -19,7 +19,7 @@ TapPay 在 [GitHub](https://github.com/TapPay/tappay-web-example) 有提供完�
 
 建立一個 `index.html` 檔，引入 TapPay SDK。
 
-```HTML
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,7 +40,7 @@ TapPay 在 [GitHub](https://github.com/TapPay/tappay-web-example) 有提供完�
 
 在 `assets` 資料夾建立 `app.js` 檔：
 
-```JS
+```js
 const APP_ID = '';
 const APP_KEY = '';
 
@@ -119,7 +119,7 @@ const pay = async (data) => {
 
 建立一個 `config.yaml` 檔，讓後端讀取 Partner Key 和 Merchant ID：
 
-```YAML
+```yaml
 ---
 partner_key:
 merchant_id:
@@ -127,7 +127,7 @@ merchant_id:
 
 後端將前端送來的 Prime Token 連同 Partner Key 和 Merchant ID 一起發送至 TapPay 服務端：
 
-```GO
+```go
 package main
 
 import (

@@ -13,7 +13,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 如果有一個自訂的模型需要建立令牌，例如 `Company`，可以將它修改如下：
 
-```PHP
+```php
 namespace App\Models;
 
 use Illuminate\Auth\Authenticatable;
@@ -32,7 +32,7 @@ class Company extends Model implements AuthenticatableContract
 
 如果令牌不是由 `User` 模型所建立，例如由 `Company` 模型所建立，使用此另牌去存取 `User` 模型的資料，有可能在 Policy 的隱式綁定中出現問題。
 
-```PHP
+```php
 public function viewAny(User $user)
 {
     // 出現錯誤，因為 $user 並不是 User 模型
@@ -41,7 +41,7 @@ public function viewAny(User $user)
 
 因此需要建立一個 `VerifyToken` 中介層，來辨別目前的認證是什麼模型：
 
-```PHP
+```php
 namespace App\Http\Middleware;
 
 use Closure;
@@ -73,7 +73,7 @@ class VerifyToken
 
 在 `app/Http/Kernel.php` 檔中註冊。
 
-```PHP
+```php
 protected $routeMiddleware = [
     // ...
     'token' => \App\Http\Middleware\VerifyToken::class,
@@ -82,7 +82,7 @@ protected $routeMiddleware = [
 
 在路由中使用：
 
-```PHP
+```php
 Route::prefix('api/user')->middleware([
     'auth:sanctum',
     'token:user',
@@ -102,7 +102,7 @@ Route::prefix('api/company')->middleware([
 
 如果要客製 Sanctum 的 `PersonalAccessToken` 模型，可以建立一個自己的 `Token` 模型來繼承它。
 
-```PHP
+```php
 namespace App\Models;
 
 use Laravel\Sanctum\PersonalAccessToken;
@@ -120,7 +120,7 @@ class Token extends PersonalAccessToken
 
 修改 `AppServiceProvider` 服務提供者，在 `boot()` 方法中設定 Sanctum 要使用的 `Token` 模型。
 
-```PHP
+```php
 namespace App\Providers;
 
 use App\Models\Token;
@@ -155,13 +155,13 @@ class AppServiceProvider extends ServiceProvider
 
 如果要客製 Sanctum 的 `personal_access_tokens` 資料表，可以使用以下指令匯出遷移檔。
 
-```BASH
+```bash
 php artisan vendor:publish --tag=sanctum-migrations
 ```
 
 修改 `AppServiceProvider` 服務提供者，停止使用預設的遷移檔：
 
-```PHP
+```php
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;

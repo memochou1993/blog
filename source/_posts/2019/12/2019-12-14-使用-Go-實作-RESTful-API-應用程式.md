@@ -14,13 +14,13 @@ categories: ["程式設計", "Go", "其他"]
 
 建立專案目錄。
 
-```BASH
+```bash
 mkdir -p $GOPATH/src/github.com/memochou1993/api-example
 ```
 
 目錄結構如下：
 
-```BASH
+```bash
 |- bin/
 |- pkg/
 |- src/
@@ -31,7 +31,7 @@ mkdir -p $GOPATH/src/github.com/memochou1993/api-example
 
 進到專案目錄。
 
-```BASH
+```bash
 cd $GOPATH/src/github.com/memochou1993/api-example/
 ```
 
@@ -39,7 +39,7 @@ cd $GOPATH/src/github.com/memochou1993/api-example/
 
 安裝 `gorilla/mux` 套件。
 
-```BASH
+```bash
 go get -u github.com/gorilla/mux
 ```
 
@@ -47,7 +47,7 @@ go get -u github.com/gorilla/mux
 
 定義路由並監聽在 `8000` 埠。
 
-```GO
+```go
 func main() {
 	r := mux.NewRouter()
 
@@ -65,7 +65,7 @@ func main() {
 
 定義資料模型的結構。
 
-```GO
+```go
 // Book struct
 type Book struct {
 	ID     string  `json:"id"`
@@ -83,7 +83,7 @@ type Author struct {
 
 宣告一個元素型別為 `Book` 的陣列。
 
-```GO
+```go
 var books []Book
 ```
 
@@ -91,7 +91,7 @@ var books []Book
 
 建立 `getBooks()` 方法，以取得所有項目。
 
-```GO
+```go
 func getBooks(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
@@ -101,7 +101,7 @@ func getBooks(w http.ResponseWriter, r *http.Request) {
 
 建立 `getBook()` 方法，以取得項目。
 
-```GO
+```go
 func getBook(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
@@ -123,7 +123,7 @@ func getBook(w http.ResponseWriter, r *http.Request) {
 
 建立 `storeBook()` 方法，以儲存項目。
 
-```GO
+```go
 func storeBook(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
@@ -140,7 +140,7 @@ func storeBook(w http.ResponseWriter, r *http.Request) {
 
 建立 `updateBook()` 方法，以更新項目。
 
-```GO
+```go
 func updateBook(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
@@ -169,7 +169,7 @@ func updateBook(w http.ResponseWriter, r *http.Request) {
 
 建立 `destroyBook()` 方法，以刪除項目。
 
-```GO
+```go
 func destroyBook(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
@@ -191,7 +191,7 @@ func destroyBook(w http.ResponseWriter, r *http.Request) {
 
 執行應用。
 
-```BASH
+```bash
 go run main.go
 ```
 
@@ -199,13 +199,13 @@ go run main.go
 
 使用 `append()` 方法可以將包含第二個參數以後的任意個參數添加到第一個參數的陣列裡，例如：
 
-```GO
+```go
 slice = append(slice, ele1, ele2)
 ```
 
 或者可以使用 `...` 符號，將第一個參數的陣列與第二個參數的陣列拼接在一起，但這種方法只接收 2 個參數，例如：
 
-```GO
+```go
 slice = append(slice1, slice2...)
 ```
 

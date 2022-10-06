@@ -13,13 +13,13 @@ categories: ["區塊鏈", "Solana"]
 
 安裝 Anchor 框架。
 
-```BASH
+```bash
 cargo install --git https://github.com/project-serum/anchor --tag v0.24.2 anchor-cli --locked
 ```
 
 查看版本。
 
-```BASH
+```bash
 anchor --version
 anchor-cli 0.24.2
 ```
@@ -28,13 +28,13 @@ anchor-cli 0.24.2
 
 使用 `anchor` 初始化一個專案。
 
-```BASH
+```bash
 anchor init anchor-escrow
 ```
 
 在 `programs/anchor-escrow/Cargo.toml` 檔指定語言版本，並且添加依賴套件。
 
-```TOML
+```toml
 # ...
 [dependencies]
 anchor-lang = "0.22.0"
@@ -46,14 +46,14 @@ spl-token = {version = "3.3.0", features = ["no-entrypoint"]}
 
 執行以下指令，生成 Program ID。
 
-```BASH
+```bash
 anchor keys list
 anchor_escrow: CVXMDc2cNvT94Ghz9m9UUbskSwPfd6nHcZpxXZwJFE8b
 ```
 
 更新 `Anchor.toml` 檔，替換 Program ID。
 
-```TOML
+```toml
 [features]
 seeds = false
 [programs.localnet]
@@ -64,7 +64,7 @@ anchor_escrow = "CVXMDc2cNvT94Ghz9m9UUbskSwPfd6nHcZpxXZwJFE8b"
 
 更新 `src/lib.rs` 檔，替換 Program ID。
 
-```RS
+```rs
 declare_id!("CVXMDc2cNvT94Ghz9m9UUbskSwPfd6nHcZpxXZwJFE8b");
 ```
 
@@ -72,7 +72,7 @@ declare_id!("CVXMDc2cNvT94Ghz9m9UUbskSwPfd6nHcZpxXZwJFE8b");
 
 更新 `src/lib.rs` 檔。其中 `#[program]` 區塊是用來定義一個程式，其中的每一個方法用來定義其 RPC 請求處理器，也就是所謂 Solana 的 Instruction 處理器，而這些處理器就是用來讓客戶端使用的端點。
 
-```RS
+```rs
 use anchor_lang::prelude::*;
 use anchor_spl::token::{self, CloseAccount, Mint, SetAuthority, TokenAccount, Transfer};
 use spl_token::instruction::AuthorityType;
@@ -352,7 +352,7 @@ impl<'info> Exchange<'info> {
 
 使用 `anchor` 指令進行編譯。
 
-```BASH
+```bash
 anchor build
 ```
 
@@ -360,19 +360,19 @@ anchor build
 
 配合教材，將 `@project-serum/anchor` 依賴套件降級。
 
-```BASH
+```bash
 npm install --save @project-serum/anchor@0.22.0
 ```
 
 安裝 `@solana/spl-token` 依賴套件。
 
-```BASH
+```bash
 npm install --save @solana/spl-token@0.1.8
 ```
 
 更新 `tests/anchor-escrow.ts` 檔，建立測試案例。
 
-```TS
+```ts
 import * as anchor from '@project-serum/anchor';
 import { Program } from '@project-serum/anchor';
 import NodeWallet from '@project-serum/anchor/dist/cjs/nodewallet';

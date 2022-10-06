@@ -20,7 +20,7 @@ categories: ["程式設計", "JavaScript", "Nuxt"]
 
 建立專案。
 
-```BASH
+```bash
 npx create-nuxt-app nuxt-todo-list
 ```
 
@@ -28,7 +28,7 @@ npx create-nuxt-app nuxt-todo-list
 
 修改 `pages\index.vue` 檔。
 
-```HTML
+```html
 <template>
   <v-layout>
     <div class="container">
@@ -73,7 +73,7 @@ export default {
 
 修改 `pages\index.vue` 檔。
 
-```HTML
+```html
 <template>
   <v-app>
     <v-content>
@@ -89,7 +89,7 @@ export default {
 
 建立 `components\TodoList.vue` 檔。
 
-```HTML
+```html
 <template>
   <div>
     <input
@@ -234,7 +234,7 @@ export default {
 
 建立 `components\TodoItemRemaining.vue` 檔。
 
-```HTML
+```html
 <template>
   <v-flex
     xs6
@@ -258,7 +258,7 @@ export default {
 
 建立 `components\TodoItem.vue` 檔。
 
-```HTML
+```html
 <template>
   <div>
     <v-layout
@@ -376,7 +376,7 @@ export default {
 
 建立 `components\TodoFilter.vue` 檔。
 
-```HTML
+```html
 <template>
   <div>
     <v-btn
@@ -415,7 +415,7 @@ export default {
 
 建立 `components\TodoClearCompleted.vue` 檔。
 
-```HTML
+```html
 <template>
   <transition name="fade">
     <v-btn
@@ -444,7 +444,7 @@ export default {
 
 建立 `components\TodoCheckAll.vue` 檔。
 
-```HTML
+```html
 <template>
   <v-flex
     xs6>
@@ -495,7 +495,7 @@ export default {
 
 建立 `store\index.js` 檔。
 
-```JS
+```js
 import Vue from 'vue';
 import Vuex from 'vuex';
 

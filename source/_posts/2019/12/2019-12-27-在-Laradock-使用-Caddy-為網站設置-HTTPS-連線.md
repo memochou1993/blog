@@ -13,39 +13,39 @@ Caddy 是一個開源並使用 Golang 編寫的 Web 伺服器。其特性是默�
 
 進到 `~/Laradock/caddy/caddy` 資料夾。
 
-```BASH
+```bash
 cd ~/Laradock/caddy/caddy
 ```
 
 修改 `Caddyfile` 檔，將 `0.0.0.0:80` 改為指定網址：
 
-```ENV
+```env
 # 0.0.0.0:80
 https://yourdomain.com
 ```
 
 將 `tls` 開啟，修改為自己的電子郵件地址。
 
-```BASH
+```bash
 #tls self-signed
 tls youremail@gmai.com
 ```
 
 啟動 Caddy 容器，以產生 Let's Encrypt 憑證。
 
-```BASH
+```bash
 docker-compose up caddy
 ```
 
 產生後，使用 Ctrl + C 離開，將容器關閉。
 
-```BASH
+```bash
 docker-compose down
 ```
 
 最後再將 Caddy 和其他容器一起啟動即可。
 
-```BASH
+```bash
 docker-compose up -d caddy mysql phpmyadmin
 ```
 

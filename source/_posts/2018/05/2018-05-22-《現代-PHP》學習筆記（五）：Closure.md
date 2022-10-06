@@ -22,7 +22,7 @@ categories: ["程式設計", "PHP", "《現代 PHP》學習筆記"]
 
 範例 2-19：基本的閉包
 
-```PHP
+```php
 $closure = function ($name) {
     return sprintf('Hello %s', $name);
 };
@@ -36,7 +36,7 @@ echo $closure("John");
 
 範例 2-20：array_map 閉包
 
-```PHP
+```php
 $numbersPlusOne = array_map(function ($number) {
     return $number + 1;
 }, [1, 2, 3]);
@@ -52,7 +52,7 @@ PHP 使用 `use` 關鍵字來繫結狀態。
 
 範例 2-21：繫節狀態到閉包
 
-```PHP
+```php
 function enclosePerson($name) {
     return function ($doCommand) use ($name) {
         return sprintf('%s, %s', $name, $doCommand);
@@ -72,7 +72,7 @@ echo $clay('get me sweet tea!');
 
 範例 2-22：利用 bindTo() 繫結閉包狀態
 
-```PHP
+```php
 class App
 {
     protected $routes = [];

@@ -13,13 +13,13 @@ categories: ["區塊鏈", "Solana"]
 
 使用 `cargo` 指令，初始化一個 `solana-escrow` 專案。
 
-```BASH
+```bash
 cargo new solana-escrow --lib
 ```
 
 進到專案。
 
-```BASH
+```bash
 cd solana-escrow
 ```
 
@@ -27,7 +27,7 @@ cd solana-escrow
 
 更新 `Cargo.toml` 檔。
 
-```TOML
+```toml
 [package]
 name = "solana-escrow"
 version = "0.1.0"
@@ -47,7 +47,7 @@ crate-type = ["cdylib", "lib"]
 
 新增主要模組如下：
 
-```BASH
+```bash
 touch src/entrypoint.rs \
 touch src/error.rs \
 touch src/instruction.rs \
@@ -57,7 +57,7 @@ touch src/state.rs
 
 更新 `lib.rs` 檔如下：
 
-```RS
+```rs
 pub mod entrypoint;
 pub mod error;
 pub mod instruction;
@@ -67,7 +67,7 @@ pub mod state;
 
 更新 `instruction.rs` 檔，新增 `InitEscrow` 到列舉中。
 
-```RS
+```rs
 use std::convert::TryInto;
 use solana_program::program_error::ProgramError;
 use crate::error::EscrowError::InvalidInstruction;
@@ -116,7 +116,7 @@ impl EscrowInstruction {
 
 更新 `error.rs` 檔。
 
-```RS
+```rs
 use thiserror::Error;
 use solana_program::program_error::ProgramError;
 
@@ -139,7 +139,7 @@ impl From<EscrowError> for ProgramError {
 
 更新 `processor.rs` 檔，尚未實作完全：
 
-```RS
+```rs
 use solana_program::{
     account_info::{next_account_info, AccountInfo},
     entrypoint::ProgramResult,
@@ -205,7 +205,7 @@ impl Processor {
 
 更新 `state.rs` 檔。
 
-```RS
+```rs
 use solana_program::{
     program_pack::{IsInitialized, Pack, Sealed},
     program_error::ProgramError,
@@ -285,7 +285,7 @@ impl Pack for Escrow {
 
 更新 `processor.rs` 檔，完成實作：
 
-```RS
+```rs
 use solana_program::{
     account_info::{next_account_info, AccountInfo},
     entrypoint::ProgramResult,
@@ -380,7 +380,7 @@ impl Processor {
 
 更新 `entrypoint.rs` 檔。
 
-```RS
+```rs
 use solana_program::{
     account_info::AccountInfo, entrypoint, entrypoint::ProgramResult, pubkey::Pubkey
 };
@@ -399,13 +399,13 @@ fn process_instruction(
 
 試著使用 `cargo` 指令進行編譯。
 
-```BASH
+```bash
 cargo build-bpf
 ```
 
 更新 `instruction.rs` 檔，新增 `Exchange` 到列舉中。
 
-```RS
+```rs
 use crate::error::EscrowError::InvalidInstruction;
 use solana_program::program_error::ProgramError;
 use std::convert::TryInto;
@@ -476,7 +476,7 @@ impl EscrowInstruction {
 
 更新 `processor.rs` 檔。
 
-```RS
+```rs
 use solana_program::{
     account_info::{next_account_info, AccountInfo},
     entrypoint::ProgramResult,
@@ -692,7 +692,7 @@ impl Processor {
 
 更新 `error.rs` 檔。
 
-```RS
+```rs
 use solana_program::program_error::ProgramError;
 use thiserror::Error;
 
@@ -721,7 +721,7 @@ impl From<EscrowError> for ProgramError {
 
 試著使用 `cargo` 指令進行編譯。
 
-```BASH
+```bash
 cargo build-bpf
 ```
 
@@ -729,13 +729,13 @@ cargo build-bpf
 
 開啟一個新的終端視窗，使用 `solana-test-validator` 指令，啟動一個本地的 Solana 節點。
 
-```BASH
+```bash
 solana-test-validator
 ```
 
 更新 `.gitignore` 檔。
 
-```ENV
+```env
 /target
 /Cargo.lock
 /test-ledger
@@ -745,7 +745,7 @@ solana-test-validator
 
 新增 `keys` 資料夾及相關檔案。
 
-```BASH
+```bash
 mkdir keys &&
 touch keys/id_pub.json \
 touch keys/alice_pub.json \
@@ -755,55 +755,55 @@ touch keys/program_pub.json
 
 使用 `solana-keygen` 指令為程式建立一組公私鑰。
 
-```BASH
+```bash
 solana-keygen new -o keys/id.json
 ```
 
 使用以下指令印出公鑰。
 
-```BASH
+```bash
 solana address -k keys/id.json
 ```
 
 將公鑰手動複製到 `id_pub.json` 檔：
 
-```JSON
+```json
 "9rRRFELbLfWuxSeCsDeqSd9Lv6Bhv7xhGoKyBkfMU74Z"
 ```
 
 使用 `solana-keygen` 指令使用者 Alice 建立一組公私鑰。
 
-```BASH
+```bash
 solana-keygen new -o keys/alice.json
 ```
 
 使用以下指令印出公鑰。
 
-```BASH
+```bash
 solana address -k keys/alice.json
 ```
 
 將公鑰手動複製到 `alice_pub.json` 檔：
 
-```JSON
+```json
 "HTt2B7bWXfiTAY2z2TLvKPyRJMM7BTZ5yZcHAXf6Dmnk"
 ```
 
 使用 `solana-keygen` 指令使用者 Bob 建立一組公私鑰。
 
-```BASH
+```bash
 solana-keygen new -o keys/bob.json
 ```
 
 使用以下指令印出公鑰。
 
-```BASH
+```bash
 solana address -k keys/bob.json
 ```
 
 將公鑰手動複製到 `bob_pub.json` 檔：
 
-```JSON
+```json
 "CYHvpgywtnbwzdSGYX29fPnMG46EijQbSXrit6wXqfR6"
 ```
 
@@ -811,31 +811,31 @@ solana address -k keys/bob.json
 
 使用 `npm` 指令初始化專案。
 
-```BASH
+```bash
 npm init -y
 ```
 
 安裝依賴套件。
 
-```BASH
+```bash
 npm install --save @solana/spl-token@0.1.8 @solana/web3.js @types/bn.js
 ```
 
 安裝 TypeScript。
 
-```BASH
+```bash
 npm install -g typescript
 ```
 
 使用 `tsc` 指令初始化專案。
 
-```BASH
+```bash
 tsc --init
 ```
 
 更新 `.gitignore` 檔。
 
-```ENV
+```env
 /target
 /Cargo.lock
 /test-ledger
@@ -844,7 +844,7 @@ tsc --init
 
 新增 `ts` 資料夾及相關檔案。
 
-```BASH
+```bash
 mkdir ts &&
 touch ts/setup.ts \
 touch ts/utils.ts \
@@ -854,7 +854,7 @@ touch ts/bob.ts
 
 修改 `utils.ts` 檔。
 
-```TS
+```ts
 import {
   Connection,
   LAMPORTS_PER_SOL,
@@ -975,7 +975,7 @@ setup();
 
 修改 `setup.ts` 檔。
 
-```TS
+```ts
 import { Connection, Keypair, PublicKey } from "@solana/web3.js";
 //@ts-expect-error missing types
 import * as BufferLayout from "buffer-layout";
@@ -1067,7 +1067,7 @@ export interface EscrowLayout {
 
 修改 `alice.ts` 檔。
 
-```TS
+```ts
 import { AccountLayout, Token, TOKEN_PROGRAM_ID } from "@solana/spl-token";
 import {
   Connection,
@@ -1257,7 +1257,7 @@ alice();
 
 修改 `bob.ts` 檔。
 
-```TS
+```ts
 import { TOKEN_PROGRAM_ID } from "@solana/spl-token";
 import {
   Connection,
@@ -1432,13 +1432,13 @@ bob();
 
 新增 `terms.json` 檔。
 
-```BASH
+```bash
 touch terms.json
 ```
 
 更新 `terms.json` 檔，設定使用者 Alice 與 Bob 各自期望的金額。
 
-```JSON
+```json
 {
   "aliceExpectedAmount": 3,
   "bobExpectedAmount": 5
@@ -1449,13 +1449,13 @@ touch terms.json
 
 使用以下指令為程式充值，以程式的公鑰做為目標。
 
-```BASH
+```bash
 solana transfer 9rRRFELbLfWuxSeCsDeqSd9Lv6Bhv7xhGoKyBkfMU74Z 100 --allow-unfunded-recipient
 ```
 
 輸出結果如下：
 
-```BASH
+```bash
 Signature: mhqm5AA5v8a5KABCR9Poj68Ranzms8ahq47zhdN3uQetYck68H42N1NNyxLpAQbU8pBWziPEN1nZqbY6GeP3Ldc
 ```
 
@@ -1463,19 +1463,19 @@ Signature: mhqm5AA5v8a5KABCR9Poj68Ranzms8ahq47zhdN3uQetYck68H42N1NNyxLpAQbU8pBWz
 
 部署 `solana_escrow` 鏈上程式。
 
-```BASH
+```bash
 solana program deploy target/deploy/solana_escrow.so
 ```
 
 輸出結果如下：
 
-```BASH
+```bash
 Program Id: FWwUWeewacUBg3tU6mT8xSCbkeLhTLves6VGJtFXaatj
 ```
 
 將 Program ID 更新到 `program_pub.json` 檔：
 
-```JSON
+```json
 "FWwUWeewacUBg3tU6mT8xSCbkeLhTLves6VGJtFXaatj"
 ```
 
@@ -1483,13 +1483,13 @@ Program Id: FWwUWeewacUBg3tU6mT8xSCbkeLhTLves6VGJtFXaatj
 
 使用 `ts-node` 指令執行 `setup.ts` 腳本。
 
-```BASH
+```bash
 ts-node ts/setup.ts
 ```
 
 輸出結果如下：
 
-```BASH
+```bash
 Requesting SOL for Alice...
 Requesting SOL for Bob...
 Requesting SOL for Client...
@@ -1512,13 +1512,13 @@ Sending 50Y to Bob's Y TokenAccount...
 
 使用 `ts-node` 指令執行 `alice.ts` 腳本。
 
-```BASH
+```bash
 ts-node ts/alice.ts
 ```
 
 輸出結果如下：
 
-```BASH
+```bash
 Sending Alice's transaction...
 ✨Escrow successfully initialized. Alice is offering 5X for 3Y✨
 
@@ -1531,13 +1531,13 @@ Sending Alice's transaction...
 
 使用 `ts-node` 指令執行 `bob.ts` 腳本。
 
-```BASH
+```bash
 ts-node ts/bob.ts
 ```
 
 輸出結果如下：
 
-```BASH
+```bash
 Sending Bob's transaction...
 ✨Trade successfully executed. All temporary accounts closed✨
 

@@ -21,7 +21,7 @@ Headless Service 並不會分配 Cluster IP，kube-proxy 不會處理它們，�
 
 以下使用 kind 的環境。
 
-```BASH
+```bash
 cd vagrant/kind
 vagrant up
 vagrant ssh
@@ -29,13 +29,13 @@ vagrant ssh
 
 首先，查看範例資料夾中的 StatefulSet 和 Deployment 配置檔。
 
-```BASH
+```bash
 cat introduction/service/headless/hello.yml
 ```
 
 配置檔如下：
 
-```YAML
+```yaml
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -78,13 +78,13 @@ spec:
 
 查看範例資料夾中的 Service 配置檔。
 
-```BASH
+```bash
 cat introduction/service/headless/service.yml
 ```
 
 配置檔如下：
 
-```YAML
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -100,19 +100,19 @@ spec:
 
 使用配置檔創建 StatefulSet、Deployment 和 Service 資源。
 
-```BASH
+```bash
 kubectl apply -R -f introduction/service/headless
 ```
 
 透過選擇器查看 Pod 列表。
 
-```BASH
+```bash
 kubectl get pods -l app=hello-kubernetes -o wide
 ```
 
 結果如下：
 
-```BASH
+```bash
 NAME                      READY   STATUS    RESTARTS   AGE   IP           NODE                 NOMINATED NODE   READINESS GATES
 client-67674d5464-w5t5b   1/1     Running   0          27s   10.244.2.5   kind-worker          <none>           <none>
 hello-kubernetes-0        1/1     Running   0          27s   10.244.1.6   kind-worker2         <none>           <none>
@@ -122,13 +122,13 @@ hello-kubernetes-2        1/1     Running   0          23s   10.244.0.7   kind-c
 
 查看 Service 列表。
 
-```BASH
+```bash
 kubectl get svc
 ```
 
 結果如下：
 
-```BASH
+```bash
 NAME            TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
 headless-demo   ClusterIP   None         <none>        80/TCP    46s
 kubernetes      ClusterIP   10.96.0.1    <none>        443/TCP   2d
@@ -136,13 +136,13 @@ kubernetes      ClusterIP   10.96.0.1    <none>        443/TCP   2d
 
 查看 Endpoint 列表。
 
-```BASH
+```bash
 kubectl get endpoints
 ```
 
 結果如下：
 
-```BASH
+```bash
 NAME            ENDPOINTS                                         AGE
 headless-demo   10.244.0.7:8080,10.244.1.6:8080,10.244.2.6:8080   105s
 kubernetes      172.17.0.3:6443                                   2d
@@ -150,13 +150,13 @@ kubernetes      172.17.0.3:6443                                   2d
 
 透過 client 容器訪問 Service 的 DNS。
 
-```BASH
+```bash
 kubectl exec client-67674d5464-w5t5b -- nslookup headless-demo
 ```
 
 所有的 Endpoint 結果如下：
 
-```BASH
+```bash
 Server:		10.96.0.10
 Address:	10.96.0.10#53
 
@@ -170,7 +170,7 @@ Address: 10.244.1.6
 
 透過 client 容器訪問 3 個 Pod 的 DNS。
 
-```BASH
+```bash
 kubectl exec client-67674d5464-w5t5b -- nslookup hello-kubernetes-0.headless-demo
 kubectl exec client-67674d5464-w5t5b -- nslookup hello-kubernetes-1.headless-demo
 kubectl exec client-67674d5464-w5t5b -- nslookup hello-kubernetes-2.headless-demo
@@ -178,13 +178,13 @@ kubectl exec client-67674d5464-w5t5b -- nslookup hello-kubernetes-2.headless-dem
 
 刪除所有名為 `hello-kubernetes` 的 Pod。
 
-```BASH
+```bash
 kubectl delete pod hello-kubernetes-0 hello-kubernetes-1 hello-kubernetes-2
 ```
 
 再取得一次 Pod 列表，會發現 IP 位址都改變了。
 
-```BASH
+```bash
 kubectl get pods -o wide
 NAME                      READY   STATUS    RESTARTS   AGE   IP           NODE                 NOMINATED NODE   READINESS GATES
 client-67674d5464-w5t5b   1/1     Running   0          15m   10.244.2.5   kind-worker          <none>           <none>
@@ -195,7 +195,7 @@ hello-kubernetes-2        1/1     Running   0          24s   10.244.0.8   kind-c
 
 但是依舊可以透過 client 容器訪問 Pod 的 DNS，對應用程式來講只要保持相同的 Domain Name 都可以存取。
 
-```BASH
+```bash
 kubectl exec client-67674d5464-w5t5b -- nslookup hello-kubernetes-0.headless-demo
 kubectl exec client-67674d5464-w5t5b -- nslookup hello-kubernetes-1.headless-demo
 kubectl exec client-67674d5464-w5t5b -- nslookup hello-kubernetes-2.headless-demo

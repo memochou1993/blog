@@ -9,27 +9,27 @@ categories: ["區塊鏈", "Ethereum"]
 
 建立專案。
 
-```BASH
+```bash
 mkdir eth-staking
 cd eth-staking
 ```
 
 使用 `truffle` 指令初始化專案。
 
-```BASH
+```bash
 truffle init
 ```
 
 新增 `.gitignore` 檔。
 
-```ENV
+```env
 /node_modules
 /build
 ```
 
 安裝依賴套件。
 
-```BASH
+```bash
 npm install @openzeppelin/contracts
 ```
 
@@ -37,7 +37,7 @@ npm install @openzeppelin/contracts
 
 建立 `contracts/ERC20Mock.sol` 檔，建立測試用的 ERC20 代幣。
 
-```SOL
+```sol
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -54,7 +54,7 @@ contract ERC20Mock is ERC20 {
 
 建立 `contracts/Staking.sol` 檔，實作質押合約。
 
-```SOL
+```sol
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -251,7 +251,7 @@ contract MyStake is Ownable, ReentrancyGuard {
 
 新增 `migrations/2_deploy_my_stake_contract.js` 檔。
 
-```JS
+```js
 const MyStake = artifacts.require('MyStake');
 
 module.exports = (deployer) => {
@@ -261,7 +261,7 @@ module.exports = (deployer) => {
 
 執行部署腳本。
 
-```BASH
+```bash
 truffle migrate --reset
 ```
 

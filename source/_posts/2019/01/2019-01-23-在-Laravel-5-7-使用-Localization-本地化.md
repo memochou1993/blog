@@ -9,7 +9,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 新增 `resources\lang\zh-tw\localization.php` 檔：
 
-```PHP
+```php
 return [
     'localization' => '本地化',
 ];
@@ -19,7 +19,7 @@ return [
 
 新增 `app\Http\Middleware\SetLocale.php` 檔：
 
-```PHP
+```php
 namespace App\Http\Middleware;
 
 use App;
@@ -52,7 +52,7 @@ class SetLocale
 
 修改 `app\Http\Kernel.php` 檔：
 
-```PHP
+```php
 'web' => [
     // ...
     \App\Http\Middleware\SetLocale::class,
@@ -61,7 +61,7 @@ class SetLocale
 
 ## 新增路由
 
-```PHP
+```php
 Route::get('/{locale}', function ($locale) {
     Session::put('locale', $locale);
 
@@ -87,7 +87,7 @@ Route::get('/', function () {
 
 ## 測試
 
-前往：<http://localhost:8000/zh-tw>
+前往 <http://localhost:8000/zh-tw> 瀏覽。
 
 ## 程式碼
 

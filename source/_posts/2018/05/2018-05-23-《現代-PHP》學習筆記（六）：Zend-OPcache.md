@@ -30,13 +30,13 @@ PHP 過去沒有任何一個擴充（extension）內建於 PHP 核心版本，�
 
 在 WAMP 的環境，可以直接在 `php.ini` 檔中指定 Zend OPcache 擴充的路徑。
 
-```ENV
+```env
 zend_extension=php_opcache.dll
 ```
 
 然後使用瀏覽器前往 <http://localhost/dashboard/phpinfo.php> 確認，可以看到 Zend OPcache 已經被啟用。
 
-```BASH
+```bash
 This program makes use of the Zend Scripting Language Engine:
 Zend Engine v3.2.0, Copyright (c) 1998-2018 Zend Technologies
     with Zend OPcache v7.2.4, Copyright (c) 1999-2018, by Zend Technologies
@@ -46,7 +46,7 @@ Zend Engine v3.2.0, Copyright (c) 1998-2018 Zend Technologies
 
 Zend OPcache 被啟用後，可以做進一步的設定。
 
-```ENV
+```env
 opcache.validate_timestamps=1
 opcache.revalidate_freq=0
 opcache.memory_consumption=64

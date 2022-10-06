@@ -11,7 +11,7 @@ categories: ["程式設計", "JavaScript", "Node"]
 
 ## 安裝
 
-```BASH
+```bash
 npm i -g @adonisjs/cli
 adonis --version
 4.0.11
@@ -21,13 +21,13 @@ adonis --version
 
 建立專案。
 
-```BASH
+```bash
 adonis new adonis
 ```
 
 啟動伺服器。
 
-```BASH
+```bash
 cd adonis
 adonis serve --dev
 ```
@@ -36,7 +36,7 @@ adonis serve --dev
 
 建立 `.env` 檔。
 
-```BASH
+```bash
 cp .env.example .env
 ```
 
@@ -44,14 +44,14 @@ cp .env.example .env
 
 在 `start/routes.js` 新增路由：
 
-```JS
+```js
 Route.get('/', () => 'Hello Adonis')
 Route.resource('api/users', 'Api/UserController').apiOnly()
 ```
 
 ## 安裝 SQLite
 
-```BASH
+```bash
 npm install --save sqlite3
 ```
 
@@ -59,13 +59,13 @@ npm install --save sqlite3
 
 新增 `timestamp_user` 遷移檔：
 
-```BASH
+```bash
 adonis make:migration users
 ```
 
 建立欄位：
 
-```JS
+```js
 'use strict'
 
 const Schema = use('Schema')
@@ -93,13 +93,13 @@ module.exports = UsersSchema
 
 新增 `UserSeeder` 資料填充。
 
-```BASH
+```bash
 adonis make:seed User
 ```
 
 設定種子數量：
 
-```JS
+```js
 'use strict'
 
 /*
@@ -129,7 +129,7 @@ module.exports = UserSeeder
 
 修改 `factory.js` 檔：
 
-```JS
+```js
 'use strict'
 
 /*
@@ -158,7 +158,7 @@ Factory.blueprint('App/Models/User', async (faker) => {
 
 執行遷移。
 
-```BASH
+```bash
 adonis migration:run
 adonis seed
 ```
@@ -169,13 +169,13 @@ adonis seed
 
 新增 `User` 控制器：
 
-```BASH
+```bash
 adonis make:controller Api/User --resource
 ```
 
 修改 `UserController.js` 檔：
 
-```JS
+```js
 'use strict'
 
 const Database = use('Database')
@@ -192,7 +192,7 @@ module.exports = UserController
 
 ## 查看
 
-前往：<http://127.0.0.1:3333/api/users>
+前往 <http://127.0.0.1:3333/api/users> 瀏覽。
 
 ## 程式碼
 

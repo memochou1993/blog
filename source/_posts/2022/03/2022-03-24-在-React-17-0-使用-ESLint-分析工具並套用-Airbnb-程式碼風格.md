@@ -9,7 +9,7 @@ categories: ["程式設計", "JavaScript", "ESLint"]
 
 安裝 `eslint` 依賴套件。
 
-```BASH
+```bash
 npm i eslint \
     eslint-plugin-react \
     eslint-config-airbnb \
@@ -18,7 +18,7 @@ npm i eslint \
 
 新增 `.eslintrc.js` 檔。
 
-```JS
+```js
 module.exports = {
   extends: 'airbnb',
   plugins: [
@@ -35,7 +35,7 @@ module.exports = {
 
 修改 `package.json` 檔。
 
-```JSON
+```json
 {
   "scripts": {
     "start": "react-scripts start",
@@ -49,6 +49,6 @@ module.exports = {
 
 執行檢查。
 
-```BASH
+```bash
 npm run lint
 ```

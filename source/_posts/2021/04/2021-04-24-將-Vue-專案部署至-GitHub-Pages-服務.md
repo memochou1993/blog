@@ -9,7 +9,7 @@ categories: ["程式設計", "JavaScript", "環境部署"]
 
 修改 `vue.config.js` 檔，將 `publicPath` 設置為以專案名稱為名的資料夾路徑。
 
-```JS
+```js
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production'
     ? '/<REPO>/'
@@ -19,7 +19,7 @@ module.exports = {
 
 新增 `deploy.sh` 部署腳本。
 
-```BASH
+```bash
 #!/usr/bin/env sh
 
 set -e
@@ -36,7 +36,7 @@ cd -
 
 執行部署腳本。
 
-```BASH
+```bash
 sh deploy.sh
 ```
 

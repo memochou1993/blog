@@ -13,7 +13,7 @@ Laravel 使用了許多的魔術方法，為了讓編輯器能有更友善的提
 
 使用 `@property` 標籤，告訴編輯器 `User` 模型有一個 `$name` 屬性。
 
-```PHP
+```php
 /**
  * @property string $name
  */
@@ -25,7 +25,7 @@ class User extends Authenticatable
 
 使用 `@var` 標籤，告訴編輯器 `$user` 變數實際上是一個 `User` 模型。在存取 `$user` 變數時，就不會出現錯誤提示。
 
-```PHP
+```php
 /** @var User $user */
 $user = factory(User::class)->create();
 

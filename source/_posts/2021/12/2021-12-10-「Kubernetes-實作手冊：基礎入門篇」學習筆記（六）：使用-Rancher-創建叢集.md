@@ -17,24 +17,24 @@ Rancher 是一個開源專案，用於部署及管理多個 Kubernetes 叢集，
 
 先啟動全新的虛擬環境。
 
-```BASH
+```bash
 vagrant destroy
 vagrant up
 ```
 
 在虛擬機器中啟動一個 Rancher 服務。
 
-```BASH
+```bash
 docker run -d --restart=unless-stopped -p 80:80 -p 443:443 rancher/rancher:v2.3.5
 ```
 
 取得 Docker 容器列表，會有 Rancher 容器。
 
-```BASH
+```bash
 docker ps
 ```
 
-前往 UI 介面：<http://172.17.8.111/>
+前往 <http://172.17.8.111/> 瀏覽。
 
 ## 創建叢集
 
@@ -51,7 +51,7 @@ docker ps
 
 最後，執行複製的命令：
 
-```BASH
+```bash
 sudo docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernetes:/etc/kubernetes -v /var/run:/var/run rancher/rancher-agent:v2.3.5 --server https://172.17.8.111 --token w64695bzdlc455zd2dzg9dtggkq7ghfsfbdsj4jrtzjnl6gg78xtr2 --ca-checksum 5b91fdf12485553473d7496d6c00afd812cc1a1c964754ec460a8488cfb2f55b --etcd --controlplane --worker
 ```
 

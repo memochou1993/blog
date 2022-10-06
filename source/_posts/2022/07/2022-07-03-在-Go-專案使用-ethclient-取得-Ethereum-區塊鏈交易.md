@@ -9,13 +9,13 @@ categories: ["區塊鏈", "Ethereum"]
 
 新增 `.env` 檔。
 
-```ENV
+```env
 PROVIDER_URL=https://eth-goerli.alchemyapi.io/v2/your-api-key
 ```
 
 新增 `ethereum/ethereum.go` 檔。
 
-```GO
+```go
 package ethereum
 
 import (
@@ -54,7 +54,7 @@ func FetchTransactionReceipt(txHash common.Hash) (*types.Receipt, error) {
 
 解析 `Receipt` 交易回條中的 `Log` 資料，可以使用 `abi.ABI` 的 `UnpackIntoMap` 或 `UnpackIntoInterface` 方法。
 
-```GO
+```go
 func decodeTransactionLogs(receipt *types.Receipt, contractABI *abi.ABI) error {
 	for _, receiptLog := range receipt.Logs {
 		for _, topic := range receiptLog.Topics {
@@ -95,7 +95,7 @@ type StakeEvent struct {
 
 如果 `Log` 中的參數是一個物件，可以使用以下方法查看其結構體的定義。
 
-```GO
+```go
 v := make(map[string]interface{})
 if err = contractABI.UnpackIntoMap(v, event.Name, receiptLog.Data); err != nil {
 	log.Fatal(err)

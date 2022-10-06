@@ -9,7 +9,7 @@ categories: ["環境部署", "Kubernetes", "其他"]
 
 使用 `brew` 安裝 `kind` 指令。
 
-```BASH
+```bash
 brew install kind
 ```
 
@@ -17,7 +17,7 @@ brew install kind
 
 建立一個 `kind-config.yaml` 配置檔。
 
-```BASH
+```bash
 cat > kind-config.yaml <<EOF
 apiVersion: kind.x-k8s.io/v1alpha4
 kind: Cluster
@@ -30,37 +30,37 @@ EOF
 
 使用配置檔創建一個多節點的叢集。
 
-```BASH
+```bash
 kind create cluster --config kind-config.yaml
 ```
 
 取得叢集資訊。
 
-```BASH
+```bash
 kubectl cluster-info --context kind-kind
 ```
 
 取得 Pod 列表。
 
-```BASH
+```bash
 kubectl -n kube-system get pods
 ```
 
 取得 Node 列表。
 
-```BASH
+```bash
 kubectl -n kube-system get nodes
 ```
 
 進入名為 `kind-worker` 的節點。
 
-```BASH
+```bash
 docker exec -it kind-worker bash
 ```
 
 刪除叢集。
 
-```BASH
+```bash
 kind delete cluster
 ```
 
@@ -68,7 +68,7 @@ kind delete cluster
 
 建立 `deployment.yaml` 檔：
 
-```YAML
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -92,7 +92,7 @@ spec:
 
 建立 `service.yaml` 檔：
 
-```YAML
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -109,7 +109,7 @@ spec:
 
 修改 `kind-config.yaml` 檔：
 
-```YAML
+```yaml
 apiVersion: kind.x-k8s.io/v1alpha4
 kind: Cluster
 nodes:
@@ -125,19 +125,19 @@ nodes:
 
 創建叢集。
 
-```BASH
+```bash
 kind create cluster --config kind-config.yaml
 ```
 
 建立資源。
 
-```BASH
+```bash
 kubectl apply -f deployment.yaml -f service.yaml
 ```
 
 列出所有節點。
 
-```BASH
+```bash
 kubectl get nodes -o wide
 NAME                 STATUS   ROLES                  AGE     VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE       KERNEL-VERSION     CONTAINER-RUNTIME
 kind-control-plane   Ready    control-plane,master   9m47s   v1.21.1   172.25.0.4    <none>        Ubuntu 21.04   5.10.25-linuxkit   containerd://1.5.2
@@ -147,7 +147,7 @@ kind-worker2         Ready    <none>                 9m22s   v1.21.1   172.25.0.
 
 列出所有服務。
 
-```BASH
+```bash
 kubectl get svc
 NAME            TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
 kubernetes      ClusterIP   10.96.0.1       <none>        443/TCP        10m
@@ -156,19 +156,19 @@ nodeport-demo   NodePort    10.96.234.153   <none>        80:30000/TCP   9m40s
 
 從本機存取應用程式。
 
-```BASH
+```bash
 curl localhost:30000
 ```
 
 刪除資源。
 
-```BASH
+```bash
 kubectl delete -f service.yaml -f deployment.yaml
 ```
 
 刪除叢集。
 
-```BASH
+```bash
 kind delete cluster
 ```
 

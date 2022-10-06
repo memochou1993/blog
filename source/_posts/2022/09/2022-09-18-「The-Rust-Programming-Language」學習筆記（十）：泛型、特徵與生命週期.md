@@ -23,7 +23,7 @@ categories: ["程式設計", "Rust", "「The Rust Programming Language」學習�
 
 以下展示了兩個都在切片上尋找最大值的函式。
 
-```RS
+```rs
 fn largest_i32(list: &[i32]) -> i32 {
     let mut largest = list[0];
 
@@ -65,13 +65,13 @@ fn main() {
 
 要定義泛型 `largest` 函式的話，在函式名稱與參數列表之間加上尖括號，其內就是型別名稱的宣告，如以下所示：
 
-```RS
+```rs
 fn largest<T>(list: &[T]) -> T {}
 ```
 
 可以這樣理解定義：函式 `largest` 有泛型型別 `T`，此函式有一個參數叫做 `list`，它的型別為數值 `T` 的切片。`largest` 函式會回傳與型別 `T` 相同型別的值。
 
-```RS
+```rs
 fn largest<T>(list: &[T]) -> T {
     let mut largest = list[0];
 
@@ -99,7 +99,7 @@ fn main() {
 
 編譯後會得到以下錯誤：
 
-```BASH
+```bash
 $ cargo run
    Compiling chapter10 v0.1.0 (file:///projects/chapter10)
 error[E0369]: binary operation `>` cannot be applied to type `T`
@@ -127,7 +127,7 @@ error: could not compile `chapter10` due to previous error
 
 以 `<>` 語法來對結構體中一或多個欄位使用泛型型別參數。以下範例顯示了如何定義 `Point<T>` 結構體並讓 `x` 與 `y` 可以是任意型別數值。
 
-```RS
+```rs
 struct Point<T> {
     x: T,
     y: T,
@@ -141,7 +141,7 @@ fn main() {
 
 要將結構體 `Point` 的 `x` 與 `y` 定義成擁有不同型別卻仍然是泛型的話，可以使用多個泛型型別參數。
 
-```RS
+```rs
 struct Point<T, U> {
     x: T,
     y: U,
@@ -158,7 +158,7 @@ fn main() {
 
 如同結構體一樣，可以定義枚舉讓它們的變體擁有泛型資料型別。
 
-```RS
+```rs
 enum Option<T> {
     Some(T),
     None,
@@ -167,7 +167,7 @@ enum Option<T> {
 
 枚舉也能有數個泛型型別。
 
-```RS
+```rs
 enum Result<T, E> {
     Ok(T),
     Err(E),
@@ -178,7 +178,7 @@ enum Result<T, E> {
 
 可以對結構體或枚舉定義方法，並也可以使用泛型型別來定義。
 
-```RS
+```rs
 struct Point<T> {
     x: T,
     y: T,
@@ -199,7 +199,7 @@ fn main() {
 
 另一種選項是在定義方法時，可以對泛型型別加上些限制。舉例來說，可以只針對 `Point<f32>` 的實例來實作方法，而非適用於任何泛型型別的 `Point<T>` 實例。
 
-```RS
+```rs
 impl Point<f32> {
     fn distance_from_origin(&self) -> f32 {
         (self.x.powi(2) + self.y.powi(2)).sqrt()
@@ -213,7 +213,7 @@ Rust 在編譯時對使用泛型的程式碼進行單態化（monomorphization�
 
 這在標準函式庫的枚舉 `Option<T>` 中是怎麼做到的：
 
-```RS
+```rs
 let integer = Some(5);
 let float = Some(5.0);
 ```
@@ -222,7 +222,7 @@ let float = Some(5.0);
 
 單態化的版本看起來會像這樣，泛型 `Option<T>` 會被替換成編譯器定義的特定定義：
 
-```RS
+```rs
 enum Option_i32 {
     Some(i32),
     None,
@@ -253,7 +253,7 @@ fn main() {
 
 我們想要建立個多媒體資料庫來顯示可能存在 `NewsArticle` 或 `Tweet` 實例的資料總結。要達成此目的的話，需要每個型別的總結，且會呼叫該實例的 `summarize` 方法來索取總結。以下範例顯示了表達此行為的 `Summary` 特徵定義。
 
-```RS
+```rs
 pub trait Summary {
     fn summarize(&self) -> String;
 }
@@ -267,7 +267,7 @@ pub trait Summary {
 
 現在已經用 `Summary` 特徵定義了所需的方法簽名。以下顯示了 `NewsArticle` 結構體實作 `Summary` 特徵的方式，其使用頭條、作者、位置來建立 `summerize` 的回傳值。至於結構體 `Tweet`，我們使用使用者名稱加上整個推文的文字來定義 `summarize` 方法。
 
-```RS
+```rs
 pub struct NewsArticle {
     pub headline: String,
     pub location: String,
@@ -299,7 +299,7 @@ impl Summary for Tweet {
 
 以下的範例展示執行檔 `crate` 如何使用我們的 `aggregator` 函式庫 crate。
 
-```RS
+```rs
 use aggregator::{self, Summary, Tweet};
 
 fn main() {
@@ -322,7 +322,7 @@ fn main() {
 
 以下展示如何在 `Summary` 特徵內指定 `summarize` 方法的預設字串。
 
-```RS
+```rs
 pub trait Summary {
     fn summarize(&self) -> String {
         String::from("(閱讀更多...)")
@@ -332,13 +332,13 @@ pub trait Summary {
 
 要使用預設實作來總結 `NewsArticle` 而不是定義自訂實作的話，我們可以指定一個空的 `impl` 區塊。
 
-```RS
+```rs
 impl Summary for NewsArticle {}
 ```
 
 最後仍然能在 `NewsArticle` 實例中呼叫 `summarize`。
 
-```RS
+```rs
 let article = NewsArticle {
     headline: String::from("Penguins win the Stanley Cup Championship!"),
     location: String::from("Pittsburgh, PA, USA"),
@@ -354,7 +354,7 @@ println!("有新文章發佈！{}", article.summarize());
 
 預設實作也能呼叫同特徵中的其他方法，就算那些方法沒有預設實作。這樣一來，特徵就可以提供一堆實用的功能，並要求實作者只需處理一小部分就好。
 
-```RS
+```rs
 pub trait Summary {
     fn summarize_author(&self) -> String;
 
@@ -366,7 +366,7 @@ pub trait Summary {
 
 要使用這個版本的 `Summary`，我們只需要在對型別實作特徵時定義 `summarize_author` 就好。
 
-```RS
+```rs
 impl Summary for Tweet {
     fn summarize_author(&self) -> String {
         format!("@{}", self.username)
@@ -380,7 +380,7 @@ impl Summary for Tweet {
 
 可以定義一個函式 `notify` 使用它自己的參數 `item` 來呼叫 `summarize` 方法，所以此參數的型別預期有實作 `Summary` 特徵。 為此我們可以使用 `impl Trait` 語法，如以下所示：
 
-```RS
+```rs
 pub fn notify(item: &impl Summary) {
     println!("頭條新聞！{}", item.summarize());
 }
@@ -392,7 +392,7 @@ pub fn notify(item: &impl Summary) {
 
 語法 `impl Trait` 看起來很直觀，不過它其實是一個更長格式的語法糖，這個格式稱之為「特徵界限（trait bound）」，它長得會像以下。
 
-```RS
+```rs
 pub fn notify<T: Summary>(item: &T) {
     println!("頭條新聞！{}", item.summarize());
 }
@@ -400,13 +400,13 @@ pub fn notify<T: Summary>(item: &T) {
 
 特徵界限語法則適合用於其他比較複雜的案例。舉例來說，有兩個有實作 `Summary` 的參數，使用 `impl Trait` 語法看起來會像以下。
 
-```RS
+```rs
 pub fn notify(item1: &impl Summary, item2: &impl Summary) {}
 ```
 
 如果想要此函式允許 `item1` 和 `item2` 是不同型別的話，使用 `impl Trait` 的確是正確的（只要它們都有實作 `Summary`）。不過如果希望兩個參數都是同一型別的話，就得使用特徵界限來表達，如以下。
 
-```RS
+```rs
 pub fn notify<T: Summary>(item1: &T, item2: &T) {}
 ```
 
@@ -414,13 +414,13 @@ pub fn notify<T: Summary>(item1: &T, item2: &T) {}
 
 假設還想要 `notify` 中的 `item` 不只能夠呼叫 `summarize` 方法，還能顯示格式化訊息的話，可以在 `notify` 定義中指定 `item` 必須同時要有 `Display` 和 `Summary`。這可以使用 `+` 語法來達成：
 
-```RS
+```rs
 pub fn notify(item: &(impl Summary + Display)) {}
 ```
 
 這也能用在泛型型別的特徵界限中：
 
-```RS
+```rs
 pub fn notify<T: Summary + Display>(item: &T) {}
 ```
 
@@ -428,13 +428,13 @@ pub fn notify<T: Summary + Display>(item: &T) {}
 
 使用太多特徵界限也會帶來壞處。每個泛型都有自己的特徵界限，所以有數個泛型型別的函式可以在函式名稱與參數列表之間包含大量的特徵界限資訊，讓函式簽名難以閱讀。因此 Rust 有提供另一個在函式簽名之後指定特徵界限的語法 `where`。所以與其這樣寫：
 
-```RS
+```rs
 fn some_function<T: Display + Clone, U: Clone + Debug>(t: &T, u: &U) -> i32 {}
 ```
 
 可以這樣寫 `where` 的語法，如以下所示：
 
-```RS
+```rs
 fn some_function<T, U>(t: &T, u: &U) -> i32
     where T: Display + Clone,
           U: Clone + Debug
@@ -445,7 +445,7 @@ fn some_function<T, U>(t: &T, u: &U) -> i32
 
 也能在回傳的位置使用 `impl Trait` 語法來回傳某個有實作特徵的型別數值。
 
-```RS
+```rs
 fn returns_summarizable() -> impl Summary {
     Tweet {
         username: String::from("horse_ebooks"),
@@ -464,13 +464,13 @@ fn returns_summarizable() -> impl Summary {
 
 在 `largest` 方法，想要用大於（>）運算子比較兩個型別為 `T` 的數值。由於該運算子是從標準函式庫中的特徵 `std::cmp::PartialOrd` 的預設方法所定義的，我們希望在 `T` 中加上 `PartialOrd` 的特徵界限，讓函式可以比較任意型別的切片。我們不需要將 `PartialOrd` 引入作用域因為它由 `prelude` 提供。
 
-```RS
+```rs
 fn largest<T: PartialOrd>(list: &[T]) -> T {}
 ```
 
 這次編譯程式碼時，會得到不同的錯誤：
 
-```BASH
+```bash
 $ cargo run
    Compiling chapter10 v0.1.0 (file:///projects/chapter10)
 error[E0508]: cannot move out of type `[T]`, a non-copy slice
@@ -502,7 +502,7 @@ error: could not compile `chapter10` due to 2 previous errors
 
 要限制此程式碼只允許有實作 `Copy` 特徵的型別，可以在 `T` 的特徵界限中加上 `Copy`。
 
-```RS
+```rs
 fn largest<T: PartialOrd + Copy>(list: &[T]) -> T {
     let mut largest = list[0];
 
@@ -534,7 +534,7 @@ fn main() {
 
 在以下第二個 `impl` 區塊中，只有在其內部型別 `T` 有實作能夠做比較的 `PartialOrd` 特徵以及能夠顯示在螢幕的 `Display` 特徵的話，才會實作 `cmp_display` 方法。
 
-```RS
+```rs
 use std::fmt::Display;
 
 struct Pair<T> {
@@ -561,7 +561,7 @@ impl<T: Display + PartialOrd> Pair<T> {
 
 還可以對有實作其他特徵的型別選擇性地來實作特徵。對滿足特徵界限的型別實作特徵會稱之為「毯子實作」（blanket implementations），這被廣泛地用在 Rust 標準函式庫中。舉例來說，標準函式庫會對任何有實作 `Display` 特徵的型別實作 `ToString`。標準函式庫中的 `impl` 區塊會有類似這樣的程式碼：
 
-```RS
+```rs
 impl<T: Display> ToString for T {
     // ...
 }
@@ -569,7 +569,7 @@ impl<T: Display> ToString for T {
 
 因為標準函式庫有此毯子實作，所以可以在任何有實作 `Display` 特徵的型別呼叫 `ToString` 特徵的 `to_string` 方法。舉例來說，可以像這樣將整數轉變成對應的 `String` 數值，因為整數有實作 `Display`：
 
-```RS
+```rs
 let s = 3.to_string();
 ```
 
@@ -585,7 +585,7 @@ Rust 中的每個引用都有個生命週期（lifetime），這是決定該引�
 
 生命週期最主要的目的就是要預防迷途引用（dangling references），其會導致程式引用到其他資料，而非它原本想要的引用。以下程式，它有一個外部作用域與內部作用域。
 
-```RS
+```rs
 {
     let r;
 
@@ -604,7 +604,7 @@ Rust 中的每個引用都有個生命週期（lifetime），這是決定該引�
 
 Rust 編譯器有個借用檢查器（borrow checker），會比較作用域來檢測所有的借用是否有效。
 
-```RS
+```rs
 {
     let r;                // ---------+-- 'a
                           //          |
@@ -619,7 +619,7 @@ Rust 編譯器有個借用檢查器（borrow checker），會比較作用域來�
 
 以下修正了此程式碼讓它不會存在迷途引用，並能夠正確編譯。
 
-```RS
+```rs
 {
     let x = 5;            // ----------+-- 'b
                           //           |
@@ -634,7 +634,7 @@ Rust 編譯器有個借用檢查器（borrow checker），會比較作用域來�
 
 以下寫個回傳兩個字串切片中較長者的函式。此函式會接收兩個字串切片並回傳一個字串切片。在實作 `longest` 函式後，程式碼應該要印出最長的字串為 `abcd`。
 
-```RS
+```rs
 fn main() {
     let string1 = String::from("abcd");
     let string2 = "xyz";
@@ -646,7 +646,7 @@ fn main() {
 
 如果我們嘗試實作 `longest` 函式時，如以下所示，它不會編譯過。因為 Rust 無法辨別出回傳的引用指的是 `x` 還是 `y`。
 
-```RS
+```rs
 fn longest(x: &str, y: &str) -> &str {
     if x.len() > y.len() {
         x
@@ -664,7 +664,7 @@ fn longest(x: &str, y: &str) -> &str {
 
 生命週期詮釋的語法有一點不一樣：生命週期參數的名稱必須以撇號（`'`）作為開頭，通常全是小寫且很短，就像泛型型別一樣。大多數的人會使用名稱 `'a`。我們將生命週期參數置於引用的 `&` 之後，並使用空格區隔詮釋與引用的型別。
 
-```RS
+```rs
 &i32        // 一個引用
 &'a i32     // 一個有顯式生命週期的引用
 &'a mut i32 // 一個有顯式生命週期的可變引用
@@ -676,7 +676,7 @@ fn longest(x: &str, y: &str) -> &str {
 
 如同泛型型別參數，需要在函式名稱與參數列表之間的尖括號內宣告泛型生命週期參數。我們想在此簽名表達的是參數的生命週期與回傳引用的生命週期是相關的，所有參數都要是有效的，那麼回傳的引用才也會是有效的。以下會將生命週期命名為 `'a` 然後將它加到每個引用。
 
-```RS
+```rs
 fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
     if x.len() > y.len() {
         x
@@ -696,7 +696,7 @@ fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
 
 來看看如何透過傳入不同實際生命週期的引用來使生命週期詮釋能約束 `longest` 函式。
 
-```RS
+```rs
 fn main() {
     let string1 = String::from("很長的長字串");
 
@@ -710,7 +710,7 @@ fn main() {
 
 以下寫一個範例能要求 `result` 生命週期的引用必須是兩個引數中較短的才行。
 
-```RS
+```rs
 fn main() {
     let string1 = String::from("很長的長字串");
     let result;
@@ -724,7 +724,7 @@ fn main() {
 
 嘗試編譯此程式碼，會看到以下錯誤。
 
-```RS
+```rs
 $ cargo run
    Compiling chapter10 v0.1.0 (file:///projects/chapter10)
 error[E0597]: `string2` does not live long enough
@@ -751,7 +751,7 @@ error: could not compile `chapter10` due to previous error
 
 在此例中，我們指定生命週期參數 `'a` 給參數 `x` 與回傳型別，但參數 `y` 則沒有，因為 `y` 的生命週期與 `x` 和回傳型別的生命週期之間沒有任何關係。
 
-```RS
+```rs
 fn longest<'a>(x: &'a str, y: &str) -> &'a str {
     x
 }
@@ -759,7 +759,7 @@ fn longest<'a>(x: &'a str, y: &str) -> &'a str {
 
 當函式回傳引用時，回傳型別的生命週期參數必須符合其中一個參數的生命週期參數。如果回傳引用沒有和任何參數有關聯的話，代表它引用的是函式本體中的數值。但這會是迷途引用，因為該數值會在函式結尾離開作用域。
 
-```RS
+```rs
 fn longest<'a>(x: &str, y: &str) -> &'a str {
     let result = String::from("超長的字串");
     result.as_str()
@@ -772,7 +772,7 @@ fn longest<'a>(x: &str, y: &str) -> &'a str {
 
 目前為止，我們只定義過擁有所有權的結構體。結構體其實也能持有引用，不過我們會需要在結構體定義中每個引用加上生命週期詮釋。以下範例有個持有字串切片的結構體 `ImportantExcerpt`。
 
-```RS
+```rs
 struct ImportantExcerpt<'a> {
     part: &'a str,
 }
@@ -794,7 +794,7 @@ fn main() {
 
 每個引用都有個生命週期，而且需要在有使用引用的函式與結構體中指定生命週期參數。然而在以下範例，可以不詮釋生命週期並照樣編譯成功。
 
-```RS
+```rs
 fn first_word(s: &str) -> &str {
     let bytes = s.as_bytes();
 
@@ -830,7 +830,7 @@ Rust 團隊發現 Rust 開發者會在特定情況反覆輸入同樣的生命週
 
 首先，使用一個方法叫做 `level` 其參數只有 `self` 的引用而回傳值是 `i32`，這不是任何引用：
 
-```RS
+```rs
 impl<'a> ImportantExcerpt<'a> {
     fn level(&self) -> i32 {
         3
@@ -842,7 +842,7 @@ impl<'a> ImportantExcerpt<'a> {
 
 以下是第三個生命週期省略規則適用的地方：
 
-```RS
+```rs
 impl<'a> ImportantExcerpt<'a> {
     fn announce_and_return_part(&self, announcement: &str) -> &str {
         println!("請注意：{}", announcement);
@@ -857,7 +857,7 @@ impl<'a> ImportantExcerpt<'a> {
 
 其中有個特殊的生命週期 `'static` 需要進一步討論，這是指該引用可以存活在整個程式期間。所有的字串字面值都有 `'static` 生命週期，可以這樣詮釋：
 
-```RS
+```rs
 let s: &'static str = "我有靜態生命週期。";
 ```
 
@@ -869,7 +869,7 @@ let s: &'static str = "我有靜態生命週期。";
 
 用一個函式來總結泛型型別參數、特徵界限與生命週期的語法！
 
-```RS
+```rs
 use std::fmt::Display;
 
 fn longest_with_an_announcement<'a, T>(

@@ -9,7 +9,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 修改 Laravel 專案的 `.env` 檔：
 
-```ENV
+```env
 APP_URL=http://127.0.0.1:8000
 
 MIX_APP_URL="${APP_URL}"
@@ -17,7 +17,7 @@ MIX_APP_URL="${APP_URL}"
 
 在 Vue 專案中使用：
 
-```JS
+```js
 console.log(process.env.MIX_APP_URL);
 ```
 

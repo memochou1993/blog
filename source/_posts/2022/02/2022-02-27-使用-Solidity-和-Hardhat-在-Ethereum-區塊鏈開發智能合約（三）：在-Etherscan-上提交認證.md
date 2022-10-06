@@ -21,7 +21,7 @@ categories: ["區塊鏈", "Ethereum"]
 
 修改 `.env` 檔。
 
-```ENV
+```env
 API_URL=https://eth-rinkeby.alchemyapi.io/v2/your-api-key
 API_KEY=your-api-key
 PRIVATE_KEY=your-private-key
@@ -31,13 +31,13 @@ ETHERSCAN_API_KEY=your-etherscan-key
 
 安裝 `@nomiclabs/hardhat-etherscan` 套件。
 
-```BASH
+```bash
 npm install --save-dev @nomiclabs/hardhat-etherscan
 ```
 
 更新 `hardhat.config.js` 檔。
 
-```JS
+```js
 /**
  * @type import('hardhat/config').HardhatUserConfig
  */
@@ -66,13 +66,13 @@ module.exports = {
 
 在 Etherscan 上驗證此智能合約，確保網路是 `rinkeby` 測試網路，以及 `CONTRACT_ADDRESS` 是此智能合約的地址，且初始訊息與部署腳本的初始訊息一致。
 
-```BASH
+```bash
 npx hardhat verify --network rinkeby CONTRACT_ADDRESS 'Hello World!'
 ```
 
 顯示結果如下：
 
-```BASH
+```bash
 Nothing to compile
 Successfully submitted source code for contract
 contracts/HelloWorld.sol:HelloWorld at 0x6839691078Ef669589F65Fca9968f6430D509812

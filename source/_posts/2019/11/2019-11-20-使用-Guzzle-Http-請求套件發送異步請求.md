@@ -9,7 +9,7 @@ categories: ["程式設計", "PHP", "其他"]
 
 使用 `GuzzleHttp\Client` 類別的 `requestAsync()` 方法來建立異步請求（async requests）。
 
-```PHP
+```php
 $results = [];
 
 $client = new \GuzzleHttp\Client();
@@ -35,7 +35,7 @@ echo 'results: '.count($results)."\n";
 
 結果：
 
-```PHP
+```php
 results: 1
 ```
 
@@ -43,7 +43,7 @@ results: 1
 
 使用 Promise 和異步請求同時發送多個請求。
 
-```PHP
+```php
 $results = [];
 
 $client = new \GuzzleHttp\Client();
@@ -71,7 +71,7 @@ echo 'results: '.count($results);
 
 結果：
 
-```PHP
+```php
 1: 15:58:10
 2: 15:58:10
 3: 15:58:10
@@ -82,7 +82,7 @@ results: 5
 
 當發送不確定數量的請求時，使用 `GuzzleHttp\Pool` 類別。
 
-```PHP
+```php
 $results = [];
 
 $client = new \GuzzleHttp\Client();
@@ -120,7 +120,7 @@ echo 'results: '.count($results)."\n";
 
 併發數設為 10，結果：
 
-```PHP
+```php
 0: 15:34:23
 1: 15:34:23
 2: 15:34:23
@@ -136,7 +136,7 @@ results: 10
 
 併發數設為 1，結果：
 
-```PHP
+```php
 0: 15:35:54
 1: 15:35:55
 2: 15:35:57

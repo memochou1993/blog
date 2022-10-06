@@ -9,13 +9,13 @@ categories: ["程式設計", "JavaScript", "其他"]
 
 `call` 方法使用給定的 `this` 參數以及分別給定的參數來呼叫某個函數，接受一個可以被視為 `this` 的值，和一連串的參數。
 
-```JS
+```js
 fun.call(thisArg[, arg1[, arg2[, ...]]])
 ```
 
 簡單的範例：
 
-```JS
+```js
 function add(a, b) {
   return a + b;
 }
@@ -27,13 +27,13 @@ add.call(null, 1, 2); // 3
 
 `call` 方法使用給定的 `this` 參數以及分別給定的參數來呼叫某個函數，接受一個可以被視為 `this` 的值，和一個陣列形式的參數。
 
-```JS
+```js
 fun.apply(thisArg, [argsArray])
 ```
 
 簡單的範例：
 
-```JS
+```js
 add.apply(null, [1, 2]); // 3
 ```
 
@@ -41,13 +41,13 @@ add.apply(null, [1, 2]); // 3
 
 `bind` 方法會建立一個新函式。該函式被呼叫時，會將 `this` 關鍵字設為給定的參數，並在呼叫時，帶入給定順序的參數。
 
-```JS
+```js
 fun.bind(thisArg[, arg1[, arg2[, ...]]])
 ```
 
 簡單的範例：
 
-```JS
+```js
 function add(a, b) {
   return a + b;
 }
@@ -66,7 +66,7 @@ addTen(20); // 30
 
 傳入的 `this` 決定函式所指向的 `this`。若這個函數是在非嚴格模式（non-strict mode）下，`null`、`undefined` 將會被置換成全域變數。
 
-```JS
+```js
 const foo = {
     add: function(x) {
         return x + (this.num || 0);

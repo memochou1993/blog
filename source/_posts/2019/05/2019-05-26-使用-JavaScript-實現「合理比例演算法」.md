@@ -9,7 +9,7 @@ categories: ["程式設計", "JavaScript", "演算法"]
 
 目的是將若干組個別總和為（趨近於）1 的小數陣列，轉換為若干組整數陣列。
 
-```JS
+```js
 // 小數陣列
 [
   [0.88, 0.11],
@@ -31,7 +31,7 @@ categories: ["程式設計", "JavaScript", "演算法"]
 
 ## 做法
 
-```JS
+```js
 // 將小數陣列注入，並開始分析合理小數。
 function analyze(arr) {
   return unique(max([].concat(...arr.map(ele => calculate(ele)))));

@@ -9,7 +9,7 @@ categories: ["程式設計", "JavaScript", "ESLint"]
 
 安裝 `eslint` 依賴套件。
 
-```BASH
+```bash
 yarn add eslint \         
     eslint-config-airbnb \
     eslint-plugin-jsx-a11y \
@@ -20,13 +20,13 @@ yarn add eslint \
 
 安裝 `prop-types` 依賴套件。
 
-```BASH
+```bash
 yarn add prop-types
 ```
 
 修改 `.eslintrc.json` 檔，並添加相關規則。
 
-```JSON
+```json
 {
   "extends": "airbnb",
   "rules": {
@@ -38,6 +38,6 @@ yarn add prop-types
 
 執行檢查。
 
-```BASH
+```bash
 npm run lint
 ```

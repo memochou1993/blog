@@ -13,20 +13,20 @@ categories: ["區塊鏈", "Ethereum"]
 
 建立專案。
 
-```BASH
+```bash
 mkdir eth-staking
 cd eth-staking
 ```
 
 使用 `truffle` 指令初始化專案。
 
-```BASH
+```bash
 truffle init
 ```
 
 新增 `.gitignore` 檔。
 
-```ENV
+```env
 /node_modules
 /build
 .env
@@ -34,7 +34,7 @@ truffle init
 
 安裝依賴套件。
 
-```BASH
+```bash
 npm install @openzeppelin/contracts
 ```
 
@@ -42,7 +42,7 @@ npm install @openzeppelin/contracts
 
 建立 `contracts/Staking.sol` 檔，實作質押合約。
 
-```SOL
+```sol
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -162,7 +162,7 @@ contract Staking is Ownable, ReentrancyGuard {
 
 新增 `2_deploy_contracts.js` 檔。
 
-```JS
+```js
 const Staking = artifacts.require("Staking");
 
 module.exports = function (deployer) {
@@ -172,20 +172,20 @@ module.exports = function (deployer) {
 
 安裝依賴套件。
 
-```BASH
+```bash
 npm i dotenv @truffle/hdwallet-provider truffle-plugin-verify --save
 ```
 
 新增 `.env` 檔。
 
-```ENV
+```env
 BSCSCAN_API_KEY=
 PRIVATE_KEY=
 ```
 
 修改 `truffle-config.js` 檔。
 
-```JS
+```js
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 require('dotenv').config();
 
@@ -227,7 +227,7 @@ module.exports = {
 
 執行部署。
 
-```BASH
+```bash
 truffle migrate --network bsc
 ```
 
@@ -235,7 +235,7 @@ truffle migrate --network bsc
 
 在 BscScan 提交認證。
 
-```BASH
+```bash
 truffle run verify Staking --network bsc
 ```
 

@@ -9,31 +9,31 @@ categories: ["環境部署", "Laradock"]
 
 更新 apt 套件工具。
 
-```BASH
+```bash
 sudo apt update && sudo apt upgrade
 ```
 
 新增套件儲存庫。
 
-```BASH
+```bash
 sudo add-apt-repository ppa:certbot/certbot
 ```
 
 安裝 `certbot` 套件。
 
-```BASH
+```bash
 sudo apt install certbot
 ```
 
 新增使用萬用字元的網域憑證。
 
-```BASH
+```bash
 sudo certbot -d *.epoch.tw --manual --preferred-challenges dns certonly --server https://acme-v02.api.letsencrypt.org/directory
 ```
 
 第一次會出現類似以下訊息：
 
-```BASH
+```bash
 lease deploy a DNS TXT record under the name
 _acme-challenge.frdm.info with the following value:
 
@@ -54,14 +54,14 @@ xxxxxxxxxxxxxxxxxx
 
 修改 `Laradock` 資料夾的 `docker-compose.yml` 檔。
 
-```BASH
+```bash
 cd Laradock
 vi docker-compose.yml
 ```
 
 設定 `nginx` 的 `volumes` 參數，新增一個 `letsencrypt` 映射目錄：
 
-```YML
+```yaml
 ### NGINX Server #########################################
     nginx:
       build:
@@ -87,7 +87,7 @@ vi docker-compose.yml
 
 將要安裝 SSL 憑證的 Nginx 設定檔改為：
 
-```CONF
+```conf
 server {
     listen 80;
     listen [::]:80;
@@ -141,6 +141,6 @@ server {
 
 重啟 Nginx。
 
-```BASH
+```bash
 docker-compose restart nginx
 ```

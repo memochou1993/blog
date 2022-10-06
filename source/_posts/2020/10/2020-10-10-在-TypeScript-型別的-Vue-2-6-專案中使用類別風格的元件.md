@@ -13,7 +13,7 @@ Vue 對 TypeScript 已經有了很好的支援，可以使用兩種書寫方式�
 
 基礎的寫法是使用 `Vue.component` 或 `Vue.extend` 方法，與原先的寫法沒有太大差異。
 
-```JS
+```js
 import Vue from 'vue'
 
 const Component = Vue.extend({
@@ -30,7 +30,7 @@ const Component = {
 
 使用類別風格的元件需要搭配 `vue-class-component` 套件，以及 `@` 裝飾器來使用。
 
-```JS
+```js
 import Vue from 'vue'
 import Component from 'vue-class-component'
 
@@ -54,7 +54,7 @@ export default class MyComponent extends Vue {
 
 安裝以下套件。社群所開發的 `vue-property-decorator` 套件是基於官方所開發的 `vue-class-component` 套件的擴展。
 
-```BASH
+```bash
 yarn add vue-class-component
 yarn add vue-property-decorator
 ```
@@ -63,13 +63,13 @@ yarn add vue-property-decorator
 
 首先建立一個 TypeScript 型別的 Vue 專案。
 
-```BASH
+```bash
 vue create example
 ```
 
 修改 `tsconfig.json` 檔，開啟編輯器對裝飾器的支援：
 
-```JSON
+```json
 {
   "compilerOptions": {
     "experimentalDecorators": true
@@ -79,7 +79,7 @@ vue create example
 
 原先 `HelloWorld` 元件大致上如下：
 
-```HTML
+```html
 <template>
   <div>
     {{ msg }}
@@ -100,7 +100,7 @@ export default Vue.extend({
 
 改寫 `HelloWorld` 元件，修改為裝飾器的寫法：
 
-```HTML
+```html
 <template>
   <div>
     {{ msg }}
@@ -119,7 +119,7 @@ export default class HelloWorld extends Vue {
 
 原先的 `Home` 視圖大致上如下：
 
-```TS
+```ts
 <template>
   <div>
     <HelloWorld
@@ -143,7 +143,7 @@ export default Vue.extend({
 
 改寫 `Home` 視圖，修改為裝飾器的寫法：
 
-```HTML
+```html
 <template>
   <div>
     <HelloWorld

@@ -18,19 +18,19 @@ categories: ["程式設計", "PHP", "Lumen"]
 
 ## 建立專案
 
-```BASH
+```bash
 lumen new lumen
 ```
 
 ## 新增資料庫
 
-```ENV
+```env
 CREATE DATABASE `lumen`
 ```
 
 ## 設置 .env 檔
 
-```ENV
+```env
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
@@ -43,7 +43,7 @@ DB_PASSWORD=secret
 
 下載 `jwt-auth` 套件。
 
-```BASH
+```bash
 composer require tymon/jwt-auth:"^1.0@dev"
 ```
 
@@ -51,7 +51,7 @@ composer require tymon/jwt-auth:"^1.0@dev"
 
 編輯 `bootstrap/app.php` 檔並取消以下註解：
 
-```PHP
+```php
 // $app->withFacades();
 // $app->withEloquent();
 // ...
@@ -65,7 +65,7 @@ composer require tymon/jwt-auth:"^1.0@dev"
 
 在 Register Service Providers 中註冊 `LumenServiceProvider。`
 
-```PHP
+```php
 $app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
 ```
 
@@ -75,7 +75,7 @@ $app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
 - 把 Laravel 專案的 `config` 資料夾的 `auth.php` 檔複製過來。
 - 更改為以下內容：
 
-```PHP
+```php
 'defaults' => [
     'guard' => 'api',
     'passwords' => 'users',
@@ -91,13 +91,13 @@ $app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
 
 安裝 Lumen 文件配置指令。
 
-```BASH
+```bash
 composer require laravelista/lumen-vendor-publish
 ```
 
 註冊指令到 `app/Console/Kernel.php` 檔。
 
-```PHP
+```php
 protected $commands = [
     \Laravelista\LumenVendorPublish\VendorPublishCommand::class
 ];
@@ -107,7 +107,7 @@ protected $commands = [
 
 在 `app` 資料夾內新增 `helpers.php` 檔。
 
-```PHP
+```php
 if (!function_exists('config_path')) {
     /**
      * Get the configuration path.
@@ -126,7 +126,7 @@ if (!function_exists('config_path')) {
 
 在 `composer.json` 檔的 `autoload` 的部分自動加載 `app/helpers.php` 檔。
 
-```PHP
+```php
 "autoload": {
     "psr-4": {
         "App\\": "app/"
@@ -139,13 +139,13 @@ if (!function_exists('config_path')) {
 
 執行 Composer 自動載入指令。
 
-```BASH
+```bash
 composer dump-autoload
 ```
 
 將 `vendor\tymon\jwt-auth\src\Providers\LumenServiceProvider.php` 檔更改為以下：
 
-```PHP
+```php
 public function boot()
 {
     $this->app->configure('jwt');
@@ -170,13 +170,13 @@ public function boot()
 
 複製需要的套件文檔。
 
-```BASH
+```bash
 php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\JWTAuthServiceProvider"
 ```
 
 ## 產生 JWT 密鑰
 
-```BASH
+```bash
 php artisan jwt:generate
 ```
 

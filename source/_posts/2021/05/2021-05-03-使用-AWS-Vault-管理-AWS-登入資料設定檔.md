@@ -9,13 +9,13 @@ categories: ["雲端運算服務", "AWS"]
 
 安裝 `aws-vault` 執行檔。
 
-```BASH
+```bash
 brew install --cask aws-vault
 ```
 
 修改 `~/.aws/config` 檔，並使用 AWS Single Sign-On 的配置：
 
-```BASH
+```bash
 [default]
 region=ap-northeast-1
 
@@ -29,20 +29,20 @@ output=json
 
 添加環境變數。
 
-```BASH
+```bash
 export AWS_VAULT_BACKEND=file
 export AWS_VAULT_FILE_PASSPHRASE=root
 ```
 
 使用以下命令，以 AWS SSO 登入。
 
-```BASH
+```bash
 aws-vault login playground-PowerUser
 ```
 
 使用以下命令，執行 `aws` 指令。
 
-```BASH
+```bash
 aws-vault exec playground-PowerUser -- aws s3 ls
 ```
 

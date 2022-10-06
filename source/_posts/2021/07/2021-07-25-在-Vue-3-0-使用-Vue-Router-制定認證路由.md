@@ -9,7 +9,7 @@ categories: ["程式設計", "JavaScript", "Vue"]
 
 修改 `router/index.js` 檔。
 
-```JS
+```js
 import { createRouter, createWebHashHistory } from 'vue-router';
 import store from '@/store';
 

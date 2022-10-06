@@ -16,7 +16,7 @@ categories: ["環境部署", "CI/CD"]
 
 連線至遠端伺服器。
 
-```BASH
+```bash
 sh ec2.sh
 ```
 
@@ -24,7 +24,7 @@ sh ec2.sh
 
 新增 `deployer` 使用者。
 
-```BASH
+```bash
 sudo adduser deployer --disabled-password
 ```
 
@@ -32,7 +32,7 @@ sudo adduser deployer --disabled-password
 
 將 `deployer` 使用者加進 `nginx` 使用者所待的 `www-data` 群組。
 
-```BASH
+```bash
 sudo adduser deployer www-data
 ```
 
@@ -40,7 +40,7 @@ sudo adduser deployer www-data
 
 切換到 `deployer` 使用者，設定基礎權限。
 
-```BASH
+```bash
 sudo su - deployer
 echo "umask 022" >> ~/.bashrc
 exit
@@ -48,13 +48,13 @@ exit
 
 為 `deployer` 使用者添加 sudo 權限。
 
-```BASH
+```bash
 sudo vi /etc/sudoers
 ```
 
 修改 `sudoers` 檔：
 
-```ENV
+```env
 # User privilege specification
 root    ALL=(ALL:ALL) ALL
 deployer ALL=(ALL) NOPASSWD: ALL
@@ -62,7 +62,7 @@ deployer ALL=(ALL) NOPASSWD: ALL
 
 切換回 `deployer` 使用者，修改專案目錄權限。
 
-```BASH
+```bash
 sudo su - deployer
 sudo chown deployer:www-data /var/www
 sudo chmod g+s /var/www
@@ -72,26 +72,26 @@ sudo chmod g+s /var/www
 
 新增 `~/.ssh` 資料夾，並設定權限。
 
-```BASH
+```bash
 mkdir ~/.ssh
 chmod 700 ~/.ssh
 ```
 
 新增 `authorized_keys` 檔。
 
-```BASH
+```bash
 touch ~/.ssh/authorized_keys
 ```
 
 將遠端伺服器的公有金鑰的內容複製到 `authorized_keys` 檔。
 
-```TEXT
+```txt
 ssh-rsa ...
 ```
 
 設定金鑰權限。
 
-```BASH
+```bash
 chmod 600 ~/.ssh/authorized_keys
 ```
 
@@ -99,13 +99,13 @@ chmod 600 ~/.ssh/authorized_keys
 
 新增 `id_rsa` 檔。
 
-```BASH
+```bash
 touch ~/.ssh/id_rsa
 ```
 
 將本機的私有金鑰 `aws.pem` 檔的內容複製到 `~/.ssh/id_rsa` 檔。
 
-```TEXT
+```txt
 -----BEGIN OPENSSH PRIVATE KEY-----
 ...
 -----END OPENSSH PRIVATE KEY-----
@@ -113,19 +113,19 @@ touch ~/.ssh/id_rsa
 
 新增 `id_rsa.pub` 檔。
 
-```BASH
+```bash
 touch ~/.ssh/id_rsa
 ```
 
 將 `authorized_keys` 檔的內容複製到 `~/.ssh/id_rsa.pub` 檔。
 
-```BASH
+```bash
 cat ~/.ssh/authorized_keys >> ~/.ssh/id_rsa.pub
 ```
 
 設定金鑰權限。
 
-```BASH
+```bash
 chmod 600 ~/.ssh/id_rsa
 chmod 600 ~/.ssh/id_rsa.pub
 ```
@@ -134,7 +134,7 @@ chmod 600 ~/.ssh/id_rsa.pub
 
 將 `id_rsa.pub` 檔的內容複製到儲存庫 SSH 設定。
 
-```BASH
+```bash
 cat ~/.ssh/id_rsa.pub
 ```
 
@@ -144,7 +144,7 @@ cat ~/.ssh/id_rsa.pub
 
 使用 Composer 安裝 Deployer。
 
-```BASH
+```bash
 composer global require deployer/deployer -vvv
 ```
 
@@ -152,20 +152,20 @@ composer global require deployer/deployer -vvv
 
 建立專案。
 
-```BASH
+```bash
 laravel new laravel
 ```
 
 初始化 Deployer。
 
-```BASH
+```bash
 cd laravel
 dep init
 ```
 
 修改初始化 Deployer 後所生成的 `deploy.php` 檔：
 
-```PHP
+```php
 // ...
 set('repository', 'git@xxx/laravel.git');
 
@@ -182,6 +182,6 @@ host('xx.xxx.xxx.xxx')
 
 在本機端的專案目錄執行以下指令：
 
-```BASH
+```bash
 dep deploy -vvv
 ```

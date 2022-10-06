@@ -17,7 +17,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 修改 `package.json` 檔：
 
-```JSON
+```json
 {
     "private": true,
     "scripts": {
@@ -55,7 +55,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 安裝所需套件。
 
-```BASH
+```bash
 npm install
 ```
 
@@ -63,7 +63,7 @@ npm install
 
 將 `welcome.blade.php` 檔改名為 `app.blade.php`，並修改如下：
 
-```HTML
+```html
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -84,7 +84,7 @@ npm install
 
 將 `web.php` 檔修改如下：
 
-```PHP
+```php
 Route::get('/{any}', function () {
     return view('app');
 })->where('any', '.*');
@@ -94,7 +94,7 @@ Route::get('/{any}', function () {
 
 將 `webpack.mix.js` 檔修改如下：
 
-```JS
+```js
 const mix = require('laravel-mix');
 
 mix
@@ -151,7 +151,7 @@ export default new Vuetify({
 
 將 `resources/js` 資料夾的 `app.js` 檔改名為 `main.js`，並修改如下：
 
-```JS
+```js
 import Vue from 'vue';
 import App from '@/App.vue';
 import router from '@/router';
@@ -170,7 +170,7 @@ new Vue({
 
 在 `resources/js` 資料夾新增 `components/TheToolbar.vue` 元件：
 
-```HTML
+```html
 <template>
   <div>
     <v-navigation-drawer
@@ -247,7 +247,7 @@ export default {
 
 在 `resources/js` 資料夾新增 `components/TheFooter.vue` 元件：
 
-```HTML
+```html
 <template>
   <v-footer
     padless
@@ -270,7 +270,7 @@ export default {
 
 在 `resources/js` 資料夾新增 `App.vue` 檔：
 
-```HTML
+```html
 <template>
   <v-app>
     <TheToolbar />
@@ -307,7 +307,7 @@ export default {
 
 在 `resources/js` 資料夾新增 `views/Home.vue` 視圖：
 
-```HTML
+```html
 <template>
   <div>
     Home
@@ -319,7 +319,7 @@ export default {
 
 在 `resources/js` 資料夾新增 `router.js` 檔：
 
-```JS
+```js
 import Vue from 'vue';
 import Router from 'vue-router';
 
@@ -340,7 +340,7 @@ export default new Router({
 
 建立 `.eslintrc.js` 檔。
 
-```JS
+```js
 module.exports = {
   root: true,
   env: {
@@ -367,7 +367,7 @@ module.exports = {
 
 將 `.gitignore` 檔修改如下：
 
-```ENV
+```env
 /node_modules
 /public/hot
 /public/storage
@@ -388,7 +388,7 @@ yarn-error.log
 
 ## 編譯資源
 
-```BASH
+```bash
 npm run watch
 ```
 

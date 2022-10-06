@@ -9,7 +9,7 @@ categories: ["程式設計", "Bash Shell"]
 
 修改 `.zshrc` 檔，添加以下腳本。
 
-```BASH
+```bash
 autoload -U add-zsh-hook
 load-nvmrc() {
   local node_version="$(nvm version)"
@@ -34,13 +34,13 @@ load-nvmrc
 
 重新讀取環境變數。
 
-```BASH
+```bash
 source ~/.zshrc
 ```
 
 在特定的 Node 專案中新增 `.nvmrc` 檔。
 
-```ENV
+```env
 v10.24.1
 ```
 

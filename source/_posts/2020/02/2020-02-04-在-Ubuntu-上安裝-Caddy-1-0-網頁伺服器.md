@@ -9,19 +9,19 @@ categories: ["環境部署", "網頁伺服器"]
 
 下載 Caddy。
 
-```BASH
+```bash
 curl https://getcaddy.com | bash -s personal
 ```
 
 查看版本。
 
-```BASH
+```bash
 caddy --version
 ```
 
 修改 Caddy 執行檔的權限：
 
-```BASH
+```bash
 sudo chown root:root /usr/local/bin/caddy
 sudo chmod 755 /usr/local/bin/caddy
 sudo setcap 'cap_net_bind_service=+ep' /usr/local/bin/caddy
@@ -29,14 +29,14 @@ sudo setcap 'cap_net_bind_service=+ep' /usr/local/bin/caddy
 
 新增 `/etc/caddy` 資料夾，以放置 `Caddyfile` 檔，並修改資料夾權限：
 
-```BASH
+```bash
 sudo mkdir /etc/caddy
 sudo chown -R root:root /etc/caddy
 ```
 
 新增 `/etc/ssl/caddy` 資料夾，以放置 SSL 證書，並修改資料夾權限：
 
-```BASH
+```bash
 sudo mkdir /etc/ssl/caddy
 sudo chown -R root:www-data /etc/ssl/caddy
 sudo chmod 0770 /etc/ssl/caddy
@@ -44,14 +44,14 @@ sudo chmod 0770 /etc/ssl/caddy
 
 新增 `/var/log/caddy` 資料夾，以放置日誌，並修改資料夾權限：
 
-```BASH
+```bash
 sudo mkdir /var/log/caddy
 sudo chown -R www-data:www-data /var/log/caddy
 ```
 
 在 `/etc/caddy/` 資料夾新增 `Caddyfile` 檔，例如：
 
-```ENV
+```env
 example.com {
     root /var/www/example
 
@@ -64,14 +64,14 @@ example.com {
 
 修改 `Caddyfile` 檔的權限：
 
-```BASH
+```bash
 sudo chown root:root /etc/caddy/Caddyfile
 sudo chmod 644 /etc/caddy/Caddyfile
 ```
 
 新增 `/var/www` 資料夾，以放置專案，並修改資料夾權限。
 
-```BASH
+```bash
 sudo mkdir /var/www
 sudo chown www-data:www-data /var/www
 sudo chmod 555 /var/www
@@ -79,7 +79,7 @@ sudo chmod 555 /var/www
 
 下載 Caddy 的 systemd 設定檔，並修改檔案權限。
 
-```BASH
+```bash
 wget https://raw.githubusercontent.com/caddyserver/caddy/master/dist/init/linux-systemd/caddy.service
 sudo mv caddy.service /etc/systemd/system/
 sudo chmod 644 /etc/systemd/system/caddy.service
@@ -87,25 +87,25 @@ sudo chmod 644 /etc/systemd/system/caddy.service
 
 載入服務設定檔。
 
-```BASH
+```bash
 sudo systemctl daemon-reload
 ```
 
 啟動 Caddy 服務
 
-```BASH
+```bash
 sudo systemctl start caddy.service
 ```
 
 將 Caddy 服務設置為自動啟動。
 
-```BASH
+```bash
 sudo systemctl enable caddy.service
 ```
 
 檢查 Caddy 服務狀態。
 
-```BASH
+```bash
 sudo systemctl status caddy.service
 ```
 

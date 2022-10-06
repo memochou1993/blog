@@ -7,7 +7,7 @@ categories: ["程式設計", "PHP", "CodeIgniter"]
 
 登入：
 
-```PHP
+```php
 public function login()
 {
     // 簡易隨機字串
@@ -32,7 +32,7 @@ public function login()
 
 回調：
 
-```PHP
+```php
 public function callback($provider)
 {
     $code = $_GET['code'] ?? null;

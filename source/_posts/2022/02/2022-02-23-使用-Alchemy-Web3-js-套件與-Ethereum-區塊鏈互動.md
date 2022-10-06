@@ -29,7 +29,7 @@ categories: ["區塊鏈", "Ethereum"]
 
 可以使用 JSON-RPC 和 curl 透過 Alchemy 與以太坊區塊鏈互動，以下範例用於查詢當前燃氣價格：
 
-```BASH
+```bash
 curl https://eth-mainnet.alchemyapi.io/v2/your-api-key \
 -X POST \
 -H "Content-Type: application/json" \
@@ -41,7 +41,7 @@ curl https://eth-mainnet.alchemyapi.io/v2/your-api-key \
 
 結果如下：
 
-```BASH
+```bash
 {"jsonrpc":"2.0","id":73,"result":"0x1840d93ad1"}
 ```
 
@@ -49,32 +49,32 @@ curl https://eth-mainnet.alchemyapi.io/v2/your-api-key \
 
 建立專案。
 
-```BASH
+```bash
 mkdir web3-example
 cd web3-example
 ```
 
 安裝 `@alch/alchemy-web3` 套件。
 
-```BASH
+```bash
 npm install @alch/alchemy-web3
 ```
 
 安裝 `dot-env` 套件。
 
-```BASH
+```bash
 npm install dotenv --save
 ```
 
 新增 `.env` 檔。
 
-```ENV
+```env
 API_URL=https://eth-mainnet.alchemyapi.io/v2/your-private-key
 ```
 
 新增 `index.js` 檔。
 
-```JS
+```js
 require('dotenv').config();
 
 async function main() {
@@ -90,13 +90,13 @@ main();
 
 執行腳本。
 
-```JS
+```js
 node index.js
 ```
 
 結果如下：
 
-```BASH
+```bash
 The latest block number is 14257180
 ```
 

@@ -13,7 +13,7 @@ BSON 是一種電腦資料交換格式，主要被用做 MongoDB 資料庫中的
 
 MongoDB 的文件（documents）由鍵值對（field-and-value pairs）組成。
 
-```BASH
+```bash
 {
    field1: value1,
    field2: value2,
@@ -25,7 +25,7 @@ MongoDB 的文件（documents）由鍵值對（field-and-value pairs）組成。
 
 欄位值可以是任何 BSON 資料型別，例如：
 
-```BASH
+```bash
 var mydoc = {
     _id: ObjectId("5099803df3f4948bd2f98391"),
     name: { first: "Alan", last: "Turing" },

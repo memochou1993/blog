@@ -14,19 +14,19 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 建立專案。
 
-```BASH
+```bash
 laravel new echo
 ```
 
 安裝 `predis/predis` 套件。
 
-```BASH
+```bash
 composer require predis/predis
 ```
 
 修改 `.env` 檔。
 
-```ENV
+```env
 BROADCAST_DRIVER=redis #改為 redis
 CACHE_DRIVER=file
 QUEUE_CONNECTION=redis #改為 redis
@@ -36,7 +36,7 @@ SESSION_LIFETIME=120
 
 修改 `config/app.php` 檔，取消註解。
 
-```PHP
+```php
 'providers' => [
     // ...
     App\Providers\BroadcastServiceProvider::class,
@@ -46,13 +46,13 @@ SESSION_LIFETIME=120
 
 建立事件。
 
-```BASH
+```bash
 php artisan make:event BroadcastEvent
 ```
 
 修改 `app/Events/BroadcastEvent.php` 檔。
 
-```PHP
+```php
 namespace App\Events;
 
 use Illuminate\Broadcasting\Channel;
@@ -93,7 +93,7 @@ class BroadcastEvent implements ShouldBroadcast
 
 新增路由。
 
-```PHP
+```php
 Route::post('/send', function(\Illuminate\Http\Request $request){
     event(new \App\Events\BroadcastEvent($request->message));
     return response($request->message);
@@ -104,7 +104,7 @@ Route::post('/send', function(\Illuminate\Http\Request $request){
 
 安裝前端套件。
 
-```BASH
+```bash
 npm install
 npm install -g laravel-echo-server
 npm install --save laravel-echo pusher-js
@@ -112,7 +112,7 @@ npm install --save laravel-echo pusher-js
 
 修改 `resources/js/bootstrap.js` 檔。
 
-```JS
+```js
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
@@ -131,7 +131,7 @@ window.Echo = new Echo({
 
 修改 `resources/js/components/ExampleComponent.vue` 元件。
 
-```HTML
+```html
 <form action="">
     <input type="text" v-model="message">
     <input type="submit" @click.prevent="submit">
@@ -164,7 +164,7 @@ window.Echo = new Echo({
 
 修改 `resources/views/welcome.blade.php` 檔，並註冊元件。
 
-```HTML
+```html
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -196,20 +196,20 @@ window.Echo = new Echo({
 
 執行編譯。
 
-```BASH
+```bash
 npm run watch-poll
 ```
 
 初始化 `laravel-echo-server` 服務。
 
-```BASH
+```bash
 laravel-echo-server init
 ```
 
 啟動 `laravel-echo-server` 服務。
 
-```BASH
+```bash
 laravel-echo-server start
 ```
 
-前往：<http://echo.test/>
+前往 <http://echo.test/> 瀏覽。

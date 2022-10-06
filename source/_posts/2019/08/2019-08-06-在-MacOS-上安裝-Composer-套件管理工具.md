@@ -9,25 +9,25 @@ categories: ["程式設計", "PHP", "其他"]
 
 使用 `brew` 安裝 Composer。
 
-```BASH
+```bash
 brew install composer
 ```
 
 將 Composer 的套件執行檔寫進環境變數。
 
-```BASH
+```bash
 echo 'export PATH="$HOME/.composer/vendor/bin:$PATH"' >> ~/.bashrc
 ```
 
 重新讀取 `.bashrc` 檔。
 
-```BASH
+```bash
 source .bashrc
 ```
 
 確認 Composer 的版本。
 
-```BASH
+```bash
 composer --version
 ```
 
@@ -35,7 +35,7 @@ composer --version
 
 正式環境使用指令。
 
-```BASH
+```bash
 composer install --prefer-dist --no-dev --no-scripts --no-suggest --optimize-autoloader
 ```
 

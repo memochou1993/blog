@@ -19,7 +19,7 @@ ConfigMap 將環境配置訊息和 Container 解耦，以便於應用配置的�
 
 以下使用 kind 的環境。
 
-```BASH
+```bash
 cd vagrant/kind
 vagrant up
 vagrant ssh
@@ -27,13 +27,13 @@ vagrant ssh
 
 首先，查看範例資料夾中的 ConfigMap 配置檔。
 
-```BASH
+```bash
 cat introduction/storage/configmap/conf.yaml
 ```
 
 配置檔如下：
 
-```YAML
+```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -55,13 +55,13 @@ data:
 
 使用配置檔創建 ConfigMap 資源。
 
-```BASH
+```bash
 kubectl apply -f introduction/storage/configmap/conf.yaml
 ```
 
 查看 ConfigMap 列表。
 
-```BASH
+```bash
 kubectl get cm
 NAME          DATA   AGE
 config-test   4      8s
@@ -69,7 +69,7 @@ config-test   4      8s
 
 檢查一下名為 `config-test` 的 ConfigMap。
 
-```BASH
+```bash
 kubectl describe cm config-test
 ```
 
@@ -77,13 +77,13 @@ kubectl describe cm config-test
 
 查看範例資料夾中的 Deployment 配置檔，這是使用 Volume 的方式使用 ConfigMap。
 
-```BASH
+```bash
 cat introduction/storage/configmap/pod-vol.yaml
 ```
 
 配置檔如下：
 
-```YAML
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -112,26 +112,26 @@ spec:
 
 使用配置檔創建 Deployment 資源。
 
-```BASH
+```bash
 kubectl apply -f introduction/storage/configmap/pod-vol.yaml
 ```
 
 進到 Pod 中。
 
-```BASH
+```bash
 kubectl exec -it config-vol-5455c65b48-fg4kc -- bash
 ```
 
 列出所有的 key 檔案。
 
-```BASH
+```bash
 ls /tmp/config/
 key  key.new  version.data.new  version.date
 ```
 
 印出其中一個檔案。
 
-```BASH
+```bash
 cat /tmp/config/version.date
 202020202
 ```
@@ -140,13 +140,13 @@ cat /tmp/config/version.date
 
 查看範例資料夾中的 Pod 配置檔，這是使用 Env 的方式使用 ConfigMap。
 
-```BASH
+```bash
 cat introduction/storage/configmap/pod-env.yaml
 ```
 
 配置檔如下：
 
-```YAML
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -179,25 +179,25 @@ spec:
 
 使用配置檔創建 Deployment 資源。
 
-```BASH
+```bash
 kubectl apply -f introduction/storage/configmap/pod-env.yaml
 ```
 
 進到 Pod 中。
 
-```BASH
+```bash
 kubectl exec -it config-env-7468975c6b-tshz2 -- bash
 ```
 
 列出所有的環境變數。
 
-```BASH
+```bash
 env
 ```
 
 印出其中一個環境變數。
 
-```BASH
+```bash
 env | grep -i version
 version=202020202
 ```
@@ -206,19 +206,19 @@ version=202020202
 
 進到名為 `config-vol` 的 Pod 中。
 
-```BASH
+```bash
 kubectl exec -it config-vol-5455c65b48-fg4kc -- bash
 ```
 
 先使用 `watch` 指令監聽 `yaml.config` 檔。
 
-```BASH
+```bash
 watch cat /tmp/config/yaml.config
 ```
 
 在另一個終端機視窗，將 `conf.yaml` 檔修改如下：
 
-```YAML
+```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -239,13 +239,13 @@ data:
 
 再套用一次 ConfigMap 資源。
 
-```BASH
+```bash
 kubectl apply -f introduction/storage/configmap/conf.yaml
 ```
 
 過一陣子，`yaml.config` 檔的內容更新如下：
 
-```BASH
+```bash
 Every 2.0s: cat /tmp/config/yaml.config                                                                                Tue Jan  4 08:01:22 2022
 
 foo: bar

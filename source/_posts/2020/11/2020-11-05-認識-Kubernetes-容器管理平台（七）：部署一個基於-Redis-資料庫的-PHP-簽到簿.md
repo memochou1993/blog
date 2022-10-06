@@ -28,7 +28,7 @@ categories: ["環境部署", "Kubernetes", "其他"]
 
 新增一個 `redis-master-deployment.yaml` 檔，這是 Redis 的主節點的 Deployment 設定檔：
 
-```YAML
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -62,19 +62,19 @@ spec:
 
 建立 Deployment。
 
-```BASH
+```bash
 kubectl apply -f redis-master-deployment.yaml
 ```
 
 檢查 Redis 主節點的 Pod 是否正在運行。
 
-```BASH
+```bash
 kubectl get pods
 ```
 
 查看 Redis 主節點的 Pod 的日誌。
 
-```BASH
+```bash
 kubectl logs -f <POD_NAME>
 ```
 
@@ -82,7 +82,7 @@ kubectl logs -f <POD_NAME>
 
 新增一個 `redis-master-service.yaml` 檔，這是 Redis 的主節點的 Service 設定檔：
 
-```YAML
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -103,13 +103,13 @@ spec:
 
 建立 Service。
 
-```BASH
+```bash
 kubectl apply -f redis-master-service.yaml
 ```
 
 檢查 Redis 主節點的 Service 是否正在運行。
 
-```BASH
+```bash
 kubectl get services
 ```
 
@@ -117,7 +117,7 @@ kubectl get services
 
 新增一個 `redis-slave-deployment.yaml` 檔，這是 Redis 的副節點的 Deployment 設定檔：
 
-```YAML
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -154,13 +154,13 @@ spec:
 
 建立 Deployment。
 
-```BASH
+```bash
 kubectl apply -f redis-slave-deployment.yaml
 ```
 
 檢查 Redis 副節點的 Pod 是否正在運行。
 
-```BASH
+```bash
 kubectl get pods
 ```
 
@@ -168,7 +168,7 @@ kubectl get pods
 
 新增一個 `redis-slave-service.yaml` 檔，這是 Redis 的副節點的 Service 設定檔：
 
-```YAML
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -188,13 +188,13 @@ spec:
 
 建立 Service。
 
-```BASH
+```bash
 kubectl apply -f redis-slave-service.yaml
 ```
 
 檢查 Redis 副節點的 Service 是否正在運行。
 
-```BASH
+```bash
 kubectl get services
 ```
 
@@ -204,7 +204,7 @@ kubectl get services
 
 新增一個 `frontend-deployment.yaml` 檔，這是應用程式的 Deployment 設定檔：
 
-```YAML
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -239,13 +239,13 @@ spec:
 
 建立 Deployment。
 
-```BASH
+```bash
 kubectl apply -f frontend-deployment.yaml
 ```
 
 檢查應用程式的 Pod 是否正在運行。
 
-```BASH
+```bash
 kubectl get pods -l app=guestbook -l tier=frontend
 ```
 
@@ -253,7 +253,7 @@ kubectl get pods -l app=guestbook -l tier=frontend
 
 新增一個 `frontend-service.yaml` 檔，這是應用程式的 Service 設定檔：
 
-```YAML
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -272,13 +272,13 @@ spec:
 
 建立 Service。
 
-```BASH
+```bash
 kubectl apply -f frontend-service.yaml
 ```
 
 檢查應用程式的 Service 是否正在運行。
 
-```BASH
+```bash
 kubectl get services
 ```
 
@@ -286,7 +286,7 @@ kubectl get services
 
 訪問應用程式。
 
-```BASH
+```bash
 minikube service frontend
 ```
 
@@ -294,25 +294,25 @@ minikube service frontend
 
 擴展應用程式 Pod 的數量：
 
-```BASH
+```bash
 kubectl scale deployment frontend --replicas=5
 ```
 
 查看應用程式 Pod 的數量：
 
-```BASH
+```bash
 kubectl get pods
 ```
 
 縮小應用程式 Pod 的數量：
 
-```BASH
+```bash
 kubectl scale deployment frontend --replicas=2
 ```
 
 查看應用程式 Pod 的數量：
 
-```BASH
+```bash
 kubectl get pods
 ```
 
@@ -320,7 +320,7 @@ kubectl get pods
 
 刪除所有的 Pods 和 Services。
 
-```BASH
+```bash
 kubectl delete deployment -l app=redis
 kubectl delete service -l app=redis
 kubectl delete deployment -l app=guestbook
@@ -329,7 +329,7 @@ kubectl delete service -l app=guestbook
 
 確認沒有 Pod 正在運行。
 
-```BASH
+```bash
 kubectl get pods
 ```
 

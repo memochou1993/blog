@@ -7,7 +7,7 @@ categories: ["其他", "編輯器"]
 
 記錄平常使用的設定。
 
-```JSON
+```json
 {
     "window.zoomLevel": 1,
     "editor.fontSize": 16,

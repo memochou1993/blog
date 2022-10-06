@@ -15,19 +15,19 @@ categories: ["程式設計", "JavaScript", "Vue"]
 
 在 Vue 專案新增 `vue-recaptcha-v3` 套件。
 
-```BASH
+```bash
 yarn add vue-recaptcha-v3@^1.9.0
 ```
 
 在 `.env` 檔新增一個環境變數：
 
-```ENV
+```env
 VUE_APP_RECAPTCHA_SITE_KEY=XXXXXXXXXX
 ```
 
 在 `plugins` 新增一個 `recaptcha.js` 檔：
 
-```JS
+```js
 import Vue from 'vue';
 import { VueReCaptcha } from 'vue-recaptcha-v3';
 
@@ -38,13 +38,13 @@ Vue.use(VueReCaptcha, {
 
 將 `recaptcha.js` 檔匯入至 `main.js` 檔。
 
-```JS
+```js
 import './plugins/recaptcha';
 ```
 
 在登入頁面使用，將套件產生的 token 帶至後端。
 
-```JS
+```js
 new Vue({
   // ...
   methods: {
@@ -74,14 +74,14 @@ new Vue({
 
 以 Laravel 為例，在 `.env` 檔新增以下參數：
 
-```ENV
+```env
 RECAPTCHA_API_URL=https://www.google.com/recaptcha/api/siteverify
 RECAPTCHA_SECRET_KEY=XXXXXXXXXX
 ```
 
 向 Google 發出 POST 請求，以進行驗證：
 
-```PHP
+```php
 $client = new \GuzzleHttp\Client();
 
 $response = $client->post(env('RECAPTCHA_API_URL'), [

@@ -20,7 +20,7 @@ categories: ["程式設計", "JavaScript", "其他"]
 
 主程式如下：
 
-```JS
+```js
 const 文件 = document;
 const 百 = 100;
 const 千 = 1000;
@@ -296,9 +296,9 @@ class 計算器 {
 new 計算器();
 ```
 
-## 線上演示
+## 線上展示
 
-[Profit and Loss Calculator](http://stock.epoch.tw/)
+- [Profit and Loss Calculator](http://stock.epoch.tw/)
 
 ## 程式碼
 

@@ -21,7 +21,7 @@ categories: ["環境部署", "Kubernetes", "「Kubernetes 實作手冊：基礎�
 
 以下使用 kind 的環境。
 
-```BASH
+```bash
 cd vagrant/kind
 vagrant up
 vagrant ssh
@@ -29,13 +29,13 @@ vagrant ssh
 
 首先，查看範例資料夾中的 Deployment 配置檔。
 
-```BASH
+```bash
 cat introduction/deployment/basic.yaml
 ```
 
 以下是一個描述 Deployment 的 YAML 範例檔，其中 `template` 的部分其實就是 Pod 的配置檔的格式，並透過標籤綁定在一起。
 
-```YAML
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -59,13 +59,13 @@ spec:
 
 使用配置檔創建 Deployment 資源。
 
-```BASH
+```bash
 kubectl apply -f introduction/deployment/basic.yaml
 ```
 
 查看此 Deployment 與其他資源的關係。
 
-```BASH
+```bash
 kubectl tree deployment test
 NAMESPACE  NAME                           READY  REASON  AGE
 default    Deployment/test                -              7h40m
@@ -79,37 +79,37 @@ default      └─Pod/test-5db5984bbf-tjrs5  True           7h40m
 
 使用 `kubectl rollout status` 指令，查看 Deployment 的更新狀態。
 
-```BASH
+```bash
 kubectl rollout status deployment test
 ```
 
 結果如下：
 
-```BASH
+```bash
 deployment "test" successfully rolled out
 ```
 
 更新 Deployment 配置檔，將 `image` 改為其他的映像檔。
 
-```BASH
+```bash
 image: hwchiu/netutils
 ```
 
 再套用一次配置檔。
 
-```BASH
+```bash
 kubectl apply -f introduction/deployment/basic.yaml
 ```
 
 查看 Deployment 的更新狀態。
 
-```BASH
+```bash
 kubectl rollout status deployment test
 ```
 
 結果如下：
 
-```BASH
+```bash
 Waiting for deployment "test" rollout to finish: 1 out of 3 new replicas have been updated...
 Waiting for deployment "test" rollout to finish: 1 out of 3 new replicas have been updated...
 Waiting for deployment "test" rollout to finish: 1 out of 3 new replicas have been updated...
@@ -123,7 +123,7 @@ deployment "test" successfully rolled out
 
 再查看一次此 Deployment 與其他資源的關係。
 
-```BASH
+```bash
 kubectl tree deployment test
 NAMESPACE  NAME                           READY  REASON  AGE
 default    Deployment/test                -              7h57m
@@ -140,13 +140,13 @@ default    └─ReplicaSet/test-5db5984bbf   -              7h57m
 
 使用 `kubectl rollout undo` 指令，把 Pod 從新的 ReplicaSet 轉移回舊的 ReplicaSet。
 
-```BASH
+```bash
 kubectl rollout undo deployment test
 ```
 
 查看此 Deployment 與其他資源的關係。
 
-```BASH
+```bash
 kubectl tree deployment test
 NAMESPACE  NAME                           READY  REASON  AGE
 default    Deployment/test                -              8h

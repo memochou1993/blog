@@ -9,13 +9,13 @@ categories: ["資料庫", "MySQL"]
 
 下載並啟動 `mariadb` 映像檔。由於 `root` 為預設使用者，因此 `MARIADB_USER` 和 `MARIADB_PASSWORD` 參數可以為空。
 
-```BASH
+```bash
 docker run -d --name mariadb -p 3306:3306 -e MARIADB_USER= -e MARIADB_PASSWORD= -e MARIADB_ROOT_PASSWORD=root mariadb
 ```
 
 使用初始密碼進入容器。
 
-```BASH
+```bash
 docker exec -it mariadb mysql -uroot -proot
 ```
 

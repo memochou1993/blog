@@ -17,26 +17,26 @@ StatefulSet 使用 VolumeClaimTemplates 的格式，可以確保 Pod 使用的 P
 
 以下使用 kind 的環境，並安裝好 NFS 伺服器。
 
-```BASH
+```bash
 cd vagrant/kind
 vagrant ssh
 ```
 
 使用 `ifconfig` 指令查詢虛擬機的 IP 位址。
 
-```BASH
+```bash
 ifconfig
 ```
 
 查看範例資料夾中的 PV 配置檔。
 
-```BASH
+```bash
 cat introduction/storage/sts/pv.yaml
 ```
 
 配置檔如下，將 NFS Server 的 IP 位址修改為虛擬機的 IP 位址：
 
-```YAML
+```yaml
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -82,7 +82,7 @@ spec:
 
 新增資料夾。
 
-```BASH
+```bash
 sudo mkdir /nfsshare/sts-a
 sudo mkdir /nfsshare/sts-b
 sudo mkdir /nfsshare/sts-c
@@ -90,13 +90,13 @@ sudo mkdir /nfsshare/sts-c
 
 使用配置檔創建 PV 資源。
 
-```BASH
+```bash
 kubectl apply -f introduction/storage/sts/pv.yaml
 ```
 
 列出 PV 列表。
 
-```BASH
+```bash
 kubectl get pv
 NAME    CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM   STORAGECLASS   REASON   AGE
 nfs-a   5Gi        RWX            Retain           Available                                   18s
@@ -106,13 +106,13 @@ nfs-c   1000Gi     RWX            Retain           Available                    
 
 查看範例資料夾中的 StatefulSet 配置檔。
 
-```BASH
+```bash
 cat introduction/storage/sts/deploy.yaml
 ```
 
 配置檔如下：
 
-```YAML
+```yaml
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -150,13 +150,13 @@ spec:
 
 使用配置檔創建 StatefulSet 資源。
 
-```BASH
+```bash
 kubectl apply -f introduction/storage/sts/deploy.yaml
 ```
 
 在 `/nfsshare` 的個別資料夾新增不同檔案。。
 
-```BASH
+```bash
 sudo touch /nfsshare/sts-a/a
 sudo touch /nfsshare/sts-b/b
 sudo touch /nfsshare/sts-c/c
@@ -164,62 +164,62 @@ sudo touch /nfsshare/sts-c/c
 
 查看名為 `sts-pv-0` 的 Pod 中，在 `test` 資料夾的檔案。
 
-```BASH
+```bash
 kubectl exec sts-pv-0 -- ls /test
 a
 ```
 
 查看名為 `sts-pv-1` 的 Pod 中，在 `test` 資料夾的檔案。
 
-```BASH
+```bash
 kubectl exec sts-pv-1 -- ls /test
 b
 ```
 
 查看名為 `sts-pv-2` 的 Pod 中，在 `test` 資料夾的檔案。
 
-```BASH
+```bash
 kubectl exec sts-pv-2 -- ls /test
 c
 ```
 
 將 StatefulSet 資源重新部署一次。
 
-```BASH
+```bash
 kubectl delete -f introduction/storage/sts/deploy.yaml
 kubectl apply -f introduction/storage/sts/deploy.yaml
 ```
 
 查看名為 `sts-pv-0` 的 Pod 中，在 `test` 資料夾的檔案。
 
-```BASH
+```bash
 kubectl exec sts-pv-0 -- ls /test
 a
 ```
 
 查看名為 `sts-pv-1` 的 Pod 中，在 `test` 資料夾的檔案。
 
-```BASH
+```bash
 kubectl exec sts-pv-1 -- ls /test
 b
 ```
 
 查看名為 `sts-pv-2` 的 Pod 中，在 `test` 資料夾的檔案。
 
-```BASH
+```bash
 kubectl exec sts-pv-2 -- ls /test
 c
 ```
 
 將 StatefulSet 資源移除。
 
-```BASH
+```bash
 kubectl delete -f introduction/storage/sts/deploy.yaml
 ```
 
 所有 PVC 資源仍會保留。
 
-```BASH
+```bash
 kubectl get pvc
 NAME                STATUS   VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 data-pvc-sts-pv-0   Bound    nfs-a    5Gi        RWX                           16m

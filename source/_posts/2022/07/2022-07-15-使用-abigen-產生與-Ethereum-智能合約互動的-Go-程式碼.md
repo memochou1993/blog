@@ -13,7 +13,7 @@ categories: ["區塊鏈", "Ethereum"]
 
 首先，使用 `brew` 指令安裝依賴套件。
 
-```BASH
+```bash
 brew update
 brew tap ethereum/ethereum
 brew install ethereum
@@ -23,7 +23,7 @@ brew install protobuf
 
 安裝 `abigen` 工具。
 
-```BASH
+```bash
 git clone https://github.com/ethereum/go-ethereum.git
 cd go-ethereum
 make devtools
@@ -31,13 +31,13 @@ make devtools
 
 查看 `abigen` 工具的版本。
 
-```BASH
+```bash
 abigen --version
 ```
 
 使用 `abigen` 指令產生 Go 程式碼。
 
-```BASH
+```bash
 abigen --abi="MyContract.abi" --type="MyContract" --pkg="contract" --out="my_contract.go"
 ```
 

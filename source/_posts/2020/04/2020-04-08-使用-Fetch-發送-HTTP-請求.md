@@ -9,7 +9,7 @@ categories: ["程式設計", "JavaScript", "其他"]
 
 `fetch()` 方法的第一個參數是 URI，它回傳一個包含 `Body` 的 `Promise` 物件。
 
-```JS
+```js
 fetch('http://example.com/movies.json')
   .then(function(response) {
     return response.json();
@@ -21,7 +21,7 @@ fetch('http://example.com/movies.json')
 
 `fetch()` 方法的第二個參數是選用的，可以傳送一個物件來設定請求。
 
-```JS
+```js
 fetch(url, {
     body: JSON.stringify(data),
     cache: 'no-cache',
@@ -49,7 +49,7 @@ fetch(url, {
 
 `AbortController` 是一個控制器物件，其 `signal` 屬性回傳一個 `AbortSignal` 物件，與 DOM 請求溝通，使用 `AbortController.abort()` 方法可以將請求中斷。
 
-```JS
+```js
 const timeout = 1;
 const controller = new AbortController();
 const { signal } = controller;

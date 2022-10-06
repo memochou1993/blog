@@ -9,14 +9,14 @@ categories: ["程式設計", "Rust", "WebAssembly"]
 
 建立專案。
 
-```BASH
+```bash
 cargo new yew-counter
 cd yew-counter
 ```
 
 修改 `Cargo.toml` 檔，安裝依賴套件。
 
-```RS
+```rs
 [dependencies]
 gloo = "0.8.0"
 js-sys = "0.3.60"
@@ -26,7 +26,7 @@ yew = { git = "https://github.com/yewstack/yew/", features = ["csr"] }
 
 修改 `main.rs` 檔。
 
-```RS
+```rs
 use yew::prelude::*;
 
 #[function_component]
@@ -54,11 +54,11 @@ fn main() {
 
 啟動服務。
 
-```BASH
+```bash
 trunk serve
 ```
 
-前往：<http://localhost:8080>
+前往 <http://localhost:8080> 瀏覽。
 
 ## 程式碼
 

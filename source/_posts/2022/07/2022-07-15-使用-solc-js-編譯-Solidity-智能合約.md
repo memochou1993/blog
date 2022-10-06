@@ -9,13 +9,13 @@ categories: ["區塊鏈", "Ethereum"]
 
 安裝 `solc-js` 套件。
 
-```BASH
+```bash
 npm install solc --save-dev
 ```
 
 新增 `scripts/compile.sh` 檔。
 
-```BASH
+```bash
 #!/bin/bash
 
 mkdir -p build/abi/json
@@ -24,7 +24,7 @@ solc contracts/MyContract.sol --abi --include-path="node_modules" --base-path=".
 
 修改 `package.json` 檔。
 
-```JSON
+```json
 {
   "scripts": {
     "compile": "bash scripts/compile.sh"

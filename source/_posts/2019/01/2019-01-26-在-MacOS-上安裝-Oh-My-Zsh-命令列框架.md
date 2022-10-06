@@ -9,13 +9,13 @@ categories: ["其他", "Shell"]
 
 首先安裝 Homebrew Cask。
 
-```BASH
+```bash
 brew tap caskroom/cask
 ```
 
 安裝 iterm2 終端機。
 
-```BASH
+```bash
 brew cask instal iterm2
 ```
 
@@ -23,7 +23,7 @@ brew cask instal iterm2
 
 下載命令列主題 [iTerm2 Color Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes)，並且解壓縮。
 
-```BASH
+```bash
 git clone https://github.com/mbadolato/iTerm2-Color-Schemes.git
 ```
 
@@ -33,19 +33,19 @@ git clone https://github.com/mbadolato/iTerm2-Color-Schemes.git
 
 安裝字型列表。
 
-```BASH
+```bash
 brew tap caskroom/fonts
 ```
 
 安裝 `Source Code Pro Nerd Font Complete` 字型。
 
-```BASH
+```bash
 brew cask install font-sourcecodepro-nerd-font
 ```
 
 或使用以下指令搜尋其他字型。
 
-```BASH
+```bash
 brew search nerd
 ```
 
@@ -57,13 +57,13 @@ brew search nerd
 
 安裝 Zsh 命令解釋器。
 
-```BASH
+```bash
 brew install zsh
 ```
 
 將 Zsh 設為預設的命令解釋器。
 
-```BASH
+```bash
 sudo sh -c "echo $(which zsh) >> /etc/shells"
 chsh -s $(which zsh)
 ```
@@ -72,7 +72,7 @@ chsh -s $(which zsh)
 
 安裝 Zsh 的 [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) 框架。
 
-```BASH
+```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
@@ -80,13 +80,13 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 安裝 Oh My Zsh 的 [Powerlevel9k](https://github.com/bhilburn/powerlevel9k) 主題到 `~/.oh-my-zsh/custom/themes` 資料夾。
 
-```BASH
+```bash
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 ```
 
 修改 `~/.zshrc` 檔的環境變數：
 
-```ENV
+```env
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.composer/vendor/bin:$PATH
@@ -94,7 +94,7 @@ export PATH=$HOME/.composer/vendor/bin:$PATH
 
 修改 `~/.zshrc` 檔的主題與樣式：
 
-```ENV
+```env
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_MODE="nerdfont-complete"
 DEFAULT_USER="william"
@@ -110,7 +110,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status ram)
 
 完成設定，執行以下指令：
 
-```BASH
+```bash
 exec $SHELL
 ```
 
@@ -118,7 +118,7 @@ exec $SHELL
 
 修改 `settings.json` 檔：
 
-```JSON
+```json
 {
   "terminal.integrated.fontFamily": "SauceCodePro Nerd Font"
 }

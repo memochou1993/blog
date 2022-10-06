@@ -13,7 +13,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 修改 `.env` 檔：
 
-```ENV
+```env
 DB_CONNECTION=sqlite
 # DB_HOST=127.0.0.1
 # DB_PORT=3306

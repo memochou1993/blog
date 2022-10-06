@@ -19,7 +19,7 @@ NFS（Network File System）即網路檔案系統，是一種分散式檔案系�
 
 以下使用 kind 的環境。
 
-```BASH
+```bash
 cd vagrant/kind
 vagrant up
 vagrant ssh
@@ -29,19 +29,19 @@ vagrant ssh
 
 安裝 `nfs-kernel-server` 套件。
 
-```BASH
+```bash
 sudo apt-get -y install nfs-kernel-server
 ```
 
 在根目錄建立 `nfsshare` 資料夾。
 
-```BASH
+```bash
 sudo mkdir /nfsshare
 ```
 
 將相關權限寫入 `/etc/exports` 設定中。
 
-```BASH
+```bash
 echo "/nfsshare *(rw,sync,no_root_squash)" | sudo tee /etc/exports
 ```
 
@@ -51,13 +51,13 @@ echo "/nfsshare *(rw,sync,no_root_squash)" | sudo tee /etc/exports
 
 載入 `/etc/exports` 設定。
 
-```BASH
+```bash
 sudo exportfs -r
 ```
 
 列出 NFS 伺服器所分享出來的資料夾。
 
-```BASH
+```bash
 sudo showmount -e
 ```
 
@@ -65,19 +65,19 @@ sudo showmount -e
 
 查看範例資料夾中的 Deployment 配置檔。
 
-```BASH
+```bash
 cat introduction/storage/nfs/deploy.yaml
 ```
 
 使用 `ifconfig` 指令查詢虛擬機的 IP 位址。
 
-```BASH
+```bash
 ifconfig
 ```
 
 配置檔如下，將 NFS Server 的 IP 位址修改為虛擬機的 IP 位址：
 
-```YAML
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -107,25 +107,25 @@ spec:
 
 使用配置檔創建 Deployment 資源。
 
-```BASH
+```bash
 kubectl apply -f introduction/storage/nfs/deploy.yaml
 ```
 
 查看 Pod 列表。
 
-```BASH
+```bash
 kubectl get pods
 ```
 
 檢查其中一個 Pod 資源。
 
-```BASH
+```bash
 kubectl describe pod nfs-dir-65f48c4f84-2ttnj
 ```
 
 由於 Pod 之中沒有 NFS 的客戶端套件，因次無法成功部署。
 
-```BASH
+```bash
 Events:
   Type     Reason       Age   From               Message
   ----     ------       ----  ----               -------
@@ -135,7 +135,7 @@ Events:
 
 先更新各個節點上的儲存褲列表。
 
-```BASH
+```bash
 docker exec kind-control-plane sed -i -re 's/([a-z]{2}.)?archive.ubuntu.com|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
 docker exec kind-worker sed -i -re 's/([a-z]{2}.)?archive.ubuntu.com|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
 docker exec kind-worker2 sed -i -re 's/([a-z]{2}.)?archive.ubuntu.com|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
@@ -143,7 +143,7 @@ docker exec kind-worker2 sed -i -re 's/([a-z]{2}.)?archive.ubuntu.com|security.u
 
 先更新各個節點上的套件。
 
-```BASH
+```bash
 docker exec kind-control-plane apt-get -y update
 docker exec kind-worker apt-get -y update
 docker exec kind-worker2 apt-get -y update
@@ -151,7 +151,7 @@ docker exec kind-worker2 apt-get -y update
 
 在各個節點上安裝 NFS 的客戶端套件
 
-```BASH
+```bash
 docker exec kind-control-plane apt-get -y install nfs-common
 docker exec kind-worker apt-get -y install nfs-common
 docker exec kind-worker2 apt-get -y install nfs-common
@@ -159,14 +159,14 @@ docker exec kind-worker2 apt-get -y install nfs-common
 
 進到其中一個 Pod 資源，在共享的資料夾新增一個檔案。
 
-```BASH
+```bash
 cd /test
 touch hello
 ```
 
 使用另一個終端機視窗進入虛擬機，查看共享的資料夾，會新增一個檔案。
 
-```BASH
+```bash
 ls /nfsshare
 hello
 ```
@@ -175,13 +175,13 @@ hello
 
 查看範例資料夾中的 Deployment 配置檔。
 
-```BASH
+```bash
 cat introduction/storage/nfs/write.yaml
 ```
 
 配置檔如下，將 NFS Server 的 IP 位址修改為虛擬機的 IP 位址：
 
-```YAML
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -213,13 +213,13 @@ spec:
 
 使用配置檔創建 Deployment 資源。
 
-```BASH
+```bash
 kubectl apply -f introduction/storage/nfs/write.yaml
 ```
 
 使用 `tail` 指令監聽 `data` 檔案，可以看到檔案被不停地讀寫。
 
-```BASH
+```bash
 tail -f data
 ```
 

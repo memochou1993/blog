@@ -22,7 +22,7 @@ categories: ["環境部署", "Kubernetes", "其他"]
 
 啟動 minikube。
 
-```BASH
+```bash
 minikube start
 ```
 
@@ -30,7 +30,7 @@ minikube start
 
 進到 kubernetes-ci-cd 專案，用寫好的 YAML 文件建立一個 Jenkins 容器。
 
-```BASH
+```bash
 docker build -t 127.0.0.1:30400/jenkins:latest -f applications/jenkins/Dockerfile applications/jenkins
 ```
 
@@ -38,37 +38,37 @@ docker build -t 127.0.0.1:30400/jenkins:latest -f applications/jenkins/Dockerfil
 
 再次將處理 proxy 的容器啟動。
 
-```BASH
+```bash
 docker start socat-registry
 ```
 
 將 Jenkins 的 Docker image 推送到本地的映像檔儲存庫。
 
-```BASH
+```bash
 docker push 127.0.0.1:30400/jenkins:latest
 ```
 
 開啟儲存庫的頁面，會看到 Jenkins 出現在列表上。
 
-```BASH
+```bash
 minikube service registry-ui
 ```
 
 將用來處理 proxy 的容器停止。
 
-```BASH
+```bash
 docker stop socat-registry
 ```
 
 再使用寫好的 YAML 文件，部署一個 Jenkins 應用程式。
 
-```BASH
+```bash
 kubectl apply -f manifests/jenkins.yaml
 ```
 
 查看 Jenkins 的部署狀態。
 
-```BASH
+```bash
 kubectl rollout status deployments/jenkins
 ```
 
@@ -76,13 +76,13 @@ kubectl rollout status deployments/jenkins
 
 開啟 Jenkins 服務。
 
-```BASH
+```bash
 minikube service jenkins
 ```
 
 印出 Jenkins 初始密碼。
 
-```BASH
+```bash
 kubectl exec -it `kubectl get pods --selector=app=jenkins --output=jsonpath={.items..metadata.name}` cat /var/jenkins_home/secrets/initialAdminPassword
 ```
 
@@ -130,7 +130,7 @@ Jenkins 會從 GitHub 將程式碼拉取下來，並建立映像檔後進行部�
 
 最後，啟動 hello-kenzan 服務。
 
-```BASH
+```bash
 minikube service hello-kenzan
 ```
 

@@ -23,20 +23,20 @@ categories: ["環境部署", "Docker", "其他"]
 
 打開終端機，建立一個 Drone 的 server 和 agent 共享的 secret。
 
-```BASH
+```bash
 openssl rand -hex 16
 ```
 
 在伺服器上建立一個 Drone 的工作目錄。
 
-```BASH
+```bash
 mkdir drone
 cd drone
 ```
 
 建立 `docker-compose.yml` 檔：
 
-```YML
+```yaml
 version: "3.5"
 
 services:
@@ -71,7 +71,7 @@ services:
 
 建立 `.env` 檔：
 
-```BASH
+```bash
 DRONE_SERVER_HOST=drone.domain.com
 DRONE_SERVER_PROTO=https
 DRONE_GITHUB_CLIENT_ID=xxxxx
@@ -83,18 +83,18 @@ DRONE_RPC_SECRET=xxxxx
 
 建立 `.gitignore` 檔：
 
-```BASH
+```bash
 data
 .env
 ```
 
 啟動 Drone 服務：
 
-```BASH
+```bash
 docker-compose up -d
 ```
 
-前往：<https://drone.domain.com/>
+前往 <https://drone.domain.com/> 瀏覽。
 
 ## 環境變數
 

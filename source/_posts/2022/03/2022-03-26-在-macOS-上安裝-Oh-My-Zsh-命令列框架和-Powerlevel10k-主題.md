@@ -9,31 +9,31 @@ categories: ["其他", "Shell"]
 
 使用以下指令，安裝 Zsh 的 [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh) 框架。
 
-```BASH
+```bash
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
 下載 `Powerlevel10k` 主題。
 
-```BASH
+```bash
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
 
 修改 `~/.zshrc` 檔。
 
-```BASH
+```bash
 ZSH_THEME="powerlevel10k/powerlevel10k"
 ```
 
 重啟 Zsh 直譯器。
 
-```BASH
+```bash
 exec zsh
 ```
 
 如果配置沒有出現，可以執行以下指令。
 
-```BASH
+```bash
 p10k configure
 ```
 

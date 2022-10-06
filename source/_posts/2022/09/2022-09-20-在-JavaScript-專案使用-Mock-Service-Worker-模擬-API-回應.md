@@ -9,20 +9,20 @@ categories: ["程式設計", "JavaScript", "其他"]
 
 建立專案。
 
-```BASH
+```bash
 npm create vite@latest msw-example -- --template vanilla
 cd msw-example
 ```
 
 安裝依賴套件。
 
-```BASH
+```bash
 npm install
 ```
 
 安裝 `msw` 套件。
 
-```BASH
+```bash
 npm install msw --save-dev
 ```
 
@@ -30,7 +30,7 @@ npm install msw --save-dev
 
 修改 `main.js` 檔，呼叫一個不存在的 API 端點。
 
-```JS
+```js
 const res = await fetch('/posts')
   .then((r) => r.json())
   .then((r) => r);
@@ -40,7 +40,7 @@ console.log(res); // Uncaught SyntaxError
 
 新增 `mocks/handlers.js` 檔，模擬要呼叫的 API 端點。
 
-```JS
+```js
 import { rest } from 'msw';
 
 export const handlers = [
@@ -59,13 +59,13 @@ export const handlers = [
 
 初始化 Worker 並透過 Mock Service Worker CLI 創建 `mockServiceWorker.js` 檔到 `public` 資料夾。
 
-```BASH
+```bash
 npx msw init public/ --save
 ```
 
 新增 `mocks/browser.js` 檔。
 
-```JS
+```js
 import { setupWorker } from 'msw';
 import { handlers } from './handlers';
 
@@ -74,7 +74,7 @@ export const worker = setupWorker(...handlers);
 
 修改 `main.js` 檔，在開發環境下引入 Worker 並啟動。
 
-```JS
+```js
 if (process.env.NODE_ENV === 'development') {
   const { worker } = await import('./mocks/browser');
   worker.start();
@@ -89,7 +89,7 @@ console.log(res);
 
 啟動服務。
 
-```BASH
+```bash
 npm run dev
 ```
 

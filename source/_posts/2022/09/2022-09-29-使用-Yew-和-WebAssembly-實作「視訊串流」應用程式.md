@@ -13,13 +13,13 @@ categories: ["程式設計", "Rust", "WebAssembly"]
 
 使用 Cargo 安裝 `trunk` 套件，用來打包 WebAssembly 和靜態檔案。
 
-```BASH
+```bash
 cargo install trunk
 ```
 
 為 Rust 添加 `wasm32-unknown-unknown` 編譯目標，讓 Rust 能夠編譯 WebAssembly 檔案。
 
-```BASH
+```bash
 rustup target add wasm32-unknown-unknown
 ```
 
@@ -27,20 +27,20 @@ rustup target add wasm32-unknown-unknown
 
 建立專案。
 
-```BASH
+```bash
 cargo new yew-video-streaming
 cd yew-video-streaming
 ```
 
 安裝依賴套件。
 
-```BASH
+```bash
 cargo add yew
 ```
 
 新增 `index.html` 檔。
 
-```HTML
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,7 +56,7 @@ cargo add yew
 
 修改 `main.rs` 檔。
 
-```RS
+```rs
 use yew::prelude::*;
 
 #[function_component(App)]
@@ -75,7 +75,7 @@ fn main() {
 
 啟動服務。
 
-```BASH
+```bash
 trunk serve
 ```
 
@@ -83,7 +83,7 @@ trunk serve
 
 新增 `style.scss` 檔。
 
-```SCSS
+```scss
 body {
     margin: 0;
 }
@@ -116,7 +116,7 @@ body {
 
 修改 `index.html` 檔。
 
-```HTML
+```html
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
@@ -134,7 +134,7 @@ body {
 
 修改 `main.rs` 檔。
 
-```RS
+```rs
 use yew::prelude::*;
 
 #[function_component(Producer)]
@@ -178,7 +178,7 @@ fn main() {
 
 安裝依賴套件。
 
-```BASH
+```bash
 cargo add js-sys
 cargo add wasm-bindgen
 cargo add wasm-bindgen-futures
@@ -187,7 +187,7 @@ cargo add web-sys --features "console, CanvasRenderingContext2d, EncodedVideoChu
 
 修改 `main.rs` 檔。
 
-```RS
+```rs
 use std::rc::Rc;
 
 use js_sys::*;
@@ -418,7 +418,7 @@ fn main() {
 
 啟動服務。
 
-```BASH
+```bash
 RUSTFLAGS=--cfg=web_sys_unstable_apis trunk serve
 ```
 

@@ -15,7 +15,7 @@ categories: ["區塊鏈", "Ethereum"]
 
 使用 `ethers` 套件的 `utils.id` 方法，取得 Event 的 Keccak 雜湊值。
 
-```JS
+```js
 const topic = ethers.utils.id('Transfer(address,address,uint256)');
 console.log(topic);
 // 0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef
@@ -25,7 +25,7 @@ console.log(topic);
 
 使用 `ethers` 套件的 `interface.getEventTopic` 方法，取得 Event 的雜湊值。
 
-```JS
+```js
 const web3Provider = new ethers.providers.Web3Provider(window.ethereum);
 const signer = web3Provider.getSigner();
 const contract = new ethers.Contract(import.meta.env.VITE_ERC20MOCK_ADDRESS, ERC20Mock.abi, signer)
@@ -39,7 +39,7 @@ console.log(topic);
 
 直接使用 Keccak 雜湊函式將 Event 的方法簽章進行雜湊，以 Go 語言為例。
 
-```GO
+```go
 package main
 
 import (

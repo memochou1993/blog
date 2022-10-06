@@ -20,7 +20,7 @@ categories: ["程式設計", "PHP", "《現代 PHP》學習筆記"]
 
 產生器的例子如下：
 
-```PHP
+```php
 function myGenerator() {
     yield 'value1';
     yield 'value2';
@@ -34,7 +34,7 @@ foreach (myGenerator() as $value) {
 
 範例 2-16：Range 產生器（不良示範）
 
-```PHP
+```php
 function makeRange($length) {
     $dataset = [];
     for ($i = 0; $i < $length; $i++) {
@@ -54,7 +54,7 @@ foreach ($customRange as $i) {
 
 範例 2-17：Range 產生器（良好示範）
 
-```PHP
+```php
 function makeRange($length) {
     for ($i = 0; $i < $length; $i++) {
         yield $i;
@@ -72,7 +72,7 @@ foreach (makeRange(1000000) as $i) {
 
 範例 2-18：CSV 產生器
 
-```PHP
+```php
 function getRows($file) {
     $handle = fopen($file, 'rb'); // `rb` 表示二進位檔案
     if (!$handle) {

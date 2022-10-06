@@ -15,7 +15,7 @@ categories: ["程式設計", "Go", "「A tour of Go」學習筆記"]
 
 Go 只有一種循環結構 `for` 循環。`for` 語句沒有圓括號。
 
-```GO
+```go
 package main
 
 import "fmt"
@@ -33,7 +33,7 @@ func main() {
 
 前置與後置語句可以省略。
 
-```GO
+```go
 package main
 
 import "fmt"
@@ -51,7 +51,7 @@ func main() {
 
 `for` 語句可以是其他語言的 `while` 語句。
 
-```GO
+```go
 package main
 
 import "fmt"
@@ -69,7 +69,7 @@ func main() {
 
 無窮迴圈是將循環條件省略。
 
-```GO
+```go
 package main
 
 func main() {
@@ -84,7 +84,7 @@ func main() {
 
 `if` 語句沒有圓括號。
 
-```GO
+```go
 package main
 
 import (
@@ -110,7 +110,7 @@ func main() {
 
 `if` 語句可以在條件之前執行一個簡單的語句，由這個語句定義的變數，其作用域只限於在該 `if` 語句之內。
 
-```GO
+```go
 package main
 
 import (
@@ -137,7 +137,7 @@ func main() {
 
 在 `if` 的便捷語句定義的變數可以在對應的 `else` 區塊中使用。
 
-```GO
+```go
 package main
 
 import (
@@ -170,7 +170,7 @@ func main() {
 
 `switch` 語句的條件從上到下執行。
 
-```GO
+```go
 package main
 
 import (
@@ -197,7 +197,7 @@ func main() {
 
 除非使用 `fallthrough` 語句，否則匹配成功會自動終止
 
-```GO
+```go
 package main
 
 import (
@@ -226,7 +226,7 @@ func main() {
 
 沒有條件的 `switch` 語句同 `switch true` 一樣，用以替代長的 `if-then-else` 條件式。
 
-```GO
+```go
 package main
 
 import (

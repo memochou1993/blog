@@ -9,19 +9,19 @@ categories: ["環境部署", "Kubernetes", "Helm"]
 
 添加社群維護的儲存庫。
 
-```BASH
+```bash
 helm repo add pmint93 https://pmint93.github.io/helm-charts
 ```
 
 更新儲存庫。
 
-```BASH
+```bash
 helm repo update
 ```
 
 建立 `config.yaml` 檔。
 
-```YAML
+```yaml
 replicaCount: 1
 podAnnotations: {}
 podLabels: {}
@@ -77,19 +77,19 @@ affinity: {}
 
 安裝 chart 資源。
 
-```BASH
+```bash
 helm install -f config.yaml metabase pmint93/metabase
 ```
 
 列出所有 chart 資源。
 
-```BASH
+```bash
 helm list
 ```
 
 將 `services/metabase` 服務轉發至本機。
 
-```BASH
+```bash
 kubectl port-forward services/metabase 8080:80
 ```
 

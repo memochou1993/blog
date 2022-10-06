@@ -17,7 +17,7 @@ Kubernetes 的 Service 有不同的類型，選擇 `ClusterIP` 時，可以透�
 
 以下使用 kind 的環境。
 
-```BASH
+```bash
 cd vagrant/kind
 vagrant up
 vagrant ssh
@@ -25,13 +25,13 @@ vagrant ssh
 
 首先，查看範例資料夾中的 Deployment 配置檔。
 
-```BASH
+```bash
 cat introduction/service/clusterIP/hello.yml
 ```
 
 配置檔如下：
 
-```YAML
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -73,13 +73,13 @@ spec:
 
 查看範例資料夾中的 Service 配置檔。
 
-```BASH
+```bash
 cat introduction/service/clusterIP/service.yml
 ```
 
 配置檔如下：
 
-```YAML
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -95,43 +95,43 @@ spec:
 
 使用配置檔創建 Deployment 和 Service 資源。
 
-```BASH
+```bash
 kubectl apply -R -f introduction/service/clusterIP
 ```
 
 透過選擇器查看 Pod 列表。
 
-```BASH
+```bash
 kubectl get pods -l app=hello-kubernetes -o wide
 ```
 
 查看 Service 列表。
 
-```BASH
+```bash
 kubectl get svc
 ```
 
 查看 Endpoint 列表。
 
-```BASH
+```bash
 kubectl get endpoints
 ```
 
 進到名為 `client` 的 Pod 中。
 
-```BASH
+```bash
 kubectl exec -it client-67674d5464-mth4j -- bash
 ```
 
 嘗試透過 Cluster IP 去存取服務。
 
-```BASH
+```bash
 curl 10.96.226.2
 ```
 
 顯示結果如下，代表可以從 Pod 中存取服務。會發現 HTML 中 Pod 的名稱每一次都不太一樣，這是隨機的。
 
-```HTML
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -169,19 +169,19 @@ curl 10.96.226.2
 
 進到名為 `kind-worker` 的 Container 中。
 
-```BASH
+```bash
 docker exec -it kind-worker bash
 ```
 
 嘗試透過 Cluster IP 去存取服務。
 
-```BASH
+```bash
 curl 10.96.226.2
 ```
 
 顯示結果如下，代表可以從 Node 中存取服務。
 
-```HTML
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -219,13 +219,13 @@ curl 10.96.226.2
 
 回到虛擬機。
 
-```BASH
+```bash
 exit
 ```
 
 如果直接從叢集外部透過 Cluster IP 去存取服務，會無法存取。
 
-```BASH
+```bash
 curl 10.96.226.2
 ```
 

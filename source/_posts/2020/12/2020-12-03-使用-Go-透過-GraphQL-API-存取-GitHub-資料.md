@@ -19,7 +19,7 @@ categories: ["程式設計", "Go", "其他"]
 
 新增 `main.go` 檔：
 
-```GO
+```go
 package main
 
 import (
@@ -116,7 +116,7 @@ func Fetch(ctx context.Context) (Response, error) {
 
 輸出結果：
 
-```GO
+```go
 {{{{[{kuntai} {portfolio} {surl} {memochou1993.github.io} {blog} {jwt-lumen} {doaj} {laravel-foundation-preset} {journal} {post}]}}}}
 ```
 

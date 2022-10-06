@@ -9,7 +9,7 @@ categories: ["程式設計", "Bash Shell"]
 
 新增 `ec2.sh` 檔：
 
-```BASH
+```bash
 #!/bin/bash
 
 # 金鑰位置
@@ -53,6 +53,6 @@ exit 0
 
 進行連線。
 
-```BASH
+```bash
 sh ec2.sh
 ```

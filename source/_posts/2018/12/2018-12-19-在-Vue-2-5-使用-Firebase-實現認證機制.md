@@ -11,13 +11,13 @@ categories: ["程式設計", "JavaScript", "Vue"]
 
 ## 建立專案
 
-```BASH
+```bash
 vue create firebase-auth-vue
 ```
 
 ## 安裝套件
 
-```BASH
+```bash
 npm install ——save firebase
 ```
 
@@ -29,7 +29,7 @@ npm install ——save firebase
 
 新增 `.env.development.local` 檔：
 
-```ENV
+```env
 VUE_APP_FIREBASE_API_KEY=YOUR_API_KEY
 VUE_APP_FIREBASE_AUTH_DOMAIN=YOUR_AUTH_DOMAIN
 VUE_APP_FIREBASE_DATABASE_URL=YOUR_DATABASE_URL
@@ -40,7 +40,7 @@ VUE_APP_FIREBASE_MESSAGING_SENDER_ID=YOUR_MESSAGING_SENDER_ID
 
 修改 `src/main.js` 檔：
 
-```JS
+```js
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
@@ -76,7 +76,7 @@ firebase.auth().onAuthStateChanged(() => {
 
 修改 `src/router.js` 檔：
 
-```JS
+```js
 import Vue from "vue";
 import Router from "vue-router";
 import firebase from "firebase";
@@ -138,7 +138,7 @@ export default router;
 
 新增 `src/views/Login.vue` 檔。
 
-```HTML
+```html
 <template>
   <div class="login">
     <h3>Sign In</h3>
@@ -190,7 +190,7 @@ export default {
 
 新增 `src/views/Register.vue` 檔。
 
-```HTML
+```html
 <template>
   <div
     class="register">
@@ -243,7 +243,7 @@ export default {
 
 新增 `src/components/Toolbar.vue` 檔。
 
-```HTML
+```html
 <template>
   <div id="nav">
     <RouterLink :to="{ name:'Home' }">Home</RouterLink> |
@@ -273,7 +273,7 @@ export default {
 
 修改 `src/App.vue` 檔：
 
-```HTML
+```html
 <template>
   <div id="app">
     <Toolbar/>

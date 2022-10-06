@@ -14,7 +14,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 建立專案。
 
-```BASH
+```bash
 laravel new telescope
 ```
 
@@ -22,41 +22,41 @@ laravel new telescope
 
 安裝 `laravel/telescope` 套件。
 
-```BASH
+```bash
 composer require laravel/telescope
 ```
 
 執行安裝。
 
-```BASH
+```bash
 php artisan telescope:install
 ```
 
 執行遷移。
 
-```BASH
+```bash
 php artisan migrate
 ```
 
 發布資源。
 
-```BASH
+```bash
 php artisan telescope:publish
 ```
 
-前往：<http://telescope.test/telescope>
+前往 <http://telescope.test/telescope> 瀏覽。
 
 ## 本地使用
 
 安裝 `laravel/telescope` 套件。
 
-```BASH
+```bash
 composer require laravel/telescope --dev
 ```
 
 修改 `composer.json` 檔。
 
-```JSON
+```json
 {
     "extra": {
         "laravel": {
@@ -70,19 +70,19 @@ composer require laravel/telescope --dev
 
 執行安裝。
 
-```BASH
+```bash
 php artisan telescope:install
 ```
 
 執行遷移。
 
-```BASH
+```bash
 php artisan migrate
 ```
 
 發布資源。
 
-```BASH
+```bash
 php artisan telescope:publish
 ```
 
@@ -90,7 +90,7 @@ php artisan telescope:publish
 
 在 `app/Providers/AppServiceProvider.php` 檔中註冊服務提供者。
 
-```PHP
+```php
 /**
  * Register any application services.
  *
@@ -106,7 +106,7 @@ public function register()
 
 為了避免在正式環境執行 Telescope 遷移，需要修改 `config/telescope.php` 檔，將預設啟用改為 `false`：
 
-```PHP
+```php
 return [
 
 
@@ -117,17 +117,17 @@ return [
 
 再修改 `.env` 檔，即可在本地環境啟用 Telescope：
 
-```ENV
+```env
 TELESCOPE_ENABLED=true
 ```
 
-前往：<http://telescope.test/telescope>
+前往 <http://telescope.test/telescope> 瀏覽。
 
 ## 認證
 
 在非本地環境下使用，可以修改 `app/Providers/TelescopeServiceProvider.php` 檔，定義合法的使用者列表：
 
-```PHP
+```php
 /**
  * Register the Telescope gate.
  *
@@ -147,7 +147,7 @@ protected function gate()
 
 如果要取消認證，可以將 `config/telescope.php` 檔中的 `Authorize` 中介層移除：
 
-```PHP
+```php
 return [
     // ...
 

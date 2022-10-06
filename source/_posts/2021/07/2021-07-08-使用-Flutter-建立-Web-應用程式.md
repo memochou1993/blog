@@ -9,19 +9,19 @@ categories: ["程式設計", "Dart", "Flutter"]
 
 使用 `brew` 安裝 `flutter`。
 
-```BASH
+```bash
 brew install --cask flutter
 ```
 
 查看版本。
 
-```BASH
+```bash
 flutter --version
 ```
 
 查看缺少的依賴項目。
 
-```BASH
+```bash
 flutter doctor
 ```
 
@@ -29,33 +29,33 @@ flutter doctor
 
 切換到 `stable` 版本，並確保 Flutter 在最新版本。
 
-```BASH
+```bash
 flutter channel stable
 flutter upgrade
 ```
 
 查看裝置。
 
-```BASH
+```bash
 flutter devices
 ```
 
 建立專案，名字不可以有 `-` 符號。
 
-```BASH
+```bash
 flutter create flutter_web_example
 ```
 
 啟動服務。
 
-```BASH
+```bash
 cd flutter_web_example
 flutter run -d chrome --web-port 8080
 ```
 
 ## 瀏覽網頁
 
-前往：<http://127.0.0.1:8080>
+前往 <http://127.0.0.1:8080> 瀏覽。
 
 ## 參考資料
 

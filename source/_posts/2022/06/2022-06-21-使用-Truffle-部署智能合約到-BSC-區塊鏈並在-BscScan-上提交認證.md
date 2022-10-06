@@ -9,26 +9,26 @@ categories: ["區塊鏈", "Ethereum"]
 
 新增 `.env` 檔，填入 BscScan 的 API KEY 以及錢包私鑰。
 
-```ENV
+```env
 BSCSCAN_API_KEY=
 PRIVATE_KEY=
 ```
 
 修改 `.gitignore` 檔。
 
-```BASH
+```bash
 .env
 ```
 
 安裝依賴套件。
 
-```BASH
+```bash
 npm i dotenv @truffle/hdwallet-provider truffle-plugin-verify --save
 ```
 
 修改 `truffle-config.js` 檔。
 
-```JS
+```js
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 require('dotenv').config();
 
@@ -70,12 +70,12 @@ module.exports = {
 
 執行部署。
 
-```BASH
+```bash
 truffle migrate --network bsc
 ```
 
 提交認證。
 
-```BASH
+```bash
 truffle run verify MyContract --network bsc
 ```

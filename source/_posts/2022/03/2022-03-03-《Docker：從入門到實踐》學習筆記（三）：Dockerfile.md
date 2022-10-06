@@ -15,7 +15,7 @@ categories: ["環境部署", "Docker", "《Docker：從入門到實踐》學習�
 
 一般而言，Dockerfile 分為三個部分：基底映像檔資訊、映像檔操作指令和容器啟動時執行的指令。
 
-```DOCKERFILE
+```dockerfile
 # 基本映像檔，必須是第一個指令
 FROM ubuntu
 
@@ -127,7 +127,7 @@ CMD /usr/sbin/nginx
 
 要指定映像檔的標籤資訊，可以透過 `-t` 參數，例如：
 
-```BASH
+```bash
 docker build -t myrepo/myapp /tmp/test/
 ```
 

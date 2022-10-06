@@ -9,19 +9,19 @@ categories: ["程式設計", "HTML"]
 
 設置為 `numeric`，可以顯示數字鍵盤。
 
-```HTML
+```html
 <input type="number" inputmode="numeric">
 ```
 
 設置為 `decimal`，可以顯示帶有小數點的數字鍵盤。
 
-```HTML
+```html
 <input type="number" inputmode="decimal">
 ```
 
 設置為 `none`，則完全不顯示鍵盤（可能使用客製化鍵盤）。
 
-```HTML
+```html
 <input type="text" inputmode="none">
 ```
 

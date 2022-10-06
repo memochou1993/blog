@@ -9,13 +9,13 @@ categories: ["程式設計", "JavaScript", "環境部署"]
 
 新增 `.env` 檔：
 
-```ENV
+```env
 APP_PORT=8080
 ```
 
 新增 `docker-compose.yaml` 檔：
 
-```YAML
+```yaml
 version: "3"
 
 services:
@@ -29,7 +29,7 @@ services:
 
 新增 `Dockerfile` 檔：
 
-```DOCKERFILE
+```dockerfile
 # build stage
 FROM node:lts-alpine as builder
 
@@ -55,16 +55,16 @@ CMD ["nginx", "-g", "daemon off;"]
 
 新增 `.dockerignore` 檔。
 
-```ENV
+```env
 /node_modules
 ```
 
 編譯並啟動容器：
 
-```BASH
+```bash
 docker-compose up -d --build
 ```
 
 ## 瀏覽網頁
 
-前往：<http://127.0.0.1:8080>
+前往 <http://127.0.0.1:8080> 瀏覽。

@@ -13,25 +13,25 @@ categories: ["程式設計", "Rust", "WebAssembly"]
 
 安裝 Rust 語言。
 
-```BASH
+```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
 安裝 `wasm-pack` 工具。
 
-```BASH
+```bash
 curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
 ```
 
 安裝 `cargo-generate` 套件。
 
-```BASH
+```bash
 cargo install cargo-generate
 ```
 
 安裝 `npm` 套件管理工具。
 
-```BASH
+```bash
 npm install npm@latest -g
 ```
 
@@ -39,7 +39,7 @@ npm install npm@latest -g
 
 建立專案。
 
-```BASH
+```bash
 cargo generate --git https://github.com/rustwasm/wasm-pack-template --name rust-webassembly-example
 ```
 
@@ -47,13 +47,13 @@ cargo generate --git https://github.com/rustwasm/wasm-pack-template --name rust-
 
 進入專案。
 
-```BASH
+```bash
 cd rust-webassembly-example
 ```
 
 查看 `src/lib.rs` 檔，如下：
 
-```RS
+```rs
 mod utils;
 
 use wasm_bindgen::prelude::*;
@@ -77,7 +77,7 @@ pub fn greet() {
 
 使用 `wasm-pack` 指令進行編譯，產生 WebAssembly 二進位檔和 JavaScript 中介層。
 
-```BASH
+```bash
 wasm-pack build
 ```
 
@@ -89,7 +89,7 @@ wasm-pack build
 
 例如，以下有一個 JavaScript 函式，封裝從 WebAssembly 模組匯出的 `greet` 函式。
 
-```JS
+```js
 import * as wasm from './wasm_game_of_life_bg';
 
 // ...
@@ -103,13 +103,13 @@ export function greet() {
 
 在專案目錄建立一個前端專案。
 
-```BASH
+```bash
 npm init wasm-app www
 ```
 
 其中 `www` 資料夾的 `index.js` 檔是前端應用程式的入口，引入了 `hello-wasm-pack` 套件，裡面包含了預設的 WebAssembly 二進位檔和 JavaScript 中介層。
 
-```JS
+```js
 import * as wasm from "hello-wasm-pack";
 
 wasm.greet();
@@ -117,13 +117,13 @@ wasm.greet();
 
 進到 `www` 資料夾。
 
-```BASH
+```bash
 cd www
 ```
 
 再來，使用本地建立的 `rust-webassembly-example` 套件，而不是預設的 `hello-wasm-pack` 套件，因此需要將 `www/package.json` 檔修改如下：
 
-```JSON
+```json
 {
   // ...
   "dependencies": {
@@ -135,13 +135,13 @@ cd www
 
 安裝依賴套件。
 
-```BASH
+```bash
 npm install
 ```
 
 修改 `www/index.js` 檔。
 
-```JS
+```js
 import * as wasm from "rust-webassembly-example";
 
 wasm.greet();
@@ -151,7 +151,7 @@ wasm.greet();
 
 啟動服務。
 
-```BASH
+```bash
 npm run start
 ```
 
@@ -159,7 +159,7 @@ npm run start
 
 修改 `src/lib.rs` 檔，讓 `alert` 函式接受一個 `name` 參數。
 
-```JS
+```js
 mod utils;
 
 use wasm_bindgen::prelude::*;
@@ -183,7 +183,7 @@ pub fn greet(name: &str) {
 
 修改 `www/index.js` 檔。
 
-```JS
+```js
 import * as wasm from "rust-webassembly-example";
 
 wasm.greet("World");
@@ -191,7 +191,7 @@ wasm.greet("World");
 
 使用 `wasm-pack` 指令再一次進行編譯。
 
-```BASH
+```bash
 wasm-pack build
 ```
 

@@ -18,13 +18,13 @@ categories: ["區塊鏈", "Ethereum"]
 
 安裝 Truffle 命令列工具。
 
-```BASH
+```bash
 npm install -g truffle@5.0.2
 ```
 
 查看版本。
 
-```BASH
+```bash
 truffle version
 Truffle v5.0.2 (core: 5.0.2)
 Solidity v0.5.0 (solc-js)
@@ -35,20 +35,20 @@ Node v14.17.3
 
 建立專案。
 
-```BASH
+```bash
 mkdir eth-todo-list
 cd eth-todo-list
 ```
 
 新增 `.gitignore` 檔。
 
-```ENV
+```env
 /node_modules
 ```
 
 新增 `package.json` 檔。
 
-```JSON
+```json
 {
   "name": "eth-todo-list",
   "version": "0.1.0",
@@ -79,19 +79,19 @@ cd eth-todo-list
 
 安裝依賴套件。
 
-```BASH
+```bash
 npm install
 ```
 
 使用 `truffle` 指令初始化專案。
 
-```BASH
+```bash
 truffle init
 ```
 
 新增 `contracts/TodoList.sol` 檔。
 
-```SOL
+```sol
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.5.0;
 
@@ -102,7 +102,7 @@ contract TodoList {
 
 修改 `truffle-config.js` 檔，將網路指向 Ganache 的端點。
 
-```JS
+```js
 module.exports = {
   networks: {
     development: {
@@ -122,7 +122,7 @@ module.exports = {
 
 新增 `migrations/2_deploy_contracts.js` 檔。
 
-```JS
+```js
 const TodoList = artifacts.require("TodoList");
 
 module.exports = function(deployer) {
@@ -132,13 +132,13 @@ module.exports = function(deployer) {
 
 編譯智能合約。
 
-```BASH
+```bash
 truffle compile
 ```
 
 執行部署腳本，將合約部署到本地測試鏈上。
 
-```BASH
+```bash
 truffle migrate
 ```
 
@@ -146,33 +146,33 @@ truffle migrate
 
 進入 Truffle 互動介面，與合約進行互動。
 
-```BASH
+```bash
 truffle console
 ```
 
 取得 `TodoList` 合約的內容。
 
-```BASH
+```bash
 > todoList = await TodoList.deployed()
 ```
 
 取得 `TodoList` 合約的地址。
 
-```BASH
+```bash
 > todoList.address
 '0x21875AacaeDbE8F9CF0ce0a72cEF4665BF25e058'
 ```
 
 取得 `TodoList` 合約中，變數 `taskCount` 的值。
 
-```BASH
+```bash
 > (await todoList.taskCount()).toNumber()
 0
 ```
 
 離開互動介面。
 
-```BASH
+```bash
 > .exit
 ```
 
@@ -180,7 +180,7 @@ truffle console
 
 修改 `contracts/TodoList.sol` 檔。
 
-```SOL
+```sol
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.5.0;
 
@@ -228,13 +228,13 @@ contract TodoList {
 
 編譯智能合約。
 
-```BASH
+```bash
 truffle compile
 ```
 
 重新執行部署腳本。
 
-```BASH
+```bash
 truffle migrate --reset
 ```
 
@@ -253,7 +253,7 @@ truffle migrate --reset
 
 新增 `bs-config.json` 檔，用來配置 `lite-server` 伺服器。
 
-```JSON
+```json
 {
   "server": {
     "baseDir": [
@@ -269,7 +269,7 @@ truffle migrate --reset
 
 新增 `src/index.html` 檔。
 
-```HTML
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -343,7 +343,7 @@ truffle migrate --reset
 
 新增 `src/app.js` 檔。
 
-```JS
+```js
 App = {
   loading: false,
   contracts: {},
@@ -477,7 +477,7 @@ $(() => {
 
 啟動介面。
 
-```BASH
+```bash
 npm run dev
 ```
 
@@ -485,7 +485,7 @@ npm run dev
 
 新增 `test/TodoList.test.js` 檔。
 
-```JS
+```js
 const { assert } = require("chai")
 
 const TodoList = artifacts.require('./TodoList.sol')
@@ -535,7 +535,7 @@ contract('TodoList', (accounts) => {
 
 執行測試。
 
-```BASH
+```bash
 truffle test
 ```
 

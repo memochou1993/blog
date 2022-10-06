@@ -14,13 +14,13 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 執行 `phpunit` 指令，並加上 `--coverage-html` 參數，以及輸出路徑。
 
-```BASH
+```bash
 phpunit --coverage-html ./report
 ```
 
 修改 `phpunit.xml` 檔
 
-```XML
+```xml
 <phpunit backupGlobals="false"
          backupStaticAttributes="false"
          bootstrap="bootstrap/autoload.php"
@@ -45,6 +45,6 @@ phpunit --coverage-html ./report
 
 執行 `phpunit` 指令。
 
-```BASH
+```bash
 phpunit
 ```

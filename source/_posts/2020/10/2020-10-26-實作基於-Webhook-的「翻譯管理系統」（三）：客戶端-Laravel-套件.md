@@ -13,7 +13,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 在 `LexiconServiceProvider` 服務提供者中，定義了可以被發布的資源，以及需要綁定的類別。
 
-```PHP
+```php
 namespace MemoChou1993\Lexicon\Providers;
 
 use Illuminate\Support\Facades\Route;
@@ -85,7 +85,7 @@ class LexiconServiceProvider extends ServiceProvider
 
 在 `EventServiceProvider` 服務提供者中，定義了註冊的事件。
 
-```PHP
+```php
 namespace MemoChou1993\Lexicon\Providers;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -120,7 +120,7 @@ class EventServiceProvider extends ServiceProvider
 
 在 `Lexicon` 類別中，定義了最重要的兩個方法，分別是 `export()` 和 `clear()` 方法。`export()` 方法將獲取的資料整理成特定格式，並輸出成 Laravel 能夠使用的 PHP 語系檔，而 `clear()` 方法則是將舊有的 Lexicon 語系檔刪除。
 
-```PHP
+```php
 namespace MemoChou1993\Lexicon;
 
 use GuzzleHttp\Exception\GuzzleException;
@@ -384,7 +384,7 @@ class Lexicon
 
 在 `DispatchController` 控制器中，負責接收來自服務端的請求，並且派發所有事件。
 
-```PHP
+```php
 namespace MemoChou1993\Lexicon\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
@@ -425,7 +425,7 @@ class DispatchController extends Controller
 
 在 `Sync.php` 檔中，定義了一個同步事件，此同步事件會將原先舊的語系檔刪除，再重新輸出一次。
 
-```PHP
+```php
 namespace MemoChou1993\Lexicon\Listeners;
 
 use MemoChou1993\Lexicon\Facades\Lexicon;
@@ -458,7 +458,7 @@ class Sync
 
 在 `SyncCommand` 類別中，使用了 `Lexicon::export()` 方法，用來生成語系檔。
 
-```PHP
+```php
 namespace MemoChou1993\Lexicon\Console;
 
 use Illuminate\Console\Command;
@@ -513,7 +513,7 @@ class SyncCommand extends Command
 
 在 `ClearCommand` 類別中，使用了 `Lexicon::clear()` 方法，用來清除語系檔。
 
-```PHP
+```php
 namespace MemoChou1993\Lexicon\Console;
 
 use Illuminate\Console\Command;
@@ -570,26 +570,26 @@ class ClearCommand extends Command
 
 安裝套件。
 
-```PHP
+```php
 composer require memochou1993/lexicon-api-laravel-client
 ```
 
 修改 `.env` 檔，設置 Lexicon 服務端的網址，以及向服務端存取資源的 API 金鑰。
 
-```ENV
+```env
 LEXICON_HOST=
 LEXICON_API_KEY=
 ```
 
 如果要獲取服務端的語系資源，並生成本地的語系檔，執行以下指令。
 
-```BASH
+```bash
 php artisan lexicon:sync
 ```
 
 如果要清除本地的語系檔，執行以下指令。
 
-```BASH
+```bash
 php artisan lexicon:clear
 ```
 

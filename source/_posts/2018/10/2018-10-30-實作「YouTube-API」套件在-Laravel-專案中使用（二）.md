@@ -11,7 +11,7 @@ categories: ["程式設計", "PHP", "套件開發"]
 
 ## 專案目錄
 
-```ENV
+```env
 |- youtube-api/
     |- component/
         |- example/
@@ -37,7 +37,7 @@ categories: ["程式設計", "PHP", "套件開發"]
 
 在 `src/config` 資料夾中新增一個 `youtube.php` 檔。
 
-```PHP
+```php
 return [
 
     'key' => env('YOUTUBE_API_KEY', 'YOUR_API_KEY')
@@ -49,7 +49,7 @@ return [
 
 在 `src/Facades` 資料夾中新增一個 `Youtube.php` 檔。
 
-```PHP
+```php
 namespace Memo\Youtube\Facades;
 
 use Illuminate\Support\Facades\Facade;
@@ -72,7 +72,7 @@ class Youtube extends Facade {
 
 在 `src` 資料夾中新增一個 `YoutubeServiceProvider.php` 檔。
 
-```PHP
+```php
 namespace Memo\Youtube;
 
 use Illuminate\Support\ServiceProvider;
@@ -109,7 +109,7 @@ class YoutubeServiceProvider extends ServiceProvider
 
 ## 建立 .gitignore 檔
 
-```ENV
+```env
 /example
 /vendor
 composer.lock
@@ -117,14 +117,14 @@ composer.lock
 
 ## 建立 README.md 檔
 
-```MARKDOWN
+```md
 ## 概述
 此套件用於 YouTube API 的讀取。
 ```
 
 ## 修改 composer.json 檔
 
-```ENV
+```env
 {
     "name": "memochou1993/youtube-api",
     "description": "YouTube API",
@@ -198,25 +198,25 @@ GitHub 如果沒有自動建立，可以手動為套件啟動掛鉤。
 
 建立 Laravel 專案。
 
-```BASH
+```bash
 laravel new youtube
 ```
 
 安裝套件。
 
-```BASH
+```bash
 composer require memochou1993/youtube-api dev-master
 ```
 
 發布資源。
 
-```BASH
+```bash
 php artisan vendor:publish --provider="Memo\Youtube\YoutubeServiceProvider"
 ```
 
 ## 使用
 
-```PHP
+```php
 use Youtube;
 
 Youtube::getChannel('Google');

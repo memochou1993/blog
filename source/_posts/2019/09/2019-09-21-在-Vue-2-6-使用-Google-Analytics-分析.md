@@ -9,13 +9,13 @@ categories: ["程式設計", "JavaScript", "Vue"]
 
 安裝 `vue-analytics` 套件。
 
-```BASH
+```bash
 npm install vue-analytics --save
 ```
 
 在 `plugins` 資料夾新增 `analytics.js` 檔。
 
-```JS
+```js
 import Vue from 'vue';
 import VueAnalytics from 'vue-analytics';
 import router from '@/router';
@@ -34,7 +34,7 @@ Vue.use(VueAnalytics, {
 
 在 `main.js` 檔引入。
 
-```JS
+```js
 import '@/plugins/analytics';
 ```
 

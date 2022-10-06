@@ -13,21 +13,21 @@ categories: ["程式設計", "Rust", "「The Rust Programming Language」學習�
 
 建立專案。
 
-```BASH
+```bash
 cargo new rust-guessing-game
 cd rust-guessing-game
 ```
 
 執行程式。
 
-```BASH
+```bash
 cargo run
 Hello, world!
 ```
 
 修改 `src/main.rs` 檔。
 
-```RS
+```rs
 use std::io;
 
 fn main() {
@@ -43,20 +43,20 @@ fn main() {
 
 修改 `Cargo.toml` 檔，引入 `rand` 套件。
 
-```TOML
+```toml
 [dependencies]
 rand = "0.8.3"
 ```
 
 使用 `cargo doc` 指令開啟文件，查看 `rand` 套件的使用方法。
 
-```BASH
+```bash
 cargo doc --open
 ```
 
 可以引用 `rand::Rng` 特徵，並使用 `rand::thread_rng().gen_range()` 方法來產生隨機的數字。
 
-```RS
+```rs
 use rand::Rng;
 use std::cmp::Ordering;
 use std::io;
@@ -72,7 +72,7 @@ fn main() {
 
 加上 `loop` 關鍵字，讓使用者重複猜測。
 
-```RS
+```rs
 loop {
     let mut guess = String::new(); // 可變變數
 
@@ -82,7 +82,7 @@ loop {
 
 處理將字串解析為數字時發生的錯誤。
 
-```RS
+```rs
 let guess: u32 = match guess
     .trim() // 去除換行符號
     .parse() // 解析成數字
@@ -94,7 +94,7 @@ let guess: u32 = match guess
 
 最後引入 `std::cmp::Ordering` 枚舉，比較大小。
 
-```RS
+```rs
 use rand::Rng;
 use std::cmp::Ordering;
 use std::io;
@@ -137,7 +137,7 @@ fn main() {
 
 執行程式。
 
-```BASH
+```bash
 cargo run
 ```
 

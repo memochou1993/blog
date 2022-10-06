@@ -20,13 +20,13 @@ Eloquent 模型有以下生命週期，透過這些鉤子（`hooks`）可以觸�
 
 首先，建立一個 `ObserverServiceProvider` 服務提供者。
 
-```BASH
+```bash
 artisan make:provider ObserverServiceProvider
 ```
 
 修改服務提供者：
 
-```PHP
+```php
 namespace App\Providers;
 
 use App\Observers\UserObserver;
@@ -59,7 +59,7 @@ class ObserverServiceProvider extends ServiceProvider
 
 將服務提供者註冊到 `config` 資料夾的 `app.php` 中：
 
-```PHP
+```php
 return [
 
     'providers' => [
@@ -76,13 +76,13 @@ return [
 
 建立一個 `UserObserver` 觀察者。
 
-```BASH
+```bash
 php artisan make:observer UserObserver --model=User
 ```
 
 修改 `UserObserver` 觀察者：
 
-```PHP
+```php
 namespace App\Observers;
 
 use App\User;
@@ -139,27 +139,27 @@ class UserObserver
 
 使用 Tinker 介面進行測試。
 
-```BASH
+```bash
 php artisan tinker
 ```
 
 新增模型。
 
-```BASH
+```bash
 User::create(['email'=>'admin@email.com', 'name'=>'admin', 'password'=>'password'])
 "user created!"
 ```
 
 查找模型。
 
-```BASH
+```bash
 User::find(1)
 "user retrieved!"
 ```
 
 更新模型。
 
-```BASH
+```bash
 User::find(1)->update(['name'=>'user'])
 "user retrieved!"
 "user updated!"
@@ -167,7 +167,7 @@ User::find(1)->update(['name'=>'user'])
 
 刪除模型。
 
-```BASH
+```bash
 User::find(1)->delete()
 "user retrieved!"
 "user deleted!"

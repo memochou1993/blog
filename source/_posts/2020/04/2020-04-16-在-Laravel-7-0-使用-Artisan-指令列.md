@@ -9,13 +9,13 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 以建立一個檔案為例，新增一條 `MakeFile` 指令。
 
-```BASH
+```bash
 php artisan make:command MakeFile
 ```
 
 修改 `app/Console/Commands/MakeFile.php` 檔：
 
-```PHP
+```php
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
@@ -65,31 +65,31 @@ class MakeFile extends Command
 
 設定一個必填的參數：
 
-```PHP
+```php
 make:file {name}
 ```
 
 設定一個選填的參數：
 
-```PHP
+```php
 make:file {name?}
 ```
 
 設定一個選填帶有預設值的參數：
 
-```PHP
+```php
 make:file {name=example}
 ```
 
 取得參數：
 
-```PHP
+```php
 $name = $this->argument('name');
 ```
 
 取得所有的參數：
 
-```PHP
+```php
 $arguments = $this->arguments();
 ```
 
@@ -97,36 +97,36 @@ $arguments = $this->arguments();
 
 設定一個布林的選項：
 
-```PHP
+```php
 --text
 ```
 
 設定一個選填的選項：
 
-```PHP
+```php
 --text=
 ```
 
 設定一個選填帶有預設值的選項：
 
-```PHP
+```php
 --text=example
 ```
 
 取得選項：
 
-```PHP
+```php
 $text = $this->option('text');
 ```
 
 取得所有的選項：
 
-```PHP
+```php
 $options = $this->options();
 ```
 
 ## 使用
 
-```BASH
+```bash
 php artisan make:file test.txt --text=example
 ```

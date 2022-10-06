@@ -9,13 +9,13 @@ categories: ["程式設計", "PHP", "環境部署"]
 
 建立專案。
 
-```BASH
+```bash
 laravel new laravel
 ```
 
 修改 `.env` 檔：
 
-```ENV
+```env
 DB_CONNECTION=mysql
 DB_HOST=mysql
 DB_PORT=3306
@@ -28,7 +28,7 @@ DB_PASSWORD=root
 
 新增 `docker-compose.yaml` 檔：
 
-```YML
+```yaml
 version: "3"
 
 services:
@@ -81,7 +81,7 @@ volumes:
 
 新增 `Dockerfile` 檔：
 
-```DOCKERFILE
+```dockerfile
 FROM php:7.2-fpm
 
 RUN apt-get update \
@@ -108,7 +108,7 @@ RUN apt-get install -y libmcrypt-dev \
 
 新增 `.dockerignore` 檔：
 
-```ENV
+```env
 .git
 .gitignore
 .env.*
@@ -118,7 +118,7 @@ vendor
 
 新增一個 `nginx` 資料夾，並新增 `default.conf` 檔：
 
-```CONF
+```conf
 server {
     listen 80;
 
@@ -146,11 +146,11 @@ server {
 
 編譯並啟動容器：
 
-```BASH
+```bash
 docker-compose up -d --build
 ```
 
-前往：<http://localhost:8990/>
+前往 <http://localhost:8990/> 瀏覽。
 
 ## 程式碼
 

@@ -9,19 +9,19 @@ categories: ["程式設計", "PHP", "其他"]
 
 使用 `EasyWeChat` 套件處理授權。
 
-```BASH
+```bash
 composer install overtrue/wechat
 ```
 
 使用 `simplesoftwareio/simple-qrcode` 套件生成二維條碼。
 
-```BASH
+```bash
 composer install simplesoftwareio/simple-qrcode
 ```
 
 引入第三方套件：
 
-```PHP
+```php
 require __DIR__ . '/vendor/autoload.php';
 
 $app = \EasyWeChat\Factory::officialAccount([
@@ -41,7 +41,7 @@ $app = \EasyWeChat\Factory::officialAccount([
 
 生成登入條碼：
 
-```PHP
+```php
 $link = 'login.php' // 登入網址
 
 echo (new \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator)->size(500)->generate($link);
@@ -49,12 +49,12 @@ echo (new \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator)->size(500)->generate($l
 
 登入：
 
-```PHP
+```php
 $app->oauth->redirect()->send(); // 跳轉到微信方
 ```
 
 回調：
 
-```PHP
+```php
 var_dump($app->oauth->user()); // 取得使用者資訊
 ```

@@ -9,19 +9,19 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 建立專案。
 
-```BASH
+```bash
 laravel new laravel
 ```
 
 新增指令。
 
-```BASH
+```bash
 php artisan make:command MakeFile
 ```
 
 修改 `app/Console/Commands/MakeFile.php` 檔：
 
-```PHP
+```php
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
@@ -66,7 +66,7 @@ class MakeFile extends Command
 
 修改 `app/Console/Kernel.php` 檔，設置排程頻率：
 
-```PHP
+```php
 namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
@@ -110,7 +110,7 @@ class Kernel extends ConsoleKernel
 
 如果指定時間，需要設定時區：
 
-```PHP
+```php
 /**
  * Get the timezone that should be used by default for scheduled events.
  *
@@ -126,31 +126,31 @@ protected function scheduleTimezone()
 
 確認 Cron 的服務狀態。
 
-```BASH
+```bash
 service cron status
 ```
 
 新增（或修改、刪除）Cron 排程，執行以下指令：
 
-```BASH
+```bash
 crontab -e
 ```
 
 選擇編輯器並寫入排程，指令 `cd` 的參數為專案的絕對路徑。
 
-```BASH
+```bash
 * * * * * cd /var/www/schedule && php artisan schedule:run >> /dev/null 2>&1
 ```
 
 列出 Cron 排程，執行以下指令：
 
-```BASH
+```bash
 crontab -l
 ```
 
 檢查排程執行後，是否生成檔案。
 
-```BASH
+```bash
 ll /var/www/schedule/storage/
 -rw-r--r--  1 root root    0 Feb 14 15:29 2020-02-14 15:29:02
 -rw-r--r--  1 root root    0 Feb 14 15:30 2020-02-14 15:30:02
@@ -158,6 +158,6 @@ ll /var/www/schedule/storage/
 
 若要刪除所有 Cron 排程，執行以下指令：
 
-```BASH
+```bash
 crontab -r
 ```

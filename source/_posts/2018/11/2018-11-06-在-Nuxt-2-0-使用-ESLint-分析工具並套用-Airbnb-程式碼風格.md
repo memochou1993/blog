@@ -15,14 +15,14 @@ categories: ["程式設計", "JavaScript", "ESLint"]
 
 使用以下指令安裝。
 
-```BASH
+```bash
 npm install -g install-peerdeps
 install-peerdeps --dev eslint-config-airbnb-base
 ```
 
 修改 `.prettierrc` 檔。
 
-```JSON
+```json
 {
   "semi": true,
   "singleQuote": true,
@@ -33,7 +33,7 @@ install-peerdeps --dev eslint-config-airbnb-base
 
 修改 `.eslintrc.js` 檔。
 
-```JS
+```js
 extends: [
   'plugin:vue/recommended',
   'plugin:prettier/recommended',

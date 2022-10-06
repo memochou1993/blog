@@ -9,13 +9,13 @@ categories: ["程式設計", "JavaScript", "ESLint"]
 
 安裝 `@vue/eslint-config-airbnb` 套件。
 
-```BASH
+```bash
 yarn add @vue/eslint-config-airbnb --dev
 ```
 
 在根目錄新增 `.eslintrc.js` 檔：
 
-```JS
+```js
 module.exports = {
   root: true,
   env: {

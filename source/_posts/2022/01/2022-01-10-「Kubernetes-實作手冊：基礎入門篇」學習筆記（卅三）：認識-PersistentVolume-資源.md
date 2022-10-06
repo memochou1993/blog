@@ -21,26 +21,26 @@ categories: ["環境部署", "Kubernetes", "「Kubernetes 實作手冊：基礎�
 
 以下使用 kind 的環境，並安裝好 NFS 伺服器。
 
-```BASH
+```bash
 cd vagrant/kind
 vagrant ssh
 ```
 
 使用 `ifconfig` 指令查詢虛擬機的 IP 位址。
 
-```BASH
+```bash
 ifconfig
 ```
 
 查看範例資料夾中的 PV 配置檔。
 
-```BASH
+```bash
 cat introduction/storage/pv_pvc/pv.yaml
 ```
 
 配置檔如下，將 NFS Server 的 IP 位址修改為虛擬機的 IP 位址：
 
-```YAML
+```yaml
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -89,7 +89,7 @@ spec:
 
 使用配置檔創建 PV 資源。
 
-```BASH
+```bash
 kubectl apply -f introduction/storage/pv_pvc/pv.yaml
 ```
 
@@ -97,13 +97,13 @@ kubectl apply -f introduction/storage/pv_pvc/pv.yaml
 
 查看範例資料夾中的 PVC 配置檔。
 
-```BASH
+```bash
 cat introduction/storage/pv_pvc/pvc-pending.yaml
 ```
 
 配置檔如下：
 
-```YAML
+```yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -120,13 +120,13 @@ spec:
 
 使用配置檔創建 PVC 資源。
 
-```BASH
+```bash
 kubectl apply -f introduction/storage/pv_pvc/pvc-pending.yaml
 ```
 
 查看 PVC 列表。
 
-```BASH
+```bash
 kubectl get pvc
 NAME              STATUS    VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 pvc-nfs-pending   Pending                                                     9s
@@ -134,13 +134,13 @@ pvc-nfs-pending   Pending                                                     9s
 
 檢查 PVC 資源。
 
-```BASH
+```bash
 kubectl describe pvc pvc-nfs-pending
 ```
 
 事件如下：
 
-```BASH
+```bash
 Events:
   Type    Reason         Age                From                         Message
   ----    ------         ----               ----                         -------
@@ -153,13 +153,13 @@ Events:
 
 查看範例資料夾中的 PVC 配置檔。
 
-```BASH
+```bash
 cat introduction/storage/pv_pvc/pvc-force.yaml
 ```
 
 配置檔如下：
 
-```YAML
+```yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -176,13 +176,13 @@ spec:
 
 使用配置檔創建 PVC 資源。
 
-```BASH
+```bash
 kubectl apply -f introduction/storage/pv_pvc/pvc-force.yaml
 ```
 
 查看 PVC 列表，名為 `force-nfs` 的 PVC 已被綁定。
 
-```BASH
+```bash
 kubectl get pvc
 NAME              STATUS    VOLUME      CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 force-nfs         Bound     nfs-claim   1000Gi     RWX                           58s
@@ -191,7 +191,7 @@ pvc-nfs-pending   Pending                                                       
 
 查看 PV 列表，名為 `nfs-claim` 的 PV 已被綁定。
 
-```BASH
+```bash
 kubectl get pv
 NAME        CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM               STORAGECLASS   REASON   AGE
 nfs-1       5Gi        RWO            Retain           Available                                               11m
@@ -203,13 +203,13 @@ nfs-claim   1000Gi     RWX            Retain           Bound       default/force
 
 查看範例資料夾中的 PVC 配置檔。
 
-```BASH
+```bash
 cat introduction/storage/pv_pvc/pvc.yaml
 ```
 
 配置檔如下：
 
-```YAML
+```yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -226,13 +226,13 @@ spec:
 
 使用配置檔創建 PVC 資源。
 
-```BASH
+```bash
 kubectl apply -f introduction/storage/pv_pvc/pvc.yaml
 ```
 
 查看 PVC 列表，名為 `pvc-nfs` 的 PVC 已被綁定。
 
-```BASH
+```bash
 kubectl get pvc
 NAME              STATUS    VOLUME      CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 force-nfs         Bound     nfs-claim   1000Gi     RWX                           4m41s
@@ -242,7 +242,7 @@ pvc-nfs-pending   Pending                                                       
 
 查看 PV 列表，名為 `nfs-1` 的 PV 已被綁定。
 
-```BASH
+```bash
 kubectl get pv
 NAME        CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM               STORAGECLASS   REASON   AGE
 nfs-1       5Gi        RWO            Retain           Bound       default/pvc-nfs                             13m
@@ -254,13 +254,13 @@ nfs-claim   1000Gi     RWX            Retain           Bound       default/force
 
 查看範例資料夾中的 Deployment 配置檔。
 
-```BASH
+```bash
 cat introduction/storage/pv_pvc/deploy.yaml
 ```
 
 配置檔如下：
 
-```YAML
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -281,19 +281,19 @@ spec:
 
 使用配置檔創建 Deployment 資源。
 
-```BASH
+```bash
 kubectl apply -f introduction/storage/pv_pvc/deploy.yaml
 ```
 
 在 Pod 中新增 `hello` 檔案。
 
-```BASH
+```bash
 kubectl exec pv-debug-server -- touch /test/hello
 ```
 
 查看虛擬機的共享資料夾，可以發現多了 `hello` 檔案。
 
-```BASH
+```bash
 ls /nfsshare
 hello
 ```

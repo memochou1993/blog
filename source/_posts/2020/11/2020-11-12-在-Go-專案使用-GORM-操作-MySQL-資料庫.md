@@ -9,7 +9,7 @@ categories: ["程式設計", "Go", "GORM"]
 
 建立連線：
 
-```GO
+```go
 dsn := "root:root@tcp(127.0.0.1:3306)/table?charset=utf8mb4&parseTime=true"
 db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 
@@ -27,7 +27,7 @@ if err != nil {
 
 以下是一個模型的範例：
 
-```GO
+```go
 type User struct {
 	ID           uint
 	Name         string
@@ -47,7 +47,7 @@ type User struct {
 
 使用巢狀結構體定義模型：
 
-```GO
+```go
 type User struct {
 	gorm.Model
 	Name string
@@ -56,7 +56,7 @@ type User struct {
 
 使用 `gorm.Model` 會帶入以下屬性：
 
-```GO
+```go
 type Model struct {
 	ID        uint           `gorm:"primaryKey"`
 	CreatedAt time.Time
@@ -73,7 +73,7 @@ type Model struct {
 - 使用 `json:"column"` 重新定義屬性名稱。
 - 使用 `json:",omitempty"` 隱藏空值屬性。
 
-```GO
+```go
 type User struct {
 	gorm.Model
 	Name         string        `gorm:"size:255;not null;"`
@@ -88,7 +88,7 @@ type User struct {
 
 使用 `AutoMigrate()` 方法遷移資料表。
 
-```GO
+```go
 err := db.AutoMigrate(
 	&model.User{},
 )
@@ -96,7 +96,7 @@ err := db.AutoMigrate(
 
 使用 `Migrator` 的 `DropTable()` 方法丟棄資料表。
 
-```GO
+```go
 err := db.Migrator().DropTable(
 	&model.User{},
 )

@@ -19,7 +19,7 @@ categories: ["環境部署", "Kubernetes", "「Kubernetes 實作手冊：基礎�
 
 先啟動全新的虛擬環境，並選擇使用 kubeadm 創建叢集的環境。
 
-```BASH
+```bash
 vagrant destroy
 cd kubeadm
 vagrant up
@@ -34,13 +34,13 @@ vagrant up
 
 以下透過 `kubctl run` 指令運行一個測試的 Pod 範例。
 
-```BASH
+```bash
 kubectl run test --generator=run-pod/v1 --image=hwchiu/netutils
 ```
 
 查看 Pod 列表。
 
-```BASH
+```bash
 kubectl get pods
 NAME   READY   STATUS    RESTARTS   AGE
 test   0/1     Pending   0          8s
@@ -48,13 +48,13 @@ test   0/1     Pending   0          8s
 
 檢查一下名為 `test` 的 Pod。
 
-```BASH
+```bash
 kubectl describe pod test
 ```
 
 由於 kubelet 發現主節點上有污點，因此無法部署。
 
-```BASH
+```bash
 Events:
   Type     Reason            Age               From               Message
   ----     ------            ----              ----               -------
@@ -63,31 +63,31 @@ Events:
 
 檢查一下名為 `k8s-dev` 的 Node。
 
-```BASH
+```bash
 kubectl describe node k8s-dev
 ```
 
 可以看到此 Node 上有一個名為 `node-role.kubernetes.io/master:NoSchedule` 的污點。
 
-```BASH
+```bash
 Taints:             node-role.kubernetes.io/master:NoSchedule
 ```
 
 使用 `kubectl taint` 指令以及 `-` 符號將主節點上的污點移除。
 
-```BASH
+```bash
 kubectl taint node k8s-dev node-role.kubernetes.io/master:NoSchedule-
 ```
 
 再檢查一下名為 `test` 的 Pod。
 
-```BASH
+```bash
 kubectl describe pod test
 ```
 
 由於主節點上已經沒有污點了，因此 Scheduler 重新排程並幫此 Pod 找到可以運行的節點。
 
-```BASH
+```bash
 Events:
   Type     Reason            Age                   From               Message
   ----     ------            ----                  ----               -------
@@ -100,19 +100,19 @@ Events:
 
 使用 `kubectl logs` 指令查看此 Pod 的日誌，發現 Pod 已正常運行。
 
-```BASH
+```bash
 kubectl logs test -f
 ```
 
 想要進入此 Pod，可以使用以下指令：
 
-```BASH
+```bash
 kubectl exec test -it bash
 ```
 
 最後，刪除此 Pod。
 
-```BASH
+```bash
 kubectl delete pod test
 ```
 
@@ -120,13 +120,13 @@ kubectl delete pod test
 
 以下透過指定標籤的方式，將 Pod 部署到擁有特定標籤的 Node 上。使用 `kubctl run` 指令，運行一個測試的 Pod 範例，同時寫入一個規則，此規則希望 Pod 被放到有 `node=vm` 的這個節點上。
 
-```BASH
+```bash
 kubectl run test --generator=run-pod/v1 --image=hwchiu/netutils --overrides='{"spec":{"nodeSelector":{"node":"vm"}}}'
 ```
 
 查看 Pod 列表。
 
-```BASH
+```bash
 kubectl get pods
 NAME   READY   STATUS    RESTARTS   AGE
 test   0/1     Pending   0          8s
@@ -134,13 +134,13 @@ test   0/1     Pending   0          8s
 
 檢查一下名為 `test` 的 Pod。
 
-```BASH
+```bash
 kubectl describe pod test
 ```
 
 由於沒有找到指定標籤的 Node，因此無法部署。
 
-```BASH
+```bash
 Events:
   Type     Reason            Age                  From               Message
   ----     ------            ----                 ----               -------
@@ -149,13 +149,13 @@ Events:
 
 可以使用 `kubectl label` 的指令，為主節點加上 `node=vm` 的標籤。
 
-```BASH
+```bash
 kubectl label node k8s-dev node=vm
 ```
 
 由於主節點上已經有相應的標籤了，因此 Scheduler 重新排程並幫此 Pod 找到可以運行的節點。
 
-```BASH
+```bash
 Events:
   Type     Reason            Age                  From               Message
   ----     ------            ----                 ----               -------
@@ -169,13 +169,13 @@ Events:
 
 想要進入此 Pod，可以使用以下指令：
 
-```BASH
+```bash
 kubectl exec test -it bash
 ```
 
 最後，刪除此 Pod。
 
-```BASH
+```bash
 kubectl delete pod test
 ```
 

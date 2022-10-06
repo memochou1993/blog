@@ -9,32 +9,32 @@ categories: ["程式設計", "Python", "環境安裝"]
 
 安裝 `pyenv` 命令列工具。
 
-```BASH
+```bash
 brew install pyenv
 ```
 
 將執行檔路徑添加至環境變數。
 
-```BASH
+```bash
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/shims:$PATH"
 ```
 
 查看版本。
 
-```BASH
+```bash
 pyenv --version
 ```
 
 安裝 `pyenv-virtualenv` 套件。
 
-```BASH
+```bash
 brew install pyenv-virtualenv
 ```
 
 查看版本。
 
-```BASH
+```bash
 pyenv virtualenv --version
 ```
 
@@ -42,19 +42,19 @@ pyenv virtualenv --version
 
 使用 `pyenv` 指令，安裝 `3.8.13` 版本的 Python。
 
-```BASH
+```bash
 pyenv install 3.8.13
 ```
 
 創建 `example` 虛擬環境，並使用 `3.8.13` 版本的 Python。
 
-```BASH
+```bash
 pyenv virtualenv 3.8.13 example
 ```
 
 查看虛擬環境列表。
 
-```BASH
+```bash
 pyenv versions
 
 * system (set by /Users/williamchou/.pyenv/version)
@@ -66,13 +66,13 @@ pyenv versions
 
 將當前目錄套用至 `example` 虛擬環境。
 
-```BASH
+```bash
 pyenv local example
 ```
 
 查看當前目錄的虛擬環境。
 
-```BASH
+```bash
 pyenv version
 
 example (set by ~/Projects/example/.python-version)
@@ -80,7 +80,7 @@ example (set by ~/Projects/example/.python-version)
 
 刪除 `example` 虛擬環境。
 
-```BASH
+```bash
 pyenv uninstall example
 ```
 

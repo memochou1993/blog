@@ -15,7 +15,7 @@ categories: ["區塊鏈", "Ethereum"]
 
 將 `hello-world-part-four-tutorial` 範例專案克隆下來，並建立一個 React 前端專案。
 
-```BASH
+```bash
 git clone https://github.com/alchemyplatform/hello-world-part-four-tutorial.git
 cp -R hello-world-part-four-tutorial/starter-files smart-contract-ui-example
 cd smart-contract-ui-example
@@ -23,41 +23,41 @@ cd smart-contract-ui-example
 
 安裝依賴套件。
 
-```BASH
+```bash
 npm i
 ```
 
 安裝 `@alch/alchemy-web3` 套件。
 
-```BASH
+```bash
 npm install @alch/alchemy-web3
 ```
 
 安裝 `dot-env` 套件。
 
-```BASH
+```bash
 npm install dotenv --save
 ```
 
 啟動服務。
 
-```BASH
+```bash
 npm start
 ```
 
-前往 UI 頁面：<http://localhost:3000/>
+前往 <http://localhost:3000/> 瀏覽。
 
 ## 建立合約實例
 
 新增 `.env` 檔。
 
-```ENV
+```env
 REACT_APP_ALCHEMY_KEY=wss://eth-rinkeby.ws.alchemyapi.io/v2/your-api-key
 ```
 
 更新 `src/util/interact.js` 檔。
 
-```JS
+```js
 require("dotenv").config();
 const alchemyKey = process.env.REACT_APP_ALCHEMY_KEY;
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
@@ -68,13 +68,13 @@ const web3 = createAlchemyWeb3(alchemyKey);
 
 前往 [Etherscan](https://rinkeby.etherscan.io/address/0x6839691078Ef669589F65Fca9968f6430D509812#code) 將合約的 ABI 複製起來，更新 `contract-abi.json` 檔。
 
-```JSON
+```json
 [{"inputs":[{"internalType":"string","name":"initMsg","type":"string"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"string","name":"oldStr","type":"string"},{"indexed":false,"internalType":"string","name":"newStr","type":"string"}],"name":"UpdatedMessages","type":"event"},{"inputs":[],"name":"message","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"string","name":"newMsg","type":"string"}],"name":"update","outputs":[],"stateMutability":"nonpayable","type":"function"}]
 ```
 
 在 `src/util/interact.js` 檔中引入 ABI 並建立合約實例。
 
-```JS
+```js
 const contractABI = require("../contract-abi.json")
 const contractAddress = "0x6839691078Ef669589F65Fca9968f6430D509812";
 
@@ -88,7 +88,7 @@ export const helloWorldContract = new web3.eth.Contract(
 
 實作 `src/util/interact.js` 檔中的 `loadCurrentMessage()` 方法。
 
-```JS
+```js
 export const loadCurrentMessage = async () => { 
     const message = await helloWorldContract.methods.message().call(); 
     return message;
@@ -97,7 +97,7 @@ export const loadCurrentMessage = async () => {
 
 更新 `src/HelloWorld.js` 檔中的 `useEffect` 方法，在一開始將當前的合約訊息印出來。
 
-```JS
+```js
 async function fetchMessage() {
   const message = await loadCurrentMessage();
   setMessage(message);
@@ -112,7 +112,7 @@ useEffect(() => {
 
 實作 `src/HelloWorld.js` 檔中的 `addSmartContractListener()` 方法。當合約中的 `UpdatedMessages` 事件被觸發時，取得合約的最新訊息。
 
-```JS
+```js
 function addSmartContractListener() {
   helloWorldContract.events.UpdatedMessages({}, (error, data) => {
     if (error) {
@@ -129,7 +129,7 @@ function addSmartContractListener() {
 
 更新 `src/HelloWorld.js` 檔中的 `useEffect` 方法，在一開始監聽合約事件。
 
-```JS
+```js
 useEffect(() => {
   fetchMessage();
   addSmartContractListener();
@@ -140,7 +140,7 @@ useEffect(() => {
 
 實作 `src/util/interact.js` 檔中的 `connectWallet()` 方法。
 
-```JS
+```js
 export const connectWallet = async () => {
   if (window.ethereum) {
     try {
@@ -180,7 +180,7 @@ export const connectWallet = async () => {
 
 實作 `src/HelloWorld.js` 檔中的 `connectWalletPressed()` 方法。當按下連接錢包的按鈕時，連接錢包。
 
-```JS
+```js
 const connectWalletPressed = async () => {
   const walletResponse = await connectWallet();
   setStatus(walletResponse.status);
@@ -190,7 +190,7 @@ const connectWalletPressed = async () => {
 
 接著再實作 `src/util/interact.js` 檔中的 `getCurrentWalletConnected()` 方法，避免重新整理頁面後，錢包的連接狀態消失。
 
-```JS
+```js
 export const getCurrentWalletConnected = async () => {
   if (window.ethereum) {
     try {
@@ -236,7 +236,7 @@ export const getCurrentWalletConnected = async () => {
 
 更新 `src/HelloWorld.js` 檔中的 `useEffect` 方法，在一開始取得錢包資訊。
 
-```JS
+```js
 async function fetchWallet() {
   const {address, status} = await getCurrentWalletConnected();
   setWallet(address);
@@ -254,7 +254,7 @@ useEffect(() => {
 
 實作 `src/HelloWorld.js` 檔中的 `addWalletListener()` 方法。當錢包斷開時，更新狀態。
 
-```JS
+```js
 function addWalletListener() {
   if (window.ethereum) {
     window.ethereum.on("accountsChanged", (accounts) => {
@@ -283,7 +283,7 @@ function addWalletListener() {
 
 更新 `src/HelloWorld.js` 檔中的 `useEffect` 方法，在一開始監聽錢包狀態。
 
-```JS
+```js
 useEffect(() => {
   fetchMessage();
   addSmartContractListener();
@@ -296,7 +296,7 @@ useEffect(() => {
 
 實作 `src/util/interact.js` 檔中的 `updateMessage()` 方法。透過 Metamask 傳送交易請求。
 
-```JS
+```js
 export const updateMessage = async (address, message) => {
   if (!window.ethereum || address === null) {
     return {
@@ -346,7 +346,7 @@ export const updateMessage = async (address, message) => {
 
 實作 `src/HelloWorld.js` 檔中的 `onUpdatePressed()` 方法。當按下更新訊息的按鈕時，更新訊息。
 
-```JS
+```js
 const onUpdatePressed = async () => {
   const { status } = await updateMessage(walletAddress, newMessage);
   setStatus(status);

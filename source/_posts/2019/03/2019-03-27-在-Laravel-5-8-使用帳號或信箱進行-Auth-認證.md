@@ -9,13 +9,13 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 建立認證。
 
-```BASH
+```bash
 php artisan make:auth
 ```
 
 修改 `create_users_table` 遷移檔。
 
-```PHP
+```php
 Schema::create('users', function (Blueprint $table) {
     $table->increments('id');
     $table->string('name');
@@ -30,7 +30,7 @@ Schema::create('users', function (Blueprint $table) {
 
 修改 `User` 模型。
 
-```PHP
+```php
 protected $fillable = [
     'name', 'username', 'email', 'password'
 ];
@@ -38,7 +38,7 @@ protected $fillable = [
 
 修改 `app/Http/Controller/Auth` 資料夾的 `RegisterController`。
 
-```PHP
+```php
 namespace App\Http\Controllers\Auth;
 
 use App\User;
@@ -114,7 +114,7 @@ class RegisterController extends Controller
 
 修改 `app/Http/Controller/Auth` 資料夾的 `LoginController`。
 
-```PHP
+```php
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
@@ -175,7 +175,7 @@ class LoginController extends Controller
 
 修改 `resources/views/auth` 資料夾的 `register.blade.php` 檔。
 
-```HTML
+```html
 <div class="form-group row">
     <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Username') }}</label>
 
@@ -193,6 +193,6 @@ class LoginController extends Controller
 
 修改 `resources/views/auth` 資料夾的 `login.blade.php` 檔。
 
-```HTML
+```html
 <input id="email" type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
 ```

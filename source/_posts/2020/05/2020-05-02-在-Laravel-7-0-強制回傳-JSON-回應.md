@@ -13,13 +13,13 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 新增一個 `ResponseJson` 中介層。
 
-```BASH
+```bash
 php artisan make:middleware ResponseJson
 ```
 
 修改 `ResponseJson.php` 檔：
 
-```PHP
+```php
 namespace App\Http\Middleware;
 
 use Closure;
@@ -44,7 +44,7 @@ class ResponseJson
 
 將中介層註冊到 `Kernel.php` 檔的 `api` 群組：
 
-```PHP
+```php
 protected $middlewareGroups = [
     // ...
 
@@ -57,7 +57,7 @@ protected $middlewareGroups = [
 
 新增一個 `$middlewarePriority` 屬性，讓 `ResponseJson` 中介層優先被通過：
 
-```PHP
+```php
 /**
  * The priority-sorted list of middleware.
  *

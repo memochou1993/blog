@@ -14,7 +14,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 使用 [hashids](https://github.com/vinkla/hashids) 套件可以將 ID 打亂，避免將主鍵直接暴露於網址中。
 
-```BASH
+```bash
 composer require hashids/hashids
 ```
 
@@ -22,7 +22,7 @@ composer require hashids/hashids
 
 建立 `app\Traits\HashId.php` 檔：
 
-```PHP
+```php
 namespace App\Traits;
 
 use Hashids\Hashids;
@@ -61,7 +61,7 @@ trait HashId
 
 以 `User` 模型為例：
 
-```PHP
+```php
 namespace App;
 
 use App\Traits\HashId; // 調用特徵機制
@@ -107,7 +107,7 @@ class User extends Authenticatable
 
 以 `users` 路由為例：
 
-```PHP
+```php
 namespace App\Providers;
 
 use App\Traits\HashId; // 調用特徵機制
@@ -139,7 +139,7 @@ class RouteServiceProvider extends ServiceProvider
 
 ## 使用
 
-```PHP
+```php
 User::find(1)->toArray();
 ```
 

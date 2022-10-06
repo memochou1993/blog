@@ -17,14 +17,14 @@ Kubernetes CSI（Container Storage Interface）是用於將儲存系統與 Kuber
 
 以下使用 kind 的環境，並安裝好 NFS 伺服器。
 
-```BASH
+```bash
 cd vagrant/kind
 vagrant ssh
 ```
 
 使用配置檔創建 NFS 的 CSI 解決方案。
 
-```BASH
+```bash
 kubectl apply -f introduction/storage/csi/csi-nodeplugin-rbac.yaml
 kubectl apply -f introduction/storage/csi/csi-nodeplugin-nfsplugin.yaml
 kubectl apply -f introduction/storage/csi/csi-nfs-driverinfo.yaml
@@ -32,19 +32,19 @@ kubectl apply -f introduction/storage/csi/csi-nfs-driverinfo.yaml
 
 取得 Pod 列表。
 
-```BASH
+```bash
 kubectl get pods
 ```
 
 觀察所有的 CSI Driver 資源。
 
-```BASH
+```bash
 kubectl describe csidrivers
 ```
 
 結果如下：
 
-```YAML
+```yaml
 Name:         nfs.csi.k8s.io
 Namespace:
 Labels:       <none>
@@ -66,19 +66,19 @@ Events:  <none>
 
 使用 `ifconfig` 指令查詢虛擬機的 IP 位址。
 
-```BASH
+```bash
 ifconfig
 ```
 
 查看範例資料夾中的 Pod 配置檔。
 
-```BASH
+```bash
 cat introduction/storage/csi/deploy.yaml
 ```
 
 配置檔如下，將 NFS Server 的 IP 位址修改為虛擬機的 IP 位址：
 
-```YAML
+```yaml
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -134,19 +134,19 @@ spec:
 
 使用配置檔創建 PV、PVC 和 Pod 資源。
 
-```BASH
+```bash
 kubectl apply -f introduction/storage/csi/deploy.yaml
 ```
 
 在 Pod 中新增檔案。
 
-```BASH
+```bash
 kubectl exec debug-server -- touch /test/hello
 ```
 
 查看 `/nfsshare` 資料夾中的檔案。
 
-```BASH
+```bash
 ls /nfsshare/
 hello
 ```

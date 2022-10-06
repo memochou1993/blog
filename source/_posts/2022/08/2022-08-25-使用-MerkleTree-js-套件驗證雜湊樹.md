@@ -15,13 +15,13 @@ categories: ["程式設計", "JavaScript", "演算法"]
 
 安裝依賴套件
 
-```BASH
+```bash
 npm install merkletreejs crypto-js
 ```
 
 新增 `index.js` 檔。
 
-```JS
+```js
 const { MerkleTree } = require('merkletreejs');
 const SHA256 = require('crypto-js/sha256');
 
@@ -42,13 +42,13 @@ console.log(tree.verify(proof, leaf, root)); // true
 
 執行驗證。
 
-```BASH
+```bash
 node index.js
 ```
 
 輸出如下。
 
-```BASH
+```bash
 └─ 7075152d03a5cd92104887b476862778ec0c87be5c2fa1c0a90f87c49fad6eff
    ├─ e5a01fee14e0ed5c48714f22180f25ad8365b53f9779f79dc4a3d7e93963f94a
    │  ├─ ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb

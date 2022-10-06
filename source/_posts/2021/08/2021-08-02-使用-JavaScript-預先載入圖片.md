@@ -9,7 +9,7 @@ categories: ["程式設計", "JavaScript", "其他"]
 
 使用預先建立 `Image` 物件的方式，將圖片預先載入。
 
-```JS
+```js
 const images = [
     {
         src: '' // some image

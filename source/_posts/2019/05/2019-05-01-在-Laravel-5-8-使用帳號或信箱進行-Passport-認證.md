@@ -9,7 +9,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 在 `User` 模型新增 `findForPassport()` 方法。
 
-```PHP
+```php
 use HasApiTokens;
 
 /**

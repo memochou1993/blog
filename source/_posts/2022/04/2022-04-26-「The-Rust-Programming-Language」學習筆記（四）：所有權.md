@@ -41,13 +41,13 @@ categories: ["程式設計", "Rust", "「The Rust Programming Language」學習�
 
 作為所有權的第一個範例，我們先來看變數的作用域（scope）。作用域是一些項目在程式內的有效範圍。假設有以下變數：
 
-```RS
+```rs
 let s = "hello";
 ```
 
 此變數的有效範圍是從它宣告開始一直到當前作用域結束為止。
 
-```RS
+```rs
 {  // s 在此處無效，因為它還沒宣告
     let s = "hello"; // s 在此開始視為有效
     // 使用 s
@@ -56,13 +56,13 @@ let s = "hello";
 
 我們已經看過字串字面值（string literals），字串的數值是寫死在程式內的。字串字面值的確很方便，但它不可能完全適用於使用文字時的所有狀況。其中一個原因是因為它是不可變的，另一個原因是並非所有字串值在編寫程式時就會知道。舉例來說，要是想要收集使用者的輸入並儲存它呢？對於這些情形，Rust 提供第二種字串型別 `String`。此型別管理分配在堆積上的資料，所以可以儲存我們在編譯期間未知的一些文字。可以從字串字面值使用 `from` 函式來建立一個 `String`，如以下所示：
 
-```RS
+```rs
 let s = String::from("hello");
 ```
 
 這種類型的字串是可以被改變的：
 
-```RS
+```rs
 let mut s = String::from("hello");
 
 s.push_str(", world!"); // push_str() 將字面值加到字串後面
@@ -87,7 +87,7 @@ println!("{}", s); // 這會印出 `hello, world!`
 
 Rust 選擇了一條不同的道路：當記憶體在擁有它的變數離開作用域時就會自動釋放。
 
-```RS
+```rs
 {
     let s = String::from("hello"); // s 在此開始視為有效
     // 使用 s
@@ -101,7 +101,7 @@ Rust 選擇了一條不同的道路：當記憶體在擁有它的變數離開作
 
 數個變數在 Rust 中可以有許多不同方式來與相同資料進行互動。
 
-```RS
+```rs
 let x = 5;
 let y = x;
 ```
@@ -110,7 +110,7 @@ let y = x;
 
 若為 `String` 的版本：
 
-```RS
+```rs
 let s1 = String::from("hello");
 let s2 = s1;
 ```
@@ -125,7 +125,7 @@ let s2 = s1;
 
 為了保障記憶體安全，在此情況中 Rust 還會在做一件重要的事。在 `let s2 = s1` 之後，Rust 就不再將 `s1` 視爲有效。因此當 `s1` 離開作用域時，Rust 不需要釋放任何東西。請看看如果在 `s2` 建立之後繼續使用 `s1` 會發生什麼事，以下程式就執行不了：
 
-```RS
+```rs
 let s1 = String::from("hello");
 let s2 = s1;
 
@@ -140,7 +140,7 @@ println!("{}, world!", s1);
 
 要是我們真的想深拷貝 `String` 在堆積上的資料而非僅是堆疊資料的話，我們可以使用一個常見的方法（method）叫做 `clone`。
 
-```RS
+```rs
 let s1 = String::from("hello");
 let s2 = s1.clone();
 
@@ -155,7 +155,7 @@ println!("s1 = {}, s2 = {}", s1, s2);
 
 還有一個小細節沒提到，也就是我們在使用整數時的程式碼。它能執行而且是有效的：
 
-```RS
+```rs
 let x = 5;
 let y = x;
 
@@ -178,7 +178,7 @@ Rust 有個特別的標記叫做 `Copy` 特徵（trait），可以用在標記�
 
 傳遞數值給函式這樣的語義和賦值給變數是類似的。傳遞變數給函式會是移動或拷貝，就像賦值一樣。
 
-```RS
+```rs
 fn main() {
     let s = String::from("hello"); // s 進入作用域
 
@@ -210,7 +210,7 @@ fn makes_copy(some_integer: i32) {
 
 回傳值一樣能轉移所有權。
 
-```RS
+```rs
 fn main() {
     let s1 = gives_ownership(); // gives_ownership 移動它的回傳值給 s1
 
@@ -246,7 +246,7 @@ fn takes_and_gives_back(a_string: String) -> String {
 
 Rust 能讓我們使用元組回傳多個數值。
 
-```RS
+```rs
 fn main() {
     let s1 = String::from("hello");
 
@@ -268,7 +268,7 @@ fn calculate_length(s: String) -> (String, usize) {
 
 在以上範例使用元組的問題在於，我們必須回傳 `String` 給呼叫的函式，我們才能繼續在呼叫 `calculate_length` 之後繼續使用 `String`，因為 `String` 會被傳入 `calculate_length`。不過我們其實可以提供個 `String` 數值的引用。引用（references） 就像是指向某個地址的指標，我們可以追蹤存取到該處儲存的資訊，而該地址仍被其他變數所擁有。和指標不一樣的是，引用保證所指向的特定型別的數值一定是有效的。以下是我們定義並使用 `calculate_length` 時，在參數改用引用物件而非取得所有權的程式碼：
 
-```RS
+```rs
 fn main() {
     let s1 = String::from("hello");
 
@@ -288,7 +288,7 @@ fn calculate_length(s: &String) -> usize {
 
 所以要是我們嘗試修改我們借用的東西會如何呢？它執行不了的！
 
-```RS
+```rs
 fn main() {
     let s = String::from("hello");
 
@@ -306,7 +306,7 @@ fn change(some_string: &String) {
 
 我們可以修正程式碼，讓我們可以變更借用的數值。我們可以加一點小修改，改用可變引用就好。
 
-```RS
+```rs
 fn main() {
     let mut s = String::from("hello");
 
@@ -322,7 +322,7 @@ fn change(some_string: &mut String) {
 
 可變引用有個很大的限制：同一時間中對一個特定資料只能有一個可變引用。所以嘗試建立兩個 `s` 的可變引用的話就會失敗。
 
-```RS
+```rs
 let mut s = String::from("hello");
 
 let r1 = &mut s;
@@ -343,7 +343,7 @@ println!("{}, {}", r1, r2);
 
 如往常一樣，我們可以用大括號來建立一個新的作用域來允許多個可變引用，只要不是同時擁有就好：
 
-```RS
+```rs
 let mut s = String::from("hello");
 
 {
@@ -355,7 +355,7 @@ let r2 = &mut s;
 
 Rust 對於可變引用和不可變引用的組合中也實施著類似的規則，以下程式碼就會產生錯誤：
 
-```RS
+```rs
 let mut s = String::from("hello");
 
 let r1 = &s; // 沒問題
@@ -369,7 +369,7 @@ println!("{}, {}, and {}", r1, r2, r3);
 
 注意引用的作用域始於它被宣告的地方，一直到它最後一次引用被使用為止。舉例來說以下程式就可以編譯，因為不可變引用最後一次的使用（`println!`）在可變引用宣告之前：
 
-```RS
+```rs
 let mut s = String::from("hello");
 
 let r1 = &s; // 沒問題
@@ -389,7 +389,7 @@ println!("{}", r3);
 
 讓我們來嘗試產生迷途指標，看看 Rust 怎麼產生編譯期錯誤。
 
-```RS
+```rs
 fn main() {
     let reference_to_nothing = dangle();
 }
@@ -408,7 +408,7 @@ fn dangle() -> &String {
 
 解決的辦法是直接回傳 `String` 就好：
 
-```RS
+```rs
 fn no_dangle() -> String {
     let s = String::from("hello");
 
@@ -433,7 +433,7 @@ fn no_dangle() -> String {
 
 我們可以回傳該單字的最後一個索引，也就是和空格作比較。因為我們需要遍歷 `String` 的每個元素並檢查該值是否為空格，我們要用 `as_bytes` 方法將 `String` 轉換成一個位元組陣列。接下來我們使用 `iter` 方法對位元組陣列建立一個疊代器（iterator）。
 
-```RS
+```rs
 fn first_word(s: &String) -> usize {
     let bytes = s.as_bytes();
 
@@ -455,7 +455,7 @@ fn first_word(s: &String) -> usize {
 
 我們現在有了一個能夠找到字串第一個單字結尾索引的辦法，但還有一個問題。我們回傳的是一個獨立的 `usize`，它套用在 `&String` 身上才有意義。換句話說，因為它是個與 `String` 沒有直接關係的數值，我們無法保證它在未來還是有效的。
 
-```RS
+```rs
 fn main() {
     let mut s = String::from("hello world");
 
@@ -474,7 +474,7 @@ fn main() {
 
 字串切片是 `String` 其中一部分的引用，它長得像這樣：
 
-```RS
+```rs
 let s = String::from("hello world");
 
 let hello = &s[0..5];
@@ -485,7 +485,7 @@ let world = &s[6..11];
 
 要是想用 Rust 指定範圍的語法 `..` 從索引零開始的話，可以省略兩個句點之前的值。換句話說，以下兩個是相等的：
 
-```RS
+```rs
 let s = String::from("hello");
 
 let slice = &s[0..2];
@@ -494,7 +494,7 @@ let slice = &s[..2];
 
 同樣地，如果你的切片包含 `String` 的最後一個位元組的話，你同樣能省略最後一個數值。這代表以下都是相等的：
 
-```RS
+```rs
 let s = String::from("hello");
 
 let len = s.len();
@@ -505,7 +505,7 @@ let slice = &s[3..];
 
 如果你要獲取整個字串的切片，你甚至能省略兩者的數值，以下都是相等的：
 
-```RS
+```rs
 let s = String::from("hello");
 
 let len = s.len();
@@ -516,7 +516,7 @@ let slice = &s[..];
 
 有了這些資訊，讓我們用切片來重寫 `first_word` 吧。對於「字串字面值」的回傳型別我們會寫 `&str` 。
 
-```RS
+```rs
 fn first_word(s: &String) -> &str {
     let bytes = s.as_bytes();
 
@@ -532,7 +532,7 @@ fn first_word(s: &String) -> &str {
 
 我們現在有個不可能出錯且更直觀的 API，因為編譯器會確保 `String` 的引用會是有效的。使用切片版本 `first_word` 的程式碼的話就會出現編譯期錯誤：
 
-```RS
+```rs
 fn main() {
     let mut s = String::from("hello world");
 
@@ -548,7 +548,7 @@ fn main() {
 
 回想一下我們講說字串字面值是怎麼存在二進制檔案的。現在既然我們已經知道切片，我們就能知道更清楚理解字串字面值：
 
-```RS
+```rs
 let s = "Hello, world!";
 ```
 
@@ -558,13 +558,13 @@ let s = "Hello, world!";
 
 知道可以取得字面值的切片與 `String` 數值後，我們可以再改善一次 `first_word`。較富有經驗的 Rustacean 會用以下方式編寫函式簽名，因為這讓該函式可以同時接受 `&String` 和 `&str` 的數值。
 
-```RS
+```rs
 fn first_word(s: &str) -> &str {}
 ```
 
 如果我們有字串字面值的話，我們可以直接傳遞。如果我們有 `String` 的話，我可以們傳遞整個 `String` 的切片或引用。這樣的彈性用到了強制解引用（deref coercion）。定義函式的參數為字串字面值而非 `String` 可以讓我們的 API 更通用且不會失去去任何功能：
 
-```RS
+```rs
 fn main() {
     let my_string = String::from("hello world");
 
@@ -588,13 +588,13 @@ fn main() {
 
 字串切片如你所想的一樣是特別針對字串的。但是我們還有更通用的切片型別。請考慮以下陣列：
 
-```RS
+```rs
 let a = [1, 2, 3, 4, 5];
 ```
 
 就像我們引用一部分的字串一樣，我們可以這樣引用一部分的字串：
 
-```RS
+```rs
 let a = [1, 2, 3, 4, 5];
 
 let slice = &a[1..3];

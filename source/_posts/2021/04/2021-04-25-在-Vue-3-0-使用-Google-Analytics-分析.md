@@ -9,13 +9,13 @@ categories: ["程式設計", "JavaScript", "Vue"]
 
 安裝 `vue-gtag-next` 套件。
 
-```BASH
+```bash
 yarn add vue-gtag-next
 ```
 
 修改 `main.js` 檔：
 
-```JS
+```js
 import VueGtag from 'vue-gtag-next';
 import App from './App.vue';
 

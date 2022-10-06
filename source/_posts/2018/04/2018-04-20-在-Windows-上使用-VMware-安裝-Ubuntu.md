@@ -34,6 +34,6 @@ categories: ["環境部署", "Linux"]
 - 開啟終端機。
 - 使用內建的 `apt-get` 指令完成更新。
 
-```BASH
+```bash
 sudo apt-get update
 ```

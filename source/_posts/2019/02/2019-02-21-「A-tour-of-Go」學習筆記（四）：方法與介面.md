@@ -13,7 +13,7 @@ categories: ["程式設計", "Go", "「A tour of Go」學習筆記"]
 
 Go 沒有「類」，但是可以在結構體型別上定義方法。「方法接收者」寫在 `func` 關鍵字和方法名稱之間的參數中。
 
-```GO
+```go
 package main
 
 import (
@@ -39,7 +39,7 @@ func main() {
 
 可以對包中的任意型別定義任意方法，但不能對來自其他包的型別或基礎型別定義方法。
 
-```GO
+```go
 package main
 
 import (
@@ -70,7 +70,7 @@ func main() {
 
 以下程式碼，當 `v` 是 `Vertex` 的時候 `Scale` 方法沒有任何作用。因為當 `v` 是一個值（非指針）的時候，方法看到的是 `Vertex` 的副本，無法修改原始值。
 
-```GO
+```go
 package main
 
 import (
@@ -104,7 +104,7 @@ func main() {
 
 介面型別是由一組方法定義的集合，介面型別的值可以存放實現這些方法的任何值。
 
-```GO
+```go
 package main
 
 import (
@@ -157,7 +157,7 @@ func (v *Vertex) Abs() float64 {
 
 隱式介面解藕了實現介面的包和定義介面的包：互不依賴。因此，也就無需在每一個實現上增加新的介面名稱，
 
-```GO
+```go
 package main
 
 import (
@@ -194,7 +194,7 @@ func main() {
 
 錯誤是可以用字符串描述自己的任何東西。主要思路是由預定義的內建介面型別 `error`，和方法 `Error`，返回字符串。
 
-```GO
+```go
 type error interface {
     Error() string
 }
@@ -202,7 +202,7 @@ type error interface {
 
 當用 `fmt` 包的多種不同的列印函式輸出一個 `error` 時，會自動的調用該方法。
 
-```GO
+```go
 package main
 
 import (

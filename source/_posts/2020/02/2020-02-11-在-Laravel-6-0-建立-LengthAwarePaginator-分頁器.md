@@ -13,7 +13,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 使用 `getCollection()` 方法可以從 Query Builder 中取得其 Collection 實例。
 
-```PHP
+```php
 // 取得資料的 LengthAwarePaginator 實例
 $bookings = \App\Booking::paginate();
 

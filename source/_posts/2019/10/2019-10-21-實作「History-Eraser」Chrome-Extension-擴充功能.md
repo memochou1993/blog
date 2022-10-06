@@ -13,7 +13,7 @@ categories: ["程式設計", "Chrome Extension"]
 
 目錄結構如下：
 
-```BASH
+```bash
 |- src/
   |- css/
   |- html/
@@ -26,7 +26,7 @@ categories: ["程式設計", "Chrome Extension"]
 
 在 `src` 資料夾建立 `manifest.json` 檔：
 
-```JSON
+```json
 {
   "manifest_version": 2,
   "name": "History Eraser",
@@ -58,7 +58,7 @@ categories: ["程式設計", "Chrome Extension"]
 
 在 `html` 資料夾建立 `options.html` 檔：
 
-```HTML
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -121,7 +121,7 @@ categories: ["程式設計", "Chrome Extension"]
 
 在 `js` 資料夾建立選項程式 `options.js` 檔：
 
-```JS
+```js
 // 儲存選項
 const saveOptions = () => {
   const keywords = document.querySelector('textarea[name="keywords"]').value;
@@ -154,7 +154,7 @@ document.getElementById('save').addEventListener('click', saveOptions);
 
 在 `js` 資料夾建立主要程式 `main.js` 檔：
 
-```JS
+```js
 const execute = () => {
   // 從 storage 獲得使用者希望刪除的關鍵字選項
   chrome.storage.sync.get({

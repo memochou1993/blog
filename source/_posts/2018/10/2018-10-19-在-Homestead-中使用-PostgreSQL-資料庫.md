@@ -9,7 +9,7 @@ categories: ["資料庫", "PostgreSQL"]
 
 修改 `.env` 檔：
 
-```ENV
+```env
 DB_CONNECTION=pgsql
 DB_HOST=127.0.0.1
 DB_PORT=5432
@@ -20,7 +20,7 @@ DB_PASSWORD=secret
 
 ## 進入資料庫
 
-```BASH
+```bash
 vagrant@homestead:~$ psql -U homestead -h localhost -W database
 ```
 

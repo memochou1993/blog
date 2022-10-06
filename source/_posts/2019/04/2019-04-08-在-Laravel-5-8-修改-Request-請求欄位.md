@@ -9,7 +9,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 使用 `merge()` 方法，若有重複，則會取代。
 
-```PHP
+```php
 $request->merge([
     'foo' => 'bar',
 ]);
@@ -17,7 +17,7 @@ $request->merge([
 
 使用 `replace()` 方法，取代所有欄位。
 
-```PHP
+```php
 $request->replace([
     'foo' => 'bar',
 ]);
@@ -25,6 +25,6 @@ $request->replace([
 
 直接設置欄位，若有重複，則會取代。
 
-```PHP
+```php
 $request['foo'] = 'bar';
 ```

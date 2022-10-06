@@ -7,13 +7,13 @@ categories: ["程式設計", "JavaScript", "其他"]
 
 使用以下指令建立 `package.json` 檔：
 
-```BASH
+```bash
 npm init
 ```
 
 建立的 `package.json` 檔如下：
 
-```JSON
+```json
 {
   "name": "@memochou1993/example",
   "version": "1.0.0",
@@ -29,7 +29,7 @@ npm init
 
 修改 `package.json` 檔，指定特定內容需要被發布。
 
-```JSON
+```json
 {
   "main": "index.js",
   "files": [
@@ -40,7 +40,7 @@ npm init
 
 在 `index.js` 檔建立主程式：
 
-```JS
+```js
 const hello = () => {
   console.log('Hello');
 };
@@ -52,18 +52,18 @@ export {
 
 測試發布，查看即將發布的檔案列表。
 
-```BASH
+```bash
 npm publish --dry-run
 ```
 
 登入 `npm` 套件管理平台。
 
-```BASH
+```bash
 npm login
 ```
 
 發布套件。
 
-```BASH
+```bash
 npm publish --access=public
 ```

@@ -17,7 +17,7 @@ Laravel 官方文件為多型資料表的外鍵使用了特殊的命名規則，
 
 ### 關聯架構
 
-```BASH
+```bash
 pages
   id - integer
   name - string
@@ -36,19 +36,19 @@ images
 
 新增 `Page` 模型，與其遷移檔、模型工廠。
 
-```BASH
+```bash
 php artisan make:model Page -m -f
 ```
 
 新增 `Post` 模型，與其遷移檔、模型工廠。
 
-```BASH
+```bash
 php artisan make:model Post -m -f
 ```
 
 新增 `Image` 模型，與其遷移檔、模型工廠。
 
-```BASH
+```bash
 php artisan make:model Image -m -f
 ```
 
@@ -56,7 +56,7 @@ php artisan make:model Image -m -f
 
 修改 `create_images_table.php` 遷移檔：
 
-```PHP
+```php
 Schema::create('images', function (Blueprint $table) {
     $table->id();
     $table->morphs('model');
@@ -66,7 +66,7 @@ Schema::create('images', function (Blueprint $table) {
 
 執行遷移。
 
-```BASH
+```bash
 php artisan migrate
 ```
 
@@ -74,7 +74,7 @@ php artisan migrate
 
 修改 `Page` 模型，定義關聯方法：
 
-```PHP
+```php
 /**
  * Get the page's image.
  */
@@ -86,7 +86,7 @@ public function image()
 
 修改 `Post` 模型，定義關聯方法：
 
-```PHP
+```php
 /**
  * Get the post's image.
  */
@@ -98,7 +98,7 @@ public function image()
 
 修改 `Image` 模型，定義關聯方法：
 
-```PHP
+```php
 /**
  * Get the owning model.
  */
@@ -112,13 +112,13 @@ public function model()
 
 進入 Tinker 介面。
 
-```BASH
+```bash
 php artisan tinker
 ```
 
 新增一些測試資料：
 
-```BASH
+```bash
 factory(App\Page::class)->create();
 factory(App\Post::class)->create();
 ```
@@ -127,31 +127,31 @@ factory(App\Post::class)->create();
 
 為第一個頁面新增一張圖片：
 
-```PHP
+```php
 Page::first()->image()->save(factory(App\Image::class)->make());
 ```
 
 為第一個頁面取得所有圖片：
 
-```PHP
+```php
 Page::first()->image()->get();
 ```
 
 為第一篇文章新增一張圖片：
 
-```PHP
+```php
 Post::first()->image()->save(factory(App\Image::class)->make());
 ```
 
 為第一篇文章取得所有圖片：
 
-```PHP
+```php
 Post::first()->image()->get();
 ```
 
 取得擁有第一張圖片的模型：
 
-```PHP
+```php
 Image::first()->model()->get();
 ```
 
@@ -161,7 +161,7 @@ Image::first()->model()->get();
 
 ### 關聯架構
 
-```BASH
+```bash
 pages
   id - integer
   name - string
@@ -180,19 +180,19 @@ comments
 
 新增 `Page` 模型，與其遷移檔、模型工廠。
 
-```BASH
+```bash
 php artisan make:model Page -m -f
 ```
 
 新增 `Post` 模型，與其遷移檔、模型工廠。
 
-```BASH
+```bash
 php artisan make:model Post -m -f
 ```
 
 新增 `Comment` 模型，與其遷移檔、模型工廠。
 
-```BASH
+```bash
 php artisan make:model Comment -m -f
 ```
 
@@ -200,7 +200,7 @@ php artisan make:model Comment -m -f
 
 修改 `create_comments_table.php` 遷移檔：
 
-```PHP
+```php
 Schema::create('comments', function (Blueprint $table) {
     $table->id();
     $table->morphs('model');
@@ -210,7 +210,7 @@ Schema::create('comments', function (Blueprint $table) {
 
 執行遷移。
 
-```BASH
+```bash
 php artisan migrate
 ```
 
@@ -218,7 +218,7 @@ php artisan migrate
 
 修改 `Page` 模型，定義關聯方法：
 
-```PHP
+```php
 /**
  * Get all of the page's comments.
  */
@@ -230,7 +230,7 @@ public function comments()
 
 修改 `Post` 模型，定義關聯方法：
 
-```PHP
+```php
 /**
  * Get all of the post's comments.
  */
@@ -242,7 +242,7 @@ public function comments()
 
 修改 `Image` 模型，定義關聯方法：
 
-```PHP
+```php
 /**
  * Get the owning model.
  */
@@ -256,13 +256,13 @@ public function model()
 
 進入 Tinker 介面。
 
-```BASH
+```bash
 php artisan tinker
 ```
 
 新增一些測試資料：
 
-```BASH
+```bash
 factory(App\Page::class)->create();
 factory(App\Post::class)->create();
 ```
@@ -271,31 +271,31 @@ factory(App\Post::class)->create();
 
 為第一個頁面新增兩則評論：
 
-```PHP
+```php
 Page::first()->comments()->saveMany(factory(App\Comment::class, 2)->make());
 ```
 
 為第一個頁面取得所有評論：
 
-```PHP
+```php
 Page::first()->comments()->get();
 ```
 
 為第一篇文章新增兩則評論：
 
-```PHP
+```php
 Post::first()->comments()->saveMany(factory(App\Comment::class, 2)->make());
 ```
 
 為第一篇文章取得所有評論：
 
-```PHP
+```php
 Post::first()->comments()->get();
 ```
 
 取得擁有第一則評論的模型：
 
-```PHP
+```php
 Comment::first()->model()->get();
 ```
 
@@ -305,7 +305,7 @@ Comment::first()->model()->get();
 
 ### 關聯架構
 
-```BASH
+```bash
 pages
   id - integer
   name - string
@@ -328,25 +328,25 @@ model_has_tags
 
 新增 `Page` 模型，與其遷移檔、模型工廠。
 
-```BASH
+```bash
 php artisan make:model Page -m -f
 ```
 
 新增 `Post` 模型，與其遷移檔、模型工廠。
 
-```BASH
+```bash
 php artisan make:model Post -m -f
 ```
 
 新增 `Tag` 模型，與其遷移檔、模型工廠。
 
-```BASH
+```bash
 php artisan make:model Tag -m -f
 ```
 
 新增 `create_model_has_tags_table` 遷移檔。
 
-```BASH
+```bash
 php artisan make:migration create_model_has_tags_table
 ```
 
@@ -354,7 +354,7 @@ php artisan make:migration create_model_has_tags_table
 
 修改 `create_model_has_tags_table.php` 遷移檔：
 
-```PHP
+```php
 Schema::create('model_has_tags', function (Blueprint $table) {
     $table->foreignId('tag_id')->constrained()->onDelete('cascade');
     $table->morphs('model');
@@ -363,7 +363,7 @@ Schema::create('model_has_tags', function (Blueprint $table) {
 
 執行遷移。
 
-```BASH
+```bash
 php artisan migrate
 ```
 
@@ -371,7 +371,7 @@ php artisan migrate
 
 修改 `Page` 模型，定義關聯方法：
 
-```PHP
+```php
 /**
  * Get all of the tags for the page.
  */
@@ -383,7 +383,7 @@ public function tags()
 
 修改 `Post` 模型，定義關聯方法：
 
-```PHP
+```php
 /**
  * Get all of the tags for the post.
  */
@@ -395,7 +395,7 @@ public function tags()
 
 修改 `Tag` 模型，定義關聯方法：
 
-```PHP
+```php
 /**
  * Get all of the pages that are assigned this tag.
  */
@@ -417,13 +417,13 @@ public function posts()
 
 進入 Tinker 介面。
 
-```BASH
+```bash
 php artisan tinker
 ```
 
 新增一些測試資料：
 
-```BASH
+```bash
 factory(App\Page::class)->create();
 factory(App\Post::class)->create();
 factory(App\Tag::class, 2)->create();
@@ -433,37 +433,37 @@ factory(App\Tag::class, 2)->create();
 
 為第一個頁面新增所有標籤：
 
-```PHP
+```php
 Page::first()->tags()->saveMany(Tag::all());
 ```
 
 為第一個頁面取得所有標籤：
 
-```PHP
+```php
 Page::first()->tags()->get();
 ```
 
 為第一篇文章新增所有標籤：
 
-```PHP
+```php
 Post::first()->tags()->saveMany(Tag::all());
 ```
 
 為第一篇文章取得所有標籤：
 
-```PHP
+```php
 Post::first()->tags()->get();
 ```
 
 取得擁有第一個標籤的所有頁面：
 
-```PHP
+```php
 Tag::first()->pages()->get();
 ```
 
 取得擁有第一個標籤的所有文章：
 
-```PHP
+```php
 Tag::first()->posts()->get();
 ```
 
@@ -473,7 +473,7 @@ Tag::first()->posts()->get();
 
 新增 `HasImage.php` 檔：
 
-```PHP
+```php
 namespace App\Traits;
 
 use App\Image;
@@ -491,7 +491,7 @@ trait HasImage {
 
 新增 `HasComments.php` 檔：
 
-```PHP
+```php
 namespace App\Traits;
 
 use App\Comment;
@@ -509,7 +509,7 @@ trait HasComments {
 
 新增 `HasTags.php` 檔：
 
-```PHP
+```php
 namespace App\Traits;
 
 use App\Tag;
@@ -527,7 +527,7 @@ trait HasTags {
 
 重構 `Page` 模型：
 
-```PHP
+```php
 namespace App;
 
 use App\Traits\HasComments;
@@ -545,7 +545,7 @@ class Page extends Model
 
 重構 `Post` 模型：
 
-```PHP
+```php
 namespace App;
 
 use App\Traits\HasComments;
@@ -567,13 +567,13 @@ Laravel 預設會使用完全符合的類別名稱來儲存關聯模型的類型
 
 新增一個 `RelationServiceProvider` 服務提供者。
 
-```BASH
+```bash
 php artisan make:provider RelationServiceProvider
 ```
 
 將服務提供者修改如下：
 
-```PHP
+```php
 namespace App\Providers;
 
 use Illuminate\Database\Eloquent\Relations\Relation;
@@ -608,7 +608,7 @@ class RelationServiceProvider extends ServiceProvider
 
 註冊到 `config` 資料夾的 `app.php` 設定檔。
 
-```PHP
+```php
 return [
     // ...
     App\Providers\RelationServiceProvider::class,
@@ -617,7 +617,7 @@ return [
 
 重新產生 Composer 自動載入檔案。
 
-```BASH
+```bash
 composer dump-autoload
 ```
 

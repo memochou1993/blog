@@ -14,7 +14,7 @@ categories: ["程式設計", "PHP", "CodeIgniter"]
 
 安裝 `phpoffice/phpspreadsheet` 套件。
 
-```BASH
+```bash
 composer require phpoffice/phpspreadsheet
 ```
 
@@ -26,7 +26,7 @@ composer require phpoffice/phpspreadsheet
 
 使用 PSR-4 方法自動加載命名空間。
 
-```PHP
+```php
 "autoload": {
     "psr-4": {
         "Application\\Controllers\\Module\\": "application/controllers/module/"
@@ -36,7 +36,7 @@ composer require phpoffice/phpspreadsheet
 
 執行傾倒
 
-```BASH
+```bash
 composer dump-autoload
 ```
 
@@ -44,7 +44,7 @@ composer dump-autoload
 
 ### 資料注入
 
-```PHP
+```php
 // 導入命名空間
 use Application\Controllers\Module\ExcelGenerator;
 
@@ -60,7 +60,7 @@ $excel->myFunc($result);
 
 建立 `application/controllers/module/ExcelGenerator.php` 檔。
 
-```PHP
+```php
 // 命名空間
 namespace Application\Controllers\Module;
 

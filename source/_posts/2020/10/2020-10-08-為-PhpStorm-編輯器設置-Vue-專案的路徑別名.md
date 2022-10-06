@@ -9,6 +9,6 @@ categories: ["其他", "編輯器"]
 
 使用 WebStorm 編輯器時，如果出現 `Module is not installed` 的錯誤訊息，可以開啟 `Preferences` 視窗，將 Webpack 的 `webpack configuration file` 路徑設置為 `@vue` 套件中的 `webpack.config.js` 檔的路徑。
 
-```BASH
+```bash
 /Users/<USER>/Projects/<PROJECT>/resources/js/node_modules/@vue/cli-service/webpack.config.js
 ```

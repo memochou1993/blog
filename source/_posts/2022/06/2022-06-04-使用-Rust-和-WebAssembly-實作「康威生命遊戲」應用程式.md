@@ -20,7 +20,7 @@ categories: ["程式設計", "Rust", "WebAssembly"]
 
 例如，以下方世界（universe）為例：
 
-```BASH
+```bash
 🟦🟦🟦🟦🟦
 🟦🟦🟧🟦🟦
 🟦🟦🟧🟦🟦
@@ -33,7 +33,7 @@ categories: ["程式設計", "Rust", "WebAssembly"]
 
 到了下個世代，細胞將形成以下狀態。
 
-```BASH
+```bash
 🟦🟦🟦🟦🟦
 🟦🟦🟦🟦🟦
 🟦🟧🟧🟧🟦
@@ -46,31 +46,31 @@ categories: ["程式設計", "Rust", "WebAssembly"]
 
 建立專案。
 
-```BASH
+```bash
 cargo generate --git https://github.com/rustwasm/wasm-pack-template --name wasm-game-of-life
 ```
 
 進入專案。
 
-```BASH
+```bash
 cd wasm-game-of-life
 ```
 
 建立前端專案。
 
-```BASH
+```bash
 npm init wasm-app www
 ```
 
 進入前端專案。
 
-```BASH
+```bash
 cd www
 ```
 
 修改 `package.json` 檔。
 
-```JSON
+```json
 {
   // ...
   "dependencies": {
@@ -82,13 +82,13 @@ cd www
 
 安裝依賴套件。
 
-```BASH
+```bash
 npm install
 ```
 
 啟動前端專案。
 
-```BASH
+```bash
 npm run start
 ```
 
@@ -103,7 +103,7 @@ npm run start
 
 以下是一個高度為 `4` 且寬度為 `4` 的世界存在於記憶體中的樣子。
 
-```BASH
+```bash
 0           4           8           12
 🔲 🔲 🔲 🔲 🔲 🔲 🔲 🔲 🔲 🔲 🔲 🔲 🔲 🔲 🔲 🔲
     row1   |    row2   |    row3   |    row4
@@ -111,7 +111,7 @@ npm run start
 
 為了找出指定行列的細胞陣列索引，可以使用以下公式：
 
-```BASH
+```bash
 index(row, column, universe) = row * width(universe) + column
 ```
 
@@ -119,7 +119,7 @@ index(row, column, universe) = row * width(universe) + column
 
 首先，修改 `src/lib.rs` 檔，定義一個 `Cell` 枚舉。這裡使用 `#[repr(u8)]` 屬性，用來表示每一個細胞都是一個位元組，並使用 `0` 來表示死細胞，使用 `1` 來表示活細胞，如此一來就可以使用加法來計算一個細胞的周圍存在多少活細胞。
 
-```RS
+```rs
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
@@ -133,7 +133,7 @@ pub enum Cell {
 
 再來，定義一個 `Universe` 結構體，包含了其寬度、高度，和一組細胞陣列。
 
-```RS
+```rs
 #[wasm_bindgen]
 pub struct Universe {
     width: u32,
@@ -144,7 +144,7 @@ pub struct Universe {
 
 接著為 `Universe` 結構體建立一個 `get_index` 方法，用來取得指定行列的細胞陣列索引。
 
-```RS
+```rs
 impl Universe {
     fn get_index(&self, row: u32, column: u32) -> usize {
         (row * self.width + column) as usize
@@ -156,7 +156,7 @@ impl Universe {
 
 再建立一個 `live_neighbor_count` 方法，用來取得一個細胞的周圍有多少活細胞。
 
-```RS
+```rs
 impl Universe {
     // ...
 
@@ -181,7 +181,7 @@ impl Universe {
 
 建立一個帶有 `#[wasm_bindgen]` 屬性的 `Universe` 實作，將方法暴露給前端。
 
-```RS
+```rs
 #[wasm_bindgen]
 impl Universe {
   // ...
@@ -190,7 +190,7 @@ impl Universe {
 
 建立一個公開的 `tick` 方法，用來記算在下一個世代的細胞狀態。
 
-```RS
+```rs
 #[wasm_bindgen]
 impl Universe {
     pub fn tick(&mut self) {
@@ -232,7 +232,7 @@ impl Universe {
 
 為 `Universe` 結構體實作一個 `fmt` 方法，用來渲染出人類可讀的方塊圖形，並且可以使用 `to_string` 方法呼叫。
 
-```RS
+```rs
 use std::fmt;
 
 impl fmt::Display for Universe {
@@ -252,7 +252,7 @@ impl fmt::Display for Universe {
 
 再為 `Universe` 結構體建立一個公開的 `new` 方法當作建構子，用來初始化一個新的世界。並建立一個 `render` 方法，用來渲染方塊圖形。
 
-```RS
+```rs
 #[wasm_bindgen]
 impl Universe {
     // ...
@@ -286,7 +286,7 @@ impl Universe {
 
 執行編譯。
 
-```BASH
+```bash
 wasm-pack build
 ```
 
@@ -294,7 +294,7 @@ wasm-pack build
 
 修改 `www/index.html` 檔。
 
-```HTML
+```html
 <!DOCTYPE html>
 <html>
   <head>
@@ -323,7 +323,7 @@ wasm-pack build
 
 修改 `www/index.js` 檔。
 
-```JS
+```js
 import { Universe } from "wasm-game-of-life";
 
 const pre = document.getElementById("game-of-life-canvas");
@@ -341,7 +341,7 @@ requestAnimationFrame(renderLoop);
 
 啟動服務。
 
-```BASH
+```bash
 npm run start
 ```
 
@@ -351,7 +351,7 @@ npm run start
 
 修改後端的 `src/lib.rs` 檔，建立以下公開方法。
 
-```RS
+```rs
 #[wasm_bindgen]
 impl Universe {
     // ...
@@ -372,7 +372,7 @@ impl Universe {
 
 修改 `www/index.html` 檔，將渲染的節點改為畫布。
 
-```HTML
+```html
 <body>
   <canvas id="game-of-life-canvas"></canvas>
   <script src="./bootstrap.js"></script>
@@ -381,7 +381,7 @@ impl Universe {
 
 修改 `www/index.js` 檔，引入 `wasm_game_of_life_bg` 檔的 `memory` 模組，直接存取指向細胞的指針，並寫入 `Uint8Array` 陣列使用。
 
-```JS
+```js
 import { Universe, Cell } from "wasm-game-of-life";
 import { memory } from "wasm-game-of-life/wasm_game_of_life_bg";
 
@@ -464,13 +464,13 @@ requestAnimationFrame(renderLoop);
 
 重新執行編譯。
 
-```BASH
+```bash
 wasm-pack build
 ```
 
 重新啟動服務。
 
-```BASH
+```bash
 npm run start
 ```
 

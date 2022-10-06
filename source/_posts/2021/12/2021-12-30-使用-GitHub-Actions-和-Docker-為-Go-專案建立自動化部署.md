@@ -9,20 +9,20 @@ categories: ["環境部署", "CI/CD"]
 
 建立專案。
 
-```BASH
+```bash
 mkdir go-pipeline-example
 cd go-pipeline-example
 ```
 
 初始化 Go Modules。
 
-```BASH
+```bash
 go mod init go-pipeline-example
 ```
 
 新增 `main.go` 檔：
 
-```GO
+```go
 package main
 
 import "fmt"
@@ -42,7 +42,7 @@ func hello() string {
 
 建立 `main.test.go` 檔：
 
-```GO
+```go
 package main
 
 import "testing"
@@ -60,7 +60,7 @@ func TestHello(t *testing.T) {
 
 進行測試。
 
-```BASH
+```bash
 go test
 ```
 
@@ -79,14 +79,14 @@ go test
 
 建立 `.github/workflows` 資料夾，以及 `push.yaml` 檔。
 
-```BASH
+```bash
 mkdir -p .github/workflows
 touch .github/workflows/push.yaml
 ```
 
 在 `push.yaml` 檔中建立兩個工作，分別是 `test` 和 `deploy`。
 
-```YAML
+```yaml
 name: go-pipeline
 on: push
 jobs:
@@ -143,7 +143,7 @@ jobs:
 
 建立 `Dockerfile` 檔：
 
-```DOCKERFILE
+```dockerfile
 FROM golang:latest as builder
 ARG VERSION=dev
 WORKDIR /go/src/app
@@ -158,38 +158,38 @@ CMD ["main"]
 
 建立映像檔，並將標籤取名為 `go-pipeline-example:dev`。
 
-```BASH
+```bash
 docker build -t go-pipeline-example:dev .
 ```
 
 執行映像檔並刪除容器。
 
-```BASH
+```bash
 docker run --rm go-pipeline-example:dev
 ```
 
 顯示結果如下：
 
-```BASH
+```bash
 Version: dev
 Hello World!
 ```
 
 指定版本為 `1.0.0`，並再次建立映像檔。由於 Dockerfile 中的 `go build` 腳本使用了 `-ldflags` 參數，因此可以把 `main.go` 檔中的 `version` 變數的值修改為 `1.0.0`。
 
-```BASH
+```bash
 docker build -t go-pipeline-example:1.0.0 . --build-arg VERSION=1.0.0
 ```
 
 列出映像檔列表。
 
-```BASH
+```bash
 docker images
 ```
 
 顯示結果如下：
 
-```BASH
+```bash
 REPOSITORY            TAG       IMAGE ID       CREATED              SIZE
 go-pipeline-example   1.0.0     1ea19c202291   32 seconds ago       7.37MB
 go-pipeline-example   dev       b91b05baed20   About a minute ago   7.37MB
@@ -199,7 +199,7 @@ go-pipeline-example   dev       b91b05baed20   About a minute ago   7.37MB
 
 推送程式碼到專案儲存庫。
 
-```BASH
+```bash
 git init
 git branch -m main
 git add .
@@ -212,7 +212,7 @@ git push -u origin main
 
 最後，添加標籤，並推送至專案儲存庫。
 
-```BASH
+```bash
 git tag v1.0.0
 git push --tags
 ```

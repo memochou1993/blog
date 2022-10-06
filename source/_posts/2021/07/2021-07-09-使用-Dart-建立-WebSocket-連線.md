@@ -9,7 +9,7 @@ categories: ["程式設計", "Dart", "其他"]
 
 新增 `server.dart` 檔。
 
-```DART
+```dart
 import 'dart:io' show HttpRequest, HttpServer, WebSocket, WebSocketTransformer;
 import 'dart:convert' show json;
 
@@ -41,7 +41,7 @@ void main() {
 
 執行。
 
-```BASH
+```bash
 dart server.dart
 ```
 
@@ -49,7 +49,7 @@ dart server.dart
 
 新增 `client.dart` 檔。
 
-```DART
+```dart
 import 'dart:io' show WebSocket;
 import 'dart:convert' show json;
 import 'dart:async' show Timer;
@@ -85,7 +85,7 @@ main() {
 
 執行。
 
-```BASH
+```bash
 dart client.dart
 ```
 

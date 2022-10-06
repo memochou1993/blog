@@ -9,37 +9,37 @@ categories: ["環境部署", "Docker", "其他"]
 
 下載 MinIO 的 `docker-compose.yml` 檔。
 
-```BASH
+```bash
 git clone https://github.com/memochou1993/minio-docker-compose
 ```
 
 複製 `.env.example` 範本到 `.env` 檔：
 
-```BASH
+```bash
 cd minio-docker-compose
 cp .env.example .env
 ```
 
 修改預設的帳號及密碼。
 
-```BASH
+```bash
 MINIO_ROOT_USER=root
 MINIO_ROOT_PASSWORD=password
 ```
 
 啟動服務。
 
-```BASH
+```bash
 docker-compose up -d
 ```
 
-前往：<http://127.0.0.1:9001>
+前往 <http://127.0.0.1:9001> 瀏覽。
 
 ## 建立服務帳戶
 
 登入後，在 MinIO 建立一個程式用的服務帳戶，並賦予 `readwrite` 權限。
 
-```JSON
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

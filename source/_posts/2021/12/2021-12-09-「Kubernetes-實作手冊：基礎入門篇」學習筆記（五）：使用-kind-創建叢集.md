@@ -17,26 +17,26 @@ KIND 是 Kubernetes In Docker 的意思，使用 Docker 容器做為 Kubernetes 
 
 先啟動全新的虛擬環境。
 
-```BASH
+```bash
 vagrant destroy
 vagrant up
 ```
 
 在虛擬機器中安裝 kind。
 
-```BASH
+```bash
 curl -Lo ./kind "https://github.com/kubernetes-sigs/kind/releases/download/v0.7.0/kind-$(uname)-amd64" && chmod +x ./kind
 ```
 
 使用指定的設定檔創建一個多節點的叢集。
 
-```BASH
+```bash
 sudo ./kind create cluster --config hiskio-course/vagrant/kind.yaml
 ```
 
 指定的設定檔如下：
 
-```YAML
+```yaml
 kind: Cluster
 apiVersion: kind.sigs.k8s.io/v1alpha3
 nodes:
@@ -47,13 +47,13 @@ nodes:
 
 修正權限。
 
-```BASH
+```bash
 sudo chown -R $USER $HOME/.kube
 ```
 
 安裝 kubectl 指令。
 
-```BASH
+```bash
 sudo apt-get update && sudo apt-get install -y apt-transport-https curl
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
@@ -65,37 +65,37 @@ sudo apt-get install -y kubectl
 
 取得叢集資訊。
 
-```BASH
+```bash
 kubectl cluster-info --context kind-kind
 ```
 
 取得 Pod 列表。
 
-```BASH
+```bash
 kubectl -n kube-system get pods
 ```
 
 取得 Node 列表。
 
-```BASH
+```bash
 kubectl get nodes
 ```
 
 取得 Docker 容器列表，會有 `kind-worker`、`kind-worker2` 和 `kind-control-plane` 三個容器。
 
-```BASH
+```bash
 docker ps
 ```
 
 進到 `kind-control-plane` 容器內。
 
-```BASH
+```bash
 docker exec -it kind-control-plane bash
 ```
 
 使用 `crictl` 指令查看容器列表，會有 `kube-apiserver`、`kube-controller-manager`、`kube-scheduler` 和 `etcd` 等容器。
 
-```BASH
+```bash
 crictl ps
 ```
 
@@ -103,13 +103,13 @@ crictl ps
 
 如果在創建叢集時，遇到以下錯誤訊息：
 
-```BASH
+```bash
 k8s: ERROR: failed to create cluster: failed to generate kubeadm config content: failed to get kubernetes version from node: failed to get file: command "docker exec --privileged kind-control-plane cat /kind/version" failed with error: exit status 1
 ```
 
 可以使用以下指令：
 
-```BASH
+```bash
 sudo ./kind create cluster --config hiskio-course/vagrant/kind.yaml
 ```
 

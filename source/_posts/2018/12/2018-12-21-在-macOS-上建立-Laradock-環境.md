@@ -9,7 +9,7 @@ categories: ["環境部署", "Laradock"]
 
 手動安裝 Docker，並註冊帳號。開啟終端機，登入 Docker。
 
-```BASH
+```bash
 docker login
 ```
 
@@ -19,7 +19,7 @@ docker login
 
 從 GitHub 上下載 Laradock 到根目錄。
 
-```BASH
+```bash
 cd ~/
 git clone https://github.com/laradock/laradock.git Laradock
 cd Laradock
@@ -28,7 +28,7 @@ cp env-example .env
 
 修改 `.env` 檔：
 
-```ENV
+```env
 APP_CODE_PATH_HOST=~/Projects
 ```
 
@@ -36,14 +36,14 @@ APP_CODE_PATH_HOST=~/Projects
 
 建立 `laravel.test.conf` 檔。
 
-```BASH
+```bash
 cd ~/Laradock/nginx/sites
 cp laravel.conf.example laravel.test.conf
 ```
 
 啟動 Nginx、MySQL 和 PhpMyAdmin。
 
-```BASH
+```bash
 docker-compose up -d nginx mysql phpmyadmin
 ```
 
@@ -53,14 +53,14 @@ docker-compose up -d nginx mysql phpmyadmin
 
 在容器外建立專案。
 
-```BASH
+```bash
 cd ~/Projects
 laravel new laravel
 ```
 
 修改 Laravel 專案的 `.env` 檔：
 
-```ENV
+```env
 DB_CONNECTION=mysql
 DB_HOST=mysql
 DB_PORT=3306
@@ -73,20 +73,20 @@ DB_PASSWORD=secret
 
 修改 `mysql\my.cnf` 檔：
 
-```CNF
+```cnf
 [mysqld]
 default_authentication_plugin=mysql_native_password
 ```
 
 重新建立 MySQL 容器：
 
-```BASH
+```bash
 docker-compose build --no-cache mysql
 ```
 
 修改一般使用者的認證方式。
 
-```BASH
+```bash
 docker-compose exec mysql bash
 /var/www# mysql --user="root" --password="root"
 mysql> ALTER USER 'default' IDENTIFIED WITH mysql_native_password BY 'secret';
@@ -95,13 +95,13 @@ mysql> exit
 
 使用一般使用者身分進入。
 
-```BASH
+```bash
 /var/www# mysql --user="default" --password="secret"
 ```
 
 建立資料庫。
 
-```MYSQL
+```sql
 mysql> CREATE DATABASE `default`;
 ```
 
@@ -109,14 +109,14 @@ mysql> CREATE DATABASE `default`;
 
 進入容器。
 
-```BASH
+```bash
 cd ~/Laradock
 docker-compose exec workspace bash
 ```
 
 執行遷移。
 
-```BASH
+```bash
 /var/www# cd laravel
 /var/www# php artisan migrate
 ```
@@ -125,19 +125,19 @@ docker-compose exec workspace bash
 
 進到 workspace 容器。
 
-```BASH
+```bash
 docker-compose exec workspace bash
 ```
 
 修改 `storage` 資料夾的權限。
 
-```BASH
+```bash
 chown -R laradock:www-data storage
 ```
 
 ## 註冊虛擬主機別名
 
-```ENV
+```env
 127.0.0.1 laravel.test
 ```
 

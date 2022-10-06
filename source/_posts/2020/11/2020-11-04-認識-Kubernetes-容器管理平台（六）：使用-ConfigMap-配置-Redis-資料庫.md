@@ -22,7 +22,7 @@ categories: ["環境部署", "Kubernetes", "其他"]
 
 首先，建立一個 `redis-config` 設定檔：
 
-```ENV
+```env
 cat <<EOF >./redis-config
 maxmemory 2mb
 maxmemory-policy allkeys-lru
@@ -31,7 +31,7 @@ EOF
 
 建立一個 `kustomization.yaml` 檔：
 
-```BASH
+```bash
 cat <<EOF >./kustomization.yaml
 configMapGenerator:
 - name: example-redis-config
@@ -42,7 +42,7 @@ EOF
 
 建立名為 `redis-pod` 的 Pod 定義檔：
 
-```YAML
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -80,7 +80,7 @@ spec:
 
 將 Pod 定義檔添加到 `kustomization.yaml` 檔中：
 
-```BASH
+```bash
 cat <<EOF >./kustomization.yaml
 resources:
 - redis-pod.yaml
@@ -89,7 +89,7 @@ EOF
 
 現在 `kustomization.yaml` 檔如下：
 
-```YAML
+```yaml
 configMapGenerator:
 - name: example-redis-config
   files:
@@ -100,19 +100,19 @@ resources:
 
 創建 Pod 和 ConfigMap 物件：
 
-```BASH
+```bash
 kubectl apply -k .
 ```
 
 檢查創建的物件：
 
-```BASH
+```bash
 kubectl get -k .
 ```
 
 輸出如下：
 
-```BASH
+```bash
 NAME                                        DATA   AGE
 configmap/example-redis-config-dgh9dg555m   1      9s
 
@@ -124,7 +124,7 @@ pod/redis   1/1     Running   0          9s
 
 使用 `kubectl exec` 指令進入 Pod，並運行 `redis-cli` 工具，來驗證配置已正確應用：
 
-```BASH
+```bash
 kubectl exec -it redis -- redis-cli
 127.0.0.1:6379> CONFIG GET maxmemory
 1) "maxmemory"
@@ -136,6 +136,6 @@ kubectl exec -it redis -- redis-cli
 
 最後，刪除創建的 Pod。
 
-```BASH
+```bash
 kubectl delete pod redis
 ```

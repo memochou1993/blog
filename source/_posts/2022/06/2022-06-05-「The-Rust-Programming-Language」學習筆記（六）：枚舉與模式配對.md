@@ -15,7 +15,7 @@ categories: ["程式設計", "Rust", "「The Rust Programming Language」學習�
 
 假設我們要使用 IP 位址，而且現在有兩個主要的標準能使用：IPv4 與 IPv6。我們可以枚舉（enumerate）出所有可能的變體，這正是枚舉的由來。
 
-```RS
+```rs
 enum IpAddrKind {
     V4,
     V6,
@@ -26,27 +26,27 @@ enum IpAddrKind {
 
 注意變體會位於枚舉命名空間底下，所以可以用兩個冒號來標示。這樣的好處在於 `IpAddrKind::V4` 和 `IpAddrKind::V6` 都是同型別 `IpAddrKind`。
 
-```RS
+```rs
 let four = IpAddrKind::V4;
 let six = IpAddrKind::V6;
 ```
 
 比方說，我們就可以定義一個接收任 `IpAddrKind` 的函式。
 
-```RS
+```rs
 fn route(ip_kind: IpAddrKind) {}
 ```
 
 然後可以用任意變體呼叫此函式。
 
-```RS
+```rs
 route(IpAddrKind::V4);
 route(IpAddrKind::V6);
 ```
 
 使用枚舉還有更多好處。這裡定義了一個有兩個欄位的 `IpAddr` 結構體，欄位 `kind` 擁有 `IpAddrKind`。我們用結構體來組織 `kind` 和 `address` 的值在一起，讓變體可以與數值相關。
 
-```RS
+```rs
 enum IpAddrKind {
     V4,
     V6,
@@ -70,7 +70,7 @@ let loopback = IpAddr {
 
 可以用另一種更簡潔的方式來定義枚舉，而不必使用結構體加上枚舉。枚舉內的每個變體其實都能擁有數值。以下方式讓 `IpAddr` 的 `V4` 與 `V6` 都能擁有與其相關的 `String` 數值。另一項枚舉的細節：每一個枚舉變體會變成建構該枚舉的函式。也就是說 `IpAddr::V4()` 是個函式，且接收 `String` 引數並回傳 `IpAddr` 的實例。在定義枚舉時就會自動拿到這樣的建構函式。
 
-```RS
+```rs
 enum IpAddr {
     V4(String),
     V6(String),
@@ -83,7 +83,7 @@ let loopback = IpAddr::V6(String::from("::1"));
 
 使用枚舉而非結構體的話還有另一項好處：每個變體可以擁有不同型別與資料的數量。第四版的 IP 位址永遠只會有四個 `0` 到 `255` 的數字部分，如果我們想要讓 `V4` 儲存四個 `u8`，但 `V6` 位址仍保持 `String` 不變的話，我們在結構體是無法做到的。
 
-```RS
+```rs
 enum IpAddr {
     V4(u8, u8, u8, u8),
     V6(String),
@@ -96,7 +96,7 @@ let loopback = IpAddr::V6(String::from("::1"));
 
 以上展示了許多種定義儲存第四版與第六版 IP 位址資料結構的方式，不過需要儲存 IP 位址並編碼成不同類型的案例實在太常見了，所以標準函式庫已經幫我們定義好了。
 
-```RS
+```rs
 struct Ipv4Addr {
     // ...
 }
@@ -113,7 +113,7 @@ enum IpAddr {
 
 再看另一個枚舉範例，這次的變體有各式各樣的型別。
 
-```RS
+```rs
 enum Message {
     Quit,
     Move { x: i32, y: i32 },
@@ -131,7 +131,7 @@ enum Message {
 
 這樣定義枚舉變體和定義不同類型的結構體很像，只不過枚舉不使用 `struct` 關鍵字，而且所有的變體都會在 `Message` 型別底下。但是如果我們使用不同結構體且各自都有自己的型別的話，我們就無法將 `Message` 視為單一型別，輕鬆在定義函式時接收訊息所有可能的類型。
 
-```RS
+```rs
 struct QuitMessage; // 類單元結構體
 struct MoveMessage {
     x: i32,
@@ -143,7 +143,7 @@ struct ChangeColorMessage(i32, i32, i32); // 元組結構體
 
 枚舉和結構體還有一個地方很像：如同我們可以對結構體使用 `impl` 定義方法，我們也可以對枚舉定義方法。
 
-```RS
+```rs
 impl Message {
     fn call(&self) {
         // 在此定義方法本體
@@ -160,7 +160,7 @@ m.call();
 
 Rust 沒有像其他許多語言都有空值，但是它有一個枚舉可以表達出這樣的概念，也就是一個值可能是存在或不存在的。此枚舉就是 `Option<T>`，它是在標準函式庫中這樣定義的：
 
-```RS
+```rs
 enum Option<T> {
     None,
     Some(T),
@@ -171,7 +171,7 @@ enum Option<T> {
 
 語法 `<T>` 是個泛型型別參數，指的是 `Option` 枚舉中的 `Some` 變體可以是任意型別。而透過 `Option` 數值來持有數字型別和字串型別的話，它們最終會換掉 `Option<T>` 中的 `T`，成為不同的型別。
 
-```RS
+```rs
 let some_number = Some(5);
 let some_string = Some("一個字串");
 
@@ -180,7 +180,7 @@ let absent_number: Option<i32> = None;
 
 因為 `Option<T>` 與 `T`（`T` 可以是任意型別）是不同的型別，編譯器不會允許我們像一般有效的值那樣來使用 `Option<T>`。舉例來說，以下範例是無法編譯的，因為這是將 `i8` 與 `Option<i8>` 相加。
 
-```RS
+```rs
 let x: i8 = 5;
 let y: Option<i8> = Some(5);
 
@@ -189,7 +189,7 @@ let sum = x + y;
 
 會得到以下錯誤訊息：
 
-```BASH
+```bash
 $ cargo run
    Compiling enums v0.1.0 (file:///projects/enums)
 error[E0277]: cannot add `Option<i8>` to `i8`
@@ -205,7 +205,7 @@ Rust 有個功能非常強大的控制流建構子叫做 `match`，我們可以�
 
 可以想像 `match` 表達式成一個硬幣分類機器：硬幣會滑到不同大小的軌道，然後每個硬幣會滑入第一個符合大小的軌道。數值會依序遍歷 `match` 的每個模式，然後進入第一個「配對」到該數值的模式所在的程式碼區塊，並在執行過程中使用。
 
-```RS
+```rs
 enum Coin {
     Penny,
     Nickel,
@@ -225,7 +225,7 @@ fn value_in_cents(coin: Coin) -> u8 {
 
 如果想要在配對分支執行多行程式碼的話，就必須用大括號。
 
-```RS
+```rs
 fn value_in_cents(coin: Coin) -> u8 {
     match coin {
         Coin::Penny => {
@@ -245,7 +245,7 @@ fn value_in_cents(coin: Coin) -> u8 {
 
 舉例來說，讓我們改變其中一個枚舉變體成擁有資料。從 1999 年到 2008 年，美國在鑄造 25 美分硬幣時，其中一側會有 50 個州不同的設計。不過其他的硬幣就沒有這樣的設計，只有 25 美分會有特殊值而已。我們可以改變我們的 `enum` 中的 `Quarter` 變體成儲存 `UsState` 數值。
 
-```RS
+```rs
 #[derive(Debug)] // 這讓我們可以顯示每個州
 enum UsState {
     Alabama,
@@ -265,7 +265,7 @@ enum Coin {
 
 在此程式中的配對表達式中，我們在 `Coin::Quarter` 變體的配對模式中新增了一個變數 `state`。當 `Coin::Quarter` 配對符合時，變數 `state` 會綁定該 25 美分的數值，然後我們就可以在分支程式碼中使用 `state`。
 
-```RS
+```rs
 fn value_in_cents(coin: Coin) -> u8 {
     match coin {
         Coin::Penny => 1,
@@ -287,7 +287,7 @@ fn value_in_cents(coin: Coin) -> u8 {
 
 假設我們要寫個接受 `Option<i32>` 的函式，而且如果內部有值的話就將其加上 `1`。如果內部沒有數值的話，該函式就回傳 `None` 且不再嘗試做任何動作。
 
-```RS
+```rs
 fn plus_one(x: Option<i32>) -> Option<i32> {
     match x {
         None => None,
@@ -304,7 +304,7 @@ let none = plus_one(None);
 
 要是像這樣寫了一個有錯誤的 `plus_one` 函式版本，它會無法編譯：
 
-```RS
+```rs
 fn plus_one(x: Option<i32>) -> Option<i32> {
     match x {
         Some(i) => Some(i + 1),
@@ -314,7 +314,7 @@ fn plus_one(x: Option<i32>) -> Option<i32> {
 
 因為我們沒有處理到 `None` 的情形，所以此程式碼會產生錯誤。幸運的是這是 Rust 能夠抓到的錯誤。當 Rust 防止我們忘記處理 `None` 的情形時，它使我們免於以為擁有一個有效實際上卻是空的值。
 
-```BASH
+```bash
 $ cargo run
    Compiling enums v0.1.0 (file:///projects/enums)
 error[E0004]: non-exhaustive patterns: `None` not covered
@@ -326,7 +326,7 @@ error[E0004]: non-exhaustive patterns: `None` not covered
 
 此程式碼就算我們沒有列完所有 `u8` 可能的數字也能編譯完成，因為最後的模式會配對所有尚未被列出來的數值。最後一個涵蓋其他可能數值的分支，我們用變數 `other` 作為模式。在 `other` 分支執行的程式碼會將該變數傳入函式 `move_player` 中。
 
-```RS
+```rs
 fn main() {
     let dice_roll = 9;
     match dice_roll {
@@ -343,7 +343,7 @@ fn main() {
 
 當我們不想使用 catch-all 模式中的數值時，Rust 還有一種模式能讓我們使用：`_` 這是個特殊模式，用來配對任意數值且不綁定該數值。
 
-```RS
+```rs
 let dice_roll = 9;
 match dice_roll {
     3 => add_fancy_hat(),
@@ -358,7 +358,7 @@ fn reroll() {}
 
 如果我們再改一次遊戲規則，改成如果我們骰到除了 3 與 7 以外，不會有任何事發生的話，我們可以用單元數值作為 `_` 的程式碼：
 
-```RS
+```rs
 let dice_roll = 9;
 match dice_roll {
     3 => add_fancy_hat(),
@@ -376,7 +376,7 @@ fn remove_fancy_hat() {}
 
 現在考慮一支程式如下所示，我們在配對 `config_max` 中 `Option<u8>` 的值，但只想在數值為 `Some` 變體時執行程式。我們必須在只處理一種變體的分支後面，再加上 `_ => ()`，這樣就加了不少樣板程式碼。
 
-```RS
+```rs
 let config_max = Some(3u8);
 match config_max {
     Some(max) => println!("最大值被設為 {}", max),
@@ -386,7 +386,7 @@ match config_max {
 
 我們可以使用 `if let` 以更精簡的方式寫出來。
 
-```RS
+```rs
 let config_max = Some(3u8);
 if let Some(max) = config_max {
     println!("最大值被設為 {}", max);

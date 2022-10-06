@@ -24,7 +24,7 @@ categories: ["程式設計", "Go", "GORM"]
 
 在 `database.go` 檔建立一個 `DB()` 方法，以建立連線並初始化一個 `DB` 實例。
 
-```GO
+```go
 package database
 
 import (
@@ -57,7 +57,7 @@ func DB() *gorm.DB {
 
 在 `model/log.go` 檔定義資料模型。
 
-```GO
+```go
 package model
 
 import (
@@ -83,7 +83,7 @@ type Log struct {
 
 轉換 `big.Int` 型別到 `pgtype.Numeric` 型別。
 
-```GO
+```go
 import (
 	"github.com/jackc/pgtype"
 )
@@ -101,13 +101,13 @@ func ToNumeric(v interface{}) *pgtype.Numeric {
 
 新增多資料。
 
-```GO
+```go
 database.DB().Create(logs)
 ```
 
 批次新增資料。
 
-```GO
+```go
 database.DB().CreateInBatches(logs, 100)
 ```
 
@@ -115,7 +115,7 @@ database.DB().CreateInBatches(logs, 100)
 
 如果需要將 `Numeric` 序列化或反序列化，需要改用 `shopspring-numeric` 包。
 
-```GO
+```go
 package model
 
 import (
@@ -133,7 +133,7 @@ type Log struct {
 
 在 `database.go` 檔建立一個 `Migrate()` 方法，以新增資料表。
 
-```GO
+```go
 func Migrate() {
 	if err := DB().AutoMigrate(
 		&model.Log{},

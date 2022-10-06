@@ -11,7 +11,7 @@ categories: ["環境部署", "Homestead"]
 
 ## 編輯 Homestead.yaml 檔
 
-```YAML
+```yaml
 sites:
     - map: phpmyadmin.test
       to: /home/vagrant/Projects/phpmyadmin
@@ -22,7 +22,7 @@ databases:
 
 重新執行設定檔。
 
-```BASH
+```bash
 vagrant provision
 ```
 

@@ -14,13 +14,13 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 ## 建立專案
 
-```BASH
+```bash
 laravel new foundation
 ```
 
 ## 安裝模組
 
-```BASH
+```bash
 cd foundation
 npm install
 ```
@@ -29,7 +29,7 @@ npm install
 
 編輯 `package.json` 檔，把 `"bootstrap": "^4.0.0"` 改為以下：
 
-```JSON
+```json
 {
     "foundation-sites": "^6.4.4-rc1"
 }
@@ -37,19 +37,19 @@ npm install
 
 更新 `package.json` 檔。
 
-```BASH
+```bash
 npm update
 ```
 
 如果在 Windows 環境沒有反應就執行以下：
 
-```BASH
+```bash
 npm install
 ```
 
 如果在 Homestead 環境需要重建 `node-sass` 模組：
 
-```BASH
+```bash
 npm rebuild node-sass --force --no-bin-links
 ```
 
@@ -58,7 +58,7 @@ npm rebuild node-sass --force --no-bin-links
 1. 把 `node_modules\foundation-sites\scss\settings\_settings.scss` 檔，複製到 `resources\assets\sass` 資料夾，並刪除 `_variables.scss` 檔。
 2. 編輯 `resources/assets/sass/app.scss` 檔，把 `Variables` 和 `Bootstrap` 的部分改為以下：
 
-```SCSS
+```scss
 // Settings
 @import "settings";
 
@@ -68,7 +68,7 @@ npm rebuild node-sass --force --no-bin-links
 
 3. 編輯 `_settings.scss` 檔，把 `@import 'util/util';` 改為以下：
 
-```SCSS
+```scss
 @import "node_modules/foundation-sites/scss/util/util";
 ```
 
@@ -77,7 +77,7 @@ npm rebuild node-sass --force --no-bin-links
 1. 把 `resources/assets/js/bootstrap.js` 檔更名為 `foundation.js`。
 2. 編輯 `foundation.js` 檔，改為以下：
 
-```JS
+```js
 try {
     window.$ = window.jQuery = require('jquery');
 
@@ -97,7 +97,7 @@ require('./foundation');
 
 ## 編譯資源
 
-```BASH
+```bash
 npm run dev
 ```
 

@@ -15,19 +15,19 @@ Laravel 服務容器是管理類別依賴與執行依賴注入的工具。依賴
 
 首先新增一個路由在 `routes/web.php` 檔。
 
-```PHP
+```php
 Route::get('pay', 'OrderController@store');
 ```
 
 新增一個 `OrderController` 控制器。
 
-```BASH
+```bash
 php artisan make:controller OrderController
 ```
 
 新增一個 `app/Billing/PaymentGateway.php` 檔，做為一個付款的閘道器。
 
-```PHP
+```php
 namespace App\Billing;
 
 use Illuminate\Support\Str;
@@ -46,7 +46,7 @@ class PaymentGateway
 
 修改 `OrderController` 控制器：
 
-```PHP
+```php
 namespace App\Http\Controllers;
 
 use App\Billing\PaymentGateway;
@@ -64,7 +64,7 @@ class OrderController extends Controller
 
 結果：
 
-```PHP
+```php
 array:2 [▼
   "amount" => 2500
   "confirmation_number" => "XvS8O4BNLrhz6gUK"
@@ -73,7 +73,7 @@ array:2 [▼
 
 修改 `OrderController` 控制器，將 `PaymentGateway` 閘道器改為依賴注入的方式：
 
-```PHP
+```php
 namespace App\Http\Controllers;
 
 use App\Billing\PaymentGateway;
@@ -89,7 +89,7 @@ class OrderController extends Controller
 
 一樣可以運作：
 
-```PHP
+```php
 array:2 [▼
   "amount" => 2500
   "confirmation_number" => "iB3HK755ZMqo7ob0"
@@ -98,7 +98,7 @@ array:2 [▼
 
 但是如果有參數要放進 `PaymentGateway` 閘道器的建構子，像是：
 
-```PHP
+```php
 namespace App\Billing;
 
 use Illuminate\Support\Str;
@@ -125,7 +125,7 @@ class PaymentGateway
 
 就會出錯，因為我們沒有提供參數給它：
 
-```PHP
+```php
 Illuminate\Contracts\Container\BindingResolutionException
 Unresolvable dependency resolving [Parameter #0 [ <required> string $currency ]] in class App\Billing\PaymentGateway
 ```
@@ -134,7 +134,7 @@ Unresolvable dependency resolving [Parameter #0 [ <required> string $currency ]]
 
 首先透過 `$this->app` 物件屬性來取得整個應用程式容器，並使用 `bind()` 方法註冊一個綁定，傳遞一組希望綁定的類別或介面名稱作為第一個參數，接著第二個參數放入用來回傳類別實例的閉包。
 
-```PHP
+```php
 namespace App\Providers;
 
 use App\Billing\PaymentGateway;
@@ -168,7 +168,7 @@ class AppServiceProvider extends ServiceProvider
 
 結果：
 
-```PHP
+```php
 array:3 [▼
   "amount" => 2500
   "confirmation_number" => "hZL4jafa5sxY942S"
@@ -182,7 +182,7 @@ array:3 [▼
 
 接下來，在 `PaymentGateway` 閘道器建立一個 `setDiscount()` 方法，用來設置折扣金額：
 
-```PHP
+```php
 namespace App\Billing;
 
 use Illuminate\Support\Str;
@@ -217,7 +217,7 @@ class PaymentGateway
 
 新增一個 `app/Order/OrderDetails.php` 檔，用來取得訂單資訊：
 
-```PHP
+```php
 
 namespace App\Order;
 
@@ -246,7 +246,7 @@ class OrderDetails
 
 修改 `OrderController` 控制器，使用 `all()` 方法取得訂單：
 
-```PHP
+```php
 namespace App\Http\Controllers;
 
 use App\Billing\PaymentGateway;
@@ -265,7 +265,7 @@ class OrderController extends Controller
 
 結果：
 
-```PHP
+```php
 array:4 [▼
   "amount" => 2500
   "confirmation_number" => "YuVBGKPIqJMrjIij"
@@ -278,7 +278,7 @@ array:4 [▼
 
 我們需要使用 `singleton()` 方法，將服務提供者所註冊的容器綁定改為單例。被綁定至容器中的類別或介面只會被解析一次，之後的呼叫都會從容器中回傳相同的實例。
 
-```PHP
+```php
 namespace App\Providers;
 
 use App\Billing\PaymentGateway;
@@ -312,7 +312,7 @@ class AppServiceProvider extends ServiceProvider
 
 結果：
 
-```PHP
+```php
 array:4 [▼
   "amount" => 2000
   "confirmation_number" => "F2MFaYLIKFfKl7sD"
@@ -325,7 +325,7 @@ array:4 [▼
 
 由於付款方式可能不只一種，因此新增一個 `app/Billing/PaymentGatewayContract.php` 介面，讓所有的付款方式都去實作：
 
-```PHP
+```php
 namespace App\Billing;
 
 interface PaymentGatewayContract
@@ -338,7 +338,7 @@ interface PaymentGatewayContract
 
 將 `PaymentGateway` 閘道器重新命名為 `BankPaymentGateway` ，並實作 `PaymentGatewayContract` 介面。
 
-```PHP
+```php
 namespace App\Billing;
 
 use Illuminate\Support\Str;
@@ -373,7 +373,7 @@ class BankPaymentGateway implements PaymentGatewayContract
 
 將 `OrderController` 控制器中注入的 `PaymentGateway` 閘道器改為 `PaymentGatewayContract` 介面：
 
-```PHP
+```php
 namespace App\Http\Controllers;
 
 use App\Billing\PaymentGatewayContract;
@@ -392,7 +392,7 @@ class OrderController extends Controller
 
 將 `OrderDetails` 類別中注入的 `PaymentGateway` 閘道器也改為 `PaymentGatewayContract` 介面：
 
-```PHP
+```php
 namespace App\Order;
 
 use App\Billing\PaymentGatewayContract;
@@ -420,7 +420,7 @@ class OrderDetails
 
 修改 `AppServiceProvider` 服務提供者，將原先綁定的 `PaymentGateway` 類別改為 `PaymentGatewayContract` 介面：
 
-```PHP
+```php
 namespace App\Providers;
 
 use App\Billing\BankPaymentGateway;
@@ -455,7 +455,7 @@ class AppServiceProvider extends ServiceProvider
 
 結果：
 
-```PHP
+```php
 array:4 [▼
   "amount" => 2000
   "confirmation_number" => "quDGIkn79T3dHWD1"
@@ -466,7 +466,7 @@ array:4 [▼
 
 接下來，新增一個 `CreditPaymentGateway` 閘道器，一樣也是實作 `PaymentGatewayContract` 介面：
 
-```PHP
+```php
 namespace App\Billing;
 
 use Illuminate\Support\Str;
@@ -504,7 +504,7 @@ class CreditPaymentGateway implements PaymentGatewayContract
 
 如果要變更付款方式，只要在 `AppServiceProvider` 服務提供者將要綁定的實例改為 `CreditPaymentGateway` 閘道器即可。
 
-```PHP
+```php
 namespace App\Providers;
 
 use App\Billing\CreditPaymentGateway;
@@ -539,7 +539,7 @@ class AppServiceProvider extends ServiceProvider
 
 結果：
 
-```PHP
+```php
 array:5 [▼
   "amount" => 2075.0
   "confirmation_number" => "jOM7mLCGYgIPR1B8"
@@ -551,7 +551,7 @@ array:5 [▼
 
 如果要動態切換付款方式，只要將服務提供者修改如下即可：
 
-```PHP
+```php
 namespace App\Providers;
 
 use App\Billing\BankPaymentGateway;
@@ -593,7 +593,7 @@ class AppServiceProvider extends ServiceProvider
 
 前往路由 `pay?payMethod=bank`，結果：
 
-```PHP
+```php
 array:4 [▼
   "amount" => 2000
   "confirmation_number" => "joHVe6Ah19wVZWx5"
@@ -604,7 +604,7 @@ array:4 [▼
 
 前往路由 `pay?payMethod=credit`，結果：
 
-```PHP
+```php
 array:5 [▼
   "amount" => 2075.0
   "confirmation_number" => "s2w2dkTw98XWbkhs"
@@ -618,13 +618,13 @@ array:5 [▼
 
 新增一個獨立的服務提供者來處理付款。
 
-```BASH
+```bash
 php artisan make:provider PaymentServiceProvider
 ```
 
 將原來寫在 `AppServiceProvider` 中的容器綁定移至 `PaymentServiceProvider` 中。
 
-```PHP
+```php
 namespace App\Providers;
 
 use App\Billing\BankPaymentGateway;
@@ -666,7 +666,7 @@ class PaymentServiceProvider extends ServiceProvider
 
 在 `config/app.php` 設定檔中註冊一個服務提供者：
 
-```PHP
+```php
 'providers' => [
 
     // ...
@@ -688,7 +688,7 @@ class PaymentServiceProvider extends ServiceProvider
 
 前往路由 `pay?payMethod=bank`，結果：
 
-```PHP
+```php
 array:4 [▼
   "amount" => 2000
   "confirmation_number" => "joHVe6Ah19wVZWx5"
@@ -699,7 +699,7 @@ array:4 [▼
 
 前往路由 `pay?payMethod=credit`，結果：
 
-```PHP
+```php
 array:5 [▼
   "amount" => 2075.0
   "confirmation_number" => "s2w2dkTw98XWbkhs"

@@ -15,13 +15,13 @@ categories: ["區塊鏈", "Ethereum"]
 
 在 `scripts` 資料夾新增 `interact.js` 檔。
 
-```JS
+```js
 const { API_KEY, PRIVATE_KEY, CONTRACT_ADDRESS } = process.env;
 ```
 
 修改 `.env` 檔。
 
-```ENV
+```env
 API_URL=https://eth-rinkeby.alchemyapi.io/v2/your-api-key
 API_KEY=your-api-key
 PRIVATE_KEY=your-private-key
@@ -30,7 +30,7 @@ CONTRACT_ADDRESS=your-contract-address
 
 引入合約的 ABI（Application Binary Interface），ABI 是被生成用來與合約互動的介面，以下將 ABI 印出來觀察。
 
-```JS
+```js
 const contract = require("../artifacts/contracts/HelloWorld.sol/HelloWorld.json");
 
 console.log(JSON.stringify(contract.abi));
@@ -38,13 +38,13 @@ console.log(JSON.stringify(contract.abi));
 
 執行 `interact.js` 檔。
 
-```BASH
+```bash
 npx hardhat run scripts/interact.js
 ```
 
 輸出結果如下：
 
-```BASH
+```bash
 Compiling 1 file with 0.7.3
 Solidity compilation finished successfully
 [{"inputs":[{"internalType":"string","name":"initMsg","type":"string"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"string","name":"oldStr","type":"string"},{"indexed":false,"internalType":"string","name":"newStr","type":"string"}],"name":"UpdatedMessages","type":"event"},{"inputs":[],"name":"message","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"string","name":"newMsg","type":"string"}],"name":"update","outputs":[],"stateMutability":"nonpayable","type":"function"}]
@@ -52,7 +52,7 @@ Solidity compilation finished successfully
 
 修改 `interact.js` 檔，將智能合約實例化：
 
-```JS
+```js
 const { API_KEY, PRIVATE_KEY, CONTRACT_ADDRESS } = process.env;
 
 const contract = require('../artifacts/contracts/HelloWorld.sol/HelloWorld.json');
@@ -69,7 +69,7 @@ const helloWorldContract = new ethers.Contract(CONTRACT_ADDRESS, contract.abi, s
 
 繼續修改 `interact.js` 檔，呼叫 `message()` 方法以讀取智能合約中的原始訊息。
 
-```JS
+```js
 // ...
 
 async function main() {
@@ -82,19 +82,19 @@ main();
 
 執行 `interact.js` 檔。
 
-```BASH
+```bash
 npx hardhat run scripts/interact.js
 ```
 
 輸出結果如下：
 
-```BASH
+```bash
 The message is: Hello World!
 ```
 
 修改 `interact.js` 檔，呼叫 `update()` 方法以更新智能合約中的原始訊息。
 
-```JS
+```js
 async function main() {
   const message = await helloWorldContract.message();
   console.log('The message is:', message);
@@ -112,7 +112,7 @@ main();
 
 輸出結果如下：
 
-```BASH
+```bash
 The message is: Hello World!
 Updating the message...
 The new message is: This is the new message.

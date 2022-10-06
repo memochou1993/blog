@@ -18,14 +18,14 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 新增 `PostController` 和 `index` 視圖。
 
-```BASH
+```bash
 php artisan make:controller PostController
 touch resources/views/post/index.blade.php
 ```
 
 在 `PostController` 加入 `index()` 方法。
 
-```PHP
+```php
 public function index()
 {
     $posts = [];
@@ -35,7 +35,7 @@ public function index()
 
 新增 `tests/Feature/PostControllerTest.php` 測試類別。
 
-```PHP
+```php
 public function testPostList()
 {
     // 用 GET 方法瀏覽網址
@@ -51,7 +51,7 @@ public function testPostList()
 
 執行測試。
 
-```BASH
+```bash
 phpunit # 失敗
 ```
 
@@ -59,13 +59,13 @@ phpunit # 失敗
 
 新增一個資源路由。
 
-```PHP
+```php
 Route::resource('posts', 'PostController');
 ```
 
 執行測試。
 
-```BASH
+```bash
 phpunit // 成功
 ```
 
@@ -73,13 +73,13 @@ phpunit // 成功
 
 調用 `PostRepository` 資源庫。
 
-```PHP
+```php
 use App\Repositories\PostRepository;
 ```
 
 透過建構子注入依賴。
 
-```PHP
+```php
 protected $repository;
 
 public function __construct(PostRepository $repository)
@@ -90,7 +90,7 @@ public function __construct(PostRepository $repository)
 
 修改 `index()` 方法為：
 
-```PHP
+```php
 public function index()
 {
     $posts = $this->repository->latestPost();
@@ -101,7 +101,7 @@ public function index()
 
 執行測試。
 
-```BASH
+```bash
 phpunit // 失敗
 ```
 
@@ -109,7 +109,7 @@ phpunit // 失敗
 
 安裝 `Mockery` 套件。
 
-```BASH
+```bash
 composer require mockery/mockery --dev
 ```
 
@@ -120,13 +120,13 @@ composer require mockery/mockery --dev
 
 在 `PostControllerTest` 調用 `Mockery。`
 
-```PHP
+```php
 use Mockery;
 ```
 
 新增 `setUp()` 方法以開始測試。
 
-```PHP
+```php
 protected $repositoryMock = null;
 
 public function setUp()
@@ -143,7 +143,7 @@ public function setUp()
 
 修改 `testPostList()` 方法為以下：
 
-```PHP
+```php
 public function testPostList()
 {
     $this->repositoryMock
@@ -164,7 +164,7 @@ public function testPostList()
 
 新增 `tearDown()` 方法以結束測試。
 
-```PHP
+```php
 public function tearDown()
 {
     // 清除被 mock 的假物件
@@ -174,13 +174,13 @@ public function tearDown()
 
 執行測試。
 
-```BASH
+```bash
 phpunit # 成功
 ```
 
 新增 `testCreatePostSuccess()` 方法以測試新增文章。
 
-```PHP
+```php
 public function testCreatePostSuccess()
 {
     // 會呼叫到 PostRepository::create
@@ -204,13 +204,13 @@ public function testCreatePostSuccess()
 
 執行測試。
 
-```BASH
+```bash
 phpunit # 失敗
 ```
 
 回到 `PostController` 新增 `store` 方法以儲存資料並導向 `/posts` 網址。
 
-```PHP
+```php
 public function store(Request $request)
 {
     $this->repository->create($request->all());
@@ -221,7 +221,7 @@ public function store(Request $request)
 
 執行測試。
 
-```BASH
+```bash
 phpunit # 成功
 ```
 

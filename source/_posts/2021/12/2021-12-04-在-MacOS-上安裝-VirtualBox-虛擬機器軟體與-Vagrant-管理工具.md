@@ -20,12 +20,12 @@ VirtualBox 是一套由 Oracle 所開發的 VM 軟體，VirtualBox 可以在電�
 
 Vagrant 是一個虛擬機器管理工具，可以使用 `brew` 安裝。
 
-```BASH
+```bash
 brew install vagrant
 ```
 
 確認版本。
 
-```BASH
+```bash
 vagrant -v
 ```

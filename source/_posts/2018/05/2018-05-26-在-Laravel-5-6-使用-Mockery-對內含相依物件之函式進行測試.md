@@ -18,7 +18,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 在資源庫新增一個 `getAllPackages()` 方法，以取得資料庫的所有 Packages。
 
-```PHP
+```php
 namespace App\Repositories;
 
 use App\Contracts\PackageInterface;
@@ -46,7 +46,7 @@ class PackageRepository implements PackageInterface
 
 在 `PackageController` 新增 `getAllPackages()` 方法。
 
-```PHP
+```php
 namespace App\Http\Controllers;
 
 use App\Contracts\PackageInterface;
@@ -73,7 +73,7 @@ class PackageController extends Controller
 
 編輯 `tests\TestCase.php` 檔。
 
-```PHP
+```php
 namespace Tests;
 
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
@@ -98,7 +98,7 @@ abstract class TestCase extends BaseTestCase
 
 在 `tests\Feature` 新增 `PackageControllerTest.php` 檔。
 
-```PHP
+```php
 namespace Tests\Feature;
 
 use Tests\TestCase;

@@ -24,7 +24,7 @@ Secret 是一種包含少量敏感訊息例如密碼、令牌或密鑰的物件�
 
 以下使用 kind 的環境。
 
-```BASH
+```bash
 cd vagrant/kind
 vagrant up
 vagrant ssh
@@ -32,13 +32,13 @@ vagrant ssh
 
 首先，查看範例資料夾中的 ConfigMap 配置檔。
 
-```BASH
+```bash
 cat introduction/storage/secret/secret.yaml
 ```
 
 配置檔如下：
 
-```YAML
+```yaml
 apiVersion: v1
 kind: Secret
 metadata:
@@ -54,25 +54,25 @@ stringData:
 
 使用配置檔創建 Secret 資源。
 
-```BASH
+```bash
 kubectl apply -f introduction/storage/secret/secret.yaml
 ```
 
 查看 Secret 列表。
 
-```BASH
+```bash
 kubectl get secrets -o yaml
 ```
 
 為了更好閱讀 Secret 的值，可以安裝名為 `view-secret` 的套件。
 
-```BASH
+```bash
 kubectl krew install view-secret
 ```
 
 使用 `view-secret` 套件列出所有解碼後的 Secret 值。
 
-```BASH
+```bash
 kubectl view-secret secret-test -a
 ```
 
@@ -80,13 +80,13 @@ kubectl view-secret secret-test -a
 
 查看範例資料夾中的 Deployment 配置檔，這是使用 Volume 的方式使用 Secret。
 
-```BASH
+```bash
 cat introduction/storage/secret/pod-vol.yaml
 ```
 
 配置檔如下：
 
-```YAML
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -115,26 +115,26 @@ spec:
 
 使用配置檔創建 Deployment 資源。
 
-```BASH
+```bash
 kubectl apply -f introduction/storage/secret/pod-vol.yaml
 ```
 
 進到 Pod 中。
 
-```BASH
+```bash
 kubectl exec -it secret-vol-57fbbbd9f8-dj7v6 -- bash
 ```
 
 列出所有的 key 檔案。
 
-```BASH
+```bash
 ls /tmp/config/
 key  key.new  version.data.new  version.date
 ```
 
 印出其中一個檔案。
 
-```BASH
+```bash
 cat /tmp/config/version.date
 202020202
 ```
@@ -143,13 +143,13 @@ cat /tmp/config/version.date
 
 查看範例資料夾中的 Deployment 配置檔，這是使用 Env 的方式使用 Secret。
 
-```BASH
+```bash
 cat introduction/storage/secret/pod-env.yaml
 ```
 
 配置檔如下：
 
-```YAML
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -182,25 +182,25 @@ spec:
 
 使用配置檔創建 Deployment 資源。
 
-```BASH
+```bash
 kubectl apply -f introduction/storage/secret/pod-env.yaml
 ```
 
 進到 Pod 中。
 
-```BASH
+```bash
 kubectl exec -it secret-env-75d8b6f85b-qgqwb -- bash
 ```
 
 列出所有的環境變數。
 
-```BASH
+```bash
 env
 ```
 
 印出其中一個環境變數。
 
-```BASH
+```bash
 env | grep -i version
 version=202020202
 ```
@@ -213,21 +213,21 @@ version=202020202
 
 使用 `base64` 指令可以為文字進行 base64 格式的編碼。
 
-```BASH
+```bash
 echo "hello" | base64
 aGVsbG8K
 ```
 
 在 `echo` 指令使用 `-n` 參數，避免產生換行符號。
 
-```BASH
+```bash
 echo -n "hello" | base64
 aGVsbG8=
 ```
 
 在 `base64` 指令使用 `-d` 參數，可以進行 base64 格式的解碼。
 
-```BASH
+```bash
 echo -n "aGVsbG8=" | base64 -d
 hello
 ```

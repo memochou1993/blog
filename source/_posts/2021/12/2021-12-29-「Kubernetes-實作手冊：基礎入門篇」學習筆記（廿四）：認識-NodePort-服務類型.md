@@ -17,7 +17,7 @@ Kubernetes 的 Service 有不同的類型，選擇 `NodePort` 時，通過每個
 
 以下使用 kind 的環境。
 
-```BASH
+```bash
 cd vagrant/kind
 vagrant up
 vagrant ssh
@@ -25,13 +25,13 @@ vagrant ssh
 
 首先，查看範例資料夾中的 Deployment 配置檔。
 
-```BASH
+```bash
 cat introduction/service/nodePort/hello.yml
 ```
 
 配置檔如下：
 
-```YAML
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -73,13 +73,13 @@ spec:
 
 查看範例資料夾中的 Service 配置檔。
 
-```BASH
+```bash
 cat introduction/service/nodePort/service.yml
 ```
 
 配置檔如下：
 
-```YAML
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -95,31 +95,31 @@ spec:
 
 使用配置檔創建 Deployment 和 Service 資源。
 
-```BASH
+```bash
 kubectl apply -R -f introduction/service/nodePort
 ```
 
 透過選擇器查看 Pod 列表。
 
-```BASH
+```bash
 kubectl get pods -l app=hello-kubernetes -o wide
 ```
 
 查看 Service 列表。
 
-```BASH
+```bash
 kubectl get svc
 ```
 
 查看名為 `nodeport-demo` 的 Service 資源。
 
-```BASH
+```bash
 kubectl describe svc nodeport-demo
 ```
 
 結果如下，可以看到 NodePort 的埠號：
 
-```BASH
+```bash
 Name:                     nodeport-demo
 Namespace:                default
 Labels:                   <none>
@@ -140,19 +140,19 @@ Events:                   <none>
 
 進到名為 `client` 的 Pod 中。
 
-```BASH
+```bash
 kubectl exec -it client-67674d5464-k447k -- bash
 ```
 
 嘗試透過 Cluster IP 去存取服務。
 
-```BASH
+```bash
 curl 10.96.226.2
 ```
 
 顯示結果如下，代表可以從 Pod 中存取服務。
 
-```HTML
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -190,19 +190,19 @@ curl 10.96.226.2
 
 查看名為 `kind-worker` 的 Container 的 IP 位址。
 
-```BASH
+```bash
 docker exec -it kind-worker ip addr
 ```
 
 回到虛擬機，嘗試透過 Node 的 IP 位址和 NodePort 的埠號去存取服務。
 
-```BASH
+```bash
 curl 172.17.0.2:30466
 ```
 
 顯示結果如下，代表可以透過 Node 存取服務。
 
-```HTML
+```html
 <!DOCTYPE html>
 <html>
 <head>

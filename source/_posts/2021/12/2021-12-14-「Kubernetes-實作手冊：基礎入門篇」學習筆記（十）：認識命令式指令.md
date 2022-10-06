@@ -27,19 +27,19 @@ categories: ["環境部署", "Kubernetes", "「Kubernetes 實作手冊：基礎�
 
 例如使用 `kubectl create` 指令，指定一個 YAML 檔，並創建資源。
 
-```BASH
+```bash
 kubectl create -f introduction/pod/basic.yaml
 ```
 
 例如使用 `kubectl delete` 指令，指定一個 YAML 檔，並刪除資源。
 
-```BASH
+```bash
 kubectl delete -f introduction/pod/basic.yaml
 ```
 
 以下是一個描述 Pod 的 YAML 範例檔，詳細的欄位需要參考官方文件。
 
-```YAML
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -54,19 +54,19 @@ spec:
 
 以下透過指定配置檔的方式，創建一個 Pod。
 
-```BASH
+```bash
 kubectl create -f introduction/pod/basic.yaml
 ```
 
 使用 `kubectl edit` 指令，可以編輯一個 Pod。但是能修改的欄位有限，例如 image 名稱可以被修改。
 
-```BASH
+```bash
 kubectl edit pod myapp-pod
 ```
 
 使用 `kubectl replace` 指令，可以進行覆蓋。但是使用上並不方便，因為需要先輸出由 Kubernetes 補齊的完整欄位的 YAML 檔，修改後才能再進行覆蓋，否則會缺少一些重要欄位而覆蓋失敗。例如：
 
-```BASH
+```bash
 kubectl get pod myapp-pod -o yaml > new.yaml
 vim new.yaml
 kubectl replace -f new.yaml
@@ -74,7 +74,7 @@ kubectl replace -f new.yaml
 
 最後，指定配置檔並刪除此 Pod。
 
-```BASH
+```bash
 kubectl delete -f introduction/pod/basic.yaml
 ```
 

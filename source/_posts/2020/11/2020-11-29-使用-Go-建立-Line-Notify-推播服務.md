@@ -21,7 +21,7 @@ categories: ["程式設計", "Go", "其他"]
 
 主程式如下：
 
-```GO
+```go
 package main
 
 import (
@@ -130,7 +130,7 @@ func authHandler(w http.ResponseWriter, r *http.Request) {
 
 新增 `.env` 檔：
 
-```ENV
+```env
 APP_PORT=
 CLIENT_ID=
 CLIENT_SECRET=
@@ -146,7 +146,7 @@ CALLBACK_URL=
 
 由於 Access Token 是存在記憶體中，因此在授權後要馬上進行測試。
 
-```BASH
+```bash
 curl https://line-notify.xxx.com/notify\?message\=test
 ```
 
@@ -154,7 +154,7 @@ curl https://line-notify.xxx.com/notify\?message\=test
 
 若使用個人存取權杖，不須登錄網站服務，即可設定通知。
 
-```BASH
+```bash
 curl -H "Authorization: Bearer xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" -d "message=Hello World" https://notify-api.line.me/api/notify
 ```
 

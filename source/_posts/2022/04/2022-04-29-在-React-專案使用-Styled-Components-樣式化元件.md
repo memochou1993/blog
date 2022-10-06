@@ -9,7 +9,7 @@ categories: ["程式設計", "JavaScript", "React"]
 
 建立一個帶有樣式的元件。
 
-```JS
+```js
 const Button = styled.a`
   /* This renders the buttons above... Edit me! */
   display: inline-block;
@@ -49,7 +49,7 @@ render(
 
 建立一個複寫樣式的元件。
 
-```JS
+```js
 const Button = styled.button`
   color: palevioletred;
   font-size: 1em;
@@ -74,7 +74,7 @@ render(
 
 樣式化一個既有的元件。
 
-```JS
+```js
 const Link = ({ className, children }) => (
   <a className={className}>
     {children}

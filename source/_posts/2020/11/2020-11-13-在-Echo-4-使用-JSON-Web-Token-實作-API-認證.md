@@ -7,7 +7,7 @@ categories: ["程式設計", "Go", "Echo"]
 
 ## 做法
 
-```GO
+```go
 package token
 
 import (

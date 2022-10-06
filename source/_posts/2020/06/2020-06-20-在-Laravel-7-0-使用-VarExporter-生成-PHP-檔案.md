@@ -15,7 +15,7 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 單純輸出一個陣列。
 
-```PHP
+```php
 use Symfony\Component\VarExporter\VarExporter;
 
 $data = VarExporter::export([
@@ -27,7 +27,7 @@ dd($data);
 
 輸出結果：
 
-```PHP
+```php
 """
 [\n
     'foo' => 'bar',\n
@@ -39,7 +39,7 @@ dd($data);
 
 生成一個 PHP 檔案。
 
-```PHP
+```php
 use Symfony\Component\VarExporter\VarExporter;
 
 $data = vsprintf('%s%s%s%s%s%s%s', [
@@ -61,7 +61,7 @@ file_put_contents($path, $data);
 
 匯出結果：
 
-```PHP
+```php
 <?php
 
 return [

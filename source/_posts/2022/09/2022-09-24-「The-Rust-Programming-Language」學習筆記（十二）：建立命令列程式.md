@@ -19,14 +19,14 @@ Rust 的速度、安全、單一二進制輸出與跨平台支援使其成為建
 
 建立專案。
 
-```BASH
+```bash
 cargo new minigrep
 cd minigrep
 ```
 
 第一項任務是要讓 `minigrep` 能接收兩個命令列引數：檔案名稱與欲搜尋的字串。如以下所示：
 
-```BASH
+```bash
 cargo run searchstring example-filename.txt
 ```
 
@@ -34,7 +34,7 @@ cargo run searchstring example-filename.txt
 
 要讓 `minigrep` 能夠讀取傳入的命令列引數數值，需要使用 Rust 標準函式庫中提供的函式，也就是 `std::env::args`。此函式會回傳一個包含我們傳給 `minigrep` 的命令列引數的疊代器（iterator）。現在只需要知道疊代器的兩項重點：疊代器會產生一系列的數值，然後我們可以對疊代器呼叫 `collect` 方法來將其轉換成像是向量的集合，來包含疊代器產生的所有元素。
 
-```RS
+```rs
 use std::env;
 
 fn main() {
@@ -49,7 +49,7 @@ fn main() {
 
 最後，我們使用除錯格式 `:?` 來顯示向量。
 
-```BASH
+```bash
 cargo run needle haystack
     Finished dev [unoptimized + debuginfo] target(s) in 0.00s
      Running `target/debug/minigrep needle haystack`
@@ -62,7 +62,7 @@ cargo run needle haystack
 
 顯示向量中的引數數值能說明程式能夠取得命令列引數指定的數值。現在我們想要將這兩個引數存入變數中。
 
-```RS
+```rs
 use std::env;
 
 fn main() {
@@ -78,7 +78,7 @@ fn main() {
 
 我們暫時印出這些變數的數值來證明程式碼運作無誤。
 
-```BASH
+```bash
 cargo run test sample.txt
    Compiling minigrep v0.1.0 (file:///projects/minigrep)
     Finished dev [unoptimized + debuginfo] target(s) in 0.0s
@@ -91,7 +91,7 @@ cargo run test sample.txt
 
 新增 `poem.txt` 檔。
 
-```TXT
+```txt
 I'm nobody! Who are you?
 Are you nobody, too?
 Then there's a pair of us - don't tell!
@@ -105,7 +105,7 @@ To an admiring bog!
 
 修改 `main.rs` 檔。
 
-```RS
+```rs
 use std::env;
 use std::fs;
 
@@ -126,7 +126,7 @@ fn main() {
 
 在陳述式之後，我們再次加上暫時的 `println!` 陳述式來在讀取檔案之後，顯示 `contents` 的數值，讓我們能檢查程式目前運作無誤。
 
-```BASH
+```bash
 cargo run the poem.txt
    Compiling minigrep v0.1.0 (file:///projects/minigrep)
     Finished dev [unoptimized + debuginfo] target(s) in 0.0s
@@ -168,7 +168,7 @@ To an admiring bog!
 
 新的 `main` 會呼叫新的函式 `parse_config`，而此函式我們先暫時留在 `src/main.rs`。
 
-```RS
+```rs
 use std::env;
 use std::fs;
 
@@ -193,7 +193,7 @@ fn parse_config(args: &Vec<String>) -> (&str, &str) {
 
 我們可以用許多不同的方式來管理 `String` 的資料，但最簡單（卻較不有效率）的方式是對數值呼叫 `clone` 方法。這會複製整個資料讓 `Config` 能夠擁有，這會比引用字串資料還要花時間與記憶體。然而克隆資料讓我們的程式碼比較直白，因為在此情況下我們就不需要管理引用的生命週期，犧牲一點效能以換取簡潔性是值得的。
 
-```RS
+```rs
 use std::env;
 use std::fs;
 
@@ -226,7 +226,7 @@ fn parse_config(args: &Vec<String>) -> Config {
 
 現在 `parse_config` 函式的目的是要建立 `Config` 實例，我們可以將 `parse_config` 從普通的函式變成與 `Config` 結構體相關連的 `new` 函式。這樣做能讓程式碼更符合慣例。我們可以對像是 `String` 等標準函式庫中的型別呼叫 `String::new` 來建立實例。同樣地，透過將 `parse_config` 改為 `Config` 的關聯函式 `new`，我們可以透過呼叫 `Config::new` 來建立 `Config` 的實例。
 
-```RS
+```rs
 fn main() {
     let args: Vec<String> = env::args().collect();
 
@@ -252,7 +252,7 @@ impl Config {
 
 在 `new` 函式加上了一項檢查來驗證 `slice` 是否夠長，接著才會取得索引 `1` 和 `2`。如果 `slice` 不夠長的話，程式就會恐慌。
 
-```RS
+```rs
 fn new(args: &[String]) -> Config {
     if args.len() < 3 {
         panic!("引數不足");
@@ -265,7 +265,7 @@ fn new(args: &[String]) -> Config {
 
 我們可以回傳 `Result` 數值，在成功時包含 `Config` 的實例並在錯誤時描述問題原因。當 `Config::new` 與 `main` 溝通時，我們可以使用 `Result` 型別來表達這裡有問題發生。然後我們改變 `main` 來將 `Err` 變體轉換成適當的錯誤訊息給使用者，而不是像呼叫 `panic!` 時出現圍繞著 `thread 'main'` 與 `RUST_BACKTRACE` 的文字。
 
-```RS
+```rs
 impl Config {
     fn new(args: &Vec<String>) -> Result<Config, &'static str> {
         if args.len() < 3 {
@@ -288,7 +288,7 @@ impl Config {
 
 為了能處理錯誤情形並印出對使用者友善的訊息，我們需要更新 `main` 來處理 `Config::new` 回傳的 `Result`。我們還要負責用一個非零的錯誤碼來離開命令列工具，這原先是 `panic!` 會處理的，現在我們得自己實作。非零退出狀態是個常見信號，用來告訴呼叫程式的程序，該程式離開時有個錯誤狀態。
 
-```RS
+```rs
 use std::process;
 
 fn main() {
@@ -307,7 +307,7 @@ fn main() {
 
 還新增了一行 `use` 來將標準函式庫中的 `process` 引入作用域。在錯誤情形下要執行的閉包程式碼只有兩行：我們印出 `err` 數值並呼叫 `process::exit`。`process::exit` 函式會立即停止程式並回傳給予的數字來作為退出狀態碼。
 
-```BASH
+```bash
 cargo run
    Compiling minigrep v0.1.0 (file:///projects/minigrep)
     Finished dev [unoptimized + debuginfo] target(s) in 0.48s
@@ -319,7 +319,7 @@ cargo run
 
 修改 `src/main.rs` 檔。
 
-```RS
+```rs
 fn main() {
     // ...
 
@@ -341,7 +341,7 @@ fn run(config: Config) {
 
 可以像 `Config::new` 一樣來改善錯誤處理。不同於讓程式呼叫 `expect` 來恐慌，當有問題發生時，`run` 函式會回傳 `Result<T, E>`。
 
-```RS
+```rs
 use std::error::Error;
 
 fn run(config: Config) -> Result<(), Box<dyn Error>> {
@@ -363,7 +363,7 @@ fn run(config: Config) -> Result<(), Box<dyn Error>> {
 
 修改 `src/main.rs` 檔。
 
-```RS
+```rs
 fn main() {
     // ...
 
@@ -386,7 +386,7 @@ fn main() {
 
 新增 `src/lib.rs` 檔。
 
-```RS
+```rs
 use std::error::Error;
 use std::fs;
 
@@ -419,7 +419,7 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
 
 現在將移至 `src/lib.rs` 的程式碼引入二進制 `crate` 的 `src/main.rs` 作用域中。
 
-```RS
+```rs
 use minigrep::Config;
 use std::env;
 use std::process;
@@ -458,7 +458,7 @@ fn main() {
 
 修改 `src/lib.rs` 檔。
 
-```RS
+```rs
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -480,7 +480,7 @@ Pick three.";
 
 我們還無法執行此程式並觀察其失敗，因為測試還無法編譯，`search` 函式根本還不存在！所以現在我們要加上足夠的程式碼讓測試可以編譯並執行，而我們要加上的是 `search` 函式的定義並永遠回傳一個空的向量，如下所示。
 
-```RS
+```rs
 pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
     vec![]
 }
@@ -506,7 +506,7 @@ pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
 
 Rust 有個實用的方法能逐步處理字串的每一行，這方法就叫 `lines`，`lines` 方法會回傳疊代器（iterator）。
 
-```RS
+```rs
 pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
     for line in contents.lines() {
         // ...
@@ -518,7 +518,7 @@ pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
 
 我們要檢查目前的行是否有包含我們要搜尋的字串。幸運的是，字串有個好用的方法叫做 `contains` 能幫我處理這件事。
 
-```RS
+```rs
 pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
     for line in contents.lines() {
         if line.contains(query) {
@@ -532,7 +532,7 @@ pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
 
 需要有個方式能儲存包含搜尋字串的行。為此我們可以在 `for` 迴圈前建立一個可變向量然後對向量呼叫 `push` 方法來儲存 `line`。在 `for` 迴圈之後，我們回傳向量。
 
-```RS
+```rs
 pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
     let mut results = Vec::new();
 
@@ -548,7 +548,7 @@ pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
 
 現在 `search` 函式應該只會回傳包含 `query` 的行，而測試也該通過。
 
-```BASH
+```bash
 cargo test
 ```
 
@@ -556,7 +556,7 @@ cargo test
 
 修改 `src/lib.rs` 檔。
 
-```RS
+```rs
 pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
     let contents = fs::read_to_string(config.filename)?;
 
@@ -570,7 +570,7 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
 
 執行程式。
 
-```BASH
+```bash
 cargo run frog poem.txt
    Compiling minigrep v0.1.0 (file:///projects/minigrep)
     Finished dev [unoptimized + debuginfo] target(s) in 0.38s
@@ -580,7 +580,7 @@ How public, like a frog
 
 最後，讓我們確保使用詩中沒出現的單字來搜尋時，我們不會得到任何一行，像是「monomorphization」：
 
-```BASH
+```bash
 cargo run monomorphization poem.txt
    Compiling minigrep v0.1.0 (file:///projects/minigrep)
     Finished dev [unoptimized + debuginfo] target(s) in 0.0s
@@ -595,7 +595,7 @@ cargo run monomorphization poem.txt
 
 新增一個 `search_case_insensitive` 函式在環境變數啟用時呼叫它。並將舊測試從 `one_result` 改名為 `case_sensitive` 以便清楚兩個測試的差別。
 
-```RS
+```rs
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -631,7 +631,7 @@ Trust me.";
 
 執行測試。
 
-```BASH
+```bash
 cargo test
 ```
 
@@ -639,7 +639,7 @@ cargo test
 
 與 `search` 函式幾乎一樣。唯一的不同在於我們將 `query` 與每個 `line` 都變成小寫，所以無論輸入引數是大寫還是小寫，當我們在檢查行是否包含搜尋的字串時，它們都會是小寫。
 
-```RS
+```rs
 pub fn search_case_insensitive<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
     let query = query.to_lowercase();
     let mut results = Vec::new();
@@ -660,13 +660,13 @@ pub fn search_case_insensitive<'a>(query: &str, contents: &'a str) -> Vec<&'a st
 
 執行測試。
 
-```BASH
+```bash
 cargo test
 ```
 
 現在讓我們從 `run` 函式呼叫新的 `search_case_insensitive` 函式。首先，我們要在 `Config` 中新增一個配置選項來切換區分大小寫與不區分大小寫之間的搜尋。
 
-```RS
+```rs
 pub struct Config {
     pub query: String,
     pub filename: String,
@@ -676,7 +676,7 @@ pub struct Config {
 
 接著，我們需要 `run` 函式檢查 `case_sensitive` 欄位的數值，並以此決定要呼叫 `search` 函式或是 `search_case_insensitive` 函式。
 
-```RS
+```rs
 pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
     let contents = fs::read_to_string(config.filename)?;
 
@@ -696,7 +696,7 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
 
 最後，我們需要檢查環境變數。處理環境變數的函式位於標準函式庫中的 `env` 模組中，所以我們可以在 `src/lib.rs` 檔最上方加上 `use std::env;` 來將該模組引入作用域。然後我們使用 `env` 模組中的 `var` 函式來檢查一個叫做 `CASE_INSENSITIVE` 的環境變數。
 
-```RS
+```rs
 use std::env;
 // ...
 
@@ -724,7 +724,7 @@ impl Config {
 
 首先，我們先不設置環境變數並執行程式來搜尋「to」，任何包含小寫單字「to」的行都應要符合。
 
-```BASH
+```bash
 cargo run to poem.txt
    Compiling minigrep v0.1.0 (file:///projects/minigrep)
     Finished dev [unoptimized + debuginfo] target(s) in 0.0s
@@ -735,7 +735,7 @@ How dreary to be somebody!
 
 現在，設置 `CASE_INSENSITIVE` 為 `1`，並執行程式來搜尋相同的字串「to」。
 
-```BASH
+```bash
 CASE_INSENSITIVE=1 cargo run to poem.txt
     Finished dev [unoptimized + debuginfo] target(s) in 0.0s
      Running `target/debug/minigrep to poem.txt`
@@ -759,13 +759,13 @@ To an admiring bog!
 
 要觀察此行為的方式是透過 `>` 來執行程式並加上檔案名稱 `output.txt`，這是我們要重新導向標準輸出到的地方。我們不會傳遞任何引數，這樣就應該會造成錯誤：
 
-```BASH
+```bash
 cargo run > output.txt
 ```
 
 透過 `>` 語法告訴 shell 要將標準輸出的內容寫入 `output.txt` 而不是顯示在螢幕上。但沒有看到應顯示在螢幕上的錯誤訊息，這代表它一定跑到檔案中了。
 
-```TXT
+```txt
 解析引數時出現問題：引數不足
 ```
 
@@ -775,7 +775,7 @@ cargo run > output.txt
 
 標準函式庫有提供 `eprintln!` 巨集來印到標準錯誤，所以讓我們變更兩個原本呼叫 println! 來印出錯誤的段落來改使用 `eprintln!`。
 
-```RS
+```rs
 fn main() {
     let args: Vec<String> = env::args().collect();
 
@@ -794,7 +794,7 @@ fn main() {
 
 以相同方式再執行程式一次。
 
-```BASH
+```bash
 cargo run > output.txt
 解析引數時出現問題：引數不足
 ```
@@ -803,13 +803,13 @@ cargo run > output.txt
 
 讓我們加上不會產生錯誤的引數來執行程式，並仍重新導向標準輸出至檔案中。
 
-```BASH
+```bash
 cargo run to poem.txt > output.txt
 ```
 
 在終端機不會看到任何輸出，而 `output.txt` 會包含我們的結果。
 
-```TXT
+```txt
 Are you nobody, too?
 How dreary to be somebody!
 ```

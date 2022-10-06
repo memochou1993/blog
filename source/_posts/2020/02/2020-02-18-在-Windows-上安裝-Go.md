@@ -17,7 +17,7 @@ categories: ["程式設計", "Go", "環境安裝"]
 
 配置 Go 專案的目錄結構如下：
 
-```BASH
+```bash
 |- Workspace/
   |- go/
     |- bin/
@@ -30,7 +30,7 @@ categories: ["程式設計", "Go", "環境安裝"]
 
 設定 Cmder 終端機的環境變數：
 
-```BASH
+```bash
 set PATH=%ConEmuBaseDir%\Scripts;%PATH%;C:\Users\<USER>\AppData\Roaming\go\bin;
 set GOPATH=C:\Users\<USER>\Workspace\go
 set GO111MODULE=on
@@ -40,13 +40,13 @@ set GO111MODULE=on
 
 確認 Go 的版本：
 
-```BASH
+```bash
 go version
 ```
 
 查看 Go 的環境變數：
 
-```BASH
+```bash
 go env
 ```
 
@@ -54,7 +54,7 @@ go env
 
 修改 `settings.json` 檔：
 
-```JSON
+```json
 {
     "go.goroot": "C:\\Users\\<USER>\\AppData\\Roaming\\go",
     "go.gopath": "C:\\Users\\<USER>\\Workspace\\go"

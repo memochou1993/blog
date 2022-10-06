@@ -9,13 +9,13 @@ categories: ["程式設計", "PHP", "Laravel"]
 
 安裝 `darkaonline/l5-swagger` 套件。
 
-```BASH
+```bash
 composer require "darkaonline/l5-swagger"
 ```
 
 將 `L5SwaggerServiceProvider` 加至 `config/app.php` 檔中。
 
-```PHP
+```php
 /*
  * Package Service Providers...
  */
@@ -24,13 +24,13 @@ L5Swagger\L5SwaggerServiceProvider::class,
 
 發布相關檔案。
 
-```BASH
+```bash
 php artisan vendor:publish --provider "L5Swagger\L5SwaggerServiceProvider"
 ```
 
 如果需要認證，可以修改 `config/l5-swagger.php` 檔中 `securitySchemes` 參數，將 `sanctum` 取消註解，或者加上其他驗證方式。
 
-```PHP
+```php
 [
     'securitySchemes' => [
         'sanctum' => [
@@ -45,7 +45,7 @@ php artisan vendor:publish --provider "L5Swagger\L5SwaggerServiceProvider"
 
 在 `Controller.php` 中加入註解。
 
-```PHP
+```php
 /**
  * @OA\Info(
  *     version="1.0",
@@ -60,7 +60,7 @@ class Controller extends BaseController
 
 以 `ArticleController` 為例，在各個方法中加入註解。
 
-```PHP
+```php
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ArticleStoreRequest;
@@ -241,11 +241,11 @@ class ArticleController extends Controller
 
 產生文件。
 
-```BASH
+```bash
 php artisan l5-swagger:generate
 ```
 
-前往：<http://localhost:8000/api/documentation>
+前往 <http://localhost:8000/api/documentation> 瀏覽。
 
 ## 參考資料
 
