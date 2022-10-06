@@ -610,8 +610,82 @@ fn using_other_iterator_trait_methods() {
 
 ## 改善命令列程式
 
+### 使用疊代器移除 `clone`
+
+有了新學到的疊代器，我們可以改變 `new` 函式來取得疊代器的所有權來作為引數，而非借用切片。我們會來使用疊代器的功能，而不是檢查切片長度並索引特定位置。這能讓 `Config::new` 函式的意圖更清楚，因為疊代器會存取數值。
+
+一旦 `Config::new` 取得疊代器的所有權並不再使用借用的索引動作，我們就可以從疊代器中移動 `String` 的數值至 `Config` 而非呼叫 `clone` 來產生新的分配。
+
+#### 直接使用回傳的疊代器
+
 ```RS
-TODO
+fn main() {
+    let config = Config::new(env::args()).unwrap_or_else(|err| {
+        eprintln!("解析引數時出現問題：{}", err);
+        process::exit(1);
+    });
+
+    // ...
+}
+```
+
+`env::args` 函式回傳的是疊代器！與其收集疊代器的數值成一個向量再傳遞切片給 `Config::new`，現在我們可以直接傳遞 `env::args` 回傳的疊代器所有權給 `Config::new`。
+
+接下來，我們需要更新 `Config::new` 的定義。在 I/O 專案的 `src/lib.rs` 檔案中，變更 `Config::new` 的簽名成以下樣子。這還無法編譯，因為我們需要更新函式本體。
+
+```RS
+impl Config {
+    pub fn new(mut args: env::Args) -> Result<Config, &'static str> {
+        // ...
+    }
+}
+```
+
+標準函式庫技術文件顯示 `env::args` 函式回傳的疊代器型別為 `std::env::Args`。我們更新了 `Config::new` 函式的簽名，讓參數 `args` 的型別為 `std::env::Args` 而非 `&[String]`。因為我們取得了 `args` 的所有權，而且我們需要將 `args` 成為可變的讓我們可以疊代它，所以將關鍵字 `mut` 加到 `args` 的參數指定使其成為可變的。
+
+#### 使用 Iterator 特徵方法而非索引
+
+接下來，我們要修正 `Config::new` 的本體。標準函式庫還提到了 `std::env::Args` 有實作 `Iterator` 特徵，所以我們知道我們可以對它呼叫 `next` 方法！
+
+```RS
+impl Config {
+    pub fn new(mut args: env::Args) -> Result<Config, &'static str> {
+        args.next();
+
+        let query = match args.next() {
+            Some(arg) => arg,
+            None => return Err("沒有取得欲搜尋的字串"),
+        };
+
+        let filename = match args.next() {
+            Some(arg) => arg,
+            None => return Err("沒有取得檔案名稱"),
+        };
+
+        let case_sensitive = env::var("CASE_INSENSITIVE").is_err();
+
+        Ok(Config {
+            query,
+            filename,
+            case_sensitive,
+        })
+    }
+}
+```
+
+記得 `env::args` 回傳的第一個數值會是程式名稱。我們想要忽略該值並取得下個數值，所以我們第一次呼叫 `next` 時不會對回傳值做任何事。再來我們才會呼叫 `next` 來取得我們想要的數值置入 `Config` 中的 `query` 欄位。如果 `next` 回傳 `Some` 的話，我們使用 `match` 來提取數值。如果它回傳 `None` 的話，這代表引數不足，所以我們提早用 `Err` 數值回傳。我們對 `filename` 數值也做一樣的事。
+
+#### 透過疊代配接器讓程式碼更清楚
+
+我們可以使用疊代配接器（iterator adaptor）方法讓程式碼更精簡。這樣做也能避免我們產生過程中的 `results` 可變向量。函式程式設計風格傾向於最小化可變狀態的數量使程式碼更加簡潔。移除可變狀態還在未來有機會讓搜尋可以平行化，因為我們不需要去管理 `results` 向量的並行存取。
+
+```RS
+pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
+    contents
+        .lines()
+        .filter(|line| line.contains(query))
+        .collect()
+}
 ```
 
 ## 迴圈與疊代器
