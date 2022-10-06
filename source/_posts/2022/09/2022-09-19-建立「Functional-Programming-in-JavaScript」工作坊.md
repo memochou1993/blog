@@ -20,6 +20,6 @@ categories: ["程式設計", "JavaScript", "其他"]
 
 ## 程式碼
 
-- [memochou1993/functional-programming-workshop](https://github.com/memochou1993/functional-programming-workshop)
-- [memochou1993/js-array-methods](https://github.com/memochou1993/js-array-methods)
-- [memochou1993/collection-js](https://github.com/memochou1993/collection-js)
+- [functional-programming-workshop](https://github.com/memochou1993/functional-programming-workshop)
+- [js-array-methods](https://github.com/memochou1993/js-array-methods)
+- [collection-js](https://github.com/memochou1993/collection-js)
