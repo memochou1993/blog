@@ -63,3 +63,11 @@ const fetchRows = async ({
 ```bash
 node index.js
 ```
+
+## 程式碼
+
+- [google-sheets-api-example](https://github.com/memochou1993/google-sheets-api-example)
+
+## 參考資料
+
+- [Google Sheets API](https://developers.google.com/sheets/api/guides/concepts)
