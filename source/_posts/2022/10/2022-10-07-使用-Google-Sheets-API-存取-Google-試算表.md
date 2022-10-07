@@ -35,25 +35,14 @@ npm i google-spreadsheet
 ```js
 const { GoogleSpreadsheet } = require('google-spreadsheet');
 
-const fetchRows = async ({
-  spreadsheetId,
-  sheetID,
-  credentials,
-}) => {
-  if (!spreadsheetId || !sheetID || !credentials) return null;
+(async () => {
+  const spreadsheetId = ''; // required
+  const sheetID = '0'; // required
   const doc = new GoogleSpreadsheet(spreadsheetId);
-  await doc.useServiceAccountAuth(require(credentials));
+  await doc.useServiceAccountAuth(require('./credentials.json')); // required
   await doc.loadInfo();
   const sheet = doc.sheetsById[sheetID];
-  return await sheet.getRows();
-};
-
-(async () => {
-  const rows = await fetchRows({
-    spreadsheetId: '', // required
-    sheetID: '0',
-    credentials: './credentials.json',
-  });
+  const rows = await sheet.getRows();
   console.log(rows);
 })();
 ```
