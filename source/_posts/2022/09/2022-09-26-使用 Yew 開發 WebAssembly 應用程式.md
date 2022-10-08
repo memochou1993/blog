@@ -18,9 +18,6 @@ cd yew-counter
 
 ```rs
 [dependencies]
-gloo = "0.8.0"
-js-sys = "0.3.60"
-wasm-bindgen = "0.2.83"
 yew = { git = "https://github.com/yewstack/yew/", features = ["csr"] }
 ```
 
