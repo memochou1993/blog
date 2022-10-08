@@ -5,7 +5,7 @@ tags: ["程式設計", "Rust", "WebAssembly", "Wasm", "JavaScript", "Yew"]
 categories: ["程式設計", "Rust", "WebAssembly"]
 ---
 
-## 做法
+## 建立專案
 
 建立專案。
 
@@ -14,20 +14,33 @@ cargo new yew-counter
 cd yew-counter
 ```
 
-修改 `Cargo.toml` 檔，安裝依賴套件。
+使用 Cargo 安裝 `trunk` 套件，用來打包 WebAssembly 和靜態檔案。
 
-```rs
-[dependencies]
-yew = { git = "https://github.com/yewstack/yew/", features = ["csr"] }
+```bash
+cargo install trunk
 ```
+
+為 Rust 添加 `wasm32-unknown-unknown` 編譯目標，讓 Rust 能夠編譯 WebAssembly 檔案。
+
+```bash
+rustup target add wasm32-unknown-unknown
+```
+
+安裝依賴套件。
+
+```bash
+cargo add yew
+```
+
+## 實作
 
 修改 `main.rs` 檔。
 
 ```rs
 use yew::prelude::*;
 
-#[function_component]
-fn App() -> Html {
+#[function_component(App)]
+fn app() -> Html {
     let count = use_state(|| 0);
     let onclick = {
         let count = count.clone();
@@ -45,7 +58,7 @@ fn App() -> Html {
 }
 
 fn main() {
-    yew::Renderer::<App>::new().render();
+    yew::start_app::<App>();
 }
 ```
 
@@ -56,6 +69,16 @@ trunk serve
 ```
 
 前往 <http://localhost:8080> 瀏覽。
+
+## 後記
+
+如果發現 Trunk 熱更新的速度很慢，有可能是 VS Code 的 rust-analyzer 套件的問題。使用以下設定，可以避免每次更新程式碼都觸發檢查。
+
+```json
+{
+    "rust-analyzer.checkOnSave.enable": false
+}
+```
 
 ## 程式碼
 
