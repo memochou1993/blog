@@ -70,9 +70,9 @@ trunk serve
 
 前往 <http://localhost:8080> 瀏覽。
 
-## 後記
+## 補充
 
-如果發現 Trunk 熱更新的速度很慢，有可能是 VS Code 的 rust-analyzer 套件的問題。使用以下設定，可以避免每次更新程式碼都觸發檢查。
+如果 Trunk 熱更新的速度很慢，有可能是 VS Code 的 rust-analyzer 套件的問題。使用以下設定，避免每次更新程式碼都觸發檢查。
 
 ```json
 {
