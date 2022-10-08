@@ -72,11 +72,13 @@ trunk serve
 
 ## 補充
 
-如果 Trunk 熱更新的速度很慢，有可能是 VS Code 的 rust-analyzer 套件的問題。使用以下設定，避免每次更新程式碼都觸發檢查。
+如果 Trunk 熱更新的速度很慢，有可能是 VS Code 的 rust-analyzer 套件的問題，修改 `settings.json` 檔並套用以下設定。
 
 ```json
 {
-    "rust-analyzer.checkOnSave.enable": false
+    "rust-analyzer.checkOnSave.extraArgs": [
+        "--target-dir", "/tmp/rust-analyzer-check"
+    ]
 }
 ```
 
