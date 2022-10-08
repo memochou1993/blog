@@ -1,8 +1,8 @@
 ---
 title: 使用 Yew 和 WebAssembly 實作「視訊串流」應用程式
 date: 2022-09-29 19:58:08
-tags: ["程式設計", "Rust", "WebAssembly", "Wasm", "JavaScript", "Canvas", "Yew"]
-categories: ["程式設計", "Rust", "WebAssembly"]
+tags: ["程式設計", "Rust", "Yew", "WebAssembly", "Wasm", "JavaScript", "Canvas"]
+categories: ["程式設計", "Rust", "Yew"]
 ---
 
 ## 前言
