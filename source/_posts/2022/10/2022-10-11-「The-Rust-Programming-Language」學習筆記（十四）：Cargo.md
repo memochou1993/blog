@@ -322,9 +322,201 @@ cargo yank --vers 1.0.1 --undo
 
 撤回並不會刪除任何程式碼。舉例來說，撤回此功能並不會刪除任何不小心上傳的祕密訊息。如果真的出現這種情形，必須立即重設那些資訊。
 
-## Cargo 工作空間
+## 工作空間
 
-TODO
+函式庫 crate 變得越來越大，會想要將套件拆成數個函式庫 crate。針對這種情形，Cargo 提供了一個功能叫做工作空間（workspaces）能來幫助管理並開發數個相關的套件。
+
+### 建立工作空間
+
+工作空間是一系列的共享相同 `Cargo.lock` 與輸出目錄的套件。組織工作空間的架構有很多種方式，我們會顯示其中一種常見的方式。我們的工作空間將會包含一個二進制執行檔與兩個函式庫。執行檔會提供主要功能，並依賴其他兩個函式庫。其中一個函式庫會提供函式 `add_one`，而另一個函式庫會提供函式 `add_two`。這三個 crate 會包含在相同的工作空間中，先從建立工作空間的目錄開始。
+
+```bash
+mkdir add
+cd add
+```
+
+接著在 `add` 目錄中，我們建立會設置整個工作空間的 `Cargo.toml` 檔案。此檔案不會有 `[package]` 段落或是我們在其他 `Cargo.toml` 檔案看過的詮釋資料。反之，他會使用一個 `[workspace]` 段落作為起始，讓我們可以透過指定二進制 crate 的套件路徑來將它加到工作空間的成員中。在此例中，我們的路徑是 `adder`。
+
+```toml
+[workspace]
+
+members = [
+    "adder",
+]
+```
+
+接下來在 `add` 目錄下執行 `cargo new` 來建立 `adder` 二進制 crate。
+
+```bash
+cargo new adder
+```
+
+目錄 `add` 底下的檔案應該會看起來像這樣。
+
+```bash
+├── Cargo.lock
+├── Cargo.toml
+├── adder
+│   ├── Cargo.toml
+│   └── src
+│       └── main.rs
+└── target
+```
+
+工作空間在頂層有一個 `target` 目錄用來儲存編譯結果。`adder` 套件不會有自己的 `target` 目錄。就算我們在 `adder` 目錄底下執行 `cargo build`，編譯結果仍然會在 `add/target` 底下而非 `add/adder/target`。Cargo 之所以這樣組織工作空間的 `target` 目錄是因為工作空間的 crate 是會彼此互相依賴的。 如果每個 crate 都有自己的 `target` 目錄，每個 crate 就得重新編譯工作空間中的其他每個 crate 才能將編譯結果放入它們自己的 `target` 目錄。共享 `target` 目錄的話，crate 可以避免不必要的重新建構。
+
+### 在工作空間中建立第二個套件
+
+接下來在工作空間中建立另一個套件成員 `add_one`。修改頂層 `Cargo.toml` 來指定 `add_one` 的路徑到 `members` 列表中：
+
+```toml
+[workspace]
+
+members = [
+    "adder",
+    "add_one",
+]
+```
+
+然後產生新的函式庫 crate 叫 `add_one`：
+
+```bash
+cargo new add_one --lib
+```
+
+現在 `add` 目錄應該要擁有這些目錄與檔案：
+
+```bash
+├── Cargo.lock
+├── Cargo.toml
+├── add_one
+│   ├── Cargo.toml
+│   └── src
+│       └── lib.rs
+├── adder
+│   ├── Cargo.toml
+│   └── src
+│       └── main.rs
+└── target
+```
+
+在 `add_one/src/lib.rs` 檔案中，加上一個函式 `add_one`：
+
+```rs
+pub fn add_one(x: i32) -> i32 {
+    x + 1
+}
+```
+
+現在在工作空間中有另一個套件了，我們可以讓 `adder` 套件的執行檔依賴擁有函式庫的 `add_one` 套件。首先，需要將 `add_one` 的路徑依賴加到 `adder/Cargo.toml`。
+
+```toml
+[dependencies]
+add_one = { path = "../add_one" }
+```
+
+Cargo 不會假設工作空間下的 crate 會彼此依賴，需要指定 crate 彼此之間依賴的關係。
+
+接著在 `adder` 內使用 `add_one` 的 crate 的 `add_one` 函式。開啟 `adder/src/main.rs` 檔案並在最上方加上 `use` 來將 `add_one` 函式庫引入作用域。然後變更 `main` 函式來呼叫 `add_one` 函式。
+
+```rs
+use add_one;
+
+fn main() {
+    let num = 10;
+    println!("你好，世界！{} 加一會是 {}！", num, add_one::add_one(num));
+}
+```
+
+在頂層的 `add` 目錄執行 `cargo build` 來建構工作空間。
+
+```bash
+cargo build
+```
+
+要執行 `add` 目錄的二進制 crate，我們可以透過 `-p` 加上套件名稱使用 `cargo run` 來執行我們想要在工作空間中指定的套件。
+
+```bash
+cargo run -p adder
+```
+
+這就會執行 `adder/src/main.rs` 的程式碼，其依賴於 `add_one` 的 crate。
+
+#### 在工作空間中依賴外部套件
+
+注意到工作空間只有在頂層有一個 `Cargo.lock` 檔案，而不是在每個 crate 目錄都有一個 `Cargo.lock`。這確保所有的 crate 都對所有的依賴使用相同的版本。如果我們加了 `rand` 套件到 `adder/Cargo.toml` 與 `add_one/Cargo.toml` 檔案中，Cargo 會將兩者的版本解析為同一個 rand 版本並記錄到同個 `Cargo.lock` 中。確保工作空間所有 crate 都會使用相同依賴代表工作空間中的 crate 永遠都彼此相容。讓我們將 `rand` 這個 crate 加到 `add_one/Cargo.toml` 檔案的 `[dependencies]` 段落中，使 `add_one` 這個 crate 可以使用 `rand` 這個 crate。
+
+```toml
+rand = "0.8.3"
+```
+
+現在就可以將 `use rand;` 加到 `add_one/src/lib.rs` 檔案中，接著在 `add` 目錄下執行 `cargo build` 來建構整個工作空間就會引入並編譯 `rand` 這個 crate。我們會得到一個警告，因爲我們還沒有開始使用引入作用域的 `rand`。
+
+```bash
+cargo build
+```
+
+頂層的 `Cargo.lock` 現在就包含 `add_one` 有 `rand` 作為依賴的資訊。不過就算我們能在工作空間的某處使用 `rand`，並不代表我們可以在工作空間的其他 crate 中使用它，除非它們的 `Cargo.toml` 也加上了 `rand`。舉例來說，如果將 `use rand;` 加到 `adder/src/main.rs` 檔案中想讓 `adder` 套件也使用的話，我們就會得到錯誤。
+
+要修正此問題，只要修改 `adder` 套件的 `Cargo.toml` 檔案，指示它也加入 `rand` 作為依賴就好了。這樣建構 `adder` 套件就會將在 `Cargo.lock` 中將 `rand` 加入 `adder` 的依賴，但是沒有額外的 `rand` 會被下載。Cargo 會確保工作空間中每個套件的每個 crate 都會使用相同的 `rand` 套件版本。在工作空間中使用相同版本的 `rand` 可以節省空間，因為我們就不會重複下載並能確保工作空間中的 crate 彼此可以互相兼容。
+
+#### 在工作空間中新增測試
+
+再進一步加入一個測試函式 `add_one::add_one` 到 `add_one` 這個 crate 之中：
+
+```rs
+pub fn add_one(x: i32) -> i32 {
+    x + 1
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn it_works() {
+        assert_eq!(3, add_one(2));
+    }
+}
+```
+
+現在在頂層的 `add` 目錄執行 `cargo test` 指令。
+
+```bash
+cargo test
+```
+
+也可以在頂層目錄使用 `-p` 並指定想測試的 crate 名稱來測試工作空間中特定的 crate。
+
+```bash
+cargo test -p add_one
+```
+
+此輸出顯示 `cargo test` 只執行了 `add_one` 這個 crate 的測試並沒有執行 `adder` 這個 crate 的測試。
+
+如果想要發佈工作空間的 crate 到 crates.io，工作空間中的每個 crate 必須分別獨自發佈。`cargo publish` 命令並沒有 `--all` 或是 `-p` 之類的選項，必須移動到每個 crate 的目錄並執行 `cargo publish`，這樣工作空間中的每個 crate 才會發佈出去。
+
+可以在工作空間中在加上 `add_two` 這個 crate，方式和 `add_one` 這個 crate 類似。
+
+## 安裝執行檔
+
+使用 `cargo install` 命令能在本地安裝並使用二進制執行檔 crates。這並不是打算要取代系統套件，這是為了方便讓 Rust 開發者可以安裝 crates.io 上分享的工具。注意你只能安裝有二進制目標的套件。二進制目標（binary target）是在 crate 有 `src/main.rs` 檔案或其他指定的二進制檔案時，所建立的可執行程式。而相反地，函式庫目標就無法單獨執行，因為它是提供給其他程式使用的函式庫。通常 crate 都會提供 `README` 檔案說明此 crate 是函式庫還是二進制目標，或者兩者都是。
+
+所有透過 `cargo install` 安裝的二進制檔案都儲存在安裝根目錄的 `bin` 資料夾中。如果是用 `rustup.rs` 安裝 Rust 且沒有任何自訂設置的話，此目錄會是 `$HOME/.cargo/bin`。請確定該目錄有在 `$PATH` 中，這樣才能夠執行 `cargo install` 安裝的程式。
+
+舉例來說，有個工具叫做 `ripgrep` 能用來搜尋檔案。如果我們想要安裝的話，我們可以執行以下命令。
+
+```bash
+cargo install ripgrep
+```
+
+## 擴展
+
+Cargo 的設計能讓你在不用修改 Cargo 的情況下擴展新的子命令。如果 `$PATH` 中有任何叫做 `cargo-something` 的二進制檔案，就可以用像是執行 Cargo 子命令的方式 `cargo something` 來執行它。像這樣的自訂命令在執行 `cargo --list` 時也會顯示出來。能夠透過 `cargo install` 來安裝擴展插件並有如內建 Cargo 工具般來執行使用是 Cargo 設計上的一大方便優勢。
+
+## 程式碼
+
+- [rust-cargo-workspace](https://github.com/memochou1993/rust-cargo-workspace)
 
 ## 參考資料
 
