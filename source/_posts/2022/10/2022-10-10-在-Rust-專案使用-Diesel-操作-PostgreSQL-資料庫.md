@@ -134,24 +134,39 @@ pub struct Post {
 }
 ```
 
+修改 `src/lib.rs` 檔。
+
+```rs
+use self::models::{NewPost, Post};
+use diesel::pg::PgConnection;
+use diesel::prelude::*;
+use dotenvy::dotenv;
+use std::env;
+
+// ...
+
+pub fn load_posts(conn: &mut PgConnection) -> Vec<Post> {
+    use self::schema::posts::dsl::{posts, published};
+
+    posts
+        .filter(published.eq(true))
+        .limit(5)
+        .load::<Post>(conn)
+        .expect("Error loading posts")
+}
+```
+
 新增 `src/bin/show_posts.rs` 檔。
 
 ```rs
-use self::models::*;
-use diesel::prelude::*;
 use diesel_example::*;
 
 fn main() {
-    use self::schema::posts::dsl::*;
-
     let connection = &mut establish_connection();
-    let results = posts
-        .filter(published.eq(true))
-        .limit(5)
-        .load::<Post>(connection)
-        .expect("Error loading posts");
+    let results = load_posts(connection);
 
     println!("Displaying {} posts", results.len());
+
     for post in results {
         println!("{}", post.title);
         println!("===\n");
@@ -199,9 +214,6 @@ use diesel::prelude::*;
 use dotenvy::dotenv;
 use std::env;
 
-pub mod models;
-pub mod schema;
-
 // ...
 
 pub fn create_post(conn: &mut PgConnection, title: &str, body: &str) -> Post {
@@ -212,11 +224,11 @@ pub fn create_post(conn: &mut PgConnection, title: &str, body: &str) -> Post {
     diesel::insert_into(posts::table)
         .values(&new_post)
         .get_result(conn)
-        .expect("Error saving new post")
+        .expect("Error creating post")
 }
 ```
 
-新增 `src/bin/write_post.rs` 檔。
+新增 `src/bin/create_post.rs` 檔。
 
 ```rs
 use diesel_example::*;
@@ -249,19 +261,42 @@ const EOF: &str = "CTRL+D";
 const EOF: &str = "CTRL+Z";
 ```
 
+執行程式。
+
+```bash
+cargo run --bin create_post
+```
+
 ### 發表文章
+
+修改 `src/lib.rs` 檔。
+
+```rs
+use self::models::{NewPost, Post};
+use diesel::pg::PgConnection;
+use diesel::prelude::*;
+use dotenvy::dotenv;
+use std::env;
+
+// ...
+
+pub fn publish_post(conn: &mut PgConnection, id: &i32) -> Post {
+    use self::schema::posts::dsl::{posts, published};
+
+    diesel::update(posts.find(id))
+        .set(published.eq(true))
+        .get_result::<Post>(conn)
+        .expect("Error updating post")
+}
+```
 
 新增 `src/bin/publish_post.rs` 檔。
 
 ```rs
-use self::models::Post;
-use diesel::prelude::*;
 use diesel_example::*;
 use std::env::args;
 
 fn main() {
-    use self::schema::posts::dsl::{posts, published};
-
     let id = args()
         .nth(1)
         .expect("publish_post requires a post id")
@@ -269,10 +304,8 @@ fn main() {
         .expect("Invalid ID");
     let connection = &mut establish_connection();
 
-    let post = diesel::update(posts.find(id))
-        .set(published.eq(true))
-        .get_result::<Post>(connection)
-        .unwrap();
+    let post = publish_post(connection, &id);
+
     println!("Published post {}", post.title);
 }
 ```
@@ -291,26 +324,41 @@ cargo run --bin show_posts
 
 ### 刪除文章
 
+修改 `src/lib.rs` 檔。
+
+```rs
+use self::models::{NewPost, Post};
+use diesel::pg::PgConnection;
+use diesel::prelude::*;
+use dotenvy::dotenv;
+use std::env;
+
+// ...
+
+pub fn delete_post(conn: &mut PgConnection, id: &i32) -> usize {
+    use self::schema::posts::dsl::posts;
+
+    diesel::delete(posts.find(id))
+        .execute(conn)
+        .expect("Error deleting post")
+}
+```
+
 新增 `src/bin/delete_post.rs` 檔。
 
 ```rs
-use diesel::prelude::*;
 use diesel_example::*;
 use std::env::args;
 
 fn main() {
-    use self::schema::posts::dsl::posts;
-
     let id = args()
         .nth(1)
-        .expect("publish_post requires a post id")
+        .expect("delete_post requires a post id")
         .parse::<i32>()
         .expect("Invalid ID");
     let connection = &mut establish_connection();
 
-    let num_deleted = diesel::delete(posts.find(id))
-        .execute(connection)
-        .expect("Error deleting posts");
+    let num_deleted = delete_post(connection, &id);
 
     println!("Deleted {} posts", num_deleted);
 }
