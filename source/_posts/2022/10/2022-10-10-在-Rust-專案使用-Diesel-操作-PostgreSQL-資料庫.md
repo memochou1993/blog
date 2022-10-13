@@ -51,15 +51,15 @@ cargo add dotenvy
 DATABASE_URL=postgres://postgres:root@127.0.0.1/posts
 ```
 
-使用 `diesel` 指令初始化，以建立 `posts` 資料庫和空的遷移資料表。
+使用 `diesel` 指令初始化，以建立 `posts` 資料庫和預設的遷移資料表。
 
 ```bash
 diesel setup
 ```
 
-## 建立遷移表
+## 建立遷移
 
-建立遷移表。
+建立 `posts` 資料表。
 
 ```bash
 diesel migration generate create_posts
