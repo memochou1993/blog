@@ -132,3 +132,7 @@ baidu_analytics:
 # logo and/or favicons of you website.
 gravatar:
   email:
+
+# Enable or disable the mermaid chart.
+mermaid:
+  enable: true
