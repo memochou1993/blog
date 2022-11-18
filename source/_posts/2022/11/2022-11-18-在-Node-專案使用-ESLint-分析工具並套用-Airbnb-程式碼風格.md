@@ -7,7 +7,7 @@ categories: ["程式設計", "JavaScript", "ESLint"]
 
 ## 做法
 
-新增專案。
+建立專案。
 
 ```bash
 mkdir my-project
