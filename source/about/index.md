@@ -2,6 +2,7 @@
 title: Memo's Blog
 date: 2018-05-04 09:37:58
 about: true
+comments: false
 ---
 
 嗨！我是咩某。
