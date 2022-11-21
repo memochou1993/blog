@@ -1,5 +1,5 @@
 ---
-title: 在 React 專案安裝 Tailwind CSS UI 框架
+title: 在 React 17.0 安裝 Tailwind CSS UI 框架
 date: 2022-03-23 02:12:40
 tags: ["程式設計", "JavaScript", "React"]
 categories: ["程式設計", "JavaScript", "React"]
