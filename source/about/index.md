@@ -6,5 +6,5 @@ comments: false
 ---
 
 <script>
-location.href = 'https://epoch.tw';
+location.href = 'https://profile.epoch.tw';
 </script>
