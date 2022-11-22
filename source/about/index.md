@@ -5,10 +5,6 @@ about: true
 comments: false
 ---
 
-嗨！我是咩某。
-
-你有看過這隻仙人掌嗎？
-
-如果沒有，現在讓你看看。
-
-<img src="/images/cactus.png" width="150">
+<script>
+location.href = 'https://epoch.tw';
+</script>
