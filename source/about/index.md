@@ -11,4 +11,4 @@ comments: false
 
 如果沒有，現在讓你看看。
 
-<img src="../images/cactus.png" width="150">
+<img src="/images/cactus.png" width="150">
