@@ -15,7 +15,8 @@ permalink: /404.html
 
 <script>
 const { pathname } = location;
-if (!isNaN(Date.parse(pathname.slice(1, 11)))) {
-    location.href = pathname.slice(0, 9) + pathname.slice(12);
+const r = (new URLSearchParams(location.search)).get('r')
+if (!r && !isNaN(Date.parse(pathname.slice(1, 11)))) {
+    location.href = `${pathname.slice(0, 9) + pathname.slice(12)}?r=true`;
 }
 </script>
