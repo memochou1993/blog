@@ -1,6 +1,6 @@
 nav:
   home: Home
-  articles: Archives
+  articles: Articles
   categories: Categories
   tags: Tags
   about: About
@@ -13,7 +13,7 @@ index:
   find_me_on: Find me on
   enum_comma: ','
   enum_and: and
-  articles: Archives
+  articles: Articles
   projects: Projects
 
 post:
