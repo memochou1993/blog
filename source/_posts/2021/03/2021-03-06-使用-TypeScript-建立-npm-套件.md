@@ -179,4 +179,4 @@ npm publish --access=public
 
 ## 參考資料
 
-- [Creating a TS-written NPM package for use in Node-JS or Browser.](https://dev.to/charperbonaroo/creating-a-ts-written-npm-package-for-use-in-node-js-or-browser-5gm3)
+- [Creating a TS-written npm package for use in Node-JS or Browser.](https://dev.to/charperbonaroo/creating-a-ts-written-npm-package-for-use-in-node-js-or-browser-5gm3)

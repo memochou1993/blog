@@ -199,7 +199,7 @@ git commit -m "Initial commit"
 npm version 0.1.0 -m "First release"
 ```
 
-登入 NPM。
+登入 npm。
 
 ```bash
 npm login
