@@ -1,8 +1,8 @@
 ---
-title: 使用 Bash Shell 腳本切換 Node 版本
+title: 使用 Shell 腳本切換 Node 版本
 date: 2022-10-01 16:05:00
-tags: ["Bash Shell", "SSH", "Node"]
-categories: ["程式設計", "Bash Shell"]
+tags: ["Shell", "SSH", "Node"]
+categories: ["程式設計", "Shell"]
 ---
 
 ## 做法
