@@ -77,7 +77,12 @@ class Storage {
     await this.collection.doc(key).set(value);
   }
 
-  // 取得資料列表
+  // 取得特定資料
+  async getItem(key) {
+    return (await this.collection.doc(key).get()).data();
+  }
+
+  // 取得所有資料
   async fetchItems() {
     const items = {};
     const snapshot = await this.collection.get();
