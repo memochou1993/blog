@@ -45,72 +45,62 @@ npm install firebase firebase-admin
 ```env
 /node_modules
 /.vscode
-credentials.json
+serviceAccountKey.json
 ```
 
 ## 操作資料庫
 
-新增 `index.mjs` 檔，初始化應用程式。
+新增 `index.mjs` 檔。
 
 ```js
 import { cert, initializeApp } from 'firebase-admin/app';
 import { getFirestore } from 'firebase-admin/firestore';
+import serviceAccount from './serviceAccountKey.json' assert { type: 'json' };
 
 const app = initializeApp({
-  credential: cert('./credentials.json'),
+  credential: cert(serviceAccount),
 });
 
-const db = getFirestore(app);
-```
+class Storage {
+  constructor(collection) {
+    const db = getFirestore(app);
+    this.collection = db.collection(collection);
+  }
 
-### 寫入資料
+  // 取得資料筆數
+  async getCount() {
+    return (await this.collection.count().get()).data().count;
+  }
 
-```js
+  // 設置資料
+  async setItem(key, value) {
+    await this.collection.doc(key).set(value);
+  }
+
+  // 取得資料列表
+  async fetchItems() {
+    const items = {};
+    const snapshot = await this.collection.get();
+    snapshot.forEach((item) => {
+      items[item.id] = item.data();
+    });
+    return items;
+  }
+
+  // 刪除資料
+  async removeItem(key) {
+    await this.collection.doc(key).delete();
+  }
+}
+
+const storage = new Storage('links');
+
 (async () => {
-  const docRef = db.collection('users').doc('memochou1993');
-  await docRef.set({
-    name: 'Memo Chou',
-    age: 18,
-  });
+  console.log(await storage.getCount());
+  await storage.setItem('0', { foo: 'bar' });
+  console.log(await storage.fetchItems());
+  await storage.removeItem('0');
 })();
-```
-
-執行程式。
-
-```bash
-node index.mjs
-```
-
-### 讀取資料
-
-```js
-(async () => {
-  const snapshot = await db.collection('users').get();
-  snapshot.forEach((doc) => {
-    console.log(doc.id, '=>', doc.data());
-  });
-})();
-```
-
-執行程式。
-
-```bash
-node index.mjs
-```
-
-### 刪除資料
-
-```js
-(async () => {
-  const res = await db.collection('users').doc('memochou1993').delete();
-  console.log(res);
-})();
-```
-
-執行程式。
-
-```bash
-node index.mjs
 ```
 
 ## 程式碼
