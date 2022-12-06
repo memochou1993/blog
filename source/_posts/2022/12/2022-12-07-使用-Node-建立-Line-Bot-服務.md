@@ -101,7 +101,7 @@ module.exports = app;
 
 ## 部署
 
-註冊 [Vercel](https://vercel.com/) 服務，並且連結儲存庫。
+在 [Vercel](https://vercel.com/) 平台註冊帳號，並且連結儲存庫。
 
 然後在設定頁面，新增一個 `LINE_ACCESS_TOKEN` 環境變數。
 
