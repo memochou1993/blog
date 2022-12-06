@@ -27,7 +27,7 @@ package main
 import (
 	"fmt"
 	_ "github.com/joho/godotenv/autoload"
-	"github.com/memochou1993/line-notify/app"
+	"github.com/memochou1993/line-notify-go/app"
 	"os"
 
 	"html/template"
@@ -147,7 +147,7 @@ CALLBACK_URL=
 由於 Access Token 是存在記憶體中，因此在授權後要馬上進行測試。
 
 ```bash
-curl https://line-notify.xxx.com/notify\?message\=test
+curl https://line-notify-go.xxx.com/notify\?message\=test
 ```
 
 ## 使用存取權杖
@@ -160,7 +160,7 @@ curl -H "Authorization: Bearer xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" -d "message=Hello
 
 ## 程式碼
 
-- [line-notify](https://github.com/memochou1993/line-notify)
+- [line-notify-go](https://github.com/memochou1993/line-notify-go)
 
 ## 參考資料
 
