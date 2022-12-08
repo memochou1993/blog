@@ -1,9 +1,13 @@
 ---
 title: 使用 Node 透過 OpenAI API 與 AI 聊天
 date: 2022-12-08 00:16:47
-tags: ["程式設計", "JavaScript", "Node", "OpenAI"]
+tags: ["程式設計", "JavaScript", "Node", "AI", "OpenAI"]
 categories: ["程式設計", "JavaScript", "Node"]
 ---
+
+## 前置作業
+
+在 [OpenAI](https://openai.com/api/) 註冊一個帳號，並且在 [API keys](https://beta.openai.com/account/api-keys) 頁面產生一個 API 金鑰。
 
 ## 建立專案
 
