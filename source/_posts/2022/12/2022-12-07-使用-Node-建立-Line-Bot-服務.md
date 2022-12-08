@@ -27,7 +27,7 @@ npm init -y
 安裝依賴套件。
 
 ```bash
-npm install express
+npm install express axios
 ```
 
 新增 `.gitignore` 檔。
@@ -38,65 +38,68 @@ npm install express
 
 ## 實作
 
+新增 `api/api.js` 檔。
+
+```js
+import axios from 'axios';
+
+const instance = axios.create({
+  baseURL: 'https://api.line.me',
+  timeout: 10000,
+  headers: {
+    Authorization: `Bearer ${process.env.LINE_ACCESS_TOKEN}`,
+  },
+});
+
+/**
+ * @param {string} replyToken
+ * @param {Array<Object>} messages
+ * @param {string} messages[].type
+ * @param {string} messages[].text
+ */
+export const reply = ({
+  replyToken,
+  messages,
+}) => instance.post('/v2/bot/message/reply', {
+  replyToken,
+  messages,
+});
+
+export default null;
+```
+
 新增 `api/index.js` 檔。
 
 ```js
-const https = require('https');
-const express = require('express');
+import express from 'express';
+import { reply } from './api.mjs';
 
 const app = express();
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
-app.get('/api', (req, res) => {
+app.get('/', (req, res) => {
   res.sendStatus(200);
 });
 
-app.post('/api/webhook', (req, res) => {
-  res.send('HTTP POST request sent to the webhook URL!');
-
-  if (req.body.events[0].type === 'message') {
-    const headers = {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${process.env.LINE_ACCESS_TOKEN}`,
-    };
-
-    const body = JSON.stringify({
-      replyToken: req.body.events[0].replyToken,
-      messages: [
-        {
-          type: 'text',
-          text: 'Hello',
-        },
-      ],
-    });
-
-    const webhookOptions = {
-      hostname: 'api.line.me',
-      path: '/v2/bot/message/reply',
-      method: 'POST',
-      headers,
-      body,
-    };
-
-    const request = https.request(webhookOptions, (res) => {
-      res.on('data', (d) => {
-        process.stdout.write(d);
-      });
-    });
-
-    request.on('error', (err) => {
-      console.error(err);
-    });
-
-    request.write(body);
-
-    request.end();
+app.post('/webhook', async (req, res) => {
+  for (const { type, replyToken, message } of (req.body.events || [])) {
+    if (type === 'message') {
+      await reply({
+        replyToken,
+        messages: [
+          {
+            type: 'text',
+            text: message.text,
+          },
+        ],
+      })
+    }
   }
+  res.sendStatus(200);
 });
 
-module.exports = app;
+export default app;
 ```
 
 ## 部署
@@ -105,11 +108,13 @@ module.exports = app;
 
 然後在設定頁面，新增一個 `LINE_ACCESS_TOKEN` 環境變數。
 
+將 Function 區域改為東京或新加坡。
+
 在專案根目錄新增 `vercel.json` 檔。
 
 ```json
 {
-  "rewrites": [{ "source": "/api/(.*)", "destination": "/api" }]
+  "rewrites": [{ "source": "/(.*)", "destination": "/api" }]
 }
 ```
 
@@ -120,7 +125,7 @@ module.exports = app;
 1. 進到「Messaging API」頁面，設置應用程式的「Webhook URL」。
 
 ```env
-https://line-bot-node.vercel.app/api/webhook
+https://line-bot-node.vercel.app/webhook
 ```
 
 2. 點選「Verify」按鈕。
