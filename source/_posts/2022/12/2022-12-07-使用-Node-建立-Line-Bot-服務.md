@@ -5,10 +5,6 @@ tags: ["程式設計", "JavaScript", "Node", "Line"]
 categories: ["程式設計", "JavaScript", "Node"]
 ---
 
-## 建立頻道
-
-首先，登入 [LINE Developers](https://developers.line.biz/) 頁面，選擇 [Messaging API](https://developers.line.biz/en/services/messaging-api/) 產品，建立一個 Channel。
-
 ## 建立專案
 
 建立專案。
@@ -27,27 +23,41 @@ npm init -y
 安裝依賴套件。
 
 ```bash
-npm install express axios
+npm install express axios dotenv
+```
+
+新增 `.env` 檔。
+
+```env
+LINE_CHANNEL_ACCESS_TOKEN=
 ```
 
 新增 `.gitignore` 檔。
 
 ```env
 /node_modules
+.env
 ```
+
+## 建立頻道
+
+登入 [LINE Developers](https://developers.line.biz/) 頁面，選擇 [Messaging API](https://developers.line.biz/en/services/messaging-api/) 產品，建立一個 Channel。
 
 ## 實作
 
-新增 `api/api.js` 檔。
+新增 `services/line.js` 檔。
 
 ```js
+import dotenv from 'dotenv';
 import axios from 'axios';
+
+dotenv.config();
 
 const instance = axios.create({
   baseURL: 'https://api.line.me',
-  timeout: 10000,
+  timeout: 9000,
   headers: {
-    Authorization: `Bearer ${process.env.LINE_ACCESS_TOKEN}`,
+    Authorization: `Bearer ${process.env.LINE_CHANNEL_ACCESS_TOKEN}`,
   },
 });
 
@@ -57,13 +67,17 @@ const instance = axios.create({
  * @param {string} messages[].type
  * @param {string} messages[].text
  */
-export const reply = ({
+const reply = ({
   replyToken,
   messages,
 }) => instance.post('/v2/bot/message/reply', {
   replyToken,
   messages,
 });
+
+export {
+  reply,
+};
 
 export default null;
 ```
@@ -72,7 +86,7 @@ export default null;
 
 ```js
 import express from 'express';
-import { reply } from './api.mjs';
+import { reply } from '../services/line.js';
 
 const app = express();
 
@@ -83,32 +97,24 @@ app.get('/', (req, res) => {
 });
 
 app.post('/webhook', async (req, res) => {
-  for (const { type, replyToken, message } of (req.body.events || [])) {
-    if (type === 'message') {
-      await reply({
-        replyToken,
-        messages: [
-          {
-            type: 'text',
-            text: message.text,
-          },
-        ],
-      })
-    }
-  }
+  const events = req.body.events || [];
+  const replies = events
+    .filter(({ type }) => type === 'message')
+    .map(({ replyToken, message }) => reply({
+      replyToken,
+      messages: [
+        {
+          type: 'text',
+          text: message.text,
+        },
+      ],
+    }));
+  await Promise.all(replies);
   res.sendStatus(200);
 });
 
 export default app;
 ```
-
-## 部署
-
-在 [Vercel](https://vercel.com/) 平台註冊帳號，並且連結儲存庫。
-
-然後在設定頁面，新增一個 `LINE_ACCESS_TOKEN` 環境變數。
-
-將 Function 區域改為東京或新加坡。
 
 在專案根目錄新增 `vercel.json` 檔。
 
@@ -118,7 +124,15 @@ export default app;
 }
 ```
 
-最後，將程式碼推送到儲存庫。
+推送程式碼到儲存庫。
+
+## 部署
+
+在 [Vercel](https://vercel.com/) 平台註冊帳號，並且連結儲存庫。
+
+然後在設定頁面，新增一個 `LINE_CHANNEL_ACCESS_TOKEN` 環境變數。
+
+將 Function 區域改為東京或新加坡。
 
 ## 設定
 
