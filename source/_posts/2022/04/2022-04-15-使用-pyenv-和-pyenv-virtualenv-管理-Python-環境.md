@@ -32,6 +32,14 @@ pyenv --version
 brew install pyenv-virtualenv
 ```
 
+將相關執行腳本添加至環境變數。
+
+```bash
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+```
+
 查看版本。
 
 ```bash
@@ -74,8 +82,12 @@ pyenv local example
 
 ```bash
 pyenv version
+```
 
-example (set by ~/Projects/example/.python-version)
+啟動 `example` 虛擬環境。
+
+```bash
+pyenv activate example
 ```
 
 刪除 `example` 虛擬環境。
