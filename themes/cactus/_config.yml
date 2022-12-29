@@ -136,3 +136,8 @@ gravatar:
 # Enable or disable the mermaid chart.
 mermaid:
   enable: true
+
+# Enable or disable the Google AdSense.
+google_adsense:
+  enable: true
+  google_ad_client_id: pub-1523667193708406

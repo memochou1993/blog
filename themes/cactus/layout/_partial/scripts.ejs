@@ -73,3 +73,12 @@
 <% if (theme.mermaid.enable){ %>
     <script src='https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js'></script>
 <% } %>
+<!-- Google AdSense -->
+<% if (theme.google_analytics.enabled && theme.google_analytics.id){ %>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+             google_ad_client: '<%= theme.google_adsense.google_ad_client_id %>',
+        });
+   </script>
+<% } %>
