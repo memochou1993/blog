@@ -28,17 +28,16 @@ GPT AI Assistant 是基於 OpenAI API 與 LINE Messaging API 實作的應用程�
     - `OPENAI_API_KEY`：將值設置為 OpenAI 的 [API key](/demo/openai-api-key.png)。
     - `LINE_CHANNEL_ACCESS_TOKEN`：將值設置為 LINE 的 [channel access token](/demo/line-channel-access-token.png)。
     - `LINE_CHANNEL_SECRET`：將值設置為 LINE 的 [channel secret](/demo/line-channel-secret.png)。
-    - `APP_LANG`：將值設置為 `zh`。
   - 點選「Deploy」按鈕，等待部署完成。
-  - 回到專案首頁，點選「Domains」按鈕，複製應用程式網址，例如「<https://gpt-ai-assistant.vercel.app/>」。
+  - 回到專案首頁，複製應用程式網址（Domains），例如「<https://gpt-ai-assistant.vercel.app/>」。
 - 回到 [LINE](https://developers.line.biz/) 平台。
-  - 進到「My AI Assistant」頻道頁面，點選「Messaging API」頁籤，設置「Webhook URL」，例如「<https://gpt-ai-assistant.vercel.app/webhook>」，點選「Update」按鈕。
+  - 進到「My AI Assistant」頻道頁面，點選「Messaging API」頁籤，設置「Webhook URL」，填入應用程式網址並加上「/webhook」路徑，例如「<https://gpt-ai-assistant.vercel.app/webhook>」，點選「Update」按鈕。
   - 點選「Verify」按鈕，驗證是否呼叫成功。
   - 將「Use webhook」功能打開。
   - 將「Auto-reply messages」功能關閉。
   - 將「Greeting messages」功能關閉。
   - 使用 LINE 手機應用程式掃描 QR code，加入好友。
-- 開始與專屬 AI 助理聊天！
+- 開始與你專屬的 AI 助理聊天！
 
 ## 開發
 
