@@ -1,7 +1,7 @@
 ---
 title: 使用 Rust 透過 OpenAI API 生成文字補全
 date: 2022-12-09 00:17:05
-tags: ["程式設計", "Rust", "AI", "OpenAI"]
+tags: ["程式設計", "Rust", "GPT", "AI", "OpenAI"]
 categories: ["程式設計", "Rust", "其他"]
 ---
 

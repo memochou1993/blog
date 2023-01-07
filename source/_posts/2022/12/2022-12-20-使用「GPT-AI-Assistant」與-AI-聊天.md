@@ -1,7 +1,7 @@
 ---
 title: 使用「GPT AI Assistant」與 AI 聊天
 date: 2022-12-20 23:19:54
-tags: ["程式設計", "JavaScript", "Node", "AI", "OpenAI"]
+tags: ["程式設計", "JavaScript", "Node", "GPT", "AI", "OpenAI"]
 categories: ["程式設計", "JavaScript", "Node"]
 ---
 
