@@ -59,7 +59,7 @@ cd gpt-ai-assistant
 npm ci
 ```
 
-### 測試
+### 執行測試
 
 建立 `.env.test` 檔。
 
@@ -80,11 +80,10 @@ npm run test
 > jest
 
   console.info
-    === 000000 ===
-    
-    AI: 嗨！我可以怎麼幫助你？
-    Human: 嗨？
-    AI: OK!
+    === 000001 ===
+
+    Human: 嗨！
+    AI: 好的！
 
 Test Suites: 1 passed, 1 total
 Tests:       1 passed, 1 total
@@ -108,7 +107,6 @@ APP_PORT=3000
 
 VERCEL_GIT_REPO_SLUG=gpt-ai-assistant
 VERCEL_ACCESS_TOKEN=<your_vercel_access_token>
-VERCEL_DEPLOY_HOOK_URL=<your_vercel_deploy_hook_url>
 
 OPENAI_API_KEY=<your_openai_api_key>
 
@@ -128,21 +126,20 @@ npm run dev
 ngrok http 3000
 ```
 
-回到 [LINE](https://developers.line.biz/) 平台，修改「Webhook URL」，點選「Update」按鈕。
+回到 [LINE](https://developers.line.biz/) 平台，修改「Webhook URL」，例如「<https://0000-0000-0000.jp.ngrok.io/webhook>」，點選「Update」按鈕。
 
 使用 LINE 手機應用程式發送訊息。
 
 查看結果。
 
 ```bash
-> gpt-ai-assistant@1.0.0 dev
+> gpt-ai-assistant@0.0.0 dev
 > node api/index.js
 
 === 0x1234 ===
 
-AI: 哈囉！
-Human: 嗨？
-AI: 很高興見到你！有什麼可以為你服務的嗎？
+Memo: 嗨
+AI: 你好嗎？
 ```
 
 ## 程式碼
