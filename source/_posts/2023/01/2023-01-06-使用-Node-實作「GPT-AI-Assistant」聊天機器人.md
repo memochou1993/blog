@@ -148,29 +148,29 @@ export default app;
  * @returns {Promise<Context>}
  */
 const handleContext = async (context) => (
-  // 檢查是否為 activate 指令，是的話就執行並提前返回
-  (isActivateCommand(context) && execActivateCommand(context))
-    // 檢查是否為 command 指令，是的話就執行並提前返回
-    || (isCommandCommand(context) && execCommandCommand(context))
-    // 檢查是否為 continue 指令，是的話就執行並提前返回
-    || (isContinueCommand(context) && execContinueCommand(context))
-    // 檢查是否為 deactivate 指令，是的話就執行並提前返回
-    || (isDeactivateCommand(context) && execDeactivateCommand(context))
-    // 檢查是否為 deploy 指令，是的話就執行並提前返回
-    || (isDeployCommand(context) && execDeployCommand(context))
-    // 檢查是否為 doc 指令，是的話就執行並提前返回
-    || (isDocCommand(context) && execDocCommand(context))
-    // 檢查是否為 draw 指令，是的話就執行並提前返回
-    || (isDrawCommand(context) && execDrawCommand(context))
-    // 檢查是否為 enquire 指令，是的話就執行並提前返回
-    || (isEnquireCommand(context) && execEnquireCommand(context))
-    // 檢查是否為 summon 指令，是的話就執行並提前返回
-    || (isSummonCommand(context) && execSummonCommand(context))
-    // 檢查是否為 version 指令，是的話就執行並提前返回
-    || (isVersionCommand(context) && execVersionCommand(context))
-    // 檢查是否為 talk 指令，是的話就執行並提前返回
-    || (isTalkCommand(context) && execTalkCommand(context))
-    || context
+  // 檢查是否為 activate 指令，是的話就執行
+  activateCommand(context)
+  // 檢查是否為 command 指令，是的話就執行
+  || commandCommand(context)
+  // 檢查是否為 continue 指令，是的話就執行
+  || continueCommand(context)
+  // 檢查是否為 deactivate 指令，是的話就執行
+  || deactivateCommand(context)
+  // 檢查是否為 deploy 指令，是的話就執行
+  || deployCommand(context)
+  // 檢查是否為 doc 指令，是的話就執行
+  || docCommand(context)
+  // 檢查是否為 draw 指令，是的話就執行
+  || drawCommand(context)
+  // 檢查是否為 enquire 指令，是的話就執行
+  || enquireCommand(context)
+  // 檢查是否為 report 指令，是的話就執行
+  || reportCommand(context)
+  // 檢查是否為 version 指令，是的話就執行
+  || versionCommand(context)
+  // 檢查是否為 talk 指令，是的話就執行
+  || talkCommand(context)
+  || context
 );
 
 const handleEvents = async (events = []) => (
@@ -496,31 +496,27 @@ AI: 好的！
 
 ## 子處理器
 
-所謂子處理器就是當接受某一種指令時，可以透過它來判斷是否處理，以及處理的方式。以 `version` 這個指令為例，在 `app/commands/version.js` 檔被定義。
+所謂子處理器就是當接受某一種指令時，可以透過它來判斷是否處理，以及處理的方式。以 `doc` 這個指令為例，在 `app/commands/doc.js` 檔被定義。
 
 ```js
-// app/commands/version.js
+// app/commands/doc.js
 // ...
 
-// 判斷是否接收到是 command 字串的訊息
-const isVersionCommand = (context) => context.isCommand(COMMAND_SYS_VERSION);
+// 判斷是否接收到指定字串
+const check = (context) => context.isCommand(COMMAND_SYS_DOC);
 
 // 執行 command 指令所需要執行的內容
-const execVersionCommand = async (context) => {
-  // 把使用者送出 command 指令的記錄從 History 模組中消除
-  updateHistory(context.id, (history) => history.records.pop());
-  // 取得應用程式的版本
-  const version = getVersion();
-  // 將結果以 Text 訊息的形式送到 Context 類別，最終會以文字訊息的方式被送到 LINE 伺服器
-  context.pushText(version, formatCommand(GENERAL_COMMANDS));
-  // 回傳 Context 類別
-  return context;
-};
+const exec = (context) => check(context) && (
+  async () => {
+    // 把使用者送出 command 指令的記錄從 History 模組中消除
+    updateHistory(context.id, (history) => history.records.pop());
+    // 將文字訊息推送至佇列
+    context.pushText('https://github.com/memochou1993/gpt-ai-assistant', formatCommand(GENERAL_COMMANDS));
+    return context;
+  }
+)();
 
-export {
-  isVersionCommand,
-  execVersionCommand,
-};
+export default exec;
 ```
 
 ## 開發
