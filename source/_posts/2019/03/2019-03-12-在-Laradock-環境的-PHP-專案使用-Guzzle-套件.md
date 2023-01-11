@@ -1,5 +1,5 @@
 ---
-title: 在 Laradock 中使用 Guzzle Http 請求套件
+title: 在 Laradock 環境的 PHP 專案使用 Guzzle 套件
 date: 2019-03-12 23:01:28
 tags: ["環境部署", "Nginx", "Laravel", "Laradock", "Guzzle"]
 categories: ["環境部署", "Laradock"]
@@ -29,7 +29,7 @@ return $response->getBody();
 
 ## 連線錯誤
 
-在 Laradock 中，專案之間使用 Guzzsle 發出 HTTP 請求時，會出現以下錯誤：
+在 Laradock 中，專案之間使用 Guzzle 發出 HTTP 請求時，會出現以下錯誤：
 
 ```txt
 cURL error 7: Failed to connect to laravel.test port 80: Connection refused

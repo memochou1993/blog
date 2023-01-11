@@ -1,5 +1,5 @@
 ---
-title: 使用 Guzzle Http 請求套件發送異步請求
+title: 在 PHP 專案使用 Guzzle 發送異步請求
 date: 2019-11-20 23:09:35
 tags: ["程式設計", "PHP", "Guzzle"]
 categories: ["程式設計", "PHP", "其他"]
