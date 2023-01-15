@@ -24,7 +24,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/ethereum/go-ethereum/accounts/abi"
-	"gitlab.com/kklab-com/venture-project/oursong-staking-dapp/our-token-stake-api/app/client"
 	"log"
 	"net/url"
 	"os"

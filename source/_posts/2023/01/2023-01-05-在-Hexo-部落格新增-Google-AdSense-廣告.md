@@ -11,7 +11,7 @@ categories: ["靜態網頁生成器", "Hexo"]
 
 審核通過後，在 Hexo 專案的 `source` 資料夾新增 `ads.txt` 檔。
 
-```TXT
+```txt
 google.com, pub-xxxxxxxxxxxxxxxx, DIRECT, f08c47fec0942fa0
 ```
 

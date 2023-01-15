@@ -20,6 +20,17 @@ categories: ["程式設計", "Go", "GORM"]
 | `bigint` | 8 bytes | -9223372036854775808 到 +9223372036854775807 |
 | `numeric` | variable | 小數點前 131,072 位，小數點後 16,383 位 |
 
+## 安裝套件
+
+安裝套件。
+
+```bash
+go get github.com/joho/godotenv
+go get gorm.io/gorm
+go get gorm.io/driver/postgres
+go get github.com/jackc/pgtype
+```
+
 ## 連線
 
 在 `database.go` 檔建立一個 `DB()` 方法，以建立連線並初始化一個 `DB` 實例。
@@ -29,7 +40,6 @@ package database
 
 import (
 	"fmt"
-	"gitlab.com/kklab-com/venture-project/oursong-staking-dapp/our-token-stake-api/app/database/model"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"log"

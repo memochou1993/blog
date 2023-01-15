@@ -15,7 +15,7 @@ npm i -g redoc-cli
 
 新增 `openapi.yaml` 檔。
 
-```YAML
+```yaml
 openapi: 3.0.3
 
 info:

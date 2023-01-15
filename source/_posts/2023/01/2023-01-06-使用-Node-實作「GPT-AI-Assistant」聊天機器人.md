@@ -209,7 +209,7 @@ export default handleEvents;
 
 Prompt 模組的進入點在 `app/prompt/index.js` 檔。這裡放置了以每個人為單位的提示詞。
 
-```JS
+```js
 // app/prompt/index.js
 // ...
 
@@ -318,7 +318,7 @@ AI: 嗨！很高興為你服務！
 
 History 模組的進入點在 `app/history/index.js` 檔。這裡放置了以每個人或群組為單位的聊天歷史紀錄。與 Prompt 模組不同的地方在於，History 所儲存的內容，是被當成分析文本，最終會被夾帶在提示詞之中送出。
 
-```JS
+```js
 // app/history/index.js
 // ...
 
