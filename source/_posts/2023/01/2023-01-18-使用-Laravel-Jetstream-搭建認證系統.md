@@ -1,6 +1,6 @@
 ---
 title: 使用 Laravel Jetstream 搭建認證系統
-date: 2023-01-19 00:32:02
+date: 2023-01-18 00:32:02
 tags: ["程式設計", "PHP", "Laravel"]
 categories: ["程式設計", "PHP", "Laravel"]
 ---
