@@ -1,13 +1,15 @@
 ---
-title: 在 Ethereum 專案使用 JavaScript 對資料進行簽名與驗證
+title: 在 Ethereum 專案使用 JavaScript 對簽章進行驗證
 date: 2022-10-17 01:33:06
 tags: ["區塊鏈", "Ethereum", "JavaScript", "Node", "Ethers", "Web3", "MetaMask"]
 categories: ["區塊鏈", "Ethereum"]
 ---
 
-## 做法
+## 前端
 
 ### 使用 Ethers.js 套件
+
+新增 `main.js` 檔。
 
 ```js
 import { ethers } from 'ethers';
@@ -28,6 +30,8 @@ console.log('recovered', recovered);
 
 ### 使用 Web3.js 套件
 
+新增 `main.js` 檔。
+
 ```js
 import Web3 from 'web3';
 
@@ -45,7 +49,7 @@ console.log('sig', sig);
 console.log('recovered', recovered);
 ```
 
-### 使用 Node 驗證
+## 後端
 
 新增 `recover.js` 檔。
 
