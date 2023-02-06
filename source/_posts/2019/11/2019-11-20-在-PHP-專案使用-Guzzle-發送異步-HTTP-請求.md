@@ -1,5 +1,5 @@
 ---
-title: 在 PHP 專案使用 Guzzle 發送異步請求
+title: 在 PHP 專案使用 Guzzle 發送異步 HTTP 請求
 date: 2019-11-20 23:09:35
 tags: ["程式設計", "PHP", "Guzzle"]
 categories: ["程式設計", "PHP", "其他"]
@@ -39,7 +39,7 @@ echo 'results: '.count($results)."\n";
 results: 1
 ```
 
-## 併發請求
+## 平行請求
 
 使用 Promise 和異步請求同時發送多個請求。
 
@@ -118,7 +118,7 @@ $promise->wait();
 echo 'results: '.count($results)."\n";
 ```
 
-併發數設為 10，結果：
+平行數設為 10，結果：
 
 ```php
 0: 15:34:23
@@ -134,7 +134,7 @@ echo 'results: '.count($results)."\n";
 results: 10
 ```
 
-併發數設為 1，結果：
+平行數設為 1，結果：
 
 ```php
 0: 15:35:54
