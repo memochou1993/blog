@@ -14,8 +14,8 @@ categories: ["程式設計", "JavaScript", "Node"]
 建立專案。
 
 ```bash
-mkdir openai-cli-node
-cd openai-cli-node
+mkdir gpt-cli-node
+cd gpt-cli-node
 ```
 
 初始化專案。
@@ -131,7 +131,7 @@ node index.mjs
 
 ## 程式碼
 
-- [openai-cli-node](https://github.com/memochou1993/openai-cli-node)
+- [gpt-cli-node](https://github.com/memochou1993/gpt-cli-node)
 
 ## 參考資料
 

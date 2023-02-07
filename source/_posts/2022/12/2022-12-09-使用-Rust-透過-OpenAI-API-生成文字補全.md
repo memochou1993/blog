@@ -14,8 +14,8 @@ categories: ["程式設計", "Rust", "其他"]
 建立專案。
 
 ```bash
-cargo new openai-cli-rust
-cd openai-cli-rust
+cargo new gpt-cli-rust
+cd gpt-cli-rust
 ```
 
 安裝依賴套件。
@@ -154,7 +154,7 @@ cargo run
 
 ## 程式碼
 
-- [openai-cli-rust](https://github.com/memochou1993/openai-cli-rust)
+- [gpt-cli-rust](https://github.com/memochou1993/gpt-cli-rust)
 
 ## 參考資料
 
