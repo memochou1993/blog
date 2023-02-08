@@ -24,7 +24,7 @@ rails new blog
 cd blog
 ```
 
-啟動網頁服務器。
+啟動網頁。
 
 ```bash
 rails server
