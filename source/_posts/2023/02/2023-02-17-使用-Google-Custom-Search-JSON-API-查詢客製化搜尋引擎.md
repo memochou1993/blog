@@ -15,16 +15,10 @@ categories: ["程式設計", "JavaScript", "其他"]
 
 ### 發送請求
 
-使用 JavaScript 的 `fetch` 發送請求。
+使用 `fetch` 發送請求。
 
 ```js
 await (await fetch('https://customsearch.googleapis.com/customsearch/v1?key=your-api-key&cx=your-search-engine-id&lr=lang_zh-TW&q=台灣')).json()
-```
-
-使用 `curl` 發送請求。
-
-```bash
-curl https://customsearch.googleapis.com/customsearch/v1?key=your-api-key&cx=your-search-engine-id&lr=lang_zh-TW&q=台灣
 ```
 
 ## 參考資料
