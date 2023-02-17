@@ -1,15 +1,15 @@
 ---
-title: 將 React 專案部署至 GitHub Pages 服務
+title: 使用 GitHub Actions 將 React 專案部署至 GitHub Pages 服務
 date: 2022-03-25 02:57:03
-tags: ["程式設計", "JavaScript", "React", "GitHub", "GitHub Pages"]
+tags: ["程式設計", "JavaScript", "React", "GitHub", "GitHub Pages", "GitHub Actions"]
 categories: ["程式設計", "JavaScript", "環境部署"]
 ---
 
 ## 做法
 
-### 方法一
+首先，到專案的「Settings」頁面，將「Workflow permissions」設置為「Read and write permissions」。
 
-使用 `actions-gh-pages` 的 GitHub Action 樣板，在 `.github/workflows` 資料夾新增 `gh-pages.yaml` 檔。
+在專案的 `.github/workflows` 資料夾新增 `gh-pages.yaml` 檔。
 
 ```yaml
 name: GitHub Pages
@@ -60,46 +60,6 @@ git commit -m "Add deploy script"
 git push
 ```
 
-### 方法二
-
-安裝 `gh-pages` 套件。
-
-```bash
-npm install gh-pages --save-dev
-```
-
-修改 `package.json` 檔，添加 `homepage` 內容。
-
-```json
-{
-  "name": "my-app",
-  "homepage": "https://<your-github-username>.github.io/my-app"
-}
-```
-
-並且添加 `deploy` 指令。
-
-```json
-{
-  "scripts": {
-    "deploy": "gh-pages -d build"
-  }
-}
-```
-
-執行編譯。
-
-```bash
-npm run build
-```
-
-執行部署。
-
-```bash
-npm run deploy
-```
-
 ## 參考資料
 
 - [actions-gh-pages](https://github.com/peaceiris/actions-gh-pages)
-- [react-gh-pages](https://github.com/gitname/react-gh-pages)
