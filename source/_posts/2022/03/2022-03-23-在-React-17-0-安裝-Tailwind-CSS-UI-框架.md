@@ -7,6 +7,13 @@ categories: ["程式設計", "JavaScript", "React"]
 
 ## 做法
 
+建立專案。
+
+```bash
+npm create vite@latest my-project -- --template react
+cd my-project
+```
+
 安裝依賴套件。
 
 ```bash
@@ -24,7 +31,8 @@ npx tailwindcss init -p
 ```js
 module.exports = {
   content: [
-    './src/**/*.{js,jsx,ts,tsx}',
+    './index.html',
+    './src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {},
@@ -33,7 +41,7 @@ module.exports = {
 };
 ```
 
-修改 `app.css` 檔，添加 `@tailwind` 裝飾器。
+修改 `src/index.css` 檔，添加 `@tailwind` 裝飾器。
 
 ```css
 @tailwind base;
@@ -60,9 +68,9 @@ export default App;
 啟動服務。
 
 ```bash
-npm run start
+npm run dev
 ```
 
 ## 參考資料
 
-- [Tailwind - Documentation](https://tailwindcss.com/docs/guides/create-react-app)
+- [Tailwind - Documentation](https://tailwindcss.com/docs/guides/vite)
