@@ -7,27 +7,27 @@ categories: ["程式設計", "JavaScript", "ESLint"]
 
 ## 做法
 
+建立專案。
+
+```bash
+npm create vite@latest example -- --template vue
+cd example
+```
+
 安裝 `@vue/eslint-config-airbnb` 套件。
 
 ```bash
-yarn add @vue/eslint-config-airbnb --dev
+npm i @vue/eslint-config-airbnb --dev
 ```
 
-在根目錄新增 `.eslintrc.js` 檔：
+在根目錄新增 `.eslintrc.cjs` 檔：
 
 ```js
 module.exports = {
-  root: true,
-  env: {
-    node: true,
-  },
   extends: [
     'plugin:vue/recommended',
     '@vue/airbnb',
   ],
-  parserOptions: {
-    parser: 'babel-eslint',
-  },
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
