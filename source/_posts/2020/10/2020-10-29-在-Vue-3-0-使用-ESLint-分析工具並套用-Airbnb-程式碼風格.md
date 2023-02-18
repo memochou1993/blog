@@ -14,13 +14,13 @@ npm create vite@latest example -- --template vue
 cd example
 ```
 
-安裝 `@vue/eslint-config-airbnb` 套件。
+安裝套件。
 
 ```bash
-npm i @vue/eslint-config-airbnb --dev
+npm i @vue/eslint-config-airbnb eslint-import-resolver-typescript -D
 ```
 
-在根目錄新增 `.eslintrc.cjs` 檔：
+在專案根目錄新增 `.eslintrc.cjs` 檔：
 
 ```js
 module.exports = {
