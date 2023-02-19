@@ -17,7 +17,9 @@ cd example
 安裝套件。
 
 ```bash
-npm i @vue/eslint-config-airbnb eslint-import-resolver-typescript -D
+npm i @vue/eslint-config-airbnb \
+  eslint-import-resolver-typescript \
+  -D
 ```
 
 在專案根目錄新增 `.eslintrc.cjs` 檔：

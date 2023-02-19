@@ -10,31 +10,8 @@ categories: ["程式設計", "JavaScript", "Vue"]
 建立專案。
 
 ```bash
-npm create vite@latest gpt-content-generator-example -- --template vue
-cd gpt-content-generator-example
-```
-
-安裝 eslint 套件。
-
-```bash
-npm i @vue/eslint-config-airbnb eslint-import-resolver-typescript -D
-```
-
-新增 `.eslintrc.cjs` 檔。
-
-```js
-module.exports = {
-  extends: [
-    '@vue/airbnb',
-  ],
-  settings: {
-    'import/resolver': {
-      typescript: {},
-    },
-  },
-  rules: {
-  },
-};
+npm create vite@latest my-app -- --template vue
+cd my-app
 ```
 
 安裝 Vuetify 框架。
