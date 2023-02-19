@@ -232,3 +232,7 @@ const translate = async () => {
   </v-card>
 </template>
 ```
+
+## 程式碼
+
+- [gpt-translator](https://github.com/memochou1993/gpt-translator)
