@@ -27,7 +27,6 @@ npm i @vue/eslint-config-airbnb \
 ```js
 module.exports = {
   extends: [
-    'plugin:vue/recommended',
     '@vue/airbnb',
   ],
   settings: {
@@ -36,9 +35,6 @@ module.exports = {
     },
   },
   rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'import/extensions': ['error', 'ignorePackages'],
   },
 };
 ```
