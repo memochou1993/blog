@@ -7,6 +7,21 @@ categories: ["程式設計", "JavaScript", "環境部署"]
 
 ## 做法
 
+修改 `vite.config.js` 檔，將 `base` 設置為以專案名稱為名的資料夾路徑。
+
+```js
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [vue()],
+  base: process.env.NODE_ENV === 'production'
+    ? '/<REPO_NAME>/'
+    : '/',
+});
+```
+
 首先，到專案的「Settings」頁面，將「Workflow permissions」設置為「Read and write permissions」。
 
 在專案的 `.github/workflows` 資料夾新增 `gh-pages.yaml` 檔。
@@ -62,4 +77,5 @@ git push
 
 ## 參考資料
 
+- [Vite - GitHub Pages](https://vitejs.dev/guide/static-deploy.html#github-pages)
 - [actions-gh-pages](https://github.com/peaceiris/actions-gh-pages)
