@@ -22,10 +22,7 @@ export default defineConfig({
 });
 ```
 
-到 GitHub 的專案頁面，點選「Settings」頁籤，變更以下設定：
-
-- 將「Actions」的「General」的「Workflow permissions」設置為「Read and write permissions」。
-- 將「Pages」的「Branch」設置為「gh-pages」。
+到 GitHub 的專案頁面，點選「Settings」頁籤，點選「Actions」的「General」選單，將「Workflow permissions」設置為「Read and write permissions」。
 
 然後，在專案的 `.github/workflows` 資料夾新增 `gh-pages.yaml` 檔。
 
@@ -77,6 +74,8 @@ git add .
 git commit -m "Add deploy script"
 git push
 ```
+
+再回到 GitHub 的專案頁面，點選「Settings」頁籤，將「Pages」的「Branch」設置為「gh-pages」。
 
 ## 參考資料
 
