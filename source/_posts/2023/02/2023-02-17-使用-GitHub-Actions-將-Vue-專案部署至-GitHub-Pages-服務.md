@@ -7,7 +7,7 @@ categories: ["程式設計", "JavaScript", "環境部署"]
 
 ## 做法
 
-修改 `vite.config.js` 檔，將 `base` 設置為以專案名稱為名的資料夾路徑。
+首先，修改 `vite.config.js` 檔，將 `base` 設置為以專案名稱為名的資料夾路徑。
 
 ```js
 import { defineConfig } from 'vite';
@@ -22,7 +22,7 @@ export default defineConfig({
 });
 ```
 
-首先，到專案的「Settings」頁面，將「Workflow permissions」設置為「Read and write permissions」。
+在 GitHub 的「Settings」頁面，將「Workflow permissions」設置為「Read and write permissions」。
 
 在專案的 `.github/workflows` 資料夾新增 `gh-pages.yaml` 檔。
 
