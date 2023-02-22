@@ -1,7 +1,7 @@
 ---
-title: 使用 Go 建立 Line Notify 推播服務
+title: 使用 Go 建立 LINE Notify 推播服務
 date: 2020-11-29 21:44:12
-tags: ["程式設計", "Go", "Line"]
+tags: ["程式設計", "Go", "LINE", "chatbot"]
 categories: ["程式設計", "Go", "其他"]
 ---
 

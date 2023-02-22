@@ -1,7 +1,7 @@
 ---
-title: 使用 Go 建立 Line Bot 聊天機器人
+title: 使用 Go 建立 LINE Bot 聊天機器人
 date: 2020-11-28 22:34:33
-tags: ["程式設計", "Go", "Line"]
+tags: ["程式設計", "Go", "LINE", "chatbot"]
 categories: ["程式設計", "Go", "其他"]
 ---
 
