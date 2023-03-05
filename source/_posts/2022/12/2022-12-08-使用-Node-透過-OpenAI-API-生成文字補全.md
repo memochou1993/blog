@@ -24,6 +24,14 @@ cd gpt-cli-node
 npm init
 ```
 
+修改 `package.json` 檔。
+
+```json
+{
+  "type": "module",
+}
+```
+
 安裝依賴套件。
 
 ```bash
@@ -45,7 +53,7 @@ OPENAI_API_KEY=
 
 ## 實作
 
-新增 `api.mjs` 檔。
+新增 `api.js` 檔。
 
 ```js
 import dotenv from 'dotenv';
@@ -93,7 +101,7 @@ export const chat = async ({ context, reply = '' }) => {
 export default null;
 ```
 
-新增 `index.mjs` 檔。
+新增 `index.js` 檔。
 
 ```js
 import readline from 'readline';
@@ -102,7 +110,7 @@ import {
   chat,
   TITLE_AI,
   TITLE_HUMAN,
-} from './api.mjs';
+} from './api.js';
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -126,7 +134,7 @@ start(`${TITLE_AI}: 嗨！我可以怎麼幫助你？`);
 執行程式。
 
 ```bash
-node index.mjs
+node index.js
 ```
 
 ## 程式碼
