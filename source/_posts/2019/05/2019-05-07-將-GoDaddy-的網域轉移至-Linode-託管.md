@@ -29,14 +29,14 @@ categories: ["雲端運算服務", "Linode"]
 
 在 Linode 的 Domains 頁面新增一個 Domain。
 
-編輯 Domain，新增 A/AAAA 記錄，並指向主機的 IP 位置。
+編輯 Domain，新增 A/AAAA 紀錄，並指向主機的 IP 位置。
 
 | Hostname | IP Address |
 | --- | --- |
 | （空白） | xxx.xxx.xxx.xxx |
 | www | xxx.xxx.xxx.xxx |
 
-新增 CNAME 記錄，設定別名。
+新增 CNAME 紀錄，設定別名。
 
 | Hostname | IP Address |
 | --- | --- |
