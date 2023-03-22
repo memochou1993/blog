@@ -1,6 +1,6 @@
 ---
 title: 將 GoDaddy 的網域轉移至 AWS 託管
-date: 2023-03-22 00:03:17
+date: 2023-03-21 17:03:17
 tags: ["環境部署", "AWS", "EC2", "Linux", "GoDaddy", "VPS", "DNS"]
 categories: ["雲端運算服務", "AWS"]
 ---
