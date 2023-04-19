@@ -46,6 +46,32 @@ frontend:
       - node_modules/**/*
 ```
 
+## 路由
+
+如果使用 History 模式，可以調整重寫和重新引導設定如下：
+
+```bash
+來源地址
+/<*>
+
+目標地址
+/index.html
+
+類型
+404 (重新寫入)
+```
+
+```bash
+來源地址
+</^[^.]+$|\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/>
+
+目標地址
+/index.html
+
+類型
+200 (重新寫入)
+```
+
 ## 參考資料
 
 - [Amplify Docs - Vue](https://docs.amplify.aws/start/q/integration/vue/)
