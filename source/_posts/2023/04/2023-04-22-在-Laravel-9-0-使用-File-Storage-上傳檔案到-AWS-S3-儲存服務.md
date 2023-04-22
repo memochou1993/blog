@@ -1,0 +1,52 @@
+---
+title: 在 Laravel 9.0 使用 File Storage 上傳檔案到 AWS S3 儲存服務
+date: 2023-04-22 16:50:23
+tags: ["程式設計", "PHP", "Laravel", "AWS", "S3", "Storage Service"]
+categories: ["程式設計", "PHP", "Laravel"]
+---
+
+## 前置作業
+
+首先，在 AWS S3 新增一個水桶。接著，在安全憑證的頁面，建立一個具有存取 S3 權限的 IAM 角色，並新增一個存取金鑰。
+
+## 實作
+
+安裝套件。
+
+```bash
+composer require league/flysystem-aws-s3-v3
+```
+
+更新 `.env` 檔。
+
+```env
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_DEFAULT_REGION=ap-northeast-1
+AWS_BUCKET=
+```
+
+更新 `routes/api.php` 檔。
+
+```php
+Route::get('/', function () {
+    $result = Storage::disk('s3')->put('.env.example', '.env.example');
+    return response()->json($result);
+});
+```
+
+上傳檔案。
+
+```bash
+curl http://localhost:8000/api
+```
+
+輸出結果如下：
+
+```bash
+true
+```
+
+## 參考資料
+
+- [Laravel - File Storage](https://laravel.com/docs/9.x/filesystem)
