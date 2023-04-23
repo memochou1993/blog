@@ -47,6 +47,27 @@ curl http://localhost:8000/api
 true
 ```
 
+## S3 Policy
+
+如果要公開所有物件，可以使用以下政策。
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "*"
+            },
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::your-bucket-name/*"
+        }
+    ]
+}
+```
+
 ## 參考資料
 
 - [Laravel - File Storage](https://laravel.com/docs/9.x/filesystem)
