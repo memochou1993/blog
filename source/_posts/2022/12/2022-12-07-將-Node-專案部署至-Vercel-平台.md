@@ -49,6 +49,8 @@ app.get('/api', (req, res) => {
 module.exports = app;
 ```
 
+## 部署
+
 新增 `vercel.json` 檔。
 
 ```json
@@ -57,7 +59,7 @@ module.exports = app;
 }
 ```
 
-## 部署
+將程式碼推送到 GitHub 儲存庫。
 
 在 [Vercel](https://vercel.com/) 平台註冊帳號，並且連結儲存庫。
 
