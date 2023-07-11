@@ -17,7 +17,7 @@ cd flask-example
 建立環境。
 
 ```bash
-pyenv virtualenv 3.9.6 flask-example
+pyenv virtualenv 3.11.4 flask-example
 pyenv local flask-example
 ```
 

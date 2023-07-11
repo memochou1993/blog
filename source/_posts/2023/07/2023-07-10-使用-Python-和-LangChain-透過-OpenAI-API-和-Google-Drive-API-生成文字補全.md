@@ -7,7 +7,7 @@ categories: ["程式設計", "Python", "其他"]
 
 ## 前置作業
 
-首先到 [Google Cloud](https://console.cloud.google.com/projectcreate) 頁面，建立一個 `gpt-google-drive` 專案。
+首先到 [Google Cloud](https://console.cloud.google.com/projectcreate) 頁面，建立一個 `langchain-google-drive` 專案。
 
 進到 [快速入門](https://developers.google.com/drive/api/quickstart/python)，進行以下設定：
 
@@ -22,16 +22,16 @@ categories: ["程式設計", "Python", "其他"]
 建立專案。
 
 ```bash
-mkdir gpt-google-drive
-cd gpt-google-drive
+mkdir langchain-google-drive
+cd langchain-google-drive
 ```
 
 建立虛擬環境。
 
 ```bash
-pyenv install 3.9.6
-pyenv virtualenv 3.9.6 gpt-google-drive
-pyenv local gpt-google-drive
+pyenv install 3.11.4
+pyenv virtualenv 3.11.4 langchain-google-drive
+pyenv local langchain-google-drive
 ```
 
 新增 `requirements.txt` 檔。
@@ -117,7 +117,7 @@ python3.9 main.py
 
 ## 程式碼
 
-- [gpt-google-drive](https://github.com/memochou1993/gpt-google-drive)
+- [langchain-google-drive](https://github.com/memochou1993/langchain-google-drive)
 
 ## 參考資料
 
