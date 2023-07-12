@@ -1,8 +1,8 @@
 ---
-title: 將 Docker 映像檔推送至 GitLab Container Registry
+title: 在 GitLab CI/CD 將 Docker 映像檔推送至 GitLab Container Registry
 date: 2023-07-13 01:49:50
 tags: ["環境部署", "CI/CD", "GitLab", "Docker"]
-categories: ["環境部署", "CI/CD"]
+categories: ["環境部署", "CI/CD", "GitLab"]
 ---
 
 ## 做法
@@ -41,7 +41,7 @@ build:
     - main
 ```
 
-將程式碼推送到儲存庫。
+最後，將程式碼推送到儲存庫。
 
 ## 參考資料
 

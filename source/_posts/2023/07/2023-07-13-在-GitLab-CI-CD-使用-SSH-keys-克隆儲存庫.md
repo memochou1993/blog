@@ -2,7 +2,7 @@
 title: 在 GitLab CI/CD 使用 SSH keys 克隆儲存庫
 date: 2023-07-13 01:59:15
 tags: ["環境部署", "CI/CD", "GitLab", "SSH"]
-categories: ["環境部署", "CI/CD"]
+categories: ["環境部署", "CI/CD", "GitLab"]
 ---
 
 ## 做法
@@ -65,7 +65,7 @@ Test SSH:
   - git clone git@gitlab.com:gitlab-examples/ssh-private-key.git
 ```
 
-將程式碼推送到儲存庫。
+最後，將程式碼推送到儲存庫。
 
 ## 參考資料
 
