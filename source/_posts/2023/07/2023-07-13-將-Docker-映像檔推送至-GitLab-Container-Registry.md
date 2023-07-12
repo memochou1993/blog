@@ -1,7 +1,7 @@
 ---
 title: 將 Docker 映像檔推送至 GitLab Container Registry
 date: 2023-07-13 01:49:50
-tags: ["環境部署", "CI/CD", "Docker", "GitLab"]
+tags: ["環境部署", "CI/CD", "GitLab", "Docker"]
 categories: ["環境部署", "CI/CD"]
 ---
 
