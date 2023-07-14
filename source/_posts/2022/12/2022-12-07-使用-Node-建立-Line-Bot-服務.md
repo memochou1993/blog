@@ -1,7 +1,7 @@
 ---
 title: 使用 Node 建立 Line Bot 服務
 date: 2022-12-07 00:32:23
-tags: ["程式設計", "JavaScript", "Node", "Line"]
+tags: ["程式設計", "JavaScript", "Node", "LINE", "chatbot"]
 categories: ["程式設計", "JavaScript", "Node"]
 ---
 
@@ -130,7 +130,7 @@ export default app;
 
 在 [Vercel](https://vercel.com/) 平台註冊帳號，並且連結儲存庫。
 
-然後在設定頁面，新增一個 `LINE_CHANNEL_ACCESS_TOKEN` 環境變數。
+然後在設定頁面，新增相關環境變數。
 
 將 Function 區域改為東京或新加坡。
 

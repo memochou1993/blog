@@ -21,12 +21,13 @@ pyenv virtualenv 3.11.4 flask-example
 pyenv local flask-example
 ```
 
-## 做法
+## 實作
 
 新增 `.gitignore` 檔。
 
 ```env
 __pycache__
+.vscode
 .vercel
 .env
 ```
