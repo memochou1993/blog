@@ -7,13 +7,19 @@ categories: ["程式設計", "Python", "其他"]
 
 ## 前置作業
 
-首先到 [Google Cloud](https://console.cloud.google.com/projectcreate) 頁面，建立一個 `langchain-google-drive` 專案。
+首先，到 [Google Cloud](https://console.cloud.google.com/projectcreate) 頁面，建立一個 `langchain-google-drive` 專案。
 
-進到 [快速入門](https://developers.google.com/drive/api/quickstart/python)，進行以下設定：
+然後，進到[啟用 API 精靈](https://console.cloud.google.com/projectselector2/apis/enableflow)頁面，啟用 Google Drive API。
 
-- 啟用 API
-- 設定 OAuth 同意畫面
-- 為桌面應用程式授權
+### 使用 OAuth 2.0
+
+點選「建立憑證」，選擇「建立 OAuth 用戶端 ID」，選擇「電腦版應用程式」。
+
+建立並下載憑證後，重新命名為 `credentials.json` 檔。
+
+### 使用服務帳戶
+
+或者點選「建立憑證」，選擇「服務帳戶」，建立後進到該服務帳戶點選「新增金鑰」。
 
 建立並下載憑證後，重新命名為 `credentials.json` 檔。
 
@@ -57,17 +63,13 @@ pip install -r requirements.txt
 
 ## 實作
 
-將憑證放到指定資料夾。
-
-```bash
-mkdir ~/.credentials
-mv ./credentials.json ~/.credentials/credentials.json
-```
+將憑證放到專案根目錄。
 
 新增 `.env` 檔，填入環境變數。
 
 ```env
 OPENAI_API_KEY=
+GOOGLE_APPLICATION_CREDENTIALS=./
 GOOGLE_DRIVE_FOLDER_ID=
 ```
 
@@ -87,6 +89,9 @@ load_dotenv()
 
 loader = GoogleDriveLoader(
     folder_id=os.environ["GOOGLE_DRIVE_FOLDER_ID"],
+    service_account_key='credentials.json',
+    # credentials_path='credentials.json',
+    # token_path='token.json',
     recursive=False
 )
 docs = loader.load()
@@ -112,7 +117,7 @@ while True:
 執行程式。
 
 ```bash
-python3.9 main.py
+python3.11 main.py
 ```
 
 ## 程式碼
