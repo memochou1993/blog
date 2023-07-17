@@ -118,7 +118,7 @@ CMD ["sh", "/etc/entrypoint.sh"]
 
 新增 `.github/workflows/deploy.yml` 檔。
 
-```yml
+```yaml
 name: Deploy to Amazon ECS
 
 on:

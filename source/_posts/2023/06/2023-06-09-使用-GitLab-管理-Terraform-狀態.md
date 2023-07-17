@@ -9,7 +9,7 @@ categories: ["環境部署", "Terraform"]
 
 在專案根目錄新增 `.gitlab-ci.yml` 檔。
 
-```yml
+```yaml
 include:
   - template: Terraform/Base.gitlab-ci.yml
 
