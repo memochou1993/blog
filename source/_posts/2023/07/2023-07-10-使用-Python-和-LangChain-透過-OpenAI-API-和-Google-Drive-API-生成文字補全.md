@@ -65,12 +65,24 @@ pip install -r requirements.txt
 
 將憑證放到專案根目錄。
 
+```bash
+mv ~/Downloads/credentials.json .
+```
+
 新增 `.env` 檔，填入環境變數。
 
 ```env
 OPENAI_API_KEY=
 GOOGLE_APPLICATION_CREDENTIALS=./
 GOOGLE_DRIVE_FOLDER_ID=
+```
+
+新增 `.gitignore` 檔。
+
+```bash
+.env
+.chroma
+creadentials.json
 ```
 
 建立 `main.py` 檔。
