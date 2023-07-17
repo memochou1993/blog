@@ -48,12 +48,12 @@ groupadd --system caddy
 
 ```bash
 useradd --system \
-	--gid caddy \
-	--create-home \
-	--home-dir /var/lib/caddy \
-	--shell /usr/sbin/nologin \
-	--comment "Caddy web server" \
-	caddy
+    --gid caddy \
+    --create-home \
+    --home-dir /var/lib/caddy \
+    --shell /usr/sbin/nologin \
+    --comment "Caddy web server" \
+    caddy
 ```
 
 - `--home-dir` 參數決定 Caddy 存放重要檔案的位置，包括 SSL 憑證等。
@@ -76,9 +76,9 @@ sudo chown -R caddy:caddy /var/log/caddy
 
 新增 `/etc/caddy` 資料夾，在裡面建立一個 `Caddyfile` 檔：
 
-```bash
+```txt
 domain.com {
-	respond "Hello, world!"
+    respond "Hello, world!"
 }
 ```
 
@@ -152,13 +152,13 @@ sudo systemctl stop caddy
 
 - v1:
 
-```bash
+```txt
 root /var/www
 ```
 
 - v2:
 
-```bash
+```txt
 root * /var/www
 ```
 
@@ -168,13 +168,13 @@ root * /var/www
 
 - v1
 
-```bash
+```txt
 fastcgi / localhost:9000 php
 ```
 
 - v2
 
-```bash
+```txt
 php_fastcgi localhost:9000
 ```
 
@@ -184,13 +184,13 @@ php_fastcgi localhost:9000
 
 - v1
 
-```bash
+```txt
 gzip
 ```
 
 - v2
 
-```bash
+```txt
 encode gzip
 ```
 
@@ -200,13 +200,13 @@ encode gzip
 
 - v1
 
-```bash
+```txt
 browse /subfolder/
 ```
 
 - v2
 
-```bash
+```txt
 file_server /subfolder/* browse
 ```
 
@@ -216,16 +216,16 @@ file_server /subfolder/* browse
 
 - v1:
 
-```bash
+```txt
 log access.log
 ```
 
 - v2:
 
-```bash
+```txt
 log {
-	output file         access.log
-	format single_field common_log
+    output file         access.log
+    format single_field common_log
 }
 ```
 
@@ -235,13 +235,13 @@ log {
 
 - v1:
 
-```bash
+```txt
 proxy / localhost:9005
 ```
 
 - v2:
 
-```bash
+```txt
 reverse_proxy localhost:9005
 ```
 
@@ -249,7 +249,7 @@ reverse_proxy localhost:9005
 
 用來配置 HTTPS 連線。
 
-```bash
+```txt
 tls email
 ```
 
@@ -257,7 +257,7 @@ tls email
 
 ### PHP 站點
 
-```bash
+```txt
 service.domain.com {
     root * /var/www/service/public
 
@@ -276,7 +276,7 @@ service.domain.com {
 
 ### 反向代理
 
-```bash
+```txt
 service.domain.com {
     reverse_proxy 127.0.0.1:8080
 
