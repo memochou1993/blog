@@ -13,11 +13,12 @@ categories: ["程式設計", "Python", "環境安裝"]
 brew install pyenv
 ```
 
-將執行檔路徑添加至環境變數。
+將相關執行腳本添加至 `~/.zshrc` 檔。
 
 ```bash
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/shims:$PATH"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 ```
 
 查看版本。
@@ -32,11 +33,9 @@ pyenv --version
 brew install pyenv-virtualenv
 ```
 
-將相關執行腳本添加至環境變數。
+將相關執行腳本添加至 `~/.zshrc` 檔。
 
 ```bash
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 ```
 
