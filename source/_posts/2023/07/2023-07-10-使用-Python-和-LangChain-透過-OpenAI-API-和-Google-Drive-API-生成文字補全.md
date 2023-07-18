@@ -43,8 +43,7 @@ pyenv local langchain-google-drive
 新增 `requirements.txt` 檔。
 
 ```txt
-chroma
-chromadb
+chromadb==0.3.29
 google-api-python-client
 google-auth-httplib2
 google-auth-oauthlib
