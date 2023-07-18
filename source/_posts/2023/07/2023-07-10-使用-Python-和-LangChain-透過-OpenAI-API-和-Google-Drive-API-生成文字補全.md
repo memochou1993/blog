@@ -82,7 +82,7 @@ GOOGLE_DRIVE_FOLDER_ID=
 ```bash
 .env
 .chroma
-creadentials.json
+credentials.json
 ```
 
 建立 `main.py` 檔。
