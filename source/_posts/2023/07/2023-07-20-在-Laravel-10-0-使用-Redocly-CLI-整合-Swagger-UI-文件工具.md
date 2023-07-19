@@ -71,7 +71,7 @@ window.onload = function() {
 安裝依賴套件。
 
 ```bash
-npm install @redocly/cli
+npm install @redocly/cli -D
 ```
 
 修改 `package.json` 檔，建立一個腳本。
