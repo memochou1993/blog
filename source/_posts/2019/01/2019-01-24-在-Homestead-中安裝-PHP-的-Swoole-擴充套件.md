@@ -74,7 +74,7 @@ vagrant@homestead:~$ sudo service php7.2-fpm restart
 使用指令查看安裝是否成功：
 
 ```bash
-vagrant@homestead:~$ php -m |grep swoole
+vagrant@homestead:~$ php -m | grep swoole
 swoole
 ```
 
@@ -89,5 +89,5 @@ vagrant@homestead:~$ php --ri swoole
 查看擴充套件的安裝位置。
 
 ```bash
-vagrant@homestead:~$ php -i|grep extension_dir
+vagrant@homestead:~$ php -i | grep extension_dir
 ```

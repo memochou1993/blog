@@ -84,7 +84,7 @@ vagrant@homestead:~$ sudo service php7.2-fpm restart
 使用指令查看安裝是否成功：
 
 ```bash
-vagrant@homestead:~$ php -m |grep redis
+vagrant@homestead:~$ php -m | grep redis
 redis
 ```
 
@@ -99,5 +99,5 @@ vagrant@homestead:~$ php --ri redis
 查看擴充套件的安裝位置。
 
 ```bash
-vagrant@homestead:~$ php -i|grep extension_dir
+vagrant@homestead:~$ php -i | grep extension_dir
 ```

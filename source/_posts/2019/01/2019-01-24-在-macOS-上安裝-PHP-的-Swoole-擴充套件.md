@@ -33,7 +33,7 @@ vi /usr/local/etc/php/7.2/conf.d/swoole.ini
 
 加入以下內容：
 
-```
+```ini
 [swoole]
 extension="/usr/local/lib/php/pecl/20170718/swoole.so"
 ```
@@ -41,13 +41,13 @@ extension="/usr/local/lib/php/pecl/20170718/swoole.so"
 使用指令查看擴充套件是否安裝成功，或在 PHP 腳本中使用 `phpinfo()` 查看。
 
 ```bash
-php -m |grep swoole
+php -m | grep swoole
 ```
 
 查看擴充套件的安裝位置。
 
 ```bash
-php -i|grep extension_dir
+php -i | grep extension_dir
 ```
 
 查看詳細資訊。
