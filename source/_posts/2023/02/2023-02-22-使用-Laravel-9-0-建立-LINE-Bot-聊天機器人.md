@@ -17,7 +17,7 @@ cd line-bot-laravel
 安裝 LINE Bot SDK 套件。
 
 ```bash
-composer require linecorp/line-bot-sdk
+composer require linecorp/line-bot-sdk:^7.6
 ```
 
 安裝 `laravel-dump-server` 測試工具。
@@ -109,7 +109,7 @@ artisan dump-server
 artisan server
 ```
 
-啟動本地伺服器。
+啟動代理伺服器。
 
 ```bash
 ngrok http 8000
@@ -122,3 +122,7 @@ ngrok http 8000
 ## 程式碼
 
 - [line-bot-laravel](https://github.com/memochou1993/line-bot-laravel)
+
+## 參考資料
+
+- [line/line-bot-sdk-php](https://github.com/line/line-bot-sdk-php)
