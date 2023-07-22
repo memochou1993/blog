@@ -55,6 +55,26 @@ postgres> \l
 postgres> \q
 ```
 
+## 連線
+
+如果要在沒有暴露通訊埠的情況下使用，可以先建立一個網路。
+
+```bash
+docker network create my_network
+```
+
+啟動容器。
+
+```bash
+docker run -d --name postgres-container --network my_network -e POSTGRES_PASSWORD=mysecretpassword postgres:latest
+```
+
+啟動臨時容器，在該容器中使用 `psql` 連線工具。
+
+```bash
+docker run -it --rm --name postgres-client --network my_network postgres:latest psql -h postgres-container -U postgres
+```
+
 ## 參考資料
 
 - [postgres](https://hub.docker.com/_/postgres)
