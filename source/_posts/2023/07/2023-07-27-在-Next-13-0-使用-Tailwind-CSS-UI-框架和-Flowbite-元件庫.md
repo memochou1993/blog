@@ -123,7 +123,6 @@ export default function Header() {
 import Header from '@/components/header';
 import './globals.css';
 import { Inter } from 'next/font/google';
-import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -138,7 +137,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <Header />
         {children}
-        <Script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js" async />
       </body>
     </html>
   );
