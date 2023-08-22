@@ -1,5 +1,5 @@
 ---
-title: 在 Next 13 使用 Font Awesome 字體套件
+title: 在 Next 13.0 使用 Font Awesome 字體套件
 date: 2022-11-21 14:31:19
 tags: ["程式設計", "JavaScript", "React", "Next", "Font Awesome"]
 categories: ["程式設計", "JavaScript", "Next"]

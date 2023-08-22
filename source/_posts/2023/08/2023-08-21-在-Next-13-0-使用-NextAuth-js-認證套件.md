@@ -1,5 +1,5 @@
 ---
-title: 在 Next 13 使用 NextAuth.js 認證套件
+title: 在 Next 13.0 使用 NextAuth.js 認證套件
 date: 2023-08-21 23:55:18
 tags: ["程式設計", "JavaScript", "React", "Next"]
 categories: ["程式設計", "JavaScript", "Next"]
