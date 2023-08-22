@@ -76,14 +76,12 @@ import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
 const handler = NextAuth({
-  secret: 'test',
   pages: {
     signIn: '/sign-in',
   },
   providers: [
     CredentialsProvider({
       async authorize(credentials) {
-        console.log('credentials', credentials);
         // 回傳假資料
         const data = { token: 'token', email: 'test@example.com' };
         return data;
@@ -138,10 +136,6 @@ import { redirect } from 'next/navigation';
 export default function Dashboard() {
   const { data: session } = useSession({
     required: true,
-    onUnauthenticated() {
-      // 導回首頁
-      redirect('/');
-    },
   });
 
   console.log('session', session);
@@ -189,6 +183,26 @@ export default function SignIn() {
     </>
   );
 }
+```
+
+### 建立 Middleware
+
+新增 `.env` 檔。
+
+```env
+NEXTAUTH_SECRET=test
+```
+
+新增 `middleware.js` 檔。
+
+```js
+export { default } from 'next-auth/middleware';
+
+export const config = {
+  matcher: [
+    '/dashboard',
+  ],
+};
 ```
 
 ## 啟動
