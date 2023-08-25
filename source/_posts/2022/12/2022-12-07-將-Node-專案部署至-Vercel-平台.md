@@ -10,8 +10,8 @@ categories: ["程式設計", "JavaScript", "環境部署"]
 建立專案。
 
 ```bash
-mkdir my-node-project
-cd my-node-project
+mkdir vercel-node-example
+cd vercel-node-example
 ```
 
 初始化專案。
@@ -62,6 +62,10 @@ module.exports = app;
 將程式碼推送到 GitHub 儲存庫。
 
 在 [Vercel](https://vercel.com/) 平台註冊帳號，並且連結儲存庫。
+
+## 程式碼
+
+- [vercel-node-example](https://github.com/memochou1993/vercel-node-example)
 
 ## 參考資料
 
