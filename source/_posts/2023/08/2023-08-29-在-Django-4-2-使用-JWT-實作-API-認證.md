@@ -62,6 +62,12 @@ class ArticleViewSet(viewsets.ModelViewSet):
     # ...
 ```
 
+建立使用者。
+
+```bash
+python manage.py createsuperuser
+```
+
 ## 參考資料
 
 - [jazzband/djangorestframework-simplejwt](https://github.com/jazzband/djangorestframework-simplejwt)
