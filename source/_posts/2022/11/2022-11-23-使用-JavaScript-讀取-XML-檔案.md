@@ -48,7 +48,15 @@ categories: ["程式設計", "JavaScript", "其他"]
 npm i node-fetch xml2js
 ```
 
-新增 `index.mjs` 檔。
+修改 `package.json` 檔。
+
+```json
+{
+  "type": "module"
+}
+```
+
+新增 `index.js` 檔。
 
 ```js
 import fetch from 'node-fetch';
@@ -65,6 +73,28 @@ import xml2js from 'xml2js';
   }));
   console.log(data);
 })();
+```
+
+執行程式。
+
+```bash
+node index.js
+```
+
+如果要讀取本地檔案，修改 `index.js` 檔。
+
+```js
+import fs from 'fs';
+import xml2js from 'xml2js';
+
+const parser = new xml2js.Parser();
+
+fs.readFile('data.xml', function (err, data) {
+  parser.parseString(data, function (err, result) {
+    console.dir(result);
+    console.log('Done');
+  });
+});
 ```
 
 執行程式。
