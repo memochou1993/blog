@@ -7,33 +7,35 @@ categories: ["程式設計", "JavaScript", "ESLint"]
 
 ## 做法
 
+建立專案。
+
+```bash
+npm create vite@latest
+```
+
 安裝依賴套件。
 
 ```bash
-npm install eslint \
-    eslint-config-airbnb \
-    eslint-plugin-jsx-a11y \
-    eslint-plugin-react \
-    eslint-plugin-import \
-    --save-dev
+npm install eslint eslint-config-airbnb -D
 ```
 
-在根目錄新增 `.eslintrc.json` 檔：
+在根目錄新增 `.eslintrc.cjs` 檔：
 
 ```js
-{
-  "extends": "airbnb",
-  "env": {
-    "browser": true,
-    "node": true
-  }
-}
+module.exports = {
+  extends: 'airbnb',
+  env: {
+    browser: true,
+    node: true,
+  },
+};
 ```
 
 修改 `package.json` 檔：
 
 ```js
 {
+  "type": "module",
   "scripts": {
     "lint": "eslint src"
   },
