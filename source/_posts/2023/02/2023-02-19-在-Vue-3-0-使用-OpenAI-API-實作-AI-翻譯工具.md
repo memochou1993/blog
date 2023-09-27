@@ -14,7 +14,7 @@ npm create vite@latest gpt-translator -- --template vue
 cd gpt-translator
 ```
 
-安裝 ESlint 套件。
+安裝 ESLint 套件。
 
 ```bash
 npm i @vue/eslint-config-airbnb \

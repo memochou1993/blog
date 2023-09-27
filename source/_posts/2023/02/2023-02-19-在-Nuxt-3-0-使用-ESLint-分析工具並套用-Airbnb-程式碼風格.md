@@ -14,7 +14,7 @@ npx nuxi init nuxt-app
 cd nuxt-app
 ```
 
-安裝 ESlint 套件。
+安裝 ESLint 套件。
 
 ```bash
 npm i @vue/eslint-config-airbnb \

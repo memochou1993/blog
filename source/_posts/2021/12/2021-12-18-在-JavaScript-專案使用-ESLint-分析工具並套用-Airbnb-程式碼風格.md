@@ -37,7 +37,7 @@ module.exports = {
 {
   "type": "module",
   "scripts": {
-    "lint": "eslint src"
+    "lint": "eslint ."
   },
 }
 ```
