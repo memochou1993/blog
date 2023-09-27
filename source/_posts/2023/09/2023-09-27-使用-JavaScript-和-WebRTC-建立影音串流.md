@@ -65,7 +65,7 @@ import './style.css';
   </head>
   <body>
     <div id="app">
-      <video id="video" width="100%" height="100%" autoplay playsinline />
+      <video id="video" width="100%" height="100%" autoplay playsinline></video>
     </div>
     <script type="module" src="/main.js"></script>
   </body>
@@ -91,3 +91,7 @@ body {
 ## 程式碼
 
 - [webrtc-example](https://github.com/memochou1993/webrtc-example)
+
+## 參考資料
+
+- [WebRTC samples](https://webrtc.github.io/samples/)
