@@ -1,5 +1,5 @@
 ---
-title: 使用 Fetch 和 async/await 發送 HTTP 請求
+title: 使用 Fetch 和 async/await 語法發送 HTTP 請求
 date: 2020-10-23 10:48:51
 tags: ["程式設計", "JavaScript"]
 categories: ["程式設計", "JavaScript", "其他"]

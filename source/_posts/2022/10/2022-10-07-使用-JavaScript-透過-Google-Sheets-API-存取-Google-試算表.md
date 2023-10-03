@@ -1,5 +1,5 @@
 ---
-title: 使用 Google Sheets API 存取 Google 試算表
+title: 使用 JavaScript 透過 Google Sheets API 存取 Google 試算表
 date: 2022-10-07 21:03:02
 tags: ["程式設計", "JavaScript", "Google APIs"]
 categories: ["程式設計", "JavaScript", "其他"]
