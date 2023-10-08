@@ -1,5 +1,5 @@
 ---
-title: 在 Laravel 10.0 使用 Socialite 實現 Google OAuth 認證
+title: 在 Laravel 10.0 使用 Socialite 和 Sanctum 實現 Google OAuth 認證
 date: 2023-10-08 14:44:11
 tags: ["程式設計", "PHP", "Laravel", "OAuth"]
 categories: ["程式設計", "PHP", "Laravel"]
@@ -11,9 +11,11 @@ categories: ["程式設計", "PHP", "Laravel"]
 - 啟用 Google+ API。
 - 設定 OAuth 同意畫面
 - 建立 OAuth 用戶端
-  - 設定已授權的重新導向 URI：<http://localhost:8000/auth/google/callback>
+  - 設定已授權的重新導向 URI：<http://localhost:3000/auth/google/callback>
 
 ## 實作
+
+### 後端
 
 安裝依賴套件。
 
@@ -26,7 +28,7 @@ composer require laravel/socialite
 ```php
 GOOGLE_CLIENT_ID=your-client-id
 GOOGLE_CLIENT_SECRET=your-client-secret
-GOOGLE_REDIRECT_URI=http://localhost:8000/auth/google/callback
+GOOGLE_REDIRECT_URI=http://localhost:3000/auth/google/callback
 ```
 
 修改 `config/services.php` 檔。
@@ -52,6 +54,12 @@ public function up(): void
 }
 ```
 
+修改 `routes/api.php` 檔。
+
+```php
+Route::get('auth/{provider}/callback', [ProviderController::class, 'handleCallback']);
+```
+
 新增 `app/Http/Controllers/Auth/GoogleController.php` 檔。
 
 ```php
@@ -59,25 +67,20 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
 use Laravel\Socialite\Two\AbstractProvider;
 
-class GoogleController extends Controller
+class ProviderController extends Controller
 {
-    const DRIVER = 'google';
-
-    public function redirectToProvider()
+    public function handleCallback(Request $request, $provider)
     {
-        /** @var AbstractProvider $provider */
-        $provider = Socialite::driver(self::DRIVER);
+        $request->validate([
+            'code' => 'required',
+        ]);
 
-        return $provider->stateless()->redirect();
-    }
-
-    public function handleProviderCallback()
-    {
         /** @var AbstractProvider $provider */
-        $provider = Socialite::driver(self::DRIVER);
+        $provider = Socialite::driver($provider);
 
         $providerUser = $provider->stateless()->user();
 
@@ -90,18 +93,49 @@ class GoogleController extends Controller
 
         $token = $user->createToken('')->plainTextToken;
 
-        return response()->json(null)->withHeaders(['Access-Token' => $token]);
+        return response()->json(compact('token'));
     }
 }
 ```
 
-啟動本地伺服器。
+### 前端
 
-```bash
-artisan serve
+建立一個跳轉按鈕。
+
+```js
+const signInWithGoogle = () => {
+  window.location.href = 'https://accounts.google.com/o/oauth2/v2/auth?'
+    + 'client_id=your-client-id'
+    + '&redirect_uri=http://localhost:3000/auth/google/callback'
+    + '&response_type=code'
+    + '&scope=email+profile';
+};
 ```
 
-前往 <http://localhost:8000/auth/google> 瀏覽。
+新增 `pages/auth/google/callback.vue` 檔。當使用者從 Google 登入頁面導回前端時，前端就可以將 `code` 發送至後端處理。
+
+```js
+<script setup>
+const route = useRoute();
+
+const { code } = route.query;
+
+const { data } = await useFetch('http://127.0.0.1:8000/api/auth/google/callback', {
+  ssr: false,
+  method: 'GET',
+  params: {
+    provider: 'google',
+    code,
+  },
+});
+
+console.log(data.value);
+</script>
+
+<template>
+  <div />
+</template>
+```
 
 ## 參考資料
 
