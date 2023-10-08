@@ -29,19 +29,20 @@ npm i vuetify@next sass
 新增 `plugins/vuetify.js` 檔。
 
 ```js
-import { createVuetify } from 'vuetify'
-import * as components from 'vuetify/components'
-import * as directives from 'vuetify/directives'
+import { createVuetify } from 'vuetify';
+import 'vuetify/styles';
+import * as components from 'vuetify/components';
+import * as directives from 'vuetify/directives';
+import '@mdi/font/css/materialdesignicons.css';
 
-export default defineNuxtPlugin(nuxtApp => {
+export default defineNuxtPlugin((nuxtApp) => {
   const vuetify = createVuetify({
     ssr: true,
     components,
     directives,
-  })
-
-  nuxtApp.vueApp.use(vuetify)
-})
+  });
+  nuxtApp.vueApp.use(vuetify);
+});
 ```
 
 修改 `nuxt.config.js` 檔。
@@ -49,18 +50,13 @@ export default defineNuxtPlugin(nuxtApp => {
 ```js
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  css: [
-    'vuetify/lib/styles/main.sass'
-  ],
-  build: {
-    transpile: ['vuetify']
+  devtools: {
+    enabled: true,
   },
-  vite: {
-    define: {
-      'process.env.DEBUG': false
-    }
-  }
-})
+  build: {
+    transpile: ['vuetify'],
+  },
+});
 ```
 
 安裝 MDI 字型。
@@ -82,6 +78,42 @@ export default defineNuxtConfig({
 })
 ```
 
+修改 `app.vue` 檔。
+
+```html
+<template>
+  <NuxtLayout>
+    <v-app>
+      <NuxtPage />
+    </v-app>
+  </NuxtLayout>
+</template>
+```
+
+新增 `pages/about.vue` 檔。
+
+```html
+<template>
+  <div>
+    <h1>About</h1>
+    <v-btn>
+      Hello
+    </v-btn>
+    <v-icon>
+      mdi-pen
+    </v-icon>
+  </div>
+</template>
+```
+
+啟動本地伺服器。
+
+```bash
+npm run dev
+```
+
+前往 <http://localhost:3000/about> 瀏覽。
+
 ## 參考資料
 
-- [How to use Vuetify with Nuxt 3](https://codybontecou.com/how-to-use-vuetify-with-nuxt-3.html)
+- [Vuetify](https://vuetifyjs.com/en/getting-started/installation/#existing-projects)
