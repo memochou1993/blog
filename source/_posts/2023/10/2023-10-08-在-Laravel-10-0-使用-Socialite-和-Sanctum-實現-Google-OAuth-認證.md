@@ -57,24 +57,50 @@ public function up(): void
 修改 `routes/api.php` 檔。
 
 ```php
-Route::get('auth/{provider}/callback', [ProviderController::class, 'handleCallback']);
+Route::prefix('auth/{provider}')->group(function () {
+    Route::get('/', [ProviderController::class, 'redirect']);
+    Route::get('callback', [ProviderController::class, 'handleCallback']);
+});
 ```
 
 新增 `app/Http/Controllers/Auth/GoogleController.php` 檔。
 
 ```php
+<?php
+
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Laravel\Socialite\Facades\Socialite;
 use Laravel\Socialite\Two\AbstractProvider;
 
 class ProviderController extends Controller
 {
+    private $available = [
+        'google',
+    ];
+
+    public function redirect($provider)
+    {
+        if (!in_array($provider, $this->available)) {
+            abort(Response::HTTP_NOT_FOUND);
+        }
+
+        /** @var AbstractProvider $provider */
+        $provider = Socialite::driver($provider);
+
+        return $provider->stateless()->redirect();
+    }
+
     public function handleCallback(Request $request, $provider)
     {
+        if (!in_array($provider, $this->available)) {
+            abort(Response::HTTP_NOT_FOUND);
+        }
+
         $request->validate([
             'code' => 'required',
         ]);
@@ -100,15 +126,11 @@ class ProviderController extends Controller
 
 ### 前端
 
-建立一個跳轉按鈕。
+建立一個跳轉函式，當使用者按下按鈕後，頁面將由後端帶往至 Google 登入頁面。。
 
 ```js
 const signInWithGoogle = () => {
-  window.location.href = 'https://accounts.google.com/o/oauth2/v2/auth?'
-    + 'client_id=your-client-id'
-    + '&redirect_uri=http://localhost:3000/auth/google/callback'
-    + '&response_type=code'
-    + '&scope=email+profile';
+  window.location.href = 'http://localhost:8000/api/auth/google';
 };
 ```
 
