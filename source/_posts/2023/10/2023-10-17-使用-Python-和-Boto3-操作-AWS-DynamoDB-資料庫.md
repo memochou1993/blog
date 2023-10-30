@@ -134,10 +134,7 @@ def batch_write_item(dynamodb_client, table_name, batch_items: list):
         time.sleep(backoff**retry_count)  # exponential backoff
         retry_count += 1
 
-    failed_items = [
-        request['PutRequest']['Item']['term']
-        for request in unprocessed_items.get(table_name, [])
-    ]
+    failed_items = unprocessed_items.get(table_name, [])
 
     return dict(
         succeed_count=len(batch_items) - len(failed_items),
