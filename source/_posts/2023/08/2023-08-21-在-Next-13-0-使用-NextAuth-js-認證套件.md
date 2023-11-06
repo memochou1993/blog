@@ -81,10 +81,11 @@ const handler = NextAuth({
   },
   providers: [
     CredentialsProvider({
-      async authorize(credentials) {
-        // 回傳假資料
-        const data = { token: 'token', email: 'test@example.com' };
-        return data;
+      async authorize({ email, password }) {
+        if (email === 'test@example.com' && password === 'password') {
+          return { token: 'token', email };
+        }
+        throw new Error('Invalid credentials');
       },
     }),
   ],
@@ -112,15 +113,16 @@ export { handler as GET, handler as POST };
 ```js
 'use client';
 
-import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react'
 
 export default function Home() {
+  const router = useRouter();
+  useEffect(() => {
+    router.push('/sign-in');
+  }, []);
   return (
-    <>
-      <div>
-        <button onClick={() => signIn()}>Sign In</button>
-      </div>
-    </>
+    <div />
   );
 }
 ```
@@ -130,21 +132,22 @@ export default function Home() {
 ```js
 'use client';
 
-import { useSession } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
 import { redirect } from 'next/navigation';
 
 export default function Dashboard() {
-  const { data: session } = useSession({
-    required: true,
-  });
+  const { data: session } = useSession();
 
   console.log('session', session);
 
   return (
     <>
-      <div>
-        Dashboard
-      </div>
+      <button
+        type="button"
+        onClick={() => signOut()}
+      >
+        Sign Out
+      </button>
     </>
   );
 }
@@ -156,31 +159,83 @@ export default function Dashboard() {
 'use client';
 
 import { signIn } from 'next-auth/react';
-import { useRouter } from "next/navigation";
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 export default function SignIn() {
   const router = useRouter();
+
+  const [email, setEmail] = useState('test@example.com');
+  const [password, setPassword] = useState('password');
+
   const submit = async (e) => {
     e.preventDefault();
     const result = await signIn('credentials', {
-      username: 'test',
-      password: 'password',
+      email,
+      password,
       redirect: false,
     });
-    console.log('result', result);
-    if (result.ok) {
-      router.push('/dashboard');
+    console.log(result);
+    if (result.error) {
+      alert(result.error);
+      return;
     }
+    router.push('/dashboard');
   };
 
   return (
     <>
       <form onSubmit={submit}>
-        <input type="text" placeholder="Email" />
-        <input type="password" placeholder="Password" />
-        <button>Submit</button>
+        <input
+          type='text'
+          placeholder="Email"
+          defaultValue={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          defaultValue={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button
+          type="button"
+          onClick={submit}
+        >
+          Sign In
+        </button>
       </form>
     </>
+  );
+}
+```
+
+新增 `app/sign-out/page.js` 檔。
+
+```js
+'use client';
+
+import { signOut, useSession } from 'next-auth/react';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+
+export default function SignIn() {
+  const router = useRouter();
+  const { data: session } = useSession();
+
+  useEffect(() => {
+    (async () => {
+      if (session) {
+        await signOut({
+          redirect: false,
+        });
+      }
+      router.push('/sign-in');
+    })();
+  }, [router, session]);
+
+  return (
+    <div />
   );
 }
 ```
@@ -200,7 +255,7 @@ export { default } from 'next-auth/middleware';
 
 export const config = {
   matcher: [
-    '/dashboard',
+    '/((?!api|sign-up|sign-in|forgot-password|sign-out|_next|.*\\..*|$).*)',
   ],
 };
 ```
