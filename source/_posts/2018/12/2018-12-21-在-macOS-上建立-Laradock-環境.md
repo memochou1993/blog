@@ -1,8 +1,8 @@
 ---
 title: 在 macOS 上建立 Laradock 環境
 date: 2018-12-21 16:16:18
-tags: ["環境部署", "macOS", "Docker", "Laradock", "Laravel"]
-categories: ["環境部署", "Laradock"]
+tags: ["Deployment", "macOS", "Docker", "Laradock", "Laravel"]
+categories: ["Deployment", "Laradock"]
 ---
 
 ## 安裝 Docker

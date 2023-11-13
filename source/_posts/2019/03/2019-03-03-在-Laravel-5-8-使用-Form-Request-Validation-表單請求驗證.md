@@ -1,8 +1,8 @@
 ---
 title: 在 Laravel 5.8 使用 Form Request Validation 表單請求驗證
 date: 2019-03-03 00:07:54
-tags: ["程式設計", "PHP", "Laravel"]
-categories: ["程式設計", "PHP", "Laravel"]
+tags: ["Programming", "PHP", "Laravel"]
+categories: ["Programming", "PHP", "Laravel"]
 ---
 
 ## 做法

@@ -1,8 +1,8 @@
 ---
 title: 在 Laravel 6.0 建立 Collection 分頁器
 date: 2019-12-04 11:44:24
-tags: ["程式設計", "PHP", "Laravel"]
-categories: ["程式設計", "PHP", "Laravel"]
+tags: ["Programming", "PHP", "Laravel"]
+categories: ["Programming", "PHP", "Laravel"]
 ---
 
 ## 做法

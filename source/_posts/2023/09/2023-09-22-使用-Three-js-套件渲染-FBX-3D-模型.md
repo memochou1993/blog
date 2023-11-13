@@ -1,8 +1,8 @@
 ---
 title: 使用 Three.js 套件渲染 FBX 3D 模型
 date: 2023-09-22 00:38:02
-tags: ["程式設計", "JavaScript", "Three.js"]
-categories: ["程式設計", "JavaScript", "其他"]
+tags: ["Programming", "JavaScript", "Three.js"]
+categories: ["Programming", "JavaScript", "Others"]
 ---
 
 ## 建立專案

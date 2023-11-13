@@ -1,8 +1,8 @@
 ---
 title: 使用 Anchor 在 Solana 區塊鏈開發鏈上程式
 date: 2022-04-16 15:54:01
-tags: ["區塊鏈", "Solana", "Rust", "JavaScript", "Smart Contract", "DApp"]
-categories: ["區塊鏈", "Solana"]
+tags: ["Blockchain", "Solana", "Rust", "JavaScript", "Smart Contract", "DApp"]
+categories: ["Blockchain", "Solana"]
 ---
 
 ## 前言

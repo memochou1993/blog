@@ -1,8 +1,8 @@
 ---
 title: 使用 Vite 建立 Vanilla TypeScript 專案
 date: 2022-05-20 01:46:08
-tags: ["程式設計", "JavaScript", "TypeScript", "Vite"]
-categories: ["程式設計", "JavaScript", "TypeScript"]
+tags: ["Programming", "JavaScript", "TypeScript", "Vite"]
+categories: ["Programming", "JavaScript", "TypeScript"]
 ---
 
 ## 前言

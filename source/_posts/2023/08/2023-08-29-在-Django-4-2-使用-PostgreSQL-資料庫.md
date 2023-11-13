@@ -1,8 +1,8 @@
 ---
 title: 在 Django 4.2 使用 PostgreSQL 資料庫
 date: 2023-08-29 23:02:52
-tags: ["程式設計", "Python", "Django", "MySQL"]
-categories: ["程式設計", "Python", "Django"]
+tags: ["Programming", "Python", "Django", "MySQL"]
+categories: ["Programming", "Python", "Django"]
 ---
 
 ## 實作

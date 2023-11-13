@@ -1,8 +1,8 @@
 ---
 title: 使用 nft-art-generator 套件產生 NFT 組合圖片
 date: 2022-08-29 22:25:55
-tags: ["程式設計", "JavaScript", "NFT"]
-categories: ["程式設計", "JavaScript", "其他"]
+tags: ["Programming", "JavaScript", "NFT"]
+categories: ["Programming", "JavaScript", "Others"]
 ---
 
 ## 做法

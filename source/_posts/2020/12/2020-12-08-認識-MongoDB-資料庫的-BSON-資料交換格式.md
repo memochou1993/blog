@@ -2,7 +2,7 @@
 title: 認識 MongoDB 資料庫的 BSON 資料交換格式
 date: 2020-12-08 12:06:47
 tags: ["BSON", "MongoDB"]
-categories: ["資料庫", "MongoDB"]
+categories: ["Database", "MongoDB"]
 ---
 
 ## 前言

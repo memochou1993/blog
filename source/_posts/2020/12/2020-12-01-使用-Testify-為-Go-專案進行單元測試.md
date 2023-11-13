@@ -1,8 +1,8 @@
 ---
 title: 使用 Testify 為 Go 專案進行單元測試
 date: 2020-12-01 15:50:08
-tags: ["程式設計", "Go", "Testing"]
-categories: ["程式設計", "Go", "其他"]
+tags: ["Programming", "Go", "Testing"]
+categories: ["Programming", "Go", "Others"]
 ---
 
 ## 前言

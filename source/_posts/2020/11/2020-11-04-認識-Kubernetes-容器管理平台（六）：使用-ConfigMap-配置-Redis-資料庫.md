@@ -1,8 +1,8 @@
 ---
 title: 認識 Kubernetes 容器管理平台（六）：使用 ConfigMap 配置 Redis 資料庫
 date: 2020-11-04 20:46:36
-tags: ["環境部署", "Kubernetes", "Docker", "minikube"]
-categories: ["環境部署", "Kubernetes", "其他"]
+tags: ["Deployment", "Kubernetes", "Docker", "minikube"]
+categories: ["Deployment", "Kubernetes", "Others"]
 ---
 
 ## 前言

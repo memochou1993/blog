@@ -1,8 +1,8 @@
 ---
 title: 在 Laravel 9.0 使用 File Storage 上傳檔案到 AWS S3 儲存服務
 date: 2023-04-22 16:50:23
-tags: ["程式設計", "PHP", "Laravel", "AWS", "S3", "Storage Service"]
-categories: ["程式設計", "PHP", "Laravel"]
+tags: ["Programming", "PHP", "Laravel", "AWS", "S3", "Storage Service"]
+categories: ["Programming", "PHP", "Laravel"]
 ---
 
 ## 前置作業

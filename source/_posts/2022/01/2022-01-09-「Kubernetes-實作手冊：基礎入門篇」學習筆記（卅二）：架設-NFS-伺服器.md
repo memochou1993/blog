@@ -1,8 +1,8 @@
 ---
 title: 「Kubernetes 實作手冊：基礎入門篇」學習筆記（卅二）：架設 NFS 伺服器
 date: 2022-01-09 20:45:10
-tags: ["環境部署", "Kubernetes", "Docker"]
-categories: ["環境部署", "Kubernetes", "「Kubernetes 實作手冊：基礎入門篇」學習筆記"]
+tags: ["Deployment", "Kubernetes", "Docker"]
+categories: ["Deployment", "Kubernetes", "「Kubernetes 實作手冊：基礎入門篇」Study Notes"]
 ---
 
 ## 前言

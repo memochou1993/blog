@@ -1,8 +1,8 @@
 ---
 title: 在 macOS 上使用 Docker 建立 PHP 環境
 date: 2019-08-27 21:02:50
-tags: ["環境部署", "Docker", "PHP", "Nginx"]
-categories: ["程式設計", "PHP", "環境部署"]
+tags: ["Deployment", "Docker", "PHP", "Nginx"]
+categories: ["Programming", "PHP", "Deployment"]
 ---
 
 ## 步驟

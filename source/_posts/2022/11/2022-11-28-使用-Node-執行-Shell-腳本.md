@@ -1,8 +1,8 @@
 ---
 title: 使用 Node 執行 Shell 指令
 date: 2022-11-28 22:22:25
-tags: ["程式設計", "JavaScript", "Node", "Shell"]
-categories: ["程式設計", "JavaScript", "Node"]
+tags: ["Programming", "JavaScript", "Node", "Shell"]
+categories: ["Programming", "JavaScript", "Node"]
 ---
 
 ## 做法

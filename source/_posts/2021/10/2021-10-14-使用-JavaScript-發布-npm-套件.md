@@ -1,8 +1,8 @@
 ---
 title: 使用 JavaScript 發布 npm 套件
 date: 2021-10-14 14:34:52
-tags: ["程式設計", "JavaScript", "npm"]
-categories: ["程式設計", "JavaScript", "其他"]
+tags: ["Programming", "JavaScript", "npm"]
+categories: ["Programming", "JavaScript", "Others"]
 ---
 
 使用以下指令建立 `package.json` 檔：

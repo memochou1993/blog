@@ -1,8 +1,8 @@
 ---
 title: 使用 Flask 建立 Line Bot 聊天機器人
 date: 2023-07-14 00:07:11
-tags: ["程式設計", "Python", "Flask", "LINE", "chatbot"]
-categories: ["程式設計", "Python", "Flask"]
+tags: ["Programming", "Python", "Flask", "LINE", "chatbot"]
+categories: ["Programming", "Python", "Flask"]
 ---
 
 ## 建立專案

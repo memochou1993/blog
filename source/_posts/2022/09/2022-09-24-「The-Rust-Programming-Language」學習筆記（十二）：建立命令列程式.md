@@ -1,8 +1,8 @@
 ---
 title: 「The Rust Programming Language」學習筆記（十二）：建立命令列程式
 date: 2022-09-24 14:06:20
-tags: ["程式設計", "Rust"]
-categories: ["程式設計", "Rust", "「The Rust Programming Language」學習筆記"]
+tags: ["Programming", "Rust"]
+categories: ["Programming", "Rust", "「The Rust Programming Language」Study Notes"]
 ---
 
 ## 前言

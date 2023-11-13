@@ -1,8 +1,8 @@
 ---
 title: 在 Laradock 開啟 PHP 擴充套件
 date: 2019-08-23 21:00:14
-tags: ["環境部署", "Docker", "Laradock", "PHP"]
-categories: ["環境部署", "Laradock"]
+tags: ["Deployment", "Docker", "Laradock", "PHP"]
+categories: ["Deployment", "Laradock"]
 ---
 
 修改 `.env` 檔，將要開啟的 PHP 擴充套件開啟，以下以 `SOAP` 套件為例。

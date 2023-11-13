@@ -1,8 +1,8 @@
 ---
 title: 使用 PHP 透過 yt-dlp 下載 YouTube 影片
 date: 2023-09-12 15:29:17
-tags: ["程式設計", "PHP"]
-categories: ["程式設計", "PHP", "其他"]
+tags: ["Programming", "PHP"]
+categories: ["Programming", "PHP", "Others"]
 ---
 
 ## 安裝套件

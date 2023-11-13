@@ -1,8 +1,8 @@
 ---
 title: 使用 JavaScript 實作 Debounce 和 Throttle 機制
 date: 2021-10-13 13:54:41
-tags: ["程式設計", "JavaScript"]
-categories: ["程式設計", "JavaScript", "其他"]
+tags: ["Programming", "JavaScript"]
+categories: ["Programming", "JavaScript", "Others"]
 ---
 
 ## 前言

@@ -1,8 +1,8 @@
 ---
 title: 在 macOS 上安裝 Django 2.2
 date: 2019-11-17 02:16:07
-tags: ["程式設計", "Python", "Django"]
-categories: ["程式設計", "Python", "Django"]
+tags: ["Programming", "Python", "Django"]
+categories: ["Programming", "Python", "Django"]
 ---
 
 ## 環境

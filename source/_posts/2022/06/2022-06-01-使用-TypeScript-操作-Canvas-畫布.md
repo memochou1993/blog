@@ -1,8 +1,8 @@
 ---
 title: 使用 TypeScript 操作 Canvas 畫布
 date: 2022-06-01 17:44:18
-tags: ["程式設計", "JavaScript", "TypeScript", "Canvas"]
-categories: ["程式設計", "JavaScript", "TypeScript"]
+tags: ["Programming", "JavaScript", "TypeScript", "Canvas"]
+categories: ["Programming", "JavaScript", "TypeScript"]
 ---
 
 ## 做法

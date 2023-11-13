@@ -1,8 +1,8 @@
 ---
 title: 在 Go 專案使用 MongoDB 批量操作
 date: 2020-01-08 22:33:24
-tags: ["程式設計", "Go", "MongoDB", "NoSQL", "資料庫", "ORM"]
-categories: ["程式設計", "Go", "其他"]
+tags: ["Programming", "Go", "MongoDB", "NoSQL", "Database", "ORM"]
+categories: ["Programming", "Go", "Others"]
 ---
 
 ## 環境

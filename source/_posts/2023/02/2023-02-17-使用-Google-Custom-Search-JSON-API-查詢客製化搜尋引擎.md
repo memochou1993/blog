@@ -1,8 +1,8 @@
 ---
 title: 使用 Google Custom Search JSON API 查詢客製化搜尋引擎
 date: 2023-02-17 02:33:18
-tags: ["程式設計", "JavaScript", "Google APIs"]
-categories: ["程式設計", "JavaScript", "其他"]
+tags: ["Programming", "JavaScript", "Google APIs"]
+categories: ["Programming", "JavaScript", "Others"]
 ---
 
 ## 做法

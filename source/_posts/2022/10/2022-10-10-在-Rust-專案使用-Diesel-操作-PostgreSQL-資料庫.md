@@ -1,8 +1,8 @@
 ---
 title: 在 Rust 專案使用 Diesel 操作 PostgreSQL 資料庫
 date: 2022-10-10 15:42:42
-tags: ["程式設計", "Rust", "Diesel", "ORM", "PostgreSQL"]
-categories: ["程式設計", "Rust", "Diesel"]
+tags: ["Programming", "Rust", "Diesel", "ORM", "PostgreSQL"]
+categories: ["Programming", "Rust", "Diesel"]
 ---
 
 ## 前置作業

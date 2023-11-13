@@ -1,8 +1,8 @@
 ---
 title: 在 TypeScript 專案使用 Prisma 操作 SQLite 資料庫
 date: 2023-10-24 15:05:14
-tags: ["程式設計", "JavaScript", "TypeScript", "Prisma", "ORM", "SQLite"]
-categories: ["程式設計", "JavaScript", "TypeScript"]
+tags: ["Programming", "JavaScript", "TypeScript", "Prisma", "ORM", "SQLite"]
+categories: ["Programming", "JavaScript", "TypeScript"]
 ---
 
 ## 建立專案

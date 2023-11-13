@@ -1,8 +1,8 @@
 ---
 title: 使用 TypeScript 建立 npm 套件
 date: 2021-03-06 20:16:35
-tags: ["程式設計", "JavaScript", "TypeScript", "npm", "Jest"]
-categories: ["程式設計", "JavaScript", "TypeScript"]
+tags: ["Programming", "JavaScript", "TypeScript", "npm", "Jest"]
+categories: ["Programming", "JavaScript", "TypeScript"]
 ---
 
 ## 建立專案

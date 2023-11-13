@@ -1,8 +1,8 @@
 ---
 title: 使用 Laravel Breeze 搭建認證系統
 date: 2023-01-16 20:15:21
-tags: ["程式設計", "PHP", "Laravel"]
-categories: ["程式設計", "PHP", "Laravel"]
+tags: ["Programming", "PHP", "Laravel"]
+categories: ["Programming", "PHP", "Laravel"]
 ---
 
 ## 建立專案

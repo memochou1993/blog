@@ -1,8 +1,8 @@
 ---
 title: 使用 electron-vue 建立桌面應用程式
 date: 2018-12-14 00:30:38
-tags: ["程式設計", "JavaScript", "Vue", "Electron", "Desktop App"]
-categories: ["程式設計", "JavaScript", "Vue"]
+tags: ["Programming", "JavaScript", "Vue", "Electron", "Desktop App"]
+categories: ["Programming", "JavaScript", "Vue"]
 ---
 
 ## 環境

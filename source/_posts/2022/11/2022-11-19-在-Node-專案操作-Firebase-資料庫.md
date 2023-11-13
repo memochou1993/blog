@@ -1,8 +1,8 @@
 ---
 title: 在 Node 專案使用 Firebase SDK 操作 Firestore 資料庫
 date: 2022-11-19 00:11:53
-tags: ["程式設計", "JavaScript", "Node", "Firebase", "Firestore"]
-categories: ["程式設計", "JavaScript", "Node"]
+tags: ["Programming", "JavaScript", "Node", "Firebase", "Firestore"]
+categories: ["Programming", "JavaScript", "Node"]
 ---
 
 ## 前置作業

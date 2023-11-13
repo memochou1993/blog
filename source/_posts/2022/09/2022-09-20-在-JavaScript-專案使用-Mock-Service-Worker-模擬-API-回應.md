@@ -1,8 +1,8 @@
 ---
 title: 在 JavaScript 專案使用 Mock Service Worker 模擬 API 回應
 date: 2022-09-20 23:04:49
-tags: ["程式設計", "JavaScript", "Testing", "Mocking"]
-categories: ["程式設計", "JavaScript", "其他"]
+tags: ["Programming", "JavaScript", "Testing", "Mocking"]
+categories: ["Programming", "JavaScript", "Others"]
 ---
 
 ## 建立專案

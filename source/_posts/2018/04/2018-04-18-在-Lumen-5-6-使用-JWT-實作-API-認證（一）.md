@@ -1,8 +1,8 @@
 ---
 title: 在 Lumen 5.6 使用 JWT 實作 API 認證（一）
 date: 2018-04-18 10:15:52
-tags: ["程式設計", "PHP", "Laravel", "Lumen", "JWT"]
-categories: ["程式設計", "PHP", "Lumen"]
+tags: ["Programming", "PHP", "Laravel", "Lumen", "JWT"]
+categories: ["Programming", "PHP", "Lumen"]
 ---
 
 ## 前言

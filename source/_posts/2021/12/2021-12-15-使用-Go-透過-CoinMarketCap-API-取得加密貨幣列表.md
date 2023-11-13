@@ -1,8 +1,8 @@
 ---
 title: 使用 Go 透過 CoinMarketCap API 取得加密貨幣列表
 date: 2021-12-15 00:10:06
-tags: ["程式設計", "Go"]
-categories: ["程式設計", "Go", "其他"]
+tags: ["Programming", "Go"]
+categories: ["Programming", "Go", "Others"]
 ---
 
 ## 前置作業

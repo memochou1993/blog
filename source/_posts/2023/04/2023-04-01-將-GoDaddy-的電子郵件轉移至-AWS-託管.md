@@ -1,8 +1,8 @@
 ---
 title: 將 GoDaddy 的電子郵件轉移至 AWS 託管
 date: 2023-04-01 00:59:01
-tags: ["環境部署", "AWS", "EC2", "Linux", "GoDaddy", "VPS", "DNS"]
-categories: ["雲端運算服務", "AWS"]
+tags: ["Deployment", "AWS", "EC2", "Linux", "GoDaddy", "VPS", "DNS"]
+categories: ["Cloud Computing Service", "AWS"]
 ---
 
 ## 做法

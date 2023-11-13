@@ -1,8 +1,8 @@
 ---
 title: 使用 Docker 容器化 React 專案
 date: 2020-12-25 17:18:22
-tags: ["環境部署", "Docker", "JavaScript", "React"]
-categories: ["程式設計", "JavaScript", "環境部署"]
+tags: ["Deployment", "Docker", "JavaScript", "React"]
+categories: ["Programming", "JavaScript", "Deployment"]
 ---
 
 ## 做法

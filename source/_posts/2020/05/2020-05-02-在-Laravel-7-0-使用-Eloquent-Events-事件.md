@@ -1,8 +1,8 @@
 ---
 title: 在 Laravel 7.0 使用 Eloquent Events 事件
 date: 2020-05-02 19:06:26
-tags: ["程式設計", "PHP", "Laravel", "Eloquent", "ORM"]
-categories: ["程式設計", "PHP", "Laravel"]
+tags: ["Programming", "PHP", "Laravel", "Eloquent", "ORM"]
+categories: ["Programming", "PHP", "Laravel"]
 ---
 
 ## 前言

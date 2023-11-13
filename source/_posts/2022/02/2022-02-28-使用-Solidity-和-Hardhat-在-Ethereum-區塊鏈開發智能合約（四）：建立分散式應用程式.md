@@ -1,8 +1,8 @@
 ---
 title: 使用 Solidity 和 Hardhat 在 Ethereum 區塊鏈開發智能合約（四）：建立分散式應用程式
 date: 2022-02-28 14:02:58
-tags: ["區塊鏈", "Ethereum", "Solidity", "JavaScript", "Node", "Hardhat", "Smart Contract", "DApp", "Alchemy"]
-categories: ["區塊鏈", "Ethereum"]
+tags: ["Blockchain", "Ethereum", "Solidity", "JavaScript", "Node", "Hardhat", "Smart Contract", "DApp", "Alchemy"]
+categories: ["Blockchain", "Ethereum"]
 ---
 
 ## 前言

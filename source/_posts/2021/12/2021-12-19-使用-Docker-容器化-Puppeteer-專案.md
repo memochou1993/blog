@@ -1,8 +1,8 @@
 ---
 title: 使用 Docker 容器化 Puppeteer 專案
 date: 2021-12-19 00:14:10
-tags: ["環境部署", "Docker", "JavaScript", "Node", "爬蟲"]
-categories: ["程式設計", "JavaScript", "環境部署"]
+tags: ["Deployment", "Docker", "JavaScript", "Node", "Web Scraping"]
+categories: ["Programming", "JavaScript", "Deployment"]
 ---
 
 ## 做法

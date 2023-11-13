@@ -1,8 +1,8 @@
 ---
 title: 在 Vue 3.0 使用 Google Tag Manager 代碼管理工具
 date: 2021-04-26 00:46:40
-tags: ["程式設計", "JavaScript", "Vue", "Google Tag Manager"]
-categories: ["程式設計", "JavaScript", "Vue"]
+tags: ["Programming", "JavaScript", "Vue", "Google Tag Manager"]
+categories: ["Programming", "JavaScript", "Vue"]
 ---
 
 ## 安裝

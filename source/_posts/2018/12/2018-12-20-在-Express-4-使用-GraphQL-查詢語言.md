@@ -1,8 +1,8 @@
 ---
 title: 在 Express 4 使用 GraphQL 查詢語言
 date: 2018-12-20 13:33:06
-tags: ["程式設計", "JavaScript", "Express", "GraphQL"]
-categories: ["程式設計", "JavaScript", "Express"]
+tags: ["Programming", "JavaScript", "Express", "GraphQL"]
+categories: ["Programming", "JavaScript", "Express"]
 ---
 
 ## 環境

@@ -1,8 +1,8 @@
 ---
 title: 《現代 PHP》學習筆記（一）：Namespace
 date: 2018-05-16 10:22:03
-tags: ["程式設計", "PHP"]
-categories: ["程式設計", "PHP", "《現代 PHP》學習筆記"]
+tags: ["Programming", "PHP"]
+categories: ["Programming", "PHP", "《現代 PHP》Study Notes"]
 ---
 
 ## 前言

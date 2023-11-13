@@ -1,8 +1,8 @@
 ---
 title: 在 Echo 4 透過 Rollbar 將錯誤訊息推送至 Slack 頻道
 date: 2023-03-22 17:13:38
-tags: ["程式設計", "Go", "Echo", "Rollbar"]
-categories: ["程式設計", "Go", "Echo"]
+tags: ["Programming", "Go", "Echo", "Rollbar"]
+categories: ["Programming", "Go", "Echo"]
 ---
 
 ## 前置作業

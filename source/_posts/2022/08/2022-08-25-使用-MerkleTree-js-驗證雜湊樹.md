@@ -1,8 +1,8 @@
 ---
 title: 使用 MerkleTree.js 驗證雜湊樹
 date: 2022-08-25 00:21:43
-tags: ["程式設計", "JavaScript", "演算法", "Merkle Tree"]
-categories: ["程式設計", "JavaScript", "演算法"]
+tags: ["Programming", "JavaScript", "Algorithm", "Merkle Tree"]
+categories: ["Programming", "JavaScript", "Algorithm"]
 ---
 
 ## 前言

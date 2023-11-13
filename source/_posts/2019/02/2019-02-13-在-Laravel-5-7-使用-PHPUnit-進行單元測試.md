@@ -1,8 +1,8 @@
 ---
 title: 在 Laravel 5.7 使用 PHPUnit 進行單元測試
 date: 2019-02-13 20:53:17
-tags: ["程式設計", "PHP", "Laravel", "Testing", "PHPUnit"]
-categories: ["程式設計", "PHP", "Laravel"]
+tags: ["Programming", "PHP", "Laravel", "Testing", "PHPUnit"]
+categories: ["Programming", "PHP", "Laravel"]
 ---
 
 ## 做法

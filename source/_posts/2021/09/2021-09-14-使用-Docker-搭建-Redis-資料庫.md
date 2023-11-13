@@ -1,8 +1,8 @@
 ---
 title: 使用 Docker 搭建 Redis 資料庫
 date: 2021-09-14 17:06:31
-tags: ["資料庫", "Redis", "NoSQL", "Docker"]
-categories: ["資料庫", "Redis"]
+tags: ["Database", "Redis", "NoSQL", "Docker"]
+categories: ["Database", "Redis"]
 ---
 
 ## 環境

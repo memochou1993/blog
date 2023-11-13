@@ -1,8 +1,8 @@
 ---
 title: 在 Laravel 7.0 實現 Repository 模式
 date: 2020-05-01 19:07:35
-tags: ["程式設計", "PHP", "Laravel"]
-categories: ["程式設計", "PHP", "Laravel"]
+tags: ["Programming", "PHP", "Laravel"]
+categories: ["Programming", "PHP", "Laravel"]
 ---
 
 ## 建立專案

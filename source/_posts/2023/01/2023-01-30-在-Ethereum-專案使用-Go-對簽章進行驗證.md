@@ -1,8 +1,8 @@
 ---
 title: 在 Ethereum 專案使用 Go 對簽章進行驗證
 date: 2023-01-30 17:14:22
-tags: ["區塊鏈", "Ethereum", "Go", "Ethers", "Web3", "MetaMask"]
-categories: ["區塊鏈", "Ethereum"]
+tags: ["Blockchain", "Ethereum", "Go", "Ethers", "Web3", "MetaMask"]
+categories: ["Blockchain", "Ethereum"]
 ---
 
 ## 前端

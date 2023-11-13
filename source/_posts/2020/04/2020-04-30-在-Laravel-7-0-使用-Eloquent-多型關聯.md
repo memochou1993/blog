@@ -1,8 +1,8 @@
 ---
 title: 在 Laravel 7.0 使用 Eloquent 多型關聯
 date: 2020-04-30 22:42:02
-tags: ["程式設計", "PHP", "Laravel", "Eloquent", "ORM"]
-categories: ["程式設計", "PHP", "Laravel"]
+tags: ["Programming", "PHP", "Laravel", "Eloquent", "ORM"]
+categories: ["Programming", "PHP", "Laravel"]
 ---
 
 ## 前言

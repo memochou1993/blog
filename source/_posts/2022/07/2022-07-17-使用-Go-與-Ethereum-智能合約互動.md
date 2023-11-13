@@ -1,8 +1,8 @@
 ---
 title: 使用 Go 與 Ethereum 智能合約互動
 date: 2022-07-17 23:43:54
-tags: ["區塊鏈", "Ethereum", "Solidity", "Smart Contract", "Go"]
-categories: ["區塊鏈", "Ethereum"]
+tags: ["Blockchain", "Ethereum", "Solidity", "Smart Contract", "Go"]
+categories: ["Blockchain", "Ethereum"]
 ---
 
 ## 建立專案

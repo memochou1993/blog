@@ -1,8 +1,8 @@
 ---
 title: 將 Storybook 專案部署至 GitLab Pages 服務
 date: 2022-05-01 02:36:09
-tags: ["程式設計", "JavaScript", "Storybook", "GitLab", "GitLab Pages"]
-categories: ["程式設計", "JavaScript", "環境部署"]
+tags: ["Programming", "JavaScript", "Storybook", "GitLab", "GitLab Pages"]
+categories: ["Programming", "JavaScript", "Deployment"]
 ---
 
 ## 做法

@@ -1,8 +1,8 @@
 ---
 title: 在 Laravel 5.6 使用 Laravel Mix 編譯資源
 date: 2018-04-29 10:18:49
-tags: ["程式設計", "PHP", "Laravel", "Mix"]
-categories: ["程式設計", "PHP", "Laravel"]
+tags: ["Programming", "PHP", "Laravel", "Mix"]
+categories: ["Programming", "PHP", "Laravel"]
 ---
 
 ## 環境

@@ -1,8 +1,8 @@
 ---
 title: 使用 PHPUnit 和 Mockery 測試第三方 API
 date: 2019-10-15 22:34:57
-tags: ["程式設計", "PHP", "Laravel", "PHPUnit", "Testing"]
-categories: ["程式設計", "PHP", "Laravel"]
+tags: ["Programming", "PHP", "Laravel", "PHPUnit", "Testing"]
+categories: ["Programming", "PHP", "Laravel"]
 ---
 
 ## 前言

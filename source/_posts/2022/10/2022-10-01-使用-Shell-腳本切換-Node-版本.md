@@ -2,7 +2,7 @@
 title: 使用 Shell 腳本切換 Node 版本
 date: 2022-10-01 16:05:00
 tags: ["Shell", "SSH", "Node"]
-categories: ["程式設計", "Shell"]
+categories: ["Programming", "Shell"]
 ---
 
 ## 做法

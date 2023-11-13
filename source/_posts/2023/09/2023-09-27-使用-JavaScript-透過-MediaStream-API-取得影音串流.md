@@ -1,8 +1,8 @@
 ---
 title: 使用 JavaScript 透過 MediaStream API 取得影音串流
 date: 2023-09-27 14:54:43
-tags: ["程式設計", "JavaScript", "WebRTC"]
-categories: ["程式設計", "JavaScript", "其他"]
+tags: ["Programming", "JavaScript", "WebRTC"]
+categories: ["Programming", "JavaScript", "Others"]
 ---
 
 ## 建立專案

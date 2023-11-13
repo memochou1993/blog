@@ -1,8 +1,8 @@
 ---
 title: 使用 Docker 搭建 MySQL 資料庫
 date: 2021-03-17 23:11:26
-tags: ["資料庫", "MySQL", "SQL", "Docker"]
-categories: ["資料庫", "MySQL"]
+tags: ["Database", "MySQL", "SQL", "Docker"]
+categories: ["Database", "MySQL"]
 ---
 
 ## 做法

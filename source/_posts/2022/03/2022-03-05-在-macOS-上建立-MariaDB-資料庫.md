@@ -1,8 +1,8 @@
 ---
 title: 在 macOS 上建立 MariaDB 資料庫
 date: 2022-03-05 23:17:44
-tags: ["資料庫", "MariaDB", "SQL", "MySQL", "Docker"]
-categories: ["資料庫", "MySQL"]
+tags: ["Database", "MariaDB", "SQL", "MySQL", "Docker"]
+categories: ["Database", "MySQL"]
 ---
 
 ## 安裝

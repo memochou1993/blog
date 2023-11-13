@@ -1,8 +1,8 @@
 ---
 title: 使用 Rust 在 Solana 區塊鏈開發鏈上程式（一）：環境建置
 date: 2022-04-14 15:16:51
-tags: ["區塊鏈", "Solana", "Rust", "JavaScript", "Smart Contract", "DApp"]
-categories: ["區塊鏈", "Solana"]
+tags: ["Blockchain", "Solana", "Rust", "JavaScript", "Smart Contract", "DApp"]
+categories: ["Blockchain", "Solana"]
 ---
 
 ## 前言

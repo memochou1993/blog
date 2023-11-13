@@ -1,8 +1,8 @@
 ---
 title: 在 Laradock 環境的 PHP 專案使用 Guzzle 套件
 date: 2019-03-12 23:01:28
-tags: ["環境部署", "Nginx", "Laravel", "Laradock", "Guzzle"]
-categories: ["環境部署", "Laradock"]
+tags: ["Deployment", "Nginx", "Laravel", "Laradock", "Guzzle"]
+categories: ["Deployment", "Laradock"]
 ---
 
 ## 安裝套件

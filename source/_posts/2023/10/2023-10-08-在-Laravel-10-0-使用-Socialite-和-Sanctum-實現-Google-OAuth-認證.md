@@ -1,8 +1,8 @@
 ---
 title: 在 Laravel 10.0 使用 Socialite 和 Sanctum 實現 Google OAuth 認證
 date: 2023-10-08 14:44:11
-tags: ["程式設計", "PHP", "Laravel", "OAuth"]
-categories: ["程式設計", "PHP", "Laravel"]
+tags: ["Programming", "PHP", "Laravel", "OAuth"]
+categories: ["Programming", "PHP", "Laravel"]
 ---
 
 ## 前置作業

@@ -1,8 +1,8 @@
 ---
 title: 在 Laravel 5.7 使用 Passport 實作 API 認證
 date: 2018-11-04 02:41:25
-tags: ["程式設計", "PHP", "Laravel", "Passport"]
-categories: ["程式設計", "PHP", "Laravel"]
+tags: ["Programming", "PHP", "Laravel", "Passport"]
+categories: ["Programming", "PHP", "Laravel"]
 ---
 
 ## 環境

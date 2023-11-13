@@ -1,8 +1,8 @@
 ---
 title: 在 Laravel 5.7 使用 Vuetify UI 框架
 date: 2019-01-21 22:33:25
-tags: ["程式設計", "Laravel", "Vue", "Vuetify"]
-categories: ["程式設計", "PHP", "Laravel"]
+tags: ["Programming", "Laravel", "Vue", "Vuetify"]
+categories: ["Programming", "PHP", "Laravel"]
 ---
 
 ## 建立專案

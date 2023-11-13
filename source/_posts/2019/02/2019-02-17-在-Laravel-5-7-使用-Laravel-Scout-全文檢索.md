@@ -1,8 +1,8 @@
 ---
 title: 在 Laravel 5.7 使用 Laravel-Scout 全文檢索
 date: 2019-02-17 09:39:34
-tags: ["程式設計", "PHP", "Laravel", "全文檢索", "Scout", "Algolia"]
-categories: ["程式設計", "PHP", "Laravel"]
+tags: ["Programming", "PHP", "Laravel", "Full-Text Search", "Scout", "Algolia"]
+categories: ["Programming", "PHP", "Laravel"]
 ---
 
 ## 環境

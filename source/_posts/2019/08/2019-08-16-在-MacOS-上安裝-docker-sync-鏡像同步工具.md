@@ -1,8 +1,8 @@
 ---
 title: 在 macOS 上安裝 docker-sync 鏡像同步工具
 date: 2019-08-16 00:05:23
-tags: ["環境部署", "Docker", "Laradock"]
-categories: ["環境部署", "Laradock"]
+tags: ["Deployment", "Docker", "Laradock"]
+categories: ["Deployment", "Laradock"]
 ---
 
 ## 前言

@@ -1,8 +1,8 @@
 ---
 title: 將 Flask 專案部署至 Vercel 平台
 date: 2023-07-11 23:45:08
-tags: ["程式設計", "Python", "Flask", "Vercel"]
-categories: ["程式設計", "Python", "Flask"]
+tags: ["Programming", "Python", "Flask", "Vercel"]
+categories: ["Programming", "Python", "Flask"]
 ---
 
 ## 建立專案

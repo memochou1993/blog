@@ -1,8 +1,8 @@
 ---
 title: 在 Laravel 5.7 使用 PHPUnit 查看程式碼覆蓋率報告
 date: 2018-11-30 14:27:38
-tags: ["程式設計", "PHP", "Laravel", "Testing", "PHPUnit", "Xdebug", "Code Coverage"]
-categories: ["程式設計", "PHP", "Laravel"]
+tags: ["Programming", "PHP", "Laravel", "Testing", "PHPUnit", "Xdebug", "Code Coverage"]
+categories: ["Programming", "PHP", "Laravel"]
 ---
 
 ## 環境

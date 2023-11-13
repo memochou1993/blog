@@ -1,8 +1,8 @@
 ---
 title: 在 GitLab CI/CD 使用 Git Submodules 子模組
 date: 2023-07-13 02:17:49
-tags: ["環境部署", "CI/CD", "GitLab", "版本控制", "Git"]
-categories: ["環境部署", "CI/CD", "GitLab"]
+tags: ["Deployment", "CI/CD", "GitLab", "Version Control", "Git"]
+categories: ["Deployment", "CI/CD", "GitLab"]
 ---
 
 ## 做法

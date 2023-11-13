@@ -1,8 +1,8 @@
 ---
 title: 在 Laravel 9.0 使用 l5-swagger 套件整合 Swagger UI 文件工具
 date: 2022-03-12 16:20:35
-tags: ["程式設計", "PHP", "Laravel", "Swagger"]
-categories: ["程式設計", "PHP", "Laravel"]
+tags: ["Programming", "PHP", "Laravel", "Swagger"]
+categories: ["Programming", "PHP", "Laravel"]
 ---
 
 ## 使用

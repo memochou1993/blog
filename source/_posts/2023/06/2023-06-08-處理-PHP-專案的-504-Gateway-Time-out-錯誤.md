@@ -1,8 +1,8 @@
 ---
 title: 處理 PHP 專案的 504 Gateway Time-out 錯誤
 date: 2023-06-08 13:36:27
-tags: ["程式設計", "PHP", "Nginx", "Terraform", "AWS", "ALB"]
-categories: ["程式設計", "PHP", "其他"]
+tags: ["Programming", "PHP", "Nginx", "Terraform", "AWS", "ALB"]
+categories: ["Programming", "PHP", "Others"]
 ---
 
 ## 前言

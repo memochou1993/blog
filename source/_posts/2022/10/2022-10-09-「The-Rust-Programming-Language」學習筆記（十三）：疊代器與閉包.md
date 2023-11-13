@@ -1,8 +1,8 @@
 ---
 title: 「The Rust Programming Language」學習筆記（十三）：疊代器與閉包
 date: 2022-10-09 21:57:17
-tags: ["程式設計", "Rust"]
-categories: ["程式設計", "Rust", "「The Rust Programming Language」學習筆記"]
+tags: ["Programming", "Rust"]
+categories: ["Programming", "Rust", "「The Rust Programming Language」Study Notes"]
 ---
 
 ## 前言

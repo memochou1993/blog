@@ -1,8 +1,8 @@
 ---
 title: 使用 Node 透過 OpenAI API 生成文字補全
 date: 2022-12-08 00:16:47
-tags: ["程式設計", "JavaScript", "Node", "GPT", "AI", "OpenAI"]
-categories: ["程式設計", "JavaScript", "Node"]
+tags: ["Programming", "JavaScript", "Node", "GPT", "AI", "OpenAI"]
+categories: ["Programming", "JavaScript", "Node"]
 ---
 
 ## 前置作業

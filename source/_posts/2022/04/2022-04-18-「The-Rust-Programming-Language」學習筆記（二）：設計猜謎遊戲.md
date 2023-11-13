@@ -1,8 +1,8 @@
 ---
 title: 「The Rust Programming Language」學習筆記（二）：設計猜謎遊戲
 date: 2022-04-18 15:06:33
-tags: ["程式設計", "Rust"]
-categories: ["程式設計", "Rust", "「The Rust Programming Language」學習筆記"]
+tags: ["Programming", "Rust"]
+categories: ["Programming", "Rust", "「The Rust Programming Language」Study Notes"]
 ---
 
 ## 前言

@@ -1,8 +1,8 @@
 ---
 title: 使用 Node 建立 WebSocket 伺服器
 date: 2021-12-11 19:52:31
-tags: ["程式設計", "JavaScript", "Node", "WebSocket"]
-categories: ["程式設計", "JavaScript", "Node"]
+tags: ["Programming", "JavaScript", "Node", "WebSocket"]
+categories: ["Programming", "JavaScript", "Node"]
 ---
 
 ## 做法

@@ -1,8 +1,8 @@
 ---
 title: 在 Laravel 9.0 使用 Mailgun 服務寄送郵件
 date: 2023-01-19 21:56:36
-tags: ["程式設計", "PHP", "Laravel", "Mail"]
-categories: ["程式設計", "PHP", "Laravel"]
+tags: ["Programming", "PHP", "Laravel", "Mail"]
+categories: ["Programming", "PHP", "Laravel"]
 ---
 
 ## 前置作業

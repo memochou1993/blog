@@ -1,8 +1,8 @@
 ---
 title: 在 PHP 專案使用 OpenCC 開放中文轉換
 date: 2023-04-04 01:19:28
-tags: ["程式設計", "PHP", "OpenCC"]
-categories: ["程式設計", "PHP", "擴充套件"]
+tags: ["Programming", "PHP", "OpenCC"]
+categories: ["Programming", "PHP", "Extension"]
 ---
 
 ## 前言

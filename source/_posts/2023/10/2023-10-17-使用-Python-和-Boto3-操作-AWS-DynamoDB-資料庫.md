@@ -1,8 +1,8 @@
 ---
 title: 使用 Python 和 Boto3 操作 AWS DynamoDB 資料庫
 date: 2023-10-17 16:23:04
-tags: ["程式設計", "Python", "Boto3", "ORM", "AWS", "DynamoDB"]
-categories: ["程式設計", "Python", "其他"]
+tags: ["Programming", "Python", "Boto3", "ORM", "AWS", "DynamoDB"]
+categories: ["Programming", "Python", "Others"]
 ---
 
 ## 建立專案

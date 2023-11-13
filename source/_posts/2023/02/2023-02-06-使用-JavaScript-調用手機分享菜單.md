@@ -1,8 +1,8 @@
 ---
 title: 使用 JavaScript 調用手機分享菜單
 date: 2023-02-06 23:01:04
-tags: ["程式設計", "JavaScript"]
-categories: ["程式設計", "JavaScript", "其他"]
+tags: ["Programming", "JavaScript"]
+categories: ["Programming", "JavaScript", "Others"]
 ---
 
 ## 做法

@@ -1,8 +1,8 @@
 ---
 title: 使用 SerpApi 查詢 Google 搜尋結果
 date: 2023-02-17 03:14:01
-tags: ["程式設計", "JavaScript"]
-categories: ["程式設計", "JavaScript", "其他"]
+tags: ["Programming", "JavaScript"]
+categories: ["Programming", "JavaScript", "Others"]
 ---
 
 ## 做法

@@ -1,8 +1,8 @@
 ---
 title: 「Kubernetes 實作手冊：基礎入門篇」學習筆記（廿三）：認識 ClusterIP 服務類型
 date: 2021-12-28 14:38:17
-tags: ["環境部署", "Kubernetes", "Docker"]
-categories: ["環境部署", "Kubernetes", "「Kubernetes 實作手冊：基礎入門篇」學習筆記"]
+tags: ["Deployment", "Kubernetes", "Docker"]
+categories: ["Deployment", "Kubernetes", "「Kubernetes 實作手冊：基礎入門篇」Study Notes"]
 ---
 
 ## 前言

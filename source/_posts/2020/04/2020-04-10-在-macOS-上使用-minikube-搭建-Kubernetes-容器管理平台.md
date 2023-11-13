@@ -1,8 +1,8 @@
 ---
 title: 在 macOS 上使用 minikube 搭建 Kubernetes 容器管理平台
 date: 2020-04-10 17:36:24
-tags: ["環境部署", "Kubernetes", "Docker", "minikube"]
-categories: ["環境部署", "Kubernetes", "其他"]
+tags: ["Deployment", "Kubernetes", "Docker", "minikube"]
+categories: ["Deployment", "Kubernetes", "Others"]
 ---
 
 ## 環境

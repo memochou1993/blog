@@ -1,8 +1,8 @@
 ---
 title: 在 Vue 3.0 使用 Vuetify UI 框架
 date: 2023-02-18 14:52:45
-tags: ["程式設計", "JavaScript", "Vue", "Vuetify"]
-categories: ["程式設計", "JavaScript", "Vue"]
+tags: ["Programming", "JavaScript", "Vue", "Vuetify"]
+categories: ["Programming", "JavaScript", "Vue"]
 ---
 
 ## 做法

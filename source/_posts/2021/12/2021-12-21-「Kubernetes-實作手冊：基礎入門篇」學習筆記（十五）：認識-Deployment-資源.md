@@ -1,8 +1,8 @@
 ---
 title: 「Kubernetes 實作手冊：基礎入門篇」學習筆記（十五）：認識 Deployment 資源
 date: 2021-12-21 14:32:59
-tags: ["環境部署", "Kubernetes", "Docker"]
-categories: ["環境部署", "Kubernetes", "「Kubernetes 實作手冊：基礎入門篇」學習筆記"]
+tags: ["Deployment", "Kubernetes", "Docker"]
+categories: ["Deployment", "Kubernetes", "「Kubernetes 實作手冊：基礎入門篇」Study Notes"]
 ---
 
 ## 前言

@@ -1,8 +1,8 @@
 ---
 title: 使用 ApacheBench 為網站進行壓力測試
 date: 2019-01-26 23:05:14
-tags: ["ApacheBench", "壓力測試工具", "壓力測試"]
-categories: ["其他", "壓力測試工具"]
+tags: ["ApacheBench", "Stress Testing Tool", "Stress Testing"]
+categories: ["Others", "Stress Testing Tool"]
 ---
 
 ## 前言

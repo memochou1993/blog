@@ -1,8 +1,8 @@
 ---
 title: 使用 JavaScript 讀取 XML 檔案
 date: 2022-11-23 02:00:15
-tags: ["程式設計", "JavaScript", "XML"]
-categories: ["程式設計", "JavaScript", "其他"]
+tags: ["Programming", "JavaScript", "XML"]
+categories: ["Programming", "JavaScript", "Others"]
 ---
 
 ## 做法

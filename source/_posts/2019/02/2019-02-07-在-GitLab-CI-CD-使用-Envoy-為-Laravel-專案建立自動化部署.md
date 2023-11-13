@@ -1,8 +1,8 @@
 ---
 title: 在 GitLab CI/CD 使用 Envoy 為 Laravel 專案建立自動化部署
 date: 2019-02-07 01:51:29
-tags: ["環境部署", "CI/CD", "GitLab", "Linux", "Ubuntu", "Laravel"]
-categories: ["環境部署", "CI/CD", "GitLab"]
+tags: ["Deployment", "CI/CD", "GitLab", "Linux", "Ubuntu", "Laravel"]
+categories: ["Deployment", "CI/CD", "GitLab"]
 ---
 
 ## 環境

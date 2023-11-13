@@ -1,8 +1,8 @@
 ---
 title: 使用 Python 和 LangChain 透過 OpenAI API 和 Google Drive API 生成文字補全
 date: 2023-07-10 23:15:18
-tags: ["程式設計", "Python", "GPT", "AI", "OpenAI", "LangChain"]
-categories: ["程式設計", "Python", "其他"]
+tags: ["Programming", "Python", "GPT", "AI", "OpenAI", "LangChain"]
+categories: ["Programming", "Python", "Others"]
 ---
 
 ## 前置作業

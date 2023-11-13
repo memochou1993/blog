@@ -1,8 +1,8 @@
 ---
 title: 使用 GitHub Actions 將 Vue 專案部署至 GitHub Pages 服務
 date: 2023-02-17 20:48:01
-tags: ["程式設計", "JavaScript", "Vue", "GitHub", "GitHub Pages", "GitHub Actions"]
-categories: ["程式設計", "JavaScript", "環境部署"]
+tags: ["Programming", "JavaScript", "Vue", "GitHub", "GitHub Pages", "GitHub Actions"]
+categories: ["Programming", "JavaScript", "Deployment"]
 ---
 
 ## 做法

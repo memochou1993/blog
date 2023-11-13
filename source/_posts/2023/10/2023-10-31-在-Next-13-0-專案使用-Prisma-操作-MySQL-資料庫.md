@@ -1,8 +1,8 @@
 ---
 title: 在 Next 13.0 專案使用 Prisma 操作 MySQL 資料庫
 date: 2023-10-31 16:29:38
-tags: ["程式設計", "JavaScript", "React", "Next", "Prisma", "ORM", "MySQL"]
-categories: ["程式設計", "JavaScript", "Next"]
+tags: ["Programming", "JavaScript", "React", "Next", "Prisma", "ORM", "MySQL"]
+categories: ["Programming", "JavaScript", "Next"]
 ---
 
 ## 建立專案

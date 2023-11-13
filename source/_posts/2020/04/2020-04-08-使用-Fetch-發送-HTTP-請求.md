@@ -1,8 +1,8 @@
 ---
 title: 使用 Fetch 發送 HTTP 請求
 date: 2020-04-08 20:52:46
-tags: ["程式設計", "JavaScript"]
-categories: ["程式設計", "JavaScript", "其他"]
+tags: ["Programming", "JavaScript"]
+categories: ["Programming", "JavaScript", "Others"]
 ---
 
 ## 發送請求

@@ -1,8 +1,8 @@
 ---
 title: 「Kubernetes 實作手冊：基礎入門篇」學習筆記（卅一）：認識 HostPath 儲存卷類型
 date: 2022-01-06 22:51:17
-tags: ["環境部署", "Kubernetes", "Docker"]
-categories: ["環境部署", "Kubernetes", "「Kubernetes 實作手冊：基礎入門篇」學習筆記"]
+tags: ["Deployment", "Kubernetes", "Docker"]
+categories: ["Deployment", "Kubernetes", "「Kubernetes 實作手冊：基礎入門篇」Study Notes"]
 ---
 
 ## 前言

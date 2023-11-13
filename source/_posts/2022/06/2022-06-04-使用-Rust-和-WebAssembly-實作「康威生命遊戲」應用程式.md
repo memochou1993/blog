@@ -1,8 +1,8 @@
 ---
 title: 使用 Rust 和 WebAssembly 實作「康威生命遊戲」應用程式
 date: 2022-06-04 20:49:01
-tags: ["程式設計", "Rust", "WebAssembly", "Wasm", "JavaScript", "Canvas"]
-categories: ["程式設計", "Rust", "WebAssembly"]
+tags: ["Programming", "Rust", "WebAssembly", "Wasm", "JavaScript", "Canvas"]
+categories: ["Programming", "Rust", "WebAssembly"]
 ---
 
 ## 前言

@@ -1,8 +1,8 @@
 ---
 title: 使用 JSDoc 提示 Laravel Mix 的動態方法
 date: 2020-10-07 23:14:29
-tags: ["程式設計", "PHP", "Laravel", "Mix", "Vue"]
-categories: ["程式設計", "PHP", "Laravel"]
+tags: ["Programming", "PHP", "Laravel", "Mix", "Vue"]
+categories: ["Programming", "PHP", "Laravel"]
 ---
 
 ## 前言

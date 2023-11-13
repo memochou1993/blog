@@ -1,8 +1,8 @@
 ---
 title: 在 Node 專案使用 ESLint 分析工具並套用 Airbnb 程式碼風格
 date: 2022-11-18 00:00:56
-tags: ["程式設計", "JavaScript", "ESLint", "Airbnb", "Node"]
-categories: ["程式設計", "JavaScript", "ESLint"]
+tags: ["Programming", "JavaScript", "ESLint", "Airbnb", "Node"]
+categories: ["Programming", "JavaScript", "ESLint"]
 ---
 
 ## 做法

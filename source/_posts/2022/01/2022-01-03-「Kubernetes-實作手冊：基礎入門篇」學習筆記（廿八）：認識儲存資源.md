@@ -1,8 +1,8 @@
 ---
 title: 「Kubernetes 實作手冊：基礎入門篇」學習筆記（廿八）：認識儲存資源
 date: 2022-01-03 21:13:06
-tags: ["環境部署", "Kubernetes", "Docker"]
-categories: ["環境部署", "Kubernetes", "「Kubernetes 實作手冊：基礎入門篇」學習筆記"]
+tags: ["Deployment", "Kubernetes", "Docker"]
+categories: ["Deployment", "Kubernetes", "「Kubernetes 實作手冊：基礎入門篇」Study Notes"]
 ---
 
 ## 前言

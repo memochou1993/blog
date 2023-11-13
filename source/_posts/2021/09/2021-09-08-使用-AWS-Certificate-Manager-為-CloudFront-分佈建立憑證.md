@@ -1,8 +1,8 @@
 ---
 title: 使用 AWS Certificate Manager 為 CloudFront 分佈建立憑證
 date: 2021-09-08 14:25:02
-tags: ["環境部署", "AWS", "ACM", "Storage Service", "CloudFront"]
-categories: ["雲端運算服務", "AWS"]
+tags: ["Deployment", "AWS", "ACM", "Storage Service", "CloudFront"]
+categories: ["Cloud Computing Service", "AWS"]
 ---
 
 ## 前言

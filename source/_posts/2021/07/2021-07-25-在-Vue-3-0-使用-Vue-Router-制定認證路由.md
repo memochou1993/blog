@@ -1,8 +1,8 @@
 ---
 title: 在 Vue 3.0 使用 Vue Router 制定認證路由
 date: 2021-07-25 15:08:03
-tags: ["程式設計", "JavaScript", "Vue"]
-categories: ["程式設計", "JavaScript", "Vue"]
+tags: ["Programming", "JavaScript", "Vue"]
+categories: ["Programming", "JavaScript", "Vue"]
 ---
 
 ## 做法

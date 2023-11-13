@@ -1,8 +1,8 @@
 ---
 title: 在 Go 專案使用 GORM 操作 MySQL 資料庫
 date: 2020-11-12 22:56:28
-tags: ["程式設計", "Go", "GORM", "ORM", "MySQL"]
-categories: ["程式設計", "Go", "GORM"]
+tags: ["Programming", "Go", "GORM", "ORM", "MySQL"]
+categories: ["Programming", "Go", "GORM"]
 ---
 
 ## 連線

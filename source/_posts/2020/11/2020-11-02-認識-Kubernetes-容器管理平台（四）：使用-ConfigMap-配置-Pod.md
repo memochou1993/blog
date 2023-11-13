@@ -1,8 +1,8 @@
 ---
 title: 認識 Kubernetes 容器管理平台（四）：使用 ConfigMap 配置 Pod
 date: 2020-11-02 21:05:17
-tags: ["環境部署", "Kubernetes", "Docker", "minikube"]
-categories: ["環境部署", "Kubernetes", "其他"]
+tags: ["Deployment", "Kubernetes", "Docker", "minikube"]
+categories: ["Deployment", "Kubernetes", "Others"]
 ---
 
 ## 前言

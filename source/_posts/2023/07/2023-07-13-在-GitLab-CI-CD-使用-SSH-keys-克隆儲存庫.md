@@ -1,8 +1,8 @@
 ---
 title: 在 GitLab CI/CD 使用 SSH keys 克隆儲存庫
 date: 2023-07-13 01:59:15
-tags: ["環境部署", "CI/CD", "GitLab", "SSH"]
-categories: ["環境部署", "CI/CD", "GitLab"]
+tags: ["Deployment", "CI/CD", "GitLab", "SSH"]
+categories: ["Deployment", "CI/CD", "GitLab"]
 ---
 
 ## 做法

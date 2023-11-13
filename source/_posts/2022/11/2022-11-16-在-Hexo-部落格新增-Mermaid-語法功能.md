@@ -2,7 +2,7 @@
 title: 在 Hexo 部落格新增 Mermaid 語法功能
 date: 2022-11-16 23:09:34
 tags: ["Hexo", "Markdown", "Mermaid"]
-categories: ["靜態網頁生成器", "Hexo"]
+categories: ["Static Site Generator", "Hexo"]
 ---
 
 ## 做法

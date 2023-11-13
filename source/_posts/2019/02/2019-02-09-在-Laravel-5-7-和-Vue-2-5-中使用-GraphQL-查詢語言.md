@@ -1,8 +1,8 @@
 ---
 title: 在 Laravel 5.7 和 Vue 2.5 中使用 GraphQL 查詢語言
 date: 2019-02-09 21:40:47
-tags: ["程式設計", "PHP", "Laravel", "GraphQL", "JavaScript", "Vue"]
-categories: ["程式設計", "PHP", "Laravel"]
+tags: ["Programming", "PHP", "Laravel", "GraphQL", "JavaScript", "Vue"]
+categories: ["Programming", "PHP", "Laravel"]
 ---
 
 ## 前言

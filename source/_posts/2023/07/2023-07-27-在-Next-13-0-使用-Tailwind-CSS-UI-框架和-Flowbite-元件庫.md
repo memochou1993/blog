@@ -1,8 +1,8 @@
 ---
 title: 在 Next 13.0 使用 Tailwind CSS UI 框架和 Flowbite 元件庫
 date: 2023-07-27 23:15:22
-tags: ["程式設計", "JavaScript", "React", "Next", "UI Framework", "Tailwind CSS", "Flowbite"]
-categories: ["程式設計", "JavaScript", "React"]
+tags: ["Programming", "JavaScript", "React", "Next", "UI Framework", "Tailwind CSS", "Flowbite"]
+categories: ["Programming", "JavaScript", "React"]
 ---
 
 ## 前言

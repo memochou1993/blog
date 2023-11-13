@@ -1,8 +1,8 @@
 ---
 title: 在 CodeIgniter 3.1 處理 Excel 試算表
 date: 2018-11-26 17:05:57
-tags: ["程式設計", "PHP", "CodeIgniter", "Excel"]
-categories: ["程式設計", "PHP", "CodeIgniter"]
+tags: ["Programming", "PHP", "CodeIgniter", "Excel"]
+categories: ["Programming", "PHP", "CodeIgniter"]
 ---
 
 ## 環境

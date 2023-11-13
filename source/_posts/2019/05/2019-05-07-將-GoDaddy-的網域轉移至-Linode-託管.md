@@ -1,8 +1,8 @@
 ---
 title: 將 GoDaddy 的網域轉移至 Linode 託管
 date: 2019-05-07 23:20:15
-tags: ["環境部署", "Linode", "GoDaddy", "VPS", "DNS"]
-categories: ["雲端運算服務", "Linode"]
+tags: ["Deployment", "Linode", "GoDaddy", "VPS", "DNS"]
+categories: ["Cloud Computing Service", "Linode"]
 ---
 
 ## 前言

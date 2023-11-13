@@ -1,8 +1,8 @@
 ---
 title: 使用 Docker 容器化 Django 專案
 date: 2023-08-30 00:06:49
-tags: ["環境部署", "Docker", "Python", "Django"]
-categories: ["程式設計", "Python", "環境部署"]
+tags: ["Deployment", "Docker", "Python", "Django"]
+categories: ["Programming", "Python", "Deployment"]
 ---
 
 ## 實作

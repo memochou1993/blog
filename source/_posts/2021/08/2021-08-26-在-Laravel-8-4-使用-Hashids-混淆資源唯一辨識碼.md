@@ -1,8 +1,8 @@
 ---
 title: 在 Laravel 8.4 使用 Hashids 混淆資源唯一辨識碼
 date: 2021-08-26 22:18:26
-tags: ["程式設計", "PHP", "Laravel"]
-categories: ["程式設計", "PHP", "Laravel"]
+tags: ["Programming", "PHP", "Laravel"]
+categories: ["Programming", "PHP", "Laravel"]
 ---
 
 ## 安裝套件

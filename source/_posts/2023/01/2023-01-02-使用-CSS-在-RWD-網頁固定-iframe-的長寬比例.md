@@ -1,8 +1,8 @@
 ---
 title: 使用 CSS 在 RWD 網頁固定 iframe 的長寬比例
 date: 2023-01-02 17:17:10
-tags: ["程式設計", "CSS", "JavaScript", "React", "styled-components", "RWD"]
-categories: ["程式設計", "CSS"]
+tags: ["Programming", "CSS", "JavaScript", "React", "styled-components", "RWD"]
+categories: ["Programming", "CSS"]
 ---
 
 ## 前言

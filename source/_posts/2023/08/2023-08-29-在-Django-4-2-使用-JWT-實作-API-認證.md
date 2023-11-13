@@ -1,8 +1,8 @@
 ---
 title: 在 Django 4.2 使用 JWT 實作 API 認證
 date: 2023-08-29 00:08:50
-tags: ["程式設計", "Python", "Django", "JWT"]
-categories: ["程式設計", "Python", "Django"]
+tags: ["Programming", "Python", "Django", "JWT"]
+categories: ["Programming", "Python", "Django"]
 ---
 
 ## 實作

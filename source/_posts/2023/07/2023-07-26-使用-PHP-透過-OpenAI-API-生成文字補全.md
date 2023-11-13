@@ -1,8 +1,8 @@
 ---
 title: 使用 PHP 透過 OpenAI API 生成文字補全
 date: 2023-07-26 23:32:34
-tags: ["程式設計", "PHP", "GPT", "AI", "OpenAI"]
-categories: ["程式設計", "PHP", "其他"]
+tags: ["Programming", "PHP", "GPT", "AI", "OpenAI"]
+categories: ["Programming", "PHP", "Others"]
 ---
 
 ## 建立專案

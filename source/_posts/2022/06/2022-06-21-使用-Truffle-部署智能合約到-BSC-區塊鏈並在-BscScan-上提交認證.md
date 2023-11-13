@@ -1,8 +1,8 @@
 ---
 title: 使用 Truffle 部署智能合約到 BSC 區塊鏈並在 BscScan 上提交認證
 date: 2022-06-21 01:55:31
-tags: ["區塊鏈", "Ethereum", "Solidity", "Truffle", "Smart Contract", "BSC"]
-categories: ["區塊鏈", "Ethereum"]
+tags: ["Blockchain", "Ethereum", "Solidity", "Truffle", "Smart Contract", "BSC"]
+categories: ["Blockchain", "Ethereum"]
 ---
 
 ## 做法

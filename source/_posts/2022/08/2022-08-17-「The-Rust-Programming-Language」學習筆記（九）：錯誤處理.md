@@ -1,8 +1,8 @@
 ---
 title: 「The Rust Programming Language」學習筆記（九）：錯誤處理
 date: 2022-08-17 22:36:03
-tags: ["程式設計", "Rust"]
-categories: ["程式設計", "Rust", "「The Rust Programming Language」學習筆記"]
+tags: ["Programming", "Rust"]
+categories: ["Programming", "Rust", "「The Rust Programming Language」Study Notes"]
 ---
 
 ## 前言

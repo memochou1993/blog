@@ -1,8 +1,8 @@
 ---
 title: 在 React 專案使用 Three.js 套件渲染 3D 模型
 date: 2023-10-04 23:44:41
-tags: ["程式設計", "JavaScript", "React", "Three.js"]
-categories: ["程式設計", "JavaScript", "React"]
+tags: ["Programming", "JavaScript", "React", "Three.js"]
+categories: ["Programming", "JavaScript", "React"]
 ---
 
 ## 建立專案

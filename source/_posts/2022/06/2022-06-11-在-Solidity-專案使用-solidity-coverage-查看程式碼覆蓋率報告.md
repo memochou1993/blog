@@ -1,8 +1,8 @@
 ---
 title: 在 Solidity 專案使用 solidity-coverage 查看程式碼覆蓋率報告
 date: 2022-06-11 01:37:22
-tags: ["區塊鏈", "Ethereum", "Solidity", "Smart Contract", "Truffle", "Testing", "Code Coverage"]
-categories: ["區塊鏈", "Ethereum"]
+tags: ["Blockchain", "Ethereum", "Solidity", "Smart Contract", "Truffle", "Testing", "Code Coverage"]
+categories: ["Blockchain", "Ethereum"]
 ---
 
 ## 環境

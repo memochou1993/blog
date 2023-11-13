@@ -1,8 +1,8 @@
 ---
 title: 在 React 專案使用 Swiper 建立幻燈片
 date: 2023-01-10 02:35:00
-tags: ["程式設計", "JavaScript", "React"]
-categories: ["程式設計", "JavaScript", "React"]
+tags: ["Programming", "JavaScript", "React"]
+categories: ["Programming", "JavaScript", "React"]
 ---
 
 ## 前言

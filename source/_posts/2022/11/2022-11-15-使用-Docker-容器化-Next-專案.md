@@ -1,8 +1,8 @@
 ---
 title: 使用 Docker 容器化 Next 專案
 date: 2022-11-15 14:36:25
-tags: ["環境部署", "Docker", "JavaScript", "React", "Next"]
-categories: ["程式設計", "JavaScript", "環境部署"]
+tags: ["Deployment", "Docker", "JavaScript", "React", "Next"]
+categories: ["Programming", "JavaScript", "Deployment"]
 ---
 
 ## 做法

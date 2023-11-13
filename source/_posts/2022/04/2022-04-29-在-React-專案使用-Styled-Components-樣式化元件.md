@@ -1,8 +1,8 @@
 ---
 title: 在 React 專案使用 Styled Components 樣式化元件
 date: 2022-04-29 02:32:34
-tags: ["程式設計", "JavaScript", "React"]
-categories: ["程式設計", "JavaScript", "React"]
+tags: ["Programming", "JavaScript", "React"]
+categories: ["Programming", "JavaScript", "React"]
 ---
 
 ## 使用

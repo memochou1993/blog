@@ -1,8 +1,8 @@
 ---
 title: 在 elementary OS 上建立 Laradock 環境
 date: 2018-04-26 10:16:18
-tags: ["環境部署", "Linux", "elementary OS", "Docker", "Laradock", "Laravel"]
-categories: ["環境部署", "Laradock"]
+tags: ["Deployment", "Linux", "elementary OS", "Docker", "Laradock", "Laravel"]
+categories: ["Deployment", "Laradock"]
 ---
 
 ## 前言

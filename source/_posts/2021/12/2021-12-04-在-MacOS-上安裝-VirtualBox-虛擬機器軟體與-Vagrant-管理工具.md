@@ -1,8 +1,8 @@
 ---
 title: 在 macOS 上安裝 VirtualBox 虛擬機器軟體與 Vagrant 管理工具
 date: 2021-12-04 15:00:38
-tags: ["環境部署", "Vagrant"]
-categories: ["環境部署", "Vagrant"]
+tags: ["Deployment", "Vagrant"]
+categories: ["Deployment", "Vagrant"]
 ---
 
 ## VirtualBox

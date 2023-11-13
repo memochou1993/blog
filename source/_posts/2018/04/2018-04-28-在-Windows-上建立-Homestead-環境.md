@@ -1,8 +1,8 @@
 ---
 title: 在 Windows 上建立 Homestead 環境
 date: 2018-04-28 10:16:27
-tags: ["程式設計", "PHP", "Homestead"]
-categories: ["程式設計", "PHP", "環境安裝"]
+tags: ["Programming", "PHP", "Homestead"]
+categories: ["Programming", "PHP", "Installation"]
 ---
 
 ## 環境

@@ -1,8 +1,8 @@
 ---
 title: 在 Vue 2.5 使用 reCAPTCHA v3 服務
 date: 2021-05-22 22:20:10
-tags: ["程式設計", "JavaScript", "Vue", "reCAPTCHA"]
-categories: ["程式設計", "JavaScript", "Vue"]
+tags: ["Programming", "JavaScript", "Vue", "reCAPTCHA"]
+categories: ["Programming", "JavaScript", "Vue"]
 ---
 
 ## 前置作業

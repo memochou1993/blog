@@ -1,8 +1,8 @@
 ---
 title: 使用 PHPDoc 提示 Laravel 的魔術方法
 date: 2020-10-05 22:50:58
-tags: ["程式設計", "PHP", "Laravel", "PHPDoc"]
-categories: ["程式設計", "PHP", "Laravel"]
+tags: ["Programming", "PHP", "Laravel", "PHPDoc"]
+categories: ["Programming", "PHP", "Laravel"]
 ---
 
 ## 前言

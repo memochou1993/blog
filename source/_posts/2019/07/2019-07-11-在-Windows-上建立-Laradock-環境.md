@@ -1,8 +1,8 @@
 ---
 title: 在 Windows 上建立 Laradock 環境
 date: 2019-07-11 17:36:20
-tags: ["環境部署", "Windows", "Docker", "Laradock", "Laravel"]
-categories: ["環境部署", "Laradock"]
+tags: ["Deployment", "Windows", "Docker", "Laradock", "Laravel"]
+categories: ["Deployment", "Laradock"]
 ---
 
 ## 環境

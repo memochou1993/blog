@@ -1,8 +1,8 @@
 ---
 title: 使用 gh-pages 套件將 React 專案部署至 GitHub Pages 服務
 date: 2022-03-25 02:57:03
-tags: ["程式設計", "JavaScript", "React", "GitHub", "GitHub Pages"]
-categories: ["程式設計", "JavaScript", "環境部署"]
+tags: ["Programming", "JavaScript", "React", "GitHub", "GitHub Pages"]
+categories: ["Programming", "JavaScript", "Deployment"]
 ---
 
 ## 做法

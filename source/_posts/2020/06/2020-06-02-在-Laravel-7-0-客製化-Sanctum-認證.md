@@ -1,8 +1,8 @@
 ---
 title: 在 Laravel 7.0 客製化 Sanctum 認證
 date: 2020-06-02 22:36:38
-tags: ["程式設計", "PHP", "Laravel"]
-categories: ["程式設計", "PHP", "Laravel"]
+tags: ["Programming", "PHP", "Laravel"]
+categories: ["Programming", "PHP", "Laravel"]
 ---
 
 ## 前言

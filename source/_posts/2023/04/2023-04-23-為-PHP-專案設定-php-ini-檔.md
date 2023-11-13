@@ -1,8 +1,8 @@
 ---
 title: 為 PHP 專案設定 php.ini 檔
 date: 2023-04-23 16:08:06
-tags: ["程式設計", "PHP"]
-categories: ["程式設計", "PHP", "其他"]
+tags: ["Programming", "PHP"]
+categories: ["Programming", "PHP", "Others"]
 ---
 
 ## 做法

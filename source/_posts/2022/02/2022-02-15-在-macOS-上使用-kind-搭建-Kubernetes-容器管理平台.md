@@ -1,8 +1,8 @@
 ---
 title: 在 macOS 上使用 kind 搭建 Kubernetes 容器管理平台
 date: 2022-02-15 20:04:57
-tags: ["環境部署", "Kubernetes", "Docker", "kind"]
-categories: ["環境部署", "Kubernetes", "其他"]
+tags: ["Deployment", "Kubernetes", "Docker", "kind"]
+categories: ["Deployment", "Kubernetes", "Others"]
 ---
 
 ## 安裝

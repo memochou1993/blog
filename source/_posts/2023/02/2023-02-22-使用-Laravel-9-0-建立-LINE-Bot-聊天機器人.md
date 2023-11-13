@@ -1,8 +1,8 @@
 ---
 title: 使用 Laravel 9.0 建立 LINE Bot 聊天機器人
 date: 2023-02-22 10:35:35
-tags: ["程式設計", "PHP", "Laravel", "LINE", "chatbot"]
-categories: ["程式設計", "PHP", "Laravel"]
+tags: ["Programming", "PHP", "Laravel", "LINE", "chatbot"]
+categories: ["Programming", "PHP", "Laravel"]
 ---
 
 ## 做法

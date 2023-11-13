@@ -1,8 +1,8 @@
 ---
 title: 使用 Docker 搭建 phpMyAdmin 資料庫管理工具
 date: 2022-11-17 03:11:35
-tags: ["資料庫", "MySQL", "SQL", "Docker", "phpMyAdmin"]
-categories: ["資料庫", "MySQL"]
+tags: ["Database", "MySQL", "SQL", "Docker", "phpMyAdmin"]
+categories: ["Database", "MySQL"]
 ---
 
 ## 做法

@@ -1,8 +1,8 @@
 ---
 title: 為 WebStorm 編輯器設置 Vue 專案的路徑別名
 date: 2020-10-08 23:18:34
-tags: ["編輯器", "WebStorm", "Vue"]
-categories: ["其他", "編輯器"]
+tags: ["IDE", "WebStorm", "Vue"]
+categories: ["Others", "IDE"]
 ---
 
 ## 做法

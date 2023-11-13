@@ -1,8 +1,8 @@
 ---
 title: 配置 Ingress Manifest 將 HTTP 的流量導至 HTTPS
 date: 2021-05-04 23:16:22
-tags: ["環境部署", "Kubernetes", "Ingress", "HTTPS"]
-categories: ["環境部署", "Kubernetes", "其他"]
+tags: ["Deployment", "Kubernetes", "Ingress", "HTTPS"]
+categories: ["Deployment", "Kubernetes", "Others"]
 ---
 
 ## 做法

@@ -1,8 +1,8 @@
 ---
 title: 使用 Nuxt 2.0 實作「To-Do List」應用程式
 date: 2018-11-09 00:27:53
-tags: ["程式設計", "JavaScript", "Vue", "Nuxt"]
-categories: ["程式設計", "JavaScript", "Nuxt"]
+tags: ["Programming", "JavaScript", "Vue", "Nuxt"]
+categories: ["Programming", "JavaScript", "Nuxt"]
 ---
 
 ## 環境

@@ -1,8 +1,8 @@
 ---
 title: 在 Laravel 7.0 為關聯模型建立 Seeder 資料填充
 date: 2020-04-23 01:47:13
-tags: ["程式設計", "PHP", "Laravel", "Eloquent"]
-categories: ["程式設計", "PHP", "Laravel"]
+tags: ["Programming", "PHP", "Laravel", "Eloquent"]
+categories: ["Programming", "PHP", "Laravel"]
 ---
 
 ## 前言

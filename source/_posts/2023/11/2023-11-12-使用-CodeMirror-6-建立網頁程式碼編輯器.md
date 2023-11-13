@@ -1,8 +1,8 @@
 ---
 title: 使用 CodeMirror 6 建立網頁程式碼編輯器
 date: 2023-11-12 01:08:29
-tags: ["程式設計", "JavaScript", "Code Editor"]
-categories: ["程式設計", "JavaScript", "其他"]
+tags: ["Programming", "JavaScript", "Code Editor"]
+categories: ["Programming", "JavaScript", "Others"]
 ---
 
 ## 建立專案

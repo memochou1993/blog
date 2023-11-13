@@ -1,8 +1,8 @@
 ---
 title: 使用 JavaScript 實作「股票交易計算器」應用程式
 date: 2020-07-06 23:20:03
-tags: ["程式設計", "JavaScript", "Bootstrap"]
-categories: ["程式設計", "JavaScript", "其他"]
+tags: ["Programming", "JavaScript", "Bootstrap"]
+categories: ["Programming", "JavaScript", "Others"]
 ---
 
 ## 前言

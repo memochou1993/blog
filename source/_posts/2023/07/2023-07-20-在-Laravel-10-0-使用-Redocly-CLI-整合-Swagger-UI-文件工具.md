@@ -1,8 +1,8 @@
 ---
 title: 在 Laravel 10.0 使用 Redocly CLI 整合 Swagger UI 文件工具
 date: 2023-07-20 00:18:23
-tags: ["程式設計", "PHP", "Laravel", "Swagger"]
-categories: ["程式設計", "PHP", "Laravel"]
+tags: ["Programming", "PHP", "Laravel", "Swagger"]
+categories: ["Programming", "PHP", "Laravel"]
 ---
 
 ## 建立專案

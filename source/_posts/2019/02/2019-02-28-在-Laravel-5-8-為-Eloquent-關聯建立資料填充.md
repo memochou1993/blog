@@ -1,8 +1,8 @@
 ---
 title: 在 Laravel 5.8 為關聯模型建立 Seeder 資料填充
 date: 2019-02-28 17:46:51
-tags: ["程式設計", "PHP", "Laravel", "Eloquent", "ORM"]
-categories: ["程式設計", "PHP", "Laravel"]
+tags: ["Programming", "PHP", "Laravel", "Eloquent", "ORM"]
+categories: ["Programming", "PHP", "Laravel"]
 ---
 
 ## 前言

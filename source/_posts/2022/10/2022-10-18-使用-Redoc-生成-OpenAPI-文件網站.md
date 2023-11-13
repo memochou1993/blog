@@ -2,7 +2,7 @@
 title: 使用 Redoc 生成 OpenAPI 文件網站
 date: 2022-10-18 19:08:50
 tags: ["Static Site Generator", "Redoc", "OpenAPI", "Swagger"]
-categories: ["靜態網頁生成器", "Redoc"]
+categories: ["Static Site Generator", "Redoc"]
 ---
 
 ## 做法

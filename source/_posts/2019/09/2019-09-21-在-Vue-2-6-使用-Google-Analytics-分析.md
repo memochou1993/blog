@@ -1,8 +1,8 @@
 ---
 title: 在 Vue 2.6 使用 Google Analytics 分析
 date: 2019-09-21 11:59:01
-tags: ["程式設計", "JavaScript", "Vue", "Google Analytics"]
-categories: ["程式設計", "JavaScript", "Vue"]
+tags: ["Programming", "JavaScript", "Vue", "Google Analytics"]
+categories: ["Programming", "JavaScript", "Vue"]
 ---
 
 ## 安裝

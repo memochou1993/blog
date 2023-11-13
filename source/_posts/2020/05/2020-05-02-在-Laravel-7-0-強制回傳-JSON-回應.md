@@ -1,8 +1,8 @@
 ---
 title: 在 Laravel 7.0 強制回傳 JSON 回應
 date: 2020-05-02 18:49:49
-tags: ["程式設計", "PHP", "Laravel"]
-categories: ["程式設計", "PHP", "Laravel"]
+tags: ["Programming", "PHP", "Laravel"]
+categories: ["Programming", "PHP", "Laravel"]
 ---
 
 ## 前言

@@ -1,8 +1,8 @@
 ---
 title: 在 PHP 專案使用 Guzzle 發送異步 HTTP 請求
 date: 2019-11-20 23:09:35
-tags: ["程式設計", "PHP", "Guzzle"]
-categories: ["程式設計", "PHP", "其他"]
+tags: ["Programming", "PHP", "Guzzle"]
+categories: ["Programming", "PHP", "Others"]
 ---
 
 ## 異步請求

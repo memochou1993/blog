@@ -1,8 +1,8 @@
 ---
 title: 「The Rust Programming Language」學習筆記（六）：枚舉與模式配對
 date: 2022-06-05 20:35:58
-tags: ["程式設計", "Rust"]
-categories: ["程式設計", "Rust", "「The Rust Programming Language」學習筆記"]
+tags: ["Programming", "Rust"]
+categories: ["Programming", "Rust", "「The Rust Programming Language」Study Notes"]
 ---
 
 ## 前言

@@ -1,8 +1,8 @@
 ---
 title: 在 Laradock 使用 Certbot 為網站設置 HTTPS 連線
 date: 2019-09-27 21:49:02
-tags: ["環境部署", "Laradock", "SSL", "HTTPS", "Nginx"]
-categories: ["環境部署", "Laradock"]
+tags: ["Deployment", "Laradock", "SSL", "HTTPS", "Nginx"]
+categories: ["Deployment", "Laradock"]
 ---
 
 ## 安裝套件

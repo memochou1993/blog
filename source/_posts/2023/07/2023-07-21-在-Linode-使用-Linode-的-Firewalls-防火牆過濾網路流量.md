@@ -1,8 +1,8 @@
 ---
 title: 使用 Linode 的 Firewalls 防火牆過濾網路流量
 date: 2023-07-21 01:51:40
-tags: ["環境部署", "Linode"]
-categories: ["雲端運算服務", "Linode"]
+tags: ["Deployment", "Linode"]
+categories: ["Cloud Computing Service", "Linode"]
 ---
 
 ## 做法

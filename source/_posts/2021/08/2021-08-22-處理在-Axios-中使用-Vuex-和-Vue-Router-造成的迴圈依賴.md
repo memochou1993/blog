@@ -1,8 +1,8 @@
 ---
 title: 處理在 Axios 中使用 Vuex 和 Vue Router 造成的迴圈依賴
 date: 2021-08-22 02:24:46
-tags: ["程式設計", "JavaScript", "Vue"]
-categories: ["程式設計", "JavaScript", "Vue"]
+tags: ["Programming", "JavaScript", "Vue"]
+categories: ["Programming", "JavaScript", "Vue"]
 ---
 
 ## 做法

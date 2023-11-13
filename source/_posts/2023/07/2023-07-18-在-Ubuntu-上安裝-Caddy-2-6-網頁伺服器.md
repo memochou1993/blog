@@ -1,8 +1,8 @@
 ---
 title: 在 Ubuntu 上安裝 Caddy 2.6 網頁伺服器
 date: 2023-07-18 01:09:50
-tags: ["環境部署", "網頁伺服器", "Caddy", "Linux", "Ubuntu"]
-categories: ["環境部署", "網頁伺服器"]
+tags: ["Deployment", "Web Server", "Caddy", "Linux", "Ubuntu"]
+categories: ["Deployment", "Web Server"]
 ---
 
 ## 安裝

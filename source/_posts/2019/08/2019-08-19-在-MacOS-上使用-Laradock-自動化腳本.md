@@ -1,8 +1,8 @@
 ---
 title: 在 macOS 上使用 Laradock 自動化腳本
 date: 2019-08-19 20:06:25
-tags: ["環境部署", "Docker", "Laradock"]
-categories: ["環境部署", "Laradock"]
+tags: ["Deployment", "Docker", "Laradock"]
+categories: ["Deployment", "Laradock"]
 ---
 
 ## 使用方法

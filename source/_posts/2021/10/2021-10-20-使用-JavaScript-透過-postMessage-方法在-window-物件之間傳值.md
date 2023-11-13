@@ -1,8 +1,8 @@
 ---
 title: 使用 JavaScript 透過 postMessage 方法在 window 物件之間傳值
 date: 2021-10-20 12:58:59
-tags: ["程式設計", "JavaScript"]
-categories: ["程式設計", "JavaScript", "其他"]
+tags: ["Programming", "JavaScript"]
+categories: ["Programming", "JavaScript", "Others"]
 ---
 
 ## 做法

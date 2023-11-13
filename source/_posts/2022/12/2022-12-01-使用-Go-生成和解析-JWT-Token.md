@@ -1,8 +1,8 @@
 ---
 title: 使用 Go 生成和解析 JWT Token
 date: 2022-12-01 21:53:19
-tags: ["程式設計", "Go", "JWT"]
-categories: ["程式設計", "Go", "其他"]
+tags: ["Programming", "Go", "JWT"]
+categories: ["Programming", "Go", "Others"]
 ---
 
 ## 使用

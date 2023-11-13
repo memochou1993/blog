@@ -2,7 +2,7 @@
 title: 在 Hexo 部落格新增 Google AdSense 廣告
 date: 2023-01-05 23:21:34
 tags: ["Hexo", "Google AdSense"]
-categories: ["靜態網頁生成器", "Hexo"]
+categories: ["Static Site Generator", "Hexo"]
 ---
 
 ## 做法

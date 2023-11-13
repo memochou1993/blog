@@ -1,8 +1,8 @@
 ---
 title: 在 Laravel 5.8 使用 Rule 自訂驗證規則
 date: 2019-03-05 23:50:24
-tags: ["程式設計", "PHP", "Laravel"]
-categories: ["程式設計", "PHP", "Laravel"]
+tags: ["Programming", "PHP", "Laravel"]
+categories: ["Programming", "PHP", "Laravel"]
 ---
 
 ## 做法

@@ -1,8 +1,8 @@
 ---
 title: 《現代 PHP》學習筆記（七）：Built-in Web Server
 date: 2018-05-24 10:25:11
-tags: ["程式設計", "PHP"]
-categories: ["程式設計", "PHP", "《現代 PHP》學習筆記"]
+tags: ["Programming", "PHP"]
+categories: ["Programming", "PHP", "《現代 PHP》Study Notes"]
 ---
 
 ## 前言

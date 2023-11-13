@@ -1,8 +1,8 @@
 ---
 title: 在 Laravel 5.7 使用 Swoole 提升效能
 date: 2019-01-25 14:18:31
-tags: ["程式設計", "PHP", "Laravel", "Swoole"]
-categories: ["程式設計", "PHP", "Laravel"]
+tags: ["Programming", "PHP", "Laravel", "Swoole"]
+categories: ["Programming", "PHP", "Laravel"]
 ---
 
 ## 環境

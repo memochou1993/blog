@@ -1,8 +1,8 @@
 ---
 title: 在 Ubuntu 上安裝 Caddy 2.0 網頁伺服器
 date: 2020-04-17 13:26:31
-tags: ["環境部署", "網頁伺服器", "Caddy", "Linux", "Ubuntu"]
-categories: ["環境部署", "網頁伺服器"]
+tags: ["Deployment", "Web Server", "Caddy", "Linux", "Ubuntu"]
+categories: ["Deployment", "Web Server"]
 ---
 
 ## 環境

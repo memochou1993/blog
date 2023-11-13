@@ -1,8 +1,8 @@
 ---
 title: 使用 Docker 容器化 Laravel 專案
 date: 2020-02-13 02:13:08
-tags: ["環境部署", "Docker", "PHP", "Laravel"]
-categories: ["程式設計", "PHP", "環境部署"]
+tags: ["Deployment", "Docker", "PHP", "Laravel"]
+categories: ["Programming", "PHP", "Deployment"]
 ---
 
 ## 建立專案

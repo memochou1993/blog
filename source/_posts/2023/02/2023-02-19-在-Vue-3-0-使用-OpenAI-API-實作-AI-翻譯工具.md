@@ -1,8 +1,8 @@
 ---
 title: 在 Vue 3.0 使用 OpenAI API 實作 AI 翻譯工具
 date: 2023-02-19 15:08:34
-tags: ["程式設計", "JavaScript", "Vue", "GPT", "AI", "OpenAI"]
-categories: ["程式設計", "JavaScript", "Vue"]
+tags: ["Programming", "JavaScript", "Vue", "GPT", "AI", "OpenAI"]
+categories: ["Programming", "JavaScript", "Vue"]
 ---
 
 ## 建立專案

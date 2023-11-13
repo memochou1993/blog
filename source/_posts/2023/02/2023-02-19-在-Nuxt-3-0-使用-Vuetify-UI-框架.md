@@ -1,8 +1,8 @@
 ---
 title: 在 Nuxt 3.0 使用 Vuetify UI 框架
 date: 2023-02-19 14:37:41
-tags: ["程式設計", "JavaScript", "Nuxt", "Vuetify"]
-categories: ["程式設計", "JavaScript", "Nuxt"]
+tags: ["Programming", "JavaScript", "Nuxt", "Vuetify"]
+categories: ["Programming", "JavaScript", "Nuxt"]
 ---
 
 ## 做法

@@ -1,8 +1,8 @@
 ---
 title: 使用 HTML 的 inputmode 屬性指定手機鍵盤模式
 date: 2020-07-10 23:50:48
-tags: ["程式設計", "HTML", "RWD", "PWA"]
-categories: ["程式設計", "HTML"]
+tags: ["Programming", "HTML", "RWD", "PWA"]
+categories: ["Programming", "HTML"]
 ---
 
 ## 做法

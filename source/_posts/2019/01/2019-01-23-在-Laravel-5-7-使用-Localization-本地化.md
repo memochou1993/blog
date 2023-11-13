@@ -1,8 +1,8 @@
 ---
 title: 在 Laravel 5.7 使用 Localization 本地化
 date: 2019-01-23 23:39:51
-tags: ["程式設計", "PHP", "Laravel", "Localization"]
-categories: ["程式設計", "PHP", "Laravel"]
+tags: ["Programming", "PHP", "Laravel", "Localization"]
+categories: ["Programming", "PHP", "Laravel"]
 ---
 
 ## 語系檔案

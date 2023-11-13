@@ -1,8 +1,8 @@
 ---
 title: 在 React 17.0 使用 Tailwind CSS UI 框架
 date: 2022-03-23 02:12:40
-tags: ["程式設計", "JavaScript", "React"]
-categories: ["程式設計", "JavaScript", "React"]
+tags: ["Programming", "JavaScript", "React"]
+categories: ["Programming", "JavaScript", "React"]
 ---
 
 ## 做法

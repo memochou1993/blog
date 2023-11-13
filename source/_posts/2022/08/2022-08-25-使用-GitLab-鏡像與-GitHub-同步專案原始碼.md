@@ -1,8 +1,8 @@
 ---
 title: 使用 GitLab 鏡像與 GitHub 同步專案原始碼
 date: 2022-08-25 13:28:46
-tags: ["其他", "WebHooks", "GitLab", "GitHub"]
-categories: ["其他", "Git Repository"]
+tags: ["Others", "WebHooks", "GitLab", "GitHub"]
+categories: ["Others", "Git Repository"]
 ---
 
 ## 做法
