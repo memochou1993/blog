@@ -71,7 +71,7 @@ window.onload = function() {
 安裝依賴套件。
 
 ```bash
-npm install @redocly/cli -D
+npm install @redocly/cli nodemon -D
 ```
 
 修改 `package.json` 檔，建立一個腳本。
@@ -79,7 +79,8 @@ npm install @redocly/cli -D
 ```json
 {
     "scripts": {
-        "build:docs": "redocly bundle docs/openapi.yaml --output public/docs/spec.json --ext json"
+        "docs:build": "redocly bundle docs/openapi.yaml --output public/docs/spec.json --ext json",
+        "docs:watch": "nodemon --watch docs/openapi.yaml -x \"npm run docs:build\""
     }
 }
 ```
@@ -127,7 +128,7 @@ components:
 編譯文件。
 
 ```bash
-npm run build:docs
+npm run docs:build
 ```
 
 啟動專案。
