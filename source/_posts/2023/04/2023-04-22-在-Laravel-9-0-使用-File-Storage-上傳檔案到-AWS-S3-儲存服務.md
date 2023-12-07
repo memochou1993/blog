@@ -5,7 +5,7 @@ tags: ["Programming", "PHP", "Laravel", "AWS", "S3", "Storage Service"]
 categories: ["Programming", "PHP", "Laravel"]
 ---
 
-## 前置作業
+## 建立憑證
 
 首先，在 AWS S3 新增一個水桶。接著，在安全憑證的頁面，建立一個具有存取 S3 權限的 IAM 角色，並新增一個存取金鑰。
 
@@ -66,6 +66,25 @@ true
         }
     ]
 }
+```
+
+## SSO
+
+使用 SSO 憑證，修改 `config/filesystems.php` 檔。
+
+```php
+'s3' => [
+    'driver' => 's3',
+    'key' => null, // 不可有值
+    'secret' => null, // 不可有值
+    // ...
+],
+```
+
+啟動服務。
+
+```bash
+aws-vault exec your-profile -- php artisan serve
 ```
 
 ## 參考資料
