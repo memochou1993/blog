@@ -5,6 +5,10 @@ tags: ["Programming", "PHP", "OpenCC"]
 categories: ["Programming", "PHP", "Extension"]
 ---
 
+## 前言
+
+此方法只能在 PHP 8.1 版本使用。
+
 ## 做法
 
 下載 `nauxliu/opencc4php` 專案。
@@ -64,6 +68,24 @@ extension=/Users/<User>/Projects/opencc4php/modules/opencc.so
 php opencc.php
 
 我的滑鼠哪兒去了？
+```
+
+建立轉換函式。
+
+```php
+function s2t($content)
+{
+    $config = opencc_open("s2twp.json");
+    $text = opencc_convert($content, $config);
+    opencc_close($config);
+    return $text;
+}
+```
+
+使用函式轉換。
+
+```bash
+s2t('简体中文')
 ```
 
 ## 參考資料
