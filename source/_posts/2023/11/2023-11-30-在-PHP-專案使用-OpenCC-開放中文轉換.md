@@ -74,7 +74,7 @@ class TextConverter
         ];
 
         $process = new Process($command);
-        $process->setInput($input);
+        $process->setInput(escapeshellarg($input));
         $process->mustRun();
         $output = $process->getOutput();
 
