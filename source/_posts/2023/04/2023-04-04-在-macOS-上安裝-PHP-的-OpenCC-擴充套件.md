@@ -1,6 +1,6 @@
 ---
 title: 在 macOS 上安裝 PHP 的 OpenCC 擴充套件
-date: 2023-11-30 11:33:30
+date: 2023-04-04 11:33:30
 tags: ["Programming", "PHP", "OpenCC"]
 categories: ["Programming", "PHP", "Extension"]
 ---
@@ -35,7 +35,7 @@ make test
 查看編譯後的檔案。
 
 ```bash
-ls modules                                                              ✔  11:31:38 ▓▒░
+ls modules
 opencc.la opencc.so
 ```
 
