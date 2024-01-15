@@ -23,7 +23,7 @@ npm i
 安裝 Vuetify 框架。
 
 ```bash
-npm i vuetify@next sass
+npm i -D vuetify vite-plugin-vuetify sass
 ```
 
 新增 `plugins/vuetify.js` 檔。
