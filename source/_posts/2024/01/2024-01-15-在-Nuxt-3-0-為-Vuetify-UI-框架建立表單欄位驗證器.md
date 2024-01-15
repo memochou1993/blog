@@ -1,6 +1,6 @@
 ---
 title: 在 Nuxt 3.0 為 Vuetify UI 框架建立表單欄位驗證器
-date: 2024-01-16 00:10:26
+date: 2024-01-15 23:10:26
 tags: ["Programming", "JavaScript", "Nuxt", "Vue", "Vuetify"]
 categories: ["Programming", "JavaScript", "Nuxt"]
 ---
@@ -305,7 +305,9 @@ export default defineNuxtPlugin((nuxtApp) => {
 
 ## 使用
 
-```vue
+修改 `app.vue` 檔。
+
+```html
 <template>
   <div>
     <v-form>
@@ -321,6 +323,12 @@ export default defineNuxtPlugin((nuxtApp) => {
     </v-form>
   </div>
 </template>
+```
+
+啟動服務。
+
+```bash
+npm run dev
 ```
 
 ## 程式碼
