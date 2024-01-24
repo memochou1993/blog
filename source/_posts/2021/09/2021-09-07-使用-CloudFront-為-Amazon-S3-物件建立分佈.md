@@ -1,5 +1,5 @@
 ---
-title: 使用 CloudFront 為 AWS S3 物件建立分佈
+title: 使用 CloudFront 為 Amazon S3 物件建立分佈
 date: 2021-09-07 21:50:40
 tags: ["Deployment", "AWS", "S3", "Storage Service", "CloudFront"]
 categories: ["Cloud Computing Service", "AWS"]
@@ -7,7 +7,7 @@ categories: ["Cloud Computing Service", "AWS"]
 
 ## 建立儲存貯體
 
-1. 進到 [S3](https://s3.console.aws.amazon.com/s3) 首頁，點選「建立儲存貯體」按鈕。
+1. 進到 [Amazon S3](https://s3.console.aws.amazon.com/s3) 首頁，點選「建立儲存貯體」按鈕。
 2. 如果是公開物件，取消勾選「封鎖所有公開存取權」。
 3. 點選「建立儲存貯體」按鈕。
 

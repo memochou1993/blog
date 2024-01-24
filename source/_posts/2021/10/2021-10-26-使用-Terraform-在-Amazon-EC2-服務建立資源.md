@@ -1,5 +1,5 @@
 ---
-title: 使用 Terraform 在 AWS EC2 服務建立資源
+title: 使用 Terraform 在 Amazon EC2 服務建立資源
 date: 2021-10-26 16:59:49
 tags: ["Deployment", "Terraform", "AWS", "EC2"]
 categories: ["Deployment", "Terraform"]

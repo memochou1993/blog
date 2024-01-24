@@ -1,5 +1,5 @@
 ---
-title: 使用 Terraform 在 AWS VPC 服務建立資源
+title: 使用 Terraform 在 Amazon VPC 服務建立資源
 date: 2023-06-10 14:03:29
 tags: ["Deployment", "Terraform", "AWS", "VPC"]
 categories: ["Deployment", "Terraform"]

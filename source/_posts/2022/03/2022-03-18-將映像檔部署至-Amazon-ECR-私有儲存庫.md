@@ -1,5 +1,5 @@
 ---
-title: 將映像檔部署至 AWS ECR 私有儲存庫
+title: 將映像檔部署至 Amazon ECR 私有儲存庫
 date: 2022-03-18 15:42:05
 tags: ["Deployment", "AWS", "ECR"]
 categories: ["Cloud Computing Service", "AWS"]
@@ -7,7 +7,7 @@ categories: ["Cloud Computing Service", "AWS"]
 
 ## 前置作業
 
-進到 [AWS ECR](https://ap-northeast-1.console.aws.amazon.com/ecr) 創建一個儲存庫，以下使用 `example` 儲存庫為例。
+進到 [Amazon ECR](https://ap-northeast-1.console.aws.amazon.com/ecr) 創建一個儲存庫，以下使用 `example` 儲存庫為例。
 
 ## 做法
 

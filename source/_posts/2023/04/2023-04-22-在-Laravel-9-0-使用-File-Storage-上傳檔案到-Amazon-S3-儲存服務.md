@@ -1,5 +1,5 @@
 ---
-title: 在 Laravel 9.0 使用 File Storage 上傳檔案到 AWS S3 儲存服務
+title: 在 Laravel 9.0 使用 File Storage 上傳檔案到 Amazon S3 儲存服務
 date: 2023-04-22 16:50:23
 tags: ["Programming", "PHP", "Laravel", "AWS", "S3", "Storage Service"]
 categories: ["Programming", "PHP", "Laravel"]
@@ -7,7 +7,7 @@ categories: ["Programming", "PHP", "Laravel"]
 
 ## 建立憑證
 
-首先，在 AWS S3 新增一個水桶。接著，在安全憑證的頁面，建立一個具有存取 S3 權限的 IAM 角色，並新增一個存取金鑰。
+首先，在 Amazon S3 新增一個水桶。接著，在安全憑證的頁面，建立一個具有存取 S3 權限的 IAM 角色，並新增一個存取金鑰。
 
 ## 實作
 

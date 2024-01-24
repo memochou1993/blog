@@ -1,5 +1,5 @@
 ---
-title: 使用 Terraform 在 AWS S3 服務建立資源
+title: 使用 Terraform 在 Amazon S3 服務建立資源
 date: 2022-02-17 23:14:29
 tags: ["Deployment", "Terraform", "AWS", "S3", "Storage Service"]
 categories: ["Deployment", "Terraform"]
