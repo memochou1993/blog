@@ -1,7 +1,7 @@
 ---
 title: 使用 GitLab 管理 Terraform 狀態
 date: 2023-06-09 13:45:21
-tags: ["Deployment", "Terraform", "GitLab"]
+tags: ["Deployment", "Terraform", "GitLab", "IaC"]
 categories: ["Deployment", "Terraform"]
 ---
 

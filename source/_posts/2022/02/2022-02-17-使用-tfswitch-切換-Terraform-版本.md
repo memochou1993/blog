@@ -1,7 +1,7 @@
 ---
 title: 使用 tfswitch 切換 Terraform 版本
 date: 2022-02-17 19:28:58
-tags: ["Deployment", "Terraform"]
+tags: ["Deployment", "Terraform", "IaC"]
 categories: ["Deployment", "Terraform"]
 ---
 
