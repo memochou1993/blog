@@ -7,7 +7,7 @@ categories: ["Programming", "PHP", "Laravel"]
 
 ## 前言
 
-本文將對先前〈使用 Lumen 5.6 實作 RESTful API〉一文所做之 API 進行 HTTP 請求測試。
+本文將對先前〈使用 Lumen 5.6 實作 REST API〉一文所做之 API 進行 HTTP 請求測試。
 
 ## 安裝
 

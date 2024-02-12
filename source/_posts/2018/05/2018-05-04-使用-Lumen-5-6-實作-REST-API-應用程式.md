@@ -1,5 +1,5 @@
 ---
-title: 使用 Lumen 5.6 實作 RESTful API 應用程式
+title: 使用 Lumen 5.6 實作 REST API 應用程式
 date: 2018-05-04 10:19:40
 tags: ["Programming", "PHP", "Laravel", "Lumen"]
 categories: ["Programming", "PHP", "Lumen"]
@@ -219,7 +219,7 @@ public function destroy($id)
 ]
 ```
 
-## RESTful API 路由風格
+## REST API 路由風格
 
 | 動詞 | 路徑 | 動作 | 路由名稱 |
 | --- | --- | --- | --- |

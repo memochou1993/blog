@@ -1,5 +1,5 @@
 ---
-title: 使用 Go 實作 RESTful API 應用程式
+title: 使用 Go 實作 REST API 應用程式
 date: 2019-12-14 15:31:39
 tags: ["Programming", "Go"]
 categories: ["Programming", "Go", "Others"]

@@ -1,5 +1,5 @@
 ---
-title: 使用 Django 4.2 實作 RESTful API 應用程式
+title: 使用 Django 4.2 實作 REST API 應用程式
 date: 2023-08-27 18:36:32
 tags: ["Programming", "Python", "Django"]
 categories: ["Programming", "Python", "Django"]
