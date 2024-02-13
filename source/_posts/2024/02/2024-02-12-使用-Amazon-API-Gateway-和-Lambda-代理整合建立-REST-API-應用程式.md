@@ -1,7 +1,7 @@
 ---
 title: 使用 Amazon API Gateway 和 Lambda 代理整合建立 REST API 應用程式
 date: 2024-02-12 21:42:28
-tags: ["Deployment", "AWS", "Lambda", "API Gateway", "Serverless"]
+tags: ["Deployment", "AWS", "API Gateway", "Lambda", "Serverless"]
 categories: ["Cloud Computing Service", "AWS"]
 ---
 
@@ -11,7 +11,7 @@ categories: ["Cloud Computing Service", "AWS"]
 
 - Function name: `GetStartedLambdaProxyIntegration`
 - Runtime: Node.js
-- IAM Role name: `GetStartedLambdaBasicExecutionRole`
+- Execution role name: `GetStartedLambdaBasicExecutionRole`
 
 建立範例函式：
 
@@ -44,6 +44,8 @@ export const handler = function(event, context, callback) {
     callback(null, res);
 };
 ```
+
+點選 `Deploy` 按鈕。
 
 ## 建立 API
 
