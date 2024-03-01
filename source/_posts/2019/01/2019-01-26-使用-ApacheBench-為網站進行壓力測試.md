@@ -1,5 +1,5 @@
 ---
-title: 使用 ApacheBench 為網站進行壓力測試
+title: 使用 ApacheBench 為 API 進行壓力測試
 date: 2019-01-26 23:05:14
 tags: ["ApacheBench", "Stress Testing Tool", "Stress Testing"]
 categories: ["Others", "Stress Testing Tool"]
