@@ -1,5 +1,5 @@
 ---
-title: 在 macOS 上安裝 Composer 套件管理工具
+title: 在 macOS 上安裝並使用 Composer 套件管理工具
 date: 2019-08-06 23:24:09
 tags: ["Programming", "PHP", "Composer", "Package Manager"]
 categories: ["Programming", "PHP", "Others"]

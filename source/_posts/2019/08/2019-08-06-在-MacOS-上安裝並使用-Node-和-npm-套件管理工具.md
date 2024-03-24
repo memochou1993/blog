@@ -1,5 +1,5 @@
 ---
-title: 在 macOS 上安裝 Node 和 npm 套件管理工具
+title: 在 macOS 上安裝並使用 Node 和 npm 套件管理工具
 date: 2019-08-06 23:32:12
 tags: ["Programming", "JavaScript", "Node", "npm", "Package Manager"]
 categories: ["Programming", "JavaScript", "Node"]
@@ -9,7 +9,7 @@ categories: ["Programming", "JavaScript", "Node"]
 
 nvm 可以用於管理不同的 Node 版本，同時也會安裝 npm 套件管理工具。
 
-## 步驟
+## 做法
 
 使用 `curl` 指令安裝 nvm。
 
