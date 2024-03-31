@@ -95,7 +95,7 @@ cdk ls
 查看堆疊變化。
 
 ```bash
-aws-vault exec my-profile -- cdk diff
+aws-vault exec your-profile -- cdk diff
 ```
 
 ## 部署
@@ -103,19 +103,19 @@ aws-vault exec my-profile -- cdk diff
 啟動初始化程序。
 
 ```bash
-aws-vault exec my-profile -- cdk bootstrap
+aws-vault exec your-profile -- cdk bootstrap
 ```
 
 部署應用程式。
 
 ```bash
-aws-vault exec my-profile -- cdk deploy
+aws-vault exec your-profile -- cdk deploy
 ```
 
-移除應用程式
+如果要清理的話，移除應用程式。
 
 ```bash
-aws-vault exec my-profile -- cdk destroy
+aws-vault exec your-profile -- cdk destroy
 ```
 
 ## 程式碼

@@ -69,7 +69,7 @@ print(response)
 執行。
 
 ```
-AWS_PROFILE=my-profile python3 query.py
+AWS_PROFILE=your-profile python3 query.py
 ```
 
 ### 寫入物件
@@ -101,7 +101,7 @@ print(response)
 執行。
 
 ```
-AWS_PROFILE=my-profile python3 put_item.py
+AWS_PROFILE=your-profile python3 put_item.py
 ```
 
 ### 批量寫入物件
@@ -175,7 +175,7 @@ print('failed_items:', failed_items)
 執行。
 
 ```
-AWS_PROFILE=my-profile python3 batch_write_item.py
+AWS_PROFILE=your-profile python3 batch_write_item.py
 ```
 
 ## 程式碼

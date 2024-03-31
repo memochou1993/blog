@@ -33,6 +33,12 @@ categories: ["Cloud Computing Service", "AWS"]
 
 ## 測試
 
+安裝 `wscat` 指令。
+
+```bash
+npm i -g wscat
+```
+
 開啟終端機，建立連線。
 
 ```bash
