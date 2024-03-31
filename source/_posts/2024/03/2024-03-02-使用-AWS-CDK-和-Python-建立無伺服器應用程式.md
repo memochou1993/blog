@@ -1,7 +1,7 @@
 ---
-title: 使用 AWS CDK 建置與執行無伺服器應用程式
+title: 使用 AWS CDK 和 Python 建立無伺服器應用程式
 date: 2024-03-02 16:15:49
-tags: ["Deployment", "AWS", "CDK", "CloudFormation", "Serverless", "IaC"]
+tags: ["Deployment", "AWS", "CDK", "Lambda", "CloudFormation", "Serverless", "IaC", "Python"]
 categories: ["Cloud Computing Service", "AWS"]
 ---
 
@@ -48,6 +48,22 @@ mkdir lambda
 ```
 
 建立 `lambda/hello.py` 檔。
+
+```py
+import json
+
+def handler(event, context):
+    print('request: {}'.format(json.dumps(event)))
+    return {
+        'statusCode': 200,
+        'headers': {
+            'Content-Type': 'text/plain'
+        },
+        'body': 'Hello, CDK! You have hit {}\n'.format(event['path'])
+    }
+```
+
+修改 `cdk_workshop/cdk_workshop_stack.py` 檔。
 
 ```py
 from constructs import Construct
@@ -101,6 +117,10 @@ aws-vault exec my-profile -- cdk deploy
 ```bash
 aws-vault exec my-profile -- cdk destroy
 ```
+
+## 程式碼
+
+- [cdk-python-example](https://github.com/memochou1993/cdk-python-example)
 
 ## 參考資料
 
