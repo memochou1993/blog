@@ -11,10 +11,9 @@ categories: ["Programming", "JavaScript", "ESLint"]
 
 ```bash
 npm install eslint \
-    eslint-config-airbnb-typescript \
-    eslint-plugin-import \
-    @typescript-eslint/eslint-plugin \
-    --save-dev
+  eslint-config-airbnb-typescript \
+  eslint-import-resolver-typescript \
+  --save-dev
 ```
 
 修改 `.eslintrc.js` 檔：
@@ -22,11 +21,14 @@ npm install eslint \
 ```js
 module.exports = {
   extends: [
+    'airbnb-base',
     'airbnb-typescript/base',
-    'plugin:import/recommended',
   ],
   parserOptions: {
     project: './tsconfig.json',
+  },
+  rules: {
+    //
   },
 };
 ```
