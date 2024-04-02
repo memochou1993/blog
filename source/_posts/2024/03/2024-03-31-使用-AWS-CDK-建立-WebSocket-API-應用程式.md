@@ -23,7 +23,7 @@ cdk init app --language typescript
 安裝依賴套件。
 
 ```bash
-npm i aws-sdk
+npm i aws-sdk @aws-sdk/client-dynamodb @aws-sdk/lib-dynamodb
 npm i -D @types/aws-sdk @types/aws-lambda
 ```
 
@@ -38,58 +38,48 @@ mkdir lambda
 建立 `lambda/connect-handler.ts` 檔，處理建立連線的行為。
 
 ```ts
+import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import { DynamoDBDocumentClient, PutCommand } from '@aws-sdk/lib-dynamodb';
 import { APIGatewayProxyWebsocketHandlerV2 } from 'aws-lambda';
-import * as AWS from 'aws-sdk';
 
-const ddb = new AWS.DynamoDB.DocumentClient();
+const client = new DynamoDBClient();
+const docClient = DynamoDBDocumentClient.from(client);
 
 export const handler: APIGatewayProxyWebsocketHandlerV2 = async (event) => {
-  return await ddb
-    .put({
-      TableName: process.env.TABLE_NAME as string,
-      Item: {
-        connectionId: event.requestContext.connectionId,
-      },
-    })
-    .promise()
-    .then(() => ({
-      statusCode: 200,
-    }))
-    .catch((e) => {
-      console.error(e);
-      return {
-        statusCode: 500,
-      };
-    });
+  const command = new PutCommand({
+    TableName: process.env.TABLE_NAME as string,
+    Item: {
+      connectionId: event.requestContext.connectionId,
+    },
+  });
+  await docClient.send(command);
+  return {
+    statusCode: 200,
+  };
 };
 ```
 
 建立 `lambda/disconnect-handler.ts` 檔，處理斷開連線的行為。
 
 ```ts
+import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import { DeleteCommand, DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
 import { APIGatewayProxyWebsocketHandlerV2 } from 'aws-lambda';
-import * as AWS from 'aws-sdk';
 
-const ddb = new AWS.DynamoDB.DocumentClient();
+const client = new DynamoDBClient();
+const docClient = DynamoDBDocumentClient.from(client);
 
 export const handler: APIGatewayProxyWebsocketHandlerV2 = async (event) => {
-  return await ddb
-    .delete({
-      TableName: process.env.TABLE_NAME as string,
-      Key: {
-        connectionId: event.requestContext.connectionId,
-      },
-    })
-    .promise()
-    .then(() => ({
-      statusCode: 200,
-    }))
-    .catch((e) => {
-      console.log(e);
-      return {
-        statusCode: 500,
-      };
-    });
+  const command = new DeleteCommand({
+    TableName: process.env.TABLE_NAME as string,
+    Key: {
+      connectionId: event.requestContext.connectionId,
+    },
+  });
+  await docClient.send(command);
+  return {
+    statusCode: 200,
+  };
 };
 ```
 
@@ -100,11 +90,11 @@ import { APIGatewayProxyWebsocketHandlerV2 } from 'aws-lambda';
 import * as AWS from 'aws-sdk';
 
 export const handler: APIGatewayProxyWebsocketHandlerV2 = async (event) => {
-  let connectionId = event.requestContext.connectionId;
+  const { connectionId } = event.requestContext;
 
   const callbackAPI = new AWS.ApiGatewayManagementApi({
     apiVersion: '2018-11-29',
-    endpoint: event.requestContext.domainName + '/' + event.requestContext.stage,
+    endpoint: `${event.requestContext.domainName}/${event.requestContext.stage}`,
   });
 
   let connectionInfo: AWS.ApiGatewayManagementApi.GetConnectionResponse;
@@ -122,6 +112,7 @@ export const handler: APIGatewayProxyWebsocketHandlerV2 = async (event) => {
     ...connectionInfo!,
     connectionId,
   };
+
   await callbackAPI.postToConnection({
     ConnectionId: event.requestContext.connectionId,
     Data: `Use the send-message route to send a message. Your info: ${JSON.stringify(info)}`,
@@ -136,52 +127,43 @@ export const handler: APIGatewayProxyWebsocketHandlerV2 = async (event) => {
 建立 `lambda/send-handler.ts` 檔，處理傳送訊息的行為。
 
 ```ts
+import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import { DynamoDBDocumentClient, ScanCommand } from '@aws-sdk/lib-dynamodb';
 import { APIGatewayProxyWebsocketHandlerV2 } from 'aws-lambda';
 import * as AWS from 'aws-sdk';
 
-const ddb = new AWS.DynamoDB.DocumentClient();
+const client = new DynamoDBClient();
+const docClient = DynamoDBDocumentClient.from(client);
 
 export const handler: APIGatewayProxyWebsocketHandlerV2 = async (event) => {
-  let connections;
-  try {
-    connections = (
-      await ddb
-        .scan({ TableName: process.env.TABLE_NAME as string })
-        .promise()
-    ).Items as { connectionId: string }[];
-  } catch (err) {
-    return {
-      statusCode: 500,
-    };
-  }
+  const command = new ScanCommand({
+    TableName: process.env.TABLE_NAME as string,
+  });
+  const response = await docClient.send(command);
+  const connections = response.Items ?? [];
 
   const callbackAPI = new AWS.ApiGatewayManagementApi({
     apiVersion: '2018-11-29',
-    endpoint: event.requestContext.domainName + '/' + event.requestContext.stage,
+    endpoint: `${event.requestContext.domainName}/${event.requestContext.stage}`,
   });
 
   const message = JSON.parse(event.body ?? '{}').message;
 
-  const requests = connections.map(async ({ connectionId }) => {
-    if (connectionId === event.requestContext.connectionId) return;
-
-    await callbackAPI
-      .postToConnection({ ConnectionId: connectionId, Data: message })
-      .promise()
-      .catch(e => console.error(e));
-  });
-
-  return await Promise
-    .all(requests)
-    .then(() => ({
-      statusCode: 200,
-    }))
-    .catch((e) => {
-      console.error(e);
-      return {
-        statusCode: 500,
-      };
-    });
+  await Promise.all(
+    connections
+      .filter(({ connectionId }) => connectionId !== event.requestContext.connectionId)
+      .map(({ connectionId }) => (
+        callbackAPI
+          .postToConnection({
+            ConnectionId: connectionId,
+            Data: message,
+          })
+          .promise()
+      ))
+  );
+  return {
+    statusCode: 200,
+  };
 };
 ```
 
@@ -356,13 +338,13 @@ npm i -g wscat
 開啟終端機，建立連線。
 
 ```bash
-wscat -c wss://xxx.execute-api.ap-northeast-1.amazonaws.com/prod
+wscat -c wss://xxx.execute-api.ap-northeast-1.amazonaws.com/production
 ```
 
 開啟另一個終端機，建立連線。
 
 ```bash
-wscat -c wss://xxx.execute-api.ap-northeast-1.amazonaws.com/prod
+wscat -c wss://xxx.execute-api.ap-northeast-1.amazonaws.com/production
 ```
 
 發送訊息：
