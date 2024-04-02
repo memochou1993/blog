@@ -34,7 +34,7 @@ docker run -d --restart=unless-stopped -p 80:80 -p 443:443 rancher/rancher:v2.3.
 docker ps
 ```
 
-前往 <http://172.17.8.111/> 瀏覽。
+前往 <http://172.17.8.111> 瀏覽。
 
 ## 創建叢集
 

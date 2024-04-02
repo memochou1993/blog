@@ -53,7 +53,7 @@ server {
 
 ## 瀏覽網頁
 
-前往 <http://swoole.test/> 瀏覽。
+前往 <http://swoole.test> 瀏覽。
 
 ## 參考資料
 

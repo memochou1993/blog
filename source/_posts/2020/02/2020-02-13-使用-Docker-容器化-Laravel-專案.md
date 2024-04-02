@@ -150,7 +150,7 @@ server {
 docker-compose up -d --build
 ```
 
-前往 <http://localhost:8990/> 瀏覽。
+前往 <http://localhost:8990> 瀏覽。
 
 ## 程式碼
 

@@ -94,7 +94,7 @@ data
 docker-compose up -d
 ```
 
-前往 <https://drone.domain.com/> 瀏覽。
+前往 <https://drone.domain.com> 瀏覽。
 
 ## 環境變數
 

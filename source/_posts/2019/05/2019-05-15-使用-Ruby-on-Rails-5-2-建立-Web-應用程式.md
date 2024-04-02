@@ -30,7 +30,7 @@ cd blog
 rails server
 ```
 
-前往 <http://localhost:3000/> 瀏覽。
+前往 <http://localhost:3000> 瀏覽。
 
 ## 新增歡迎頁面
 

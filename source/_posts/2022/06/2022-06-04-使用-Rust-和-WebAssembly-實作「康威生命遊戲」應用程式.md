@@ -345,7 +345,7 @@ requestAnimationFrame(renderLoop);
 npm run start
 ```
 
-前往 <http://localhost:8080/> 瀏覽。
+前往 <http://localhost:8080> 瀏覽。
 
 ## 重構
 
@@ -474,7 +474,7 @@ wasm-pack build
 npm run start
 ```
 
-前往 <http://localhost:8080/> 瀏覽。
+前往 <http://localhost:8080> 瀏覽。
 
 ## 程式碼
 

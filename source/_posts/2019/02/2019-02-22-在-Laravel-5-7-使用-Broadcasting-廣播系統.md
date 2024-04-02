@@ -212,4 +212,4 @@ laravel-echo-server init
 laravel-echo-server start
 ```
 
-前往 <http://echo.test/> 瀏覽。
+前往 <http://echo.test> 瀏覽。

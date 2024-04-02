@@ -45,7 +45,7 @@ npm install dotenv --save
 npm start
 ```
 
-前往 <http://localhost:3000/> 瀏覽。
+前往 <http://localhost:3000> 瀏覽。
 
 ## 建立合約實例
 

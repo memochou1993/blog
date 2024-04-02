@@ -52,7 +52,7 @@ npm run dev
 artisan serve
 ```
 
-前往 <http://localhost:8000/> 瀏覽。
+前往 <http://localhost:8000> 瀏覽。
 
 ## 參考資料
 
