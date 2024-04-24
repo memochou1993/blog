@@ -7,32 +7,31 @@ categories: ["Database", "MySQL"]
 
 ## 做法
 
-下載並啟動 `mysql/mysql-server` 映像檔。
+下載並啟動 `mysql` 映像檔。
 
 ```bash
-docker run -d --name=mysql -p 3306:3306 mysql/mysql-server
+docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=root -d mysql:latest
 ```
 
-等待 `health` 狀態從 `starting` 變成 `healthy` 後，使用以下指令取得初始密碼。
+進入容器，並使用初始密碼進行連線。
 
 ```bash
-docker logs mysql 2>&1 | grep GENERATED
+docker exec -it mysql_36 mysql -uroot -proot
 ```
 
-使用初始密碼進入容器。
-
-```bash
-docker exec -it mysql mysql -uroot -p
-```
-
-修改使用者密碼。
+查看使用者。
 
 ```sql
-mysql> ALTER user 'root'@'localhost' identified by 'root';
-mysql> UPDATE mysql.user SET Host='%' WHERE Host='localhost' AND User='root';
+mysql> SELECT host, user, plugin, authentication_string FROM mysql.user;
+```
+
+修改初始密碼。
+
+```sql
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'new_password';
 mysql> FLUSH PRIVILEGES;
 ```
 
 ## 參考資料
 
-- [mysql/mysql-server](https://hub.docker.com/r/mysql/mysql-server/)
+- [Docker Hub - mysql](https://hub.docker.com/_/mysql)
