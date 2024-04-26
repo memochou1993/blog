@@ -1,5 +1,5 @@
 ---
-title: 在 Next 12.0 使用 ESLint 分析工具並套用 Airbnb 程式碼風格
+title: 在 Next 12.0 使用 ESLint 程式碼檢查工具並套用 Airbnb 程式碼風格
 date: 2022-03-14 23:56:36
 tags: ["Programming", "JavaScript", "ESLint", "Airbnb", "React", "Next"]
 categories: ["Programming", "JavaScript", "ESLint"]

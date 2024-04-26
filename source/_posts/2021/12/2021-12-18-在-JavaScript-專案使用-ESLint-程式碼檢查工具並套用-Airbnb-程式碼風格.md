@@ -1,5 +1,5 @@
 ---
-title: 在 JavaScript 專案使用 ESLint 分析工具並套用 Airbnb 程式碼風格
+title: 在 JavaScript 專案使用 ESLint 程式碼檢查工具並套用 Airbnb 程式碼風格
 date: 2021-12-18 23:46:04
 tags: ["Programming", "JavaScript", "ESLint", "Airbnb"]
 categories: ["Programming", "JavaScript", "ESLint"]

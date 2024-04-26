@@ -1,5 +1,5 @@
 ---
-title: 在 TypeScript 專案使用 ESLint 分析工具並套用 Airbnb 程式碼風格
+title: 在 TypeScript 專案使用 ESLint 程式碼檢查工具並套用 Airbnb 程式碼風格
 date: 2021-05-08 16:05:38
 tags: ["Programming", "JavaScript", "ESLint", "Airbnb", "TypeScript"]
 categories: ["Programming", "JavaScript", "ESLint"]

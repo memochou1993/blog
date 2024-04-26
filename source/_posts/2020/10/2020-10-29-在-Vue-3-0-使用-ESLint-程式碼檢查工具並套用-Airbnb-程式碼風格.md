@@ -1,7 +1,7 @@
 ---
-title: 在 Nuxt 3.0 使用 ESLint 分析工具並套用 Airbnb 程式碼風格
-date: 2023-02-19 14:51:20
-tags: ["Programming", "JavaScript", "ESLint", "Airbnb", "Vue", "Nuxt"]
+title: 在 Vue 3.0 使用 ESLint 程式碼檢查工具並套用 Airbnb 程式碼風格
+date: 2020-10-29 23:05:27
+tags: ["Programming", "JavaScript", "ESLint", "Airbnb", "Vue"]
 categories: ["Programming", "JavaScript", "ESLint"]
 ---
 
@@ -10,11 +10,11 @@ categories: ["Programming", "JavaScript", "ESLint"]
 建立專案。
 
 ```bash
-npx nuxi init nuxt-app
-cd nuxt-app
+npm create vite@latest example -- --template vue
+cd example
 ```
 
-安裝 ESLint 套件。
+安裝套件。
 
 ```bash
 npm i @vue/eslint-config-airbnb \
@@ -22,12 +22,12 @@ npm i @vue/eslint-config-airbnb \
   -D
 ```
 
-新增 `.eslintrc.js` 檔。
+在專案根目錄新增 `.eslintrc.cjs` 檔：
 
 ```js
 module.exports = {
   extends: [
-    '@vue/eslint-config-airbnb',
+    '@vue/airbnb',
   ],
   settings: {
     'import/resolver': {

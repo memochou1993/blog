@@ -1,5 +1,5 @@
 ---
-title: 在 React 17.0 使用 ESLint 分析工具並套用 Airbnb 程式碼風格
+title: 在 React 17.0 使用 ESLint 程式碼檢查工具並套用 Airbnb 程式碼風格
 date: 2022-03-24 02:31:43
 tags: ["Programming", "JavaScript", "ESLint", "Airbnb", "React"]
 categories: ["Programming", "JavaScript", "ESLint"]

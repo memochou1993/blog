@@ -1,5 +1,5 @@
 ---
-title: 在 Nuxt 2.0 使用 ESLint 分析工具並套用 Airbnb 程式碼風格
+title: 在 Nuxt 2.0 使用 ESLint 程式碼檢查工具並套用 Airbnb 程式碼風格
 date: 2018-11-06 00:22:26
 tags: ["Programming", "JavaScript", "ESLint", "Airbnb", "Vue", "Nuxt"]
 categories: ["Programming", "JavaScript", "ESLint"]
