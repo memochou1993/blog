@@ -250,6 +250,7 @@ class CdkPythonExampleStack(Stack):
                 stage_name="production",
                 metrics_enabled=True,
                 access_log_destination=aws_apigateway.LogGroupLogDestination(log_group),  # Send access logs to CloudWatch
+                access_log_format=aws_apigateway.AccessLogFormat.json_with_standard_fields(),
             ),
         )
 
