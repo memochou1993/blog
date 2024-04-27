@@ -39,11 +39,11 @@ creation_rules:
 對 `secrets.prod.yaml` 檔解密。
 
 ```bash
-aws-vault exec playground -- helm secrets dec secrets.prod.yaml
+aws-vault exec your-profile -- helm secrets dec secrets.prod.yaml
 ```
 
 對 `secrets.prod.yaml.dec` 檔加密。
 
 ```bash
-aws-vault exec playground -- helm secrets enc secrets.prod.yaml.dec
+aws-vault exec your-profile -- helm secrets enc secrets.prod.yaml.dec
 ```

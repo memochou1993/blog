@@ -361,7 +361,7 @@ wscat -c wss://xxx.execute-api.ap-northeast-1.amazonaws.com/production
 
 ## 程式碼
 
-- [polly-api](https://github.com/memochou1993/polly-api)
+- [cdk-node-example](https://github.com/memochou1993/cdk-node-example)
 
 ## 參考資料
 

@@ -20,7 +20,7 @@ aws-vault exec --backend=file playground -- aws sso login
 使用 `aws-vault` 執行命令，並使用 `aws ecr` 命令，將 Docker 登入至指定的私有儲存庫。
 
 ```bash
-aws-vault exec playground -- aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin xxxxxxxxxxxx.dkr.ecr.ap-northeast-1.amazonaws.com
+aws-vault exec your-profile -- aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin xxxxxxxxxxxx.dkr.ecr.ap-northeast-1.amazonaws.com
 ```
 
 為專案建立 `example` 映像檔。
