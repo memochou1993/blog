@@ -165,11 +165,17 @@ class CdkPythonExampleStack(Stack):
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
+        # Create VPC
         self.vpc = self.create_vpc()
+
+        # Create Lambda function
         self.lambda_function = self.create_lambda_function()
+
+        # Create API Gateway
         self.api_gateway = self.create_api_gateway()
 
     def create_vpc(self):
+        # Retrieve existing VPC
         vpc = aws_ec2.Vpc.from_lookup(
             self,
             "SelectedVpc",
@@ -179,6 +185,7 @@ class CdkPythonExampleStack(Stack):
         return vpc
 
     def create_lambda_function(self):
+        # Create Lambda execution role
         lambda_role = aws_iam.Role(
             self,
             "CdkPythonExampleLambdaRole",
@@ -187,6 +194,8 @@ class CdkPythonExampleStack(Stack):
                 aws_iam.ServicePrincipal("lambda.amazonaws.com"),
             ),
         )
+        
+        # Attach policies to Lambda role
         lambda_role.add_managed_policy(
             aws_iam.ManagedPolicy.from_managed_policy_arn(
                 self,
@@ -202,6 +211,7 @@ class CdkPythonExampleStack(Stack):
             )
         )
 
+        # Create Lambda function
         lambda_function = aws_lambda.Function(
             self,
             "CdkPythonExampleLambdaFunction",
@@ -212,7 +222,7 @@ class CdkPythonExampleStack(Stack):
             architecture=aws_lambda.Architecture.ARM_64,
             memory_size=512,
             timeout=Duration.seconds(30),
-            vpc=self.vpc,
+            vpc=self.vpc,  # Lambda function runs inside the specified VPC
             vpc_subnets=aws_ec2.SubnetSelection(subnet_type=aws_ec2.SubnetType.PRIVATE_WITH_EGRESS, one_per_az=True),
             role=lambda_role,
             environment={},
@@ -221,26 +231,29 @@ class CdkPythonExampleStack(Stack):
         return lambda_function
 
     def create_api_gateway(self):
+        # Create CloudWatch log group for API Gateway
         log_group = aws_logs.LogGroup(
             self,
             "CdkPythonExampleLogGroup",
             retention=aws_logs.RetentionDays.ONE_MONTH,
         )
 
+        # Create API Gateway
         api_gateway = aws_apigateway.RestApi(
             self,
             "CdkPythonExampleApiGateway",
             description="CDK Python Example Api Gateway",
             min_compression_size=Size.kibibytes(1),
             endpoint_types=[aws_apigateway.EndpointType.REGIONAL],
-            cloud_watch_role=True,
+            cloud_watch_role=True,  # Enables logging to CloudWatch
             deploy_options=aws_apigateway.StageOptions(
                 stage_name="production",
                 metrics_enabled=True,
-                access_log_destination=aws_apigateway.LogGroupLogDestination(log_group),
+                access_log_destination=aws_apigateway.LogGroupLogDestination(log_group),  # Send access logs to CloudWatch
             ),
         )
 
+        # Create usage plan for API Gateway
         usage_plan = api_gateway.add_usage_plan(
             "CdkPythonExampleUsagePlan",
             description="CDK Python Example Usage Plan",
@@ -250,6 +263,7 @@ class CdkPythonExampleStack(Stack):
             ),
         )
 
+        # Create API key
         api_key = aws_apigateway.ApiKey(
             self,
             "CdkPythonExampleApiKey",
@@ -258,6 +272,7 @@ class CdkPythonExampleStack(Stack):
 
         usage_plan.add_api_key(api_key)
 
+        # Create API resources and methods
         v1_resource = api_gateway.root.add_resource("v1")
         v1_resource.add_cors_preflight(
             allow_origins=aws_apigateway.Cors.ALL_ORIGINS,
@@ -266,7 +281,7 @@ class CdkPythonExampleStack(Stack):
         )
         v1_method = v1_resource.add_method(
             "GET",
-            aws_apigateway.LambdaIntegration(self.lambda_function),
+            aws_apigateway.LambdaIntegration(self.lambda_function),  # Integration with Lambda function
             api_key_required=True,
         )
         api_resource = v1_resource.add_resource("{path+}")
@@ -277,10 +292,11 @@ class CdkPythonExampleStack(Stack):
         )
         api_method = api_resource.add_method(
             "ANY",
-            aws_apigateway.LambdaIntegration(self.lambda_function),
+            aws_apigateway.LambdaIntegration(self.lambda_function),  # Integration with Lambda function
             api_key_required=True,
         )
 
+        # Add throttling settings to usage plan
         usage_plan.add_api_stage(
             stage=api_gateway.deployment_stage,
             throttle=[
