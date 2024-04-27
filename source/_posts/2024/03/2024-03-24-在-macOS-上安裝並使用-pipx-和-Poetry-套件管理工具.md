@@ -51,7 +51,7 @@ poetry add fastapi uvicorn
 poetry shell
 ```
 
-新增 `main.go` 檔。
+新增 `main.py` 檔。
 
 ```py
 from fastapi import FastAPI
