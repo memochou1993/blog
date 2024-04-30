@@ -131,31 +131,31 @@ router = APIRouter(tags=["Item"], prefix="/items")
 
 
 @router.get("")
-async def listItems(req: Request, api_key: str = Security(api_key_header)):
+async def list_items(req: Request, api_key: str = Security(api_key_header)):
     return {"data": items}
 
 
 @router.post("")
-async def createItem(req: Request, item: Item, api_key: str = Security(api_key_header)):
+async def create_item(req: Request, item: Item, api_key: str = Security(api_key_header)):
     items.append(item)
 
     return {"data": item}
 
 
 @router.get("/{item_id}")
-async def getItem(req: Request, item_id: int, api_key: str = Security(api_key_header)):
+async def get_item(req: Request, item_id: int, api_key: str = Security(api_key_header)):
     return {"data": items[item_id]}
 
 
 @router.put("/{item_id}")
-async def updateItem(req: Request, item_id: int, item: Item, api_key: str = Security(api_key_header)):
+async def update_item(req: Request, item_id: int, item: Item, api_key: str = Security(api_key_header)):
     items[item_id] = item
 
     return {"data": item}
 
 
 @router.delete("/{item_id}")
-async def deleteItem(req: Request, item_id: int, api_key: str = Security(api_key_header)):
+async def delete_item(req: Request, item_id: int, api_key: str = Security(api_key_header)):
     del items[item_id]
 
     return {"data": {}}
