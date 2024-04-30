@@ -1,5 +1,5 @@
 ---
-title: 使用 AWS Lambda 和 DynamoDB 建立 WebSocket API 應用程式
+title: 使用 AWS Lambda 和 DynamoDB 建立 WebSocket API 無伺服器應用程式
 date: 2024-02-13 21:33:58
 tags: ["Deployment", "AWS", "API Gateway", "Lambda", "DynamoDB", "Serverless", "WebSocket"]
 categories: ["Cloud Computing Service", "AWS"]

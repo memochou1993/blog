@@ -1,5 +1,5 @@
 ---
-title: 使用 AWS Lambda 和 DynamoDB 建立 REST API 應用程式
+title: 使用 AWS Lambda 和 DynamoDB 建立 REST API 無伺服器應用程式
 date: 2024-02-13 17:36:12
 tags: ["Deployment", "AWS", "API Gateway", "Lambda", "DynamoDB", "Serverless"]
 categories: ["Cloud Computing Service", "AWS"]

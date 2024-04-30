@@ -1,7 +1,7 @@
 ---
-title: 使用 AWS CDK 和 Python 建立 REST API 應用程式
+title: 使用 AWS Lambda 和 CDK 為 Python 專案建立 REST API 無伺服器應用程式
 date: 2024-04-27 23:04:05
-tags: ["Deployment", "AWS", "CDK", "Lambda", "CloudFormation", "Serverless", "IaC", "Python"]
+tags: ["Deployment", "AWS", "Lambda", "Serverless", "CDK", "IaC", "Python"]
 categories: ["Cloud Computing Service", "AWS"]
 ---
 
@@ -10,8 +10,8 @@ categories: ["Cloud Computing Service", "AWS"]
 建立專案。
 
 ```bash
-mkdir cdk-python-example
-cd cdk-python-example
+mkdir lambda-python-example
+cd lambda-python-example
 ```
 
 使用 CDK 初始化專案。
@@ -118,10 +118,10 @@ def handler(event, context):
 
 ## 建立堆疊
 
-把 CDK 建立的 `cdk_python_example` 資料夾更名為 `deployment`。
+把 CDK 建立的 `lambda_python_example` 資料夾更名為 `deployment`。
 
 ```bash
-mv cdk_python_example deployment
+mv lambda_python_example deployment
 ```
 
 修改 `app.py` 檔。
@@ -132,7 +132,7 @@ import os
 import aws_cdk
 from dotenv import load_dotenv
 
-from deployment.cdk_python_example_stack import CdkPythonExampleStack
+from deployment.lambda_python_example_stack import LambdaPythonExampleStack
 
 load_dotenv()
 
@@ -143,16 +143,16 @@ env = aws_cdk.Environment(
     region=os.environ.get("CDK_DEFAULT_REGION"),
 )
 
-CdkPythonExampleStack(
+LambdaPythonExampleStack(
     app,
-    "CdkPythonExampleStack",
+    "LambdaPythonExampleStack",
     env=env,
 )
 
 app.synth()
 ```
 
-修改 `deployment/cdk_python_example_stack.py` 檔。
+修改 `deployment/lambda_python_example_stack.py` 檔。
 
 ```py
 import os
@@ -161,7 +161,7 @@ from aws_cdk import Duration, Size, Stack, aws_apigateway, aws_ec2, aws_iam, aws
 from constructs import Construct
 
 
-class CdkPythonExampleStack(Stack):
+class LambdaPythonExampleStack(Stack):
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
@@ -188,8 +188,8 @@ class CdkPythonExampleStack(Stack):
         # Create Lambda execution role
         lambda_role = aws_iam.Role(
             self,
-            "CdkPythonExampleLambdaRole",
-            description="CDK Python Example Lambda Role",
+            "LambdaPythonExampleLambdaRole",
+            description="Lambda Python Example Lambda Role",
             assumed_by=aws_iam.CompositePrincipal(
                 aws_iam.ServicePrincipal("lambda.amazonaws.com"),
             ),
@@ -199,14 +199,14 @@ class CdkPythonExampleStack(Stack):
         lambda_role.add_managed_policy(
             aws_iam.ManagedPolicy.from_managed_policy_arn(
                 self,
-                "CdkPythonExampleAWSLambdaBasicExecutionRolePolicy",
+                "LambdaPythonExampleAWSLambdaBasicExecutionRolePolicy",
                 "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
             )
         )
         lambda_role.add_managed_policy(
             aws_iam.ManagedPolicy.from_managed_policy_arn(
                 self,
-                "CdkPythonExampleAWSLambdaVPCAccessExecutionRolePolicy",
+                "LambdaPythonExampleAWSLambdaVPCAccessExecutionRolePolicy",
                 "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole",
             )
         )
@@ -214,8 +214,8 @@ class CdkPythonExampleStack(Stack):
         # Create Lambda function
         lambda_function = aws_lambda.Function(
             self,
-            "CdkPythonExampleLambdaFunction",
-            description="CDK Python Example Lambda Function",
+            "LambdaPythonExampleLambdaFunction",
+            description="Lambda Python Example Lambda Function",
             runtime=aws_lambda.Runtime.PYTHON_3_11,
             code=aws_lambda.Code.from_asset("lambda"),
             handler="hello.handler",
@@ -234,15 +234,15 @@ class CdkPythonExampleStack(Stack):
         # Create CloudWatch log group for API Gateway
         log_group = aws_logs.LogGroup(
             self,
-            "CdkPythonExampleLogGroup",
+            "LambdaPythonExampleLogGroup",
             retention=aws_logs.RetentionDays.ONE_MONTH,
         )
 
         # Create API Gateway
         api_gateway = aws_apigateway.RestApi(
             self,
-            "CdkPythonExampleApiGateway",
-            description="CDK Python Example Api Gateway",
+            "LambdaPythonExampleApiGateway",
+            description="Lambda Python Example Api Gateway",
             min_compression_size=Size.kibibytes(1),
             endpoint_types=[aws_apigateway.EndpointType.REGIONAL],
             cloud_watch_role=True,  # Enables logging to CloudWatch
@@ -266,8 +266,8 @@ class CdkPythonExampleStack(Stack):
 
         # Create usage plan for API Gateway
         usage_plan = api_gateway.add_usage_plan(
-            "CdkPythonExampleUsagePlan",
-            description="CDK Python Example Usage Plan",
+            "LambdaPythonExampleUsagePlan",
+            description="Lambda Python Example Usage Plan",
             throttle=aws_apigateway.ThrottleSettings(
                 burst_limit=50,
                 rate_limit=100,
@@ -277,8 +277,8 @@ class CdkPythonExampleStack(Stack):
         # Create API key
         api_key = aws_apigateway.ApiKey(
             self,
-            "CdkPythonExampleApiKey",
-            description="CDK Python Example Api Key",
+            "LambdaPythonExampleApiKey",
+            description="Lambda Python Example Api Key",
         )
 
         usage_plan.add_api_key(api_key)
@@ -347,7 +347,7 @@ aws-vault exec your-profile -- cdk destroy
 
 ## 程式碼
 
-- [cdk-python-example](https://github.com/memochou1993/cdk-python-example)
+- [lambda-python-example](https://github.com/memochou1993/lambda-python-example)
 
 ## 參考資料
 

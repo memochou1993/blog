@@ -1,7 +1,7 @@
 ---
-title: 使用 Amazon API Gateway 和 HTTP 代理整合建立 REST API 應用程式
+title: 使用 AWS Lambda 和 API Gateway 建立具有 HTTP 代理整合的 REST API 無伺服器應用程式
 date: 2024-02-12 22:02:21
-tags: ["Deployment", "AWS", "API Gateway", "Serverless"]
+tags: ["Deployment", "AWS", "API Gateway", "Lambda", "Serverless"]
 categories: ["Cloud Computing Service", "AWS"]
 ---
 
