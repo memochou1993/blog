@@ -10,8 +10,8 @@ categories: ["Cloud Computing Service", "AWS"]
 建立專案。
 
 ```bash
-mkdir polly-api
-cd polly-api
+mkdir cdk-node-example
+cd cdk-node-example
 ```
 
 初始化專案。
@@ -169,7 +169,7 @@ export const handler: APIGatewayProxyWebsocketHandlerV2 = async (event) => {
 
 ## 建立堆疊
 
-修改 `lib/polly-api-stack.ts` 檔。
+修改 `lib/cdk-node-example-stack.ts` 檔。
 
 ```js
 import * as cdk from 'aws-cdk-lib';
@@ -179,7 +179,7 @@ import { BillingMode, Table } from 'aws-cdk-lib/aws-dynamodb';
 import { Architecture, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { Construct } from 'constructs';
 
-export class PollyApiStack extends cdk.Stack {
+export class CdkNodeExampleStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
@@ -200,7 +200,7 @@ export class PollyApiStack extends cdk.Stack {
     const defaultHandler = this.defaultHandlerBuilder();
 
     // 創建 WebSocket API 並設定路由選擇表達式和各路由的 Lambda 集成
-    const webSocketApi = new WebSocketApi(this, 'PollyWebSocketApi', {
+    const webSocketApi = new WebSocketApi(this, 'CdkNodeExampleWebSocketApi', {
       // 路由選擇表達式
       routeSelectionExpression: '$request.body.action',
       // 建立連線時的路由選項
@@ -226,7 +226,7 @@ export class PollyApiStack extends cdk.Stack {
     webSocketApi.grantManageConnections(defaultHandler);
 
     // 創建 WebSocket API 的一個階段並自動部署
-    new WebSocketStage(this, 'PollyProductionStage', {
+    new WebSocketStage(this, 'CdkNodeExampleProductionStage', {
       webSocketApi,
       stageName: 'production',
       autoDeploy: true,
