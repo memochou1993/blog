@@ -43,7 +43,7 @@ __pycache__/
 
 ## 實作
 
-新增專案。
+建立專案。
 
 ```bash
 django-admin startproject example .
