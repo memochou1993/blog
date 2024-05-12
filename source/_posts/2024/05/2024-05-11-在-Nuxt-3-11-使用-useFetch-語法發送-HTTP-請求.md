@@ -1,5 +1,5 @@
 ---
-title: 在 Nuxt 3.0 使用 useFetch 語法發送 HTTP 請求
+title: 在 Nuxt 3.11 使用 useFetch 語法發送 HTTP 請求
 date: 2024-05-11 14:24:02
 tags: ["Programming", "JavaScript", "Nuxt", "Vue"]
 categories: ["Programming", "JavaScript", "Nuxt"]

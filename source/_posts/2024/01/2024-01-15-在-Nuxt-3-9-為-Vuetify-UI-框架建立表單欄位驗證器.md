@@ -1,5 +1,5 @@
 ---
-title: 在 Nuxt 3.0 為 Vuetify UI 框架建立表單欄位驗證器
+title: 在 Nuxt 3.9 為 Vuetify UI 框架建立表單欄位驗證器
 date: 2024-01-15 23:10:26
 tags: ["Programming", "JavaScript", "Nuxt", "Vue", "Vuetify"]
 categories: ["Programming", "JavaScript", "Nuxt"]
