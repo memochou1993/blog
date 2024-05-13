@@ -21,13 +21,18 @@ import pluginVue from 'eslint-plugin-vue';
 import tseslint from 'typescript-eslint';
 
 export default [
-  ...pluginVue.configs['flat/recommended'],
   ...tseslint.configs.recommended,
+  ...pluginVue.configs['flat/recommended'],
   stylistic.configs.customize({
     semi: true,
     jsx: true,
     braceStyle: '1tbs',
   }),
+  {
+    ignores: [
+      '.nuxt/**',
+    ],
+  },
   {
     rules: {
       'no-console': 1,
@@ -40,8 +45,8 @@ export default [
 
 ```json
 {
-  "eslint.useFlatConfig": true,
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "eslint.experimental.useFlatConfig": true
 }
 ```
 
