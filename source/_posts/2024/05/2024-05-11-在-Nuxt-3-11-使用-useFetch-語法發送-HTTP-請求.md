@@ -86,7 +86,7 @@ const completed = ref('false');
 
 const { data: todos, error, refresh } = await useFetch('https://jsonplaceholder.typicode.com/todos', {
   params: {
-    completed: completed.value,
+    completed: completed, // without ".value"
   },
   // watch: false, // Disable watching for changes
   // immediate: false, // Do not fetch immediately
@@ -96,7 +96,7 @@ if (error.value) {
   // Handle error
   console.log(error);
 }
-console.log('Count:', todos.value?.length);
+console.log('[useFetch] TODO Count:', todos.value?.length);
 
 await useFetch('https://hub.dummyapis.com/delay?seconds=1', {
   // lazy: true, // Resolve async function after loading the route
@@ -129,10 +129,10 @@ const completed = ref('false');
 
 const todos = await $fetch('https://jsonplaceholder.typicode.com/todos', {
   params: {
-    completed: completed.value,
+    completed: completed.value, // with ".value"
   },
 });
-console.log('Count:', todos.length);
+console.log('[$fetch] TODO Count:', todos.length);
 </script>
 
 <template>
@@ -155,14 +155,14 @@ const completed = ref('false');
 
 const { data: todos, error } = await useAsyncData('todos', () => $fetch('https://jsonplaceholder.typicode.com/todos', {
   params: {
-    completed: completed.value,
+    completed: completed.value, // with ".value"
   },
 }));
 if (error.value) {
   // Handle error
   console.log(error);
 }
-console.log('Count:', todos.value.length);
+console.log('[useAsyncData] TODO Count:', todos.value.length);
 </script>
 
 <template>
