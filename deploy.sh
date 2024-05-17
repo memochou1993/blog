@@ -27,6 +27,6 @@ then
     git add . && \
     git commit -m "${input[1]}" && \
     git push && \
-    hexo clean && \
-    hexo deploy --generate
+    npm run hexo -- clean && \
+    npm run hexo -- deploy --generate
 fi
