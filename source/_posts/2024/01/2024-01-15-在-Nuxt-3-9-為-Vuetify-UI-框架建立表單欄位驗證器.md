@@ -253,7 +253,7 @@ export default {
 };
 ```
 
-建立 `validator/validator.js` 檔。
+建立 `validator/Validator.js` 檔。
 
 ```js
 import FieldValidator from './field-validator';
@@ -278,17 +278,27 @@ class Validator {
   }
 }
 
-const validator = new Validator();
-
-export default validator;
+export default Validator;
 ```
 
-建立 `validator/validator.js` 檔。
+建立 `validator/validate.js` 檔。
 
 ```js
-import validator from './validator';
+import Validator from './Validator';
 
-export default validator;
+const validate = name => (new Validator()).createField(name);
+
+export default validate;
+```
+
+建立 `validator/index.js` 檔。
+
+```js
+import validate from './validate';
+
+export {
+  validate,
+};
 ```
 
 ## 註冊
@@ -296,10 +306,10 @@ export default validator;
 在 `plugins` 資料夾，建立 `validator.js` 檔。
 
 ```js
-import validator from '~/validator';
+import { validate } from '~/validator';
 
 export default defineNuxtPlugin((nuxtApp) => {
-  nuxtApp.provide('validator', validator);
+  nuxtApp.provide('validate', validate);
 });
 ```
 
@@ -313,8 +323,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     <v-form>
       <v-text-field
         :rules="(
-          $validator
-            .createField('email')
+          $validate('email')
             .required()
             .email()
             .getRules()
