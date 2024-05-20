@@ -44,7 +44,9 @@ app.synth()
 修改 `cdk_s3_cloudfront_example_stack.py` 檔。
 
 ```py
-from aws_cdk import RemovalPolicy, Stack, aws_cloudfront, aws_cloudfront_origins, aws_s3
+import json
+
+from aws_cdk import RemovalPolicy, Stack, aws_cloudfront, aws_cloudfront_origins, aws_s3, aws_ssm
 from constructs import Construct
 
 
@@ -55,6 +57,7 @@ class CdkS3CloudfrontExampleStack(Stack):
         self.s3_bucket = self.create_s3_bucket()
         self.cloudfront_distribution = self.create_cloudfront_distribution()
 
+    # 建立一個 S3 bucket，用於存放前端靜態檔案
     def create_s3_bucket(self):
         s3_bucket = aws_s3.Bucket(
             self,
@@ -66,15 +69,9 @@ class CdkS3CloudfrontExampleStack(Stack):
             auto_delete_objects=True,
         )
 
-        s3_bucket.add_cors_rule(
-            allowed_methods=[aws_s3.HttpMethods.GET, aws_s3.HttpMethods.HEAD],
-            allowed_headers=["*"],
-            allowed_origins=["*"],
-            max_age=3600,
-        )
-
         return s3_bucket
 
+    # 建立一個 CloudFront 分佈，為前端靜態檔案建立 CDN 分布
     def create_cloudfront_distribution(self):
         cloudfront_distribution = aws_cloudfront.Distribution(
             self,
@@ -88,6 +85,27 @@ class CdkS3CloudfrontExampleStack(Stack):
         )
 
         return cloudfront_distribution
+
+    # 建立一個 SSM 參數，提供前端 CI/CD 腳本使用
+    def create_ssm_string_param(self):
+        ssm_name = '/output/s3-cloudfront-stack'
+
+        ssm_string_param = aws_ssm.StringParameter(
+            self,
+            'SsmStringParam',
+            parameter_name=ssm_name,
+            string_value=json.dumps(
+                {
+                    's3_bucket_name': self.s3_bucket.bucket_name,
+                    'cloudfront_distribution_id': self.cloudfront_distribution.distribution_id,
+                }
+            ),
+            tier=aws_ssm.ParameterTier.STANDARD,
+        )
+
+        ssm_string_param.apply_removal_policy(RemovalPolicy.DESTROY)
+
+        return ssm_string_param
 ```
 
 ## 部署
@@ -108,6 +126,50 @@ aws-vault exec your-profile -- cdk deploy
 
 ```bash
 aws-vault exec your-profile -- cdk destroy
+```
+
+## 自動化部署
+
+建立 `.gitlab-ci.yml` 檔。
+
+```yaml
+stages:
+  - build
+  - deploy
+
+variables:
+  AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+
+build:
+  stage: build
+  image: node:20
+  before_script:
+    - npm install
+  script:
+    - npm run generate
+  artifacts:
+    paths:
+      - .output/public/
+  only:
+    refs:
+      - /^(\d+\.)+(\d+\.)+(\d+)+$/
+
+deploy:
+  stage: deploy
+  image:
+    name: amazon/aws-cli:latest
+    entrypoint: [""]
+  before_script:
+    - yum install -y jq
+  script:
+    - export STACK_PARAMETERS=$(aws ssm get-parameter --name "/output/s3-cloudfront-stack" --query "Parameter.Value" --output text)
+    - export S3_BUCKET_NAME=$(echo $STACK_PARAMETERS | jq -r .s3_bucket_name)
+    - export CLOUDFRONT_DISTRIBUTION_ID=$(echo $STACK_PARAMETERS | jq -r .cloudfront_distribution_id)
+    - aws s3 sync --delete .output/public/ s3://$S3_BUCKET_NAME/
+    - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/index.html"
+  only:
+    refs:
+      - /^(\d+\.)+(\d+\.)+(\d+)+$/
 ```
 
 ## 程式碼
