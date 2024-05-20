@@ -189,6 +189,14 @@ aws-vault exec your-profile -- cdk deploy
 aws-vault exec your-profile -- cdk destroy
 ```
 
+啟動專案。
+
+```bash
+npm run dev
+```
+
+前往 <http://localhost:5174> 瀏覽。
+
 ## 程式碼
 
 - [cdk-cognito-example](https://github.com/memochou1993/cdk-cognito-example)
