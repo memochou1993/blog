@@ -1,7 +1,7 @@
 ---
-title: 在 Svelte 專案使用 Bootstrap UI 框架
+title: 在 SvelteKit 專案使用 Bootstrap UI 框架
 date: 2024-05-19 17:47:55
-tags: ["Programming", "JavaScript", "Svelte", "Bootstrap"]
+tags: ["Programming", "JavaScript", "Svelte", "SvelteKit", "Bootstrap"]
 categories: ["Programming", "JavaScript", "Svelte"]
 ---
 
