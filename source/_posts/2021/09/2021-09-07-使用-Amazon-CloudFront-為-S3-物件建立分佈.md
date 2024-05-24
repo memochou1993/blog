@@ -1,5 +1,5 @@
 ---
-title: 使用 CloudFront 為 Amazon S3 物件建立分佈
+title: 使用 Amazon CloudFront 為 S3 物件建立分佈
 date: 2021-09-07 21:50:40
 tags: ["Deployment", "AWS", "S3", "Storage Service", "CloudFront"]
 categories: ["Cloud Computing Service", "AWS"]
