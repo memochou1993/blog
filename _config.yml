@@ -4,12 +4,12 @@
 
 # Site
 title: Memo's Blog
-subtitle: ''
-description: ''
-keywords:
+subtitle: Web Development Notes
+description: A technical blog by Memo Chou documenting notes and insights on web development.
+keywords: Memo Chou, blog, web development, programming, coding, technology, technical notes
 author: Memo Chou
-language: en
-timezone: ''
+language: zh
+timezone: Asia/Taipei
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
