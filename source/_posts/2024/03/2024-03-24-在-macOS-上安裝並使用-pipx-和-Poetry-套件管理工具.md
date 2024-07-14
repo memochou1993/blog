@@ -39,16 +39,16 @@ cd my-project
 poetry init
 ```
 
-安裝依賴套件。
-
-```bash
-poetry add fastapi uvicorn
-```
-
 啟動虛擬環境。
 
 ```bash
 poetry shell
+```
+
+安裝依賴套件。
+
+```bash
+poetry add fastapi uvicorn
 ```
 
 新增 `main.py` 檔。
