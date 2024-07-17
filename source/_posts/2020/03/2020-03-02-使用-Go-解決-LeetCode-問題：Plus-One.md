@@ -15,7 +15,7 @@ You may assume the integer does not contain any leading zero, except the number 
 
 - Example 1:
 
-```BASH
+```bash
 Input: [1,2,3]
 Output: [1,2,4]
 Explanation: The array represents the integer 123.
@@ -23,7 +23,7 @@ Explanation: The array represents the integer 123.
 
 - Example 2:
 
-```BASH
+```bash
 Input: [4,3,2,1]
 Output: [4,3,2,2]
 Explanation: The array represents the integer 4321.
@@ -31,7 +31,7 @@ Explanation: The array represents the integer 4321.
 
 ## Solution
 
-```GO
+```go
 func plusOne(digits []int) []int {
 	// 將最後一個元素加上 1
 	digits[len(digits)-1]++
@@ -62,13 +62,13 @@ func plusOne(digits []int) []int {
 
 假設有以下參數：
 
-```BASH
+```bash
 digits: [9, 9, 9]
 ```
 
 說明：
 
-```BASH
+```bash
 將最後一個元素 + 1，digits 變成 [9, 9, 10]。
 
 第 1 次迴圈：

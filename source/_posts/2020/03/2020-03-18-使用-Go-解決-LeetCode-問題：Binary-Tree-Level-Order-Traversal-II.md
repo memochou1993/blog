@@ -12,7 +12,7 @@ Given a binary tree, return the bottom-up level order traversal of its nodes' va
 For example:
 Given binary tree [3,9,20,null,null,15,7],
 
-```BASH
+```bash
     3
    / \
   9  20
@@ -22,7 +22,7 @@ Given binary tree [3,9,20,null,null,15,7],
 
 return its bottom-up level order traversal as:
 
-```BASH
+```bash
 [
   [15,7],
   [9,20],
@@ -32,7 +32,7 @@ return its bottom-up level order traversal as:
 
 ## Solution
 
-```GO
+```go
 func levelOrderBottom(root *TreeNode) [][]int {
 	// 宣告一個二維陣列
 	res := [][]int{}
@@ -70,13 +70,13 @@ func levelOrderBottom(root *TreeNode) [][]int {
 
 假設有以下參數：
 
-```BASH
+```bash
 root: [3, 9, 20, 15, 7]
 ```
 
 說明：
 
-```BASH
+```bash
 值為 3，level 為 0，等於 res 的長度 0，所以在 res 的頭部添加一個空的一維陣列。
 
 將 res[0] 設置為 [3]，res 為 [[3]]。

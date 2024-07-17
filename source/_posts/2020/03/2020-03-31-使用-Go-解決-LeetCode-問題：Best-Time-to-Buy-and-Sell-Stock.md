@@ -15,7 +15,7 @@ Note that you cannot sell a stock before you buy one.
 
 - Example 1:
 
-```BASH
+```bash
 Input: [7,1,5,3,6,4]
 Output: 5
 Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
@@ -24,7 +24,7 @@ Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-
 
 - Example 2:
 
-```BASH
+```bash
 Input: [7,6,4,3,1]
 Output: 0
 Explanation: In this case, no transaction is done, i.e. max profit = 0.
@@ -32,7 +32,7 @@ Explanation: In this case, no transaction is done, i.e. max profit = 0.
 
 ## Solution
 
-```GO
+```go
 func maxProfit(prices []int) int {
 	// 差額累計值
 	temp := 0
@@ -63,13 +63,13 @@ func maxProfit(prices []int) int {
 
 假設有以下參數：
 
-```BASH
+```bash
 prices: [7, 1, 5, 3, 6, 4]
 ```
 
 說明：
 
-```BASH
+```bash
 第 1 次迴圈：
 
 temp 累計為 -6，temp 歸零，max 為 0。

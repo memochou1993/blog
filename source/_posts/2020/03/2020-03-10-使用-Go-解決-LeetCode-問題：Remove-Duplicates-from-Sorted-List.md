@@ -11,21 +11,21 @@ Given a sorted linked list, delete all duplicates such that each element appear 
 
 - Example 1:
 
-```BASH
+```bash
 Input: 1->1->2
 Output: 1->2
 ```
 
 - Example 2:
 
-```BASH
+```bash
 Input: 1->1->2->3->3
 Output: 1->2->3
 ```
 
 ## Solution
 
-```GO
+```go
 // ListNode struct
 type ListNode struct {
 	Val  int
@@ -57,13 +57,13 @@ func deleteDuplicates(head *ListNode) *ListNode {
 
 假設有以下參數：
 
-```BASH
+```bash
 head: 1->1->2->3
 ```
 
 說明：
 
-```BASH
+```bash
 cursor 的 Next 指向 1 的記憶體位置，假設為 a。
 
 --------------------------------------------------

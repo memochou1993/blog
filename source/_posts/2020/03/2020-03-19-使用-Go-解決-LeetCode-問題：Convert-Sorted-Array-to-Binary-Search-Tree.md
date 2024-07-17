@@ -13,7 +13,7 @@ For this problem, a height-balanced binary tree is defined as a binary tree in w
 
 - Example:
 
-```BASH
+```bash
 Given the sorted array: [-10,-3,0,5,9],
 
 One possible answer is: [0,-3,9,-10,null,5], which represents the following height balanced BST:
@@ -27,7 +27,7 @@ One possible answer is: [0,-3,9,-10,null,5], which represents the following heig
 
 ## Solution
 
-```GO
+```go
 func sortedArrayToBST(nums []int) *TreeNode {
 	// 當陣列沒有元素時，返回空
 	if len(nums) == 0 {
@@ -50,13 +50,13 @@ func sortedArrayToBST(nums []int) *TreeNode {
 
 假設有以下參數：
 
-```BASH
+```bash
 nums: [1, 2, 3, 4, 5, 6, 7]
 ```
 
 說明：
 
-```BASH
+```bash
 返回一個樹，其值為 4、左節點為 [1, 2, 3] 組成的樹、右節點為 [5, 6, 7] 組成的樹。
 
 左節點的遞迴，返回一個樹，其值為 2、左節點為 [1] 組成的樹、右節點為 [3] 組成的樹。

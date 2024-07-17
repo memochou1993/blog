@@ -15,7 +15,7 @@ The order of elements can be changed. It doesn't matter what you leave beyond th
 
 - Example 1:
 
-```BASH
+```bash
 Given nums = [3,2,2,3], val = 3,
 
 Your function should return length = 2, with the first two elements of nums being 2.
@@ -25,7 +25,7 @@ It doesn't matter what you leave beyond the returned length.
 
 - Example 2:
 
-```BASH
+```bash
 Given nums = [0,1,2,2,3,0,4,2], val = 2,
 
 Your function should return length = 5, with the first five elements of nums containing 0, 1, 3, 0, and 4.
@@ -56,7 +56,7 @@ for (int i = 0; i < len; i++) {
 
 ## Solution
 
-```GO
+```go
 func removeElement(nums []int, val int) int {
 	// 疊代過程中，不一樣的元素要設置在陣列中的位置
 	index := 0
@@ -82,14 +82,14 @@ func removeElement(nums []int, val int) int {
 
 假設有以下參數：
 
-```BASH
+```bash
 nums: [3, 2, 4, 3]
 val: 3
 ```
 
 說明：
 
-```BASH
+```bash
 
 index 為 0：
 

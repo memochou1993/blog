@@ -13,7 +13,7 @@ You may assume that each input would have exactly one solution, and you may not 
 
 - Example:
 
-```BASH
+```bash
 Given nums = [2, 7, 11, 15], target = 9,
 
 Because nums[0] + nums[1] = 2 + 7 = 9,
@@ -22,7 +22,7 @@ return [0, 1].
 
 ## Solution
 
-```GO
+```go
 func twoSum(nums []int, target int) []int {
 	// 創建一個集合，用於放置疊代過的索引
 	index := make(map[int]int, len(nums))
@@ -44,14 +44,14 @@ func twoSum(nums []int, target int) []int {
 
 假設有以下參數：
 
-```BASH
+```bash
 nums: [2, 7, 11, 15]
 target: 18
 ```
 
 說明：
 
-```BASH
+```bash
 在集合中找尋 2 的配對 16，找不到，所以放進集合中。
 
 ----------

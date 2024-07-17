@@ -17,7 +17,7 @@ You may not engage in multiple transactions at the same time (i.e., you must sel
 
 - Example 1:
 
-```BASH
+```bash
 Input: [7,1,5,3,6,4]
 Output: 7
 Explanation: Buy on day 2 (price = 1) and sell on day 3 (price = 5), profit = 5-1 = 4.
@@ -26,7 +26,7 @@ Explanation: Buy on day 2 (price = 1) and sell on day 3 (price = 5), profit = 5-
 
 - Example 2:
 
-```BASH
+```bash
 Input: [1,2,3,4,5]
 Output: 4
 Explanation: Buy on day 1 (price = 1) and sell on day 5 (price = 5), profit = 5-1 = 4.
@@ -36,7 +36,7 @@ Explanation: Buy on day 1 (price = 1) and sell on day 5 (price = 5), profit = 5-
 
 - Example 3:
 
-```BASH
+```bash
 Input: [7,6,4,3,1]
 Output: 0
 Explanation: In this case, no transaction is done, i.e. max profit = 0.
@@ -44,7 +44,7 @@ Explanation: In this case, no transaction is done, i.e. max profit = 0.
 
 ## Solution
 
-```GO
+```go
 func maxProfit(prices []int) int {
 	max := 0
 
@@ -64,13 +64,13 @@ func maxProfit(prices []int) int {
 
 假設有以下參數：
 
-```BASH
+```bash
 prices: [7, 1, 5, 3, 6, 4]
 ```
 
 說明：
 
-```BASH
+```bash
 第 1 次迴圈：
 
 差額為 -6，max 累計為 0。

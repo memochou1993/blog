@@ -15,21 +15,21 @@ Your algorithm should have a linear runtime complexity. Could you implement it w
 
 - Example 1:
 
-```BASH
+```bash
 Input: [2,2,1]
 Output: 1
 ```
 
 - Example 2:
 
-```BASH
+```bash
 Input: [4,1,2,1,2]
 Output: 4
 ```
 
 ## Solution
 
-```GO
+```go
 func singleNumber(nums []int) int {
 	res := 0
 
@@ -46,13 +46,13 @@ func singleNumber(nums []int) int {
 
 假設有以下參數：
 
-```BASH
+```bash
 nums: [4, 1, 2, 1, 2]
 ```
 
 說明：
 
-```BASH
+```bash
 取得 0 和某一個位元的 XOR 時，它會回傳該位元：
 
 a⊕0=a

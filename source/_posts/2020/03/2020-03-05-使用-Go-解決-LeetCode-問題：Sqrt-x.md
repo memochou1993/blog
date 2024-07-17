@@ -15,14 +15,14 @@ Since the return type is an integer, the decimal digits are truncated and only t
 
 - Example 1:
 
-```BASH
+```bash
 Input: 4
 Output: 2
 ```
 
 - Example 2:
 
-```BASH
+```bash
 Input: 8
 Output: 2
 Explanation: The square root of 8 is 2.82842..., and since the decimal part is truncated, 2 is returned.
@@ -30,7 +30,7 @@ Explanation: The square root of 8 is 2.82842..., and since the decimal part is t
 
 ## Solution
 
-```GO
+```go
 func mySqrt(x int) int {
 	// 左端
 	left := 0
@@ -60,13 +60,13 @@ func mySqrt(x int) int {
 
 假設有以下參數：
 
-```BASH
+```bash
 x: 26
 ```
 
 說明：
 
-```BASH
+```bash
 第 1 次比較：
 
 left 為 0，right 為 26，mid 為 13。

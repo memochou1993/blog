@@ -17,7 +17,7 @@ For this problem, a height-balanced binary tree is defined as:
 
 Given the following tree [3,9,20,null,null,15,7]:
 
-```BASH
+```bash
     3
    / \
   9  20
@@ -31,7 +31,7 @@ Return true.
 
 Given the following tree [1,2,2,3,3,null,null,4,4]:
 
-```BASH
+```bash
        1
       / \
      2   2
@@ -45,7 +45,7 @@ Return false.
 
 ## Solution
 
-```GO
+```go
 func isBalanced(root *TreeNode) bool {
 	// 判斷兩樹的階層相差是否超過 1，標記 -1 表示超過
 	return maxDepth(root) != -1
@@ -84,13 +84,13 @@ func max(a, b int) int {
 
 假設有以下參數：
 
-```BASH
+```bash
 root: [2, 1, 5, 4, 3, 6, 7]
 ```
 
 說明：
 
-```BASH
+```bash
 樹的形狀如下：
 
 --------------------

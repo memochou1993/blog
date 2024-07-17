@@ -13,7 +13,7 @@ To represent a cycle in the given linked list, we use an integer pos which repre
 
 - Example 1:
 
-```BASH
+```bash
 Input: head = [3,2,0,-4], pos = 1
 Output: true
 Explanation: There is a cycle in the linked list, where tail connects to the second node.
@@ -21,7 +21,7 @@ Explanation: There is a cycle in the linked list, where tail connects to the sec
 
 - Example 2:
 
-```BASH
+```bash
 Input: head = [1,2], pos = 0
 Output: true
 Explanation: There is a cycle in the linked list, where tail connects to the first node.
@@ -29,7 +29,7 @@ Explanation: There is a cycle in the linked list, where tail connects to the fir
 
 - Example 3:
 
-```BASH
+```bash
 Input: head = [1], pos = -1
 Output: false
 Explanation: There is no cycle in the linked list.
@@ -41,7 +41,7 @@ Can you solve it using O(1) (i.e. constant) memory?
 
 ## Solution
 
-```GO
+```go
 func hasCycle(head *ListNode) bool {
 	if head == nil || head.Next == nil {
 		return false
@@ -70,14 +70,14 @@ func hasCycle(head *ListNode) bool {
 
 假設有以下參數：
 
-```BASH
+```bash
 head: [3, 2, 0, -4]
 pos: 1
 ```
 
 說明：
 
-```BASH
+```bash
 運用 tortoise and hare algorithm 的概念，使用 2 個指針比較。
 
 第 1 次迴圈：

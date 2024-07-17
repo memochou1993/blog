@@ -15,7 +15,7 @@ In Pascal's triangle, each number is the sum of the two numbers directly above i
 
 - Example:
 
-```BASH
+```bash
 Input: 3
 Output: [1,3,3,1]
 ```
@@ -26,7 +26,7 @@ Could you optimize your algorithm to use only O(k) extra space?
 
 ## Solution
 
-```GO
+```go
 func getRow(rowIndex int) []int {
 	// 建立一個空的陣列
 	res := make([]int, rowIndex+1)
@@ -55,13 +55,13 @@ func getRow(rowIndex int) []int {
 
 假設有以下參數：
 
-```BASH
+```bash
 rowIndex: 4
 ```
 
 說明：
 
-```BASH
+```bash
 設置頭尾元素：
 
 陣列變為 [1, 0, 0, 0, 1]。

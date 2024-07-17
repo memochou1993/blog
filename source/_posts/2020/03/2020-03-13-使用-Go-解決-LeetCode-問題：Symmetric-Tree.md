@@ -11,7 +11,7 @@ Given a binary tree, check whether it is a mirror of itself (ie, symmetric aroun
 
 For example, this binary tree [1,2,2,3,4,4,3] is symmetric:
 
-```BASH
+```bash
     1
    / \
   2   2
@@ -21,7 +21,7 @@ For example, this binary tree [1,2,2,3,4,4,3] is symmetric:
 
 But the following [1,2,2,null,3,null,3] is not:
 
-```BASH
+```bash
     1
    / \
   2   2
@@ -35,7 +35,7 @@ Bonus points if you could solve it both recursively and iteratively.
 
 ## Solution
 
-```GO
+```go
 // TreeNode struct
 type TreeNode struct {
 	Val   int
@@ -78,14 +78,14 @@ func rec(left *TreeNode, right *TreeNode) bool {
 
 假設有以下參數：
 
-```BASH
+```bash
 p: [1, 2, 2]
 q: [1, 2, 2]
 ```
 
 說明：
 
-```BASH
+```bash
 一開始，判斷 root 是否為空，再判斷左右節點是否對稱。
 
 判斷 left 的左節點和 right 的右節點是否對稱，以及 left 的右節點和 right 的左節點是否對稱，等待返回。

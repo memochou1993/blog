@@ -13,14 +13,14 @@ If there is no common prefix, return an empty string "".
 
 - Example 1:
 
-```BASH
+```bash
 Input: ["flower","flow","flight"]
 Output: "fl"
 ```
 
 - Example 2:
 
-```BASH
+```bash
 Input: ["dog","racecar","car"]
 Output: ""
 Explanation: There is no common prefix among the input strings.
@@ -28,7 +28,7 @@ Explanation: There is no common prefix among the input strings.
 
 ## Solution
 
-```GO
+```go
 func longestCommonPrefix(strs []string) string {
 	if len(strs) == 0 {
 		return ""
@@ -55,13 +55,13 @@ func longestCommonPrefix(strs []string) string {
 
 假設有以下參數：
 
-```BASH
+```bash
 strs: ["flower","flow","flight"]
 ```
 
 說明：
 
-```BASH
+```bash
 以第一個字串 flower 作為基準。
 
 比對第二個字串 flow：

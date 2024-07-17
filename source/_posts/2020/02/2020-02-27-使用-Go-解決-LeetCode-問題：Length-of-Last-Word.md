@@ -17,14 +17,14 @@ A word is defined as a maximal substring consisting of non-space characters only
 
 - Example:
 
-```BASH
+```bash
 Input: "Hello World"
 Output: 5
 ```
 
 ## Solution
 
-```GO
+```go
 func lengthOfLastWord(s string) int {
 	// 建立一個游標
 	cursor := len(s)
@@ -60,13 +60,13 @@ func lengthOfLastWord(s string) int {
 
 假設有以下參數：
 
-```BASH
+```bash
 s: "Hello World"
 ```
 
 說明：
 
-```BASH
+```bash
 右切截：
 
 當 cursor 為 11 時，發現 d 不是空格，結束當前迴圈。

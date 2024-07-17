@@ -11,14 +11,14 @@ Determine whether an integer is a palindrome. An integer is a palindrome when it
 
 - Example 1:
 
-```BASH
+```bash
 Input: 121
 Output: true
 ```
 
 - Example 2:
 
-```BASH
+```bash
 Input: -121
 Output: false
 Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.
@@ -26,7 +26,7 @@ Explanation: From left to right, it reads -121. From right to left, it becomes 1
 
 - Example 3:
 
-```BASH
+```bash
 Input: 10
 Output: false
 Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
@@ -34,7 +34,7 @@ Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
 
 ## Solution
 
-```GO
+```go
 func isPalindrome(x int) bool {
 	// 判斷 x 是否為負數
 	if x < 0 {
@@ -60,13 +60,13 @@ func isPalindrome(x int) bool {
 
 假設有以下參數：
 
-```BASH
+```bash
 x: 121
 ```
 
 說明：
 
-```BASH
+```bash
 copy 為 121：
 reverse 為 0：
 

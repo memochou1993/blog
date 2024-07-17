@@ -13,14 +13,14 @@ Return the index of the first occurrence of needle in haystack, or -1 if needle 
 
 - Example 1:
 
-```BASH
+```bash
 Input: haystack = "hello", needle = "ll"
 Output: 2
 ```
 
 - Example 2:
 
-```BASH
+```bash
 Input: haystack = "aaaaa", needle = "bba"
 Output: -1
 ```
@@ -33,7 +33,7 @@ For the purpose of this problem, we will return 0 when needle is an empty string
 
 ## Solution
 
-```GO
+```go
 func strStr(haystack string, needle string) int {
 	for i := 0; i < len(haystack)-len(needle)+1; i++ {
 		if haystack[i:i+len(needle)] == needle {
@@ -49,14 +49,14 @@ func strStr(haystack string, needle string) int {
 
 假設有以下參數：
 
-```BASH
+```bash
 haystack: hello
 needle: ll
 ```
 
 說明：
 
-```BASH
+```bash
 
 i 為 0：
 

@@ -11,14 +11,14 @@ Merge two sorted linked lists and return it as a new list. The new list should b
 
 - Example:
 
-```BASH
+```bash
 Input: 1->2->4, 1->3->4
 Output: 1->1->2->3->4->4
 ```
 
 ## Solution
 
-```GO
+```go
 // ListNode struct
 type ListNode struct {
 	Val  int
@@ -57,14 +57,14 @@ func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 
 假設有以下參數：
 
-```BASH
+```bash
 l1: 1->4
 l2: 2->3
 ```
 
 說明：
 
-```BASH
+```bash
 比較串列 1 和串列 2。
 
 ----------

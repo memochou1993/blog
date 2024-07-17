@@ -31,7 +31,7 @@ Given a roman numeral, convert it to an integer. Input is guaranteed to be withi
 
 ## Solution
 
-```GO
+```go
 func romanToInt(s string) int {
 	result := 0
 
@@ -73,13 +73,13 @@ func romanToInt(s string) int {
 
 假設有以下參數：
 
-```BASH
+```bash
 s: XIV
 ```
 
 說明：
 
-```BASH
+```bash
 last 為 0。
 
 對照 V：

@@ -13,7 +13,7 @@ In Pascal's triangle, each number is the sum of the two numbers directly above i
 
 - Example:
 
-```BASH
+```bash
 Input: 5
 Output:
 [
@@ -27,7 +27,7 @@ Output:
 
 ## Solution
 
-```GO
+```go
 func generate(numRows int) [][]int {
 	// 建立一個空的二維陣列
 	res := make([][]int, numRows)
@@ -55,13 +55,13 @@ func generate(numRows int) [][]int {
 
 假設有以下參數：
 
-```BASH
+```bash
 numRows: 5
 ```
 
 說明：
 
-```BASH
+```bash
 建立一個空的二維陣列：
 
 [[], [], [], [], []]

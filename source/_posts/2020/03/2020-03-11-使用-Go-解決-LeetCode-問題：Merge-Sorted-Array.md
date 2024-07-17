@@ -17,7 +17,7 @@ You may assume that nums1 has enough space (size that is greater or equal to m +
 
 - Example:
 
-```BASH
+```bash
 Input:
 nums1 = [1,2,3,0,0,0], m = 3
 nums2 = [2,5,6],       n = 3
@@ -27,7 +27,7 @@ Output: [1,2,2,3,5,6]
 
 ## Solution
 
-```GO
+```go
 func merge(nums1 []int, m int, nums2 []int, n int) {
 	// 疊代直到陣列二的元素都被比較完成
 	for n > 0 {
@@ -47,7 +47,7 @@ func merge(nums1 []int, m int, nums2 []int, n int) {
 
 假設有以下參數：
 
-```BASH
+```bash
 nums1: [4, 5, 6, 0, 0, 0]
 m: 3
 nums2: [1, 2, 3]
@@ -56,7 +56,7 @@ n: 3
 
 說明：
 
-```BASH
+```bash
 由於陣列二是被合併的陣列，因此陣列二的元素都被比較完成的話，則可結束迴圈。
 
 第 1 次迴圈：

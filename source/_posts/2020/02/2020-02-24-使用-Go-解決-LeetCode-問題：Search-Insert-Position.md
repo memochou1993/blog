@@ -13,35 +13,35 @@ You may assume no duplicates in the array.
 
 - Example 1:
 
-```BASH
+```bash
 Input: [1,3,5,6], 5
 Output: 2
 ```
 
 - Example 2:
 
-```BASH
+```bash
 Input: [1,3,5,6], 2
 Output: 1
 ```
 
 - Example 3:
 
-```BASH
+```bash
 Input: [1,3,5,6], 7
 Output: 4
 ```
 
 - Example 4:
 
-```BASH
+```bash
 Input: [1,3,5,6], 0
 Output: 0
 ```
 
 ## Solution
 
-```GO
+```go
 func searchInsert(nums []int, target int) int {
 	// 低點索引
 	low := 0
@@ -71,14 +71,14 @@ func searchInsert(nums []int, target int) int {
 
 假設有以下參數：
 
-```BASH
+```bash
 nums: [1, 3, 5, 6, 9, 13, 18, 24, 36, 45, 68, 78, 88, 95]
 target: 7
 ```
 
 說明：
 
-```BASH
+```bash
 第 1 次比較：
 
 low 為 0，high 為 13，mid 為 6。

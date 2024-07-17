@@ -13,21 +13,21 @@ The input strings are both non-empty and contains only characters 1 or 0.
 
 - Example 1:
 
-```BASH
+```bash
 Input: a = "11", b = "1"
 Output: "100"
 ```
 
 - Example 2:
 
-```BASH
+```bash
 Input: a = "1010", b = "1011"
 Output: "10101"
 ```
 
 ## Solution
 
-```GO
+```go
 func addBinary(a string, b string) string {
 	// 取得 a 的長度
 	la := len(a) - 1
@@ -73,14 +73,14 @@ func addBinary(a string, b string) string {
 
 假設有以下參數：
 
-```BASH
+```bash
 a = "1010"
 b = "1011"
 ```
 
 說明：
 
-```BASH
+```bash
 第 1 次迴圈：
 
 temp 為 0，加上 a 的 0，再加上 b 的 1，累計值為 1。

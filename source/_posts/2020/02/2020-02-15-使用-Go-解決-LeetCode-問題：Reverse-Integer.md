@@ -11,7 +11,7 @@ Given a 32-bit signed integer, reverse digits of an integer.
 
 - Example 1:
 
-```BASH
+```bash
 Input: 123
 Output: 321
 Example 2:
@@ -19,7 +19,7 @@ Example 2:
 
 - Example 2:
 
-```BASH
+```bash
 Input: -123
 Output: -321
 Example 3:
@@ -27,14 +27,14 @@ Example 3:
 
 - Example 3:
 
-```BASH
+```bash
 Input: 120
 Output: 21
 ```
 
 ## Solution
 
-```GO
+```go
 func reverse(x int) int {
 	// 宣告一個正負數的標記
 	sign := 1
@@ -71,13 +71,13 @@ func reverse(x int) int {
 
 假設有以下參數：
 
-```BASH
+```bash
 x: 321
 ```
 
 說明：
 
-```BASH
+```bash
 x 為 321：
 result 為 0：
 

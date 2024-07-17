@@ -15,21 +15,21 @@ For the purpose of this problem, we define empty string as valid palindrome.
 
 - Example 1:
 
-```BASH
+```bash
 Input: "A man, a plan, a canal: Panama"
 Output: true
 ```
 
 - Example 2:
 
-```BASH
+```bash
 Input: "race a car"
 Output: false
 ```
 
 ## Solution
 
-```GO
+```go
 func isPalindrome(s string) bool {
 	arr := []rune{}
 
@@ -67,13 +67,13 @@ func isPalindrome(s string) bool {
 
 假設有以下參數：
 
-```BASH
+```bash
 s: "A man, a plan, a canal: Panama"
 ```
 
 說明：
 
-```BASH
+```bash
 排除標點符號，只將數字和字母的位元組放進陣列中。
 
 此時 arr 為 [65 109 97 110 97 112 108 97 110 97 99 97 110 97 108 80 97 110 97 109 97]。

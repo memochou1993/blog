@@ -19,7 +19,7 @@ A leaf is a node with no children.
 
 Given binary tree [3,9,20,null,null,15,7],
 
-```BASH
+```bash
     3
    / \
   9  20
@@ -31,7 +31,7 @@ return its minimum depth = 2.
 
 ## Solution
 
-```GO
+```go
 func minDepth(root *TreeNode) int {
 	switch {
 	// 如果根為空，則返回 0 個階層
@@ -62,13 +62,13 @@ func min(a, b int) int {
 
 假設有以下參數：
 
-```BASH
+```bash
 root: [2, 1, 5, 4]
 ```
 
 說明：
 
-```BASH
+```bash
 樹的形狀如下：
 
 --------------------

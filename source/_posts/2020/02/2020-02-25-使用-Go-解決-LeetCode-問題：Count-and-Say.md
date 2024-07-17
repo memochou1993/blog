@@ -9,7 +9,7 @@ categories: ["Programming", "Go", "Algorithm"]
 
 The count-and-say sequence is the sequence of integers with the first five terms as following:
 
-```BASH
+```bash
 1.     1
 2.     11
 3.     21
@@ -29,7 +29,7 @@ Each term of the sequence of integers will be represented as a string.
 
 - Example 1:
 
-```BASH
+```bash
 Input: 1
 Output: "1"
 Explanation: This is the base case.
@@ -37,7 +37,7 @@ Explanation: This is the base case.
 
 - Example 2:
 
-```BASH
+```bash
 Input: 4
 Output: "1211"
 Explanation: For n = 3 the term was "21" in which we have two groups "2" and "1", "2" can be read as "12" which means frequency = 1 and value = 2, the same way "1" is read as "11", so the answer is the concatenation of "12" and "11" which is "1211".
@@ -45,7 +45,7 @@ Explanation: For n = 3 the term was "21" in which we have two groups "2" and "1"
 
 ## Solution
 
-```GO
+```go
 func countAndSay(n int) string {
 	if n == 1 {
 		return "1"
@@ -92,13 +92,13 @@ func countAndSay(n int) string {
 
 假設有以下參數：
 
-```BASH
+```bash
 n: 5
 ```
 
 說明：
 
-```BASH
+```bash
 n 為 5：執行遞迴函式，s 等待返回。
 
 n 為 4：執行遞迴函式，s 等待返回。

@@ -31,28 +31,28 @@ Given an integer, convert it to a roman numeral. Input is guaranteed to be withi
 
 - Example 1:
 
-```BASH
+```bash
 Input: 3
 Output: "III"
 ```
 
 - Example 2:
 
-```BASH
+```bash
 Input: 4
 Output: "IV"
 ```
 
 - Example 3:
 
-```BASH
+```bash
 Input: 9
 Output: "IX"
 ```
 
 - Example 4:
 
-```BASH
+```bash
 Input: 58
 Output: "LVIII"
 Explanation: L = 50, V = 5, III = 3.
@@ -60,7 +60,7 @@ Explanation: L = 50, V = 5, III = 3.
 
 - Example 5:
 
-```BASH
+```bash
 Input: 1994
 Output: "MCMXCIV"
 Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
@@ -68,7 +68,7 @@ Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 
 ## Solution
 
-```GO
+```go
 func intToRoman(num int) string {
 	// 建立一個二維陣列的對照表
 	r := [4][]string{
@@ -89,13 +89,13 @@ func intToRoman(num int) string {
 
 假設有以下參數：
 
-```BASH
+```bash
 num: 58
 ```
 
 說明：
 
-```BASH
+```bash
 拼接第 1 個字母：
 
 58 除以 1000 為 0，在對照表找到索引為 3 的陣列中，索引為 0 的元素。

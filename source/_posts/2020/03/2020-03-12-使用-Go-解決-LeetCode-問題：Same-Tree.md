@@ -13,7 +13,7 @@ Two binary trees are considered the same if they are structurally identical and 
 
 - Example 1:
 
-```BASH
+```bash
 Input:     1         1
           / \       / \
          2   3     2   3
@@ -25,7 +25,7 @@ Output: true
 
 - Example 2:
 
-```BASH
+```bash
 Input:     1         1
           /           \
          2             2
@@ -37,7 +37,7 @@ Output: false
 
 - Example 3:
 
-```BASH
+```bash
 Input:     1         1
           / \       / \
          2   1     1   2
@@ -49,7 +49,7 @@ Output: false
 
 ## Solution
 
-```GO
+```go
 // TreeNode struct
 type TreeNode struct {
 	Val   int
@@ -82,14 +82,14 @@ func isSameTree(p *TreeNode, q *TreeNode) bool {
 
 假設有以下參數：
 
-```BASH
+```bash
 p: [1, 2, 3]
 q: [1, 2, 3]
 ```
 
 說明：
 
-```BASH
+```bash
 一開始，判斷 p 的左節點和 q 的左節點是否相同，以及 p 的右節點和 q 的右節點是否相同，等待返回。
 
 ------------------------------

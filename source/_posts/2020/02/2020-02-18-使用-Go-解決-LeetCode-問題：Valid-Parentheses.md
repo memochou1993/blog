@@ -18,42 +18,42 @@ Note that an empty string is also considered valid.
 
 - Example 1:
 
-```BASH
+```bash
 Input: "()"
 Output: true
 ```
 
 - Example 2:
 
-```BASH
+```bash
 Input: "()[]{}"
 Output: true
 ```
 
 - Example 3:
 
-```BASH
+```bash
 Input: "(]"
 Output: false
 ```
 
 - Example 4:
 
-```BASH
+```bash
 Input: "([)]"
 Output: false
 ```
 
 - Example 5:
 
-```BASH
+```bash
 Input: "{[]}"
 Output: true
 ```
 
 ## Solution
 
-```GO
+```go
 func isValid(s string) bool {
 	// 建立一個堆疊
 	stack := []string{}
@@ -95,13 +95,13 @@ func isValid(s string) bool {
 
 假設有以下參數：
 
-```BASH
+```bash
 s: "{[]}"
 ```
 
 說明：
 
-```BASH
+```bash
 
 第 1 個符號為左括號，所以推進至堆疊中：
 

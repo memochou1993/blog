@@ -21,7 +21,7 @@ A leaf is a node with no children.
 
 Given binary tree [3,9,20,null,null,15,7],
 
-```BASH
+```bash
     3
    / \
   9  20
@@ -33,7 +33,7 @@ return its depth = 3.
 
 ## Solution
 
-```GO
+```go
 func maxDepth(root *TreeNode) int {
 	// 節點為空，返回 0 個階層
 	if root == nil {
@@ -57,13 +57,13 @@ func max(a int, b int) int {
 
 假設有以下參數：
 
-```BASH
+```bash
 root: [3, 9, 20, 15, 7]
 ```
 
 說明：
 
-```BASH
+```bash
 
 首先，判斷 root 是否為空。
 

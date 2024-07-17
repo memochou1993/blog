@@ -17,7 +17,7 @@ A leaf is a node with no children.
 
 Given the below binary tree and sum = 22,
 
-```BASH
+```bash
       5
      / \
     4   8
@@ -31,7 +31,7 @@ return true, as there exist a root-to-leaf path 5->4->11->2 which sum is 22.
 
 ## Solution
 
-```GO
+```go
 func hasPathSum(root *TreeNode, sum int) bool {
 	// 如果根為空，則返回 false
 	if root == nil {
@@ -55,14 +55,14 @@ func hasPathSum(root *TreeNode, sum int) bool {
 
 假設有以下參數：
 
-```BASH
+```bash
 root: [5, 4, 11, 7, 2, 8, 13, 4, 1]
 sum: 22
 ```
 
 說明：
 
-```BASH
+```bash
 樹的形狀如下：
 
 --------------------

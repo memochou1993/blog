@@ -16,7 +16,7 @@ getMin() -- Retrieve the minimum element in the stack.
 
 - Example:
 
-```BASH
+```bash
 MinStack minStack = new MinStack();
 minStack.push(-2);
 minStack.push(0);
@@ -29,7 +29,7 @@ minStack.getMin();   --> Returns -2.
 
 ## Solution
 
-```GO
+```go
 func Constructor() MinStack {
 	return MinStack{}
 }
@@ -61,13 +61,13 @@ func (stack *MinStack) GetMin() int {
 
 假設有以下參數：
 
-```BASH
+```bash
 stack: [-2, 0, -1]
 ```
 
 說明：
 
-```BASH
+```bash
 使用 2 個堆疊，第 1 個堆疊紀錄所有的數；第 2 個堆疊紀錄推進時更小的數。
 
 當推進 -2 時：

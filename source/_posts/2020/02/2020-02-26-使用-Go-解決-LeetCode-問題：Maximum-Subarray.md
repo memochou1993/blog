@@ -11,7 +11,7 @@ Given an integer array nums, find the contiguous subarray (containing at least o
 
 - Example:
 
-```BASH
+```bash
 Input: [-2,1,-3,4,-1,2,1,-5,4],
 Output: 6
 Explanation: [4,-1,2,1] has the largest sum = 6.
@@ -23,7 +23,7 @@ If you have figured out the O(n) solution, try coding another solution using the
 
 ## Solution
 
-```GO
+```go
 func maxSubArray(nums []int) int {
 	max := -(1 << 63)
 	temp := 0
@@ -54,13 +54,13 @@ func maxSubArray(nums []int) int {
 
 假設有以下參數：
 
-```BASH
+```bash
 nums: [-2, 1, -3, 4, -1, 2, 1, -5, 4]
 ```
 
 說明：
 
-```BASH
+```bash
 第 1 次迴圈：
 
 temp 為 0，v 為 -2，max 為 overflows int。

@@ -17,7 +17,7 @@ Given n will be a positive integer.
 
 - Example 1:
 
-```BASH
+```bash
 Input: 2
 Output: 2
 Explanation: There are two ways to climb to the top.
@@ -27,7 +27,7 @@ Explanation: There are two ways to climb to the top.
 
 - Example 2:
 
-```BASH
+```bash
 Input: 3
 Output: 3
 Explanation: There are three ways to climb to the top.
@@ -38,7 +38,7 @@ Explanation: There are three ways to climb to the top.
 
 ## Solution
 
-```GO
+```go
 func climbStairs(n int) int {
 	// 第一個數
 	a := 1
@@ -60,13 +60,13 @@ func climbStairs(n int) int {
 
 假設有以下參數：
 
-```BASH
+```bash
 n: 8
 ```
 
 說明：
 
-```BASH
+```bash
 n 為 8，所以第一個數為 1，第二個數為 1。
 
 在迴圈中，讓第一個數加上自己和第二個數，再讓第二個數加上自己和被加過自己的第一個數。
