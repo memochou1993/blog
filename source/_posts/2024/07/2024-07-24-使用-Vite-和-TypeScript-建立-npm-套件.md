@@ -1,7 +1,7 @@
 ---
 title: 使用 Vite 和 TypeScript 建立 npm 套件
 date: 2024-07-24 21:19:05
-tags: ["Programming", "JavaScript", "TypeScript", "Vite", "npm"]
+tags: ["Programming", "JavaScript", "TypeScript", "Vite", "npm", "Vitest"]
 categories: ["Programming", "JavaScript", "TypeScript"]
 ---
 
@@ -24,7 +24,7 @@ cd vite-library-ts-example
 mkdir lib
 ```
 
-修改 `` 檔。
+修改 `tsconfig.json` 檔。
 
 ```json
 {
@@ -35,7 +35,7 @@ mkdir lib
 安裝 TypeScript 相關套件。
 
 ```bash
-npm i vite-plugin-dts @types/node -D
+npm i @types/node vite-plugin-dts -D
 ```
 
 ## 安裝檢查工具
@@ -43,7 +43,7 @@ npm i vite-plugin-dts @types/node -D
 安裝 ESLint 相關套件。
 
 ```bash
-npm i eslint @eslint/js typescript-eslint -D
+npm i eslint@^8.57.0 @eslint/js typescript-eslint globals @types/eslint__js -D
 ```
 
 建立 `eslint.config.js` 檔。
@@ -101,7 +101,7 @@ npm run lint
 安裝 Vitest 相關套件。
 
 ```bash
-npm i vitest jsdom -D
+npm i vitest -D
 ```
 
 建立 `lib/index.ts` 檔。
