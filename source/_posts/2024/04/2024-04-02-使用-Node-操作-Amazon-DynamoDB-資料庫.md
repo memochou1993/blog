@@ -128,7 +128,7 @@ aws-vault exec your-profile node index.js
 Drinks
 ```
 
-## 單元測試
+## 建立單元測試
 
 新增 `test/connect-handler.test.ts` 檔。
 

@@ -106,7 +106,7 @@ exports.hello = hello;
 //# sourceMappingURL=index.js.map
 ```
 
-## 單元測試
+## 建立單元測試
 
 在 `test` 資料夾新增 `index.test.ts` 檔：
 
