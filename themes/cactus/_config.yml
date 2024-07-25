@@ -56,8 +56,8 @@ posts_overview:
 #   - gravatar: whether to use your Gravatar as the logo
 logo:
   enabled: true
-  width: 70
-  height: 70
+  width: 72
+  height: 72
   url: /images/logo.png
   gravatar: false
 
@@ -88,7 +88,7 @@ highlight: rainbow
 # Set the color scheme.
 # Available color schemes are 'dark', 'light', 'classic' and 'white'.
 # Alternatively, add your own custom color scheme to source/css/_colors.
-colorscheme: light
+colorscheme: dark
 
 # Maximal width of the page in rem units.
 page_width: 48
