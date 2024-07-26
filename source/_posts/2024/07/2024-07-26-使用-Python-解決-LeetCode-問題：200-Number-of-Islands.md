@@ -45,7 +45,7 @@ grid[i][j] is '0' or '1'.
 
 ### 遞迴實作的 DFS 版本
 
-```python
+```py
 from typing import List
 
 class Solution:
@@ -93,7 +93,7 @@ class Solution:
 
 ### 顯式堆疊實作的 DFS 版本
 
-```python
+```py
 from typing import List
 
 class Solution:

@@ -15,7 +15,7 @@ CloudFront 是一個 CDN（Content Delivery Network），它會快取網站的�
 
 CDK 範例如下：
 
-```python
+```py
 aws_cloudfront.Distribution(
     self,
     'CloudFrontDistribution',
@@ -60,7 +60,7 @@ function handler(event){
 
 完整的 CDK 堆疊如下：
 
-```python
+```py
 from aws_cdk import Duration, RemovalPolicy, Stack, aws_cloudfront, aws_cloudfront_origins, aws_s3
 from constructs import Construct
 
