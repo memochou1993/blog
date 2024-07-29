@@ -116,10 +116,10 @@ class Solution:
                 # 標記當前節點為已訪問
                 grid[i][j] = 'V'
                 # 將四個方向的節點加入堆疊中
-                stack.append((i+1, j))
-                stack.append((i-1, j))
-                stack.append((i, j+1))
-                stack.append((i, j-1))
+                stack.append((i-1, j)) # 上
+                stack.append((i, j-1)) # 左
+                stack.append((i+1, j)) # 下，會被優先處理
+                stack.append((i, j+1)) # 右，會被優先處理
 
         # 遍歷整個網格
         for i in range(len(grid)):
