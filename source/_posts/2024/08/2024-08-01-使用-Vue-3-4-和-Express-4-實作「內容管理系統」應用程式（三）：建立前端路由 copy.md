@@ -62,7 +62,6 @@ import HelloWorld from '~/components/HelloWorld.vue';
             <li class="nav-item">
               <a
                 class="nav-link active"
-                aria-current="page"
                 href="/"
               >
                 Home
@@ -71,7 +70,6 @@ import HelloWorld from '~/components/HelloWorld.vue';
             <li class="nav-item">
               <a
                 class="nav-link"
-                aria-current="page"
                 href="/about"
               >
                 About
@@ -143,7 +141,7 @@ main {
 </style>
 ```
 
-如果遇到以下問題，需要降級 Sass 到 `1.77.6` 版。
+如果遇到以下問題，參考 [Issue #40621](https://github.com/twbs/bootstrap/issues/40621)  的討論，將 Sass 套件降級到 `1.77.6` 版。
 
 ```bash
 Deprecation Warning: Sass's behavior for declarations that appear after nested
@@ -155,7 +153,7 @@ rule. To opt into the new behavior, wrap the declaration in `& {}`.
 使用 npm 將 Sass 套件降級。
 
 ```bash
-npm i npm i sass@1.77.6 -D
+npm i sass@1.77.6 -D
 ```
 
 提交修改。
@@ -327,8 +325,7 @@ createApp(App)
   <li class="nav-item">
     <RouterLink
       class="nav-link active"
-      aria-current="page"
-      to="/"
+      :to="{ name: 'home' }"
     >
       Home
     </RouterLink>
@@ -336,8 +333,7 @@ createApp(App)
   <li class="nav-item">
     <RouterLink
       class="nav-link"
-      aria-current="page"
-      to="/about"
+      :to="{ name: 'about' }"
     >
       About
     </RouterLink>
@@ -355,11 +351,142 @@ git commit -m "Add vue router"
 git push
 ```
 
+### 練習一：將側邊欄的連結改成迴圈
+
+讓側邊欄的連結改成迴圈的寫法，可以讓程式碼變得更簡潔，更容易維護。
+
+#### 做法
+
+修改 `AppHeader.vue` 檔。
+
+```html
+<script setup>
+const links = [
+  {
+    title: 'Home',
+    name: 'home',
+  },
+  {
+    title: 'About',
+    name: 'about',
+  },
+];
+</script>
+
+<template>
+  <nav class="navbar navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <!-- ... -->
+      <div
+        id="offcanvasDarkNavbar"
+        class="offcanvas offcanvas-end text-bg-dark"
+        tabindex="-1"
+        aria-labelledby="offcanvasDarkNavbarLabel"
+      >
+        <!-- ... -->
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <template
+              v-for="(link, i) in links"
+              :key="i"
+            >
+              <li
+                class="nav-item"
+              >
+                <router-link
+                  class="nav-link"
+                  :to="{
+                    name: link.name,
+                  }"
+                >
+                  {{ link.title }}
+                </router-link>
+              </li>
+            </template>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</template>
+```
+
+### 練習二：切換 active 樣式
+
+當切換路由時，超連結的 `active` 也要跟著切換。
+
+#### 做法
+
+修改 `AppHeader.vue` 檔。
+
+```html
+<script setup>
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
+
+const links = [
+  {
+    title: 'Home',
+    name: 'home',
+  },
+  {
+    title: 'About',
+    name: 'about',
+  },
+];
+</script>
+
+<template>
+  <nav class="navbar navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <!-- ... -->
+      <div
+        id="offcanvasDarkNavbar"
+        class="offcanvas offcanvas-end text-bg-dark"
+        tabindex="-1"
+        aria-labelledby="offcanvasDarkNavbarLabel"
+      >
+        <!-- ... -->
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <template
+              v-for="(link, i) in links"
+              :key="i"
+            >
+              <li
+                class="nav-item"
+              >
+                <router-link
+                  class="nav-link"
+                  :class="{
+                    'active': link.name === route.name,
+                  }"
+                  :to="{
+                    name: link.name,
+                  }"
+                >
+                  {{ link.title }}
+                </router-link>
+              </li>
+            </template>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</template>
+```
+
+提交修改。
+
+```bash
+git add .
+git commit -m "Update links"
+git push
+```
+
 ## 程式碼
 
 - [simple-cms-ui](https://github.com/memochou1993/simple-cms-ui)
 - [simple-cms-api](https://github.com/memochou1993/simple-cms-api)
-
-## 參考資料
-
-- [Sass deprecation warnings](https://github.com/twbs/bootstrap/issues/40621)
