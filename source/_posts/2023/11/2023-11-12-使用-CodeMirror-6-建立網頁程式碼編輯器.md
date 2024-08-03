@@ -67,7 +67,7 @@ npm install codemirror
 import './style.css';
 import { minimalSetup, EditorView } from 'codemirror';
 
-const initialText = 'console.log("Hello, world!")';
+const initialText = 'console.log("Hello, World!")';
 
 const targetElement = document.querySelector('#editor') as Element;
 
@@ -114,7 +114,7 @@ import { highlightSelectionMatches, searchKeymap } from '@codemirror/search';
 import { EditorState } from '@codemirror/state';
 import { crosshairCursor, drawSelection, dropCursor, EditorView, highlightActiveLine, highlightActiveLineGutter, highlightSpecialChars, keymap, lineNumbers, rectangularSelection } from '@codemirror/view';
 
-const initialText = 'console.log("Hello, world!")';
+const initialText = 'console.log("Hello, World!")';
 const targetElement = document.querySelector('#editor') as Element;
 
 new EditorView({

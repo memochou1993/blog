@@ -78,7 +78,7 @@ sudo chown -R caddy:caddy /var/log/caddy
 
 ```txt
 domain.com {
-    respond "Hello, world!"
+    respond "Hello, World!"
 }
 ```
 

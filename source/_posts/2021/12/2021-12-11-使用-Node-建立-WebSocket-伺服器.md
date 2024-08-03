@@ -31,7 +31,7 @@ wss.on('connection', (ws) => {
     console.log('received: %s', msg);
   });
 
-  ws.send('Hello, world!');
+  ws.send('Hello, World!');
 });
 ```
 
@@ -45,7 +45,7 @@ ws.onmessage = (e) => console.log('received:', e.data)
 客戶端在 WebSocket 建立連線後，會馬上收到訊息：
 
 ```bash
-received: Hello, world!
+received: Hello, World!
 ```
 
 客戶端可以使用 `send()` 方法發送訊息：
