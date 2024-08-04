@@ -15,7 +15,7 @@ categories: ["Programming", "JavaScript", "Vue"]
 
 ```html
 <script setup>
-import HelloWorld from '~/components/HelloWorld.vue';
+import HelloWorld from './components/HelloWorld.vue';
 </script>
 
 <template>
@@ -120,9 +120,9 @@ main {
 
 ```html
 <script setup>
-import AppFooter from '~/components/AppFooter.vue';
-import AppHeader from '~/components/AppHeader.vue';
-import HelloWorld from '~/components/HelloWorld.vue';
+import AppFooter from './components/AppFooter.vue';
+import AppHeader from './components/AppHeader.vue';
+import HelloWorld from './components/HelloWorld.vue';
 </script>
 
 <template>
@@ -146,6 +146,57 @@ main {
 ```bash
 git add .
 git commit -m "Add header and footer components"
+git push
+```
+
+## 設置絕對路徑別名
+
+修改 `vite.config.js` 檔，在 `alias` 區塊新增 `@` 絕對路徑別名，在引用檔案時可以更方便地表示根目錄
+
+```js
+import vue from '@vitejs/plugin-vue';
+import { fileURLToPath, URL } from 'node:url';
+import { defineConfig } from 'vite';
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [vue()],
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
+  },
+});
+```
+
+新增 `jsconfig.json` 檔，讓 VS Code 支援絕對路徑別名。
+
+```json
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}
+```
+
+修改 `App.vue` 檔，現在可以使用 `@` 絕對路徑別名來表示根目錄。
+
+```html
+<script setup>
+import AppFooter from '@/components/AppFooter.vue';
+import AppHeader from '@/components/AppHeader.vue';
+import HelloWorld from '@/components/HelloWorld.vue';
+</script>
+```
+
+提交修改。
+
+```bash
+git add .
+git commit -m "Add alias path for root directory"
 git push
 ```
 
