@@ -149,57 +149,6 @@ git commit -m "Add header and footer components"
 git push
 ```
 
-## 設置絕對路徑別名
-
-修改 `vite.config.js` 檔，在 `alias` 區塊新增 `@` 絕對路徑別名，在引用檔案時可以更方便地表示根目錄
-
-```js
-import vue from '@vitejs/plugin-vue';
-import { fileURLToPath, URL } from 'node:url';
-import { defineConfig } from 'vite';
-
-// https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [vue()],
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
-    },
-  },
-});
-```
-
-新增 `jsconfig.json` 檔，讓 VS Code 支援絕對路徑別名。
-
-```json
-{
-  "compilerOptions": {
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  },
-  "exclude": ["node_modules", "dist"]
-}
-```
-
-修改 `App.vue` 檔，現在可以使用 `@` 絕對路徑別名來表示根目錄。
-
-```html
-<script setup>
-import AppFooter from '@/components/AppFooter.vue';
-import AppHeader from '@/components/AppHeader.vue';
-import HelloWorld from '@/components/HelloWorld.vue';
-</script>
-```
-
-提交修改。
-
-```bash
-git add .
-git commit -m "Add alias path for root directory"
-git push
-```
-
 ## 實作路由
 
 > Ref: <https://router.vuejs.org/>
@@ -265,7 +214,7 @@ mkdir src/router
 在 `src/router` 資料夾，建立 `index.js` 檔，在這裡定義所有的路由與對應的頁面元件。因為是後台系統，不需要考慮對 SEO 的影響，因此這裡使用 Hash 模式。
 
 ```js
-import HomeView from '@/views/HomeView.vue';
+import HomeView from '../views/HomeView.vue';
 import { createRouter, createWebHashHistory } from 'vue-router';
 
 const router = createRouter({
@@ -282,7 +231,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('@/views/AboutView.vue'),
+      component: () => import('../views/AboutView.vue'),
     },
   ],
 });
@@ -519,6 +468,75 @@ const links = [
 ```bash
 git add .
 git commit -m "Update links"
+git push
+```
+
+## 設置路徑別名
+
+修改 `vite.config.js` 檔，在 `alias` 區塊新增 `@` 路徑別名，用來在引入檔案時表示根目錄。
+
+```js
+import vue from '@vitejs/plugin-vue';
+import { fileURLToPath, URL } from 'node:url';
+import { defineConfig } from 'vite';
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [vue()],
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
+  },
+});
+```
+
+新增 `jsconfig.json` 檔，讓 VS Code 支援路徑別名。
+
+```json
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}
+```
+
+修改 `src/router/index.js` 檔，現在可以使用 `@` 路徑別名來表示根目錄，而不是使用相對路徑。
+
+```js
+import HomeView from '@/views/HomeView.vue';
+import { createRouter, createWebHashHistory } from 'vue-router';
+
+const router = createRouter({
+  history: createWebHashHistory(),
+  routes: [
+    {
+      path: '/',
+      name: 'home',
+      component: HomeView,
+    },
+    {
+      path: '/about',
+      name: 'about',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('@/views/AboutView.vue'),
+    },
+  ],
+});
+
+export default router;
+```
+
+提交修改。
+
+```bash
+git add .
+git commit -m "Add alias path for root directory"
 git push
 ```
 
