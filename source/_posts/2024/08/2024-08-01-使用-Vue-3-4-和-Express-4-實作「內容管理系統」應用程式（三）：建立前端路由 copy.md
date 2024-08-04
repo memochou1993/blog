@@ -141,21 +141,6 @@ main {
 </style>
 ```
 
-如果遇到以下問題，參考 [Issue #40621](https://github.com/twbs/bootstrap/issues/40621)  的討論，將 Sass 套件降級到 `1.77.6` 版。
-
-```bash
-Deprecation Warning: Sass's behavior for declarations that appear after nested
-rules will be changing to match the behavior specified by CSS in an upcoming
-version. To keep the existing behavior, move the declaration above the nested
-rule. To opt into the new behavior, wrap the declaration in `& {}`.
-```
-
-使用 npm 將 Sass 套件降級。
-
-```bash
-npm i sass@1.77.6 -D
-```
-
 提交修改。
 
 ```bash
