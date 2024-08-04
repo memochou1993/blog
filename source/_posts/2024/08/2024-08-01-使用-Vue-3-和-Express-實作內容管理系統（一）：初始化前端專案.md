@@ -1,5 +1,5 @@
 ---
-title: 使用 Vue 3.4 和 Express 4 實作「內容管理系統」應用程式（一）：建立前端專案
+title: 使用 Vue 3 和 Express 實作內容管理系統（一）：初始化前端專案
 date: 2024-08-01 23:43:41
 tags: ["Programming", "JavaScript", "Vue", "Bootstrap", "Node", "Express", "Firebase", "Firestore", "CMS"]
 categories: ["Programming", "JavaScript", "Vue"]
@@ -7,7 +7,7 @@ categories: ["Programming", "JavaScript", "Vue"]
 
 ## 前言
 
-本文是前端工作坊的教學文件，介紹如何使用 Vue 和 Express 實作「內容管理系統」應用程式，並搭配 Firebase 實現資料持久化和認證。
+本文是前端工作坊的教學文件，介紹如何使用 Vue 3 和 Express 實作內容管理系統，並搭配 Firebase 實現持久化和認證。
 
 ## 前置作業
 
@@ -270,10 +270,12 @@ npm install sass -D
 </html>
 ```
 
-將 `style.css` 檔修改為 `style.scss` 檔，並引入 Bootstrap 的所有樣式。
+將 `style.css` 檔重新命名為 `style.scss` 檔，並引入 Bootstrap 的樣式。
 
 ```scss
 @import "bootstrap/scss/bootstrap";
+
+// ...
 ```
 
 修改 `main.js` 檔。

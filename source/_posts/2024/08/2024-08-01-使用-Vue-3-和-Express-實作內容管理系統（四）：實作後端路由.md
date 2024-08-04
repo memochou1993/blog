@@ -1,5 +1,5 @@
 ---
-title: 使用 Vue 3.4 和 Express 4 實作「內容管理系統」應用程式（四）：建立後端路由
+title: 使用 Vue 3 和 Express 實作內容管理系統（四）：實作後端路由
 date: 2024-08-01 23:43:44
 tags: ["Programming", "JavaScript", "Vue", "Bootstrap", "Node", "Express", "Firebase", "Firestore", "CMS"]
 categories: ["Programming", "JavaScript", "Vue"]
@@ -7,7 +7,16 @@ categories: ["Programming", "JavaScript", "Vue"]
 
 ## 前言
 
-本文是前端工作坊的教學文件，介紹如何使用 Vue 和 Express 實作「內容管理系統」應用程式，並搭配 Firebase 實現資料持久化和認證。
+本文是前端工作坊的教學文件，介紹如何使用 Vue 3 和 Express 實作內容管理系統，並搭配 Firebase 實現持久化和認證。
+
+## 開啟專案
+
+開啟後端專案。
+
+```bash
+cd simple-cms-api
+code .
+```
 
 ## 添加熱重載功能
 

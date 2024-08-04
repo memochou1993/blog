@@ -1,5 +1,5 @@
 ---
-title: 使用 Vue 3.4 和 Express 4 實作「內容管理系統」應用程式（三）：建立前端路由
+title: 使用 Vue 3 和 Express 實作內容管理系統（三）：實作前端路由
 date: 2024-08-01 23:43:43
 tags: ["Programming", "JavaScript", "Vue", "Bootstrap", "Node", "Express", "Firebase", "Firestore", "CMS"]
 categories: ["Programming", "JavaScript", "Vue"]
@@ -7,7 +7,16 @@ categories: ["Programming", "JavaScript", "Vue"]
 
 ## 前言
 
-本文是前端工作坊的教學文件，介紹如何使用 Vue 和 Express 實作「內容管理系統」應用程式，並搭配 Firebase 實現資料持久化和認證。
+本文是前端工作坊的教學文件，介紹如何使用 Vue 3 和 Express 實作內容管理系統，並搭配 Firebase 實現持久化和認證。
+
+## 開啟專案
+
+開啟前端專案。
+
+```bash
+cd simple-cms-ui
+code .
+```
 
 ## 建立佈局
 
@@ -211,7 +220,7 @@ npm install vue-router@4
 mkdir src/router
 ```
 
-在 `src/router` 資料夾，建立 `index.js` 檔，在這裡定義所有的路由與對應的頁面元件。因為是後台系統，不需要考慮對 SEO 的影響，因此這裡使用 Hash 模式。
+在 `src/router` 資料夾，建立 `index.js` 檔，在這裡定義所有的路由與對應的頁面。因為是後台系統，不需要考慮對 SEO 的影響，因此這裡使用 Hash 模式。
 
 ```js
 import HomeView from '../views/HomeView.vue';
@@ -245,7 +254,7 @@ export default router;
 mkdir src/views
 ```
 
-在 `src/views` 資料夾，建立 `views/HomeView.vue` 檔，當作「首頁」頁面元件。
+在 `src/views` 資料夾，建立 `HomeView.vue` 檔，作為「首頁」頁面。
 
 ```html
 <script setup>
@@ -257,7 +266,7 @@ mkdir src/views
 </template>
 ```
 
-在 `src/views` 資料夾，建立 `views/AboutView.vue` 檔，當作「關於」頁面元件。
+在 `src/views` 資料夾，建立 `AboutView.vue` 檔，作為「關於」頁面。
 
 ```html
 <script setup>
@@ -285,7 +294,7 @@ createApp(App)
 // ...
 ```
 
-修改 `App.vue` 檔，將 `HelloWorld` 元件替換為 `RouterView` 元件，來讓 Vue Router 渲染對應 URL 所指定的頁面元件。
+修改 `App.vue` 檔，將 `HelloWorld` 元件替換為 `RouterView` 元件，來讓 Vue Router 渲染對應 URL 所指定的頁面。
 
 ```html
 <!-- ... -->
@@ -335,6 +344,8 @@ git add .
 git commit -m "Add vue router"
 git push
 ```
+
+## 練習
 
 ### 練習一：將側邊欄的連結改成迴圈
 
@@ -468,75 +479,6 @@ const links = [
 ```bash
 git add .
 git commit -m "Update links"
-git push
-```
-
-## 設置路徑別名
-
-修改 `vite.config.js` 檔，在 `alias` 區塊新增 `@` 路徑別名，用來在引入檔案時表示根目錄。
-
-```js
-import vue from '@vitejs/plugin-vue';
-import { fileURLToPath, URL } from 'node:url';
-import { defineConfig } from 'vite';
-
-// https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [vue()],
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
-    },
-  },
-});
-```
-
-新增 `jsconfig.json` 檔，讓 VS Code 支援路徑別名。
-
-```json
-{
-  "compilerOptions": {
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  },
-  "exclude": ["node_modules", "dist"]
-}
-```
-
-修改 `src/router/index.js` 檔，現在可以使用 `@` 路徑別名來表示根目錄，而不是使用相對路徑。
-
-```js
-import HomeView from '@/views/HomeView.vue';
-import { createRouter, createWebHashHistory } from 'vue-router';
-
-const router = createRouter({
-  history: createWebHashHistory(),
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: HomeView,
-    },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('@/views/AboutView.vue'),
-    },
-  ],
-});
-
-export default router;
-```
-
-提交修改。
-
-```bash
-git add .
-git commit -m "Add alias path for root directory"
 git push
 ```
 
