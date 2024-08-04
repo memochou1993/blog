@@ -296,7 +296,7 @@ export default router;
 mkdir src/views
 ```
 
-在 `src/views` 資料夾，建立 `views/AboutView.vue` 檔，當作「首頁」頁面元件。
+在 `src/views` 資料夾，建立 `views/HomeView.vue` 檔，當作「首頁」頁面元件。
 
 ```html
 <script setup>
@@ -308,7 +308,7 @@ mkdir src/views
 </template>
 ```
 
-在 `src/views` 資料夾，建立 `views/HomeView.vue` 檔，當作「關於」頁面元件。
+在 `src/views` 資料夾，建立 `views/AboutView.vue` 檔，當作「關於」頁面元件。
 
 ```html
 <script setup>
