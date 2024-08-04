@@ -9,33 +9,42 @@ categories: ["Programming", "JavaScript", "Vue"]
 
 本文是前端工作坊的教學文件，介紹如何使用 Vue 3 和 Express 實作內容管理系統，並搭配 Firebase 實現持久化和認證。
 
-## 建立 Firebase 專案
+## 前置作業
+
+### 建立 Firebase 專案
 
 首先，在 [Firebase](https://console.firebase.google.com/u/0/) 建立一個專案。
 
 - 名稱：simple-cms
+
+### 建立應用程式
 
 在專案中，註冊一個應用程式。
 
 - 平台：網頁
 - 名稱：simple-cms
 
-## 建立 Firestore 資料庫
+### 建立 Firestore 資料庫
 
 在 [Cloud Firestore](https://console.firebase.google.com/u/0/project/simple-cms-e9c56/firestore) 頁面，建立一個資料庫。
 
 - 位置：Taiwan
 - 安全性規則：以正式版模式啟動
 
-為了讓後端程式存取資料庫，需要創建一個憑證。點選「專案設定」、「服務帳戶」，然後點選「產生新的私密金鑰」，將憑證下載到專案目錄中。
+### 建立集合
 
-```bash
-mv ~/Downloads/simple-cms-e9c56-firebase-adminsdk.json serviceAccountKey.json
-```
-
-最後，在資料庫中，建立一個集合。
+在資料庫中，建立一個集合。
 
 - ID：customers
+
+### 建立金鑰
+
+最後，為了讓後端程式存取資料庫，需要創建一個憑證。點選「專案設定」、「服務帳戶」，然後點選「產生新的私密金鑰」，將憑證下載到專案目錄中。
+
+```bash
+cd simple-cms-api
+mv ~/Downloads/simple-cms-e9c56-firebase-adminsdk.json serviceAccountKey.json
+```
 
 ## 開啟專案
 
@@ -46,16 +55,9 @@ cd simple-cms-api
 code .
 ```
 
-## 建立資料庫連線
+## 建立連線
 
 > Ref: <https://firebase.google.com/docs/firestore/quickstart?hl=zh-tw#node.js>
-
-修改 `.gitignore` 檔。
-
-```bash
-/node_modules
-serviceAccountKey.json
-```
 
 安裝依賴套件。
 
@@ -63,7 +65,7 @@ serviceAccountKey.json
 npm install firebase-admin
 ```
 
-新增 `firebase.js` 檔，初始化 Firebase 實例。
+新增 `firebase.js` 檔，初始化 Firebase 實例，並且新增一筆文件。
 
 ```js
 const { initializeApp, cert } = require('firebase-admin/app');
@@ -99,6 +101,21 @@ node firebase.js
 
 ```bash
 Document written with ID:  aJsDiZhJYmoRX01dRpH8
+```
+
+修改 `.gitignore` 檔。
+
+```bash
+/node_modules
+serviceAccountKey.json
+```
+
+提交修改。
+
+```bash
+git add .
+git commit -m "Add firebase"
+git push
 ```
 
 ## 實現持久化
