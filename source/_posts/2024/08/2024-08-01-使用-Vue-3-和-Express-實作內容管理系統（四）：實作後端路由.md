@@ -238,6 +238,44 @@ git push
 
 使用 Postman 測試 API。
 
+## 轉換為 ES 模組
+
+> Ref: <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules>
+
+### 認識 ES 模組
+
+ES 模組（ECMAScript Modules，ESM）是 JavaScript 的官方標準模組系統，與 CommonJS 不同，ES 模組提供更清晰、靈活的語法來管理模組。隨著 Node 和瀏覽器對 ES 模組支援度的提升，轉換為 ES 模組有助於保持程式碼的現代性和兼容性。除此之外，ES 模組使用 `import` 和 `export` 語法，比 CommonJS 的 `require` 和 `module.exports` 更加簡潔明了。
+
+### 重構
+
+修改 `package.json` 檔。
+
+```json
+{
+  "type": "module",
+}
+```
+
+將 `eslint.config.mjs` 檔重新命名為 `eslint.config.js` 檔。
+
+```bash
+mv eslint.config.mjs eslint.config.js
+```
+
+修改 `index.js` 檔，使用 `import` 語法引入依賴。
+
+```js
+import express from 'express';
+```
+
+提交修改。
+
+```bash
+git add .
+git commit -m "Use es modules instead of commonjs"
+git push
+```
+
 ## 程式碼
 
 - [simple-cms-ui](https://github.com/memochou1993/simple-cms-ui)
