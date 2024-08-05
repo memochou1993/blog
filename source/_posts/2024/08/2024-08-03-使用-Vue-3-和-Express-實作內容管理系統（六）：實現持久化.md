@@ -68,12 +68,13 @@ npm install firebase-admin
 新增 `firebase.js` 檔，初始化 Firebase 實例，並且新增一筆文件。
 
 ```js
-const { initializeApp, cert } = require('firebase-admin/app');
-const { getFirestore } = require('firebase-admin/firestore');
-const serviceAccount = require('./serviceAccountKey.json');
+import { cert, initializeApp } from 'firebase-admin/app';
+import { getFirestore } from 'firebase-admin/firestore';
+
+const { pathname: serviceAccountKeyPath } = new URL('./serviceAccountKey.json', import.meta.url);
 
 initializeApp({
-  credential: cert(serviceAccount),
+  credential: cert(serviceAccountKeyPath),
 });
 
 const db = getFirestore();
