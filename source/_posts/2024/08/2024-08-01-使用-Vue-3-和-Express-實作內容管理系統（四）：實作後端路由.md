@@ -178,7 +178,6 @@ app.post('/api/customers', (req, res) => {
     name: req.body.name,
   };
 
-  // 建立客戶
   customers.push(customer);
 
   res.status(201).json(customer);
@@ -194,7 +193,6 @@ app.put('/api/customers/:id', (req, res) => {
     });
   }
 
-  // 更新客戶
   customer.name = req.body.name;
 
   res.json(customer);
@@ -210,7 +208,6 @@ app.delete('/api/customers/:id', (req, res) => {
     });
   }
 
-  // 刪除客戶
   customers.splice(index, 1);
 
   res.status(204).send();

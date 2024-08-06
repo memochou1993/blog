@@ -44,67 +44,77 @@ npm install firebase firebase-admin
 
 ```env
 /node_modules
-/.vscode
 serviceAccountKey.json
 ```
 
-## 操作資料庫
+## 實作
 
-新增 `index.mjs` 檔。
+新增 `collection.js` 檔。
 
 ```js
 import { cert, initializeApp } from 'firebase-admin/app';
 import { getFirestore } from 'firebase-admin/firestore';
 import serviceAccount from './serviceAccountKey.json' assert { type: 'json' };
 
-const app = initializeApp({
+initializeApp({
   credential: cert(serviceAccount),
 });
 
-class Storage {
+class Collection {
   constructor(collection) {
-    const db = getFirestore(app);
+    const db = getFirestore();
     this.collection = db.collection(collection);
   }
 
-  // 取得資料筆數
-  async getCount() {
-    return (await this.collection.count().get()).data().count;
+  async getItem(path) {
+    const snapshot = await this.collection.doc(path).get();
+    return snapshot.data();
   }
 
-  // 設置資料
-  async setItem(key, value) {
-    await this.collection.doc(key).set(value);
-  }
-
-  // 取得特定資料
-  async getItem(key) {
-    return (await this.collection.doc(key).get()).data();
-  }
-
-  // 取得所有資料
-  async fetchItems() {
-    const items = {};
+  async getItems() {
     const snapshot = await this.collection.get();
-    snapshot.forEach((item) => {
-      items[item.id] = item.data();
-    });
+    const items = snapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
     return items;
   }
 
-  // 刪除資料
+  async addItem(value) {
+    const docRef = await this.collection.add(value);
+    return docRef.id;
+  }
+
+  async updateItem(key, value) {
+    return await this.collection.doc(key).set(value);
+  }
+
   async removeItem(key) {
-    await this.collection.doc(key).delete();
+    return await this.collection.doc(key).delete();
+  }
+
+  async getCount() {
+    return (await this.collection.count().get()).data().count;
   }
 }
 
-const storage = new Storage('links');
+export default Collection;
+```
+
+建立 `index.js` 檔。
+
+```js
+import Collection from './collection.js';
+
+const collection = new Collection('customers');
 
 (async () => {
-  console.log(await storage.getCount());
-  await storage.setItem('0', { foo: 'bar' });
-  console.log(await storage.fetchItems());
-  await storage.removeItem('0');
+  console.log('addItem', await collection.addItem({ name: 'Alice' }));
+  console.log('updateItem', await collection.updateItem('HdSVo6LxuBlizdgY3jTd', { name: 'Bob' }));
+  console.log('getItem', await collection.getItem('0vBJGiONCUaU9JZpShAA'));
+  console.log('getItems', await collection.getItems());
+  console.log('removeItem', await collection.removeItem('0vBJGiONCUaU9JZpShAA'));
+  console.log('getCount:', await collection.getCount());
 })();
 ```
 
