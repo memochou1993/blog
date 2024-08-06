@@ -65,7 +65,7 @@ code .
 npm install firebase-admin
 ```
 
-新增 `firebase.js` 檔，初始化 Firebase 實例，並且新增一筆文件。
+新增 `collection.js` 檔，初始化 Firebase 實例，並且新增一筆文件。
 
 ```js
 import { cert, initializeApp } from 'firebase-admin/app';
@@ -95,7 +95,7 @@ run();
 執行腳本。
 
 ```bash
-node firebase.js
+node collection.js
 ```
 
 輸出如下：
@@ -119,9 +119,165 @@ git commit -m "Add firebase"
 git push
 ```
 
+### 重構
+
+將 `firebase.js` 檔重新命名為 `collection.js` 檔。
+
+```js
+import { cert, initializeApp } from 'firebase-admin/app';
+import { getFirestore } from 'firebase-admin/firestore';
+
+const { pathname: serviceAccountKeyPath } = new URL('./serviceAccountKey.json', import.meta.url);
+
+initializeApp({
+  credential: cert(serviceAccountKeyPath),
+});
+
+class Collection {
+  constructor(collection) {
+    const db = getFirestore();
+    this.collection = db.collection(collection);
+  }
+
+  async getItem(path) {
+    const snapshot = await this.collection.doc(path).get();
+    return snapshot.data();
+  }
+
+  async getItems() {
+    const snapshot = await this.collection.get();
+    const items = snapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+    return items;
+  }
+
+  async addItem(value) {
+    const docRef = await this.collection.add(value);
+    return docRef.id;
+  }
+
+  async updateItem(key, value) {
+    return await this.collection.doc(key).set(value);
+  }
+
+  async removeItem(key) {
+    return await this.collection.doc(key).delete();
+  }
+
+  async getCount() {
+    return (await this.collection.count().get()).data().count;
+  }
+}
+
+export default Collection;
+```
+
+提交修改。
+
+```bash
+git add .
+git commit -m "Implement firebase collection"
+git push
+```
+
 ## 實現持久化
 
-TODO
+修改 `index.js` 檔。
+
+```js
+import express from 'express';
+import Collection from './collection.js';
+const app = express();
+const port = 3000;
+
+// 啟用 JSON 解析
+app.use(express.json());
+
+// 實例化集合
+const collection = new Collection('customers');
+
+// 測試端點
+app.get('/api', (req, res) => {
+  res.json({ message: 'Hello, World!' });
+});
+
+// 取得所有客戶端點
+app.get('/api/customers', async (req, res) => {
+  const customers = await collection.getItems();
+  res.json(customers);
+});
+
+// 取得單個客戶端點
+app.get('/api/customers/:id', async (req, res) => {
+  const id = req.params.id;
+  const customer = await collection.getItem(id);
+  if (!customer) {
+    return res.status(404).json({
+      message: 'Customer not found',
+    });
+  }
+
+  res.json(customer);
+});
+
+// 建立客戶端點
+app.post('/api/customers', async (req, res) => {
+  const customer = {
+    name: req.body.name,
+  };
+
+  const id = await collection.addItem(customer);
+  customer.id = id;
+
+  res.status(201).json(customer);
+});
+
+// 更新客戶端點
+app.put('/api/customers/:id', async (req, res) => {
+  const id = req.params.id;
+  const customer = await collection.getItem(id);
+  if (!customer) {
+    return res.status(404).json({
+      message: 'Customer not found',
+    });
+  }
+
+  customer.name = req.body.name;
+  await collection.updateItem(id, customer);
+
+  res.json(customer);
+});
+
+// 刪除客戶端點
+app.delete('/api/customers/:id', async (req, res) => {
+  const id = req.params.id;
+  const customer = await collection.getItem(id);
+  if (!customer) {
+    return res.status(404).json({
+      message: 'Customer not found',
+    });
+  }
+
+  await collection.removeItem(id);
+
+  res.status(204).send();
+});
+
+// 啟動伺服器
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
+});
+```
+
+提交修改。
+
+```bash
+git add .
+git commit -m "Implement persistence"
+git push
+```
 
 ## 程式碼
 
