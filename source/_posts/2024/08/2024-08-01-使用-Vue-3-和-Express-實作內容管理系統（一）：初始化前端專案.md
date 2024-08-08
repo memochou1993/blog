@@ -112,9 +112,31 @@ git push -u origin main
 
 ```bash
 npm init @eslint/config@latest
+
+✔ How would you like to use ESLint? · problems
+✔ What type of modules does your project use? · esm
+✔ Which framework does your project use? · vue
+✔ Does your project use TypeScript? · javascript
+✔ Where does your code run? · browser
 ```
 
-修改生成的 `eslint.config.js` 檔，改為 `flat/recommended` 設定，並加上一些常用的檢查規則。
+生成的 `eslint.config.js` 檔如下：
+
+```js
+import globals from "globals";
+import pluginJs from "@eslint/js";
+import pluginVue from "eslint-plugin-vue";
+
+
+export default [
+  {files: ["**/*.{js,mjs,cjs,vue}"]},
+  {languageOptions: { globals: globals.browser }},
+  pluginJs.configs.recommended,
+  ...pluginVue.configs["flat/essential"],
+];
+```
+
+修改 `eslint.config.js` 檔，改為 `flat/recommended` 設定，並加上一些常用的檢查規則。
 
 ```js
 // ...

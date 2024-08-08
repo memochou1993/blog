@@ -105,7 +105,31 @@ git push -u origin main
 npm init @eslint/config@latest
 ```
 
-修改生成的 `eslint.config.js` 檔，加上一些常用的檢查規則。
+```bash
+npm init @eslint/config@latest
+
+✔ How would you like to use ESLint? · problems
+✔ What type of modules does your project use? · commonjs
+✔ Which framework does your project use? · none
+✔ Does your project use TypeScript? · javascript
+✔ Where does your code run? · node
+```
+
+生成的 `eslint.config.mjs` 檔如下：
+
+```js
+import globals from "globals";
+import pluginJs from "@eslint/js";
+
+
+export default [
+  {files: ["**/*.js"], languageOptions: {sourceType: "commonjs"}},
+  {languageOptions: { globals: globals.node }},
+  pluginJs.configs.recommended,
+];
+```
+
+修改 `eslint.config.mjs` 檔，加上一些常用的檢查規則。
 
 ```js
 // ...

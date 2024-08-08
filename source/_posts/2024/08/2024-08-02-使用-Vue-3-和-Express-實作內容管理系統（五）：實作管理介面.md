@@ -20,6 +20,8 @@ code .
 
 ## 設置路徑別名
 
+> Ref: <https://github.com/vuejs/create-vue/tree/main/template/base>
+
 在開發過程中，為了避免使用相對路徑引入元件時查找路徑的繁瑣，可以改成透過路徑別名來使用絕對路徑引入元件。
 
 ```js
