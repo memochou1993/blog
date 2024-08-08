@@ -222,7 +222,7 @@ app.listen(port, () => {
 啟動伺服器。
 
 ```bash
-node index.js
+npm run dev
 ```
 
 提交修改。
