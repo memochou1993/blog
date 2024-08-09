@@ -103,10 +103,6 @@ git push -u origin main
 
 ```bash
 npm init @eslint/config@latest
-```
-
-```bash
-npm init @eslint/config@latest
 
 ✔ How would you like to use ESLint? · problems
 ✔ What type of modules does your project use? · commonjs

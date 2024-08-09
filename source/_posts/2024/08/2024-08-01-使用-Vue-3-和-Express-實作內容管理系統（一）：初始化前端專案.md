@@ -270,7 +270,7 @@ git push
 使用 npm 安裝依賴套件。
 
 ```bash
-npm i bootstrap @popperjs/core
+npm install bootstrap @popperjs/core
 npm install sass -D
 ```
 
@@ -328,7 +328,7 @@ rule. To opt into the new behavior, wrap the declaration in `& {}`.
 使用 npm 將 Sass 套件降級。
 
 ```bash
-npm i sass@1.77.6 -D
+npm install sass@1.77.6 -D
 ```
 
 提交修改。
