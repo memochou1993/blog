@@ -1,5 +1,5 @@
 ---
-title: 使用 Vue 3 和 Express 實作內容管理系統（五）：實作管理介面
+title: 使用 Vue 3 和 Express 實作內容管理系統（五）：實作前端管理介面
 date: 2024-08-02 23:43:45
 tags: ["Programming", "JavaScript", "Vue", "Bootstrap", "Node", "Express", "Firebase", "Firestore", "CMS"]
 categories: ["Programming", "JavaScript", "Vue"]
