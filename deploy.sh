@@ -1,34 +1,26 @@
 #!/bin/bash
 
-echo "Enter your commit message:"
+read -p "Enter your commit message: " commit_msg
+echo "Your commit message is: $commit_msg"
 
-read input[1]
+read -p "Are you sure? (yes/no): " confirmation
 
-echo "Your commit message is:"
-
-echo ${input[1]}
-
-echo "Are you sure?"
-
-read input[2]
-
-function confirm()
-{
-    for option in "Yes" "yes" "Y" "y"
-    do
-        [[ $1 == ${option} ]] && confirm=true || confirm=false
-    done
+function confirm() {
+    case "$1" in
+        yes|y|Yes|Y) return 0 ;;
+        *) return 1 ;;
+    esac
 }
 
-confirm ${input[2]}
-
-if [ ${confirm} == true ]
-then
-    git add . && \
-    git commit -m "${input[1]}" && \
-    git push && \
-    git checkout deployment && \
-    git rebase master && \
-    npm run hexo -- clean && \
-    npm run hexo -- deploy --generate
+if confirm "$confirmation"; then
+    git add . &&
+    git commit -m "$commit_msg" &&
+    git push &&
+    git checkout deployment &&
+    git rebase master &&
+    npm run hexo -- clean &&
+    npm run hexo -- deploy --generate &&
+    git checkout master
+else
+    echo "Deploy aborted."
 fi
