@@ -279,6 +279,41 @@ git commit -m "Implement persistence"
 git push
 ```
 
+## 設定 CORS
+
+> Ref: <https://developer.mozilla.org/zh-TW/docs/Web/HTTP/CORS>
+
+### 認識 CORS
+
+跨來源資源共享（CORS）是一種基於 HTTP 標頭的機制，允許伺服器指示瀏覽器允許從除其自身以外的任何來源（域名、協定或通訊埠）加載資源。CORS 還依賴於瀏覽器向承載跨來源資源的伺服器發出「預檢」請求，以檢查伺服器是否允許實際請求。在預檢請求中，瀏覽器會發送標頭，指示將在實際請求中使用的 HTTP 方法和標頭。
+
+### 啟用 CORS
+
+安裝依賴套件。
+
+```bash
+npm install cors
+```
+
+修改 `index.js` 檔。
+
+```js
+import cors from 'cors';
+
+// ...
+
+// 添加 CORS 中介層
+app.use(cors());
+```
+
+提交修改。
+
+```bash
+git add .
+git commit -m "Add cors"
+git push
+```
+
 ## 程式碼
 
 - [simple-cms-ui](https://github.com/memochou1993/simple-cms-ui)

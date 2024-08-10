@@ -46,7 +46,7 @@ const validateForm = () => {
   return false;
 };
 
-// 暴露方法給父層使用
+// 暴露屬性
 defineExpose({
   validateForm,
 });
