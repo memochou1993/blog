@@ -58,7 +58,7 @@ cat ~/.ssh/id_rsa.pub
 npm create vite@latest simple-cms-ui -- --template vue
 ```
 
-進入專案。
+進入資料夾。
 
 ```bash
 cd simple-cms-ui
