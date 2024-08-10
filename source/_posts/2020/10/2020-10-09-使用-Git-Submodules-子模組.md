@@ -2,7 +2,7 @@
 title: 使用 Git Submodules 子模組
 date: 2020-10-09 23:04:05
 tags: ["Version Control", "Git"]
-categories: ["Version Control"]
+categories: ["Version Control", "Git"]
 ---
 
 ## 指令
