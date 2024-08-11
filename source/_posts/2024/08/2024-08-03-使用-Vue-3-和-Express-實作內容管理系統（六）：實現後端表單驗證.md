@@ -23,9 +23,9 @@ code .
 修改 `index.js` 檔，為建立客戶端點新增欄位必填檢查。
 
 ```js
-app.post('/api/customers', async (req, res) => {
+app.post('/api/customers', (req, res) => {
   if (!req.body.name) {
-    return res.status(400).json({
+    return res.status(422).json({
       message: 'Name is required',
     });
   }
@@ -37,9 +37,9 @@ app.post('/api/customers', async (req, res) => {
 修改 `index.js` 檔，為更新客戶端點新增欄位必填檢查。
 
 ```js
-app.put('/api/customers/:id', async (req, res) => {
+app.put('/api/customers/:id', (req, res) => {
   if (!req.body.name) {
-    return res.status(400).json({
+    return res.status(422).json({
       message: 'Name is required',
     });
   }
@@ -61,9 +61,13 @@ npm install express-validator
 修改 `index.js` 檔，為建立客戶端點新增欄位必填和類型檢查。
 
 ```js
+import { body, validationResult } from 'express-validator';
+
+// ...
+
 app.post('/api/customers', [
   body('name').notEmpty().withMessage('Name is required').isString().withMessage('Name must be a string'),
-], async (req, res) => {
+], (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(422).json(errors);
@@ -76,9 +80,13 @@ app.post('/api/customers', [
 修改 `index.js` 檔，為更新客戶端點新增欄位必填和類型檢查。
 
 ```js
+import { body, validationResult } from 'express-validator';
+
+// ...
+
 app.put('/api/customers/:id', [
   body('name').notEmpty().withMessage('Name is required').isString().withMessage('Name must be a string'),
-], async (req, res) => {
+], (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(422).json(errors);
