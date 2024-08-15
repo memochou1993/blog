@@ -38,12 +38,8 @@ const validateField = (e) => {
 
 // 驗證表單
 const validateForm = () => {
-  if (form.value.checkValidity()) {
-    form.value.classList.remove('was-validated');
-    return true;
-  }
   form.value.classList.add('was-validated');
-  return false;
+  return form.value.checkValidity();
 };
 
 // 暴露屬性
