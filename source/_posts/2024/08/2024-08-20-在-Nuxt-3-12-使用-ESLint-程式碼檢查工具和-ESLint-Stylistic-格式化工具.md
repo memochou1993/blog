@@ -44,7 +44,25 @@ export default createConfigForNuxt({
       semi: true,
     },
   },
-});
+})
+  .override('nuxt/javascript', {
+    rules: {
+      'curly': ['error', 'all'],
+      'dot-notation': 'error',
+      'no-console': ['warn', { allow: ['warn', 'error', 'debug'] }],
+      'no-lonely-if': 'error',
+      'no-useless-rename': 'error',
+      'object-shorthand': 'error',
+      'prefer-const': ['error', { destructuring: 'any', ignoreReadBeforeAssign: false }],
+      'require-await': 'error',
+      'sort-imports': ['error', { ignoreDeclarationSort: true }],
+    },
+  })
+  .override('nuxt/typescript/rules', {
+    rules: {
+      '@typescript-eslint/ban-ts-comment': 0,
+    },
+  });
 ```
 
 新增 `.vscode/settings.json` 檔，添加自動格式化的設定。
@@ -81,3 +99,4 @@ npm run lint
 ## 參考資料
 
 - [Nuxt ESLint](https://eslint.nuxt.com/)
+- [Nuxt](https://github.com/nuxt/nuxt/blob/main/eslint.config.mjs)

@@ -20,10 +20,30 @@ cd nuxt-app
 npm i
 ```
 
-安裝 Vuetify 框架。
+安裝 Vuetify 框架和 MDI 字型。
 
 ```bash
-npm i -D vuetify vite-plugin-vuetify sass
+npm i vuetify vite-plugin-vuetify
+```
+
+安裝 Sass 預處理器。
+
+```bash
+npm i sass -D
+```
+
+修改 `nuxt.config.js` 檔。
+
+```js
+// https://nuxt.com/docs/api/configuration/nuxt-config
+export default defineNuxtConfig({
+  devtools: {
+    enabled: true,
+  },
+  build: {
+    transpile: ['vuetify'],
+  },
+});
 ```
 
 新增 `plugins/vuetify.js` 檔。
@@ -45,20 +65,6 @@ export default defineNuxtPlugin((nuxtApp) => {
 });
 ```
 
-修改 `nuxt.config.js` 檔。
-
-```js
-// https://nuxt.com/docs/api/configuration/nuxt-config
-export default defineNuxtConfig({
-  devtools: {
-    enabled: true,
-  },
-  build: {
-    transpile: ['vuetify'],
-  },
-});
-```
-
 安裝 MDI 字型。
 
 ```bash
@@ -68,13 +74,13 @@ npm i @mdi/font
 修改 `nuxt.config.js` 檔。
 
 ```js
-import {defineNuxtConfig} from 'nuxt'
+import { defineNuxtConfig } from 'nuxt'
 
 export default defineNuxtConfig({
-    css: [
-        // ...
-        '@mdi/font/css/materialdesignicons.min.css'
-    ],
+  css: [
+    // ...
+    '@mdi/font/css/materialdesignicons.min.css'
+  ],
 })
 ```
 
