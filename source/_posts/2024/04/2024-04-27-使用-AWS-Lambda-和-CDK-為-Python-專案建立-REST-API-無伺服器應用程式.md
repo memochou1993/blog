@@ -54,8 +54,8 @@ poetry init
 安裝依賴套件。
 
 ```bash
-poetry add aws-cdk-lib python-dotenv ruff
-poetry add pytest --dev
+poetry add aws-cdk-lib python-dotenv
+poetry add ruff pytest --dev
 ```
 
 啟動虛擬環境。

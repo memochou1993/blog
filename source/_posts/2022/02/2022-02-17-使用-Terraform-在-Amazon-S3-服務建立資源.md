@@ -40,8 +40,8 @@ provider "aws" {
 }
 
 # 建立一個儲存貯體
-resource "aws_s3_bucket" "xxx-playground-s3-test" {
-  bucket = "xxx-playground-s3-test"
+resource "aws_s3_bucket" "playground-s3-test" {
+  bucket = "playground-s3-test"
 }
 ```
 

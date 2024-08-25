@@ -9,7 +9,7 @@ categories: ["Programming", "Python", "Others"]
 
 pipx 是用來安裝 CLI 和確保依賴隔離的工具；而 Poetry 則是用來管理專案的依賴套件，就像 npm 一樣。
 
-## 做法
+## 前置作業
 
 安裝 `pipx` 指令。
 
@@ -68,7 +68,7 @@ async def root():
 啟動網頁伺服器。
 
 ```bash
-uvicorn main:app --reload --port 8001
+uvicorn main:app --reload --port 8000
 ```
 
 ## 清理
