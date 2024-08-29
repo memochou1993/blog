@@ -223,7 +223,14 @@ app.get('/api/customers/:id', async (req, res) => {
 });
 
 // 建立客戶端點
-app.post('/api/customers', async (req, res) => {
+app.post('/api/customers', [
+  body('name').notEmpty().withMessage('Name is required').isString().withMessage('Name must be a string'),
+], async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json(errors);
+  }
+
   const customer = {
     name: req.body.name,
   };
@@ -235,7 +242,14 @@ app.post('/api/customers', async (req, res) => {
 });
 
 // 更新客戶端點
-app.put('/api/customers/:id', async (req, res) => {
+app.put('/api/customers/:id', [
+  body('name').notEmpty().withMessage('Name is required').isString().withMessage('Name must be a string'),
+], async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json(errors);
+  }
+
   const id = req.params.id;
   const customer = await collection.getItem(id);
   if (!customer) {

@@ -128,7 +128,7 @@ const deleteCustomer = (id) => {
 
 ### 修改刪除功能
 
-修改 `CustomerForm.vue` 檔，重寫 `deleteCustomer` 方法，改為呼叫後端 API 刪除真實資料。
+修改 `CustomerListView.vue` 檔，改寫 `deleteCustomer` 方法，改為呼叫後端 API 刪除真實資料。
 
 ```js
 const deleteCustomer = async (id) => {
