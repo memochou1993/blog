@@ -101,6 +101,10 @@ document.querySelector('#app').innerHTML = `
 npm run dev
 ```
 
+## 程式碼
+
+- [markdown-js-example](https://github.com/memochou1993/markdown-js-example)
+
 ## 參考資料
 
 - [markedjs/marked](https://github.com/markedjs/marked)
