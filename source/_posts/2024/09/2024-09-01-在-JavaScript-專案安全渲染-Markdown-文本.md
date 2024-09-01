@@ -1,8 +1,8 @@
 ---
 title: 在 JavaScript 專案安全渲染 Markdown 文本
 date: 2024-09-01 22:03:05
-tags:
-categories:
+tags: ["Programming", "JavaScript", "Markdown"]
+categories: ["Programming", "JavaScript", "Others"]
 ---
 
 ## 建立專案
