@@ -5,7 +5,17 @@ tags: ["Programming", "JavaScript", "Nuxt", "Supabase"]
 categories: ["Programming", "JavaScript", "Nuxt"]
 ---
 
-## 做法
+## 前置作業
+
+首先，到 [Supabase](https://supabase.com/) 建立一個新專案，並取得 API URL 和 API 金鑰。
+
+## 建立專案
+
+建立專案。
+
+```bash
+npx nuxi@latest init supabase-auth-nuxt
+```
 
 安裝 Supabase 的 Nuxt 模組。
 
@@ -16,75 +26,147 @@ npx nuxi@latest module add supabase
 修改 `.env` 檔。
 
 ```bash
-NUXT_PUBLIC_SUPABASE_URL=https://example.supabase.co
-NUXT_PUBLIC_SUPABASE_KEY=<your_key>
+NUXT_PUBLIC_SUPABASE_URL=<your_supabase_url>
+NUXT_PUBLIC_SUPABASE_KEY=<your_supabase_key>
 ```
 
 修改 `nuxt.config.ts` 檔。
 
 ```js
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/supabase'],
+  modules: [
+    '@nuxtjs/supabase',
+  ],
   supabase: {
+    // 自行實作中介層
     redirect: false,
   },
 });
 ```
 
-新增 `composables/useAuth.js` 檔。
+## 實作頁面
 
-```js
-export function useAuth() {
-  const client = useSupabaseClient();
-  const user = useSupabaseUser();
+修改 `app.vue` 檔。
 
-  const signIn = ({
-    email,
-    password,
-  }) => client.auth.signInWithPassword({
-    email,
-    password,
-  });
-
-  const signOut = () => client.auth.signOut();
-
-  const signUp = ({
-    email,
-    password,
-    fullName,
-  }) => client.auth.signUp({
-    email,
-    password,
-    options: {
-      data: {
-        full_name: fullName,
-      },
-      emailRedirectTo: 'http://localhost:3000',
-    },
-  });
-
-  return {
-    user,
-    signIn,
-    signOut,
-    signUp,
-  };
-};
+```html
+<template>
+  <div>
+    <NuxtPage />
+  </div>
+</template>
 ```
+
+新增 `pages/sign-in.vue` 檔。
+
+```html
+<script setup>
+const supabase = useSupabaseClient();
+const router = useRouter();
+
+const state = reactive({
+  email: '',
+  password: '',
+});
+
+const signIn = async () => {
+  const { error } = await supabase.auth.signInWithPassword({
+    email: state.email,
+    password: state.password,
+  })
+  if (error) alert(error);
+  router.push('/');
+};
+</script>
+
+<template>
+  <form @submit.prevent="signIn">
+    <input v-model="state.email" type="email" />
+    <input v-model="state.password" type="password" />
+    <button type="submit">Sign In</button>
+    &nbsp;or
+    <NuxtLink to="/sign-up">Sign Up</NuxtLink>
+  </form>
+</template>
+```
+
+新增 `pages/sign-up.vue` 檔。
+
+```html
+<script setup>
+const supabase = useSupabaseClient();
+
+const state = reactive({
+  email: '',
+  password: '',
+});
+
+const signUp = async () => {
+  const { error } = await supabase.auth.signUp({
+    email: state.email,
+    password: state.password,
+  });
+  if (error) alert(error);
+};
+</script>
+
+<template>
+  <form @submit.prevent="signUp">
+    <input v-model="state.email" type="email" />
+    <input v-model="state.password" type="password" />
+    <button type="submit">Sign Up</button>
+    &nbsp;or
+    <NuxtLink to="/sign-in">Sign In</NuxtLink>
+  </form>
+</template>
+```
+
+新增 `pages/sign-out.vue` 檔。
+
+```html
+<script setup>
+const supabase = useSupabaseClient();
+const router = useRouter();
+
+await supabase.auth.signOut();
+router.push('/sign-in');
+</script>
+
+<template>
+  <div />
+</template>
+```
+
+新增 `pages/index.vue` 檔。
+
+```html
+<script setup>
+const user = useSupabaseUser();
+
+console.log(user);
+</script>
+
+<template>
+  <NuxtLink to="/sign-out">
+    Sign Out
+  </NuxtLink>
+</template>
+```
+
+## 實作中介層
 
 新增 `middleware/auth.global.js` 檔。
 
 ```js
 export default defineNuxtRouteMiddleware((to) => {
+  const user = useSupabaseUser();
   const router = useRouter();
-  const auth = useAuth();
 
   if (to.meta.middleware?.includes('guest')) {
     return null;
   }
 
-  if (!auth.user.value) {
-    return router.push({ name: 'sign-in' });
+  if (!user.value) {
+    return router.push('/sign-in');
   }
 
   return null;
@@ -94,246 +176,53 @@ export default defineNuxtRouteMiddleware((to) => {
 新增 `middleware/guest.js` 檔。
 
 ```js
-export default defineNuxtRouteMiddleware(() => {
-  const auth = useAuth();
+export default defineNuxtRouteMiddleware((to) => {
+  const user = useSupabaseUser();
+  const router = useRouter();
 
-  if (auth.user.value) {
-    return navigateTo({ name: 'index' });
+  if (user.value) {
+    return router.push('/');
   }
 
   return null;
 });
 ```
 
-新增 `pages/sign-in.vue` 檔。
+修改 `sign-in.vue` 檔。
 
-```html
-<script setup>
+```js
 definePageMeta({
   middleware: [
-    'guest',
+  'guest',
   ],
 });
 
-const auth = useAuth();
-const router = useRouter();
-
-const state = reactive({
-  isLoading: false,
-  formData: {
-    email: '',
-    password: '',
-  },
-});
-
-const signIn = async () => {
-  state.isLoading = true;
-  const { error } = await auth.signIn(state.formData);
-  if (error) {
-    // Handle error
-    alert(error);
-  }
-  state.isLoading = false;
-  await router.push({ name: 'index' });
-};
-</script>
-
-<template>
-  <v-main class="d-flex justify-center align-center">
-    <v-form @submit.prevent="signIn">
-      <v-card
-        color="grey-lighten-2"
-        :width="400"
-      >
-        <v-card-title class="text-center pa-4">
-          Nuxt App
-        </v-card-title>
-        <v-card-text class="py-0">
-          <div class="mb-3">
-            <span>
-              電子郵件
-            </span>
-            <v-text-field
-              v-model.trim="state.formData.email"
-              autofocus
-              density="compact"
-              hide-details
-              variant="outlined"
-            />
-          </div>
-          <div class="mb-3">
-            <span>
-              密碼
-            </span>
-            <v-text-field
-              v-model.trim="state.formData.password"
-              density="compact"
-              hide-details
-              type="password"
-              variant="outlined"
-            />
-          </div>
-          <span>
-            沒有帳號嗎？<NuxtLink :to="{ name: 'sign-up' }">註冊</NuxtLink>
-          </span>
-        </v-card-text>
-        <v-card-actions class="d-flex justify-center pa-4">
-          <v-btn
-            :loading="state.isLoading"
-            type="submit"
-            variant="flat"
-            class="text-none"
-          >
-            登入
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-form>
-  </v-main>
-</template>
+// ...
 ```
 
-新增 `pages/sign-up.vue` 檔。
+修改 `sign-up.vue` 檔。
 
-```html
-<script setup>
+```js
 definePageMeta({
   middleware: [
-    'guest',
+  'guest',
   ],
 });
 
-const auth = useAuth();
-const router = useRouter();
-
-const state = reactive({
-  isLoading: false,
-  formData: {
-    email: '',
-    fullName: '',
-    password: '',
-  },
-});
-
-const signUp = async () => {
-  state.isLoading = true;
-  const { error } = await auth.signUp(state.formData);
-  if (error) {
-    // Handle error
-    alert(error);
-  }
-  state.isLoading = false;
-  await router.push({ name: 'sign-in' });
-};
-</script>
-
-<template>
-  <v-main class="d-flex justify-center align-center">
-    <v-form @submit.prevent="signUp">
-      <v-card
-        color="grey-lighten-2"
-        :width="400"
-      >
-        <v-card-title class="text-center pa-4">
-          Nuxt App
-        </v-card-title>
-        <v-card-text class="py-0">
-          <div class="mb-3">
-            <span>
-              電子郵件
-            </span>
-            <v-text-field
-              v-model.trim="state.formData.email"
-              autofocus
-              density="compact"
-              hide-details
-              variant="outlined"
-            />
-          </div>
-          <div class="mb-3">
-            <span>
-              全名
-            </span>
-            <v-text-field
-              v-model.trim="state.formData.fullName"
-              density="compact"
-              hide-details
-              variant="outlined"
-            />
-          </div>
-          <div class="mb-3">
-            <span>
-              密碼
-            </span>
-            <v-text-field
-              v-model.trim="state.formData.password"
-              density="compact"
-              hide-details
-              type="password"
-              variant="outlined"
-            />
-          </div>
-          <span>
-            已經有帳號嗎？<NuxtLink :to="{ name: 'sign-in' }">登入</NuxtLink>
-          </span>
-        </v-card-text>
-        <v-card-actions class="d-flex justify-center pa-4">
-          <v-btn
-            :loading="state.isLoading"
-            type="submit"
-            variant="flat"
-            class="text-none"
-          >
-            註冊
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-form>
-  </v-main>
-</template>
+// ...
 ```
 
-新增 `pages/sign-out.vue` 檔。
+啟動本地伺服器。
 
-```html
-<script setup>
-const auth = useAuth();
-const router = useRouter();
-
-const signOut = async () => {
-  await auth.signOut();
-  router.push({ name: 'sign-in' });
-};
-
-signOut();
-</script>
-
-<template>
-  <v-main />
-</template>
+```bash
+npm run dev
 ```
 
-新增 `pages/index.vue` 檔。
-
-```html
-<script setup>
-const router = useRouter();
-</script>
-
-<template>
-  <v-main>
-    <v-container>
-      <v-btn @click="router.push({ name: 'sign-out' })">
-        登出
-      </v-btn>
-    </v-container>
-  </v-main>
-</template>
-```
+前往 <http://localhost:3000> 瀏覽。
 
 ## 程式碼
 
-- [supabase-nuxt-auth](https://github.com/memochou1993/supabase-nuxt-auth)
+- [supabase-auth-nuxt](https://github.com/memochou1993/supabase-auth-nuxt)
 
 ## 參考資料
 
