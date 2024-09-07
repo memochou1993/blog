@@ -324,13 +324,13 @@ git push
 
 ### 建立模組
 
-建立 `api` 資料夾。
+在 `src` 資料夾，建立 `api` 資料夾。
 
 ```bash
-mkdir api
+mkdir src/api
 ```
 
-在 `api` 資料夾，建立 `customer.js` 檔，將呼叫後端 API 的方法集中在此模組進行管理。
+在 `src/api` 資料夾，建立 `customer.js` 檔，將呼叫後端 API 的方法集中在此模組進行管理。
 
 ```js
 const list = async () => {
@@ -393,7 +393,7 @@ export {
 };
 ```
 
-在 `api` 資料夾，建立 `index.js` 檔，匯出 `customer` 模組。
+在 `src/api` 資料夾，建立 `index.js` 檔，匯出 `customer` 模組。
 
 ```js
 export * as customer from './customer';
