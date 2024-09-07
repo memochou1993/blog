@@ -755,7 +755,7 @@ export {
 };
 ```
 
-修改 `src/views/CustomerListView.vue` 檔，新增 JSDoc 註解以明確定義資料的類型，提升編輯器能夠產生提示的功能。
+修改 `src/views/CustomerListView.vue` 檔，新增 JSDoc 註解以明確定義資料的類型，讓編輯器能夠產生提示的功能。
 
 ```js
 // ...
