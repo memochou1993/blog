@@ -1,7 +1,6 @@
 ---
-title: 使用 Vue 3 和 Express 實作內容管理系統（十）：實作前端認證功能
-date: 2024-08-07 20:36:31
-date: 2024-08-06 00:17:22
+title: 使用 Vue 3 和 Express 實作內容管理系統（十一）：實作前端認證功能
+date: 2024-08-08 20:36:32
 tags: ["Programming", "JavaScript", "Vue", "Bootstrap", "Node", "Express", "Firebase", "Firestore", "CMS"]
 categories: ["Programming", "JavaScript", "Vue"]
 ---
@@ -46,16 +45,16 @@ const auth = getAuth(app);
 
 export const signUp = ({ email, password }) => createUserWithEmailAndPassword(auth, email, password);
 
-signUp({ email: 'test@example.com', password: 'password' });
+signUp({ email: 'test@example.com', password: 'secret' });
 ```
 
-執行腳本，確認是否有成功建立連線並且建立使用者。
+執行腳本，確認是否有成功建立連線並且註冊一個使用者。
 
 ```bash
 node src/firebase/auth.js
 ```
 
-### 重構
+### 建立模組
 
 新增 `src/firebase/app.js` 檔，初始化 Firebase 實例。
 
@@ -78,7 +77,7 @@ const app = initializeApp(firebaseConfig);
 export default app;
 ```
 
-修改 `src/firebase/auth.js` 檔，添加其他方法。
+修改 `src/firebase/auth.js` 檔，封裝並匯出認證的相關方法。
 
 ```js
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from 'firebase/auth';
@@ -575,3 +574,8 @@ git add .
 git commit -m "Add navigation guards"
 git push
 ```
+
+## 程式碼
+
+- [simple-cms-ui](https://github.com/memochou1993/simple-cms-ui)
+- [simple-cms-api](https://github.com/memochou1993/simple-cms-api)
