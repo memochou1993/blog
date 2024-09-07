@@ -181,30 +181,33 @@ defineExpose({
 </script>
 
 <template>
-  <form
-    ref="form"
-    class="border p-3"
-  >
-    <div class="mb-3">
-      <label
-        for="name"
-        class="form-label"
+  <div class="card">
+    <div class="card-body">
+      <form
+        ref="form"
       >
-        Name
-      </label>
-      <input
-        id="name"
-        v-model="formData.name"
-        type="text"
-        class="form-control"
-        required
-        @input="validateField"
-      >
-      <div class="invalid-feedback">
-        Please provide a valid name.
-      </div>
+        <div class="mb-3">
+          <label
+            for="name"
+            class="form-label"
+          >
+            Name
+          </label>
+          <input
+            id="name"
+            v-model="formData.name"
+            type="text"
+            class="form-control"
+            required
+            @input="validateField"
+          >
+          <div class="invalid-feedback">
+            Please provide a valid name.
+          </div>
+        </div>
+      </form>
     </div>
-  </form>
+  </div>
 </template>
 ```
 
