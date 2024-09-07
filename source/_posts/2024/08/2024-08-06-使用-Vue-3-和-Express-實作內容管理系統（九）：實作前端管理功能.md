@@ -670,6 +670,126 @@ git commit -m "Use axios instead of fetch"
 git push
 ```
 
+## 建立資料模型
+
+新增 `src/models/Customer.js` 檔，為客戶建立一個 `Customer` 類別。
+
+```js
+class Customer {
+  constructor({
+    id,
+    name,
+  }) {
+    this.id = id;
+    this.name = name;
+  }
+}
+
+export default Customer;
+```
+
+新增 `src/models/index.js` 檔。
+
+```js
+import Customer from './Customer';
+
+export {
+  Customer,
+};
+```
+
+修改 `src/api/customer.js` 檔，將後端返回的資料轉換為 `Customer` 實例。
+
+```js
+import { Customer } from '@/models';
+import axios from 'axios';
+
+const { VITE_API_URL } = import.meta.env;
+
+const client = axios.create({
+  baseURL: VITE_API_URL,
+});
+
+/**
+ * @returns {Promise<Customer[]>}
+ */
+const list = async () => {
+  const response = await client.get('/api/customers');
+  return response.data.map((customer) => new Customer(customer));
+};
+
+/**
+ * @returns {Promise<Customer>}
+ */
+const create = async (data) => {
+  const response = await client.post('/api/customers', data);
+  return new Customer(response.data);
+};
+
+/**
+ * @returns {Promise<Customer>}
+ */
+const get = async (id) => {
+  const response = await client.get(`/api/customers/${id}`);
+  return new Customer(response.data);
+};
+
+/**
+ * @returns {Promise<Customer>}
+ */
+const update = async (id, data) => {
+  const response = await client.put(`/api/customers/${id}`, data);
+  return new Customer(response.data);
+};
+
+const destroy = async (id) => {
+  await client.delete(`/api/customers/${id}`);
+};
+
+export {
+  create,
+  destroy,
+  get,
+  list,
+  update,
+};
+```
+
+修改 `src/views/CustomerListView.vue` 檔，新增 JSDoc 註解以明確定義資料的類型，提升編輯器能夠產生提示的功能。
+
+```js
+// ...
+
+const state = reactive({
+  /**
+   * @type {import('@/models').Customer[]}
+   */
+  customers: [],
+});
+
+// ...
+```
+
+修改 `src/components/CustomerForm.vue` 檔。
+
+```js
+/**
+ * @type {import('@/models').Customer}
+ */
+const formData = defineModel('formData', {
+  type: Object,
+  default: () => ({}),
+});
+```
+
+提交修改。
+
+```bash
+git add .
+git commit -m "Add data models"
+git push
+```
+
 ## 程式碼
 
 - [simple-cms-ui](https://github.com/memochou1993/simple-cms-ui)
