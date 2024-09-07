@@ -49,7 +49,7 @@ export const signUp = ({ email, password }) => createUserWithEmailAndPassword(au
 signUp({ email: 'test@example.com', password: 'password' });
 ```
 
-執行腳本。
+執行腳本，確認是否有成功建立連線並且建立使用者。
 
 ```bash
 node src/firebase/auth.js
@@ -142,7 +142,7 @@ const state = reactive({
 const submit = async () => {
   try {
     await auth.signUp(state.formData);
-    router.push({ name: 'sign-in' });
+    router.push({ name: 'home' });
   } catch (err) {
     alert(err);
   }
