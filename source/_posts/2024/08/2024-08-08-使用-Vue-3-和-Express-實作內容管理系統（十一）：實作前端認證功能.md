@@ -105,7 +105,7 @@ export const getCurrentUser = () => {
 };
 ```
 
-建立 `src/firebase/index.js` 檔，匯出 `auth` 模組。
+建立 `src/firebase/index.js` 檔，匯出模組。
 
 ```js
 export * as auth from './auth';
@@ -313,9 +313,10 @@ const submit = async () => {
 import { auth } from '@/firebase';
 import router from '@/router';
 
-auth.signOut();
-
-router.push({ name: 'sign-in' });
+(async () => {
+  await auth.signOut();
+  router.push({ name: 'sign-in' });
+})();
 </script>
 
 <template>
@@ -514,7 +515,7 @@ const router = createRouter({
       name: 'sign-out',
       component: () => import('@/views/SignOut.vue'),
       meta: {
-        requiresAuth: true,
+        requiresAuth: false,
       },
     },
     {

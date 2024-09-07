@@ -19,33 +19,49 @@ categories: ["Programming", "JavaScript", "Vue"]
 npm install morgan
 ```
 
-建立 `logging.js` 檔，實作日誌中介層。
+建立 `middleware` 資料夾。
+
+```bash
+mkdir middleware
+```
+
+建立 `middleware/logging.js` 檔，實作日誌中介層。
 
 ```js
 import fs from 'fs';
 import morgan from 'morgan';
 import path from 'path';
 
-const logStream = fs.createWriteStream(path.join(import.meta.dirname, 'access.log'), { flags: 'a' });
+const logStream = fs.createWriteStream(path.join(import.meta.dirname, '../access.log'), { flags: 'a' });
 
-const setupLogging = (toFile = false) => {
+const loggingMiddleware = (toFile = false) => {
   if (toFile) {
     return morgan('combined', { stream: logStream });
   }
   return morgan('dev');
 };
 
-export default setupLogging;
+export default loggingMiddleware;
+```
+
+建立 `middleware/index.js` 檔，匯出模組。
+
+```js
+import loggingMiddleware from './logging.js';
+
+export {
+  loggingMiddleware,
+};
 ```
 
 修改 `index.js` 檔，啟用日誌中介層。
 
 ```js
 // ...
-import setupLogging from './logging.js';
+import { loggingMiddleware } from './middleware/index.js';
 
 // 啟用日誌
-app.use(setupLogging(true));
+app.use(loggingMiddleware(true));
 
 // ...
 ```
@@ -60,6 +76,14 @@ curl http://localhost:3000/api
 
 ```bash
 ::1 - - [07/Sep/2024:17:58:28 +0000] "GET /api HTTP/1.1" 200 27 "-" "curl/8.4.0"
+```
+
+修改 `.gitignore` 檔。
+
+```bash
+/node_modules
+serviceAccountKey.json
+access.log
 ```
 
 提交修改。
