@@ -1,5 +1,5 @@
 ---
-title: 使用 Testify 為 Go 專案進行單元測試
+title: 在 Go 專案使用 Testify 進行單元測試
 date: 2020-12-01 15:50:08
 tags: ["Programming", "Go", "Testing"]
 categories: ["Programming", "Go", "Others"]
