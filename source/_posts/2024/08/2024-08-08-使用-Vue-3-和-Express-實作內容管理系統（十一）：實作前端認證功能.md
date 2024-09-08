@@ -54,7 +54,7 @@ signUp({ email: 'test@example.com', password: 'secret' });
 node src/firebase/auth.js
 ```
 
-### 建立模組
+### 建立認證模組
 
 新增 `src/firebase/app.js` 檔，初始化 Firebase 實例。
 

@@ -9,6 +9,15 @@ categories: ["Programming", "JavaScript", "Vue"]
 
 本文是前端工作坊的教學文件，介紹如何使用 Vue 3 和 Express 實作內容管理系統，並搭配 Firebase 實現持久化和認證。
 
+## 開啟專案
+
+開啟後端專案。
+
+```bash
+cd simple-cms-api
+code .
+```
+
 ## 安裝依賴套件
 
 > Ref: <https://github.com/expressjs/morgan>
