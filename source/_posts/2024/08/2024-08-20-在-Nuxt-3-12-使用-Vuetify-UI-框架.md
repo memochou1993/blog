@@ -166,6 +166,48 @@ npm run dev
 
 前往 <http://localhost:3000/about> 瀏覽。
 
+## SASS variables
+
+新增 `assets/vuetify.scss` 檔，以覆蓋 Vuetify 的 SASS 變數。
+
+```scss
+@use 'vuetify/settings' with (
+  $card-title-padding: 16px,
+  $card-text-padding: 16px,
+  $card-actions-padding: 16px,
+);
+```
+
+修改 `nuxt.config.js` 檔，將樣式檔的路徑寫進 `configFile` 欄位中。
+
+```js
+import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
+
+// https://nuxt.com/docs/api/configuration/nuxt-config
+export default defineNuxtConfig({
+  // ...
+  sourcemap: {
+    server: false,
+    client: false,
+  },
+  modules: [
+    '@pinia/nuxt',
+    (_options, nuxt) => {
+      nuxt.hooks.hook('vite:extendConfig', (config) => {
+        // @ts-expect-error
+        config.plugins.push(vuetify({
+          autoImport: true,
+          styles: {
+            configFile: '/assets/vuetify.scss',
+          },
+        }));
+      });
+    },
+  ],
+  // ...
+});
+```
+
 ## 參考資料
 
 - [Vuetify](https://vuetifyjs.com/en/getting-started/installation/#using-nuxt-3)
