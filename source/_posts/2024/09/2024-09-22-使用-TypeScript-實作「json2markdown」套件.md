@@ -595,20 +595,9 @@ dist
 
 ## 使用
 
-修改 `src/main.ts` 檔，透過 ES 模組使用套件。
-
-```ts
-import Converter from '~/Converter.ts';
-import './style.css';
-
-const markdown = Converter.toMarkdown({
-  title: 'Hello, World!',
-});
-
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `<pre>${markdown}</pre>`;
-```
-
 ### 透過 ES 模組使用
+
+修改 `src/main.ts` 檔，透過 ES 模組使用套件。
 
 ```js
 import { Converter } from '../dist';
