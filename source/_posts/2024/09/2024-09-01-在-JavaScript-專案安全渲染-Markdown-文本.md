@@ -10,7 +10,7 @@ categories: ["Programming", "JavaScript", "Others"]
 建立專案。
 
 ```bash
-npm create vite@latest markdown-js-example -- --template vue
+npm create vite@latest markdown-js-example -- --template vanilla
 ```
 
 ## 安裝依賴套件
@@ -21,6 +21,8 @@ npm create vite@latest markdown-js-example -- --template vue
 npm i marked dompurify
 npm i @types/dompurify -D
 ```
+
+## 實作
 
 建立 `utils` 資料夾。
 
@@ -99,6 +101,117 @@ document.querySelector('#app').innerHTML = `
 
 ```bash
 npm run dev
+```
+
+輸出如下：
+
+```html
+  <div>
+    <h2>Memo Chou</h2>
+<p>Hi there 🙋</p>
+<p>I'm Memo Chou, a creative developer passionate about Go, PHP, Rust and JavaScript.</p>
+<p>Any questions, or want to get involved, please get in touch.</p>
+<p><a rel="noopener noreferrer" target="_blank" title="" href="https://epoch.epoch.tw">Click me</a> for more details.</p>
+
+  </div>
+```
+
+### 程式碼區塊
+
+安裝依賴套件。
+
+```bash
+npm install marked-highlight highlight.js
+```
+
+修改 `utils/markdown-utils.js` 檔。
+
+```js
+import hljs from 'highlight.js';
+import { Marked } from 'marked';
+import { markedHighlight } from 'marked-highlight';
+import HtmlUtils from './html-utils';
+
+class MarkdownUtils {
+  /**
+   * Converts a markdown string to a safe HTML string.
+   */
+  static toSafeHtml(markdown) {
+    return HtmlUtils.sanitize(MarkdownUtils.toHtml(markdown), {
+      ADD_ATTR: ['target'],
+    });
+  }
+
+  /**
+   * Converts a markdown string to an HTML string.
+   */
+  static toHtml(markdown) {
+    const marked = new Marked(
+      markedHighlight({
+        langPrefix: 'lang-',
+        highlight(code, lang) {
+          const options = {
+            language: hljs.getLanguage(lang) ? lang : 'javascript',
+          };
+          return hljs.highlight(code, options).value;
+        },
+      }),
+    );
+    const renderer = {
+      link({ href, title, text }) {
+        return `<a href="${href}" title="${title || ''}" target="_blank" rel="noopener noreferrer">${text}</a>`;
+      },
+    };
+    return marked
+      .use({ renderer })
+      .parse(markdown);
+  }
+}
+
+export default MarkdownUtils;
+```
+
+修改 `style.css` 檔。
+
+```css
+@import 'highlight.js/styles/atom-one-dark.css';
+```
+
+修改 `main.js` 檔。
+
+```js
+import './style.css';
+import MarkdownUtils from './utils/markdown-utils.js';
+
+const text = `## Memo Chou\n
+Hi there 🙋\n
+I'm Memo Chou, a creative developer passionate about Go, PHP, Rust and JavaScript.\n
+Any questions, or want to get involved, please get in touch.\n
+[Click me](https://epoch.epoch.tw) for more details.\n
+\`\`\`javascript
+console.log('Hello, World!');
+\`\`\`\n
+`;
+
+document.querySelector('#app').innerHTML = `
+  <div>
+    ${MarkdownUtils.toSafeHtml(text)}
+  </div>
+`;
+```
+
+輸出如下：
+
+```html
+  <div>
+    <h2>Memo Chou</h2>
+<p>Hi there 🙋</p>
+<p>I'm Memo Chou, a creative developer passionate about Go, PHP, Rust and JavaScript.</p>
+<p>Any questions, or want to get involved, please get in touch.</p>
+<p><a rel="noopener noreferrer" target="_blank" title="" href="https://epoch.epoch.tw">Click me</a> for more details.</p>
+<pre><code class="lang-javascript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'Hello, World!'</span>);
+</code></pre>
+  </div>
 ```
 
 ## 程式碼
