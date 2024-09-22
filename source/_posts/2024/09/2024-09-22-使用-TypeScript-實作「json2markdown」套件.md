@@ -627,6 +627,14 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `<pre>${markdown}</p
 npm run dev
 ```
 
+輸出如下：
+
+```md
+# Title
+
+Hello, World!
+```
+
 ### 透過 UMD 模組使用
 
 修改 `index.html` 檔。
@@ -648,7 +656,7 @@ npm run dev
       const markdown = window.JSON2MD.Converter.toMarkdown({
         title: 'Hello, World!',
       });
-      console.log(markdown);
+      console.log(JSON.stringify(markdown));
     </script>
   </body>
 </html>
@@ -658,6 +666,12 @@ npm run dev
 
 ```bash
 npm run dev
+```
+
+輸出如下：
+
+```md
+"# Title\n\nHello, World!\n\n"
 ```
 
 ## 發布
