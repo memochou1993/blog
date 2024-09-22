@@ -1,7 +1,7 @@
 ---
 title: 使用 TypeScript 實作「Vuetify Validator」套件
 date: 2024-07-25 22:25:53
-tags: ["Programming", "JavaScript", "TypeScript", "Vite", "npm", "Vitest"]
+tags: ["Programming", "JavaScript", "TypeScript", "Vite", "npm", "Vitest", "Vuetify"]
 categories: ["Programming", "JavaScript", "TypeScript"]
 ---
 
@@ -43,7 +43,7 @@ npm i @types/node vite-plugin-dts -D
 安裝 ESLint 相關套件。
 
 ```bash
-npm i eslint@^8.57.0 @eslint/js typescript-eslint globals @types/eslint__js -D
+npm i eslint @eslint/js typescript-eslint globals @types/eslint__js -D
 ```
 
 建立 `eslint.config.js` 檔。
@@ -85,7 +85,7 @@ export default [
 ```json
 {
   "scripts": {
-    "lint": "eslint lib"
+    "lint": "eslint ."
   }
 }
 ```
@@ -537,7 +537,9 @@ dist
 npm i vuetify -D
 ```
 
-修改 `src/main.ts` 檔，透過 ES 模組使用套件。
+### 透過 ES 模組使用
+
+修改 `src/main.ts` 檔。
 
 ```ts
 import { createApp } from 'vue';
@@ -553,7 +555,7 @@ createApp(App)
   .mount('#app');
 ```
 
-修改 `index.html` 檔，透過 UMD 模組使用套件。
+修改 `src/App.vue` 檔。
 
 ```html
 <script setup lang="ts">
@@ -592,6 +594,45 @@ const rules = computed(() => {
     </v-app>
   </div>
 </template>
+```
+
+啟動服務。
+
+```bash
+npm run dev
+```
+
+### 透過 UMD 模組使用
+
+修改 `index.html` 檔。
+
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + Vue + TS</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+    <script src="dist/index.umd.js"></script>
+    <script>
+      const validator = new window.Formulate.FormValidator();
+      window.onload = () => {
+        document.querySelector('input').addEventListener('input', (e) => {
+          const result = validator
+            .defineField('Title')
+            .required()
+            .validate(e.target.value);
+          console.log(result);
+        });
+      };
+    </script>
+  </body>
+</html>
 ```
 
 啟動服務。

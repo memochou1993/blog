@@ -43,7 +43,7 @@ npm i @types/node vite-plugin-dts -D
 安裝 ESLint 相關套件。
 
 ```bash
-npm i eslint@^8.57.0 @eslint/js typescript-eslint globals @types/eslint__js -D
+npm i eslint @eslint/js typescript-eslint globals @types/eslint__js -D
 ```
 
 建立 `eslint.config.js` 檔。
@@ -85,7 +85,7 @@ export default [
 ```json
 {
   "scripts": {
-    "lint": "eslint lib"
+    "lint": "eslint ."
   }
 }
 ```
