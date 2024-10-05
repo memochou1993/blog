@@ -41,7 +41,7 @@ createApp(App).use(vuetify).mount('#app');
 
 修改 `HelloWorld.vue` 檔。
 
-```js
+```html
 <script setup>
 import { ref } from 'vue';
 

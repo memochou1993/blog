@@ -66,7 +66,7 @@ createApp(App).use(vuetify).mount('#app');
 
 修改 `HelloWorld.vue` 檔。
 
-```js
+```html
 <script setup>
 import { ref } from 'vue';
 
@@ -165,7 +165,7 @@ import TheTranslator from './components/TheTranslator.vue';
 
 新增 `TheTranslator.vue` 檔。
 
-```js
+```html
 <script setup>
 import { reactive, computed } from 'vue';
 import {

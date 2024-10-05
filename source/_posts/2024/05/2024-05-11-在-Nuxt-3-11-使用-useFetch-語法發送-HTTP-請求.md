@@ -80,7 +80,7 @@ cd nuxt-fetch-example
 
 在 `pages` 資料夾，新增 `useFetch.vue` 檔。
 
-```js
+```html
 <script setup>
 const completed = ref('false');
 
@@ -123,7 +123,7 @@ await useFetch('https://hub.dummyapis.com/delay?seconds=1', {
 
 在 `pages` 資料夾，新增 `$fetch.vue` 檔。
 
-```js
+```html
 <script setup>
 const completed = ref('false');
 
@@ -149,7 +149,7 @@ console.log('[$fetch] TODO Count:', todos.length);
 
 在 `pages` 資料夾，新增 `useAsyncData.vue` 檔。
 
-```js
+```html
 <script setup>
 const completed = ref('false');
 

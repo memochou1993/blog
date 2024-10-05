@@ -136,7 +136,7 @@ const signInWithGoogle = () => {
 
 新增 `pages/auth/google/callback.vue` 檔。當使用者從 Google 登入頁面導回前端時，前端就可以將 `code` 發送至後端處理。
 
-```js
+```html
 <script setup>
 const route = useRoute();
 
