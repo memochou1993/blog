@@ -11,6 +11,7 @@ categories: ["Programming", "JavaScript", "Others"]
 
 ```bash
 npm create vite@latest vue-draggable-plus-example -- --template vue
+cd vue-draggable-plus-example
 ```
 
 安裝套件。

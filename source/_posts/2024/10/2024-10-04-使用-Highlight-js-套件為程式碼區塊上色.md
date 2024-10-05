@@ -11,6 +11,7 @@ categories: ["Programming", "JavaScript", "Others"]
 
 ```bash
 npm create vite@latest highlight-js-example -- --template vanilla
+cd highlight-js-example
 ```
 
 安裝套件。
