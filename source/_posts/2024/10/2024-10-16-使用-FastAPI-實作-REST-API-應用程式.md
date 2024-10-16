@@ -205,13 +205,37 @@ git push -u origin main
 - Location: `~/path-to-your-project/fastapi-example`
 - Name: `bruno`
 
-建立端點：
+### 建立請求
 
-- list-items: `GET` <http://localhost:8000/api/items`>
-- create-item: `POST` <http://localhost:8000/api/items`>
-- get-item: `GET` <http://localhost:8000/api/items/:id`>
-- update-item: `GET` <http://localhost:8000/api/items/:id`>
-- delete-item: `DELETE` <http://localhost:8000/api/items/:id`>
+#### List Items
+
+- Name: `list-items`
+- Method: `GET`
+- URL: <http://localhost:8000/api/items>
+
+#### Create Item
+
+- Name: `create-item`
+- Method: `POST`
+- URL: <http://localhost:8000/api/items>
+
+#### Get Item
+
+- Name: `get-item`
+- Method: `GET`
+- URL: <http://localhost:8000/api/items/:id>
+
+#### Update Item
+
+- Name: `update-item`
+- Method: `PUT`
+- URL: <http://localhost:8000/api/items/:id>
+
+#### Delete Item
+
+- Name: `delete-item`
+- Method: `DELETE`
+- URL: <http://localhost:8000/api/items/:id>
 
 ## 程式碼
 
