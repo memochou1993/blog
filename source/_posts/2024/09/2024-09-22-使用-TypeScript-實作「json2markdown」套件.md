@@ -43,20 +43,33 @@ npm i @types/node vite-plugin-dts -D
 安裝 ESLint 相關套件。
 
 ```bash
-npm i eslint @eslint/js typescript-eslint globals @types/eslint__js -D
+npm i eslint @eslint/js typescript-eslint globals @types/eslint__js @stylistic/eslint-plugin -D
 ```
 
 建立 `eslint.config.js` 檔。
 
 ```js
 import pluginJs from '@eslint/js';
+import stylistic from '@stylistic/eslint-plugin';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 export default [
+  pluginJs.configs.recommended,
+  ...tseslint.configs.recommended,
+  stylistic.configs.customize({
+    semi: true,
+    jsx: true,
+    braceStyle: '1tbs',
+  }),
   {
     files: [
       '**/*.{js,mjs,cjs,ts}',
+    ],
+  },
+  {
+    ignores: [
+      'dist/**/*',
     ],
   },
   {
@@ -64,18 +77,17 @@ export default [
       globals: globals.node,
     },
   },
-  pluginJs.configs.recommended,
-  ...tseslint.configs.recommended,
   {
     rules: {
-      '@typescript-eslint/ban-ts-comment': 'off',
-      'comma-dangle': ['error', 'always-multiline'],
-      'eol-last': ['error', 'always'],
-      'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 0 }],
-      'object-curly-spacing': ['error', 'always'],
-      indent: ['error', 2],
-      quotes: ['error', 'single'],
-      semi: ['error', 'always'],
+      'curly': ['error', 'multi-line'],
+      'dot-notation': 'error',
+      'no-console': ['warn', { allow: ['warn', 'error', 'debug'] }],
+      'no-lonely-if': 'error',
+      'no-useless-rename': 'error',
+      'object-shorthand': 'error',
+      'prefer-const': ['error', { destructuring: 'any', ignoreReadBeforeAssign: false }],
+      'require-await': 'error',
+      'sort-imports': ['error', { ignoreDeclarationSort: true }],
     },
   },
 ];
@@ -98,6 +110,12 @@ npm run lint
 ```
 
 ## 實作
+
+安裝依賴套件。
+
+```bash
+npm i @memochou1993/stryle
+```
 
 修改 `tsconfig.json` 檔。
 
@@ -137,15 +155,19 @@ mkdir types
 
 ```ts
 interface MarkdownSchema {
-  [key: string]: string | string[] | boolean | undefined;
+  [key: string]: unknown;
+  br?: string;
   h1?: string;
   h2?: string;
   h3?: string;
   h4?: string;
   h5?: string;
   h6?: string;
+  indent?: number;
+  li?: unknown;
   p?: string | boolean;
-  ul?: string[];
+  td?: string[];
+  tr?: string[];
 }
 
 export default MarkdownSchema;
@@ -161,101 +183,156 @@ export type {
 };
 ```
 
-### 實作工具函式
-
-在 `lib` 資料夾，建立 `utils` 資料夾。
-
-```bash
-mkdir utils
-```
-
-在 `utils` 資料夾，建立 `toTitleCase.ts` 檔。
-
-```ts
-const titleCaseExceptions = /^(a|an|and|as|at|but|by|for|if|in|is|nor|of|on|or|the|to|with)$/i;
-
-const toTitleCase = (str: string): string => {
-  return str
-    .replace(/[_-]/g, ' ')
-    .split(' ')
-    .map((word, index) => {
-      if (index === 0 || !titleCaseExceptions.test(word)) {
-        return `${word.charAt(0).toUpperCase()}${word.slice(1).toLowerCase()}`;
-      }
-      return word.toLowerCase();
-    })
-    .join(' ');
-};
-
-export default toTitleCase;
-```
-
-在 `utils` 資料夾，建立 `index.ts` 檔。
-
-```ts
-import toTitleCase from './toTitleCase';
-
-export {
-  toTitleCase,
-};
-```
-
 建立 `Converter.ts` 檔。
 
 ```ts
+import { toTitleCase } from '@memochou1993/stryle';
 import { MarkdownSchema } from '~/types';
-import { toTitleCase } from './utils';
+
+interface ConverterOptions {
+  initialHeadingLevel?: number;
+  disableTitleCase?: boolean;
+}
 
 class Converter {
-  static toMarkdown(obj: object) {
-    return Converter.toMarkdownSchema(obj)
+  private schema: MarkdownSchema[] = [];
+
+  private startLevel: number;
+
+  private disableTitleCase: boolean;
+
+  constructor(data: unknown, options: ConverterOptions = {}) {
+    this.startLevel = options.initialHeadingLevel ?? 1;
+    this.disableTitleCase = options.disableTitleCase ?? false;
+    this.convert(data);
+  }
+
+  public static toMarkdown(data: unknown, options: ConverterOptions = {}): string {
+    return new Converter(data, options).toMarkdown();
+  }
+
+  /**
+   * Converts the provided data into Markdown format.
+   *
+   * This method processes a data structure and converts it into
+   * Markdown, handling headings, list items, table rows, and paragraphs.
+   */
+  public toMarkdown(): string {
+    const headings = Array.from({ length: 6 }, (_, i) => `h${i + 1}`);
+    return this.schema
       .map((element) => {
-        const headings = Array.from({ length: 6 }, (_, i) => `h${i + 1}`);
-        const level = headings.findIndex(h => element[h]);
+        const level = headings.findIndex(h => element[h] !== undefined);
         if (level !== -1) {
-          return `${'#'.repeat(level + 1)} ${toTitleCase(element[headings[level]] as string)}\n\n`;
+          return `${'#'.repeat(level + 1)} ${this.toTitleCase(String(element[headings[level]]))}\n\n`;
         }
-        if (element.ul) {
-          return `${element.ul.map(li => `- ${li}\n`).join('')}\n`;
+        if (element.li !== undefined) {
+          return `${'  '.repeat(Number(element.indent))}- ${element.li}\n`;
+        }
+        if (element.tr !== undefined) {
+          return `| ${element.tr.map(v => this.toTitleCase(v)).join(' | ')} |\n${element.tr.map(() => '| ---').join(' ')} |\n`;
+        }
+        if (element.td !== undefined) {
+          return `| ${element.td.join(' | ')} |\n`;
         }
         if (typeof element.p === 'boolean') {
-          return `${toTitleCase(String(element.p))}\n\n`;
+          return `${this.toTitleCase(String(element.p))}\n\n`;
+        }
+        if (element.br !== undefined) {
+          return '\n';
         }
         return `${element.p}\n\n`;
       })
       .join('');
   }
 
-  static toMarkdownSchema(obj: object, schema: MarkdownSchema[] = [], level = 1) {
-    if (!obj) return [];
-    for (let [key, value] of Object.entries(obj)) {
-      if (key.startsWith('_')) continue;
+  private convert(data: unknown): void {
+    if (!data) return;
+    if (Array.isArray(data)) {
+      this.convertFromArray(data);
+      return;
+    }
+    if (typeof data === 'object') {
+      this.convertFromObject(data as Record<string, unknown>);
+      return;
+    }
+    this.convertFromPrimitive(data);
+  }
+
+  private convertFromArray(data: unknown[], indent: number = 0): MarkdownSchema[] {
+    for (const item of data) {
+      if (Array.isArray(item)) {
+        this.convertFromArray(item, indent + 1);
+        continue;
+      }
+      this.schema.push({
+        li: this.formatValue(item),
+        indent,
+      });
+    }
+    return this.schema;
+  }
+
+  private convertFromObject(data: Record<string, unknown>, level: number = 0): MarkdownSchema[] {
+    const heading = `h${Math.min(Math.max(this.startLevel, 1) + level, 6)}`;
+    for (let [key, value] of Object.entries(data)) {
       key = key.trim();
       if (typeof value === 'string') {
         value = value.trim().replaceAll('\\n', '\n');
       }
-      const tag = `h${Math.min(level, 6)}`;
-      schema.push({ [tag]: key });
+      this.schema.push({
+        [heading]: key,
+      });
       if (Array.isArray(value)) {
         const [item] = value;
-        if (Array.isArray(item) && item.length > 0) {
-          schema.push({ ul: value.map(item => JSON.stringify(item)) });
-          continue;
-        }
         if (typeof item === 'object') {
-          Converter.toMarkdownSchema(item, schema, level + 1);
+          this.schema.push({
+            tr: Object.keys(item),
+          });
+          value.forEach((item) => {
+            this.schema.push({
+              td: Object.values(item).map(v => this.formatValue(v)),
+            });
+          });
+          this.schema.push({
+            br: '',
+          });
           continue;
         }
-        schema.push({ ul: value.map(item => typeof item === 'string' ? item : JSON.stringify(item)) });
+        this.convertFromArray(value);
+        this.schema.push({
+          br: '',
+        });
         continue;
       }
       if (typeof value === 'object') {
-        Converter.toMarkdownSchema(value, schema, level + 1);
+        this.convertFromObject(value as Record<string, unknown>, level + 1);
         continue;
       }
-      schema.push({ p: value });
+      this.convertFromPrimitive(value);
     }
-    return schema;
+    return this.schema;
+  }
+
+  private convertFromPrimitive(value: unknown): MarkdownSchema[] {
+    this.schema.push({
+      p: this.formatValue(value),
+    });
+    return this.schema;
+  }
+
+  private formatValue(value: unknown): string {
+    if (Array.isArray(value)) {
+      return value.map(v => this.formatValue(v)).join(', ');
+    }
+    if (typeof value === 'object') {
+      return JSON.stringify(value);
+    }
+    return String(value);
+  }
+
+  private toTitleCase(value: string): string {
+    if (this.disableTitleCase) return value;
+    return toTitleCase(value);
   }
 }
 
@@ -268,182 +345,6 @@ export default Converter;
 
 ```bash
 npm i vitest -D
-```
-
-建立 `tests/data/before.json` 檔。
-
-```json
-{
-  "_ignored": {
-    "foo": "bar"
-  },
-  "heading_1": "Hello, World!",
-  "list": [
-    "foo",
-    "bar",
-    "baz"
-  ],
-  "nested": [
-    {
-      "heading_2": "Hello, World!",
-      "list": [
-        "foo",
-        "bar",
-        "baz"
-      ],
-      "nested": [
-        {
-          "heading_3": "Hello, World!",
-          "list": [
-            "foo",
-            "bar",
-            "baz"
-          ],
-          "nested": [
-            {
-              "heading_4": "Hello, World!",
-              "list": [
-                "foo",
-                "bar",
-                "baz"
-              ],
-              "nested": [
-                {
-                  "heading_5": "Hello, World!",
-                  "list": [
-                    "foo",
-                    "bar",
-                    "baz"
-                  ],
-                  "nested": [
-                    {
-                      "heading_6": "Hello, World!",
-                      "list": [
-                        "foo",
-                        "bar",
-                        "baz"
-                      ],
-                      "nested": [
-                        {}
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }
-  ],
-  "table": "| foo | bar | baz |\n| --- | --- | --- |\n| 1 | 2 | 3 |",
-  "links": [
-    "https://example.com",
-    "https://example.com",
-    "https://example.com"
-  ],
-  "unsupported": [
-    [
-      "foo",
-      "bar",
-      "baz"
-    ]
-  ]
-}
-```
-
-建立 `after.md` 檔。
-
-```md
-# Heading 1
-
-Hello, World!
-
-# List
-
-- foo
-- bar
-- baz
-
-# Nested
-
-## Heading 2
-
-Hello, World!
-
-## List
-
-- foo
-- bar
-- baz
-
-## Nested
-
-### Heading 3
-
-Hello, World!
-
-### List
-
-- foo
-- bar
-- baz
-
-### Nested
-
-#### Heading 4
-
-Hello, World!
-
-#### List
-
-- foo
-- bar
-- baz
-
-#### Nested
-
-##### Heading 5
-
-Hello, World!
-
-##### List
-
-- foo
-- bar
-- baz
-
-##### Nested
-
-###### Heading 6
-
-Hello, World!
-
-###### List
-
-- foo
-- bar
-- baz
-
-###### Nested
-
-# Table
-
-| foo | bar | baz |
-| --- | --- | --- |
-| 1 | 2 | 3 |
-
-# Links
-
-- https://example.com
-- https://example.com
-- https://example.com
-
-# Unsupported
-
-- ["foo","bar","baz"]
-
-
 ```
 
 修改 `package.json` 檔。
@@ -459,28 +360,237 @@ Hello, World!
 建立 `tests/Converter.test.ts` 檔。
 
 ```ts
-import { readFileSync } from 'fs';
-import { expect, test } from 'vitest';
-import Converter from '../lib/Converter';
+import fs from 'fs';
+import { describe, expect, test } from 'vitest';
+import Converter from './Converter';
 
-const { dirname } = import.meta;
+const OUTPUT_DIR = '.output';
 
-test('Converter.toMarkdownSchema', () => {
-  const schema = Converter.toMarkdownSchema({ title: 'Hello, World!' });
+describe('Converter', () => {
+  test('should convert from array', () => {
+    // @ts-expect-error Ignore error for testing private method
+    const actual = new Converter(undefined).convertFromArray([
+      1,
+      [
+        2,
+        [
+          3,
+        ],
+      ],
+    ]);
 
-  expect(schema).toStrictEqual([
-    { h1: 'title' },
-    { p: 'Hello, World!' },
-  ]);
-});
+    const expected = [
+      { li: '1', indent: 0 },
+      { li: '2', indent: 1 },
+      { li: '3', indent: 2 },
+    ];
 
-test('Converter.toMarkdown', () => {
-  const before = readFileSync(`${dirname}/data/before.json`, 'utf-8');
-  const after = readFileSync(`${dirname}/data/after.md`, 'utf-8');
-  
-  const markdown = Converter.toMarkdown(JSON.parse(before));
+    expect(actual).toStrictEqual(expected);
+  });
 
-  expect(markdown).toBe(after);
+  test('should convert from object', () => {
+    // @ts-expect-error Ignore error for testing private method
+    const actual = new Converter(undefined).convertFromObject({
+      foo: 'bar',
+    });
+
+    const expected = [
+      { h1: 'foo' },
+      { p: 'bar' },
+    ];
+
+    expect(actual).toStrictEqual(expected);
+  });
+
+  test('should convert from primitive', () => {
+    // @ts-expect-error Ignore error for testing private method
+    const actual = new Converter(undefined).convertFromPrimitive('foo');
+
+    const expected = [
+      { p: 'foo' },
+    ];
+
+    expect(actual).toStrictEqual(expected);
+  });
+
+  test('should start from specified heading level', () => {
+    const data = {
+      heading_2: 'Hello, World!',
+    };
+
+    const actual = Converter.toMarkdown(data, {
+      initialHeadingLevel: 2,
+    });
+
+    const expected = `## Heading 2
+
+Hello, World!
+
+`;
+
+    expect(actual).toBe(expected);
+  });
+
+  test('should disable title case', () => {
+    const data = {
+      heading_1: 'Hello, World!',
+    };
+
+    const actual = Converter.toMarkdown(data, {
+      disableTitleCase: true,
+    });
+
+    const expected = `# heading_1
+
+Hello, World!
+
+`;
+
+    expect(actual).toBe(expected);
+  });
+
+  test('should convert correctly', () => {
+    const data = {
+      heading_1: 'Hello, World!',
+      nested: {
+        heading_2: 'Hello, World!',
+        nested: {
+          heading_3: 'Hello, World!',
+          nested: {
+            heading_4: 'Hello, World!',
+            nested: {
+              heading_5: 'Hello, World!',
+              nested: {
+                heading_6: 'Hello, World!',
+                nested: {
+                  heading_7: 'Hello, World!',
+                },
+              },
+            },
+          },
+        },
+      },
+      table: [
+        {
+          id: 1,
+          name: 'Alice',
+          email: 'alice@example.com',
+          friends: ['Bob', 'Charlie'],
+          settings: {
+            theme: 'dark',
+          },
+        },
+        {
+          id: 2,
+          name: 'Bob',
+          email: 'bob@example.com',
+          friends: ['Charlie'],
+          settings: {
+            theme: 'light',
+          },
+        },
+        {
+          id: 3,
+          name: 'Charlie',
+          email: 'charlie@example.com',
+          friends: [],
+        },
+      ],
+      array: [
+        1,
+        [
+          2,
+          [
+            3,
+          ],
+        ],
+        {
+          foo: 'bar',
+        },
+      ],
+      markdown_code: '```\nconsole.log(\'Hello, World!\');\n```',
+      markdown_table: '| foo | bar | baz |\n| --- | --- | --- |\n| 1 | 2 | 3 |',
+    };
+
+    const converter = new Converter(data);
+
+    const actual = converter.toMarkdown();
+
+    const expected = `# Heading 1
+
+Hello, World!
+
+# Nested
+
+## Heading 2
+
+Hello, World!
+
+## Nested
+
+### Heading 3
+
+Hello, World!
+
+### Nested
+
+#### Heading 4
+
+Hello, World!
+
+#### Nested
+
+##### Heading 5
+
+Hello, World!
+
+##### Nested
+
+###### Heading 6
+
+Hello, World!
+
+###### Nested
+
+###### Heading 7
+
+Hello, World!
+
+# Table
+
+| Id | Name | Email | Friends | Settings |
+| --- | --- | --- | --- | --- |
+| 1 | Alice | alice@example.com | Bob, Charlie | {"theme":"dark"} |
+| 2 | Bob | bob@example.com | Charlie | {"theme":"light"} |
+| 3 | Charlie | charlie@example.com |  |
+
+# Array
+
+- 1
+  - 2
+    - 3
+- {"foo":"bar"}
+
+# Markdown Code
+
+\`\`\`
+console.log('Hello, World!');
+\`\`\`
+
+# Markdown Table
+
+| foo | bar | baz |
+| --- | --- | --- |
+| 1 | 2 | 3 |
+
+`;
+
+    if (!fs.existsSync(OUTPUT_DIR)) fs.mkdirSync(OUTPUT_DIR);
+    fs.writeFileSync(`${OUTPUT_DIR}/actual.md`, actual);
+    fs.writeFileSync(`${OUTPUT_DIR}/expected.md`, expected);
+
+    expect(actual).toBe(expected);
+  });
 });
 ```
 
@@ -501,15 +611,22 @@ import dts from 'vite-plugin-dts';
 
 export default defineConfig({
   plugins: [
-    dts({ include: ['lib'] }),
+    dts({
+      include: [
+        'lib',
+      ],
+      exclude: [
+        '**/*.test.ts',
+      ],
+    }),
   ],
   build: {
+    copyPublicDir: false,
     lib: {
       entry: path.resolve(__dirname, 'lib/index.ts'),
       name: 'JSON2MD',
-      fileName: (format) => format === 'es' ? 'index.js' : `index.${format}.js`,
+      fileName: format => format === 'es' ? 'index.js' : `index.${format}.js`,
     },
-    copyPublicDir: false,
   },
   resolve: {
     alias: {
@@ -581,16 +698,15 @@ npm run build
 tree dist
 
 dist
-├── Converter.d.ts
+├── converter
+│   ├── Converter.d.ts
+│   └── index.d.ts
 ├── index.d.ts
 ├── index.js
 ├── index.umd.js
-├── types
-│   ├── MarkdownSchema.d.ts
-│   └── index.d.ts
-└── utils
-    ├── index.d.ts
-    └── toTitleCase.d.ts
+└── types
+    ├── MarkdownSchema.d.ts
+    └── index.d.ts
 ```
 
 ## 使用
