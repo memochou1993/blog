@@ -10,7 +10,7 @@ categories: ["Programming", "JavaScript", "Svelte"]
 建立專案。
 
 ```bash
-bun create vite           
+bun create vite
 
 ✔ Project name: … svelte-bootstrap-example
 ✔ Select a framework: › Svelte
