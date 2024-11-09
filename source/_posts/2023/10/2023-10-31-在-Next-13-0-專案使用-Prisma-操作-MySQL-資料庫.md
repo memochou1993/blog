@@ -34,7 +34,7 @@ DATABASE_URL=mysql://root:root@localhost:3306/example
 
 修改 `.gitignore` 檔。
 
-```text
+```txt
 .env
 ```
 
