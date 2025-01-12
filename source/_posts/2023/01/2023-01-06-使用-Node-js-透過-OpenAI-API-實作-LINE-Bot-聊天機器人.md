@@ -1,8 +1,8 @@
 ---
-title: 使用 Node 透過 OpenAI API 實作 LINE Bot 聊天機器人
+title: 使用 Node.js 透過 OpenAI API 實作 LINE Bot 聊天機器人
 date: 2023-01-06 22:41:52
-tags: ["Programming", "JavaScript", "Node", "GPT", "AI", "OpenAI", "LINE", "chatbot"]
-categories: ["Programming", "JavaScript", "Node"]
+tags: ["Programming", "JavaScript", "Node.js", "GPT", "AI", "OpenAI", "LINE", "chatbot"]
+categories: ["Programming", "JavaScript", "Node.js"]
 ---
 
 ## 前言

@@ -1,7 +1,7 @@
 ---
 title: 使用 Solidity 和 Hardhat 在 Ethereum 區塊鏈開發智能合約（三）：在 Etherscan 上提交認證
 date: 2022-02-27 00:36:18
-tags: ["Blockchain", "Ethereum", "Solidity", "JavaScript", "Node", "Hardhat", "Smart Contract", "DApp", "Alchemy"]
+tags: ["Blockchain", "Ethereum", "Solidity", "JavaScript", "Node.js", "Hardhat", "Smart Contract", "DApp", "Alchemy"]
 categories: ["Blockchain", "Ethereum"]
 ---
 

@@ -1,7 +1,7 @@
 ---
-title: 將 Node 專案部署至 Vercel 平台
+title: 將 Node.js 專案部署至 Vercel 平台
 date: 2022-12-07 00:49:17
-tags: ["Programming", "JavaScript", "Node", "Vercel"]
+tags: ["Programming", "JavaScript", "Node.js", "Vercel"]
 categories: ["Programming", "JavaScript", "Deployment"]
 ---
 

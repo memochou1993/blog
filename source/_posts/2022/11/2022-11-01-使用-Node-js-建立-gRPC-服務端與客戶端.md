@@ -1,8 +1,8 @@
 ---
-title: 使用 Node 建立 gRPC 服務端與客戶端
+title: 使用 Node.js 建立 gRPC 服務端與客戶端
 date: 2022-11-01 22:54:57
-tags: ["Programming", "JavaScript", "Node", "gRPC", "RPC"]
-categories: ["Programming", "JavaScript", "Node"]
+tags: ["Programming", "JavaScript", "Node.js", "gRPC", "RPC"]
+categories: ["Programming", "JavaScript", "Node.js"]
 ---
 
 ## 前言

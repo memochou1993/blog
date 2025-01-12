@@ -1,7 +1,7 @@
 ---
 title: 使用 Vue 3 和 Express 實作內容管理系統（六）：實現後端表單驗證
 date: 2024-08-03 00:08:25
-tags: ["Programming", "JavaScript", "Vue", "Bootstrap", "Node", "Express", "Firebase", "Firestore", "CMS"]
+tags: ["Programming", "JavaScript", "Vue", "Bootstrap", "Node.js", "Express", "Firebase", "Firestore", "CMS"]
 categories: ["Programming", "JavaScript", "Vue"]
 ---
 

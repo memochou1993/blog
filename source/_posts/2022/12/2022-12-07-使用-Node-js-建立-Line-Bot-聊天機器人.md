@@ -1,8 +1,8 @@
 ---
-title: 使用 Node 建立 Line Bot 聊天機器人
+title: 使用 Node.js 建立 Line Bot 聊天機器人
 date: 2022-12-07 00:32:23
-tags: ["Programming", "JavaScript", "Node", "LINE", "chatbot"]
-categories: ["Programming", "JavaScript", "Node"]
+tags: ["Programming", "JavaScript", "Node.js", "LINE", "chatbot"]
+categories: ["Programming", "JavaScript", "Node.js"]
 ---
 
 ## 建立專案

@@ -1,7 +1,7 @@
 ---
-title: 將 Node 專案部署至 Heroku 平台
+title: 將 Node.js 專案部署至 Heroku 平台
 date: 2021-12-19 21:47:09
-tags: ["Programming", "JavaScript", "Node", "Heroku"]
+tags: ["Programming", "JavaScript", "Node.js", "Heroku"]
 categories: ["Programming", "JavaScript", "Deployment"]
 ---
 

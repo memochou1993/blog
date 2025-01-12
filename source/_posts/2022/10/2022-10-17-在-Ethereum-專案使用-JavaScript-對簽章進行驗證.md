@@ -1,7 +1,7 @@
 ---
 title: 在 Ethereum 專案使用 JavaScript 對簽章進行驗證
 date: 2022-10-17 01:33:06
-tags: ["Blockchain", "Ethereum", "JavaScript", "Node", "Ethers", "Web3", "MetaMask"]
+tags: ["Blockchain", "Ethereum", "JavaScript", "Node.js", "Ethers", "Web3", "MetaMask"]
 categories: ["Blockchain", "Ethereum"]
 ---
 

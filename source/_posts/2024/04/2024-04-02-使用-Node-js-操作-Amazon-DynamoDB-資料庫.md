@@ -1,8 +1,8 @@
 ---
-title: 使用 Node 操作 Amazon DynamoDB 資料庫
+title: 使用 Node.js 操作 Amazon DynamoDB 資料庫
 date: 2024-04-02 14:32:13
-tags: ["Programming", "Node", "ORM", "AWS", "DynamoDB"]
-categories: ["Programming", "Node", "Others"]
+tags: ["Programming", "Node.js", "ORM", "AWS", "DynamoDB"]
+categories: ["Programming", "JavaScript", "Node.js"]
 ---
 
 ## 建立專案

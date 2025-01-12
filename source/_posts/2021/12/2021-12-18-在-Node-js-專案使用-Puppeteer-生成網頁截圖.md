@@ -1,8 +1,8 @@
 ---
-title: 在 Node 專案使用 Puppeteer 生成網頁截圖
+title: 在 Node.js 專案使用 Puppeteer 生成網頁截圖
 date: 2021-12-18 23:54:09
-tags: ["Programming", "JavaScript", "Node", "Web Scraping"]
-categories: ["Programming", "JavaScript", "Node"]
+tags: ["Programming", "JavaScript", "Node.js", "Web Scraping"]
+categories: ["Programming", "JavaScript", "Node.js"]
 ---
 
 ## 做法

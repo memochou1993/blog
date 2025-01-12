@@ -1,7 +1,7 @@
 ---
 title: 使用 Solidity 和 Hardhat 在 Ethereum 區塊鏈開發 ERC-721 智能合約
 date: 2022-08-28 22:00:37
-tags: ["Blockchain", "Ethereum", "Solidity", "ERC-721", "JavaScript", "Node", "Smart Contract", "DApp", "Hardhat", "NFT", "Alchemy", "IPFS", "Pinata"]
+tags: ["Blockchain", "Ethereum", "Solidity", "ERC-721", "JavaScript", "Node.js", "Smart Contract", "DApp", "Hardhat", "NFT", "Alchemy", "IPFS", "Pinata"]
 categories: ["Blockchain", "Ethereum"]
 ---
 

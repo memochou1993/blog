@@ -1,7 +1,7 @@
 ---
 title: 使用 Solidity 和 Truffle 在 Ethereum 區塊鏈開發 ERC-1155 智能合約
 date: 2022-08-30 20:25:22
-tags: ["Blockchain", "Ethereum", "Solidity", "ERC-1155", "JavaScript", "Node", "Ethers", "Smart Contract", "DApp", "Truffle", "NFT"]
+tags: ["Blockchain", "Ethereum", "Solidity", "ERC-1155", "JavaScript", "Node.js", "Ethers", "Smart Contract", "DApp", "Truffle", "NFT"]
 categories: ["Blockchain", "Ethereum"]
 ---
 

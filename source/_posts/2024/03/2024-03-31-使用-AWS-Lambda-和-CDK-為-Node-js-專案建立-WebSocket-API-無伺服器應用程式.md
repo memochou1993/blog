@@ -1,7 +1,7 @@
 ---
-title: 使用 AWS Lambda 和 CDK 為 Node 專案建立 WebSocket API 無伺服器應用程式
+title: 使用 AWS Lambda 和 CDK 為 Node.js 專案建立 WebSocket API 無伺服器應用程式
 date: 2024-03-31 15:58:07
-tags: ["Deployment", "AWS", "Lambda", "Serverless", "CDK", "IaC", "Node", "WebSocket"]
+tags: ["Deployment", "AWS", "Lambda", "Serverless", "CDK", "IaC", "Node.js", "WebSocket"]
 categories: ["Cloud Computing Service", "AWS"]
 ---
 

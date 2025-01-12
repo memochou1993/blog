@@ -1,7 +1,7 @@
 ---
 title: 使用 Alchemy Web3.js 與 Ethereum 區塊鏈互動
 date: 2022-02-23 00:37:10
-tags: ["Blockchain", "Ethereum", "Node", "JavaScript", "Web3", "Alchemy", "MetaMask"]
+tags: ["Blockchain", "Ethereum", "Node.js", "JavaScript", "Web3", "Alchemy", "MetaMask"]
 categories: ["Blockchain", "Ethereum"]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 使用 Docker 容器化 Quasar 專案
 date: 2020-02-10 22:00:57
-tags: ["Deployment", "Docker", "JavaScript", "Node", "Quasar"]
+tags: ["Deployment", "Docker", "JavaScript", "Node.js", "Quasar"]
 categories: ["Programming", "JavaScript", "Deployment"]
 ---
 

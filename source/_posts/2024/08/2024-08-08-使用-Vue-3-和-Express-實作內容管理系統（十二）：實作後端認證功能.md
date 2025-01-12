@@ -1,7 +1,7 @@
 ---
 title: 使用 Vue 3 和 Express 實作內容管理系統（十二）：實作後端認證功能
 date: 2024-08-08 20:36:33
-tags: ["Programming", "JavaScript", "Vue", "Bootstrap", "Node", "Express", "Firebase", "Firestore", "CMS"]
+tags: ["Programming", "JavaScript", "Vue", "Bootstrap", "Node.js", "Express", "Firebase", "Firestore", "CMS"]
 categories: ["Programming", "JavaScript", "Vue"]
 ---
 

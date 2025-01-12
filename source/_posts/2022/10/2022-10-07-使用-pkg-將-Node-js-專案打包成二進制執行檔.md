@@ -1,8 +1,8 @@
 ---
-title: 使用 pkg 將 Node 專案打包成二進制執行檔
+title: 使用 pkg 將 Node-js 專案打包成二進制執行檔
 date: 2022-10-07 21:21:25
-tags: ["Programming", "JavaScript", "Node", "CLI"]
-categories: ["Programming", "JavaScript", "Node"]
+tags: ["Programming", "JavaScript", "Node.js", "CLI"]
+categories: ["Programming", "JavaScript", "Node.js"]
 ---
 
 ## 做法

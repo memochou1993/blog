@@ -1,7 +1,7 @@
 ---
-title: 在 Node 專案使用 ESLint 程式碼檢查工具並套用 Airbnb 程式碼風格
+title: 在 Node.js 專案使用 ESLint 程式碼檢查工具並套用 Airbnb 程式碼風格
 date: 2022-11-18 00:00:56
-tags: ["Programming", "JavaScript", "ESLint", "Airbnb", "Node"]
+tags: ["Programming", "JavaScript", "ESLint", "Airbnb", "Node.js"]
 categories: ["Programming", "JavaScript", "ESLint"]
 ---
 

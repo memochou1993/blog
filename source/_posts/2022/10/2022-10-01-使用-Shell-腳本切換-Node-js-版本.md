@@ -1,7 +1,7 @@
 ---
-title: 使用 Shell 腳本切換 Node 版本
+title: 使用 Shell 腳本切換 Node-js 版本
 date: 2022-10-01 16:05:00
-tags: ["Shell", "SSH", "Node"]
+tags: ["Shell", "SSH", "Node.js"]
 categories: ["Programming", "Shell"]
 ---
 
