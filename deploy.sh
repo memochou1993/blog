@@ -1,6 +1,11 @@
 #!/bin/bash
 
-read -p "Enter your commit message: " commit_msg
+if [ -z "$1" ]; then
+    read -p "Enter your commit message: " commit_msg
+else
+    commit_msg="$1"
+fi
+
 echo "Your commit message is: $commit_msg"
 
 read -p "Are you sure? (yes/no): " confirmation
