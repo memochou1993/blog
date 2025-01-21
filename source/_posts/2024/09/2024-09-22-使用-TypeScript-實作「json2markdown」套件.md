@@ -28,14 +28,15 @@ mkdir lib
 
 ```json
 {
-  "include": ["src", "lib"],
+  // ...
+  "include": ["src", "lib"]
 }
 ```
 
 安裝 TypeScript 相關套件。
 
 ```bash
-npm i @types/node vite-plugin-dts -D
+npm i @types/node -D
 ```
 
 ## 安裝檢查工具
@@ -117,7 +118,7 @@ npm run lint
 npm i @memochou1993/stryle
 ```
 
-修改 `tsconfig.json` 檔。
+修改 `tsconfig.json` 檔，添加 `~` 路徑別名。
 
 ```json
 {
@@ -183,7 +184,9 @@ export type {
 };
 ```
 
-建立 `Converter.ts` 檔。
+### 實作功能
+
+在 `lib/converter` 資料夾，建立 `Converter.ts` 檔。
 
 ```ts
 import { toTitleCase } from '@memochou1993/stryle';
@@ -339,6 +342,26 @@ class Converter {
 export default Converter;
 ```
 
+### 匯出模組
+
+在 `lib/converter` 資料夾，建立 `index.ts` 檔。
+
+```js
+import Converter from './Converter';
+
+export default Converter;
+```
+
+在 `lib` 資料夾，建立 `index.ts` 檔。
+
+```js
+import Converter from './converter';
+
+export {
+  Converter,
+};
+```
+
 ## 單元測試
 
 安裝 Vitest 相關套件。
@@ -352,12 +375,13 @@ npm i vitest -D
 ```json
 {
   "scripts": {
-    "test": "vitest"
+    "test": "npm run test:unit -- --run",
+    "test:unit": "vitest"
   }
 }
 ```
 
-建立 `tests/Converter.test.ts` 檔。
+在 `lib/converter` 資料夾，建立 `Converter.test.ts` 檔。
 
 ```ts
 import fs from 'fs';
@@ -601,6 +625,12 @@ npm run test
 ```
 
 ## 編譯
+
+安裝 `vite-plugin-dts` 套件，用來產生定義檔。
+
+```bash
+npm i vite-plugin-dts -D
+```
 
 建立 `vite.config.ts` 檔。
 

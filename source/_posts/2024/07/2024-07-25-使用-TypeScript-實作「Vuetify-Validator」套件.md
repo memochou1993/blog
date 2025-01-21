@@ -28,14 +28,15 @@ mkdir lib
 
 ```json
 {
-  "include": ["src", "lib"],
+  // ...
+  "include": ["src", "lib"]
 }
 ```
 
 安裝 TypeScript 相關套件。
 
 ```bash
-npm i @types/node vite-plugin-dts -D
+npm i @types/node -D
 ```
 
 ## 安裝檢查工具
@@ -414,6 +415,12 @@ npm run test
 ```
 
 ## 編譯
+
+安裝 `vite-plugin-dts` 套件，用來產生定義檔。
+
+```bash
+npm i vite-plugin-dts -D
+```
 
 建立 `vite.config.ts` 檔。
 
