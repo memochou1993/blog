@@ -15,7 +15,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   base: process.env.NODE_ENV === 'production'
-    ? '/json2markdown-renderer/'
+    ? '/<REPO_NAME>/'
     : '/',
   resolve: {
     alias: {
