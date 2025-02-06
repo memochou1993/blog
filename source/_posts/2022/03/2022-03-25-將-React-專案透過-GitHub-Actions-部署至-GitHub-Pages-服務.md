@@ -1,5 +1,5 @@
 ---
-title: 使用 GitHub Actions 將 React 專案部署至 GitHub Pages 服務
+title: 將 React 專案透過 GitHub Actions 部署至 GitHub Pages 服務
 date: 2022-03-25 02:57:03
 tags: ["Programming", "JavaScript", "React", "GitHub", "GitHub Pages", "GitHub Actions"]
 categories: ["Programming", "JavaScript", "Deployment"]

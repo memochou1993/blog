@@ -1,5 +1,5 @@
 ---
-title: 使用 GitHub Actions 和 Docker 為 Go 專案建立自動化部署
+title: 將 Go 專案的 Docker 映像檔透過 GitHub Actions 推送至 Docker Hub
 date: 2021-12-30 21:43:29
 tags: ["Deployment", "CI/CD", "Docker", "Go", "GitHub", "GitHub Actions"]
 categories: ["Programming", "Go", "Deployment"]

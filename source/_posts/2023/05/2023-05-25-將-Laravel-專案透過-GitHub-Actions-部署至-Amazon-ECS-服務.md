@@ -1,5 +1,5 @@
 ---
-title: 使用 GitHub Actions 將 Laravel 專案部署至 Amazon ECS 服務
+title: 將 Laravel 專案透過 GitHub Actions 部署至 Amazon ECS 服務
 date: 2023-05-25 22:42:00
 tags: ["Deployment", "Docker", "PHP", "Laravel", "GitHub", "GitHub Actions", "AWS", "ECS"]
 categories: ["Programming", "PHP", "Deployment"]
