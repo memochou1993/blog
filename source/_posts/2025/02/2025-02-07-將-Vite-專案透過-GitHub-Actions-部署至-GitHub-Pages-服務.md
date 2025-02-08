@@ -25,7 +25,9 @@ export default defineConfig({
 });
 ```
 
-到 GitHub 的專案頁面，點選「Settings」頁籤，點選「Pages」選單，將「Source」設置為「GitHub Actions」。
+## 部署
+
+接著，到 GitHub 的專案頁面，點選「Settings」頁籤，點選「Pages」選單，將「Source」設置為「GitHub Actions」。
 
 然後，在專案的 `.github/workflows` 資料夾新增 `gh-pages.yaml` 檔。
 
