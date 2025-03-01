@@ -1,17 +1,21 @@
 ---
 title: 在 Laravel 10.0 使用 Socialite 和 Sanctum 實現 Google 登入機制
 date: 2023-10-08 14:44:11
-tags: ["Programming", "PHP", "Laravel", "OAuth"]
+tags: ["Programming", "PHP", "Laravel", "OAuth", "Google OAuth"]
 categories: ["Programming", "PHP", "Laravel"]
 ---
 
 ## 前置作業
 
 - 首先在 [Google Cloud](https://console.cloud.google.com/projectcreate) 頁面，建立一個專案。
-- 啟用 Google+ API。
 - 設定 OAuth 同意畫面
 - 建立 OAuth 用戶端
-  - 設定已授權的重新導向 URI：<http://localhost:3000/auth/google/callback>
+  - 應用程式類型：網頁應用程式
+  - 已授權的 JavaScript 來源
+    - <http://localhost>
+    - <http://localhost:3000>
+  - 已授權的重新導向 URI：
+    - <http://localhost:3000/auth/google/callback>
 
 ## 實作
 

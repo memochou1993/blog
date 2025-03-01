@@ -1,7 +1,7 @@
 ---
 title: 在 Supabase 平台使用 Google SMTP 寄送電子郵件
 date: 2024-09-03 00:52:01
-tags: ["Supabase", "Mail", "SMTP"]
+tags: ["Mail", "SMTP", "Supabase"]
 categories: ["Others", "Mail"]
 ---
 
