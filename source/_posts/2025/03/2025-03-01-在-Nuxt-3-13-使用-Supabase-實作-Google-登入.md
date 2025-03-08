@@ -1,5 +1,5 @@
 ---
-title: 在 Nuxt 3.13 使用 Supabase 實現 Google 登入機制
+title: 在 Nuxt 3.13 使用 Supabase 實作 Google 登入
 date: 2025-03-01 14:07:48
 tags: ["Programming", "JavaScript", "Nuxt", "Supabase", "OAuth", "Google OAuth"]
 categories: ["Programming", "JavaScript", "Nuxt"]

@@ -1,5 +1,5 @@
 ---
-title: 在 Vue 2.5 使用 Firebase SDK 實現登入機制
+title: 在 Vue 2.5 使用 Firebase SDK 實作電子信箱登入
 date: 2018-12-19 14:06:01
 tags: ["Programming", "JavaScript", "Vue", "Firebase"]
 categories: ["Programming", "JavaScript", "Vue"]

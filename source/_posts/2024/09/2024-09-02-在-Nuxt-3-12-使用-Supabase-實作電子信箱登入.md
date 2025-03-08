@@ -1,5 +1,5 @@
 ---
-title: 在 Nuxt 3.12 使用 Supabase 實現登入機制
+title: 在 Nuxt 3.12 使用 Supabase 實作電子信箱登入
 date: 2024-09-02 01:10:58
 tags: ["Programming", "JavaScript", "Nuxt", "Supabase"]
 categories: ["Programming", "JavaScript", "Nuxt"]

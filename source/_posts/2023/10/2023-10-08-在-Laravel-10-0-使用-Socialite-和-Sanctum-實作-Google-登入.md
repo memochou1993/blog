@@ -1,5 +1,5 @@
 ---
-title: 在 Laravel 10.0 使用 Socialite 和 Sanctum 實現 Google 登入機制
+title: 在 Laravel 10.0 使用 Socialite 和 Sanctum 實作 Google 登入
 date: 2023-10-08 14:44:11
 tags: ["Programming", "PHP", "Laravel", "OAuth", "Google OAuth"]
 categories: ["Programming", "PHP", "Laravel"]
