@@ -10,8 +10,8 @@ categories: ["Programming", "JavaScript", "Others"]
 建立一個 FastAPI 專案，用來接收檔案。
 
 ```bash
-mkdir xmlhttprequest-example-api
-cd xmlhttprequest-example-api
+mkdir xhr-upload-example-api
+cd xhr-upload-example-api
 ```
 
 建立虛擬環境。
@@ -105,8 +105,8 @@ fastapi dev main.py
 ## 實作前端
 
 ```bash
-mkdir xmlhttprequest-example-ui
-cd xmlhttprequest-example-ui
+mkdir xhr-upload-example-ui
+cd xhr-upload-example-ui
 ```
 
 新增 `index.html` 檔。
@@ -159,5 +159,5 @@ live-server
 
 ## 程式碼
 
-- [xmlhttprequest-example-ui](https://github.com/memochou1993/xmlhttprequest-example-ui)
-- [xmlhttprequest-example-api](https://github.com/memochou1993/xmlhttprequest-example-api)
+- [xhr-upload-example-ui](https://github.com/memochou1993/xhr-upload-example-ui)
+- [xhr-upload-example-api](https://github.com/memochou1993/xhr-upload-example-api)
