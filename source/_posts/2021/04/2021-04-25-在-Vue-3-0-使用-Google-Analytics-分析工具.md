@@ -1,5 +1,5 @@
 ---
-title: 在 Vue 3.0 使用 Google Analytics 分析
+title: 在 Vue 3.0 使用 Google Analytics 分析工具
 date: 2021-04-25 23:29:13
 tags: ["Programming", "JavaScript", "Vue", "Google Analytics"]
 categories: ["Programming", "JavaScript", "Vue"]
