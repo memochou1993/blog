@@ -5,13 +5,9 @@ tags: ["Programming", "Python", "Meta", "GraphQL", "Threads"]
 categories: ["Programming", "Python", "Others"]
 ---
 
-## 前置作業
+## 建立應用程式
 
-前往 [Threads API](https://developers.facebook.com/docs/threads/overview) 文件，了解 API 的存取方法以及相關限制。
-
-### 建立應用程式
-
-前往 [Meta 開發者平台](https://developers.facebook.com/apps)，建立一個應用程式。例如：
+首先，前往 [Meta 開發者平台](https://developers.facebook.com/apps)，建立一個應用程式。例如：
 
 - 應用程式名稱：`post-bot`
 - 新增使用案例：「存取 Threads API」

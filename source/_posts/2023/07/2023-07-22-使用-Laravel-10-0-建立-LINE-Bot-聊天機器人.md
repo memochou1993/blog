@@ -114,7 +114,7 @@ Route::post('/webhook', WebhookController::class);
 artisan server
 ```
 
-啟動代理伺服器。
+使用 `ngrok` 指令，啟動一個 HTTP 代理伺服器，將本地埠映射到外部網址。
 
 ```bash
 ngrok http 8000

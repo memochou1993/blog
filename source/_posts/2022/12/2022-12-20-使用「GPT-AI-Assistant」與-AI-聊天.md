@@ -120,7 +120,7 @@ LINE_CHANNEL_SECRET=<your_line_channel_secret>
 npm run dev
 ```
 
-在另一個終端機使用以下指令，啟動一個代理伺服器。
+在另一個終端機，使用 `ngrok` 指令，啟動一個 HTTP 代理伺服器，將本地埠映射到外部網址。
 
 ```bash
 ngrok http 3000

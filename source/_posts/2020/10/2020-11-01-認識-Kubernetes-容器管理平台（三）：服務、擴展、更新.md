@@ -25,7 +25,7 @@ Kubernetes 中的服務（Service）是一種抽象概念，它定義了 Pod 的
 Service 也可以用在 ServiceSpec 標記 `type` 的方式暴露：
 
 - ClusterIP：是預設的類型，在叢集的內部 IP 上公開 Service。此類型使得 Service 只能從叢集內訪問。
-- NodePort：使用 NAT 在叢集中每個選定 Node 的相同端口上公開 Service。使用 `<NodeIP>:<NodePort>` 從叢集外部訪問 Service。是 ClusterIP 的超集。
+- NodePort：使用 NAT 在叢集中每個選定 Node 的相同埠上公開 Service。使用 `<NodeIP>:<NodePort>` 從叢集外部訪問 Service。是 ClusterIP 的超集。
 - LoadBalancer：在當前雲中創建一個外部負載平衡器（如果支援的話），並為 Service 分配一個固定的外部 IP。是 NodePort 的超集。
 - ExternalName：通過返回帶有該名稱的 CNAME 記錄，使用任意名稱（由 spec 中的 externalName 制定）公開 Service。不使用代理。這種類型需要 kube-dns 的 v1.7 或更高版本。
 
