@@ -1,7 +1,7 @@
 ---
 title: 使用 JavaScript 透過 Web Speech API 實現語音識別
 date: 2024-11-14 22:42:18
-tags: ["Programming", "JavaScript", "SpeechRecognition"]
+tags: ["Programming", "JavaScript", "Web Speech API", "SpeechRecognition"]
 categories: ["Programming", "JavaScript", "Others"]
 ---
 
@@ -15,10 +15,10 @@ categories: ["Programming", "JavaScript", "Others"]
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Web Speech API</title>
 </head>
 <body>
-  <h1>Web Speech API</h1>
+  <h1>Speech Recognition</h1>
   <button id="startButton">Start</button>
   <button id="stopButton">Stop</button>
   <p>
@@ -26,7 +26,9 @@ categories: ["Programming", "JavaScript", "Others"]
   </p>
   <script>
     if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+      // 取得語音辨識物件
       const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      // 實例化語音辨識物件
       const recognition = new SpeechRecognition();
       // 設定語言
       recognition.lang = 'zh-TW';
@@ -57,6 +59,12 @@ categories: ["Programming", "JavaScript", "Others"]
   </script>
 </body>
 </html>
+```
+
+啟動網頁。
+
+```bash
+live-server
 ```
 
 ## 參考資料
