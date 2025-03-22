@@ -13,7 +13,7 @@ ChatGPT 在 2022 年 11 月推出，是由 OpenAI 開發的一個人工智慧聊
 
 ## 原理
 
-可以先使用 [Playground](https://beta.openai.com/playground) 進行測試，大概知道 Completion API 的運作方式。也就是只要給 AI 提示詞，讓 AI 把文字補全即可。
+可以先使用 [Playground](https://platform.openai.com/playground/prompts) 進行測試，大概知道 Completion API 的運作方式。也就是只要給 AI 提示詞，讓 AI 把文字補全即可。
 
 例如，使用以下提示詞：
 

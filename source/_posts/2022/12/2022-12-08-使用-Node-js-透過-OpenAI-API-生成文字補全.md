@@ -7,7 +7,7 @@ categories: ["Programming", "JavaScript", "Node.js"]
 
 ## 前置作業
 
-在 [OpenAI](https://openai.com/api/) 註冊一個帳號，並且在 [API keys](https://beta.openai.com/account/api-keys) 頁面產生一個 API 金鑰。
+在 [OpenAI](https://openai.com/api/) 註冊一個帳號，並且在 [API keys](https://platform.openai.com/settings/organization/api-keys) 頁面產生一個 API 金鑰。
 
 ## 建立專案
 
@@ -143,4 +143,4 @@ node index.js
 
 ## 參考資料
 
-- [OpenAI - Documentation](https://beta.openai.com/docs)
+- [OpenAI - Documentation](https://platform.openai.com/docs)

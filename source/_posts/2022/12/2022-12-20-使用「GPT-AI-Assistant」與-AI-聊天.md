@@ -11,7 +11,7 @@ GPT AI Assistant 是基於 OpenAI API 與 LINE Messaging API 實作的應用程�
 
 ## 安裝步驟
 
-- 登入 [OpenAI](https://beta.openai.com/) 平台，或註冊一個新的帳號。
+- 登入 [OpenAI](https://platform.openai.com/) 平台，或註冊一個新的帳號。
   - 生成一個 OpenAI 的 [API key](/demo/openai-api-key.png)。
 - 登入 [LINE](https://developers.line.biz/) 平台，或註冊一個新的帳號。
   - 新增一個提供者（Provider），例如「My Provider」。
