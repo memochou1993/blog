@@ -5,7 +5,7 @@ tags: ["Programming", "Python", "Meta", "GraphQL", "Threads"]
 categories: ["Programming", "Python", "Others"]
 ---
 
-## 建立應用程式
+## 前置作業
 
 首先，前往 [Meta 開發者平台](https://developers.facebook.com/apps)，建立一個應用程式。例如：
 
@@ -38,8 +38,6 @@ categories: ["Programming", "Python", "Others"]
 }
 ```
 
-## 實作
-
 ### 取得使用者資訊
 
 使用 GraphQL API 測試工具，設定請求參數：
@@ -61,32 +59,6 @@ categories: ["Programming", "Python", "Others"]
 ```bash
 curl -i -X GET \
  "https://graph.threads.net/v1.0/me?fields=id%2Cname&access_token=your-access-token"
-```
-
-使用 Python 腳本測試：
-
-```python
-import http.client
-import urllib.parse
-
-host = "graph.threads.net"
-endpoint = "/v1.0/me"
-params = {
-  "fields": "id,name",
-  "access_token": "your-access-token"
-}
-
-url = f"{"/v1.0/me"}?{urllib.parse.urlencode(params)}"
-
-conn = http.client.HTTPSConnection("graph.threads.net")
-conn.request("GET", url)
-
-response = conn.getresponse()
-
-body = response.read().decode()
-print(body)
-
-conn.close()
 ```
 
 ### 建立貼文草稿
@@ -120,32 +92,6 @@ curl -i -X POST \
   "https://graph.threads.net/v1.0/me/threads?media_type=TEXT&text=Hello&access_token=your-access-token"
 ```
 
-使用 Python 腳本測試：
-
-```python
-import http.client
-import json
-
-host = "graph.threads.net"
-endpoint = "/v1.0/me/threads"
-headers = {"Content-Type": "application/json"}
-
-payload = {
-  "media_type": "TEXT",
-  "text": "Hello",
-  "access_token": "your-access-token"
-}
-
-conn = http.client.HTTPSConnection(host)
-conn.request("POST", endpoint, body=json.dumps(payload), headers=headers)
-
-response = conn.getresponse()
-body = response.read().decode()
-print(body)
-
-conn.close()
-```
-
 ### 發布貼文
 
 使用 GraphQL API 測試工具，設定請求參數：
@@ -176,30 +122,143 @@ curl -i -X POST \
 "https://graph.threads.net/v1.0/me/threads_publish?creation_id=18051387608469145&access_token=your-access-token"
 ```
 
-使用 Python 腳本測試：
+## 實作
 
-```python
+首先，使用 `export` 指令將 Access Token 設定為環境變數。
+
+```bash
+export THREADS_API_ACCESS_TOKEN=
+```
+
+### 取得使用者資訊
+
+建立 `get_me.py` 檔。
+
+```py
 import http.client
-import json
+import os
+import urllib.parse
 
 host = "graph.threads.net"
-endpoint = "/v1.0/me/threads_publish"
-headers = {"Content-Type": "application/json"}
-
-payload = {
-  "creation_id": "your-creation-id",
-  "access_token": "your-access-token"
+endpoint = "/v1.0/me"
+params = {
+  "access_token": os.getenv("THREADS_API_ACCESS_TOKEN"),
+  "fields": "id,name",
 }
 
+url = f"{endpoint}?{urllib.parse.urlencode(params)}"
+
 conn = http.client.HTTPSConnection(host)
-conn.request("POST", endpoint, body=json.dumps(payload), headers=headers)
+conn.request("GET", url)
 
 response = conn.getresponse()
+
 body = response.read().decode()
 print(body)
 
 conn.close()
 ```
+
+執行程式。
+
+```bash
+python get_me.py 
+```
+
+響應如下：
+
+```bash
+{"id":"29361808173406421","name":"Memo Chou"}
+```
+
+### 建立貼文草稿
+
+建立 `post_threads.py` 檔。
+
+```py
+import http.client
+import os
+import urllib.parse
+
+host = "graph.threads.net"
+endpoint = "/v1.0/me/threads"
+params = {
+  "access_token": os.getenv("THREADS_API_ACCESS_TOKEN"),
+  "media_type": "TEXT",
+  "text": "Hello",
+}
+
+url = f"{endpoint}?{urllib.parse.urlencode(params)}"
+
+conn = http.client.HTTPSConnection(host)
+conn.request("POST", url)
+
+response = conn.getresponse()
+
+body = response.read().decode()
+print(body)
+
+conn.close()
+```
+
+執行程式。
+
+```bash
+python post_threads.py
+```
+
+響應如下：
+
+```bash
+{"id":"17870058945336724"}
+```
+
+### 發布貼文
+
+建立 `post_threads_publish.py` 檔。
+
+```py
+import http.client
+import os
+import urllib.parse
+
+host = "graph.threads.net"
+endpoint = "/v1.0/me/threads_publish"
+params = {
+  "access_token": os.getenv("THREADS_API_ACCESS_TOKEN"),
+  "creation_id": "your-creation-id", # 換成貼文草稿 ID
+}
+
+url = f"{endpoint}?{urllib.parse.urlencode(params)}"
+
+conn = http.client.HTTPSConnection(host)
+conn.request("POST", url)
+
+response = conn.getresponse()
+
+body = response.read().decode()
+print(body)
+
+conn.close()
+```
+
+執行程式。
+
+```bash
+python post_threads_publish.py
+```
+
+響應如下：
+
+```bash
+{"id":"17974440899705152"}
+```
+
+檢查 Threads 應用程式，查看貼文是否已發布貼文。
+
+## 程式碼
+
+- [threads-api-example](https://github.com/memochou1993/threads-api-example)
 
 ## 參考資料
 
