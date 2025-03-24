@@ -200,6 +200,11 @@ app = FastAPI()
 
 @app.get("/")
 def read_root():
+    return {"Hello": "World"}
+
+
+@app.post("/completions")
+def create_completions():
     url = "https://api.openai.com/v1/completions"
 
     headers = {"Content-Type": "application/json", "Authorization": f"Bearer {os.getenv('OPENAI_API_KEY')}"}

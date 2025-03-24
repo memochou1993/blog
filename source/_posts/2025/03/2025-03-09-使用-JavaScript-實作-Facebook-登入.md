@@ -51,7 +51,7 @@ node_modules/
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "live-server"
+    "dev": "live-server --port=3000"
   },
   "author": "",
   "license": "ISC",
