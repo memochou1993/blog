@@ -124,6 +124,20 @@ git commit -m "Add ruff dependency"
 
 ## 實作文字補全
 
+修改 `requirements.txt` 檔，添加 `requests` 和 `dotenv` 依賴套件。
+
+```txt
+ruff
+requests
+dotenv
+```
+
+安裝依賴套件。
+
+```bash
+pip install -r requirements.txt
+```
+
 新增 `.env.example` 檔。
 
 ```env
@@ -143,6 +157,9 @@ import argparse
 import os
 
 import requests
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 def get_completion(prompt: str):
