@@ -159,6 +159,7 @@ git commit -m "Add ruff dependency"
 ruff
 fastapi[standard]
 requests
+dotenv
 ```
 
 安裝依賴套件。
@@ -323,6 +324,7 @@ const getAccessToken = () => {
 
   window.location.href = url.toString();
 };
+
 const getLongLivedAccessToken = async () => {
   messageElement.innerText = 'Retrieving long-lived access token...';
   try {
