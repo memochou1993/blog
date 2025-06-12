@@ -1,7 +1,7 @@
 ---
 title: 在前端專案使用 Google Fonts 字體和圖示
 date: 2024-05-18 15:19:24
-tags: ["Programming", "HTML"]
+tags: ["Programming", "HTML", "Google Fonts"]
 categories: ["Programming", "HTML"]
 ---
 

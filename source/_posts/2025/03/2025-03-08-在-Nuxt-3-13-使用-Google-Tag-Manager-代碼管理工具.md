@@ -23,6 +23,9 @@ NUXT_PUBLIC_GOOGLE_TAG_MANAGER_ID=your-id
 
 ```js
 export default defineNuxtConfig({
+  modules: [
+    '@nuxt/scripts',
+  ],
   scripts: {
     registry: {
       googleTagManager: {
