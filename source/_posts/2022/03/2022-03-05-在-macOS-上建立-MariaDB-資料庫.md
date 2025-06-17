@@ -16,7 +16,7 @@ docker run -d --name mariadb -p 3306:3306 -e MARIADB_USER= -e MARIADB_PASSWORD= 
 使用初始密碼進入容器。
 
 ```bash
-docker exec -it mariadb mysql -uroot -proot
+docker exec -it mariadb mariadb -uroot -proot
 ```
 
 ## 參考資料
