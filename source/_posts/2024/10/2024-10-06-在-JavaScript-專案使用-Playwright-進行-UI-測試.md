@@ -2,7 +2,7 @@
 title: 在 JavaScript 專案使用 Playwright 進行 UI 測試
 date: 2024-10-06 22:20:15
 tags: ["Programming", "JavaScript", "Testing", "Playwright"]
-categories: ["Programming", "JavaScript", "Others"]
+categories: ["Programming", "JavaScript", "End-to-end Testing"]
 ---
 
 ## 建立專案
