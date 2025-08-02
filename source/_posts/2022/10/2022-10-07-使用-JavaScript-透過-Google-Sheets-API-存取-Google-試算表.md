@@ -1,21 +1,27 @@
 ---
 title: 使用 JavaScript 透過 Google Sheets API 存取 Google 試算表
 date: 2022-10-07 21:03:02
-tags: ["Programming", "JavaScript", "Google APIs"]
+tags: ["Programming", "JavaScript", "Google APIs", "Google Sheets API"]
 categories: ["Programming", "JavaScript", "Others"]
 ---
 
 ## 前置作業
 
-申請 [Google Sheets API](https://developers.google.com/sheets/api) 並取得憑證。
+首先要取得一個存取 Google Sheets API 的金鑰。步驟如下：
+
+1. 前往 [Google Cloud](https://cloud.google.com/)。
+2. 在控制台輸入「Google Sheets API」，並啟用。
+3. 點選「IAM 與管理」頁籤，點選「服務帳戶」頁籤，建立一個服務帳戶。
+4. 點選建立好的服務帳戶，點選「金鑰」頁籤，建立一個 JSON 格式的金鑰。
+5. 建立一個試算表，與服務帳戶共用。
 
 ## 建立專案
 
 建立專案。
 
 ```bash
-mkdir google-sheets-example
-cd google-sheets-example
+mkdir google-spreadsheet-example
+cd google-spreadsheet-example
 ```
 
 初始化專案。
@@ -55,7 +61,7 @@ node index.js
 
 ## 程式碼
 
-- [google-sheets-api-example](https://github.com/memochou1993/google-sheets-api-example)
+- [google-spreadsheet-example](https://github.com/memochou1993/google-spreadsheet-example)
 
 ## 參考資料
 
