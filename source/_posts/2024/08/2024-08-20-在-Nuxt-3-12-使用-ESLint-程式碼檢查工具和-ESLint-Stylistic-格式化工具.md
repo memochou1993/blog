@@ -1,5 +1,5 @@
 ---
-title: 在 Nuxt 3.12 使用 ESLint 程式碼檢查工具和 ESLint Stylistic 格式化工具
+title: 在 Nuxt 3.12 使用 ESLint 程式碼檢查工具並套用 Stylistic 程式碼風格
 date: 2024-08-20 01:21:16
 tags: ["Programming", "JavaScript", "ESLint", "Vue", "Nuxt"]
 categories: ["Programming", "JavaScript", "ESLint"]
@@ -7,7 +7,7 @@ categories: ["Programming", "JavaScript", "ESLint"]
 
 ## 做法
 
-添加 ESLint 的 Nuxt 模組。
+在 Nuxt 專案，添加 ESLint 模組。
 
 ```bash
 npx nuxi module add eslint
@@ -81,12 +81,11 @@ export default createConfigForNuxt({
 
 ```json
 {
-  // ...
   "scripts": {
     // ...
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   }
-  // ...
 }
 ```
 
